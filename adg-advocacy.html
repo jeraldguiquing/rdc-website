@@ -48,7 +48,7 @@
     .un-h{display:flex;align-items:center;gap:1rem;font:600 1.9rem var(--oswald);margin:0 0 1.5rem;color:#2b2b2b}
     .un-h::before{content:"";width:42px;height:1px;background:var(--goal)}
     .un-overview{max-width:820px}
-    .un-overview p{line-height:1.75;margin:0 0 1.25rem;font-size:1.02rem;color:#334155}
+    .un-overview p{line-height:1.75;margin:0 0 1.25rem;font-size:1.02rem;color:#334155;text-align:justify;text-justify:inter-word}
     .un-topic{display:flex;gap:1rem;width:min(100%,300px);border:1px solid #ddd;padding:.8rem;text-decoration:none;color:#222;background:#fff}
     .un-topic:hover{border-color:var(--goal)}
     .un-thumb{flex:0 0 75px;height:100px;background:linear-gradient(160deg,var(--goal),#2b2b2b)}
@@ -56,6 +56,10 @@
     .un-topic h3{font:600 1.05rem var(--oswald);margin:0}
     .un-topic small,.un-ev-goals small{display:block;font-size:.68rem;color:#999;margin-bottom:.35rem}
     .un-badge{display:inline-block;min-width:22px;padding:2px 6px;margin-right:4px;border-radius:3px;background:var(--c);color:#fff;font:700 .7rem Arial,sans-serif;text-align:center}
+    .un-ev-goals-strip{display:flex;align-items:center;gap:0.35rem;flex-wrap:wrap;margin-top:0.35rem}
+    .un-badge-icon{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:5px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.18);transition:transform .2s cubic-bezier(0.16,1,0.3,1),box-shadow .2s ease;flex-shrink:0;background:#f1f5f9}
+    .un-badge-icon:hover{transform:translateY(-2px) scale(1.15);box-shadow:0 4px 8px rgba(0,0,0,0.25)}
+    .un-badge-icon img{width:100%;height:100%;object-fit:cover;display:block}
     .g1{--c:#E5243B}.g2{--c:#DDA63A}.g3{--c:#4C9F38}.g5{--c:#FF3A21}.g8{--c:#A21942}.g9{--c:#FD6925}
     .g10{--c:#DD1367}.g12{--c:#BF8B2E}.g13{--c:#3F7E44}.g16{--c:#00689D}.g17{--c:#19486A}
     .un-ev-head{display:flex;justify-content:space-between;align-items:center;gap:1rem}
@@ -351,12 +355,27 @@
       {d:"24",m:"AUG 2026",t:"Equipping Students for Meaningful Community Engagement",r:"Mon 24 Aug 2026",topic:"Community Extension Services",g:[4,16,17],id:"event-equipping-students"},
       {d:"24",m:"AUG 2026",t:"Strengthening Research Through Shared Direction",r:"Mon 24 Aug 2026",topic:"MCNP–ISAP RDC",g:[4,9,16,17],id:"event-general-assembly"},
       {d:"19",m:"AUG 2026",t:"Advancing Health Research Through Collaboration",r:"Wed 19 - Thu 20 Aug 2026",topic:"RRF Technical Review",g:[4,17],id:"event-health-research-collaboration"},
-      {d:"—",m:"ICIR 2026",t:"Research for Sustainable Impact",r:"1st ISAP-K Conference on Interdisciplinary Research",topic:"ISAP-K Conference",g:[4,9,11,17],id:"event-icir-2026"}
+      {d:"07",m:"AUG 2026",t:"Research for Sustainable Impact",r:"Fri 07 Aug 2026",topic:"ISAP-K Conference",g:[4,9,11,17],id:"event-icir-2026"},
+      {d:"17",m:"NOV 2024",t:"RDC Joins CBCP-UST Collaborative Project on Catholic Christianity",r:"Sun 17 Nov 2024",topic:"Catholic Christianity Study",g:[4,16,17],id:"event-cbcp-ust-collab"},
+      {d:"—",m:"2024",t:"MCNP and ISAP Students Excel in the 28th Philippine Statistics Quiz Bee",r:"28th Philippine Statistics Quiz Bee",topic:"Statistics Quiz Bee",g:[4,9,17],id:"event-student-stats-28th"},
+      {d:"—",m:"35th NSM",t:"Congratulations to the Winners of the Institutional Statistics Quiz Bee",r:"35th National Statistics Month",topic:"Quiz Bee Winners",g:[4,9,17],id:"event-inst-quiz-bee"},
+      {d:"08",m:"OCT 2024",t:"Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada Participate in Collaborative Study",r:"Tue 08 Oct 2024",topic:"Research Collaboration",g:[4,16,17],id:"event-fontanilla-tejada-collab"},
+      {d:"03",m:"OCT 2024",t:"Region 2 Emerges as Overall Champion",r:"Thu 03 - Fri 04 Oct 2024",topic:"RDaFest 2024",g:[4,9,17],id:"event-rdafest-champion-2024"},
+      {d:"04",m:"OCT 2024",t:"School Statisticians Join the 35th National Statistics Month Color Fun Run",r:"Fri 04 Oct 2024",topic:"Color Fun Run",g:[3,4,17],id:"event-stats-color-fun-run"},
+      {d:"—",m:"OCT 2024",t:"MCNP and ISAP Students Receive Statistics Month Awards",r:"October 2024",topic:"Student Awards",g:[4,9,17],id:"event-student-stats-awards"},
+      {d:"03",m:"OCT 2024",t:"Wendy Mae G. Lapus Represents ISAP at Regional Data Festival",r:"Thu 03 - Fri 04 Oct 2024",topic:"Research Presentation",g:[4,8,9,17],id:"event-lapus-rdafest-2024"},
+      {d:"—",m:"SEP 2024",t:"MCNP and ISAP Conduct Digital Infographics Making Contest",r:"September 2024",topic:"Digital Infographics",g:[4,9,17],id:"event-infographics-contest"}
     ];
     var common="The MCNP &amp; ISAP Research &amp; Development Center brings this goal into its research and community extension work in Cagayan Valley, turning academic, clinical and legal expertise into support for the communities that need it most.";
 
     function $(id){return document.getElementById(id);}
-    function badge(n){return '<span class="un-badge" style="--c:'+G[n-1][2]+'">'+n+'</span>';} 
+    function badge(n){
+      var num = (n < 10 ? '0' : '') + n;
+      var title = (G[n - 1] && G[n - 1][0]) ? ('SDG ' + n + ': ' + G[n - 1][0]) : ('SDG ' + n);
+      return '<span class="un-badge-icon" title="' + title + '">' +
+        '<img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-' + num + '.png" alt="' + title + '" loading="lazy">' +
+      '</span>';
+    } 
     function eventUrl(item){return "news-events.html#" + item.id;}
 
     $("un-goalbar").firstElementChild.innerHTML = G.map(function(goal, i){
@@ -391,7 +410,7 @@
       // Events: same filtered list, shown as full date cards that link to the matching
       // article on news-events.html instead of standing alone.
       $("un-events").innerHTML = list.length ? list.map(function(item){
-        return '<a class="un-ev" href="' + eventUrl(item) + '"><div class="un-day">' + item.d + '</div><div class="un-mon">' + item.m + '</div>' + (item.topic ? '<div class="un-ev-topic">' + item.topic + '</div>' : '') + '<h3>' + item.t + '</h3><div class="un-range">' + item.r + '</div><div class="un-ev-link">Read full story &rarr;</div><div class="un-ev-goals"><small>Related Goals</small>' + item.g.map(badge).join("") + '</div></a>';
+        return '<a class="un-ev" href="' + eventUrl(item) + '"><div class="un-day">' + item.d + '</div><div class="un-mon">' + item.m + '</div>' + (item.topic ? '<div class="un-ev-topic">' + item.topic + '</div>' : '') + '<h3>' + item.t + '</h3><div class="un-range">' + item.r + '</div><div class="un-ev-link">Read full story &rarr;</div><div class="un-ev-goals"><small>Related Goals</small><div class="un-ev-goals-strip">' + item.g.map(badge).join("") + '</div></div></a>';
       }).join("") : '<p class="un-empty">No events are listed for this goal yet. <a href="news-events.html">Browse all events</a>.</p>';
 
       Array.prototype.forEach.call($("un-goalbar").querySelectorAll("a"), function(link){

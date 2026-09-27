@@ -155,21 +155,90 @@
 
     .event-modal-sdgs {
       display: flex;
+      align-items: center;
       flex-wrap: wrap;
-      gap: 0.4rem;
-      padding: 1rem 2.5rem 0;
+      gap: 0.5rem;
+      padding: 1rem 2.5rem 0.25rem;
+    }
+    .event-modal-sdg-label {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-right: 0.35rem;
+      display: inline-flex;
+      align-items: center;
     }
     .event-sdg-chip {
-      width: 34px;
-      height: 34px;
+      width: 44px;
+      height: 44px;
       border-radius: 6px;
-      color: #fff;
-      font-weight: 800;
-      font-size: 0.85rem;
-      display: flex;
+      overflow: hidden;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+      text-decoration: none;
+      background: #f1f5f9;
+    }
+    .event-sdg-chip:hover {
+      transform: translateY(-2px) scale(1.12);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
+    }
+    .event-sdg-chip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Card SDG Strip & Badges */
+    .card-sdg-strip {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+      margin-top: 0.85rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed #e2e8f0;
+    }
+    .card-sdg-label {
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-right: 0.15rem;
+      display: inline-flex;
+      align-items: center;
+    }
+    .card-sdg-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+      flex-shrink: 0;
+      text-decoration: none;
+      cursor: pointer;
+      background: #f1f5f9;
+    }
+    .card-sdg-badge:hover {
+      transform: translateY(-2px) scale(1.12);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.28);
+    }
+    .card-sdg-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .event-modal-tabs {
@@ -208,8 +277,22 @@
       line-height: 1.75;
       margin-bottom: 1rem;
       font-size: 0.95rem;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
     }
     .event-modal-desc p:last-child { margin-bottom: 0; }
+
+    .news-excerpt {
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    .event-page-news-only p {
+      text-align: justify;
+      text-justify: inter-word;
+    }
 
     .event-modal-images {
       display: grid;
@@ -688,8 +771,36 @@
         </article>
 
         <article class="news-card" id="event-icir-2026">
-          <div class="news-thumbnail" style="background: linear-gradient(135deg, #1f3b73, #0d5c3a);"><span class="news-date-badge">ICIR 2026</span><div><h4 style="color: #fff; font-size: 1.1rem;">Interdisciplinary Research</h4></div></div>
-          <div class="news-content"><div><span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">ISAP-K Conference</span><h3 class="news-title">Research for Sustainable Impact</h3><p class="news-excerpt">The 1st ISAP-K Conference on Interdisciplinary Research (ICIR 2026) gathered students, faculty members, and research personnel to promote collaborative, evidence-based, and community-responsive research.</p><details><summary>Read full story</summary><p class="news-excerpt">The activity supports SDG 4: Quality Education by strengthening students' research knowledge, critical thinking, and problem-solving skills. It advances SDG 9: Industry, Innovation and Infrastructure by encouraging interdisciplinary studies that generate innovative and practical solutions. It contributes to SDG 11: Sustainable Cities and Communities by directing research toward genuine community needs and sustainable development. It also promotes SDG 17: Partnerships for the Goals by bringing together researchers from different disciplines and encouraging collaboration among academic institutions, communities, and other stakeholders.</p><p class="news-excerpt">Through the IMPACT Framework, participants were reminded that research should move beyond completing a manuscript—it must lead to meaningful action, lasting partnerships, and positive community transformation.</p><p class="news-excerpt"><strong>Innovation Beyond Boundaries.</strong></p><p class="news-excerpt"><em>Photo credit: ISAP-K Publication</em></p></details></div></div>
+          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
+            <img src="upload/icir-1.jpg" alt="1st ISAP-K Conference on Interdisciplinary Research (ICIR 2026) - Keynote Speaker Dr. Ryan C. Fontanilla" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
+            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
+            <span class="news-date-badge" style="position: relative; z-index: 2;">Aug 07, 2026</span>
+            <div class="news-thumb-text" style="position: relative; z-index: 2;">
+              <span class="news-thumb-pill">ISAP-K Conference</span>
+              <h4 class="news-thumb-topic">ICIR 2026</h4>
+            </div>
+          </div>
+          <div class="news-content">
+            <div>
+              <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">ISAP-K Conference</span>
+              <h3 class="news-title">Research for Sustainable Impact</h3>
+              <p class="news-excerpt">The 1st ISAP-K Conference on Interdisciplinary Research (ICIR 2026), themed "Unifying Perspectives: Empowering Student Investigators Across Disciplines to Advance the Sustainable Development Goals through Community-Driven Research," was held on August 7, 2026, at the ISAP-Kalinga Gymnasium. Research Director Ryan C. Fontanilla delivered the keynote address on leveraging student inquiry for lasting community transformation.</p>
+              <details>
+                <summary>Read full story</summary>
+                <p class="news-excerpt">The conference gathered students, faculty members, and academic leaders across diverse disciplines to foster collaborative, evidence-based, and community-responsive research. Through the IMPACT Framework, participants explored how interdisciplinary student inquiry serves as a catalyst for innovation, sustainable partnerships, and impactful social solutions.</p>
+                <p class="news-excerpt">The activity supports SDG 4: Quality Education by strengthening students' research knowledge, critical thinking, and problem-solving skills. It advances SDG 9: Industry, Innovation and Infrastructure by encouraging interdisciplinary studies that generate innovative and practical solutions. It contributes to SDG 11: Sustainable Cities and Communities by directing research toward genuine community needs and sustainable development. It also promotes SDG 17: Partnerships for the Goals by bringing together researchers from different disciplines and encouraging collaboration among academic institutions, communities, and other stakeholders.</p>
+                <p class="news-excerpt">Through the IMPACT Framework, participants were reminded that research should move beyond completing a manuscript—it must lead to meaningful action, lasting partnerships, and positive community transformation.</p>
+                <p class="news-excerpt"><strong>Innovation Beyond Boundaries.</strong></p>
+                <p class="news-excerpt"><em>Photo credit: Highlanders Torch — The Official Student Publication of ISAP-K</em></p>
+              </details>
+              <div style="display: none;" aria-hidden="true">
+                <img src="upload/icir-1.jpg" alt="Keynote Speaker Dr. Ryan C. Fontanilla discussing Leveraging Interdisciplinary Student Research for Sustainable Community Impact">
+                <img src="upload/icir-2.jpg" alt="Dr. Fontanilla presenting before student researchers at ISAP-Kalinga Gymnasium">
+                <img src="upload/icir-3.jpg" alt="Awarding of Certificate of Recognition to Keynote Speaker Dr. Ryan C. Fontanilla on stage">
+                <img src="upload/icir-4.jpg" alt="1st ISAP-K Conference on Interdisciplinary Research (ICIR 2026) backdrop with UN Sustainable Development Goals">
+              </div>
+            </div>
+          </div>
         </article>
 
         <article class="news-card" id="event-cbcp-ust-collab">
@@ -707,7 +818,7 @@
               <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">MCNP-ISAP RDC</span>
               <h3 class="news-title">RDC Joins CBCP-UST Collaborative Project on Catholic Christianity</h3>
               <p class="news-excerpt">The MCNP-ISAP Research and Development Center, led by Research Director Ryan C. Fontanilla, participated in the CBCP and University of Santo Tomas project at the Archbishop's Residence in Tuguegarao City.</p>
-              <details><summary>Read full story</summary><p class="news-excerpt">The initiative assesses the current status of Catholic Christianity in the Philippines toward fostering a Synodal Church. Lay organizations across the Archdiocese of Tuguegarao answered the project survey, while respondents' privacy was protected by blurring faces in event photographs.</p></details>
+              <details><summary>Read full story</summary><p class="news-excerpt">The initiative assesses the current status of Catholic Christianity in the Philippines toward fostering a Synodal Church. Lay organizations across the Archdiocese of Tuguegarao answered the project survey, while respondents' privacy was protected by blurring faces in event photographs.</p><p class="news-excerpt">The collaborative study supports SDG 4: Quality Education by advancing research competencies in pastoral and community assessment, SDG 16: Peace, Justice and Strong Institutions by fostering transparent, ethical, and participatory synodal institutional processes, and SDG 17: Partnerships for the Goals through multi-institutional collaboration among CBCP, UST, and the MCNP-ISAP RDC.</p></details>
               <div style="display: none;" aria-hidden="true">
                 <img src="upload/1.jpg" alt="CBCP-UST event photo 1">
                 <img src="upload/2.jpg" alt="CBCP-UST event photo 2">
@@ -740,7 +851,7 @@
               <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">Statistics Quiz Bee</span>
               <h3 class="news-title">MCNP and ISAP Students Excel in the 28th Philippine Statistics Quiz Bee</h3>
               <p class="news-excerpt">Nathaniel M. Acacio of ISAP won first place in the Quiz Bee. Ma. Julianne Tabbu of MCNP placed third and Althea Balanag of ISAP placed fifth in the Digital Poster Making Contest.</p>
-              <details><summary>View participants</summary><p class="news-excerpt">Other participants included Maxine Alipio, Sharmelyn Torres, Jenieva Catawe, Jasper Catulin, and Jaylord Victorio, with support from coaches Wendy Mae G. Lapuz and Christine Kae Aragon.</p></details>
+              <details><summary>View participants</summary><p class="news-excerpt">Other participants included Maxine Alipio, Sharmelyn Torres, Jenieva Catawe, Jasper Catulin, and Jaylord Victorio, with support from coaches Wendy Mae G. Lapuz and Christine Kae Aragon.</p><p class="news-excerpt">The competition advances SDG 4: Quality Education by fostering quantitative reasoning, statistical literacy, and academic excellence among students, SDG 9: Industry, Innovation and Infrastructure by developing analytical capabilities critical for data-driven innovation, and SDG 17: Partnerships for the Goals through institutional collaboration with the Philippine Statistics Authority (PSA).</p></details>
               <div style="display: none;" aria-hidden="true">
                 <img src="upload/stats-awards-2.jpg" alt="28th Philippine Statistics Quiz Bee delegation on stage">
                 <img src="upload/stats-awards-3.jpg" alt="28th Philippine Statistics Quiz Bee 1st Place - Nathaniel M. Acacio">
@@ -768,6 +879,7 @@
               <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">Quiz Bee Winners</span>
               <h3 class="news-title">Congratulations to the Winners of the Institutional Statistics Quiz Bee</h3>
               <p class="news-excerpt">ISAP champion Jaylord S. Victorio was joined by Nathaniel Acacio and Jasper S. Catulin. MCNP champion Sharmelyn T. Torres was joined by Maxine Alipio and Jenieva M. Catawe.</p>
+              <details><summary>Read full story</summary><p class="news-excerpt">Held in celebration of the 35th National Statistics Month (NSM), the Institutional Statistics Quiz Bee brought together student leaders and academic departments across MCNP and ISAP to celebrate mathematical acumen and data science fundamentals.</p><p class="news-excerpt">The activity supports SDG 4: Quality Education by advancing statistical mastery and academic excellence, SDG 9: Industry, Innovation and Infrastructure by preparing students for data-oriented technological challenges, and SDG 17: Partnerships for the Goals through inter-departmental collaboration between MCNP and ISAP.</p></details>
               <div style="display: none;" aria-hidden="true">
                 <img src="upload/inst-quizbee-1.jpg" alt="Institutional Statistics Quiz Bee participants and awardees">
                 <img src="upload/inst-quizbee-2.jpg" alt="ISAP Champion - Information Technology Department (Jaylord S. Victorio)">
@@ -800,6 +912,7 @@
                 <summary>Read full story</summary>
                 <p class="news-excerpt">Representing Medical Colleges of Northern Philippines (MCNP) and International School of Asia and the Pacific (ISAP), Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada actively participated in the collaborative meeting with field researchers of the Archdiocese of Tuguegarao.</p>
                 <p class="news-excerpt">The study, spearheaded by the Catholic Bishops' Conference of the Philippines (CBCP) and the University of Santo Tomas (UST), entitled "Lights and Shadows on the Present State of Catholic Christianity in the Philippines toward Becoming a Synodal Church," aims to assess pastoral dynamics, community engagement, and synodal church initiatives across regional dioceses.</p>
+                <p class="news-excerpt">The collaborative undertaking supports SDG 4: Quality Education by engaging institutional academic leadership in regional research, SDG 16: Peace, Justice and Strong Institutions by enhancing participatory governance, synodal transparency, and community-level social cohesion, and SDG 17: Partnerships for the Goals through church, academe, and diocesan research coalitions.</p>
               </details>
               <div style="display: none;" aria-hidden="true">
                 <img src="upload/fontanilla-tejada-1.jpg" alt="Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada at the Archdiocese of Tuguegarao meeting">
@@ -826,6 +939,7 @@
               <h3 class="news-title">Region 2 Emerges as Overall Champion</h3>
               <p class="news-excerpt">Representing Cagayan Valley, delegates from USLT, MCNP, SFC, QSU Cabarroguis, and SMU secured the Overall Champion title at the 2024 Regional Data Festival for the North Luzon Cluster held at Subic Bay Travelers Hotel and Event Center in Subic, Zambales.</p>
               <p class="news-excerpt">Source: <a href="https://www.facebook.com/share/p/PXumzzXiXpLucZdm/?mibextid=WC7FNe" target="_blank" rel="noopener noreferrer">Facebook post ↗</a></p>
+              <details><summary>Read full story</summary><p class="news-excerpt">The multi-school Cagayan Valley delegation showcased stellar performance across data appreciation, analytics, and research presentations, demonstrating regional leadership in statistical excellence and evidence-based problem solving.</p><p class="news-excerpt">This achievement advances SDG 4: Quality Education through high-impact student training and data literacy, SDG 9: Industry, Innovation and Infrastructure by promoting data science and technological problem-solving skills, and SDG 17: Partnerships for the Goals through regional consortium synergy among North Luzon higher education institutions.</p></details>
               <div style="display: none;" aria-hidden="true">
                 <img src="upload/rdafest-champion-1.jpg" alt="Region 2 delegation awarded Overall Champion at 2024 Regional Data Festival North Luzon Cluster">
                 <img src="upload/rdafest-champion-2.jpg" alt="Philippine Data Festival Champion wooden medal with Certificate of Participation and Appreciation">
@@ -849,6 +963,7 @@
               <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">Color Fun Run</span>
               <h3 class="news-title">School Statisticians Join the 35th National Statistics Month Color Fun Run</h3>
               <p class="news-excerpt">Ms. Cristine Kae Aragon and Ms. Guadalupe Agabin represented their institution in the Philippine Statistics Authority event in Tuguegarao City, promoting awareness and appreciation of statistics.</p>
+              <details><summary>Read full story</summary><p class="news-excerpt">The 35th National Statistics Month Color Fun Run blended health, wellness, and community advocacy, rallying statisticians, educators, and students in Tuguegarao City to champion public appreciation for statistics.</p><p class="news-excerpt">The activity supports SDG 3: Good Health and Well-Being by encouraging active and healthy lifestyles, SDG 4: Quality Education through public data literacy advocacy, and SDG 17: Partnerships for the Goals through collaboration with the Philippine Statistics Authority and civic stakeholders.</p></details>
               <div style="display: none;" aria-hidden="true">
                 <img src="upload/stats-colorrun-1.jpg" alt="Ms. Cristine Kae Aragon and Ms. Guadalupe Agabin on stage at 35th NSM Color Fun Run">
                 <img src="upload/stats-colorrun-2.jpg" alt="Color powder throw celebration with participants">
@@ -876,6 +991,7 @@
               <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Student Awards</span>
               <h3 class="news-title">MCNP and ISAP Students Receive Statistics Month Awards</h3>
               <p class="news-excerpt">Bryan Marantan placed third, John Lloyd Angui placed second, and Peter John F. Bosi placed second in the Digital Poster Making Contest held at People's Gymnasium, Tuguegarao City.</p>
+              <details><summary>Read full story</summary><p class="news-excerpt">Student awardees were commended for their creative interpretations of data concepts into compelling visual artwork during the province-wide 35th National Statistics Month festivities.</p><p class="news-excerpt">The activity supports SDG 4: Quality Education by advancing creative and statistical communication skills, SDG 9: Industry, Innovation and Infrastructure through digital art and design innovation, and SDG 17: Partnerships for the Goals by partnering with local government units and statistical agencies.</p></details>
               <div style="display: none;" aria-hidden="true">
                 <img src="upload/stats-awards-1.jpg" alt="Digital Poster Making Contest awarding ceremony on stage with student winners and coaches">
                 <img src="upload/stats-awards-4.jpg" alt="Digital Poster Making Contest 3rd Place - Ma. Julianne Tabbu">
@@ -903,6 +1019,7 @@
               <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">RDaFest 2024</span>
               <h3 class="news-title">Wendy Mae G. Lapus Represents ISAP at Regional Data Festival</h3>
               <p class="news-excerpt">Ms. Lapus presented "A Relationship Study between Job Demands, Resources, and Personnel Motivation in HEIs: The Case of the International School of Asia and the Pacific" at the North Luzon Regional Data Festival held at Subic Bay Travelers Hotel and Event Center, Subic Bay Freeport Zone.</p>
+              <details><summary>Read full story</summary><p class="news-excerpt">The research presentation examined key organizational drivers of personnel motivation, institutional support mechanisms, and workplace well-being in higher education institutions.</p><p class="news-excerpt">The study advances SDG 4: Quality Education through empirical institutional research, SDG 8: Decent Work and Economic Growth by promoting favorable workplace conditions and personnel motivation, SDG 9: Industry, Innovation and Infrastructure by applying organizational research to improve institutional management, and SDG 17: Partnerships for the Goals through scholarly exchange across the North Luzon cluster.</p></details>
               <div style="display: none;" aria-hidden="true">
                 <img src="upload/lapus-rdafest-1.jpg" alt="Ms. Wendy Mae G. Lapus presenting research paper at 2024 Regional Data Festival">
                 <img src="upload/lapus-rdafest-2.jpg" alt="Awarding of Certificate of Appreciation to Ms. Wendy Mae G. Lapus on stage">
@@ -929,6 +1046,7 @@
               <h3 class="news-title">MCNP and ISAP Conduct Digital Infographics Making Contest</h3>
               <p class="news-excerpt">During the 35th Statistics Month Celebration, John Lloyd Angui was named champion, Mark Lester Sandoval placed second, and Ma. Julianne Tabbu placed third at Computer Laboratory B in Peñablanca, Cagayan.</p>
               <p class="news-excerpt">The awardees were recognized by Research Director Ryan C. Fontanilla.</p>
+              <details><summary>Read full story</summary><p class="news-excerpt">The contest empowered student designers to turn statistical indicators into engaging, accessible, and informative visual narratives, reinforcing the role of data in modern problem solving.</p><p class="news-excerpt">The event advances SDG 4: Quality Education by boosting digital literacy and data communication, SDG 9: Industry, Innovation and Infrastructure through innovative visual design methodologies, and SDG 17: Partnerships for the Goals by aligning campus initiatives with national statistical month celebrations.</p></details>
               <div style="display: none;" aria-hidden="true">
                 <img src="upload/infographics-4.jpg" alt="Digital Infographics Making Contest award ceremony with Research Director Ryan C. Fontanilla, coaches, and winners">
                 <img src="upload/infographics-5.jpg" alt="Digital Infographics Making Contest student winners on stage">
@@ -1043,6 +1161,31 @@
       16: '#00689D', 17: '#19486A'
     };
 
+    var SDG_NAMES = {
+      1: 'No Poverty',
+      2: 'Zero Hunger',
+      3: 'Good Health and Well-Being',
+      4: 'Quality Education',
+      5: 'Gender Equality',
+      6: 'Clean Water and Sanitation',
+      7: 'Affordable and Clean Energy',
+      8: 'Decent Work and Economic Growth',
+      9: 'Industry, Innovation and Infrastructure',
+      10: 'Reduced Inequalities',
+      11: 'Sustainable Cities and Communities',
+      12: 'Responsible Consumption and Production',
+      13: 'Climate Action',
+      14: 'Life Below Water',
+      15: 'Life on Land',
+      16: 'Peace, Justice and Strong Institutions',
+      17: 'Partnerships for the Goals'
+    };
+
+    function getSdgIcon(n) {
+      var num = (n < 10 ? '0' : '') + n;
+      return 'assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-' + num + '.png';
+    }
+
     function parseEvent(card, index) {
       var thumb = card.querySelector('.news-thumbnail');
       var dateEl = card.querySelector('.news-date-badge');
@@ -1133,7 +1276,10 @@
           var strip = document.createElement('div');
           strip.className = 'card-sdg-strip';
           strip.innerHTML = '<span class="card-sdg-label">SDGs:</span>' + ev.sdgs.map(function (n) {
-            return '<span class="card-sdg-badge" style="background:' + (SDG_COLORS[n] || '#64748b') + '" title="SDG ' + n + '">' + n + '</span>';
+            var name = SDG_NAMES[n] || ('SDG ' + n);
+            return '<a href="adg-advocacy.html?goal=' + n + '" class="card-sdg-badge" title="SDG ' + n + ': ' + name + '" target="_blank" rel="noopener" onclick="event.stopPropagation();">' +
+              '<img src="' + getSdgIcon(n) + '" alt="SDG ' + n + ': ' + name + '" loading="lazy">' +
+            '</a>';
           }).join('');
           content.appendChild(strip);
         }
@@ -1177,15 +1323,27 @@
 
     function renderSdgs(sdgs) {
       sdgsEl.innerHTML = '';
+      if (!sdgs || !sdgs.length) {
+        sdgsEl.style.display = 'none';
+        return;
+      }
+      var label = document.createElement('span');
+      label.className = 'event-modal-sdg-label';
+      label.textContent = 'Aligned SDGs:';
+      sdgsEl.appendChild(label);
+
       sdgs.forEach(function (n) {
-        var chip = document.createElement('div');
+        var name = SDG_NAMES[n] || ('SDG ' + n);
+        var chip = document.createElement('a');
         chip.className = 'event-sdg-chip';
-        chip.style.background = SDG_COLORS[n] || '#64748b';
-        chip.textContent = n;
-        chip.title = 'SDG ' + n;
+        chip.href = 'adg-advocacy.html?goal=' + n;
+        chip.target = '_blank';
+        chip.rel = 'noopener';
+        chip.title = 'SDG ' + n + ': ' + name;
+        chip.innerHTML = '<img src="' + getSdgIcon(n) + '" alt="SDG ' + n + ': ' + name + '" loading="lazy">';
         sdgsEl.appendChild(chip);
       });
-      sdgsEl.style.display = sdgs.length ? 'flex' : 'none';
+      sdgsEl.style.display = 'flex';
     }
 
     function renderRelated(currentIndex) {
@@ -1201,7 +1359,14 @@
         var idx = events.indexOf(ev);
         var card = document.createElement('div');
         card.className = 'related-event-card';
-        card.innerHTML = '<span class="rel-date">' + (ev.date || '') + '</span><span class="rel-title">' + ev.title + '</span>';
+        var sdgIconsHtml = (ev.sdgs && ev.sdgs.length) ?
+          '<div style="display:flex;gap:0.3rem;margin-top:0.4rem;align-items:center;">' +
+            ev.sdgs.map(function (n) {
+              var name = SDG_NAMES[n] || ('SDG ' + n);
+              return '<img src="' + getSdgIcon(n) + '" alt="SDG ' + n + ': ' + name + '" title="SDG ' + n + ': ' + name + '" style="width:22px;height:22px;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,0.2);">';
+            }).join('') +
+          '</div>' : '';
+        card.innerHTML = '<span class="rel-date">' + (ev.date || '') + '</span><span class="rel-title">' + ev.title + '</span>' + sdgIconsHtml;
         card.addEventListener('click', function () { openModal(idx); });
         relatedEl.appendChild(card);
       });
