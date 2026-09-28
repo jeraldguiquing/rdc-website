@@ -1124,6 +1124,136 @@ body.nav-open {
   line-height: 1.55;
 }
 
+.agenda-icon-img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* INNOVATES Framework Showcase */
+.innovates-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 3.5rem;
+}
+
+.innovates-showcase-card {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.innovates-showcase-card:hover {
+  transform: translateY(-5px);
+  border-color: #7b1113;
+  box-shadow: 0 10px 28px rgba(123, 17, 19, 0.12);
+}
+
+.innovates-letter-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  background: #7b1113;
+  color: #fff;
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+}
+
+.innovates-showcase-img {
+  width: 130px;
+  height: auto;
+  max-height: 105px;
+  object-fit: contain;
+  margin-bottom: 0.85rem;
+  transition: transform 0.3s ease;
+}
+
+.innovates-showcase-card:hover .innovates-showcase-img {
+  transform: scale(1.06);
+}
+
+.innovates-showcase-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.innovates-showcase-tag {
+  font-size: 0.78rem;
+  color: #64748b;
+  line-height: 1.35;
+}
+
+/* Detailed Pillar Cards */
+.agenda-pillar-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 2.25rem;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 2rem;
+  transition: var(--transition);
+  scroll-margin-top: 100px;
+}
+
+.agenda-pillar-card:hover {
+  border-color: #7b1113;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.agenda-pillar-emblem {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 0.85rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: start;
+}
+
+.agenda-pillar-emblem img {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .agenda-pillar-card {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 1.5rem;
+  }
+  .agenda-pillar-emblem {
+    margin: 0 auto;
+    max-width: 140px;
+  }
+}
+
 /* ==========================================================================
    JOURNAL SHOWCASE CARDS
    ========================================================================== */
