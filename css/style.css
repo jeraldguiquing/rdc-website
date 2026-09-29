@@ -5494,14 +5494,15 @@ textarea.form-control {
   left: 0;
   right: 0;
   height: 4px;
+  background: #000000;
 }
 
 .about-pillar-card.pillar-mcnp::before {
-  background: linear-gradient(90deg, var(--mcnp-green), #108e58);
+  background: #000000;
 }
 
 .about-pillar-card.pillar-isap::before {
-  background: linear-gradient(90deg, var(--isap-blue), #2563eb);
+  background: #000000;
 }
 
 .about-services-grid {
