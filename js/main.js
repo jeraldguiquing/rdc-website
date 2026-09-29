@@ -697,12 +697,12 @@ window.agendaData = {
     key: 'inspire',
     letter: 'I',
     num: '01',
-    code: '01 • I: INSPIRE',
+    code: 'I: INSPIRE',
     title: 'INSPIRE: Pedagogical Dynamics, Simulation Learning & Educational Equity',
     subtitle: 'Outcome-based education, clinical and criminology simulation laboratories, gamified learning modules, teacher development, and educational equity.',
     emblem: 'assets/agenda/agenda-1-inspire.png',
     badges: [
-      { text: '01 • I', bg: '#7b1113', color: '#fff' },
+      { text: 'I: INSPIRE', bg: '#7b1113', color: '#fff' },
       { text: 'Lead: Teacher Education & Allied Health', bg: '#0b3c5d', color: '#fff' },
       { text: 'UN SDG 4: Quality Education', bg: '#c5192d', color: '#fff' },
       { text: 'NHERA Priority Track', bg: '#d97706', color: '#fff' }
@@ -798,12 +798,12 @@ window.agendaData = {
     key: 'nurture',
     letter: 'N',
     num: '02',
-    code: '02 • N: NURTURE',
+    code: 'N: NURTURE',
     title: 'NURTURE: Public Safety, Forensic Science, Ethics & Penological Modernization',
     subtitle: 'Crime prevention strategies, forensic ballistic imaging, restorative penology, human rights compliance, and bioethics in human research.',
     emblem: 'assets/agenda/agenda-2-nurture.png',
     badges: [
-      { text: '02 • N', bg: '#7b1113', color: '#fff' },
+      { text: 'N: NURTURE', bg: '#7b1113', color: '#fff' },
       { text: 'Lead: ISAP Criminology Wing', bg: '#0b3c5d', color: '#fff' },
       { text: 'UN SDG 16: Peace & Justice', bg: '#00689d', color: '#fff' },
       { text: 'DOST R&D Priority', bg: '#d97706', color: '#fff' }
@@ -899,12 +899,12 @@ window.agendaData = {
     key: 'navigate',
     letter: 'N',
     num: '03',
-    code: '03 • N: NAVIGATE',
+    code: 'N: NAVIGATE',
     title: 'NAVIGATE: Digital Transformation, Cyber Forensics & Applied Informatics',
     subtitle: 'Artificial intelligence in clinical triage, cyber forensics, tele-radiology for remote islands, evaluation instrument automation, and secure campus architectures.',
     emblem: 'assets/agenda/agenda-3-navigate.png',
     badges: [
-      { text: '03 • N', bg: '#7b1113', color: '#fff' },
+      { text: 'N: NAVIGATE', bg: '#7b1113', color: '#fff' },
       { text: 'Joint: MCNP & ISAP Informatics', bg: '#0b3c5d', color: '#fff' },
       { text: 'UN SDG 9: Innovation', bg: '#f36e24', color: '#fff' },
       { text: 'DICT & DOST Aligned', bg: '#0d5c3a', color: '#fff' }
@@ -1000,12 +1000,12 @@ window.agendaData = {
     key: 'operationalize',
     letter: 'O',
     num: '04',
-    code: '04 • O: OPERATIONALIZE',
+    code: 'O: OPERATIONALIZE',
     title: 'OPERATIONALIZE: Applied Innovation, Systems Optimization & Tech Commercialization',
     subtitle: 'Translating laboratory discoveries and prototypes into operational technologies, utility models, patent filings, workflow optimization, and ergonomic tools.',
     emblem: 'assets/agenda/agenda-4-operationalize.png',
     badges: [
-      { text: '04 • O', bg: '#7b1113', color: '#fff' },
+      { text: 'O: OPERATIONALIZE', bg: '#7b1113', color: '#fff' },
       { text: 'Joint: MCNP & ISAP Tech Transfer', bg: '#0b3c5d', color: '#fff' },
       { text: 'UN SDG 9: Industry & Innovation', bg: '#f36e24', color: '#fff' },
       { text: 'DOST Regional Priority', bg: '#0d5c3a', color: '#fff' }
@@ -1101,12 +1101,12 @@ window.agendaData = {
     key: 'value',
     letter: 'V',
     num: '05',
-    code: '05 • V: VALUE',
+    code: 'V: VALUE',
     title: 'VALUE: Clinical Healthcare Innovation, Disease Surveillance & Patient Well-Being',
     subtitle: 'Endemic disease epidemiology, maternal-pediatric diagnostics, radiologic dose reduction, pharmacovigilance, and traditional medicine validation.',
     emblem: 'assets/agenda/agenda-5-value.png',
     badges: [
-      { text: '05 • V', bg: '#7b1113', color: '#fff' },
+      { text: 'V: VALUE', bg: '#7b1113', color: '#fff' },
       { text: 'Lead: MCNP Health Research Wing', bg: '#0d5c3a', color: '#fff' },
       { text: 'UN SDG 3: Good Health', bg: '#4c9f38', color: '#fff' },
       { text: 'NUHRA / CVHRDC Track 1', bg: '#d97706', color: '#fff' }
@@ -1202,12 +1202,12 @@ window.agendaData = {
     key: 'advance',
     letter: 'A',
     num: '06',
-    code: '06 • A: ADVANCE',
+    code: 'A: ADVANCE',
     title: 'ADVANCE: Cagayan River Basin Eco-Resilience, Environmental Protection & Climate Action',
     subtitle: 'Cagayan River hydrology, flood risk mitigation, shallow well waterborne disease testing, food security in typhoon seasons, and disaster triage.',
     emblem: 'assets/agenda/agenda-6-advance.png',
     badges: [
-      { text: '06 • A', bg: '#7b1113', color: '#fff' },
+      { text: 'A: ADVANCE', bg: '#7b1113', color: '#fff' },
       { text: 'Joint: SDG Advocacies Synergy', bg: '#0d5c3a', color: '#fff' },
       { text: 'UN SDG 13: Climate Action', bg: '#3f7e44', color: '#fff' },
       { text: 'SDG 11: Sustainable Communities', bg: '#fd9d24', color: '#fff' }
@@ -1303,12 +1303,12 @@ window.agendaData = {
     key: 'transform',
     letter: 'T',
     num: '07',
-    code: '07 • T: TRANSFORM',
+    code: 'T: TRANSFORM',
     title: 'TRANSFORM: Community Empowerment, Social Inclusion & Public Welfare',
     subtitle: 'Participatory action research, Agta indigenous communities welfare, micro-livelihood evaluation, adolescent mental health, and GAD mainstreaming.',
     emblem: 'assets/agenda/agenda-7-transform.png',
     badges: [
-      { text: '07 • T', bg: '#7b1113', color: '#fff' },
+      { text: 'T: TRANSFORM', bg: '#7b1113', color: '#fff' },
       { text: 'Lead: Community Extension & Social Sciences', bg: '#0b3c5d', color: '#fff' },
       { text: 'UN SDG 10: Reduced Inequalities', bg: '#dd1367', color: '#fff' },
       { text: 'SDG 1: No Poverty', bg: '#e5243b', color: '#fff' }
@@ -1404,12 +1404,12 @@ window.agendaData = {
     key: 'expand',
     letter: 'E',
     num: '08',
-    code: '08 • E: EXPAND',
+    code: 'E: EXPAND',
     title: 'EXPAND: Strategic Consortia, Institutional Linkages & Global Collaboration',
     subtitle: 'Inter-institutional research networks, international academic exchanges, alumni tracking studies, CVHRDC & DOST consortia, and co-funded grants.',
     emblem: 'assets/agenda/agenda-8-expand.png',
     badges: [
-      { text: '08 • E', bg: '#7b1113', color: '#fff' },
+      { text: 'E: EXPAND', bg: '#7b1113', color: '#fff' },
       { text: 'Joint: External Affairs & RDC Directorate', bg: '#0b3c5d', color: '#fff' },
       { text: 'UN SDG 17: Partnerships', bg: '#19486a', color: '#fff' },
       { text: 'DOST & CHED Networks', bg: '#d97706', color: '#fff' }
@@ -1505,12 +1505,12 @@ window.agendaData = {
     key: 'strengthen',
     letter: 'S',
     num: '09',
-    code: '09 • S: STRENGTHEN',
+    code: 'S: STRENGTHEN',
     title: 'STRENGTHEN: Trade Logistics, Institutional Governance & Policy Modernization',
     subtitle: 'Cross-border trade corridors at Port of Irene and Port of Aparri, MSME financial resilience, ISO 9001:2015 QMS accreditation, and program evaluation.',
     emblem: 'assets/agenda/agenda-9-strengthen.png',
     badges: [
-      { text: '09 • S', bg: '#7b1113', color: '#fff' },
+      { text: 'S: STRENGTHEN', bg: '#7b1113', color: '#fff' },
       { text: 'Lead: Customs Admin & Business Management', bg: '#0b3c5d', color: '#fff' },
       { text: 'UN SDG 8: Decent Work', bg: '#a21942', color: '#fff' },
       { text: 'SDG 16: Strong Institutions', bg: '#00689d', color: '#fff' }
