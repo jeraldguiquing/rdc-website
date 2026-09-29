@@ -416,85 +416,112 @@
       </div>
 
       <div class="agenda-grid">
-        <div class="agenda-card">
+        <div class="agenda-card" onclick="openAgendaModal('inspire')" style="cursor: pointer;" title="Click to view Priority Areas, Studies &amp; Activities for INSPIRE">
           <span class="agenda-num">01</span>
           <div style="width: 72px; height: 72px; margin-bottom: 1.25rem;">
             <img src="assets/agenda/agenda-1-inspire.png" alt="INSPIRE Emblem" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
           <h4>INSPIRE: Pedagogical Dynamics &amp; Education</h4>
           <p>Outcome-based education, simulation laboratories, gamified learning modules, teacher development, and educational equity.</p>
+          <button type="button" class="btn btn-sm btn-outline-mcnp" onclick="event.stopPropagation(); openAgendaModal('inspire')" style="margin-top: 1rem; width: 100%; font-size: 0.8rem; font-weight: 700; border-radius: 6px; padding: 0.4rem 0.75rem; display: flex; align-items: center; justify-content: center; gap: 0.35rem;">
+            <span>View Areas, Studies &amp; Activities &rarr;</span>
+          </button>
         </div>
 
-        <div class="agenda-card">
+        <div class="agenda-card" onclick="openAgendaModal('nurture')" style="cursor: pointer;" title="Click to view Priority Areas, Studies &amp; Activities for NURTURE">
           <span class="agenda-num">02</span>
           <div style="width: 72px; height: 72px; margin-bottom: 1.25rem;">
             <img src="assets/agenda/agenda-2-nurture.png" alt="NURTURE Emblem" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
           <h4>NURTURE: Public Safety, Forensics &amp; Ethics</h4>
           <p>Crime prevention strategies, digital forensics, restorative penology, bioethics, and comparative jurisprudence.</p>
+          <button type="button" class="btn btn-sm btn-outline-mcnp" onclick="event.stopPropagation(); openAgendaModal('nurture')" style="margin-top: 1rem; width: 100%; font-size: 0.8rem; font-weight: 700; border-radius: 6px; padding: 0.4rem 0.75rem; display: flex; align-items: center; justify-content: center; gap: 0.35rem;">
+            <span>View Areas, Studies &amp; Activities &rarr;</span>
+          </button>
         </div>
 
-        <div class="agenda-card">
+        <div class="agenda-card" onclick="openAgendaModal('navigate')" style="cursor: pointer;" title="Click to view Priority Areas, Studies &amp; Activities for NAVIGATE">
           <span class="agenda-num">03</span>
           <div style="width: 72px; height: 72px; margin-bottom: 1.25rem;">
             <img src="assets/agenda/agenda-3-navigate.png" alt="NAVIGATE Emblem" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
           <h4>NAVIGATE: Digital Transformation &amp; AI</h4>
           <p>Health informatics, intelligent diagnostic systems, cybersecurity analytics, evaluation tools, and tele-health connectivity.</p>
+          <button type="button" class="btn btn-sm btn-outline-mcnp" onclick="event.stopPropagation(); openAgendaModal('navigate')" style="margin-top: 1rem; width: 100%; font-size: 0.8rem; font-weight: 700; border-radius: 6px; padding: 0.4rem 0.75rem; display: flex; align-items: center; justify-content: center; gap: 0.35rem;">
+            <span>View Areas, Studies &amp; Activities &rarr;</span>
+          </button>
         </div>
 
-        <div class="agenda-card">
+        <div class="agenda-card" onclick="openAgendaModal('operationalize')" style="cursor: pointer;" title="Click to view Priority Areas, Studies &amp; Activities for OPERATIONALIZE">
           <span class="agenda-num">04</span>
           <div style="width: 72px; height: 72px; margin-bottom: 1.25rem;">
             <img src="assets/agenda/agenda-4-operationalize.png" alt="OPERATIONALIZE Emblem" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
           <h4>OPERATIONALIZE: Applied Systems &amp; Innovation</h4>
           <p>Tech commercialization, ergonomic infrastructure, prototype scaling, automated workflows, and drug discovery translation.</p>
+          <button type="button" class="btn btn-sm btn-outline-mcnp" onclick="event.stopPropagation(); openAgendaModal('operationalize')" style="margin-top: 1rem; width: 100%; font-size: 0.8rem; font-weight: 700; border-radius: 6px; padding: 0.4rem 0.75rem; display: flex; align-items: center; justify-content: center; gap: 0.35rem;">
+            <span>View Areas, Studies &amp; Activities &rarr;</span>
+          </button>
         </div>
 
-        <div class="agenda-card">
+        <div class="agenda-card" onclick="openAgendaModal('value')" style="cursor: pointer;" title="Click to view Priority Areas, Studies &amp; Activities for VALUE">
           <span class="agenda-num">05</span>
           <div style="width: 72px; height: 72px; margin-bottom: 1.25rem;">
             <img src="assets/agenda/agenda-5-value.png" alt="VALUE Emblem" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
           <h4>VALUE: Clinical Healthcare &amp; Well-Being</h4>
           <p>Endemic disease surveillance, maternal-pediatric diagnostics, radiologic safety, pharmacovigilance, and integrative health.</p>
+          <button type="button" class="btn btn-sm btn-outline-mcnp" onclick="event.stopPropagation(); openAgendaModal('value')" style="margin-top: 1rem; width: 100%; font-size: 0.8rem; font-weight: 700; border-radius: 6px; padding: 0.4rem 0.75rem; display: flex; align-items: center; justify-content: center; gap: 0.35rem;">
+            <span>View Areas, Studies &amp; Activities &rarr;</span>
+          </button>
         </div>
 
-        <div class="agenda-card">
+        <div class="agenda-card" onclick="openAgendaModal('advance')" style="cursor: pointer;" title="Click to view Priority Areas, Studies &amp; Activities for ADVANCE">
           <span class="agenda-num">06</span>
           <div style="width: 72px; height: 72px; margin-bottom: 1.25rem;">
             <img src="assets/agenda/agenda-6-advance.png" alt="ADVANCE Emblem" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
           <h4>ADVANCE: Eco-Resilience &amp; Sustainability</h4>
           <p>Cagayan River basin eco-studies, flood risk mitigation, disaster triage readiness, climate resilience, and conservation.</p>
+          <button type="button" class="btn btn-sm btn-outline-mcnp" onclick="event.stopPropagation(); openAgendaModal('advance')" style="margin-top: 1rem; width: 100%; font-size: 0.8rem; font-weight: 700; border-radius: 6px; padding: 0.4rem 0.75rem; display: flex; align-items: center; justify-content: center; gap: 0.35rem;">
+            <span>View Areas, Studies &amp; Activities &rarr;</span>
+          </button>
         </div>
 
-        <div class="agenda-card">
+        <div class="agenda-card" onclick="openAgendaModal('transform')" style="cursor: pointer;" title="Click to view Priority Areas, Studies &amp; Activities for TRANSFORM">
           <span class="agenda-num">07</span>
           <div style="width: 72px; height: 72px; margin-bottom: 1.25rem;">
             <img src="assets/agenda/agenda-7-transform.png" alt="TRANSFORM Emblem" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
           <h4>TRANSFORM: Community &amp; Social Welfare</h4>
           <p>Participatory action research, indigenous peoples welfare, rural health literacy, social vulnerability, and community empowerment.</p>
+          <button type="button" class="btn btn-sm btn-outline-mcnp" onclick="event.stopPropagation(); openAgendaModal('transform')" style="margin-top: 1rem; width: 100%; font-size: 0.8rem; font-weight: 700; border-radius: 6px; padding: 0.4rem 0.75rem; display: flex; align-items: center; justify-content: center; gap: 0.35rem;">
+            <span>View Areas, Studies &amp; Activities &rarr;</span>
+          </button>
         </div>
 
-        <div class="agenda-card">
+        <div class="agenda-card" onclick="openAgendaModal('expand')" style="cursor: pointer;" title="Click to view Priority Areas, Studies &amp; Activities for EXPAND">
           <span class="agenda-num">08</span>
           <div style="width: 72px; height: 72px; margin-bottom: 1.25rem;">
             <img src="assets/agenda/agenda-8-expand.png" alt="EXPAND Emblem" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
           <h4>EXPAND: Global Consortia &amp; Linkages</h4>
           <p>Cross-border academic consortia, regional research networks, alumni tracking, and multi-agency consortia (CVHRDC/DOST).</p>
+          <button type="button" class="btn btn-sm btn-outline-mcnp" onclick="event.stopPropagation(); openAgendaModal('expand')" style="margin-top: 1rem; width: 100%; font-size: 0.8rem; font-weight: 700; border-radius: 6px; padding: 0.4rem 0.75rem; display: flex; align-items: center; justify-content: center; gap: 0.35rem;">
+            <span>View Areas, Studies &amp; Activities &rarr;</span>
+          </button>
         </div>
 
-        <div class="agenda-card">
+        <div class="agenda-card" onclick="openAgendaModal('strengthen')" style="cursor: pointer;" title="Click to view Priority Areas, Studies &amp; Activities for STRENGTHEN">
           <span class="agenda-num">09</span>
           <div style="width: 72px; height: 72px; margin-bottom: 1.25rem;">
             <img src="assets/agenda/agenda-9-strengthen.png" alt="STRENGTHEN Emblem" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
           <h4>STRENGTHEN: Trade, Logistics &amp; Governance</h4>
           <p>Cross-border trade facilitation, customs modernization, SME economic resilience, institutional accreditation, and corporate ethics.</p>
+          <button type="button" class="btn btn-sm btn-outline-mcnp" onclick="event.stopPropagation(); openAgendaModal('strengthen')" style="margin-top: 1rem; width: 100%; font-size: 0.8rem; font-weight: 700; border-radius: 6px; padding: 0.4rem 0.75rem; display: flex; align-items: center; justify-content: center; gap: 0.35rem;">
+            <span>View Areas, Studies &amp; Activities &rarr;</span>
+          </button>
         </div>
       </div>
 

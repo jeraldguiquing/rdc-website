@@ -624,7 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalLink.textContent = detail[0];
         modalEvents.innerHTML = detail[1].map(([eventTitle, description]) => `
           <article class="sdg-event-item">
-            <h4><a href="news-events.html#sdg-advocacy-stories">${eventTitle}</a></h4>
+            <h4><a href="news-events.html#event-highlights-title">${eventTitle}</a></h4>
             <p>${description}</p>
           </article>
         `).join('');
@@ -687,4 +687,1153 @@ window.toggleAllSop = function (expand) {
     }
   });
 };
+
+/* ==========================================================================
+   11. INNOVATES RESEARCH AGENDA INTERACTIVITY (MODAL & TABS)
+   Priority Areas, Studies & Research Activities for MCNP & ISAP
+   ========================================================================== */
+window.agendaData = {
+  inspire: {
+    key: 'inspire',
+    letter: 'I',
+    num: '01',
+    code: 'Pillar 01 • I: INSPIRE',
+    title: 'INSPIRE: Pedagogical Dynamics, Simulation Learning & Educational Equity',
+    subtitle: 'Outcome-based education, clinical and criminology simulation laboratories, gamified learning modules, teacher development, and educational equity.',
+    emblem: 'assets/agenda/agenda-1-inspire.png',
+    badges: [
+      { text: 'Pillar 01 • I', bg: '#7b1113', color: '#fff' },
+      { text: 'Lead: Teacher Education & Allied Health', bg: '#0b3c5d', color: '#fff' },
+      { text: 'UN SDG 4: Quality Education', bg: '#c5192d', color: '#fff' },
+      { text: 'NHERA Priority Track', bg: '#d97706', color: '#fff' }
+    ],
+    priorityAreas: [
+      {
+        tag: 'Institutional Area 6',
+        title: 'Health Sciences Education, Practice and Administration',
+        desc: 'Assessing innovative clinical instruction paradigms, OSCE competency evaluation, hospital rotation preceptor models, and allied health educational leadership in Region II.'
+      },
+      {
+        tag: 'Institutional Area 7',
+        title: 'School Administration and Management',
+        desc: 'Educational governance dynamics, faculty continuing professional education, digital classroom integration, and institutional outcome-based education (OBE) curriculum alignment.'
+      },
+      {
+        tag: 'NHERA-2 Track',
+        title: 'Pedagogical Innovation & Educational Equity',
+        desc: 'Measuring learning gains in diverse socio-economic settings across Northern Luzon, multilingual instructional methods, and inclusive basic-to-tertiary education frameworks.'
+      },
+      {
+        tag: 'Simulation Science',
+        title: 'High-Fidelity Clinical & Procedural Simulation',
+        desc: 'Evaluating stress tolerance, diagnostic accuracy, and decision-making speed using high-fidelity anatomical models, virtual laboratories, and VR patient scenarios.'
+      }
+    ],
+    studies: [
+      {
+        title: 'Comparative Efficacy of Virtual OSCE vs. Traditional Bedside Evaluations in Nursing and Radiologic Technology Clinical Rotations',
+        dept: 'College of Nursing & RadTech',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'Empirical trial measuring diagnostic precision, procedural error margins, and student clinical confidence when evaluated through virtual simulations vs. bedside hospital rounds.'
+      },
+      {
+        title: 'Impact of High-Fidelity Simulation on Clinical Decision-Making Under Acute Stress in Emergency Scenarios',
+        dept: 'MCNP Allied Health Sciences',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'Investigating physiological stress response markers (heart-rate variability, decision latency) during emergency resuscitation simulations in MCNP simulation laboratories.'
+      },
+      {
+        title: 'Gamified Micro-Credential Learning Modules for Human Anatomy & Physiology: A Multi-Cohort Trial',
+        dept: 'Department of General Education',
+        status: 'Approved Proposal',
+        statusClass: 'status-proposal',
+        desc: 'Assessing conceptual retention, quiz performance, and academic persistence among first-year health science students utilizing mobile bite-sized gamified micro-modules.'
+      },
+      {
+        title: 'Pedagogical Resilience and Digital Fluency Among Higher Education Faculty in Cagayan Valley',
+        dept: 'ISAP College of Teacher Education',
+        status: 'Recommended',
+        statusClass: 'status-recommended',
+        desc: 'Cross-sectional survey evaluating instructional adaptability, generative AI tool integration, and authentic assessment competencies across tertiary educators.'
+      },
+      {
+        title: 'Culturally Responsive Teaching Models in Multi-Ethnolinguistic Classrooms Across Northern Luzon',
+        dept: 'ISAP Graduate School of Education',
+        status: 'Recommended',
+        statusClass: 'status-recommended',
+        desc: 'Designing inclusive instructional frameworks that respect indigenous languages and cultural traditions in regional basic and secondary school districts.'
+      }
+    ],
+    activities: [
+      {
+        title: 'Annual Faculty Pedagogical Development & Syllabus OBE Alignment Workshop',
+        cadence: 'Semestral Cycle',
+        icon: '👨‍🏫',
+        desc: 'Intensive capacity-building for MCNP and ISAP educators on authentic assessment rubrics, outcome-based syllabus design, and hybrid simulation integration.'
+      },
+      {
+        title: 'Medical & Criminology Simulation Lab Stress-Testing & Calibration Sessions',
+        cadence: 'Bi-Monthly',
+        icon: '🏥',
+        desc: 'Calibration of high-fidelity clinical manikins, simulated forensic crime scene drills, and OSCE standard rubric benchmarking.'
+      },
+      {
+        title: 'Cagayan Valley Teacher Education Colloquium & Paper Presentation',
+        cadence: 'Annual Assembly',
+        icon: '🎓',
+        desc: 'Regional academic forum convening pre-service and in-service educators to present empirical research on classroom technology, literacy, and equity.'
+      },
+      {
+        title: 'Student Education Innovators Showcase & Instructional Exhibit',
+        cadence: 'Annual Festival',
+        icon: '💡',
+        desc: 'Public exhibition of student-created gamified learning aids, flash modules, and educational technologies evaluated by faculty panels.'
+      }
+    ]
+  },
+
+  nurture: {
+    key: 'nurture',
+    letter: 'N',
+    num: '02',
+    code: 'Pillar 02 • N: NURTURE',
+    title: 'NURTURE: Public Safety, Forensic Science, Ethics & Penological Modernization',
+    subtitle: 'Crime prevention strategies, forensic ballistic imaging, restorative penology, human rights compliance, and bioethics in human research.',
+    emblem: 'assets/agenda/agenda-2-nurture.png',
+    badges: [
+      { text: 'Pillar 02 • N', bg: '#7b1113', color: '#fff' },
+      { text: 'Lead: ISAP Criminology Wing', bg: '#0b3c5d', color: '#fff' },
+      { text: 'UN SDG 16: Peace & Justice', bg: '#00689d', color: '#fff' },
+      { text: 'DOST R&D Priority', bg: '#d97706', color: '#fff' }
+    ],
+    priorityAreas: [
+      {
+        tag: 'Institutional Area 3',
+        title: 'Health Ethics & Institutional Governance',
+        desc: 'Protection of vulnerable human participants, ethical guidelines in criminalistics and clinical research, and institutional review compliance under PHREB standards.'
+      },
+      {
+        tag: 'Institutional Area 8',
+        title: 'Social Awareness and Response',
+        desc: 'Barangay crime prevention matrices, community drug demand reduction, restorative justice interventions, and law enforcement disaster readiness.'
+      },
+      {
+        tag: 'DOST Security Track',
+        title: 'Forensic Technology & Physical Evidence Analysis',
+        desc: 'Digital micro-imaging of ballistic striations, questioned document forgery analysis, and modern chemical forensic reagent validation.'
+      },
+      {
+        tag: 'Penology & Justice',
+        title: 'Modern Correctional Management & Reintegration',
+        desc: 'Inmate therapeutic community models, humane custody standards in BJMP facilities, and post-release social recidivism mitigation.'
+      }
+    ],
+    studies: [
+      {
+        title: 'GIS-Enabled Spatial Crime Mapping and Predictive Neighborhood Policing in Peñablanca Rural Barangays',
+        dept: 'ISAP College of Criminology',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'Mapping temporal and geographic hotspots of theft, domestic disturbances, and rural incidents to optimize PNP motorized patrol deployments.'
+      },
+      {
+        title: 'Automated Ballistic Striation Comparison Using High-Resolution Digital Micro-Imaging',
+        dept: 'Forensic Ballistics Laboratory',
+        status: 'Approved Proposal',
+        statusClass: 'status-proposal',
+        desc: 'Developing a computer-aided optical correlation algorithm to index firing pin impressions and rifling marks from test-fired firearms.'
+      },
+      {
+        title: 'Reintegration Trajectories and Psychological Recidivism Risks Among Former BJMP Inmates in Region II',
+        dept: 'Criminology & Social Sciences',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'Longitudinal assessment of vocational skills training, community acceptance, and parole monitoring in reducing repeat criminal offenses.'
+      },
+      {
+        title: 'Compliance with Ethical Standards in Research Involving Incarcerated Individuals and Vulnerable Persons',
+        dept: 'Institutional Ethics Review Board (IERB)',
+        status: 'Approved Proposal',
+        statusClass: 'status-proposal',
+        desc: 'Auditing informed consent comprehension, voluntariness, and ethical safeguards across criminal justice student thesis projects.'
+      },
+      {
+        title: 'Restorative Justice Efficacy in Barangay Lupong Tagapamayapa Mediation of Interpersonal Disputes',
+        dept: 'Criminology & Community Extension',
+        status: 'Recommended',
+        statusClass: 'status-recommended',
+        desc: 'Quantitative and qualitative evaluation of case resolution rates and victim satisfaction under the Katarungang Pambarangay law.'
+      }
+    ],
+    activities: [
+      {
+        title: 'Criminology Thesis & Capstone Proposal Defense Colloquium',
+        cadence: 'Quarterly Cycle',
+        icon: '⚖️',
+        desc: 'Formal peer and panel defense of graduate and undergraduate research proposals on crime detection, police tactics, and criminalistics.'
+      },
+      {
+        title: 'Forensic Ballistics & Questioned Document Technical Workshop',
+        cadence: 'Bi-Annual Bootcamp',
+        icon: '🔬',
+        desc: 'Hands-on laboratory training using the comparison microscope, optical luminescence, and digital photographic forensics.'
+      },
+      {
+        title: 'IERB Research Ethics Vetting & Good Clinical Practice (GCP) Sessions',
+        cadence: 'Monthly Sessions',
+        icon: '🛡️',
+        desc: 'Rigorous ethical evaluation of submitted investigative protocols involving human participants, patient records, or detainees.'
+      },
+      {
+        title: 'Barangay Peace and Order Council (BPOC) Legal Aid & Crime Caravan',
+        cadence: 'Quarterly Outreach',
+        icon: '🚓',
+        desc: 'Community outreach providing crime prevention seminars, anti-drug awareness, and paralegal counseling in partner barangays.'
+      }
+    ]
+  },
+
+  navigate: {
+    key: 'navigate',
+    letter: 'N',
+    num: '03',
+    code: 'Pillar 03 • N: NAVIGATE',
+    title: 'NAVIGATE: Digital Transformation, Cyber Forensics & Applied Informatics',
+    subtitle: 'Artificial intelligence in clinical triage, cyber forensics, tele-radiology for remote islands, evaluation instrument automation, and secure campus architectures.',
+    emblem: 'assets/agenda/agenda-3-navigate.png',
+    badges: [
+      { text: 'Pillar 03 • N', bg: '#7b1113', color: '#fff' },
+      { text: 'Joint: MCNP & ISAP Informatics', bg: '#0b3c5d', color: '#fff' },
+      { text: 'UN SDG 9: Innovation', bg: '#f36e24', color: '#fff' },
+      { text: 'DICT & DOST Aligned', bg: '#0d5c3a', color: '#fff' }
+    ],
+    priorityAreas: [
+      {
+        tag: 'Institutional Area 12',
+        title: 'Development of Evaluation Tools',
+        desc: 'Algorithmic psychometric instruments, automated proposal evaluation software, rubrics standardization, and digital accreditation document management.'
+      },
+      {
+        tag: 'Institutional Area 13',
+        title: 'Ergonomic Adaptability & Digital Infrastructures',
+        desc: 'User-centered design of medical records, responsive e-learning portals, high-security cloud repositories, and biometric authentication.'
+      },
+      {
+        tag: 'Cybersecurity Plan',
+        title: 'Cyber Forensics & Threat Intelligence',
+        desc: 'Incident response methodologies, anti-phishing defense architectures, blockchain-backed chain of digital evidence custody.'
+      },
+      {
+        tag: 'Tele-Health Track',
+        title: 'Low-Bandwidth Tele-Medicine & Remote Informatics',
+        desc: 'Store-and-forward tele-radiology, mobile maternal diagnostic uploads, and distributed clinical databases for Cagayan GIDAs.'
+      }
+    ],
+    studies: [
+      {
+        title: 'Blockchain-Secured Chain of Custody System for Digital Evidence in Mobile Forensics Investigations',
+        dept: 'College of Information Technology',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'Architecting a tamper-evident decentralized ledger to timestamp and verify cryptographic hashes of seized digital forensic media.'
+      },
+      {
+        title: 'Deep Learning Convolutional Neural Networks for Automated Screening of Pulmonary Lesions on Digital Chest Radiographs',
+        dept: 'Joint IT & Radiologic Tech',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'Training AI classification models on regional hospital anonymized X-rays to expedite pneumonia and tuberculosis preliminary screening.'
+      },
+      {
+        title: 'Development and Psychometric Validation of a Cloud-Based Automated Research Proposal Evaluation Tool',
+        dept: 'RDC Informatics Unit',
+        status: 'Approved Proposal',
+        statusClass: 'status-proposal',
+        desc: 'Constructing an automated scoring instrument that checks rubric completeness, methodology alignment, and institutional ethics markers.'
+      },
+      {
+        title: 'Store-and-Forward Tele-Radiology Architecture for Remote Island Municipalities in Northern Cagayan',
+        dept: 'Health Informatics Desk',
+        status: 'Approved Proposal',
+        statusClass: 'status-proposal',
+        desc: 'Deploying bandwidth-optimized compressed DICOM transmission protocols linking Calayan Island clinics to Cagayan Valley medical centers.'
+      },
+      {
+        title: 'Vulnerability Profiling and Zero-Trust Network Architecture for Multi-Campus Academic Platforms',
+        dept: 'Computer Studies & Systems',
+        status: 'Recommended',
+        statusClass: 'status-recommended',
+        desc: 'Empirical vulnerability scanning and least-privilege role-based access control designs across MCNP and ISAP digital assets.'
+      }
+    ],
+    activities: [
+      {
+        title: 'RDC Data Science & Research Analytics Masterclass (Python, Jamovi, SPSS)',
+        cadence: 'Quarterly Sessions',
+        icon: '📊',
+        desc: 'Hands-on statistical computing workshops for faculty researchers and graduate students covering inferential statistics and ML.'
+      },
+      {
+        title: 'MCNP-ISAP Smart Campus Hackathon & Codefest',
+        cadence: 'Annual Sprint',
+        icon: '💻',
+        desc: 'Competitive 48-hour software sprint challenging student developers to build solutions for campus workflows, health, and disaster resilience.'
+      },
+      {
+        title: 'Cybersecurity Threat Defense & Digital Evidence Forensics Clinic',
+        cadence: 'Bi-Annual Workshop',
+        icon: '🔐',
+        desc: 'Technical workshop with DICT specialists covering cyber incident response, malware containment, and chain-of-custody verification.'
+      },
+      {
+        title: 'Automated Evaluation Instrument Standardization & Pilot Testing',
+        cadence: 'Semestral Calibration',
+        icon: '⚙️',
+        desc: 'Collaborative testing sessions calibrating digital rubrics and institutional assessment metrics for academic and research departments.'
+      }
+    ]
+  },
+
+  operationalize: {
+    key: 'operationalize',
+    letter: 'O',
+    num: '04',
+    code: 'Pillar 04 • O: OPERATIONALIZE',
+    title: 'OPERATIONALIZE: Applied Innovation, Systems Optimization & Tech Commercialization',
+    subtitle: 'Translating laboratory discoveries and prototypes into operational technologies, utility models, patent filings, workflow optimization, and ergonomic tools.',
+    emblem: 'assets/agenda/agenda-4-operationalize.png',
+    badges: [
+      { text: 'Pillar 04 • O', bg: '#7b1113', color: '#fff' },
+      { text: 'Joint: MCNP & ISAP Tech Transfer', bg: '#0b3c5d', color: '#fff' },
+      { text: 'UN SDG 9: Industry & Innovation', bg: '#f36e24', color: '#fff' },
+      { text: 'DOST Regional Priority', bg: '#0d5c3a', color: '#fff' }
+    ],
+    priorityAreas: [
+      {
+        tag: 'Institutional Area 4',
+        title: 'Drug Discovery & Pharmaceutical Scaling',
+        desc: 'Standardization of crude plant extracts, excipient compatibility testing, formulation stability, and pilot-scale topical preparation production.'
+      },
+      {
+        tag: 'Institutional Area 13',
+        title: 'Ergonomic Adaptability Infrastructures',
+        desc: 'Ergonomic clinical equipment fabrication, patient transfer mechanics, workstation physical risk minimization, and barrier-free adaptations.'
+      },
+      {
+        tag: 'Tech Transfer',
+        title: 'Intellectual Property Rights (IPR) & Patenting',
+        desc: 'Utility models, industrial designs, trademark protection, and licensing frameworks for student and faculty research inventions.'
+      },
+      {
+        tag: 'Systems Optimization',
+        title: 'Workflow Automation & Lean Operations',
+        desc: 'Laboratory queuing models, customs clearance algorithmic shortcuts, and diagnostic throughput optimization.'
+      }
+    ],
+    studies: [
+      {
+        title: 'Formulation, Stability Testing, and Antimicrobial Evaluation of a Topical Gel from Cagayan Native Flora',
+        dept: 'College of Pharmacy',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'Developing a stable semi-solid topical antibacterial preparation utilizing ethanolic extracts of bioactive Peñablanca botanical specimens.'
+      },
+      {
+        title: 'Design, Fabrication, and Biomechanical Evaluation of an Ergonomic Patient Transfer Assist Device for Rural Clinics',
+        dept: 'Physical Therapy & Ergonomics',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'Engineering an affordable mechanical transfer harness to reduce caregiver lumbar strain and patient falls during bedside transfers.'
+      },
+      {
+        title: 'Queueing Theory and Lean Workflow Optimization in High-Volume Clinical Diagnostic Laboratories',
+        dept: 'Medical Technology Department',
+        status: 'Approved Proposal',
+        statusClass: 'status-proposal',
+        desc: 'Mathematical modeling of specimen triage, automated centrifuge routing, and turnaround time minimization during morning peak hours.'
+      },
+      {
+        title: 'Automated Customs Brokerage Tariff Calculator and Discrepancy Flagging Tool for Cagayan Economic Zone',
+        dept: 'Customs Administration',
+        status: 'Approved Proposal',
+        statusClass: 'status-proposal',
+        desc: 'Developing software logic to auto-reconcile ASEAN Harmonized Tariff Nomenclature codes and compute duties with minimal clerical error.'
+      },
+      {
+        title: 'Micro-Encapsulation of Bioactive Polyphenols from Indigenous Crops for Nutraceutical Shelf-Life Extension',
+        dept: 'Pharmacy & Chemistry Labs',
+        status: 'Recommended',
+        statusClass: 'status-recommended',
+        desc: 'Evaluating spray-drying encapsulation using food-grade biopolymers to preserve antioxidant potency under tropical ambient conditions.'
+      }
+    ],
+    activities: [
+      {
+        title: 'IPOPHL Patent & Utility Model Drafting Workshop',
+        cadence: 'Annual Workshop',
+        icon: '📜',
+        desc: 'Intensive mentoring by intellectual property attorneys guiding faculty and students through claims drafting and formal patent submissions.'
+      },
+      {
+        title: 'RDC Pitching Summit: From Research Capsule to Commercial Prototype',
+        cadence: 'Annual Summit',
+        icon: '🚀',
+        desc: 'Venture pitch competition where student-faculty research teams showcase prototypes before DOST evaluators and industry investors.'
+      },
+      {
+        title: 'DOST Regional Science, Technology, and Innovation Week (RSTW) Technology Demo',
+        cadence: 'Annual Demo',
+        icon: '🔬',
+        desc: 'Public exhibition presenting fabricated ergonomic devices, formulated pharmaceutical products, and software tools to the public.'
+      },
+      {
+        title: 'Clinical Laboratory Biosafety & Ergonomic Safety Facility Audits',
+        cadence: 'Semestral Audits',
+        icon: '🛠️',
+        desc: 'Walkthrough inspections evaluating technician workstation postures, chemical fume hood efficiency, and waste stream controls.'
+      }
+    ]
+  },
+
+  value: {
+    key: 'value',
+    letter: 'V',
+    num: '05',
+    code: 'Pillar 05 • V: VALUE',
+    title: 'VALUE: Clinical Healthcare Innovation, Disease Surveillance & Patient Well-Being',
+    subtitle: 'Endemic disease epidemiology, maternal-pediatric diagnostics, radiologic dose reduction, pharmacovigilance, and traditional medicine validation.',
+    emblem: 'assets/agenda/agenda-5-value.png',
+    badges: [
+      { text: 'Pillar 05 • V', bg: '#7b1113', color: '#fff' },
+      { text: 'Lead: MCNP Health Research Wing', bg: '#0d5c3a', color: '#fff' },
+      { text: 'UN SDG 3: Good Health', bg: '#4c9f38', color: '#fff' },
+      { text: 'NUHRA / CVHRDC Track 1', bg: '#d97706', color: '#fff' }
+    ],
+    priorityAreas: [
+      {
+        tag: 'Institutional Area 1',
+        title: 'Health Across Life Span',
+        desc: 'Maternal-child health, adolescent mental wellness, occupational health of agricultural workers, and geriatric chronic disease rehabilitation.'
+      },
+      {
+        tag: 'Institutional Area 10',
+        title: 'Pharmacovigilance & Medication Safety',
+        desc: 'Adverse drug reaction (ADR) surveillance, polypharmacy monitoring in the elderly, and counterfeit drug detection at the community level.'
+      },
+      {
+        tag: 'Institutional Area 11',
+        title: 'Alternative and Traditional Health Care',
+        desc: 'Ethnobotanical surveys of Cagayan indigenous healing practices, scientific verification of herbal teas and poultices, and integrative therapy safety.'
+      },
+      {
+        tag: 'CVHRDC Track 1',
+        title: 'Infectious & Endemic Disease Surveillance',
+        desc: 'Spatial epidemiology of dengue, leptospirosis, pulmonary tuberculosis, and antimicrobial resistance (AMR) in regional clinical isolates.'
+      }
+    ],
+    studies: [
+      {
+        title: 'Phytochemical Screening, Acute Oral Toxicity, and Hypoglycemic Potential of Peñablanca Indigenous Flora Extracts',
+        dept: 'College of Pharmacy',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'Bioassay-guided fractionation to validate traditional folkloric claims of glucose-lowering properties in local botanical decoctions.'
+      },
+      {
+        title: 'Spatial-Temporal Clustering of Dengue and Leptospirosis Infections Following Monsoon Inundations in Cagayan Basin',
+        dept: 'Medical Technology Wing',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'Combining municipal health office data with rainfall indices to map spatial transmission corridors and predict seasonal outbreaks.'
+      },
+      {
+        title: 'Radiation Dose Optimization and Image Quality in Pediatric Digital Radiography Across Cagayan Hospitals',
+        dept: 'College of Radiologic Technology',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'Determining diagnostic reference levels (DRLs) to minimize cumulative radiation dose for pediatric chest examinations without loss of clarity.'
+      },
+      {
+        title: 'Adverse Drug Reaction (ADR) Self-Reporting Behaviors and Knowledge Among Community Pharmacists in Region II',
+        dept: 'College of Pharmacy',
+        status: 'Approved Proposal',
+        statusClass: 'status-proposal',
+        desc: 'Surveying community drugstore practitioners to evaluate under-reporting barriers and develop mobile ADR reporting mechanisms.'
+      },
+      {
+        title: 'Early Task-Specific Physical Therapy Intervention in Post-Stroke Functional Mobility Recovery in Rural Settings',
+        dept: 'College of Physical Therapy',
+        status: 'Approved Proposal',
+        statusClass: 'status-proposal',
+        desc: 'Evaluating home-based task-oriented motor retraining protocols for stroke survivors with limited access to tertiary physical rehab.'
+      }
+    ],
+    activities: [
+      {
+        title: 'Pharmacy & Health Sciences Research Proposal Defenses (September & February Cycles)',
+        cadence: 'Semestral Sessions',
+        icon: '💊',
+        desc: 'Rigorous defense panels evaluating clinical methodologies, ethical approvals, sample sizes, and pharmacologic assays.'
+      },
+      {
+        title: 'Health Research Data Analysis & Biostatistics Masterclass',
+        cadence: 'Quarterly Workshop',
+        icon: '📈',
+        desc: 'Specialized training on survival analysis, logistic regression, Jamovi/SPSS statistical tests, and epidemiological data visualization.'
+      },
+      {
+        title: 'CVHRDC Regional Health Research Conference (RHRDC) Scientific Sessions',
+        cadence: 'Annual Congress',
+        icon: '🏆',
+        desc: 'Regional congress where MCNP faculty and students compete in oral paper and poster presentations across health research categories.'
+      },
+      {
+        title: 'Community Diagnostic Health & Vital Signs Surveillance Missions',
+        cadence: 'Quarterly Outreach',
+        icon: '🩺',
+        desc: 'Mobile diagnostic outreach conducting free capillary blood glucose testing, urinalysis, blood pressure screening, and health education.'
+      }
+    ]
+  },
+
+  advance: {
+    key: 'advance',
+    letter: 'A',
+    num: '06',
+    code: 'Pillar 06 • A: ADVANCE',
+    title: 'ADVANCE: Cagayan River Basin Eco-Resilience, Environmental Protection & Climate Action',
+    subtitle: 'Cagayan River hydrology, flood risk mitigation, shallow well waterborne disease testing, food security in typhoon seasons, and disaster triage.',
+    emblem: 'assets/agenda/agenda-6-advance.png',
+    badges: [
+      { text: 'Pillar 06 • A', bg: '#7b1113', color: '#fff' },
+      { text: 'Joint: SDG Advocacies Synergy', bg: '#0d5c3a', color: '#fff' },
+      { text: 'UN SDG 13: Climate Action', bg: '#3f7e44', color: '#fff' },
+      { text: 'SDG 11: Sustainable Communities', bg: '#fd9d24', color: '#fff' }
+    ],
+    priorityAreas: [
+      {
+        tag: 'Institutional Area 2',
+        title: 'Environmental Protection and Conservation',
+        desc: 'Cagayan River riparian buffer ecology, watershed reforestation monitoring, soil erosion control, and biodiversity conservation in Northern Sierra Madre.'
+      },
+      {
+        tag: 'Institutional Area 8',
+        title: 'Social Awareness and Disaster Preparedness',
+        desc: 'Community flood early warning comprehension, disaster evacuation psychology, and emergency response logistics during category 5 typhoons.'
+      },
+      {
+        tag: 'Climate Resilience',
+        title: 'Disaster Risk Reduction and Management in Health (DRRM-H)',
+        desc: 'Post-flood waterborne disease containment, emergency potable water filtration, portable diagnostic kits, and mental resilience in calamity shelters.'
+      },
+      {
+        tag: 'Eco-Sustainability',
+        title: 'Campus Decarbonization & Resource Circularity',
+        desc: 'Solid waste diversion audits, solar energy feasibility on campus rooftops, rainwater harvesting systems, and institutional carbon accounting.'
+      }
+    ],
+    studies: [
+      {
+        title: 'Hydrological Inundation Modeling and Flood Vulnerability Mapping of Riverine Barangays Along the Lower Cagayan River',
+        dept: 'Environmental Research Unit',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'Utilizing elevation models and historical rainfall data to generate high-resolution flood hazard zones for Peñablanca and Tuguegarao.'
+      },
+      {
+        title: 'Microbiological and Heavy Metal Assessment of Post-Flooding Shallow Tube Wells in Peñablanca Agricultural Villages',
+        dept: 'Medical Technology & Public Health',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'Screening well water supplies for coliform pathogens, arsenic, and nitrates following monsoon overflow to guide water purification outreach.'
+      },
+      {
+        title: 'Household Food Security and Dietary Coping Mechanisms During Prolonged Typhoon Disruptions in Rural Cagayan',
+        dept: 'Community Nutrition & Social Work',
+        status: 'Approved Proposal',
+        statusClass: 'status-proposal',
+        desc: 'Evaluating staple food stockpiling, indigenous food preservation, and calorie adequacy during road network inundations.'
+      },
+      {
+        title: 'Enforcement Efficacy of Forest Protection Ordinances in Peñablanca Protected Landscape and Seascape',
+        dept: 'ISAP College of Criminology',
+        status: 'Approved Proposal',
+        statusClass: 'status-proposal',
+        desc: 'Assessing inter-agency enforcement protocols between DENR, PNP, and community bantay-gubat rangers against illegal logging.'
+      },
+      {
+        title: 'Campus Carbon Footprint Baseline Assessment and Green Building Energy Conservation Roadmap for MCNP-ISAP',
+        dept: 'SDG Center & Admin Wing',
+        status: 'Recommended',
+        statusClass: 'status-recommended',
+        desc: 'Calculating greenhouse gas emissions from electricity, fuel, and municipal solid waste to design campus net-zero target milestones.'
+      }
+    ],
+    activities: [
+      {
+        title: 'Cagayan River Basin Water Quality & Coliform Testing Field Campaign',
+        cadence: 'Quarterly Expedition',
+        icon: '💧',
+        desc: 'Faculty-student field testing expeditions collecting water samples along critical river junctions to monitor dissolved oxygen and bacterial load.'
+      },
+      {
+        title: 'Disaster First Responders Triage Simulation & Boat Rescue Exercise',
+        cadence: 'Annual Drill',
+        icon: '🚤',
+        desc: 'Joint realistic emergency drill with MDRRMO Peñablanca and PCG testing mass casualty triage protocols in simulated flood conditions.'
+      },
+      {
+        title: 'SDG SPOT Tree Planting & Sierra Madre Reforestation Missions',
+        cadence: 'Bi-Annual Missions',
+        icon: '🌱',
+        desc: 'Active institutional tree-growing caravans planting thousands of native species in designated watershed restoration zones.'
+      },
+      {
+        title: 'Climate Resilience & Community Disaster Preparedness Barangay Clinics',
+        cadence: 'Quarterly Clinics',
+        icon: '📢',
+        desc: 'Interactive public education workshops on water disinfection, family disaster kits, and typhoon shelter hygiene.'
+      }
+    ]
+  },
+
+  transform: {
+    key: 'transform',
+    letter: 'T',
+    num: '07',
+    code: 'Pillar 07 • T: TRANSFORM',
+    title: 'TRANSFORM: Community Empowerment, Social Inclusion & Public Welfare',
+    subtitle: 'Participatory action research, Agta indigenous communities welfare, micro-livelihood evaluation, adolescent mental health, and GAD mainstreaming.',
+    emblem: 'assets/agenda/agenda-7-transform.png',
+    badges: [
+      { text: 'Pillar 07 • T', bg: '#7b1113', color: '#fff' },
+      { text: 'Lead: Community Extension & Social Sciences', bg: '#0b3c5d', color: '#fff' },
+      { text: 'UN SDG 10: Reduced Inequalities', bg: '#dd1367', color: '#fff' },
+      { text: 'SDG 1: No Poverty', bg: '#e5243b', color: '#fff' }
+    ],
+    priorityAreas: [
+      {
+        tag: 'Institutional Area 5',
+        title: 'Health & Social Programs Assessment and Evaluation',
+        desc: 'Measuring long-term socio-economic outcomes of institutional outreach, scholarship programs, and barangay health station services.'
+      },
+      {
+        tag: 'Institutional Area 8',
+        title: 'Social Awareness, Inclusivity & Human Rights',
+        desc: 'Rights-based indigenous people advocacy, protection of women and children, anti-human trafficking awareness, and inclusive civic participation.'
+      },
+      {
+        tag: 'GAD Framework',
+        title: 'Gender and Development (GAD) Research Integration',
+        desc: 'Gender-disaggregated workload distribution, rural women economic empowerment, workplace safety against harassment, and reproductive health choices.'
+      },
+      {
+        tag: 'Indigenous Welfare',
+        title: 'Agta Community Health, Education & Land Rights',
+        desc: 'Culturally safe healthcare delivery, indigenous language documentation, ancestral domain stewardship, and childhood immunization access.'
+      }
+    ],
+    studies: [
+      {
+        title: 'Socio-Demographic and Nutritional Profiling of Agta Indigenous Communities in Peñablanca Foothills',
+        dept: 'Social Work & Public Health',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'A participatory field assessment documenting dietary patterns, micronutrient deficiencies, maternal health practices, and cultural health perceptions.'
+      },
+      {
+        title: 'Impact Assessment of Barangay-Level Micro-Credit and Skills Training for Agrarian Women in Cagayan',
+        dept: 'College of Business Administration',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'Evaluating household income gains, business survival rates, and economic decision-making autonomy among women beneficiaries.'
+      },
+      {
+        title: 'Mental Health Stigma and Psychological Help-Seeking Behaviors Among Rural Adolescents in Northern Luzon',
+        dept: 'Department of Psychology',
+        status: 'Approved Proposal',
+        statusClass: 'status-proposal',
+        desc: 'Investigating cultural barriers, family perceptions, and telemedicine acceptability in addressing depression and anxiety among high school youth.'
+      },
+      {
+        title: 'Evaluation of Municipal Social Pension Distribution Schemes for Indigent Senior Citizens in Remote Barangays',
+        dept: 'Social Work Department',
+        status: 'Approved Proposal',
+        statusClass: 'status-proposal',
+        desc: 'Assessing payout timeliness, purchasing power adequacy, and logistics hurdles in delivering government pensions to isolated elderly citizens.'
+      },
+      {
+        title: 'Gender-Disaggregated Analysis of Academic and Clinical Duty Burden Among Healthcare Interns in Regional Hospitals',
+        dept: 'Institutional GAD Desk',
+        status: 'Recommended',
+        statusClass: 'status-recommended',
+        desc: 'Investigating gendered disparities in shift assignments, mental fatigue, caregiving obligations outside duty, and career advancement.'
+      }
+    ],
+    activities: [
+      {
+        title: 'Annual Gender and Development (GAD) Research Integration Workshop',
+        cadence: 'Annual Workshop',
+        icon: '⚖️',
+        desc: 'Institutional capacity-building for faculty on embedding sex-disaggregated data and gender analysis tools into academic research.'
+      },
+      {
+        title: 'Agta Indigenous Community Cultural Dialogue & Health Extension Outreach',
+        cadence: 'Bi-Annual Missions',
+        icon: '🤝',
+        desc: 'Community-immersion missions providing free pediatric wellness checks, hygiene kits, and culturally consultative discussions.'
+      },
+      {
+        title: 'Participatory Rural Appraisal (PRA) & Community Needs Assessment Clinics',
+        cadence: 'Semestral Clinics',
+        icon: '📋',
+        desc: 'Field exercises training researchers in community participatory mapping, seasonal calendars, and grassroots focus group facilitation.'
+      },
+      {
+        title: 'Youth Mental Health Campus Caravan & Peer-Counseling Bootcamps',
+        cadence: 'Bi-Annual Caravan',
+        icon: '🧠',
+        desc: 'Campus-wide awareness campaign offering psychological first aid workshops, stress management clinics, and anti-stigma dialogues.'
+      }
+    ]
+  },
+
+  expand: {
+    key: 'expand',
+    letter: 'E',
+    num: '08',
+    code: 'Pillar 08 • E: EXPAND',
+    title: 'EXPAND: Strategic Consortia, Institutional Linkages & Global Collaboration',
+    subtitle: 'Inter-institutional research networks, international academic exchanges, alumni tracking studies, CVHRDC & DOST consortia, and co-funded grants.',
+    emblem: 'assets/agenda/agenda-8-expand.png',
+    badges: [
+      { text: 'Pillar 08 • E', bg: '#7b1113', color: '#fff' },
+      { text: 'Joint: External Affairs & RDC Directorate', bg: '#0b3c5d', color: '#fff' },
+      { text: 'UN SDG 17: Partnerships', bg: '#19486a', color: '#fff' },
+      { text: 'DOST & CHED Networks', bg: '#d97706', color: '#fff' }
+    ],
+    priorityAreas: [
+      {
+        tag: 'Institutional Area 9',
+        title: 'Alumni Engagement and Tracking',
+        desc: 'Longitudinal tracer studies, licensure board passing predictors, overseas Filipino worker (OFW) healthcare mobility, and alumni research co-authorship.'
+      },
+      {
+        tag: 'Institutional Area 17',
+        title: 'Multi-Sectoral Partnerships & Research Consortia',
+        desc: 'Memoranda of agreement with DOST, DOH, PNP, CHED RO2, foreign universities, and private healthcare systems for pooled R&D funding.'
+      },
+      {
+        tag: 'Global Linkages',
+        title: 'Cross-Border Academic Exchange & Internationalization',
+        desc: 'Curriculum harmonization for ASEAN mobility, credit transfer validation in nursing and allied health, and foreign joint research grants.'
+      },
+      {
+        tag: 'Consortium Harmonization',
+        title: 'Regional Research Data Sharing & Ethics Harmonization',
+        desc: 'Unified bio-repository guidelines, regional multi-center clinical trials, and shared scientific computing resources under CVHRDC.'
+      }
+    ],
+    studies: [
+      {
+        title: 'Longitudinal Tracer Study of Allied Health and Criminology Graduates (2018–2024): Licensure, Mobility & Employer Satisfaction',
+        dept: 'Alumni Affairs & Quality Assurance',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'Comprehensive regional survey tracking 3,500+ MCNP and ISAP alumni regarding employment timelines, job alignment, and licensure factors.'
+      },
+      {
+        title: 'Regional Research Productivity and Co-Authorship Density Among CVHRDC Member Institutions',
+        dept: 'RDC Directorate',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'Bibliometric analysis of health science publication outputs, cross-institutional collaborations, and citation impact in Cagayan Valley.'
+      },
+      {
+        title: 'Internationalization Readiness and Cross-Border Curriculum Equivalency in Allied Health Professions in Northern Philippines',
+        dept: 'External Affairs Office',
+        status: 'Approved Proposal',
+        statusClass: 'status-proposal',
+        desc: 'Benchmarking MCNP nursing and radiologic technology syllabi against ASEAN University Network (AUN) quality assurance metrics.'
+      },
+      {
+        title: 'Assessment of Academic-Industry Partnership Synergies in Customs Brokerage Internships in Northern Luzon',
+        dept: 'College of Customs Administration',
+        status: 'Approved Proposal',
+        statusClass: 'status-proposal',
+        desc: 'Measuring student competency acquisition and job absorption rates through formal MOA linkages with freight forwarders and port operators.'
+      },
+      {
+        title: 'Impact of Institutional Research Incentive Grants on Faculty Citation Metrics and Scopus/WoS Publications',
+        dept: 'RDC Directorate',
+        status: 'Recommended',
+        statusClass: 'status-recommended',
+        desc: 'Evaluating institutional return-on-investment from seed research grants, publication cash incentives, and deloading policies.'
+      }
+    ],
+    activities: [
+      {
+        title: 'Annual Institutional Research General Assembly & Research Incentive Awards',
+        cadence: 'Annual Assembly',
+        icon: '🏅',
+        desc: 'Grand institutional gathering recognizing outstanding faculty and student researchers, publication authors, and patent awardees.'
+      },
+      {
+        title: 'Regional & International Academic Memorandum of Agreement (MOA) Signing Ceremonies',
+        cadence: 'Quarterly Signing',
+        icon: '🖋️',
+        desc: 'Formal bilateral partnership ceremonies formalizing faculty exchange, shared laboratory access, and joint research projects.'
+      },
+      {
+        title: 'Grand Alumni Research Tracer Survey & Homecoming Summit',
+        cadence: 'Annual Summit',
+        icon: '🌐',
+        desc: 'Systematic multi-channel survey campaign gathering employment feedback, graduate competencies, and alumni mentor nominations.'
+      },
+      {
+        title: 'CVHRDC & DOST Consortium Technical Review and Priority Setting Sessions',
+        cadence: 'Bi-Annual Sessions',
+        icon: '📑',
+        desc: 'Strategic inter-agency meetings aligning institutional research proposals with regional and national grant funding calls.'
+      }
+    ]
+  },
+
+  strengthen: {
+    key: 'strengthen',
+    letter: 'S',
+    num: '09',
+    code: 'Pillar 09 • S: STRENGTHEN',
+    title: 'STRENGTHEN: Trade Logistics, Institutional Governance & Policy Modernization',
+    subtitle: 'Cross-border trade corridors at Port of Irene and Port of Aparri, MSME financial resilience, ISO 9001:2015 QMS accreditation, and program evaluation.',
+    emblem: 'assets/agenda/agenda-9-strengthen.png',
+    badges: [
+      { text: 'Pillar 09 • S', bg: '#7b1113', color: '#fff' },
+      { text: 'Lead: Customs Admin & Business Management', bg: '#0b3c5d', color: '#fff' },
+      { text: 'UN SDG 8: Decent Work', bg: '#a21942', color: '#fff' },
+      { text: 'SDG 16: Strong Institutions', bg: '#00689d', color: '#fff' }
+    ],
+    priorityAreas: [
+      {
+        tag: 'Institutional Area 5',
+        title: 'Institutional Program Assessment and Evaluation',
+        desc: 'Formative and summative evaluation of academic programs, faculty performance indices, student retention predictive models, and institutional efficiency.'
+      },
+      {
+        tag: 'Institutional Area 7',
+        title: 'School Administration, Management & Quality Systems',
+        desc: 'ISO 9001:2015 Quality Management Systems audits, risk management registers, internal controls, and data privacy compliance (RA 10173).'
+      },
+      {
+        tag: 'Trade Logistics',
+        title: 'Regional Cross-Border Trade & Customs Facilitation',
+        desc: 'Port efficiency at Port of Irene and Port of Aparri, tariff classification disputes, customs bonded warehouse compliance, and logistics choke points.'
+      },
+      {
+        tag: 'MSME Economics',
+        title: 'SME Supply Chain Resilience & Financial Inclusion',
+        desc: 'Post-disaster micro-business survival strategies, digital wallet and cashless payment adoption in rural municipalities, and agricultural value chains.'
+      }
+    ],
+    studies: [
+      {
+        title: 'Port Clearance Efficiency and Tariff Classification Dispute Analysis at Port of Irene and Port of Aparri',
+        dept: 'College of Customs Administration',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'Evaluating processing times, automated customs declaration bottlenecks, and valuation disputes across Northern Luzon maritime entry ports.'
+      },
+      {
+        title: 'Cold Chain Logistics Gaps and Post-Harvest Spoilage for High-Value Vegetable Producers in Northern Cagayan',
+        dept: 'College of Business Administration',
+        status: 'Ongoing',
+        statusClass: 'status-ongoing',
+        desc: 'Quantifying farm-to-market temperature control deficiencies, transit spoilage rates, and refrigerated storage investment feasibility.'
+      },
+      {
+        title: 'Digital Financial Inclusion and FinTech Adoption Among Micro and Small Enterprises in Peñablanca Rural Markets',
+        dept: 'Business & Accountancy',
+        status: 'Approved Proposal',
+        statusClass: 'status-proposal',
+        desc: 'Analyzing QR-code payment usage, digital transaction security perceptions, and micro-loan access among public market vendors.'
+      },
+      {
+        title: 'Internal Quality Audit (IQA) Maturity and Continuous Quality Improvement in CHED-Accredited Higher Education Programs',
+        dept: 'Quality Management Office',
+        status: 'Approved Proposal',
+        statusClass: 'status-proposal',
+        desc: 'Assessing audit finding close-out rates, corrective action effectiveness, and faculty quality culture under ISO 9001:2015 standards.'
+      },
+      {
+        title: 'Ethical Leadership Frameworks and Faculty Retention Metrics in Private Higher Education Institutions in Region II',
+        dept: 'ISAP Graduate School of Business',
+        status: 'Recommended',
+        statusClass: 'status-recommended',
+        desc: 'Examining administrative transparent decision-making, organizational trust, burnout indices, and long-term academic staff loyalty.'
+      }
+    ],
+    activities: [
+      {
+        title: 'Annual Customs and Logistics Student Research Summit & Paper Competition',
+        cadence: 'Annual Summit',
+        icon: '🚢',
+        desc: 'Flagship symposium where customs administration scholars present empirical studies to Bureau of Customs officials and licensed brokers.'
+      },
+      {
+        title: 'Strategic Institutional Planning & QMS Quality Policy Review (2026–2030)',
+        cadence: 'Annual Retreat',
+        icon: '🏛️',
+        desc: 'Senior administration retreat reviewing operational KPIs, academic quality metrics, and alignment with CHED center of development standards.'
+      },
+      {
+        title: 'Research & Development Academic Festival (RDaFest) Oral & Poster Sessions',
+        cadence: 'Annual Festival',
+        icon: '🎉',
+        desc: 'Campus-wide multi-day research celebration featuring oral presentations, panel defenses, exhibits, and institutional awards.'
+      },
+      {
+        title: 'MSME Financial Literacy & Supply Chain Mentoring Clinic in Partnership with DTI',
+        cadence: 'Quarterly Clinic',
+        icon: '💼',
+        desc: 'Business faculty and student extension teams providing bookkeeping, cost accounting, and digital marketing clinics to local micro-entrepreneurs.'
+      }
+    ]
+  }
+};
+
+let currentAgendaKey = 'inspire';
+let currentAgendaTab = 'priority';
+
+function ensureAgendaModalExists() {
+  let modal = document.getElementById('agendaModal');
+  if (modal) return modal;
+
+  modal = document.createElement('div');
+  modal.id = 'agendaModal';
+  modal.className = 'agenda-modal-overlay';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('aria-labelledby', 'agendaModalTitle');
+
+  modal.innerHTML = `
+    <div class="agenda-modal-container">
+      <div class="agenda-modal-header">
+        <div class="agenda-modal-emblem-wrap">
+          <img id="agendaModalEmblem" src="" alt="Pillar Emblem">
+        </div>
+        <div class="agenda-modal-title-area">
+          <div class="agenda-modal-badges" id="agendaModalBadges"></div>
+          <h3 class="agenda-modal-title" id="agendaModalTitle"></h3>
+          <p class="agenda-modal-sub" id="agendaModalSub"></p>
+        </div>
+        <button type="button" class="agenda-modal-close" onclick="closeAgendaModal()" aria-label="Close dialog">&times;</button>
+      </div>
+
+      <div class="agenda-modal-nav-tabs" role="tablist">
+        <button type="button" class="agenda-tab-btn active" id="agendaTabBtnPriority" onclick="switchAgendaTab('priority')" role="tab" aria-selected="true">
+          <span>📌 Priority Areas</span>
+          <span class="agenda-tab-badge" id="agendaBadgePriorityCount">0</span>
+        </button>
+        <button type="button" class="agenda-tab-btn" id="agendaTabBtnStudies" onclick="switchAgendaTab('studies')" role="tab" aria-selected="false">
+          <span>🔬 Studies &amp; Research Topics</span>
+          <span class="agenda-tab-badge" id="agendaBadgeStudiesCount">0</span>
+        </button>
+        <button type="button" class="agenda-tab-btn" id="agendaTabBtnActivities" onclick="switchAgendaTab('activities')" role="tab" aria-selected="false">
+          <span>📅 Activities &amp; Milestones</span>
+          <span class="agenda-tab-badge" id="agendaBadgeActivitiesCount">0</span>
+        </button>
+      </div>
+
+      <div class="agenda-modal-body">
+        <div class="agenda-tab-pane active" id="agendaPanePriority" role="tabpanel"></div>
+        <div class="agenda-tab-pane" id="agendaPaneStudies" role="tabpanel"></div>
+        <div class="agenda-tab-pane" id="agendaPaneActivities" role="tabpanel"></div>
+      </div>
+
+      <div class="agenda-modal-footer">
+        <div class="agenda-switcher-label">Switch INNOVATES Pillar:</div>
+        <div class="agenda-pillar-switcher" id="agendaPillarSwitcher"></div>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  // Close when clicking overlay backdrop
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeAgendaModal();
+    }
+  });
+
+  return modal;
+}
+
+window.openAgendaModal = function (pillarKey, tabName = 'priority') {
+  if (!pillarKey) pillarKey = 'inspire';
+  // Normalize pillar key (e.g. 'pillar-inspire' or '01' or 'inspire')
+  const cleanKey = String(pillarKey).toLowerCase().replace(/^pillar-?/, '').trim();
+  const validKey = window.agendaData[cleanKey] ? cleanKey : 'inspire';
+  const data = window.agendaData[validKey];
+
+  currentAgendaKey = validKey;
+  const modal = ensureAgendaModalExists();
+
+  // Populate Header
+  const emblemImg = document.getElementById('agendaModalEmblem');
+  emblemImg.src = data.emblem;
+  emblemImg.alt = data.title;
+
+  const badgesWrap = document.getElementById('agendaModalBadges');
+  badgesWrap.innerHTML = data.badges.map(b =>
+    `<span class="dropdown-badge" style="background:${b.bg}; color:${b.color};">${b.text}</span>`
+  ).join('');
+
+  document.getElementById('agendaModalTitle').textContent = data.title;
+  document.getElementById('agendaModalSub').textContent = data.subtitle;
+
+  // Counts
+  document.getElementById('agendaBadgePriorityCount').textContent = data.priorityAreas.length;
+  document.getElementById('agendaBadgeStudiesCount').textContent = data.studies.length;
+  document.getElementById('agendaBadgeActivitiesCount').textContent = data.activities.length;
+
+  // Render Priority Areas Pane
+  const panePriority = document.getElementById('agendaPanePriority');
+  panePriority.innerHTML = `
+    <div class="agenda-priority-intro">
+      <strong>🎯 Strategic Priority Mapping:</strong> This pillar directly addresses core institutional research priority areas, regional socio-economic needs, and the National Higher Education Research Agenda (NHERA).
+    </div>
+    <div class="agenda-priority-grid">
+      ${data.priorityAreas.map(item => `
+        <div class="agenda-priority-card">
+          <span class="agenda-priority-tag">${item.tag}</span>
+          <h5>${item.title}</h5>
+          <p>${item.desc}</p>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  // Render Studies Pane
+  const paneStudies = document.getElementById('agendaPaneStudies');
+  paneStudies.innerHTML = `
+    <div style="background:#f0fdf4; border-left:4px solid #16a34a; padding:0.9rem 1.15rem; border-radius:0 8px 8px 0; margin-bottom:1.25rem; font-size:0.9rem; color:#14532d;">
+      <strong>🔬 Recommended &amp; Ongoing Studies:</strong> Formal research proposals, active investigations, and thesis capstone tracks aligned with ${data.title.split(':')[0]}.
+    </div>
+    <div class="agenda-study-list">
+      ${data.studies.map(study => `
+        <div class="agenda-study-card">
+          <div class="agenda-study-header">
+            <span class="agenda-study-dept">${study.dept}</span>
+            <span class="agenda-study-status ${study.statusClass || 'status-ongoing'}">${study.status}</span>
+          </div>
+          <h4 class="agenda-study-title">${study.title}</h4>
+          <p class="agenda-study-desc">${study.desc}</p>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  // Render Activities Pane
+  const paneActivities = document.getElementById('agendaPaneActivities');
+  paneActivities.innerHTML = `
+    <div style="background:#fffbeb; border-left:4px solid #d97706; padding:0.9rem 1.15rem; border-radius:0 8px 8px 0; margin-bottom:1.25rem; font-size:0.9rem; color:#78350f;">
+      <strong>📅 R&amp;D Programs, Workshops &amp; Colloquiums:</strong> Regular institutional activities, proposal defense cycles, technical clinics, and symposiums driving this agenda.
+    </div>
+    <div class="agenda-activity-list">
+      ${data.activities.map(act => `
+        <div class="agenda-activity-item">
+          <div class="agenda-activity-icon">${act.icon}</div>
+          <div class="agenda-activity-info">
+            <div class="agenda-activity-header">
+              <h4 class="agenda-activity-title">${act.title}</h4>
+              <span class="agenda-activity-cadence">${act.cadence}</span>
+            </div>
+            <p class="agenda-activity-desc">${act.desc}</p>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  // Render Pillar Switcher in footer
+  const switcherWrap = document.getElementById('agendaPillarSwitcher');
+  const pillarsList = [
+    { k: 'inspire', label: 'I: INSPIRE' },
+    { k: 'nurture', label: 'N: NURTURE' },
+    { k: 'navigate', label: 'N: NAVIGATE' },
+    { k: 'operationalize', label: 'O: OPERATIONALIZE' },
+    { k: 'value', label: 'V: VALUE' },
+    { k: 'advance', label: 'A: ADVANCE' },
+    { k: 'transform', label: 'T: TRANSFORM' },
+    { k: 'expand', label: 'E: EXPAND' },
+    { k: 'strengthen', label: 'S: STRENGTHEN' }
+  ];
+
+  switcherWrap.innerHTML = pillarsList.map(p => `
+    <button type="button" class="pillar-pill-btn ${p.k === validKey ? 'active' : ''}" onclick="openAgendaModal('${p.k}', currentAgendaTab)">
+      ${p.label}
+    </button>
+  `).join('');
+
+  // Switch to requested tab
+  switchAgendaTab(tabName);
+
+  // Show modal
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+};
+
+window.switchAgendaTab = function (tabName) {
+  currentAgendaTab = tabName;
+  const tabs = ['priority', 'studies', 'activities'];
+
+  tabs.forEach(t => {
+    const btn = document.getElementById(`agendaTabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`);
+    const pane = document.getElementById(`agendaPane${t.charAt(0).toUpperCase() + t.slice(1)}`);
+    if (btn && pane) {
+      if (t === tabName) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        pane.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+        pane.classList.remove('active');
+      }
+    }
+  });
+};
+
+window.closeAgendaModal = function () {
+  const modal = document.getElementById('agendaModal');
+  if (modal) {
+    modal.classList.remove('active');
+  }
+  document.body.style.overflow = '';
+};
+
+// Global escape key listener for agenda modal
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    const modal = document.getElementById('agendaModal');
+    if (modal && modal.classList.contains('active')) {
+      closeAgendaModal();
+    }
+  }
+});
+
+// Auto-check URL parameters or hash on load
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const pillarParam = params.get('pillar');
+  if (pillarParam && window.agendaData[pillarParam.toLowerCase()]) {
+    setTimeout(() => {
+      openAgendaModal(pillarParam);
+    }, 300);
+  }
+});
+
 
