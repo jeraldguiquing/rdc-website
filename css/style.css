@@ -728,7 +728,7 @@ body.nav-open {
 /* 18th CTA Card: Completes the 6-column grid cleanly */
 .sdg-goal-cta {
   background: linear-gradient(135deg, #0d3b73 0%, #1e5ea8 100%);
-  border: 2px dashed rgba(212, 175, 55, 0.6);
+  border: 2px dashed #000000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -902,7 +902,7 @@ body.nav-open {
   background: rgba(0, 0, 0, 0.2);
   padding: 1rem;
   border-radius: 10px;
-  border-left: 4px solid var(--gold);
+  border-left: 4px solid #000000;
 }
 
 .announcement-date {
@@ -1131,7 +1131,7 @@ body.nav-open {
 
 .agenda-card:hover {
   transform: translateY(-5px);
-  border-color: var(--mcnp-green);
+  border-color: #000000;
   box-shadow: var(--card-shadow);
 }
 
@@ -1210,8 +1210,8 @@ body.nav-open {
 
 .innovates-showcase-card:hover {
   transform: translateY(-5px);
-  border-color: #7b1113;
-  box-shadow: 0 10px 28px rgba(123, 17, 19, 0.12);
+  border-color: #000000;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
 }
 
 .innovates-letter-badge {
@@ -1268,7 +1268,7 @@ body.nav-open {
 }
 
 .agenda-pillar-card:hover {
-  border-color: #7b1113;
+  border-color: #000000;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
@@ -1313,8 +1313,8 @@ body.nav-open {
 
 .agenda-pillar-emblem:hover {
   transform: translateY(-3px) scale(1.03);
-  border-color: #7b1113;
-  box-shadow: 0 6px 20px rgba(123, 17, 19, 0.16);
+  border-color: #000000;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
 }
 
 .agenda-pillar-emblem::after {
@@ -1576,7 +1576,7 @@ body.nav-open {
 .agenda-narrative-box {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-left: 4px solid #7b1113;
+  border-left: 4px solid #000000;
   border-radius: 0 10px 10px 0;
   padding: 1.15rem 1.4rem;
   margin-bottom: 1.25rem;
@@ -1594,7 +1594,7 @@ body.nav-open {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #7b1113;
+  color: #000000;
 }
 .agenda-narrative-lead {
   font-size: 0.76rem;
@@ -1612,8 +1612,8 @@ body.nav-open {
   display: flex;
   gap: 1rem;
   align-items: flex-start;
-  background: linear-gradient(135deg, rgba(13, 92, 58, 0.06), rgba(184, 151, 38, 0.08));
-  border: 1px solid rgba(13, 92, 58, 0.25);
+  background: #f8fafc;
+  border: 1px solid #000000;
   border-radius: 10px;
   padding: 1.2rem 1.35rem;
   margin-bottom: 1.5rem;
@@ -1668,8 +1668,8 @@ body.nav-open {
   transition: all 0.2s ease;
 }
 .agenda-outcome-card:hover {
-  border-color: #0d5c3a;
-  box-shadow: 0 4px 14px rgba(13, 92, 58, 0.06);
+  border-color: #000000;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
 }
 .agenda-outcome-number {
   width: 28px;
@@ -1780,7 +1780,7 @@ body.nav-open {
 /* Tab 1: Priority Areas */
 .agenda-priority-intro {
   background: #f8fafc;
-  border-left: 4px solid #7b1113;
+  border-left: 4px solid #000000;
   border-radius: 0 8px 8px 0;
   padding: 1rem 1.25rem;
   margin-bottom: 1.5rem;
@@ -1851,8 +1851,8 @@ body.nav-open {
 }
 
 .agenda-study-card:hover {
-  border-color: #0d5c3a;
-  box-shadow: 0 4px 16px rgba(13, 92, 58, 0.08);
+  border-color: #000000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .agenda-study-header {
@@ -1868,7 +1868,7 @@ body.nav-open {
   font-weight: 700;
   color: #0b3c5d;
   background: #f0f7ff;
-  border: 1px solid #bae6fd;
+  border: 1px solid #cbd5e1;
   padding: 0.2rem 0.6rem;
   border-radius: 6px;
 }
@@ -2268,8 +2268,8 @@ body.nav-open {
 
 .mcnp-journal-item:hover {
   transform: translateY(-3px);
-  border-color: var(--mcnp-green);
-  box-shadow: 0 8px 24px rgba(13, 92, 58, 0.12);
+  border-color: #000000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .mcnp-journal-cover-wrap {
@@ -2310,8 +2310,8 @@ body.nav-open {
 
 .isap-journal-item:hover {
   transform: translateY(-3px);
-  border-color: var(--isap-blue);
-  box-shadow: 0 8px 24px rgba(11, 60, 93, 0.12);
+  border-color: #000000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .isap-journal-item:hover .mcnp-journal-cover-wrap,
@@ -2360,8 +2360,8 @@ body.nav-open {
 
 .mcnp-journal-card:hover {
   transform: translateY(-5px);
-  border-color: var(--mcnp-green);
-  box-shadow: 0 12px 30px rgba(13, 92, 58, 0.12);
+  border-color: #000000;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
 .mcnp-journal-card-top {
@@ -3253,7 +3253,7 @@ body.nav-open {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   text-align: left;
-  border-bottom: 2px solid var(--gold);
+  border-bottom: 2px solid #000000;
 }
 
 .rdc-sop-matrix th.col-step {
@@ -3343,7 +3343,7 @@ body.nav-open {
   font-size: 0.82rem;
   line-height: 1.35;
   margin-bottom: 0.35rem;
-  border: 1px solid #bfdbfe;
+  border: 1px solid #000000;
 }
 
 .sop-person-list {
@@ -3364,7 +3364,7 @@ body.nav-open {
   font-weight: 600;
   font-size: 0.82rem;
   margin-bottom: 0.35rem;
-  border: 1px solid #fef08a;
+  border: 1px solid #000000;
 }
 
 .sop-req-items {
@@ -3564,9 +3564,9 @@ body.nav-open {
 
 .advocacy-badge {
   display: inline-block;
-  background: rgba(212, 175, 55, 0.25);
-  color: var(--gold);
-  border: 1px solid rgba(212, 175, 55, 0.5);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid #000000;
   padding: 0.3rem 0.8rem;
   border-radius: 50px;
   font-size: 0.78rem;
@@ -3583,7 +3583,7 @@ body.nav-open {
   width: 3.25rem;
   height: 3.25rem;
   margin-bottom: 0.85rem;
-  border: 2px solid var(--gold);
+  border: 2px solid #000000;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.14);
   color: #fff;
@@ -4356,7 +4356,7 @@ body.nav-open {
 
 .sdg-event-item {
   padding: 0.8rem 0.9rem;
-  border-left: 3px solid var(--gold);
+  border-left: 3px solid #000000;
   background: #f8fafc;
   border-radius: 0 6px 6px 0;
 }
@@ -6013,7 +6013,7 @@ textarea.form-control {
 .about-service-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-  border-color: var(--gold);
+  border-color: #000000;
 }
 
 .about-service-icon {
