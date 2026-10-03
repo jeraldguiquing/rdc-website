@@ -2092,16 +2092,6 @@ body.nav-open {
   overflow: hidden;
 }
 
-.iwander-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  background: linear-gradient(90deg, #7b1113, #b89726, #0d5c3a, #0b3c5d);
-}
-
 .iwander-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 40px -10px rgba(11, 60, 93, 0.15);
