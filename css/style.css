@@ -1547,6 +1547,211 @@ body.nav-open {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* INNOVATES Strategic Focus, Outcomes & Subtopics */
+.agenda-narrative-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #7b1113;
+  border-radius: 0 10px 10px 0;
+  padding: 1.15rem 1.4rem;
+  margin-bottom: 1.25rem;
+}
+.agenda-narrative-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+}
+.agenda-narrative-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #7b1113;
+}
+.agenda-narrative-lead {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #0b3c5d;
+}
+.agenda-narrative-p {
+  font-size: 0.94rem;
+  color: #334155;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.agenda-focus-box {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: linear-gradient(135deg, rgba(13, 92, 58, 0.06), rgba(184, 151, 38, 0.08));
+  border: 1px solid rgba(13, 92, 58, 0.25);
+  border-radius: 10px;
+  padding: 1.2rem 1.35rem;
+  margin-bottom: 1.5rem;
+}
+.agenda-focus-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.agenda-focus-content {
+  flex: 1;
+}
+.agenda-focus-label {
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #0d5c3a;
+  margin-bottom: 0.35rem;
+}
+.agenda-focus-p {
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.agenda-subpane-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 0.85rem;
+}
+
+.agenda-outcomes-wrap {
+  margin-top: 1rem;
+}
+.agenda-outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.agenda-outcome-card {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1rem 1.15rem;
+  transition: all 0.2s ease;
+}
+.agenda-outcome-card:hover {
+  border-color: #0d5c3a;
+  box-shadow: 0 4px 14px rgba(13, 92, 58, 0.06);
+}
+.agenda-outcome-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #7b1113;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.agenda-outcome-text {
+  font-size: 0.9rem;
+  color: #334155;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Priority Research Subtopics Grid */
+.agenda-subtopics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 1.25rem;
+}
+.agenda-subtopics-count-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: #f1f5f9;
+  color: #0b3c5d;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  border: 1px solid #cbd5e1;
+}
+
+.agenda-subtopic-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.1rem;
+}
+.agenda-subtopic-cat-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.15rem;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+.agenda-subtopic-cat-card:hover {
+  border-color: #94a3b8;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+.agenda-cat-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+.agenda-cat-name {
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+.agenda-cat-count {
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: #f8fafc;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+  padding: 0.15rem 0.45rem;
+  border-radius: 10px;
+}
+.agenda-cat-items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.agenda-cat-item {
+  font-size: 0.86rem;
+  color: #475569;
+  line-height: 1.45;
+  display: flex;
+  gap: 0.45rem;
+  align-items: flex-start;
+}
+.agenda-item-bullet {
+  color: #7b1113;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
 /* Tab 1: Priority Areas */
 .agenda-priority-intro {
   background: #f8fafc;
