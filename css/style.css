@@ -2140,7 +2140,7 @@ body.nav-open {
 }
 
 .iwander-card:hover .iwander-card-title {
-  color: #7b1113;
+  color: #000000;
 }
 
 .iwander-card-desc {
@@ -2155,20 +2155,23 @@ body.nav-open {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #0d5c3a, #0b3c5d);
+  background: #000000;
   color: #ffffff;
-  padding: 0.75rem 1.75rem;
+  padding: 0.8rem 1.9rem;
   border-radius: 30px;
   font-weight: 700;
   font-size: 0.95rem;
-  box-shadow: 0 4px 14px rgba(13, 92, 58, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
   transition: all 0.25s ease;
+  border: 1px solid #000000;
 }
 
 .iwander-card:hover .iwander-action-btn {
-  background: linear-gradient(135deg, #7b1113, #b89726);
+  background: #1e293b;
+  color: #ffffff;
+  border-color: #1e293b;
   transform: translateX(4px);
-  box-shadow: 0 6px 18px rgba(123, 17, 19, 0.3);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
 .iwander-strip-wrap {
@@ -2216,7 +2219,7 @@ body.nav-open {
   justify-content: center;
   width: 20px;
   height: 20px;
-  background: #7b1113;
+  background: #000000;
   color: #ffffff;
   border-radius: 50%;
   font-size: 0.72rem;
@@ -2224,16 +2227,16 @@ body.nav-open {
 }
 
 .iwander-strip-pill:hover {
-  background: #7b1113;
+  background: #000000;
   color: #ffffff;
-  border-color: #7b1113;
+  border-color: #000000;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(123, 17, 19, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .iwander-strip-pill:hover .strip-letter {
   background: #ffffff;
-  color: #7b1113;
+  color: #000000;
 }
 
 @media (max-width: 640px) {
