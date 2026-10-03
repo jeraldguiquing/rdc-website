@@ -2419,14 +2419,14 @@ function ensureAgendaModalExists() {
       <div class="agenda-modal-nav-tabs" role="tablist">
         <button type="button" class="agenda-tab-btn active" id="agendaTabBtnFocus" onclick="switchAgendaTab('focus')" role="tab" aria-selected="true">
           <span>🎯 Focus &amp; Outcomes</span>
-          <span class="agenda-tab-badge" id="agendaBadgeOutcomesCount">4 Outcomes</span>
+          <span class="agenda-tab-badge" id="agendaBadgeOutcomesCount">4</span>
         </button>
         <button type="button" class="agenda-tab-btn" id="agendaTabBtnSubtopics" onclick="switchAgendaTab('subtopics')" role="tab" aria-selected="false">
           <span>📋 Priority Subtopics</span>
-          <span class="agenda-tab-badge" id="agendaBadgeSubtopicsCount">0 Subtopics</span>
+          <span class="agenda-tab-badge" id="agendaBadgeSubtopicsCount">0</span>
         </button>
         <button type="button" class="agenda-tab-btn" id="agendaTabBtnStudies" onclick="switchAgendaTab('studies')" role="tab" aria-selected="false">
-          <span>🔬 Active Studies &amp; Activities</span>
+          <span>🔬 Studies &amp; Activities</span>
           <span class="agenda-tab-badge" id="agendaBadgeStudiesCount">0</span>
         </button>
       </div>
@@ -2475,15 +2475,15 @@ window.openAgendaModal = function (pillarKey, tabName = 'focus') {
     `<span class="dropdown-badge" style="background:${b.bg}; color:${b.color};">${b.text}</span>`
   ).join('');
 
-  // Title & Subtitle
+  // Title & Subtitle (Show concise Focus statement in header)
   document.getElementById('agendaModalTitle').textContent = data.title;
-  document.getElementById('agendaModalSub').textContent = data.subtitle;
+  document.getElementById('agendaModalSub').textContent = data.focus;
 
-  // Counts
+  // Counts (Clean compact numbers)
   const totalSubtopics = data.subtopicCategories.reduce((acc, c) => acc + c.items.length, 0);
-  document.getElementById('agendaBadgeOutcomesCount').textContent = `${data.expectedOutcomes.length} Outcomes`;
-  document.getElementById('agendaBadgeSubtopicsCount').textContent = `${totalSubtopics} Subtopics`;
-  document.getElementById('agendaBadgeStudiesCount').textContent = `${data.studies.length + data.activities.length}`;
+  document.getElementById('agendaBadgeOutcomesCount').textContent = data.expectedOutcomes.length;
+  document.getElementById('agendaBadgeSubtopicsCount').textContent = totalSubtopics;
+  document.getElementById('agendaBadgeStudiesCount').textContent = data.studies.length + data.activities.length;
 
   // Render Pane 1: Focus & Expected Outcomes
   const paneFocus = document.getElementById('agendaPaneFocus');
