@@ -2679,3 +2679,131 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 300);
   }
 });
+
+/* ==========================================================================
+   12. RESEARCH TRAINING CALENDAR & FAQ ACCORDION INTERACTIVITY
+   ========================================================================== */
+
+// --- Training Calendar Filtering & Search ---
+window.filterCalendar = function(category, btnElement) {
+  const filterBtns = document.querySelectorAll('.cal-filter-btn');
+  filterBtns.forEach(btn => btn.classList.remove('active'));
+  if (btnElement) btnElement.classList.add('active');
+
+  const rows = document.querySelectorAll('.calendar-row');
+  const searchInput = document.getElementById('calendarSearchInput');
+  const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+
+  rows.forEach(row => {
+    const rowCategory = row.getAttribute('data-category') || '';
+    const rowText = row.textContent.toLowerCase();
+
+    const matchesCategory = (category === 'all' || rowCategory.includes(category));
+    const matchesQuery = !query || rowText.includes(query);
+
+    if (matchesCategory && matchesQuery) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+
+  // Check empty state
+  const visibleRows = document.querySelectorAll('.calendar-row:not([style*="display: none"])');
+  let emptyMsg = document.getElementById('calendarEmptyMsg');
+  if (visibleRows.length === 0) {
+    if (!emptyMsg) {
+      const tbody = document.querySelector('.calendar-table tbody');
+      if (tbody) {
+        emptyMsg = document.createElement('tr');
+        emptyMsg.id = 'calendarEmptyMsg';
+        emptyMsg.innerHTML = '<td colspan="4" style="text-align:center; padding: 2.5rem; color: #64748b;">No scheduled workshops found matching your criteria. Contact the secretariat to suggest or request a workshop session.</td>';
+        tbody.appendChild(emptyMsg);
+      }
+    }
+  } else if (emptyMsg) {
+    emptyMsg.remove();
+  }
+};
+
+window.searchCalendar = function(query) {
+  const activeBtn = document.querySelector('.cal-filter-btn.active');
+  const category = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
+  window.filterCalendar(category, activeBtn);
+};
+
+// --- FAQ Filtering, Search & Expand / Collapse ---
+window.toggleAllFaqs = function(expand) {
+  const faqCards = document.querySelectorAll('.faq-card');
+  faqCards.forEach(card => {
+    if (expand) {
+      card.setAttribute('open', '');
+    } else {
+      card.removeAttribute('open');
+    }
+  });
+};
+
+window.filterFaqCategory = function(category, chipElement) {
+  const chips = document.querySelectorAll('.faq-chip');
+  chips.forEach(c => c.classList.remove('active'));
+  if (chipElement) chipElement.classList.add('active');
+
+  const searchInput = document.getElementById('faqSearchInput');
+  const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+  const faqCards = document.querySelectorAll('.faq-card');
+
+  faqCards.forEach(card => {
+    const cardCat = card.getAttribute('data-category') || '';
+    const text = card.textContent.toLowerCase();
+
+    const matchesCat = (category === 'all' || cardCat.includes(category));
+    const matchesQuery = !query || text.includes(query);
+
+    if (matchesCat && matchesQuery) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  const visibleFaqs = document.querySelectorAll('.faq-card:not([style*="display: none"])');
+  let emptyMsg = document.getElementById('faqEmptyMsg');
+  if (visibleFaqs.length === 0) {
+    if (!emptyMsg) {
+      const container = document.querySelector('.faq-container');
+      if (container) {
+        emptyMsg = document.createElement('div');
+        emptyMsg.id = 'faqEmptyMsg';
+        emptyMsg.style.cssText = 'text-align: center; padding: 2.5rem 1rem; color: #64748b; background: #fff; border-radius: 10px; border: 1px dashed var(--border-color);';
+        emptyMsg.innerHTML = '<p style="font-weight: 600; margin-bottom: 0.5rem;">No matching frequently asked questions found.</p><p style="font-size: 0.88rem;">Have a specific question? Please reach out via our contact inquiry form or email us at <a href="mailto:researchoffice@mcnp.edu.ph" style="color:var(--mcnp-green);text-decoration:underline;">researchoffice@mcnp.edu.ph</a>.</p>';
+        container.appendChild(emptyMsg);
+      }
+    }
+  } else if (emptyMsg) {
+    emptyMsg.remove();
+  }
+};
+
+window.searchFaqs = function(query) {
+  const activeChip = document.querySelector('.faq-chip.active');
+  const category = activeChip ? activeChip.getAttribute('data-category') : 'all';
+  window.filterFaqCategory(category, activeChip);
+};
+
+// Auto initialize on load if relevant
+document.addEventListener('DOMContentLoaded', () => {
+  const calSearch = document.getElementById('calendarSearchInput');
+  if (calSearch) {
+    calSearch.addEventListener('input', (e) => {
+      window.searchCalendar(e.target.value);
+    });
+  }
+
+  const faqSearch = document.getElementById('faqSearchInput');
+  if (faqSearch) {
+    faqSearch.addEventListener('input', (e) => {
+      window.searchFaqs(e.target.value);
+    });
+  }
+});

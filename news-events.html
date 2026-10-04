@@ -370,6 +370,9 @@
         <span>📞 +639989847781</span>
       </div>
       <div class="topbar-right">
+        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;">❓ FAQs</a>
+        <a href="news-events.html#training-calendar" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">📅 Training Calendar</a>
+        
         <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
       </div>
     </div>
@@ -497,6 +500,14 @@
       </div>
       <h1>News &amp; Events</h1>
       <p>Explore research breakthroughs, institutional updates, scholarly colloquiums, workshops, and milestones across MCNP &amp; ISAP.</p>
+      <div style="margin-top: 1.25rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <a href="#training-calendar" class="btn btn-sm btn-gold" style="display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 700;">
+          <span>📅 View Research Training Calendar (2026–2027) &darr;</span>
+        </a>
+        <a href="contact.html#faq" class="btn btn-sm btn-outline-white" style="display: inline-flex; align-items: center; gap: 0.4rem;">
+          <span>❓ Research FAQs</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -1928,6 +1939,230 @@
       </div>
       </section>
     </div>
+  
+  <!-- ==========================================================================
+       ITEM 24: RESEARCH TRAINING CALENDAR & WORKSHOPS SCHEDULE
+       ========================================================================== -->
+  <section class="calendar-section" id="training-calendar">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">Capability-Building Roadmap</span>
+        <h2 class="section-title">📅 Research Training &amp; Workshop Calendar (2026–2027)</h2>
+        <p class="section-desc">
+          Official institutional schedule of research capability-building seminars, statistical clinics, ethics review workshops, and manuscript packaging colloquiums for faculty, researchers, and students across MCNP and ISAP.
+        </p>
+      </div>
+
+      <div class="calendar-topbar">
+        <div class="calendar-filters">
+          <button type="button" class="cal-filter-btn active" data-filter="all" onclick="filterCalendar('all', this)">All Programs (7)</button>
+          <button type="button" class="cal-filter-btn" data-filter="mcnp" onclick="filterCalendar('mcnp', this)">Health Sciences (MCNP)</button>
+          <button type="button" class="cal-filter-btn" data-filter="isap" onclick="filterCalendar('isap', this)">Multidisciplinary (ISAP)</button>
+          <button type="button" class="cal-filter-btn" data-filter="ethics" onclick="filterCalendar('ethics', this)">Ethics &amp; Integrity</button>
+          <button type="button" class="cal-filter-btn" data-filter="stats" onclick="filterCalendar('stats', this)">Biostatistics &amp; Analysis</button>
+          <button type="button" class="cal-filter-btn" data-filter="grants" onclick="filterCalendar('grants', this)">Grants &amp; Packaging</button>
+        </div>
+
+        <div class="calendar-search-box">
+          <span>🔍</span>
+          <input type="text" id="calendarSearchInput" placeholder="Search workshops, speakers, venues...">
+        </div>
+      </div>
+
+      <div class="calendar-table-wrap">
+        <table class="calendar-table">
+          <thead>
+            <tr>
+              <th style="width: 140px;">Date &amp; Schedule</th>
+              <th style="width: 360px;">Workshop Title &amp; Scope</th>
+              <th style="width: 240px;">Target Participants</th>
+              <th style="width: 260px;">Venue &amp; Resource Lead</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Row 1: Advanced Biostatistics -->
+            <tr class="calendar-row" data-category="mcnp stats">
+              <td class="cal-date-cell">
+                <div class="cal-date-badge">
+                  <span class="cal-date-month">OCT</span>
+                  <span class="cal-date-day">23–24</span>
+                  <span class="cal-date-year">2026</span>
+                </div>
+              </td>
+              <td class="cal-title-cell">
+                <span class="cal-pill cal-pill-mcnp">MCNP Health Sciences</span>
+                <h4>Advanced Biostatistics &amp; Quantitative Modeling with SPSS and Jamovi</h4>
+                <div class="cal-title-desc">Hands-on statistical workshop on multivariate regression, survival curve analysis, parametric vs. non-parametric hypothesis testing, and statistical clearance preparation (Form 011).</div>
+              </td>
+              <td>
+                <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">Faculty Researchers &amp; Clinical Advisers</div>
+                <div style="font-size: 0.78rem; color: #64748b;">Nursing, Pharmacy, Radiologic Technology, Medical Laboratory Science</div>
+              </td>
+              <td>
+                <div style="font-size: 0.85rem; color: #1e293b;">📍 MCNP Computer Lab B &amp; Hybrid Zoom</div>
+                <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: Institutional Biostatistics Unit &amp; Guest Data Scientist</div>
+              </td>
+            </tr>
+
+            <!-- Row 2: Ethics Review -->
+            <tr class="calendar-row" data-category="ethics mcnp isap">
+              <td class="cal-date-cell">
+                <div class="cal-date-badge">
+                  <span class="cal-date-month">NOV</span>
+                  <span class="cal-date-day">12–13</span>
+                  <span class="cal-date-year">2026</span>
+                </div>
+              </td>
+              <td class="cal-title-cell">
+                <span class="cal-pill cal-pill-unified">Institutional Unified</span>
+                <h4>National Research Ethics Protocol Review &amp; PHREB Compliance Seminar</h4>
+                <div class="cal-title-desc">Standards of the Philippine Health Research Ethics Board (PHREB Level 1), protocol vulnerability assessments, participant informed consent pledges, and expeditious review routing.</div>
+              </td>
+              <td>
+                <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">IERC Members, Faculty &amp; Thesis Proponents</div>
+                <div style="font-size: 0.78rem; color: #64748b;">All Health &amp; Multidisciplinary Academic Programs</div>
+              </td>
+              <td>
+                <div style="font-size: 0.85rem; color: #1e293b;">📍 Audio-Visual Center (AVC) &amp; Livestream</div>
+                <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: Institutional Ethics Review Committee (IERC)</div>
+              </td>
+            </tr>
+
+            <!-- Row 3: Turnitin & Publishing -->
+            <tr class="calendar-row" data-category="isap mcnp grants">
+              <td class="cal-date-cell">
+                <div class="cal-date-badge">
+                  <span class="cal-date-month">DEC</span>
+                  <span class="cal-date-day">04</span>
+                  <span class="cal-date-year">2026</span>
+                </div>
+              </td>
+              <td class="cal-title-cell">
+                <span class="cal-pill cal-pill-unified">Institutional Unified</span>
+                <h4>Turnitin Screening &amp; IMRAD Manuscript Structuring for High-Impact Indexing</h4>
+                <div class="cal-title-desc">Navigating similarity index thresholds (&le;15%), avoiding mosaic plagiarism, structured abstracts, ORCID registration, and preparing manuscripts for OJS and Scopus/WoS submission.</div>
+              </td>
+              <td>
+                <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">Publishing Faculty, Authors &amp; Coordinators</div>
+                <div style="font-size: 0.78rem; color: #64748b;">MCNP &amp; ISAP Faculty Authors, Journal Editors</div>
+              </td>
+              <td>
+                <div style="font-size: 0.85rem; color: #1e293b;">📍 ISAP Computer Laboratory 1</div>
+                <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: RDC Editorial Secretariat &amp; Plagiarism Officer</div>
+              </td>
+            </tr>
+
+            <!-- Row 4: Qualitative & NVivo -->
+            <tr class="calendar-row" data-category="isap">
+              <td class="cal-date-cell">
+                <div class="cal-date-badge">
+                  <span class="cal-date-month">JAN</span>
+                  <span class="cal-date-day">15–16</span>
+                  <span class="cal-date-year">2027</span>
+                </div>
+              </td>
+              <td class="cal-title-cell">
+                <span class="cal-pill cal-pill-isap">ISAP Multidisciplinary</span>
+                <h4>Qualitative Inquiry, Thematic Analysis &amp; Computer-Assisted Coding (NVivo / MAXQDA)</h4>
+                <div class="cal-title-desc">Phenomenological methods, narrative inquiries, codebook development, inter-coder reliability, and thematic clustering in social science and criminal justice studies.</div>
+              </td>
+              <td>
+                <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">Criminology, Business &amp; Education Faculty</div>
+                <div style="font-size: 0.78rem; color: #64748b;">ISAP College of Criminal Justice, CBA, CICT, CTE</div>
+              </td>
+              <td>
+                <div style="font-size: 0.85rem; color: #1e293b;">📍 ISAP Amphitheater &amp; Media Studio</div>
+                <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: Senior Qualitative Research Fellows</div>
+              </td>
+            </tr>
+
+            <!-- Row 5: Policy Translation -->
+            <tr class="calendar-row" data-category="isap mcnp">
+              <td class="cal-date-cell">
+                <div class="cal-date-badge">
+                  <span class="cal-date-month">FEB</span>
+                  <span class="cal-date-day">19</span>
+                  <span class="cal-date-year">2027</span>
+                </div>
+              </td>
+              <td class="cal-title-cell">
+                <span class="cal-pill cal-pill-unified">Institutional Unified</span>
+                <h4>Translating Academic Findings into Policy Briefs &amp; Community Utilization Interventions</h4>
+                <div class="cal-title-desc">The 4 pathways of utilization: transforming clinical and empirical findings into hospital care manuals, municipal ordinances, technology transfer assets, and instructional modules.</div>
+              </td>
+              <td>
+                <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">Department Chairs &amp; Community Extension Officers</div>
+                <div style="font-size: 0.78rem; color: #64748b;">All Academic Deans, Research Directors, LGU Liaisons</div>
+              </td>
+              <td>
+                <div style="font-size: 0.85rem; color: #1e293b;">📍 RDC Boardroom, Administration Building</div>
+                <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: Research Director Dr. Ryan C. Fontanilla</div>
+              </td>
+            </tr>
+
+            <!-- Row 6: External Grants Proposal -->
+            <tr class="calendar-row" data-category="grants mcnp isap">
+              <td class="cal-date-cell">
+                <div class="cal-date-badge">
+                  <span class="cal-date-month">MAR</span>
+                  <span class="cal-date-day">11–12</span>
+                  <span class="cal-date-year">2027</span>
+                </div>
+              </td>
+              <td class="cal-title-cell">
+                <span class="cal-pill cal-pill-unified">Grants &amp; Funding</span>
+                <h4>CHED, DOST, &amp; PCHRD External Grants Proposal Packaging Colloquium</h4>
+                <div class="cal-title-desc">Comprehensive grant proposal writing masterclass: line-item budgeting (LIB), gender responsiveness (GAD checklist), milestone deliverable formulation, and external funding compliance.</div>
+              </td>
+              <td>
+                <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">Tenured Faculty Researchers &amp; Interdisciplinary Clusters</div>
+                <div style="font-size: 0.78rem; color: #64748b;">MCNP &amp; ISAP Research Leads</div>
+              </td>
+              <td>
+                <div style="font-size: 0.85rem; color: #1e293b;">📍 MCNP-ISAP Multi-Purpose Hall</div>
+                <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: RDC Grants Unit with DOST Region 02 Experts</div>
+              </td>
+            </tr>
+
+            <!-- Row 7: Annual Research Congress -->
+            <tr class="calendar-row" data-category="mcnp isap">
+              <td class="cal-date-cell">
+                <div class="cal-date-badge">
+                  <span class="cal-date-month">APR</span>
+                  <span class="cal-date-day">22–23</span>
+                  <span class="cal-date-year">2027</span>
+                </div>
+              </td>
+              <td class="cal-title-cell">
+                <span class="cal-pill cal-pill-unified">Institutional Culmination</span>
+                <h4>2027 MCNP &amp; ISAP Annual Institutional Student &amp; Faculty Research Congress</h4>
+                <div class="cal-title-desc">Twin-campus oral defense symposium, best undergraduate capstone awards, digital scientific poster competition, and presentation of institutional innovation projects.</div>
+              </td>
+              <td>
+                <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">All Students, Faculty Authors &amp; External Reviewers</div>
+                <div style="font-size: 0.78rem; color: #64748b;">University-wide Participation</div>
+              </td>
+              <td>
+                <div style="font-size: 0.85rem; color: #1e293b;">📍 MCNP-ISAP Gymnasium &amp; Breakout Rooms</div>
+                <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: MCNP &amp; ISAP Research Council &amp; Academic Deans</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; padding: 1.25rem 1.5rem; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 8px;">
+        <div style="font-size: 0.88rem; color: #475569;">
+          💡 <strong>Specialized Training Request:</strong> Need a customized departmental training session, plagiarism briefing, or thesis adviser workshop? Contact the Secretariat at <a href="mailto:researchoffice@mcnp.edu.ph" style="color:var(--mcnp-green);font-weight:600;">researchoffice@mcnp.edu.ph</a>.
+        </div>
+        <div style="display: flex; gap: 0.75rem;">
+          <button type="button" onclick="window.print()" class="btn btn-sm btn-outline-white" style="color: var(--dark-text); border-color: #cbd5e1; font-size: 0.78rem;">🖨️ Print Schedule</button>
+          <a href="contact.html?inquiry=training" class="btn btn-sm btn-gold" style="font-size: 0.78rem;">Contact Secretariat &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   </main>
 
   <!-- Footer -->
@@ -1958,7 +2193,9 @@
             <li><a href="journal-admin.html">&rarr; Journal of Admin (FlipBook)</a></li>
             <li><a href="utilization.html">&rarr; Research Utilization</a></li>
             <li><a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer">&rarr; Direct FlipHTML5 ↗</a></li>
-          </ul>
+                      <li><a href="news-events.html#training-calendar">&rarr; Research Training Calendar</a></li>
+            <li><a href="contact.html#faq">&rarr; Frequently Asked Questions (FAQs)</a></li>
+</ul>
         </div>
         <div class="footer-col">
           <h5>Contact Secretariat</h5>
