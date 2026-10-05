@@ -40,7 +40,10 @@
         <span>📞 <a href="tel:+639989847781" style="color:inherit">(+63) 998 984 7781</a></span>
       </div>
       <div class="topbar-right">
-        <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
+        <a href="call-for-proposals.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 700; font-size: 0.78rem;">📢 Calls for Proposals (Open)</a>
+        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;">❓ FAQs</a>
+        <a href="news-events.html#training-calendar" style="color: #ffffff; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">📅 Training Calendar</a>
+        <a href="journal-admin.html"  style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
       </div>
     </div>
   </header>
@@ -138,8 +141,24 @@
               <a href="utilization.html" class="nav-link">UTILIZATION</a>
             </li>
 
-            <li class="nav-item">
-              <a href="news-events.html" class="nav-link">NEWS &amp; EVENTS</a>
+            <li class="nav-item dropdown">
+              <a href="news-events.html" class="nav-link">
+                NEWS &amp; EVENTS <span class="arrow">&#9662;</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="news-events.html" class="dropdown-link">
+                  <span>News &amp; Events Archive</span>
+                  <span class="dropdown-badge badge-admin">NEWS</span>
+                </a>
+                <a href="call-for-proposals.html" class="dropdown-link">
+                  <span>Calls for Research Proposals</span>
+                  <span class="dropdown-badge badge-mcnp">OPEN</span>
+                </a>
+                <a href="news-events.html#training-calendar" class="dropdown-link">
+                  <span>Research Training Calendar</span>
+                  <span class="dropdown-badge badge-mcnp">2026–2027</span>
+                </a>
+              </div>
             </li>
 
             <li class="nav-item">
@@ -563,7 +582,82 @@
     </div>
   </section>
 
-  <!-- News & Events Section -->
+  
+    <!-- ==========================================================================
+         QUICK ACCESS HUB: ITEM 25 CALLS FOR PROPOSALS, ITEM 24 TRAINING CALENDAR & ITEM 43 FAQs
+         ========================================================================== -->
+    <section class="section" style="background: linear-gradient(135deg, #0b2545 0%, #1e5ea8 50%, #0d3b73 100%); color: #fff; padding: 3.5rem 0;">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 2rem; align-items: stretch;">
+          
+          <!-- Card 1: Calls for Research Proposals (Item 25) -->
+          <div style="background: rgba(255, 255, 255, 0.09); border: 1px solid rgba(255, 212, 55, 0.45); border-radius: 14px; padding: 2.25rem; backdrop-filter: blur(8px); display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 14px; right: -30px; background: #e11d48; color: #fff; font-size: 0.68rem; font-weight: 800; padding: 0.2rem 2.2rem; transform: rotate(45deg); letter-spacing: 0.06em; text-transform: uppercase;">OPEN</div>
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="font-size: 2.2rem;">📢</span>
+                <div>
+                  <span class="dropdown-badge badge-admin" style="background: #ffdf70; color: #0f172a; font-weight: 700;">AY 2026–2027 Grants</span>
+                  <h3 style="color: #fff; font-size: 1.35rem; margin: 0.2rem 0 0;">Calls for Proposals</h3>
+                </div>
+              </div>
+              <p style="color: #e2e8f0; font-size: 0.93rem; line-height: 1.65; margin-bottom: 1.5rem;">
+                Competitive institutional &amp; regional research funding: MCNP Health Grants (up to ₱50k), ISAP Multidisciplinary Grants (up to ₱50k), DOST-CVHRDC Track (up to ₱500k), and Student SDG Grants.
+              </p>
+            </div>
+            <div>
+              <a href="call-for-proposals.html" class="btn btn-gold" style="display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 700; width: 100%; justify-content: center;">
+                <span>Apply for Grants / Submit Proposal &rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Capability-Building & Training Calendar -->
+          <div style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 14px; padding: 2.25rem; backdrop-filter: blur(8px); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="font-size: 2.2rem;">📅</span>
+                <div>
+                  <span class="dropdown-badge badge-admin" style="background: #ffdf70; color: #0f172a; font-weight: 700;">2026–2027 Schedule</span>
+                  <h3 style="color: #fff; font-size: 1.35rem; margin: 0.2rem 0 0;">Training Calendar</h3>
+                </div>
+              </div>
+              <p style="color: #e2e8f0; font-size: 0.93rem; line-height: 1.65; margin-bottom: 1.5rem;">
+                Official institutional schedule of workshops on advanced biostatistics, SPSS/Jamovi modeling, PHREB ethics protocol reviews, Turnitin manuscript structuring, and external grant packaging.
+              </p>
+            </div>
+            <div>
+              <a href="news-events.html#training-calendar" class="btn btn-outline-white" style="display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; width: 100%; justify-content: center;">
+                <span>View Training Calendar (7 Programs) &rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: Frequently Asked Questions -->
+          <div style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 14px; padding: 2.25rem; backdrop-filter: blur(8px); display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="font-size: 2.2rem;">❓</span>
+                <div>
+                  <span class="dropdown-badge badge-admin" style="background: #ffdf70; color: #0f172a; font-weight: 700;">Help &amp; Knowledge Base</span>
+                  <h3 style="color: #fff; font-size: 1.35rem; margin: 0.2rem 0 0;">Research FAQs</h3>
+                </div>
+              </div>
+              <p style="color: #e2e8f0; font-size: 0.93rem; line-height: 1.65; margin-bottom: 1.5rem;">
+                Get immediate answers regarding Institutional Ethics Review Committee (IERC) clearance, statistical clinic booking, registered thesis forms (Forms 002–012), and journal submissions.
+              </p>
+            </div>
+            <div>
+              <a href="contact.html#faq" class="btn btn-outline-white" style="display: inline-flex; align-items: center; gap: 0.4rem; width: 100%; justify-content: center;">
+                <span>Browse Research FAQs (8 Topics) &rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News & Events Section -->
   <section class="section" style="padding-top: 1rem;">
     <div class="container">
       <div class="section-title-wrap">
@@ -726,6 +820,8 @@
             <li><a href="utilization.html">&rarr; Research Utilization</a></li>
             <li><a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer">&rarr; Direct FlipHTML5 ↗</a></li>
             <li><a href="news-events.html">&rarr; News &amp; Events</a></li>
+            <li><a href="news-events.html#training-calendar">&rarr; Research Training Calendar</a></li>
+            <li><a href="contact.html#faq">&rarr; Frequently Asked Questions (FAQs)</a></li>
           </ul>
         </div>
 

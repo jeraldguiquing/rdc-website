@@ -23,6 +23,581 @@
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Item 3 & 4 Styles: Organizational Chart and Personnel Gallery */
+    .org-chart-wrapper {
+      background: #f8fafc;
+      border: 1px solid var(--border-color, #e2e8f0);
+      border-radius: 16px;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      margin-bottom: 3.5rem;
+      position: relative;
+    }
+    .org-level {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .org-connector-vertical {
+      width: 2px;
+      height: 28px;
+      background: #cbd5e1;
+      margin: 0 auto;
+    }
+    .org-node {
+      background: #ffffff;
+      border: 1px solid var(--border-color, #e2e8f0);
+      border-radius: 12px;
+      padding: 1.25rem 1.75rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+      text-align: center;
+      transition: all 0.25s ease;
+    }
+    .org-node:hover {
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      border-color: var(--gold, #d4af37);
+    }
+    .node-board {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      max-width: 650px;
+      width: 100%;
+      border: none;
+    }
+    .node-board .node-title {
+      color: #ffffff;
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin: 0.35rem 0;
+    }
+    .node-board .node-sub {
+      color: #cbd5e1;
+      font-size: 0.85rem;
+    }
+    .node-board .node-badge {
+      background: rgba(212, 175, 55, 0.25);
+      color: #ffdf70;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    .org-director-container {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr 1fr;
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 980px;
+      align-items: center;
+    }
+    @media (max-width: 820px) {
+      .org-director-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    .org-flank-node {
+      background: #f1f5f9;
+      border: 1px dashed #94a3b8;
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+    .org-flank-node .node-badge {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 0.4rem;
+    }
+    .badge-advisory { background: #e0f2fe; color: #0369a1; }
+    .badge-ierc { background: #dcfce7; color: #15803d; }
+    .org-flank-node .node-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.25rem;
+    }
+    .org-flank-node .node-sub {
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+
+    .node-director {
+      border: 2px solid var(--gold, #d4af37);
+      background: #ffffff;
+      padding: 1.75rem;
+    }
+    .node-director .node-title {
+      font-size: 1.28rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0.5rem 0 0.2rem;
+    }
+    .node-director .node-role {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #b45309;
+      margin-bottom: 0.75rem;
+    }
+    .node-contact-pill {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+    .node-contact-pill a {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      padding: 0.3rem 0.65rem;
+      border-radius: 20px;
+      font-size: 0.76rem;
+      color: #334155;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .node-contact-pill a:hover {
+      background: #1e5ea8;
+      color: #fff;
+      border-color: #1e5ea8;
+    }
+
+    .coordinators-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 900px;
+    }
+    @media (max-width: 700px) {
+      .coordinators-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .mcnp-coord {
+      border-top: 4px solid var(--mcnp-green, #1e5ea8);
+    }
+    .isap-coord {
+      border-top: 4px solid var(--isap-blue, #7a1f2d);
+    }
+    .node-coord .node-title {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0.4rem 0 0.2rem;
+    }
+    .node-coord .node-role {
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .mcnp-coord .node-role { color: var(--mcnp-green, #1e5ea8); }
+    .isap-coord .node-role { color: var(--isap-blue, #7a1f2d); }
+    .node-scope {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .units-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+    }
+    .org-unit-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color, #e2e8f0);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .unit-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: #f1f5f9;
+      color: var(--mcnp-green, #1e5ea8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .unit-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .staff-row {
+      margin-bottom: 0.6rem;
+      font-size: 0.84rem;
+    }
+    .staff-row strong {
+      display: block;
+      color: #0f172a;
+      font-weight: 700;
+    }
+    .staff-row span {
+      display: block;
+      color: #64748b;
+      font-size: 0.8rem;
+    }
+    .staff-row small a {
+      color: var(--mcnp-green, #1e5ea8);
+      text-decoration: none;
+      font-size: 0.78rem;
+    }
+    .staff-row small a:hover {
+      text-decoration: underline;
+    }
+    .unit-sub {
+      font-size: 0.78rem;
+      color: #64748b;
+      margin-top: 0.75rem;
+      padding-top: 0.5rem;
+      border-top: 1px dashed #e2e8f0;
+      line-height: 1.5;
+    }
+
+    /* Personnel Gallery Grid */
+    .personnel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 3.5rem;
+    }
+    .personnel-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color, #e2e8f0);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+      transition: all 0.28s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .personnel-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.09);
+      border-color: var(--gold, #d4af37);
+    }
+    .card-image-wrap {
+      position: relative;
+      background: #0f172a;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 1050 / 600;
+    }
+    .personnel-calling-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+    .card-image-wrap:hover .personnel-calling-card-img {
+      transform: scale(1.03);
+    }
+    .card-zoom-hint {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(15, 23, 42, 0.82);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+    .card-image-wrap:hover .card-zoom-hint {
+      opacity: 1;
+    }
+    .personnel-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .personnel-badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      margin-bottom: 0.6rem;
+    }
+    .badge-exec { background: rgba(212, 175, 55, 0.15); color: #92400e; border: 1px solid rgba(212, 175, 55, 0.4); }
+    .badge-mcnp-unit { background: rgba(30, 94, 168, 0.1); color: #1e5ea8; border: 1px solid rgba(30, 94, 168, 0.25); }
+    .badge-isap-unit { background: rgba(122, 31, 45, 0.1); color: #7a1f2d; border: 1px solid rgba(122, 31, 45, 0.25); }
+    .badge-tech-unit { background: rgba(16, 185, 129, 0.1); color: #047857; border: 1px solid rgba(16, 185, 129, 0.25); }
+    
+    .personnel-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 0.25rem;
+      line-height: 1.35;
+    }
+    .personnel-role {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--mcnp-green, #1e5ea8);
+      margin-bottom: 0.75rem;
+    }
+    .personnel-desc {
+      font-size: 0.85rem;
+      color: #64748b;
+      line-height: 1.55;
+      margin-bottom: 1.1rem;
+      flex-grow: 1;
+    }
+    .personnel-meta {
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 0.75rem 0.9rem;
+      margin-bottom: 1.15rem;
+      font-size: 0.82rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .personnel-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: #334155;
+      word-break: break-all;
+    }
+    .personnel-meta-item i {
+      color: var(--muted-text, #64748b);
+      width: 15px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .personnel-meta-item a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .personnel-meta-item a:hover {
+      color: var(--mcnp-green, #1e5ea8);
+      text-decoration: underline;
+    }
+    .personnel-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.2fr;
+      gap: 0.5rem;
+    }
+    .p-act-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.5rem 0.6rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .p-act-btn.call-btn {
+      background: #f1f5f9;
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+    }
+    .p-act-btn.call-btn:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .p-act-btn.mail-btn {
+      background: #f1f5f9;
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+    }
+    .p-act-btn.mail-btn:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .p-act-btn.req-btn {
+      background: linear-gradient(135deg, #1e5ea8 0%, #16467d 100%);
+      color: #ffffff;
+      border: 1px solid #1e5ea8;
+    }
+    .p-act-btn.req-btn:hover {
+      background: #16467d;
+      color: #ffffff;
+    }
+
+    /* Personnel Filter Tabs */
+    .personnel-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .p-tab-btn {
+      padding: 0.5rem 1.1rem;
+      border-radius: 20px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .p-tab-btn.active, .p-tab-btn:hover {
+      background: #1e5ea8;
+      color: #ffffff;
+      border-color: #1e5ea8;
+    }
+
+    /* Lightbox Modal */
+    .sr-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 3000;
+      padding: 1.5rem;
+    }
+    .sr-modal-overlay.open { display: flex; }
+    .sr-modal {
+      background: #ffffff;
+      max-width: 580px;
+      width: 100%;
+      border-radius: 14px;
+      padding: 2.5rem;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+      animation: modalSlideUp 0.22s ease-out;
+    }
+    @keyframes modalSlideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  
+    /* QMS Forms Center & SOP Download Links */
+    .qms-tab-btn {
+      padding: 0.35rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .qms-tab-btn.active {
+      background: var(--gold, #d4af37) !important;
+      color: #0f172a !important;
+      border-color: var(--gold, #d4af37) !important;
+    }
+    .qms-dl-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 6px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .qms-dl-btn.mcnp-btn {
+      background: rgba(30, 94, 168, 0.2);
+      color: #93c5fd;
+      border: 1px solid rgba(147, 197, 253, 0.3);
+    }
+    .qms-dl-btn.mcnp-btn:hover {
+      background: #1e5ea8;
+      color: #ffffff;
+      border-color: #1e5ea8;
+    }
+    .qms-dl-btn.isap-btn {
+      background: rgba(244, 63, 94, 0.2);
+      color: #fda4af;
+      border: 1px solid rgba(253, 164, 175, 0.3);
+    }
+    .qms-dl-btn.isap-btn:hover {
+      background: #e11d48;
+      color: #ffffff;
+      border-color: #e11d48;
+    }
+    .qms-dl-btn.pdf-btn {
+      background: rgba(239, 68, 68, 0.2);
+      color: #fca5a5;
+      border: 1px solid rgba(252, 165, 165, 0.3);
+    }
+    .qms-dl-btn.pdf-btn:hover {
+      background: #dc2626;
+      color: #ffffff;
+      border-color: #dc2626;
+    }
+    .sop-form-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .sop-form-link.mcnp-link {
+      background: #ffffff;
+      color: var(--mcnp-green, #1e5ea8);
+      border: 1px solid rgba(30, 94, 168, 0.25);
+    }
+    .sop-form-link.mcnp-link:hover {
+      background: var(--mcnp-green, #1e5ea8);
+      color: #ffffff;
+    }
+    .sop-form-link.isap-link {
+      background: #ffffff;
+      color: var(--isap-blue, #7a1f2d);
+      border: 1px solid rgba(122, 31, 45, 0.25);
+    }
+    .sop-form-link.isap-link:hover {
+      background: var(--isap-blue, #7a1f2d);
+      color: #ffffff;
+    }
+    .sop-form-link.pdf-link {
+      color: #dc2626;
+      border-color: rgba(220, 38, 38, 0.3);
+    }
+    .sop-form-link.pdf-link:hover {
+      background: #dc2626;
+      color: #ffffff;
+    }
+</style>
 </head>
 <body>
 
@@ -35,6 +610,9 @@
         <span>📞 <a href="tel:+639989847781" style="color:inherit">(+63) 998 984 7781</a></span>
       </div>
       <div class="topbar-right">
+        <a href="call-for-proposals.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 700; font-size: 0.78rem;">📢 Calls for Proposals (Open)</a>
+        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;">❓ FAQs</a>
+        <a href="news-events.html#training-calendar" style="color: #ffffff; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">📅 Training Calendar</a>
         <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
       </div>
     </div>
@@ -135,8 +713,24 @@
               <a href="utilization.html" class="nav-link">UTILIZATION</a>
             </li>
 
-            <li class="nav-item">
-              <a href="news-events.html" class="nav-link">NEWS &amp; EVENTS</a>
+            <li class="nav-item dropdown">
+              <a href="news-events.html" class="nav-link">
+                NEWS &amp; EVENTS <span class="arrow">&#9662;</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="news-events.html" class="dropdown-link">
+                  <span>News &amp; Events Archive</span>
+                  <span class="dropdown-badge badge-admin">NEWS</span>
+                </a>
+                <a href="call-for-proposals.html" class="dropdown-link">
+                  <span>Calls for Research Proposals</span>
+                  <span class="dropdown-badge badge-mcnp">OPEN</span>
+                </a>
+                <a href="news-events.html#training-calendar" class="dropdown-link">
+                  <span>Research Training Calendar</span>
+                  <span class="dropdown-badge badge-mcnp">2026–2027</span>
+                </a>
+              </div>
             </li>
 
             <li class="nav-item">
@@ -174,8 +768,12 @@
         <a href="#executive-overview" class="about-tab-btn active-all">🏛️ Center Overview</a>
         <a href="#mcnp-wing" class="about-tab-btn active-mcnp">🌿 MCNP Health Wing</a>
         <a href="#isap-wing" class="about-tab-btn active-isap">📘 ISAP Multidisciplinary Wing</a>
+        <a href="#org-structure" class="about-tab-btn">👥 Organizational Structure</a>
+        <a href="#rdc-personnel" class="about-tab-btn">📇 Personnel &amp; Staff</a>
         <a href="#rdc-services" class="about-tab-btn">🔬 Core Services &amp; Grants</a>
-        <a href="#rdc-sop" class="about-tab-btn">📋 Standard Operating Procedures</a>
+        <a href="#rdc-forms-center" class="about-tab-btn">📥 Downloadable QMS Forms</a>
+        <a href="#rdc-sop" class="about-tab-btn">📋 Standard Operating Procedures (SOP)</a>
+        <a href="#faq" class="about-tab-btn">❓ FAQs</a>
       </div>
 
       <!-- SECTION 1: Executive Overview & Dual Pillars -->
@@ -390,6 +988,384 @@
         </div>
       </section>
 
+            <!-- ==========================================================================
+           SECTION 3A: ITEM 3 ORGANIZATIONAL STRUCTURE & GOVERNANCE
+           ========================================================================== -->
+      <section id="org-structure" class="about-wing-section" style="margin-top: 3.5rem; scroll-margin-top: 2rem;">
+        <div class="section-title-wrap" style="text-align: center; max-width: 820px; margin: 0 auto 2.5rem;">
+          <span class="section-tag" style="background: rgba(30, 94, 168, 0.1); color: var(--mcnp-green); font-weight: 800;">Item 3: Governance &amp; Administration</span>
+          <h2 class="section-title" style="font-size: 2.2rem; margin-top: 0.5rem;">RDC Organizational Structure</h2>
+          <p class="section-desc">
+            The unified governance framework of the Research and Development Center steering both the Medical Colleges of Northern Philippines (MCNP) and International School of Asia and the Pacific (ISAP) in ethical discovery, institutional compliance, and multidisciplinary research translation.
+          </p>
+        </div>
+
+        <div class="org-chart-wrapper">
+          <!-- Level 1: Board of Trustees & Executive Presidents -->
+          <div class="org-level level-board">
+            <div class="org-node node-board">
+              <div class="node-badge">Institutional Governance</div>
+              <div class="node-title">Board of Trustees &amp; Office of the Presidents</div>
+              <div class="node-sub">Medical Colleges of Northern Philippines &bull; International School of Asia and the Pacific</div>
+            </div>
+          </div>
+          
+          <div class="org-connector-vertical"></div>
+
+          <!-- Level 2: Research Director & Advisory / IERC -->
+          <div class="org-level level-director">
+            <div class="org-director-container">
+              <div class="org-flank-node">
+                <div class="node-badge badge-advisory">Advisory Body</div>
+                <div class="node-title">Research Advisory Council</div>
+                <div class="node-sub">Deans, Academic Department Heads &amp; External Industry Partners</div>
+              </div>
+
+              <div class="org-node node-director">
+                <span class="personnel-badge badge-exec" style="margin: 0 auto 0.5rem;">Executive Research Head</span>
+                <div class="node-title">Dr. Ryan C. Fontanilla, Ph.D.-EM</div>
+                <div class="node-role">Director, Research &amp; Development Center</div>
+                <p style="font-size: 0.82rem; color: #64748b; margin-bottom: 0.5rem;">Institutional agenda governance, DOST/CHED/CVHRDC linkages, ethics compliance oversight, and research funding grants.</p>
+                <div class="node-contact-pill">
+                  <a href="tel:+639989847781"><i class="fas fa-phone-alt"></i> +63 998 984 7781</a>
+                  <a href="mailto:researchoffice@mcnp.edu.ph"><i class="fas fa-envelope"></i> researchoffice@mcnp.edu.ph</a>
+                </div>
+              </div>
+
+              <div class="org-flank-node">
+                <div class="node-badge badge-ierc">Independent Ethics</div>
+                <div class="node-title">Institutional Ethics Review Committee</div>
+                <div class="node-sub">PHREB Level 1 Accredited IERC &bull; Human Protocols &amp; Biosafety</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="org-connector-vertical"></div>
+
+          <!-- Level 3: Dual Institutional Research Coordinators -->
+          <div class="org-level level-coordinators">
+            <div class="coordinators-grid">
+              <!-- MCNP Coordinator -->
+              <div class="org-node node-coord mcnp-coord">
+                <span class="personnel-badge badge-mcnp-unit" style="margin: 0 auto 0.4rem;">Health Sciences Wing</span>
+                <div class="node-title">Ms. Rio Frances G. Callores, MSc</div>
+                <div class="node-role">MCNP Research Coordinator</div>
+                <p class="node-scope">Nursing &bull; Medical Technology &bull; Radiologic Technology &bull; Pharmacy &bull; Physical Therapy</p>
+                <div class="node-contact-pill">
+                  <a href="tel:+639167511596"><i class="fas fa-phone-alt"></i> +63 916 751 1596</a>
+                  <a href="mailto:rcallores@mcnp.edu.ph"><i class="fas fa-envelope"></i> rcallores@mcnp.edu.ph</a>
+                </div>
+              </div>
+
+              <!-- ISAP Coordinator -->
+              <div class="org-node node-coord isap-coord">
+                <span class="personnel-badge badge-isap-unit" style="margin: 0 auto 0.4rem;">Multidisciplinary Wing</span>
+                <div class="node-title">Engr. KC R. Placido</div>
+                <div class="node-role">ISAP Research Coordinator</div>
+                <p class="node-scope">Criminology (COCJE) &bull; Customs Administration &bull; Information Technology &bull; Education &bull; Business &bull; Arts</p>
+                <div class="node-contact-pill">
+                  <a href="tel:+639654972865"><i class="fas fa-phone-alt"></i> +63 965 497 2865</a>
+                  <a href="mailto:kcplacido@isap.edu.ph"><i class="fas fa-envelope"></i> kcplacido@isap.edu.ph</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="org-connector-vertical"></div>
+
+          <!-- Level 4: Specialized Functional Support Units -->
+          <div class="org-level level-units">
+            <div class="units-grid">
+              <!-- Unit 1: Biostatistics Unit -->
+              <div class="org-unit-card">
+                <div class="unit-icon"><i class="fas fa-calculator"></i></div>
+                <div class="unit-title">Biostatistics &amp; Data Analytics Clinic</div>
+                <div class="unit-staff">
+                  <div class="staff-row">
+                    <strong>Ms. Tshaine Anne T. Labang, LPT</strong>
+                    <span>Statistician for Faculty and Administration</span>
+                    <small><a href="tel:+639263270441"><i class="fas fa-phone"></i> +63 926 327 0441</a> &bull; <a href="mailto:talabang@mcnp.edu.ph">talabang@mcnp.edu.ph</a></small>
+                  </div>
+                  <div class="staff-row">
+                    <strong>Ms. Ruchelle B. Langcay</strong>
+                    <span>MCNP Statistician (Health Sciences Theses)</span>
+                    <small><a href="tel:+639503653177"><i class="fas fa-phone"></i> +63 950 365 3177</a> &bull; <a href="mailto:ruchellelangcay26@gmail.com">ruchellelangcay26@gmail.com</a></small>
+                  </div>
+                  <div class="staff-row">
+                    <strong>Ms. Maryjane B. Agabin</strong>
+                    <span>ISAP Statistician (Multidisciplinary Theses)</span>
+                    <small><a href="tel:+639935634105"><i class="fas fa-phone"></i> +63 993 563 4105</a> &bull; <a href="mailto:agabinmaryjane4@gmail.com">agabinmaryjane4@gmail.com</a></small>
+                  </div>
+                </div>
+                <p class="unit-sub">Sample size validation &bull; Jamovi &amp; SPSS data coding &bull; Hypothesis testing &bull; Form 011 Clearance</p>
+              </div>
+
+              <!-- Unit 2: IT & Systems Unit -->
+              <div class="org-unit-card">
+                <div class="unit-icon"><i class="fas fa-laptop-code"></i></div>
+                <div class="unit-title">Information Technology &amp; Repositories</div>
+                <div class="unit-staff">
+                  <div class="staff-row">
+                    <strong>Mr. Jerald J. Guiquing</strong>
+                    <span>IT Specialist &amp; Systems Administrator</span>
+                    <small><a href="tel:+639687596359"><i class="fas fa-phone"></i> +63 968 759 6359</a> &bull; <a href="mailto:jguiquing@mcnp.edu.ph">jguiquing@mcnp.edu.ph</a></small>
+                  </div>
+                </div>
+                <p class="unit-sub">Digital Institutional Repository &bull; Turnitin Anti-Plagiarism Infrastructure &bull; OJS Platforms &bull; E-Ticketing</p>
+              </div>
+
+              <!-- Unit 3: Secretariat & Logistics -->
+              <div class="org-unit-card">
+                <div class="unit-icon"><i class="fas fa-folder-open"></i></div>
+                <div class="unit-title">Secretariat, Records &amp; Logistics</div>
+                <div class="unit-staff">
+                  <div class="staff-row">
+                    <strong>Ms. Lea M. Paddayuman</strong>
+                    <span>Secretary &amp; Records Officer</span>
+                    <small><a href="tel:+639168859290"><i class="fas fa-phone"></i> +63 916 885 9290</a> &bull; <a href="mailto:lpaddayuman@mcnp.edu.ph">lpaddayuman@mcnp.edu.ph</a></small>
+                  </div>
+                </div>
+                <p class="unit-sub">Protocol Intake &bull; Proposal &amp; Final Defense Scheduling &bull; Clearance Issuance &bull; Incentives Documentation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECTION 3B: ITEM 4 RDC PERSONNEL & OFFICIAL CALLING CARDS DIRECTORY
+           ========================================================================== -->
+      <section id="rdc-personnel" class="about-wing-section" style="margin-top: 3.5rem; scroll-margin-top: 2rem;">
+        <div class="section-title-wrap" style="text-align: center; max-width: 820px; margin: 0 auto 2.5rem;">
+          <span class="section-tag" style="background: rgba(122, 31, 45, 0.1); color: var(--isap-blue); font-weight: 800;">Item 4: Personnel Directory &amp; Staff Profiles</span>
+          <h2 class="section-title" style="font-size: 2.2rem; margin-top: 0.5rem;">Meet the RDC Team &amp; Focal Officers</h2>
+          <p class="section-desc">
+            Explore the official profiles and digital calling cards of the dedicated professionals driving institutional research, statistics, compliance, and technological innovation across MCNP &amp; ISAP.
+          </p>
+
+          <!-- Personnel Category Filters -->
+          <div class="personnel-tabs">
+            <button type="button" class="p-tab-btn active" onclick="filterAboutPersonnel('all', this)"><i class="fas fa-users"></i> All Personnel (8)</button>
+            <button type="button" class="p-tab-btn" onclick="filterAboutPersonnel('leadership', this)"><i class="fas fa-user-tie"></i> Leadership &amp; Coordinators (3)</button>
+            <button type="button" class="p-tab-btn" onclick="filterAboutPersonnel('statistics', this)"><i class="fas fa-chart-line"></i> Biostatisticians (3)</button>
+            <button type="button" class="p-tab-btn" onclick="filterAboutPersonnel('support', this)"><i class="fas fa-laptop-code"></i> Systems &amp; Secretariat (2)</button>
+          </div>
+        </div>
+
+        <!-- 8 Personnel Calling Cards Grid -->
+        <div class="personnel-grid">
+
+          <!-- Personnel 1: Dr. Ryan C. Fontanilla -->
+          <div class="personnel-card" data-category="leadership">
+            <div class="card-image-wrap" onclick="openAboutCardModal('assets/RDC%20Personal/1.png', 'Dr. Ryan C. Fontanilla, Ph.D.-EM')">
+              <img src="assets/RDC%20Personal/1.png" alt="Dr. Ryan C. Fontanilla, Ph.D.-EM - Research Director" loading="lazy" class="personnel-calling-card-img">
+              <span class="card-zoom-hint"><i class="fas fa-search-plus"></i> View Card</span>
+            </div>
+            <div class="personnel-card-body">
+              <span class="personnel-badge badge-exec">Executive Leadership</span>
+              <h3 class="personnel-name">Dr. Ryan C. Fontanilla, Ph.D.-EM</h3>
+              <div class="personnel-role">Research Director</div>
+              <p class="personnel-desc">
+                Directs overall institutional research agenda, institutional ethics compliance, government funding (DOST, CHED, CVHRDC, PCHRD), national/international research linkages, and executive policy governance for MCNP &amp; ISAP.
+              </p>
+              <div class="personnel-meta">
+                <div class="personnel-meta-item"><i class="fas fa-phone-alt"></i> <a href="tel:+639989847781">+63 998 984 7781</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-envelope"></i> <a href="mailto:researchoffice@mcnp.edu.ph">researchoffice@mcnp.edu.ph</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-map-marker-alt"></i> Research &amp; Development Center (RDC) Office, Alimannao Hills, Peñablanca, Cagayan</div>
+              </div>
+              <div class="personnel-actions">
+                <a href="tel:+639989847781" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
+                <a href="mailto:researchoffice@mcnp.edu.ph" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="contact.html#online-request" class="p-act-btn req-btn"><i class="fas fa-paper-plane"></i> Request</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personnel 2: Ms. Rio Frances G. Callores -->
+          <div class="personnel-card" data-category="leadership">
+            <div class="card-image-wrap" onclick="openAboutCardModal('assets/RDC%20Personal/2.png', 'Ms. Rio Frances G. Callores, MSc')">
+              <img src="assets/RDC%20Personal/2.png" alt="Ms. Rio Frances G. Callores, MSc - MCNP Research Coordinator" loading="lazy" class="personnel-calling-card-img">
+              <span class="card-zoom-hint"><i class="fas fa-search-plus"></i> View Card</span>
+            </div>
+            <div class="personnel-card-body">
+              <span class="personnel-badge badge-mcnp-unit">MCNP Health Wing</span>
+              <h3 class="personnel-name">Ms. Rio Frances G. Callores, MSc</h3>
+              <div class="personnel-role">MCNP Research Coordinator</div>
+              <p class="personnel-desc">
+                Oversees health and medical sciences research programs across Nursing, Medical Technology, Radiologic Technology, Pharmacy, and Physical Therapy. Coordinates health proposal evaluations and clinical mentoring.
+              </p>
+              <div class="personnel-meta">
+                <div class="personnel-meta-item"><i class="fas fa-phone-alt"></i> <a href="tel:+639167511596">+63 916 751 1596</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-envelope"></i> <a href="mailto:rcallores@mcnp.edu.ph">rcallores@mcnp.edu.ph</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-map-marker-alt"></i> Research &amp; Development Center (RDC) Office, Alimannao Hills, Peñablanca, Cagayan</div>
+              </div>
+              <div class="personnel-actions">
+                <a href="tel:+639167511596" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
+                <a href="mailto:rcallores@mcnp.edu.ph" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="contact.html#online-request" class="p-act-btn req-btn"><i class="fas fa-calendar-alt"></i> Defense</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personnel 3: Engr. KC R. Placido -->
+          <div class="personnel-card" data-category="leadership">
+            <div class="card-image-wrap" onclick="openAboutCardModal('assets/RDC%20Personal/3.png', 'Engr. KC R. Placido')">
+              <img src="assets/RDC%20Personal/3.png" alt="Engr. KC R. Placido - ISAP Research Coordinator" loading="lazy" class="personnel-calling-card-img">
+              <span class="card-zoom-hint"><i class="fas fa-search-plus"></i> View Card</span>
+            </div>
+            <div class="personnel-card-body">
+              <span class="personnel-badge badge-isap-unit">ISAP Multidisciplinary Wing</span>
+              <h3 class="personnel-name">Engr. KC R. Placido</h3>
+              <div class="personnel-role">ISAP Research Coordinator</div>
+              <p class="personnel-desc">
+                Facilitates multidisciplinary research across Criminology &amp; Criminal Justice (COCJE), Customs Administration, Information Technology, Teacher Education, Business, and applied technological innovation.
+              </p>
+              <div class="personnel-meta">
+                <div class="personnel-meta-item"><i class="fas fa-phone-alt"></i> <a href="tel:+639654972865">+63 965 497 2865</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-envelope"></i> <a href="mailto:kcplacido@isap.edu.ph">kcplacido@isap.edu.ph</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-map-marker-alt"></i> Research &amp; Development Center (RDC) Office, Alimannao Hills, Peñablanca, Cagayan</div>
+              </div>
+              <div class="personnel-actions">
+                <a href="tel:+639654972865" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
+                <a href="mailto:kcplacido@isap.edu.ph" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="contact.html#online-request" class="p-act-btn req-btn"><i class="fas fa-calendar-alt"></i> Defense</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personnel 4: Ms. Tshaine Anne T. Labang -->
+          <div class="personnel-card" data-category="statistics">
+            <div class="card-image-wrap" onclick="openAboutCardModal('assets/RDC%20Personal/4.png', 'Ms. Tshaine Anne T. Labang, LPT')">
+              <img src="assets/RDC%20Personal/4.png" alt="Ms. Tshaine Anne T. Labang, LPT - Statistician for Faculty and Administration" loading="lazy" class="personnel-calling-card-img">
+              <span class="card-zoom-hint"><i class="fas fa-search-plus"></i> View Card</span>
+            </div>
+            <div class="personnel-card-body">
+              <span class="personnel-badge badge-exec">Faculty &amp; Admin Analytics</span>
+              <h3 class="personnel-name">Ms. Tshaine Anne T. Labang, LPT</h3>
+              <div class="personnel-role">Statistician for Faculty and Administration</div>
+              <p class="personnel-desc">
+                Specializes in advanced parametric and non-parametric data modeling, institutional performance analytics, multivariate regression, ANOVA, SEM, and faculty research clearance certifications.
+              </p>
+              <div class="personnel-meta">
+                <div class="personnel-meta-item"><i class="fas fa-phone-alt"></i> <a href="tel:+639263270441">+63 926 327 0441</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-envelope"></i> <a href="mailto:talabang@mcnp.edu.ph">talabang@mcnp.edu.ph</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-map-marker-alt"></i> Research &amp; Development Center (RDC) Office, Alimannao Hills, Peñablanca, Cagayan</div>
+              </div>
+              <div class="personnel-actions">
+                <a href="tel:+639263270441" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
+                <a href="mailto:talabang@mcnp.edu.ph" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="contact.html#online-request" class="p-act-btn req-btn"><i class="fas fa-chart-pie"></i> Consult</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personnel 5: Ms. Ruchelle B. Langcay -->
+          <div class="personnel-card" data-category="statistics">
+            <div class="card-image-wrap" onclick="openAboutCardModal('assets/RDC%20Personal/5.png', 'Ms. Ruchelle B. Langcay')">
+              <img src="assets/RDC%20Personal/5.png" alt="Ms. Ruchelle B. Langcay - MCNP Statistician" loading="lazy" class="personnel-calling-card-img">
+              <span class="card-zoom-hint"><i class="fas fa-search-plus"></i> View Card</span>
+            </div>
+            <div class="personnel-card-body">
+              <span class="personnel-badge badge-mcnp-unit">Health Biostatistics Desk</span>
+              <h3 class="personnel-name">Ms. Ruchelle B. Langcay</h3>
+              <div class="personnel-role">MCNP Statistician</div>
+              <p class="personnel-desc">
+                Assists MCNP health sciences researchers with sample size calculations, clinical survey reliability testing, Jamovi/SPSS statistical analysis, hypotheses interpretation, and Form 011 Statistical Clearance.
+              </p>
+              <div class="personnel-meta">
+                <div class="personnel-meta-item"><i class="fas fa-phone-alt"></i> <a href="tel:+639503653177">+63 950 365 3177</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-envelope"></i> <a href="mailto:ruchellelangcay26@gmail.com">ruchellelangcay26@gmail.com</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-map-marker-alt"></i> Research &amp; Development Center (RDC) Office, Alimannao Hills, Peñablanca, Cagayan</div>
+              </div>
+              <div class="personnel-actions">
+                <a href="tel:+639503653177" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
+                <a href="mailto:ruchellelangcay26@gmail.com" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="contact.html#online-request" class="p-act-btn req-btn"><i class="fas fa-chart-pie"></i> Consult</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personnel 6: Ms. Maryjane B. Agabin -->
+          <div class="personnel-card" data-category="statistics">
+            <div class="card-image-wrap" onclick="openAboutCardModal('assets/RDC%20Personal/6.png', 'Ms. Maryjane B. Agabin')">
+              <img src="assets/RDC%20Personal/6.png" alt="Ms. Maryjane B. Agabin - ISAP Statistician" loading="lazy" class="personnel-calling-card-img">
+              <span class="card-zoom-hint"><i class="fas fa-search-plus"></i> View Card</span>
+            </div>
+            <div class="personnel-card-body">
+              <span class="personnel-badge badge-isap-unit">Multidisciplinary Biostatistics Desk</span>
+              <h3 class="personnel-name">Ms. Maryjane B. Agabin</h3>
+              <div class="personnel-role">ISAP Statistician</div>
+              <p class="personnel-desc">
+                Conducts statistical clinics for ISAP researchers, instrument pilot testing, Cronbach's alpha reliability computations, cross-tabulations, chi-square, correlation metrics, and quantitative thesis clearances.
+              </p>
+              <div class="personnel-meta">
+                <div class="personnel-meta-item"><i class="fas fa-phone-alt"></i> <a href="tel:+639935634105">+63 993 563 4105</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-envelope"></i> <a href="mailto:agabinmaryjane4@gmail.com">agabinmaryjane4@gmail.com</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-map-marker-alt"></i> Research &amp; Development Center (RDC) Office, Alimannao Hills, Peñablanca, Cagayan</div>
+              </div>
+              <div class="personnel-actions">
+                <a href="tel:+639935634105" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
+                <a href="mailto:agabinmaryjane4@gmail.com" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="contact.html#online-request" class="p-act-btn req-btn"><i class="fas fa-chart-pie"></i> Consult</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personnel 7: Mr. Jerald J. Guiquing -->
+          <div class="personnel-card" data-category="support">
+            <div class="card-image-wrap" onclick="openAboutCardModal('assets/RDC%20Personal/7.png', 'Mr. Jerald J. Guiquing')">
+              <img src="assets/RDC%20Personal/7.png" alt="Mr. Jerald J. Guiquing - IT Specialist" loading="lazy" class="personnel-calling-card-img">
+              <span class="card-zoom-hint"><i class="fas fa-search-plus"></i> View Card</span>
+            </div>
+            <div class="personnel-card-body">
+              <span class="personnel-badge badge-tech-unit">Systems &amp; Digital Repositories</span>
+              <h3 class="personnel-name">Mr. Jerald J. Guiquing</h3>
+              <div class="personnel-role">IT Specialist</div>
+              <p class="personnel-desc">
+                Oversees RDC digital infrastructure, institutional repository management, Open Journal Systems (OJS) support, Turnitin plagiarism database administration, and online service ticketing systems.
+              </p>
+              <div class="personnel-meta">
+                <div class="personnel-meta-item"><i class="fas fa-phone-alt"></i> <a href="tel:+639687596359">+63 968 759 6359</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-envelope"></i> <a href="mailto:jguiquing@mcnp.edu.ph">jguiquing@mcnp.edu.ph</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-map-marker-alt"></i> Research &amp; Development Center (RDC) Office, Alimannao Hills, Peñablanca, Cagayan</div>
+              </div>
+              <div class="personnel-actions">
+                <a href="tel:+639687596359" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
+                <a href="mailto:jguiquing@mcnp.edu.ph" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="contact.html#online-request" class="p-act-btn req-btn"><i class="fas fa-shield-alt"></i> Turnitin</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personnel 8: Ms. Lea M. Paddayuman -->
+          <div class="personnel-card" data-category="support">
+            <div class="card-image-wrap" onclick="openAboutCardModal('assets/RDC%20Personal/8.png', 'Ms. Lea M. Paddayuman')">
+              <img src="assets/RDC%20Personal/8.png" alt="Ms. Lea M. Paddayuman - Secretary" loading="lazy" class="personnel-calling-card-img">
+              <span class="card-zoom-hint"><i class="fas fa-search-plus"></i> View Card</span>
+            </div>
+            <div class="personnel-card-body">
+              <span class="personnel-badge badge-tech-unit">Secretariat &amp; Records</span>
+              <h3 class="personnel-name">Ms. Lea M. Paddayuman</h3>
+              <div class="personnel-role">Secretary</div>
+              <p class="personnel-desc">
+                Manages office communications, protocol submissions, IERC review logs, oral defense scheduling, completion clearance releases, certificate generation, and general researcher appointments.
+              </p>
+              <div class="personnel-meta">
+                <div class="personnel-meta-item"><i class="fas fa-phone-alt"></i> <a href="tel:+639168859290">+63 916 885 9290</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-envelope"></i> <a href="mailto:lpaddayuman@mcnp.edu.ph">lpaddayuman@mcnp.edu.ph</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-map-marker-alt"></i> Research &amp; Development Center (RDC) Office, Alimannao Hills, Peñablanca, Cagayan</div>
+              </div>
+              <div class="personnel-actions">
+                <a href="tel:+639168859290" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
+                <a href="mailto:lpaddayuman@mcnp.edu.ph" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="contact.html#online-request" class="p-act-btn req-btn"><i class="fas fa-calendar-check"></i> Schedule</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <!-- SECTION 4: Core Services & Research Ecosystem -->
       <section id="rdc-services" class="about-wing-section" style="background: #f8fafc; border-radius: 16px; padding: 2.5rem; border: 1px solid var(--border-color);">
         <div class="section-title-wrap" style="text-align: center; margin-bottom: 1.5rem;">
@@ -453,6 +1429,370 @@
             <div class="rdc-sop-phase"><strong>04</strong><span>Final Defense</span></div>
             <div class="rdc-sop-phase"><strong>05</strong><span>Publication &amp; Archive</span></div>
           </div>
+          <!-- ==========================================================================
+               RDC OFFICIAL QUALITY MANAGEMENT SYSTEM (QMS) FORMS CENTER
+               ========================================================================== -->
+          <div id="rdc-forms-center" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 14px; padding: clamp(1.5rem, 3vw, 2.25rem); color: #ffffff; margin-bottom: 2.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.12);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 1.25rem;">
+              <div>
+                <span class="section-tag" style="background: rgba(212, 175, 55, 0.25); color: #ffdf70; font-weight: 700; margin-bottom: 0.4rem; display: inline-block;">Official Institutional Files</span>
+                <h3 style="font-size: 1.55rem; color: #ffffff; margin: 0 0 0.35rem;">RDC Quality Management System (QMS) Forms Center</h3>
+                <p style="font-size: 0.88rem; color: #cbd5e1; margin: 0; max-width: 680px; line-height: 1.6;">
+                  Download official, authenticated research documents (Forms 001 through 016) in editable Microsoft Word (.docx) and printable PDF formats for both <strong>Medical Colleges of Northern Philippines (MCNP)</strong> and <strong>International School of Asia and the Pacific (ISAP)</strong>.
+                </p>
+              </div>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span style="background: rgba(30, 94, 168, 0.35); border: 1px solid #3b82f6; padding: 0.4rem 0.85rem; border-radius: 8px; font-size: 0.78rem; font-weight: 700; color: #93c5fd;">
+                  🌿 MCNP: 23 Files Available
+                </span>
+                <span style="background: rgba(122, 31, 45, 0.35); border: 1px solid #f43f5e; padding: 0.4rem 0.85rem; border-radius: 8px; font-size: 0.78rem; font-weight: 700; color: #fda4af;">
+                  📘 ISAP: 21 Files Available
+                </span>
+              </div>
+            </div>
+
+            <!-- Controls: Filter by Phase & Search -->
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+              <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;" id="qmsFilterPills">
+                <button type="button" class="btn btn-sm btn-gold qms-tab-btn active" onclick="filterQmsForms('all', this)">All Forms (16)</button>
+                <button type="button" class="btn btn-sm btn-outline-white qms-tab-btn" onclick="filterQmsForms('phase1', this)">Phase 1: Proposal (001–006)</button>
+                <button type="button" class="btn btn-sm btn-outline-white qms-tab-btn" onclick="filterQmsForms('phase2', this)">Phase 2: Defense (007–009)</button>
+                <button type="button" class="btn btn-sm btn-outline-white qms-tab-btn" onclick="filterQmsForms('phase3', this)">Phase 3: Ethics &amp; Stats (010–011)</button>
+                <button type="button" class="btn btn-sm btn-outline-white qms-tab-btn" onclick="filterQmsForms('phase4', this)">Phase 4: Completion (012–013)</button>
+                <button type="button" class="btn btn-sm btn-outline-white qms-tab-btn" onclick="filterQmsForms('phase5', this)">Phase 5: Publication (014–016)</button>
+              </div>
+              <div style="flex-grow: 1; max-width: 320px;">
+                <input type="text" id="qmsSearchInput" onkeyup="searchQmsForms()" placeholder="🔍 Quick search form title or number..." style="width: 100%; padding: 0.5rem 0.85rem; font-size: 0.82rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.25); background: rgba(15,23,42,0.85); color: #fff; outline: none;">
+              </div>
+            </div>
+
+            <!-- Forms Table / Catalog -->
+            <div style="overflow-x: auto; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px;">
+              <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.84rem;">
+                <thead>
+                  <tr style="background: rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.15); color: #ffdf70;">
+                    <th style="padding: 0.75rem 1rem; width: 110px;">Form No.</th>
+                    <th style="padding: 0.75rem 1rem;">Document Title &amp; Scope</th>
+                    <th style="padding: 0.75rem 1rem; width: 140px;">SOP Phase</th>
+                    <th style="padding: 0.75rem 1rem; width: 170px; text-align: center;">🌿 MCNP Downloads</th>
+                    <th style="padding: 0.75rem 1rem; width: 170px; text-align: center;">📘 ISAP Downloads</th>
+                  </tr>
+                </thead>
+                <tbody id="qmsFormsTableBody" style="color: #e2e8f0;">
+                  <!-- Row 001A -->
+                  <tr class="qms-row" data-phase="phase1" style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #ffdf70;">Form 001A</td>
+                    <td style="padding: 0.75rem 1rem;">
+                      <strong>Research Training Needs Analysis (Faculty)</strong>
+                      <div style="font-size: 0.76rem; color: #94a3b8;">Diagnostic survey measuring faculty research capability, statistics literacy, and publication track.</div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.72rem; padding: 0.2rem 0.5rem; background: rgba(255,255,255,0.1); border-radius: 4px;">Phase 1: Training</span></td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20001A-RESEARCH%20TRAINING%20NEEDS%20ANALYSIS.docx" download class="qms-dl-btn mcnp-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20001A-RESEARCH%20TRAINING%20NEEDS%20ANALYSIS.docx" download class="qms-dl-btn isap-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 001B -->
+                  <tr class="qms-row" data-phase="phase1" style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #ffdf70;">Form 001B</td>
+                    <td style="padding: 0.75rem 1rem;">
+                      <strong>Research Training Needs Analysis (Staff &amp; Non-Teaching)</strong>
+                      <div style="font-size: 0.76rem; color: #94a3b8;">Training assessment for administrative personnel assisting in research data, inventory, and logistics.</div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.72rem; padding: 0.2rem 0.5rem; background: rgba(255,255,255,0.1); border-radius: 4px;">Phase 1: Training</span></td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20001B-RESEARCH%20TRAINING%20NEEDS%20ANALYSIS.docx" download class="qms-dl-btn mcnp-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20001B-RESEARCH%20TRAINING%20NEEDS%20ANALYSIS.docx" download class="qms-dl-btn isap-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 001C -->
+                  <tr class="qms-row" data-phase="phase1" style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #ffdf70;">Form 001C</td>
+                    <td style="padding: 0.75rem 1rem;">
+                      <strong>Research Training Needs Analysis (Students)</strong>
+                      <div style="font-size: 0.76rem; color: #94a3b8;">Skills audit for undergraduate and postgraduate student researchers prior to thesis proposal drafting.</div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.72rem; padding: 0.2rem 0.5rem; background: rgba(255,255,255,0.1); border-radius: 4px;">Phase 1: Training</span></td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20001C-RESEARCH%20TRAINING%20NEEDS%20ANALYSIS.docx" download class="qms-dl-btn mcnp-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20001C-RESEARCH%20TRAINING%20NEEDS%20ANALYSIS.docx" download class="qms-dl-btn isap-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 002 -->
+                  <tr class="qms-row" data-phase="phase1" style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #ffdf70;">Form 002</td>
+                    <td style="padding: 0.75rem 1rem;">
+                      <strong>Application for Research Defense</strong>
+                      <div style="font-size: 0.76rem; color: #94a3b8;">Primary filing instrument to schedule Proposal Defense (Phase 1) and Oral Final Defense (Phase 4).</div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.72rem; padding: 0.2rem 0.5rem; background: rgba(30,94,168,0.3); border-radius: 4px; color:#93c5fd;">Phase 1 &amp; 4</span></td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20002-APPLICATION%20FOR%20RESEARCH%20DEFENSE.docx" download class="qms-dl-btn mcnp-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20002-APPLICATION%20FOR%20RESEARCH%20DEFENSE.docx" download class="qms-dl-btn isap-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 003 -->
+                  <tr class="qms-row" data-phase="phase1" style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #ffdf70;">Form 003</td>
+                    <td style="padding: 0.75rem 1rem;">
+                      <strong>Capsule Proposal Form</strong>
+                      <div style="font-size: 0.76rem; color: #94a3b8;">Standard preliminary concept paper format establishing rationale, objectives, design, and SDG agenda.</div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.72rem; padding: 0.2rem 0.5rem; background: rgba(30,94,168,0.3); border-radius: 4px; color:#93c5fd;">Phase 1: Topic</span></td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20003-CAPSULE%20PROPOSAL%20FORM.docx" download class="qms-dl-btn mcnp-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20003-CAPSULE%20PROPOSAL%20FORM.docx" download class="qms-dl-btn isap-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 004 -->
+                  <tr class="qms-row" data-phase="phase1" style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #ffdf70;">Form 004</td>
+                    <td style="padding: 0.75rem 1rem;">
+                      <strong>Letter of Assignment as an Adviser for a Research Study</strong>
+                      <div style="font-size: 0.76rem; color: #94a3b8;">Institutional appointment contract and terms of reference signed between proponent and faculty adviser.</div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.72rem; padding: 0.2rem 0.5rem; background: rgba(30,94,168,0.3); border-radius: 4px; color:#93c5fd;">Phase 1: Adviser</span></td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <div style="display: flex; gap: 0.25rem; justify-content: center;">
+                        <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20004-LETTER%20OF%20ASSIGNMENT%20AS%20AN%20ADVISER%20FOR%20A%20RESEARCH%20STUDY.docx" download class="qms-dl-btn mcnp-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                        <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20004-LETTER%20OF%20ASSIGNMENT%20AS%20AN%20ADVISER%20FOR%20A%20RESEARCH%20STUDY.pdf" target="_blank" class="qms-dl-btn pdf-btn"><i class="fas fa-file-pdf"></i> PDF</a>
+                      </div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <div style="display: flex; gap: 0.25rem; justify-content: center;">
+                        <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20004-LETTER%20OF%20ASSIGNMENT%20AS%20AN%20ADVISER%20FOR%20A%20RESEARCH%20STUDY.docx" download class="qms-dl-btn isap-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                        <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20004-LETTER%20OF%20ASSIGNMENT%20AS%20AN%20ADVISER%20FOR%20A%20RESEARCH%20STUDY.pdf" target="_blank" class="qms-dl-btn pdf-btn"><i class="fas fa-file-pdf"></i> PDF</a>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Row 005 -->
+                  <tr class="qms-row" data-phase="phase1" style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #ffdf70;">Form 005</td>
+                    <td style="padding: 0.75rem 1rem;">
+                      <strong>Application for Research Defense Checklist</strong>
+                      <div style="font-size: 0.76rem; color: #94a3b8;">Documentary requirements compliance checklist for proposal and final defense qualification.</div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.72rem; padding: 0.2rem 0.5rem; background: rgba(30,94,168,0.3); border-radius: 4px; color:#93c5fd;">Phase 1 &amp; 4</span></td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <div style="display: flex; gap: 0.25rem; justify-content: center;">
+                        <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20005-APPLICATION%20FOR%20RESEARCH%20DEFENSE%20CHECKLIST.docx" download class="qms-dl-btn mcnp-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                        <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20005-APPLICATION%20FOR%20RESEARCH%20DEFENSE%20CHECKLIST.pdf" target="_blank" class="qms-dl-btn pdf-btn"><i class="fas fa-file-pdf"></i> PDF</a>
+                      </div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20005-APPLICATION%20FOR%20RESEARCH%20DEFENSE%20CHECKLIST.docx" download class="qms-dl-btn isap-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 006 -->
+                  <tr class="qms-row" data-phase="phase1" style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #ffdf70;">Form 006</td>
+                    <td style="padding: 0.75rem 1rem;">
+                      <strong>Endorsement for Defense from the Adviser</strong>
+                      <div style="font-size: 0.76rem; color: #94a3b8;">Formal testimony and signature of the research adviser certifying the manuscript ready for defense.</div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.72rem; padding: 0.2rem 0.5rem; background: rgba(30,94,168,0.3); border-radius: 4px; color:#93c5fd;">Phase 1 &amp; 4</span></td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <div style="display: flex; gap: 0.25rem; justify-content: center;">
+                        <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20006-ENDORSEMENT%20FOR%20DEFENSE%20FROM%20THE%20ADVISER.docx" download class="qms-dl-btn mcnp-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                        <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20006-ENDORSEMENT%20FOR%20DEFENSE%20FROM%20THE%20ADVISER.pdf" target="_blank" class="qms-dl-btn pdf-btn"><i class="fas fa-file-pdf"></i> PDF</a>
+                      </div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20006-ENDORSEMENT%20FOR%20DEFENSE%20FROM%20THE%20ADVISER.docx" download class="qms-dl-btn isap-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 007 -->
+                  <tr class="qms-row" data-phase="phase2" style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #ffdf70;">Form 007</td>
+                    <td style="padding: 0.75rem 1rem;">
+                      <strong>Research Proposal Review Minutes of the Meeting</strong>
+                      <div style="font-size: 0.76rem; color: #94a3b8;">Session log of panel member recommendations, corrections, and conditions for proposal approval.</div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.72rem; padding: 0.2rem 0.5rem; background: rgba(16,185,129,0.25); border-radius: 4px; color:#6ee7b7;">Phase 2: Minutes</span></td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20007-RESEARCH%20PROPOSAL%20REVIEW%20MINUTES%20OF%20THE%20MEETING.docx" download class="qms-dl-btn mcnp-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20007-RESEARCH%20PROPOSAL%20REVIEW%20MINUTES%20OF%20THE%20MEETING.docx" download class="qms-dl-btn isap-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 008 -->
+                  <tr class="qms-row" data-phase="phase2" style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #ffdf70;">Form 008</td>
+                    <td style="padding: 0.75rem 1rem;">
+                      <strong>Research Proposal Review Form</strong>
+                      <div style="font-size: 0.76rem; color: #94a3b8;">Standardized scoring rubric evaluating research background, methodology, and theoretical design.</div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.72rem; padding: 0.2rem 0.5rem; background: rgba(16,185,129,0.25); border-radius: 4px; color:#6ee7b7;">Phase 2: Rubric</span></td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20008-RESEARCH%20PROPOSAL%20REVIEW.docx" download class="qms-dl-btn mcnp-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20008-RESEARCH%20PROPOSAL%20REVIEW.docx" download class="qms-dl-btn isap-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 009 -->
+                  <tr class="qms-row" data-phase="phase2" style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #ffdf70;">Form 009</td>
+                    <td style="padding: 0.75rem 1rem;">
+                      <strong>Defense Process Evaluation Form</strong>
+                      <div style="font-size: 0.76rem; color: #94a3b8;">Auditing form evaluating panel rigor, time allocation, and compliance with defense protocol rules.</div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.72rem; padding: 0.2rem 0.5rem; background: rgba(16,185,129,0.25); border-radius: 4px; color:#6ee7b7;">Phase 2 &amp; 4</span></td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20009-DEFENSE%20PROCESS%20EVALUATION.docx" download class="qms-dl-btn mcnp-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20009-DEFENSE%20PROCESS%20EVALUATION.docx" download class="qms-dl-btn isap-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 010 -->
+                  <tr class="qms-row" data-phase="phase3" style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #ffdf70;">Form 010</td>
+                    <td style="padding: 0.75rem 1rem;">
+                      <strong>Client Satisfaction Survey</strong>
+                      <div style="font-size: 0.76rem; color: #94a3b8;">Continuous quality improvement feedback measuring customer satisfaction with RDC office support.</div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.72rem; padding: 0.2rem 0.5rem; background: rgba(245,158,11,0.25); border-radius: 4px; color:#fcd34d;">Phase 3: Feedback</span></td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20010-CLIENT%20SATISFACTION%20SURVEY.docx" download class="qms-dl-btn mcnp-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <div style="display: flex; gap: 0.25rem; justify-content: center;">
+                        <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20010-CLIENT%20SATISFACTION%20SURVEY.docx" download class="qms-dl-btn isap-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                        <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20010-CLIENT%20SATISFACTION%20SURVEY.pdf" target="_blank" class="qms-dl-btn pdf-btn"><i class="fas fa-file-pdf"></i> PDF</a>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Row 011 -->
+                  <tr class="qms-row" data-phase="phase3" style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #ffdf70;">Form 011</td>
+                    <td style="padding: 0.75rem 1rem;">
+                      <strong>Statistical Treatment Form</strong>
+                      <div style="font-size: 0.76rem; color: #94a3b8;">Biostatistical consultation clearance, hypothesis testing design, and quantitative treatment certification.</div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.72rem; padding: 0.2rem 0.5rem; background: rgba(245,158,11,0.25); border-radius: 4px; color:#fcd34d;">Phase 3: Statistics</span></td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20011-STATISTICAL%20TREATMENT%20FORM.docx" download class="qms-dl-btn mcnp-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <div style="display: flex; gap: 0.25rem; justify-content: center;">
+                        <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20011-STATISTICAL%20TREATMENT%20FORM.docx" download class="qms-dl-btn isap-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                        <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%2011-%20STATISTICAL%20FORM%20FORM.docx" download class="qms-dl-btn isap-btn" title="Statistical Form Form (Alt)"><i class="fas fa-file-word"></i> Alt</a>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Row 012 -->
+                  <tr class="qms-row" data-phase="phase4" style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #ffdf70;">Form 012</td>
+                    <td style="padding: 0.75rem 1rem;">
+                      <strong>Final Defense Self-Assessment Checklist</strong>
+                      <div style="font-size: 0.76rem; color: #94a3b8;">Pre-oral final defense self-audit verifying complete 5-chapter manuscript, data clearance, and permits.</div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.72rem; padding: 0.2rem 0.5rem; background: rgba(139,92,246,0.25); border-radius: 4px; color:#c4b5fd;">Phase 4: Completion</span></td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <div style="display: flex; gap: 0.25rem; justify-content: center;">
+                        <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20012-FINAL%20DEFENSE%20SELF-ASSESSMENT%20CHECKLIST.docx" download class="qms-dl-btn mcnp-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                        <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20012-FINAL%20DEFENSE%20SELF-ASSESSMENT%20CHECKLIST.pdf" target="_blank" class="qms-dl-btn pdf-btn"><i class="fas fa-file-pdf"></i> PDF</a>
+                      </div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20012-FINAL%20DEFENSE%20SELF-ASSESSMENT%20CHECKLIST.docx" download class="qms-dl-btn isap-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 013 -->
+                  <tr class="qms-row" data-phase="phase4" style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #ffdf70;">Form 013</td>
+                    <td style="padding: 0.75rem 1rem;">
+                      <strong>Plagiarism Processing Form</strong>
+                      <div style="font-size: 0.76rem; color: #94a3b8;">Turnitin similarity certification documenting strict compliance with the &le; 15% originality threshold.</div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.72rem; padding: 0.2rem 0.5rem; background: rgba(139,92,246,0.25); border-radius: 4px; color:#c4b5fd;">Phase 4: Turnitin</span></td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20013-PLAGIARISM%20PROCESSING%20FORM.docx" download class="qms-dl-btn mcnp-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20013-PLAGIARISM%20PROCESSING%20FORM.docx" download class="qms-dl-btn isap-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 014 -->
+                  <tr class="qms-row" data-phase="phase5" style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #ffdf70;">Form 014</td>
+                    <td style="padding: 0.75rem 1rem;">
+                      <strong>IMRAD Self-Assessment Form</strong>
+                      <div style="font-size: 0.76rem; color: #94a3b8;">Article conversion rubric for formatting 5-chapter thesis into publishable IMRAD journal format.</div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.72rem; padding: 0.2rem 0.5rem; background: rgba(236,72,153,0.25); border-radius: 4px; color:#f472b6;">Phase 5: IMRAD</span></td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20014-IMRAD%20SELF-%20ASSESSMENT%20FORM.docx" download class="qms-dl-btn mcnp-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20014-IMRAD%20SELF-%20ASSESSMENT%20FORM.docx" download class="qms-dl-btn isap-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 015 -->
+                  <tr class="qms-row" data-phase="phase5" style="border-bottom: 1px solid rgba(255,255,255,0.07);">
+                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #ffdf70;">Form 015</td>
+                    <td style="padding: 0.75rem 1rem;">
+                      <strong>Publication Processing Fee Form</strong>
+                      <div style="font-size: 0.76rem; color: #94a3b8;">Institutional routing and authorization form for publication costs and journal indexing support.</div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.72rem; padding: 0.2rem 0.5rem; background: rgba(236,72,153,0.25); border-radius: 4px; color:#f472b6;">Phase 5: Publishing</span></td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20015-PUBLICATION%20PROCESSING%20FEE%20FORM.docx" download class="qms-dl-btn mcnp-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20015-PUBLICATION%20PROCESSING%20FEE%20FORM.docx" download class="qms-dl-btn isap-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 016 -->
+                  <tr class="qms-row" data-phase="phase5">
+                    <td style="padding: 0.75rem 1rem; font-weight: 700; color: #ffdf70;">Form 016</td>
+                    <td style="padding: 0.75rem 1rem;">
+                      <strong>Acceptance Form for Institutional Publication</strong>
+                      <div style="font-size: 0.76rem; color: #94a3b8;">Official certificate of editorial acceptance into MCNP or ISAP peer-reviewed academic journals.</div>
+                    </td>
+                    <td style="padding: 0.75rem 1rem;"><span style="font-size: 0.72rem; padding: 0.2rem 0.5rem; background: rgba(236,72,153,0.25); border-radius: 4px; color:#f472b6;">Phase 5: Acceptance</span></td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20016-ACCEPTANCE%20FORM%20FOR%20INSTITUTIONAL%20PUBLICATION.docx" download class="qms-dl-btn mcnp-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                    <td style="padding: 0.75rem 1rem; text-align: center;">
+                      <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20016-ACCEPTANCE%20FORM%20FOR%20INSTITUTIONAL%20PUBLICATION.docx" download class="qms-dl-btn isap-btn"><i class="fas fa-file-word"></i> DOCX</a>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+
 
           <!-- SOP Controls Bar -->
           <div class="rdc-sop-controls">
@@ -478,11 +1818,32 @@
             <div class="rdc-sop-stage-desc">
               Initial phase covering research topic conceptualization, capsule proposal screening, formal defense scheduling in the RDC master calendar, and research adviser endorsement.
             </div>
-            <div class="rdc-sop-downloads-bar">
-              <span class="downloads-label"><i class="fas fa-folder-open"></i> Official Downloadable Forms for this Stage:</span>
-              <div class="rdc-sop-forms">
-                <a href="https://onedrive.live.com/?id=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments%2FDesktop%2FDESKTOP%2FRDC%20MCNP%20registered%20forms&amp;listurl=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments&amp;ithint=folder&amp;e=5%3A9Y4wMw&amp;sharingv2=true&amp;at=9&amp;migratedtospo=true&amp;fromShare=true&amp;redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy9kZmNmZTExMGRmZDE1YTMyL0lnQjB2WkF2UVB5V1Q0NGM3VmtuSW5pTkFjdDEtYUtqdERKVXNLUFY3b2dEV2xvP2U9NTo5WTR3TXcmc2hhcmluZ3YyPXRydWUmZnJvbVNoYXJlPXRydWUmYXQ9OQ&amp;ga=1" target="_blank" rel="noopener">MCNP Forms 002–006 ↗</a>
-                <a href="https://onedrive.live.com/?id=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments%2FDesktop%2FDESKTOP%2FRDC%20ISAP%20registered%20forms&amp;listurl=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments&amp;ithint=folder&amp;e=5%3Aj8xoom&amp;sharingv2=true&amp;at=9&amp;migratedtospo=true&amp;fromShare=true&amp;redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy9kZmNmZTExMGRmZDE1YTMyL0lnRFdLc2Y4Zm03RlJwdXZxTGtIVnREN0FjSkxNWGRIbGhzVUxUWTZaX01pZnI0P2U9NTpqOHhvb20mc2hhcmluZ3YyPXRydWUmZnJvbVNoYXJlPXRydWUmYXQ9OQ&amp;ga=1" target="_blank" rel="noopener" style="border-color: var(--isap-blue); color: var(--isap-blue);">ISAP Forms 002–006 ↗</a>
+            <div class="rdc-sop-downloads-bar" style="display: flex; flex-direction: column; gap: 0.75rem; align-items: stretch; background: #f8fafc; border-radius: 8px; padding: 1rem 1.25rem; border: 1px solid var(--border-color); margin: 1rem 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="downloads-label" style="font-weight: 700; color: #0f172a;"><i class="fas fa-folder-open" style="color: var(--gold);"></i> Stage 1 Required Forms: Topic Application &amp; Adviser Endorsement (Forms 002–006)</span>
+                <span style="font-size: 0.75rem; color: #64748b;">Direct local file download (DOCX &amp; PDF)</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="background: rgba(30,94,168,0.04); border: 1px solid rgba(30,94,168,0.2); border-radius: 6px; padding: 0.75rem;">
+                  <span style="display: block; font-size: 0.74rem; font-weight: 800; color: var(--mcnp-green); text-transform: uppercase; margin-bottom: 0.4rem;">🌿 MCNP Health Sciences Forms:</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20002-APPLICATION%20FOR%20RESEARCH%20DEFENSE.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 002 (App)</a>
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20003-CAPSULE%20PROPOSAL%20FORM.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 003 (Capsule)</a>
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20004-LETTER%20OF%20ASSIGNMENT%20AS%20AN%20ADVISER%20FOR%20A%20RESEARCH%20STUDY.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 004 (Adviser)</a>
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20005-APPLICATION%20FOR%20RESEARCH%20DEFENSE%20CHECKLIST.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 005 (Checklist)</a>
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20006-ENDORSEMENT%20FOR%20DEFENSE%20FROM%20THE%20ADVISER.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 006 (Endorsement)</a>
+                  </div>
+                </div>
+                <div style="background: rgba(122,31,45,0.04); border: 1px solid rgba(122,31,45,0.2); border-radius: 6px; padding: 0.75rem;">
+                  <span style="display: block; font-size: 0.74rem; font-weight: 800; color: var(--isap-blue); text-transform: uppercase; margin-bottom: 0.4rem;">📘 ISAP Multidisciplinary Forms:</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20002-APPLICATION%20FOR%20RESEARCH%20DEFENSE.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 002 (App)</a>
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20003-CAPSULE%20PROPOSAL%20FORM.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 003 (Capsule)</a>
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20004-LETTER%20OF%20ASSIGNMENT%20AS%20AN%20ADVISER%20FOR%20A%20RESEARCH%20STUDY.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 004 (Adviser)</a>
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20005-APPLICATION%20FOR%20RESEARCH%20DEFENSE%20CHECKLIST.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 005 (Checklist)</a>
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20006-ENDORSEMENT%20FOR%20DEFENSE%20FROM%20THE%20ADVISER.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 006 (Endorsement)</a>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="rdc-sop-matrix-container">
@@ -595,11 +1956,28 @@
             <div class="rdc-sop-stage-desc">
               Formal oral presentation of Chapters 1–3 before the multidisciplinary panel of examiners, evaluation of methodology and conceptual framework, panel deliberation, and issuance of the Matrix of Corrections.
             </div>
-            <div class="rdc-sop-downloads-bar">
-              <span class="downloads-label"><i class="fas fa-folder-open"></i> Official Downloadable Forms for this Stage:</span>
-              <div class="rdc-sop-forms">
-                <a href="https://onedrive.live.com/?id=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments%2FDesktop%2FDESKTOP%2FRDC%20MCNP%20registered%20forms&amp;listurl=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments&amp;ithint=folder&amp;e=5%3A9Y4wMw&amp;sharingv2=true&amp;at=9&amp;migratedtospo=true&amp;fromShare=true&amp;redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy9kZmNmZTExMGRmZDE1YTMyL0lnQjB2WkF2UVB5V1Q0NGM3VmtuSW5pTkFjdDEtYUtqdERKVXNLUFY3b2dEV2xvP2U9NTo5WTR3TXcmc2hhcmluZ3YyPXRydWUmZnJvbVNoYXJlPXRydWUmYXQ9OQ&amp;ga=1" target="_blank" rel="noopener">MCNP Forms 007–009 ↗</a>
-                <a href="https://onedrive.live.com/?id=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments%2FDesktop%2FDESKTOP%2FRDC%20ISAP%20registered%20forms&amp;listurl=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments&amp;ithint=folder&amp;e=5%3Aj8xoom&amp;sharingv2=true&amp;at=9&amp;migratedtospo=true&amp;fromShare=true&amp;redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy9kZmNmZTExMGRmZDE1YTMyL0lnRFdLc2Y4Zm03RlJwdXZxTGtIVnREN0FjSkxNWGRIbGhzVUxUWTZaX01pZnI0P2U9NTpqOHhvb20mc2hhcmluZ3YyPXRydWUmZnJvbVNoYXJlPXRydWUmYXQ9OQ&amp;ga=1" target="_blank" rel="noopener" style="border-color: var(--isap-blue); color: var(--isap-blue);">ISAP Forms 007–009 ↗</a>
+            <div class="rdc-sop-downloads-bar" style="display: flex; flex-direction: column; gap: 0.75rem; align-items: stretch; background: #f8fafc; border-radius: 8px; padding: 1rem 1.25rem; border: 1px solid var(--border-color); margin: 1rem 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="downloads-label" style="font-weight: 700; color: #0f172a;"><i class="fas fa-folder-open" style="color: var(--gold);"></i> Stage 2 Required Forms: Defense Minutes, Review &amp; Evaluation (Forms 007–009)</span>
+                <span style="font-size: 0.75rem; color: #64748b;">Direct local file download (DOCX)</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="background: rgba(30,94,168,0.04); border: 1px solid rgba(30,94,168,0.2); border-radius: 6px; padding: 0.75rem;">
+                  <span style="display: block; font-size: 0.74rem; font-weight: 800; color: var(--mcnp-green); text-transform: uppercase; margin-bottom: 0.4rem;">🌿 MCNP Health Sciences Forms:</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20007-RESEARCH%20PROPOSAL%20REVIEW%20MINUTES%20OF%20THE%20MEETING.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 007 (Minutes)</a>
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20008-RESEARCH%20PROPOSAL%20REVIEW.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 008 (Review Rubric)</a>
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20009-DEFENSE%20PROCESS%20EVALUATION.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 009 (Process Evaluation)</a>
+                  </div>
+                </div>
+                <div style="background: rgba(122,31,45,0.04); border: 1px solid rgba(122,31,45,0.2); border-radius: 6px; padding: 0.75rem;">
+                  <span style="display: block; font-size: 0.74rem; font-weight: 800; color: var(--isap-blue); text-transform: uppercase; margin-bottom: 0.4rem;">📘 ISAP Multidisciplinary Forms:</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20007-RESEARCH%20PROPOSAL%20REVIEW%20MINUTES%20OF%20THE%20MEETING.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 007 (Minutes)</a>
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20008-RESEARCH%20PROPOSAL%20REVIEW.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 008 (Review Rubric)</a>
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20009-DEFENSE%20PROCESS%20EVALUATION.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 009 (Process Evaluation)</a>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="rdc-sop-matrix-container">
@@ -711,11 +2089,25 @@
             <div class="rdc-sop-stage-desc">
               Strict ethical clearance requirement before any data collection. Guarantees participant protection, informed consent protocol, and authorized gatekeeper permissions.
             </div>
-            <div class="rdc-sop-downloads-bar">
-              <span class="downloads-label"><i class="fas fa-folder-open"></i> Official Downloadable Forms for this Stage:</span>
-              <div class="rdc-sop-forms">
-                <a href="https://onedrive.live.com/?id=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments%2FDesktop%2FDESKTOP%2FRDC%20MCNP%20registered%20forms&amp;listurl=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments&amp;ithint=folder&amp;e=5%3A9Y4wMw&amp;sharingv2=true&amp;at=9&amp;migratedtospo=true&amp;fromShare=true&amp;redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy9kZmNmZTExMGRmZDE1YTMyL0lnQjB2WkF2UVB5V1Q0NGM3VmtuSW5pTkFjdDEtYUtqdERKVXNLUFY3b2dEV2xvP2U9NTo5WTR3TXcmc2hhcmluZ3YyPXRydWUmZnJvbVNoYXJlPXRydWUmYXQ9OQ&amp;ga=1" target="_blank" rel="noopener">MCNP Form 010 ↗</a>
-                <a href="https://onedrive.live.com/?id=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments%2FDesktop%2FDESKTOP%2FRDC%20ISAP%20registered%20forms&amp;listurl=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments&amp;ithint=folder&amp;e=5%3Aj8xoom&amp;sharingv2=true&amp;at=9&amp;migratedtospo=true&amp;fromShare=true&amp;redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy9kZmNmZTExMGRmZDE1YTMyL0lnRFdLc2Y4Zm03RlJwdXZxTGtIVnREN0FjSkxNWGRIbGhzVUxUWTZaX01pZnI0P2U9NTpqOHhvb20mc2hhcmluZ3YyPXRydWUmZnJvbVNoYXJlPXRydWUmYXQ9OQ&amp;ga=1" target="_blank" rel="noopener" style="border-color: var(--isap-blue); color: var(--isap-blue);">ISAP Form 010 ↗</a>
+            <div class="rdc-sop-downloads-bar" style="display: flex; flex-direction: column; gap: 0.75rem; align-items: stretch; background: #f8fafc; border-radius: 8px; padding: 1rem 1.25rem; border: 1px solid var(--border-color); margin: 1rem 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="downloads-label" style="font-weight: 700; color: #0f172a;"><i class="fas fa-folder-open" style="color: var(--gold);"></i> Stage 3 Quality &amp; Feedback Instrument: Client Satisfaction Survey (Form 010)</span>
+                <span style="font-size: 0.75rem; color: #64748b;">Direct local file download (DOCX &amp; PDF)</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="background: rgba(30,94,168,0.04); border: 1px solid rgba(30,94,168,0.2); border-radius: 6px; padding: 0.75rem;">
+                  <span style="display: block; font-size: 0.74rem; font-weight: 800; color: var(--mcnp-green); text-transform: uppercase; margin-bottom: 0.4rem;">🌿 MCNP Health Sciences:</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20010-CLIENT%20SATISFACTION%20SURVEY.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 010 (Client Satisfaction Survey)</a>
+                  </div>
+                </div>
+                <div style="background: rgba(122,31,45,0.04); border: 1px solid rgba(122,31,45,0.2); border-radius: 6px; padding: 0.75rem;">
+                  <span style="display: block; font-size: 0.74rem; font-weight: 800; color: var(--isap-blue); text-transform: uppercase; margin-bottom: 0.4rem;">📘 ISAP Multidisciplinary:</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20010-CLIENT%20SATISFACTION%20SURVEY.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 010 (DOCX)</a>
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20010-CLIENT%20SATISFACTION%20SURVEY.pdf" target="_blank" class="sop-form-link isap-link pdf-link"><i class="fas fa-file-pdf"></i> Form 010 (PDF)</a>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="rdc-sop-matrix-container">
@@ -807,11 +2199,27 @@
             <div class="rdc-sop-stage-desc">
               Data quality assurance, transcription/coding, processing institutional statistical service fees, and computation of certified descriptive and inferential statistics.
             </div>
-            <div class="rdc-sop-downloads-bar">
-              <span class="downloads-label"><i class="fas fa-folder-open"></i> Official Downloadable Forms for this Stage:</span>
-              <div class="rdc-sop-forms">
-                <a href="https://onedrive.live.com/?id=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments%2FDesktop%2FDESKTOP%2FRDC%20MCNP%20registered%20forms&amp;listurl=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments&amp;ithint=folder&amp;e=5%3A9Y4wMw&amp;sharingv2=true&amp;at=9&amp;migratedtospo=true&amp;fromShare=true&amp;redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy9kZmNmZTExMGRmZDE1YTMyL0lnQjB2WkF2UVB5V1Q0NGM3VmtuSW5pTkFjdDEtYUtqdERKVXNLUFY3b2dEV2xvP2U9NTo5WTR3TXcmc2hhcmluZ3YyPXRydWUmZnJvbVNoYXJlPXRydWUmYXQ9OQ&amp;ga=1" target="_blank" rel="noopener">MCNP Forms 010–011 ↗</a>
-                <a href="https://onedrive.live.com/?id=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments%2FDesktop%2FDESKTOP%2FRDC%20ISAP%20registered%20forms&amp;listurl=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments&amp;ithint=folder&amp;e=5%3Aj8xoom&amp;sharingv2=true&amp;at=9&amp;migratedtospo=true&amp;fromShare=true&amp;redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy9kZmNmZTExMGRmZDE1YTMyL0lnRFdLc2Y4Zm03RlJwdXZxTGtIVnREN0FjSkxNWGRIbGhzVUxUWTZaX01pZnI0P2U9NTpqOHhvb20mc2hhcmluZ3YyPXRydWUmZnJvbVNoYXJlPXRydWUmYXQ9OQ&amp;ga=1" target="_blank" rel="noopener" style="border-color: var(--isap-blue); color: var(--isap-blue);">ISAP Forms 010–011 ↗</a>
+            <div class="rdc-sop-downloads-bar" style="display: flex; flex-direction: column; gap: 0.75rem; align-items: stretch; background: #f8fafc; border-radius: 8px; padding: 1rem 1.25rem; border: 1px solid var(--border-color); margin: 1rem 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="downloads-label" style="font-weight: 700; color: #0f172a;"><i class="fas fa-folder-open" style="color: var(--gold);"></i> Stage 4 Required Forms: Statistical Treatment &amp; Client Feedback (Forms 010–011)</span>
+                <span style="font-size: 0.75rem; color: #64748b;">Direct local file download (DOCX)</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="background: rgba(30,94,168,0.04); border: 1px solid rgba(30,94,168,0.2); border-radius: 6px; padding: 0.75rem;">
+                  <span style="display: block; font-size: 0.74rem; font-weight: 800; color: var(--mcnp-green); text-transform: uppercase; margin-bottom: 0.4rem;">🌿 MCNP Health Sciences Forms:</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20011-STATISTICAL%20TREATMENT%20FORM.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 011 (Statistical Treatment Form)</a>
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20010-CLIENT%20SATISFACTION%20SURVEY.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 010 (Client Feedback)</a>
+                  </div>
+                </div>
+                <div style="background: rgba(122,31,45,0.04); border: 1px solid rgba(122,31,45,0.2); border-radius: 6px; padding: 0.75rem;">
+                  <span style="display: block; font-size: 0.74rem; font-weight: 800; color: var(--isap-blue); text-transform: uppercase; margin-bottom: 0.4rem;">📘 ISAP Multidisciplinary Forms:</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20011-STATISTICAL%20TREATMENT%20FORM.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 011 (Statistical Treatment)</a>
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%2011-%20STATISTICAL%20FORM%20FORM.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 11 (Stat Form)</a>
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20010-CLIENT%20SATISFACTION%20SURVEY.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 010 (Feedback)</a>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="rdc-sop-matrix-container">
@@ -898,17 +2306,38 @@
           <!-- Stage 5 -->
           <details class="rdc-sop-stage">
             <summary>
-              <span>5–6. Prepare for and Present Oral Final Defense</span>
-              <span class="rdc-sop-stage-badge">Phase 04: Final Defense</span>
+              <span>5–6. Research Completion Guidelines: Final Oral Defense &amp; Archiving</span>
+              <span class="rdc-sop-stage-badge">Phase 04: Completion &amp; Defense</span>
             </summary>
-            <div class="rdc-sop-stage-desc">
-              Comprehensive oral defense of the full 5-chapter manuscript, showcasing findings, data interpretations, institutional/clinical implications, and community action plans.
+            <div class="rdc-sop-stage-desc"> <strong>Item 15: Research Completion Guidelines:</strong> Comprehensive oral defense of the full 5-chapter manuscript, formal verification of corrections by panel members, Approval Sheet sign-offs, hardbound book production, and institutional repository archiving., showcasing findings, data interpretations, institutional/clinical implications, and community action plans.
             </div>
-            <div class="rdc-sop-downloads-bar">
-              <span class="downloads-label"><i class="fas fa-folder-open"></i> Official Downloadable Forms for this Stage:</span>
-              <div class="rdc-sop-forms">
-                <a href="https://onedrive.live.com/?id=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments%2FDesktop%2FDESKTOP%2FRDC%20MCNP%20registered%20forms&amp;listurl=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments&amp;ithint=folder&amp;e=5%3A9Y4wMw&amp;sharingv2=true&amp;at=9&amp;migratedtospo=true&amp;fromShare=true&amp;redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy9kZmNmZTExMGRmZDE1YTMyL0lnQjB2WkF2UVB5V1Q0NGM3VmtuSW5pTkFjdDEtYUtqdERKVXNLUFY3b2dEV2xvP2U9NTo5WTR3TXcmc2hhcmluZ3YyPXRydWUmZnJvbVNoYXJlPXRydWUmYXQ9OQ&amp;ga=1" target="_blank" rel="noopener">MCNP Forms 002, 005, 006, 009, 012 ↗</a>
-                <a href="https://onedrive.live.com/?id=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments%2FDesktop%2FDESKTOP%2FRDC%20ISAP%20registered%20forms&amp;listurl=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments&amp;ithint=folder&amp;e=5%3Aj8xoom&amp;sharingv2=true&amp;at=9&amp;migratedtospo=true&amp;fromShare=true&amp;redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy9kZmNmZTExMGRmZDE1YTMyL0lnRFdLc2Y4Zm03RlJwdXZxTGtIVnREN0FjSkxNWGRIbGhzVUxUWTZaX01pZnI0P2U9NTpqOHhvb20mc2hhcmluZ3YyPXRydWUmZnJvbVNoYXJlPXRydWUmYXQ9OQ&amp;ga=1" target="_blank" rel="noopener" style="border-color: var(--isap-blue); color: var(--isap-blue);">ISAP Forms 002, 005, 006, 009, 012 ↗</a>
+            <div class="rdc-sop-downloads-bar" style="display: flex; flex-direction: column; gap: 0.75rem; align-items: stretch; background: #f8fafc; border-radius: 8px; padding: 1rem 1.25rem; border: 1px solid var(--border-color); margin: 1rem 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="downloads-label" style="font-weight: 700; color: #0f172a;"><i class="fas fa-folder-open" style="color: var(--gold);"></i> Stage 5 Required Forms: Final Defense Application &amp; Readiness Checklist (Forms 002, 005, 006, 009, 012)</span>
+                <span style="font-size: 0.75rem; color: #64748b;">Direct local file download (DOCX &amp; PDF)</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="background: rgba(30,94,168,0.04); border: 1px solid rgba(30,94,168,0.2); border-radius: 6px; padding: 0.75rem;">
+                  <span style="display: block; font-size: 0.74rem; font-weight: 800; color: var(--mcnp-green); text-transform: uppercase; margin-bottom: 0.4rem;">🌿 MCNP Health Sciences Forms:</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20012-FINAL%20DEFENSE%20SELF-ASSESSMENT%20CHECKLIST.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 012 (Checklist DOCX)</a>
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20012-FINAL%20DEFENSE%20SELF-ASSESSMENT%20CHECKLIST.pdf" target="_blank" class="sop-form-link mcnp-link pdf-link"><i class="fas fa-file-pdf"></i> Form 012 (PDF)</a>
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20002-APPLICATION%20FOR%20RESEARCH%20DEFENSE.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 002 (App)</a>
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20005-APPLICATION%20FOR%20RESEARCH%20DEFENSE%20CHECKLIST.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 005</a>
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20006-ENDORSEMENT%20FOR%20DEFENSE%20FROM%20THE%20ADVISER.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 006</a>
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20009-DEFENSE%20PROCESS%20EVALUATION.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 009</a>
+                  </div>
+                </div>
+                <div style="background: rgba(122,31,45,0.04); border: 1px solid rgba(122,31,45,0.2); border-radius: 6px; padding: 0.75rem;">
+                  <span style="display: block; font-size: 0.74rem; font-weight: 800; color: var(--isap-blue); text-transform: uppercase; margin-bottom: 0.4rem;">📘 ISAP Multidisciplinary Forms:</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20012-FINAL%20DEFENSE%20SELF-ASSESSMENT%20CHECKLIST.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 012 (Checklist DOCX)</a>
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20002-APPLICATION%20FOR%20RESEARCH%20DEFENSE.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 002 (App)</a>
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20005-APPLICATION%20FOR%20RESEARCH%20DEFENSE%20CHECKLIST.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 005</a>
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20006-ENDORSEMENT%20FOR%20DEFENSE%20FROM%20THE%20ADVISER.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 006</a>
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20009-DEFENSE%20PROCESS%20EVALUATION.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 009</a>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="rdc-sop-matrix-container">
@@ -1024,11 +2453,26 @@
             <div class="rdc-sop-stage-desc">
               Verification of panel compliance, Turnitin originality similarity verification ($\le 15\%$), and securing institutional approval signatures for hardbound archiving.
             </div>
-            <div class="rdc-sop-downloads-bar">
-              <span class="downloads-label"><i class="fas fa-folder-open"></i> Official Downloadable Forms for this Stage:</span>
-              <div class="rdc-sop-forms">
-                <a href="https://onedrive.live.com/?id=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments%2FDesktop%2FDESKTOP%2FRDC%20MCNP%20registered%20forms&amp;listurl=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments&amp;ithint=folder&amp;e=5%3A9Y4wMw&amp;sharingv2=true&amp;at=9&amp;migratedtospo=true&amp;fromShare=true&amp;redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy9kZmNmZTExMGRmZDE1YTMyL0lnQjB2WkF2UVB5V1Q0NGM3VmtuSW5pTkFjdDEtYUtqdERKVXNLUFY3b2dEV2xvP2U9NTo5WTR3TXcmc2hhcmluZ3YyPXRydWUmZnJvbVNoYXJlPXRydWUmYXQ9OQ&amp;ga=1" target="_blank" rel="noopener">MCNP Forms 005, 013 ↗</a>
-                <a href="https://onedrive.live.com/?id=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments%2FDesktop%2FDESKTOP%2FRDC%20ISAP%20registered%20forms&amp;listurl=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments&amp;ithint=folder&amp;e=5%3Aj8xoom&amp;sharingv2=true&amp;at=9&amp;migratedtospo=true&amp;fromShare=true&amp;redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy9kZmNmZTExMGRmZDE1YTMyL0lnRFdLc2Y4Zm03RlJwdXZxTGtIVnREN0FjSkxNWGRIbGhzVUxUWTZaX01pZnI0P2U9NTpqOHhvb20mc2hhcmluZ3YyPXRydWUmZnJvbVNoYXJlPXRydWUmYXQ9OQ&amp;ga=1" target="_blank" rel="noopener" style="border-color: var(--isap-blue); color: var(--isap-blue);">ISAP Forms 005, 013 ↗</a>
+            <div class="rdc-sop-downloads-bar" style="display: flex; flex-direction: column; gap: 0.75rem; align-items: stretch; background: #f8fafc; border-radius: 8px; padding: 1rem 1.25rem; border: 1px solid var(--border-color); margin: 1rem 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="downloads-label" style="font-weight: 700; color: #0f172a;"><i class="fas fa-folder-open" style="color: var(--gold);"></i> Stage 6 Required Forms: Plagiarism Clearance &amp; Manuscript Checklist (Forms 005 &amp; 013)</span>
+                <span style="font-size: 0.75rem; color: #64748b;">Direct local file download (DOCX)</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="background: rgba(30,94,168,0.04); border: 1px solid rgba(30,94,168,0.2); border-radius: 6px; padding: 0.75rem;">
+                  <span style="display: block; font-size: 0.74rem; font-weight: 800; color: var(--mcnp-green); text-transform: uppercase; margin-bottom: 0.4rem;">🌿 MCNP Health Sciences Forms:</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20013-PLAGIARISM%20PROCESSING%20FORM.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 013 (Plagiarism Processing Form)</a>
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20005-APPLICATION%20FOR%20RESEARCH%20DEFENSE%20CHECKLIST.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 005 (Checklist)</a>
+                  </div>
+                </div>
+                <div style="background: rgba(122,31,45,0.04); border: 1px solid rgba(122,31,45,0.2); border-radius: 6px; padding: 0.75rem;">
+                  <span style="display: block; font-size: 0.74rem; font-weight: 800; color: var(--isap-blue); text-transform: uppercase; margin-bottom: 0.4rem;">📘 ISAP Multidisciplinary Forms:</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20013-PLAGIARISM%20PROCESSING%20FORM.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 013 (Plagiarism Processing Form)</a>
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20005-APPLICATION%20FOR%20RESEARCH%20DEFENSE%20CHECKLIST.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 005 (Checklist)</a>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="rdc-sop-matrix-container">
@@ -1119,11 +2563,28 @@
             <div class="rdc-sop-stage-desc">
               Converting full thesis into standard IMRAD scholarly journal format, double-blind peer review, and formal indexing in MCNP or ISAP peer-reviewed journals.
             </div>
-            <div class="rdc-sop-downloads-bar">
-              <span class="downloads-label"><i class="fas fa-folder-open"></i> Official Downloadable Forms for this Stage:</span>
-              <div class="rdc-sop-forms">
-                <a href="https://onedrive.live.com/?id=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments%2FDesktop%2FDESKTOP%2FRDC%20MCNP%20registered%20forms&amp;listurl=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments&amp;ithint=folder&amp;e=5%3A9Y4wMw&amp;sharingv2=true&amp;at=9&amp;migratedtospo=true&amp;fromShare=true&amp;redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy9kZmNmZTExMGRmZDE1YTMyL0lnQjB2WkF2UVB5V1Q0NGM3VmtuSW5pTkFjdDEtYUtqdERKVXNLUFY3b2dEV2xvP2U9NTo5WTR3TXcmc2hhcmluZ3YyPXRydWUmZnJvbVNoYXJlPXRydWUmYXQ9OQ&amp;ga=1" target="_blank" rel="noopener">MCNP Forms 014–016 ↗</a>
-                <a href="https://onedrive.live.com/?id=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments%2FDesktop%2FDESKTOP%2FRDC%20ISAP%20registered%20forms&amp;listurl=%2Fpersonal%2Fdfcfe110dfd15a32%2FDocuments&amp;ithint=folder&amp;e=5%3Aj8xoom&amp;sharingv2=true&amp;at=9&amp;migratedtospo=true&amp;fromShare=true&amp;redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy9kZmNmZTExMGRmZDE1YTMyL0lnRFdLc2Y4Zm03RlJwdXZxTGtIVnREN0FjSkxNWGRIbGhzVUxUWTZaX01pZnI0P2U9NTpqOHhvb20mc2hhcmluZ3YyPXRydWUmZnJvbVNoYXJlPXRydWUmYXQ9OQ&amp;ga=1" target="_blank" rel="noopener" style="border-color: var(--isap-blue); color: var(--isap-blue);">ISAP Forms 014–016 ↗</a>
+            <div class="rdc-sop-downloads-bar" style="display: flex; flex-direction: column; gap: 0.75rem; align-items: stretch; background: #f8fafc; border-radius: 8px; padding: 1rem 1.25rem; border: 1px solid var(--border-color); margin: 1rem 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="downloads-label" style="font-weight: 700; color: #0f172a;"><i class="fas fa-folder-open" style="color: var(--gold);"></i> Stage 7 Required Forms: IMRAD Formatting, Fee Authorization &amp; Acceptance (Forms 014–016)</span>
+                <span style="font-size: 0.75rem; color: #64748b;">Direct local file download (DOCX)</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="background: rgba(30,94,168,0.04); border: 1px solid rgba(30,94,168,0.2); border-radius: 6px; padding: 0.75rem;">
+                  <span style="display: block; font-size: 0.74rem; font-weight: 800; color: var(--mcnp-green); text-transform: uppercase; margin-bottom: 0.4rem;">🌿 MCNP Health Sciences Forms:</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20014-IMRAD%20SELF-%20ASSESSMENT%20FORM.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 014 (IMRAD Self-Assessment)</a>
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20015-PUBLICATION%20PROCESSING%20FEE%20FORM.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 015 (Fee Processing)</a>
+                    <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20016-ACCEPTANCE%20FORM%20FOR%20INSTITUTIONAL%20PUBLICATION.docx" download class="sop-form-link mcnp-link"><i class="fas fa-file-word"></i> Form 016 (Acceptance)</a>
+                  </div>
+                </div>
+                <div style="background: rgba(122,31,45,0.04); border: 1px solid rgba(122,31,45,0.2); border-radius: 6px; padding: 0.75rem;">
+                  <span style="display: block; font-size: 0.74rem; font-weight: 800; color: var(--isap-blue); text-transform: uppercase; margin-bottom: 0.4rem;">📘 ISAP Multidisciplinary Forms:</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20014-IMRAD%20SELF-%20ASSESSMENT%20FORM.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 014 (IMRAD Self-Assessment)</a>
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20015-PUBLICATION%20PROCESSING%20FEE%20FORM.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 015 (Fee Processing)</a>
+                    <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20016-ACCEPTANCE%20FORM%20FOR%20INSTITUTIONAL%20PUBLICATION.docx" download class="sop-form-link isap-link"><i class="fas fa-file-word"></i> Form 016 (Acceptance)</a>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="rdc-sop-matrix-container">
@@ -1211,9 +2672,201 @@
             </div>
           </details>
         </div>
+      </section></section>
+
+      
+      <!-- ==========================================================================
+           ITEM 43: FREQUENTLY ASKED QUESTIONS (FAQ) ACCORDION
+           ========================================================================== -->
+      <section class="faq-section" id="faq" style="margin-top: 2rem; border-radius: 14px; padding: 3.5rem 1.5rem; background: #f8fafc; border: 1px solid var(--border-color);">
+        <div class="faq-header-wrap">
+          <span class="section-tag">Knowledge Base &amp; Policies</span>
+          <h2 class="section-title">❓ Frequently Asked Questions (FAQs)</h2>
+          <p class="section-desc">
+            Direct answers regarding ethics protocol clearances (IERC), thesis defenses, biostatistics consultation, registered cloud forms, and journal publishing.
+          </p>
+        </div>
+
+        <div class="faq-controls-bar">
+          <div class="faq-search-input">
+            <span>🔍</span>
+            <input type="text" id="faqSearchInput" placeholder="Search questions by topic, keyword, or requirement...">
+          </div>
+          <div class="faq-toggle-all-btns">
+            <button type="button" class="faq-btn-toggle" onclick="toggleAllFaqs(true)">Expand All</button>
+            <button type="button" class="faq-btn-toggle" onclick="toggleAllFaqs(false)">Collapse All</button>
+          </div>
+        </div>
+
+        <div class="faq-filter-chips">
+          <button type="button" class="faq-chip active" data-category="all" onclick="filterFaqCategory('all', this)">All Questions (8)</button>
+          <button type="button" class="faq-chip" data-category="ethics" onclick="filterFaqCategory('ethics', this)">Ethics &amp; IERC</button>
+          <button type="button" class="faq-chip" data-category="stats" onclick="filterFaqCategory('stats', this)">Statistical Clinics</button>
+          <button type="button" class="faq-chip" data-category="sop" onclick="filterFaqCategory('sop', this)">Defense &amp; Forms</button>
+          <button type="button" class="faq-chip" data-category="journals" onclick="filterFaqCategory('journals', this)">Journals &amp; Publishing</button>
+          <button type="button" class="faq-chip" data-category="utilization" onclick="filterFaqCategory('utilization', this)">Utilization &amp; Impact</button>
+        </div>
+
+        <div class="faq-container">
+          <!-- Q1 -->
+          <details class="faq-card" data-category="ethics" open>
+            <summary class="faq-question-btn">
+              <div class="faq-q-left">
+                <span class="faq-category-tag">Ethics &amp; IERC Review</span>
+                <span>What is the standard procedure for obtaining an Institutional Ethics Review Committee (IERC) clearance?</span>
+              </div>
+              <div class="faq-icon-indicator">+</div>
+            </summary>
+            <div class="faq-answer-body">
+              <p>All research protocols involving human participants, health records, clinical trials, vulnerable populations (e.g., minors, inmates, indigenous groups), or community surveys must secure ethical clearance from the <strong>PHREB Level 1 Accredited Institutional Ethics Review Committee (IERC)</strong> before data collection begins.</p>
+              <div class="faq-callout">
+                <strong>Mandatory Protocol Submission Packet:</strong> Proponents must submit accomplished <strong>Form 012 (Ethics Protocol Review Application)</strong>, participant informed consent / assent documents, survey instruments, and a signed data privacy pledge to the RDC Secretariat.
+              </div>
+              <p>Review turnaround typically requires <strong>10 to 15 working days</strong> for expedited protocols and up to 21 working days for full-board reviews. Once approved, an official <em>Certificate of Ethical Clearance</em> is issued and recorded in the master defense dossier.</p>
+            </div>
+          </details>
+
+          <!-- Q2 -->
+          <details class="faq-card" data-category="stats">
+            <summary class="faq-question-btn">
+              <div class="faq-q-left">
+                <span class="faq-category-tag">Statistical Consultation</span>
+                <span>How do researchers schedule a Statistical Consultation or Data Analysis session?</span>
+              </div>
+              <div class="faq-icon-indicator">+</div>
+            </summary>
+            <div class="faq-answer-body">
+              <p>Researchers across MCNP and ISAP can avail of institutional biostatistical and quantitative analysis support through the RDC Biostatistics Unit:</p>
+              <ol>
+                <li>Accomplish <strong>Form 011 (Statistical Consultation Service Request Form)</strong> detailing the statement of the problem, operational variables, proposed analytical tests, and clean electronic dataset.</li>
+                <li>Submit the request to the RDC Secretariat and settle the cashier processing fee receipt (for student academic theses).</li>
+                <li>Attend the scheduled consultation clinic where institutional data analysts perform computations using SPSS, Jamovi, or R, and provide formal interpretation matrices.</li>
+                <li>Receive the official <strong>Statistician’s Clearance Certificate</strong> required for scheduling the final oral defense.</li>
+              </ol>
+            </div>
+          </details>
+
+          <!-- Q3 -->
+          <details class="faq-card" data-category="sop">
+            <summary class="faq-question-btn">
+              <div class="faq-q-left">
+                <span class="faq-category-tag">Defense SOP &amp; Registered Forms</span>
+                <span>Where can proponents download official RDC thesis application and defense evaluation forms?</span>
+              </div>
+              <div class="faq-icon-indicator">+</div>
+            </summary>
+            <div class="faq-answer-body">
+              <p>All institutional forms are digitally cataloged and available via dedicated cloud folders for each institution:</p>
+              <ul>
+                <li><strong>MCNP Registered Forms (Forms 002–016):</strong> Available via the <a href="about-rdc-mcnp.html#rdc-sop" style="color:var(--mcnp-green);font-weight:600;text-decoration:underline;">MCNP Standard Operating Procedures ↗</a> cloud repository.</li>
+                <li><strong>ISAP Registered Forms (Forms 002–016):</strong> Available via the <a href="about-rdc-isap.html#rdc-sop" style="color:var(--isap-blue);font-weight:600;text-decoration:underline;">ISAP Standard Operating Procedures ↗</a> cloud repository.</li>
+              </ul>
+              <p>Key forms include <strong>Form 002</strong> (Capsule Proposal / Defense Application), <strong>Form 003</strong> (Adviser &amp; Coordinator Endorsement), <strong>Form 005</strong> (Panel Rating Sheet), <strong>Form 007</strong> (Matrix of Corrections), and <strong>Form 008</strong> (Official Institutional Approval Sheet).</p>
+            </div>
+          </details>
+
+          <!-- Q4 -->
+          <details class="faq-card" data-category="journals">
+            <summary class="faq-question-btn">
+              <div class="faq-q-left">
+                <span class="faq-category-tag">Journals &amp; Publishing</span>
+                <span>What are the requirements for faculty and student authors to publish in RDC journals?</span>
+              </div>
+              <div class="faq-icon-indicator">+</div>
+            </summary>
+            <div class="faq-answer-body">
+              <p>Manuscripts submitted to MCNP and ISAP research publications must adhere to rigorous scholarly standards:</p>
+              <ul>
+                <li><strong>Manuscript Structure:</strong> Strict <strong>IMRAD Format</strong> (Introduction, Methods, Results, and Discussion) with a structured abstract (maximum 250 words) and 4 to 6 MeSH/thematic keywords.</li>
+                <li><strong>Citation Standards:</strong> APA 7th Edition for Multidisciplinary studies (ISAP); Vancouver or APA 7th for Health &amp; Allied Sciences (MCNP).</li>
+                <li><strong>Similarity Index Threshold:</strong> Must achieve a Turnitin similarity index of <strong>&le; 15%</strong> (excluding bibliography and common quotes).</li>
+                <li><strong>Peer Review:</strong> All submissions undergo double-blind peer review by qualified external and internal referees before DOI assignment and publication.</li>
+              </ul>
+              <p>Visit the <a href="journal.html" style="color:var(--mcnp-green);font-weight:600;">Institutional Journals Portal</a> to explore submission workflows or email your draft to <a href="mailto:researchoffice@mcnp.edu.ph" style="color:var(--mcnp-green);font-weight:600;">researchoffice@mcnp.edu.ph</a>.</p>
+            </div>
+          </details>
+
+          <!-- Q5 -->
+          <details class="faq-card" data-category="journals">
+            <summary class="faq-question-btn">
+              <div class="faq-q-left">
+                <span class="faq-category-tag">Journals &amp; Publishing</span>
+                <span>How can I read or cite the digital FlipBook edition of the Journal of Admin?</span>
+              </div>
+              <div class="faq-icon-indicator">+</div>
+            </summary>
+            <div class="faq-answer-body">
+              <p>The <strong>Journal of Admin &amp; Faculty Research</strong> is published as an interactive high-resolution FlipBook powered by FlipHTML5. You can read complete editions directly in your browser without downloading heavy PDF files:</p>
+              <p style="margin: 0.75rem 0;">
+                <a href="journal-admin.html" class="btn btn-sm btn-gold">Open Journal of Admin Portal ↗</a>
+                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-white" style="margin-left:0.5rem;color:var(--dark-text);border-color:#cbd5e1;">Direct FlipHTML5 Viewer ↗</a>
+              </p>
+              <p>Each published study includes a built-in citation generator on our portal supporting APA 7th, MLA 9th, and Chicago referencing formats.</p>
+            </div>
+          </details>
+
+          <!-- Q6 -->
+          <details class="faq-card" data-category="utilization">
+            <summary class="faq-question-btn">
+              <div class="faq-q-left">
+                <span class="faq-category-tag">Utilization &amp; Community Impact</span>
+                <span>What is a Certificate of Research Utilization and how do proponents qualify?</span>
+              </div>
+              <div class="faq-icon-indicator">+</div>
+            </summary>
+            <div class="faq-answer-body">
+              <p>A <strong>Certificate of Research Utilization</strong> is an official institutional award affirming that an empirical research output has achieved real-world application across one of our four institutional pathways:</p>
+              <ol>
+                <li><strong>Policy Translation &amp; Institutional Guidelines:</strong> Adopted into clinical protocols, municipal resolutions, police patrol strategies, or hospital care pathways.</li>
+                <li><strong>Community Extension &amp; Grassroots Adoption:</strong> Utilized in community health, maternal wellness, or public safety outreach programs.</li>
+                <li><strong>Technology Transfer &amp; Commercialization:</strong> Registered intellectual property, copyright, patent, or commercialization pilot.</li>
+                <li><strong>Curricular Integration:</strong> Embedded into syllabi, instructional modules, or laboratory training manuals.</li>
+              </ol>
+              <p>Proponents submit their post-defense manuscript, adoption MOA / resolution, and stakeholder verification letter to the RDC Utilization Office via <a href="utilization.html" style="color:var(--mcnp-green);font-weight:600;">utilization.html</a>.</p>
+            </div>
+          </details>
+
+          <!-- Q7 -->
+          <details class="faq-card" data-category="sop">
+            <summary class="faq-question-btn">
+              <div class="faq-q-left">
+                <span class="faq-category-tag">Institutional Scope</span>
+                <span>What is the difference between the MCNP Health Research Wing and the ISAP Multidisciplinary Wing?</span>
+              </div>
+              <div class="faq-icon-indicator">+</div>
+            </summary>
+            <div class="faq-answer-body">
+              <p>The Research &amp; Development Center functions as a unified twin-institution research hub serving both colleges:</p>
+              <ul>
+                <li><strong>MCNP Health Research Wing:</strong> Dedicated to medical, healthcare, clinical epidemiology, nursing, radiologic technology, and pharmacy disciplines.</li>
+                <li><strong>ISAP Multidisciplinary Wing:</strong> Dedicated to criminology, public safety, criminalistics, customs administration, business, information technology, computer science, and teacher education.</li>
+              </ul>
+              <p>Both wings share institutional facilities, data labs, and the Institutional Ethics Review Committee (IERC).</p>
+            </div>
+          </details>
+
+          <!-- Q8 -->
+          <details class="faq-card" data-category="sop">
+            <summary class="faq-question-btn">
+              <div class="faq-q-left">
+                <span class="faq-category-tag">Secretariat Operations</span>
+                <span>What are the RDC office hours and how quickly will the secretariat respond to inquiries?</span>
+              </div>
+              <div class="faq-icon-indicator">+</div>
+            </summary>
+            <div class="faq-answer-body">
+              <p>The RDC Secretariat office is open at the Administration Building, Twin Campuses, Alimannao Hills, Peñablanca, Cagayan:</p>
+              <ul>
+                <li><strong>Monday to Friday:</strong> 8:00 AM – 5:00 PM</li>
+                <li><strong>Saturday:</strong> 8:00 AM – 12:00 PM</li>
+              </ul>
+              <p>Inquiries submitted through our online contact form or via email (<a href="mailto:researchoffice@mcnp.edu.ph" style="color:var(--mcnp-green);font-weight:600;">researchoffice@mcnp.edu.ph</a>) are processed promptly with a response timeframe of <strong>24 to 48 working hours</strong>.</p>
+            </div>
+          </details>
+        </div>
       </section>
 
-      <!-- Bottom Navigation Strip -->
+<!-- Bottom Navigation Strip -->
       <div style="background: linear-gradient(135deg, var(--mcnp-green-dark) 0%, var(--isap-blue-dark) 100%); border-radius: 14px; padding: 2.5rem; color: #fff; text-align: center; margin-top: 3.5rem;">
         <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem; color: #fff;">Begin Your Research Journey with RDC</h3>
         <p style="max-width: 680px; margin: 0 auto 1.75rem; opacity: 0.95; font-size: 0.96rem; line-height: 1.7;">
@@ -1222,6 +2875,8 @@
         <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
           <a href="rdc-agenda.html" class="btn btn-gold">Explore RDC Agenda &rarr;</a>
           <a href="journal.html" class="btn btn-outline-white">Browse Research Journals &rarr;</a>
+          <a href="news-events.html#training-calendar" class="btn btn-outline-white">Training Calendar (2026–2027) &rarr;</a>
+          <a href="#faq" class="btn btn-outline-white">Frequently Asked Questions &rarr;</a>
           <a href="contact.html" class="btn btn-outline-white">Contact Secretariat &rarr;</a>
         </div>
       </div>
@@ -1267,6 +2922,8 @@
             <li><a href="utilization.html">&rarr; Research Utilization</a></li>
             <li><a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer">&rarr; Direct FlipHTML5 ↗</a></li>
             <li><a href="news-events.html">&rarr; News &amp; Events</a></li>
+            <li><a href="news-events.html#training-calendar">&rarr; Research Training Calendar</a></li>
+            <li><a href="contact.html#faq">&rarr; Frequently Asked Questions (FAQs)</a></li>
           </ul>
         </div>
 
@@ -1305,6 +2962,83 @@
   </footer>
 
   <script src="js/main.js"></script>
+
+  <!-- Lightbox Modal for Personnel Calling Card -->
+  <div id="aboutCardLightboxModal" class="sr-modal-overlay" onclick="closeAboutCardModal(event)">
+    <div class="sr-modal" style="max-width: 720px; padding: 1.5rem; background: #0f172a; color: #fff; text-align: center; border: 1px solid rgba(255,255,255,0.15);" onclick="event.stopPropagation()">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h4 id="aboutLightboxName" style="color: #fff; margin: 0; font-size: 1.05rem;">Official Calling Card</h4>
+        <button onclick="closeAboutCardModalDirect()" style="background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; padding: 0.25rem 0.5rem;">&times;</button>
+      </div>
+      <img id="aboutLightboxImg" src="" alt="Calling Card" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); aspect-ratio: 1050/600; object-fit: contain; background: #000;">
+      <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 0.75rem; margin-bottom: 0;">Official RDC Issued Calling Card &bull; Medical Colleges of Northern Philippines &amp; International School of Asia and the Pacific</p>
+    </div>
+  </div>
+
+  <script>
+    function openAboutCardModal(imgSrc, name) {
+      document.getElementById('aboutLightboxImg').src = imgSrc;
+      document.getElementById('aboutLightboxName').textContent = name + ' - Official Calling Card';
+      document.getElementById('aboutCardLightboxModal').classList.add('open');
+    }
+
+    function closeAboutCardModal(e) {
+      if (e.target.id === 'aboutCardLightboxModal') {
+        document.getElementById('aboutCardLightboxModal').classList.remove('open');
+      }
+    }
+
+    function closeAboutCardModalDirect() {
+      document.getElementById('aboutCardLightboxModal').classList.remove('open');
+    }
+
+    function filterAboutPersonnel(category, btn) {
+      var btns = document.querySelectorAll('.p-tab-btn');
+      btns.forEach(function(b) { b.classList.remove('active'); });
+      if (btn) btn.classList.add('active');
+      var cards = document.querySelectorAll('#rdc-personnel .personnel-card');
+      cards.forEach(function(card) {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  
+    function filterQmsForms(phase, btn) {
+      var btns = document.querySelectorAll('.qms-tab-btn');
+      btns.forEach(function(b) {
+        b.classList.remove('active', 'btn-gold');
+        b.classList.add('btn-outline-white');
+      });
+      if (btn) {
+        btn.classList.add('active', 'btn-gold');
+        btn.classList.remove('btn-outline-white');
+      }
+      var rows = document.querySelectorAll('.qms-row');
+      rows.forEach(function(r) {
+        if (phase === 'all' || r.getAttribute('data-phase') === phase) {
+          r.style.display = '';
+        } else {
+          r.style.display = 'none';
+        }
+      });
+    }
+
+    function searchQmsForms() {
+      var query = document.getElementById('qmsSearchInput').value.toLowerCase();
+      var rows = document.querySelectorAll('.qms-row');
+      rows.forEach(function(r) {
+        var text = r.textContent.toLowerCase();
+        if (text.indexOf(query) !== -1) {
+          r.style.display = '';
+        } else {
+          r.style.display = 'none';
+        }
+      });
+    }
+</script>
 </body>
 </html>
 

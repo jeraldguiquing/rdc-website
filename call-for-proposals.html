@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calls for Research Proposals | MCNP &amp; ISAP RDC</title>
+  <meta name="description" content="Official Calls for Research Proposals (AY 2026–2027) at the Research & Development Center of MCNP and ISAP. Explore institutional seed grants, DOST-CVHRDC regional tracks, and student research funding.">
+  <link rel="icon" type="image/png" href="assets/rdc-logo.png">
+  <link rel="apple-touch-icon" href="assets/rdc-logo.png">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Calls for Research Proposals | MCNP &amp; ISAP RDC">
+  <meta property="og:description" content="Official Calls for Research Proposals (AY 2026–2027). Apply for institutional seed grants, DOST-CVHRDC collaborative tracks, and student SDG grants.">
+  <meta property="og:image" content="assets/rdc-logo.png">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Proposal Page Custom Enhancements */
+    .cfp-hero {
+      background: linear-gradient(135deg, var(--mcnp-green-dark, #0d3b73) 0%, #112d4e 50%, var(--isap-blue-dark, #4b0d1b) 100%);
+      color: #ffffff;
+      padding: 4.5rem 0 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cfp-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cfp-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(212, 175, 55, 0.18);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #ffdf70;
+      padding: 0.35rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .cfp-hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      color: #ffffff;
+    }
+    .cfp-hero h1 span {
+      color: var(--gold, #d4af37);
+    }
+    .cfp-hero p.lead {
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      max-width: 820px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .cfp-hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Cycle Timeline Banner */
+    .cycle-bar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color, #e2e8f0);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+      padding: 1.5rem 0;
+    }
+    .cycle-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .cycle-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 0.5rem 0;
+      border-right: 1px solid var(--border-color, #e2e8f0);
+    }
+    .cycle-item:last-child { border-right: none; }
+    .cycle-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--gold-light, #fdf8e7);
+      color: #996515;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .cycle-info h6 {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted-text, #596780);
+      margin-bottom: 0.2rem;
+    }
+    .cycle-info p {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--dark-text, #1a202c);
+      margin: 0;
+    }
+
+    /* Section Headers */
+    .section-head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 3rem;
+    }
+    .section-head .tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--mcnp-green, #1e5ea8);
+      background: rgba(30, 94, 168, 0.09);
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      margin-bottom: 0.75rem;
+    }
+    .section-head h2 {
+      font-size: clamp(1.8rem, 3vw, 2.3rem);
+      color: var(--dark-text, #1a202c);
+      margin-bottom: 0.75rem;
+    }
+    .section-head p {
+      color: var(--muted-text, #596780);
+      font-size: 1rem;
+    }
+
+    /* Track Cards Grid */
+    .track-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    .track-card {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid var(--border-color, #e2e8f0);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+    }
+    .track-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.08);
+    }
+    .track-header {
+      padding: 1.75rem 1.75rem 1.25rem;
+      border-bottom: 1px solid #f1f5f9;
+      position: relative;
+    }
+    .track-header.mcnp-theme {
+      background: linear-gradient(135deg, rgba(30, 94, 168, 0.05), rgba(30, 94, 168, 0.01));
+      border-top: 4px solid var(--mcnp-green, #1e5ea8);
+    }
+    .track-header.isap-theme {
+      background: linear-gradient(135deg, rgba(122, 31, 45, 0.05), rgba(122, 31, 45, 0.01));
+      border-top: 4px solid var(--isap-blue, #7a1f2d);
+    }
+    .track-header.collab-theme {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(212, 175, 55, 0.02));
+      border-top: 4px solid var(--gold, #d4af37);
+    }
+    .track-header.student-theme {
+      background: linear-gradient(135deg, rgba(13, 92, 58, 0.06), rgba(13, 92, 58, 0.01));
+      border-top: 4px solid #10b981;
+    }
+    .track-status-pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+    }
+    .pill-open { background: #dcfce7; color: #15803d; }
+    .pill-special { background: #fef3c7; color: #92400e; }
+    .pill-continuous { background: #e0e7ff; color: #3730a3; }
+    
+    .track-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--dark-text, #1a202c);
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+    .track-meta {
+      font-size: 0.85rem;
+      color: var(--muted-text, #596780);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .track-body {
+      padding: 1.75rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .track-feature-list {
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    .track-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+      color: #334155;
+    }
+    .track-feature-item i {
+      color: var(--mcnp-green, #1e5ea8);
+      margin-top: 0.2rem;
+      font-size: 0.85rem;
+    }
+    .track-grant-amount {
+      background: #f8fafc;
+      border: 1px dashed var(--border-color, #e2e8f0);
+      padding: 0.85rem 1.1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .track-grant-amount span {
+      font-size: 0.82rem;
+      color: var(--muted-text, #596780);
+      font-weight: 600;
+    }
+    .track-grant-amount strong {
+      font-size: 1.15rem;
+      color: var(--dark-text, #1a202c);
+    }
+    .track-footer {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    /* Workflow Timeline */
+    .cfp-timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto 4rem;
+      padding: 1rem 0;
+    }
+    .cfp-timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 30px;
+      width: 3px;
+      background: var(--border-color, #e2e8f0);
+    }
+    .cfp-step {
+      position: relative;
+      padding-left: 80px;
+      margin-bottom: 2.25rem;
+    }
+    .cfp-step:last-child { margin-bottom: 0; }
+    .cfp-step-number {
+      position: absolute;
+      left: 14px;
+      top: 0;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: var(--mcnp-green, #1e5ea8);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 5px #f8fafc;
+      z-index: 2;
+    }
+    .cfp-step-card {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-color, #e2e8f0);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+    .cfp-step-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+      color: var(--dark-text, #1a202c);
+    }
+    .cfp-step-card p {
+      font-size: 0.9rem;
+      color: var(--muted-text, #596780);
+      margin-bottom: 0;
+    }
+
+    /* Rubric Table */
+    .rubric-table-wrapper {
+      background: #ffffff;
+      border-radius: 12px;
+      overflow-x: auto;
+      border: 1px solid var(--border-color, #e2e8f0);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      margin-bottom: 4rem;
+    }
+    .rubric-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+    .rubric-table th {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 1.1rem 1.5rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .rubric-table td {
+      padding: 1.1rem 1.5rem;
+      border-bottom: 1px solid var(--border-color, #e2e8f0);
+      color: #334155;
+    }
+    .rubric-table tr:last-child td { border-bottom: none; }
+    .rubric-table tr:hover td { background: #f8fafc; }
+    .rubric-weight {
+      font-weight: 800;
+      color: var(--mcnp-green, #1e5ea8);
+      font-size: 1.05rem;
+    }
+
+    /* Download Kit Grid */
+    .kit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+    .kit-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color, #e2e8f0);
+      border-radius: 10px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+    }
+    .kit-card:hover {
+      border-color: var(--gold, #d4af37);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+    }
+    .kit-icon {
+      font-size: 2rem;
+      color: var(--isap-blue, #7a1f2d);
+      margin-bottom: 1rem;
+    }
+    .kit-card h4 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+    .kit-card p {
+      font-size: 0.85rem;
+      color: var(--muted-text, #596780);
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    /* Submission Form Container */
+    .cfp-form-box {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid var(--border-color, #e2e8f0);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+      padding: clamp(2rem, 4vw, 3.5rem);
+      max-width: 960px;
+      margin: 0 auto 5rem;
+    }
+
+    /* Success Modal */
+    .sub-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 3000;
+      padding: 1.5rem;
+    }
+    .sub-modal-overlay.open { display: flex; }
+    .sub-modal {
+      background: #ffffff;
+      max-width: 560px;
+      width: 100%;
+      border-radius: 14px;
+      padding: 2.5rem;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+      animation: modalSlideUp 0.25s ease-out;
+    }
+    @keyframes modalSlideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .sub-modal-icon {
+      width: 70px;
+      height: 70px;
+      background: #dcfce7;
+      color: #16a34a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Institutional Bar -->
+  <header class="topbar">
+    <div class="container">
+      <div class="topbar-info">
+        <span>📍 Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
+        <span>✉️ <a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
+        <span>📞 <a href="tel:+639989847781" style="color:inherit">(+63) 998 984 7781</a></span>
+      </div>
+      <div class="topbar-right">
+        <a href="call-for-proposals.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 700; font-size: 0.78rem;">📢 Calls for Proposals (Open)</a>
+        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;">❓ FAQs</a>
+        <a href="news-events.html#training-calendar" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;">📅 Training Calendar</a>
+        <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navigation Header -->
+  <header class="main-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="brand-wrapper">
+          <div class="brand-logos">
+            <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.png" alt="MCNP and ISAP" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific">
+          </div>
+          <div class="brand-text">
+            <h1>MCNP <span>&amp; ISAP</span> RDC</h1>
+            <p>Research &amp; Development Center</p>
+          </div>
+        </a>
+
+        <nav class="main-nav" aria-label="Main Navigation">
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">HOME</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a href="about-mcnp.html" class="nav-link">
+                ABOUT INSTITUTION <span class="arrow">&#9662;</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="about-mcnp.html" class="dropdown-link">
+                  <span>Medical Colleges of Northern Philippines</span>
+                  <span class="dropdown-badge badge-mcnp">MCNP</span>
+                </a>
+                <a href="about-isap.html" class="dropdown-link">
+                  <span>International School of Asia and the Pacific</span>
+                  <span class="dropdown-badge badge-isap">ISAP</span>
+                </a>
+              </div>
+            </li>
+
+            <!-- Dropdown: ABOUT RDC -->
+            <li class="nav-item dropdown">
+              <a href="about-rdc.html" class="nav-link">
+                ABOUT RDC <span class="arrow">&#9662;</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="about-rdc.html" class="dropdown-link">
+                  <span>About RDC (Unified Overview)</span>
+                  <span class="dropdown-badge badge-admin">ALL</span>
+                </a>
+                <a href="about-rdc-mcnp.html" class="dropdown-link">
+                  <span>MCNP Health Research Wing</span>
+                  <span class="dropdown-badge badge-mcnp">MCNP</span>
+                </a>
+                <a href="about-rdc-isap.html" class="dropdown-link">
+                  <span>ISAP Multidisciplinary Wing</span>
+                  <span class="dropdown-badge badge-isap">ISAP</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a href="rdc-agenda.html" class="nav-link">RDC AGENDA</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a href="journal.html" class="nav-link">
+                JOURNALS <span class="arrow">&#9662;</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="journal.html" class="dropdown-link">
+                  <span>All Journals Portal (Overview)</span>
+                  <span class="dropdown-badge badge-admin">ALL</span>
+                </a>
+                <a href="journal-mcnp.html" class="dropdown-link">
+                  <span>MCNP Health &amp; Allied Sciences</span>
+                  <span class="dropdown-badge badge-mcnp">MCNP</span>
+                </a>
+                <a href="journal-isap.html" class="dropdown-link">
+                  <span>ISAP Multidisciplinary Journal</span>
+                  <span class="dropdown-badge badge-isap">ISAP</span>
+                </a>
+                <a href="journal-admin.html" class="dropdown-link">
+                  <span>Journal of Admin (Faculty Research)</span>
+                  <span class="dropdown-badge badge-admin">ADMIN</span>
+                </a>
+                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link" style="border-top: 1px dashed var(--border-color); color: #b89726; font-size: 0.82rem;">
+                  <span>Direct Online FlipBook ↗</span>
+                  <span class="dropdown-badge badge-admin">FlipHTML5</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a href="utilization.html" class="nav-link">UTILIZATION</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a href="news-events.html" class="nav-link active">
+                NEWS &amp; EVENTS <span class="arrow">&#9662;</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="news-events.html" class="dropdown-link">
+                  <span>News &amp; Events Archive</span>
+                  <span class="dropdown-badge badge-admin">NEWS</span>
+                </a>
+                <a href="call-for-proposals.html" class="dropdown-link active" style="font-weight: 700; color: #1e5ea8;">
+                  <span>Calls for Research Proposals</span>
+                  <span class="dropdown-badge badge-mcnp" style="background:#1e5ea8; color:#fff;">CALLS</span>
+                </a>
+                <a href="news-events.html#training-calendar" class="dropdown-link">
+                  <span>Research Training Calendar</span>
+                  <span class="dropdown-badge badge-mcnp">2026–2027</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a href="adg-advocacy.html" class="nav-link">SDG ADVOCACIES</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link">CONTACT</a>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="mobile-toggle" aria-label="Toggle Navigation">&#9776;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="cfp-hero">
+    <div class="container">
+      <div class="cfp-hero-badge">
+        <i class="fas fa-bullhorn"></i> Institutional &amp; Regional Research Grants • AY 2026–2027
+      </div>
+      <h1>Calls for <span>Research Proposals</span></h1>
+      <p class="lead">
+        Catalyzing evidence-based solutions, clinical excellence, public safety strategies, and community transformation. The Research &amp; Development Center invites faculty scholars, academic heads, and student innovators to submit high-impact research protocols aligned with the <strong>INNOVATES Agenda</strong> and the <strong>UN Sustainable Development Goals</strong>.
+      </p>
+      <div class="cfp-hero-cta">
+        <a href="#active-calls" class="btn btn-gold"><i class="fas fa-layer-group"></i> Explore Active Call Tracks</a>
+        <a href="#submission-workflow" class="btn btn-outline-white"><i class="fas fa-tasks"></i> Submission Process &amp; Rubric</a>
+        <a href="#proposal-form" class="btn btn-primary" style="background: var(--mcnp-green); border-color: var(--mcnp-green);"><i class="fas fa-paper-plane"></i> Submit Proposal Online</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Dates & Call Cycle Bar -->
+  <section class="cycle-bar">
+    <div class="container">
+      <div class="cycle-grid">
+        <div class="cycle-item">
+          <div class="cycle-icon"><i class="fas fa-calendar-check"></i></div>
+          <div class="cycle-info">
+            <h6>Cycle 1 Deadline</h6>
+            <p>November 15, 2026</p>
+          </div>
+        </div>
+        <div class="cycle-item">
+          <div class="cycle-icon"><i class="fas fa-user-tie"></i></div>
+          <div class="cycle-info">
+            <h6>Technical Review Board</h6>
+            <p>Nov 16 – Nov 30, 2026</p>
+          </div>
+        </div>
+        <div class="cycle-item">
+          <div class="cycle-icon"><i class="fas fa-award"></i></div>
+          <div class="cycle-info">
+            <h6>Notice of Award &amp; MOA</h6>
+            <p>December 15, 2026</p>
+          </div>
+        </div>
+        <div class="cycle-item">
+          <div class="cycle-icon"><i class="fas fa-rocket"></i></div>
+          <div class="cycle-info">
+            <h6>Cycle 2 (Mid-Year Call)</h6>
+            <p>Opens: March 15, 2027</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Active Calls Section -->
+  <section id="active-calls" style="padding: 4.5rem 0 2rem;">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Funding Opportunities</span>
+        <h2>Active Call Tracks (AY 2026–2027)</h2>
+        <p>Choose the funding track corresponding to your academic discipline, institutional wing, or collaborative research profile.</p>
+      </div>
+
+      <div class="track-grid">
+        <!-- Track 1: MCNP Health Research Seed Grant -->
+        <div class="track-card">
+          <div class="track-header mcnp-theme">
+            <span class="track-status-pill pill-open"><i class="fas fa-circle" style="font-size: 0.55rem; vertical-align: middle;"></i> Open for Submissions</span>
+            <h3 class="track-title">MCNP Institutional Health Research Seed Grant (IHRSG)</h3>
+            <div class="track-meta">
+              <span><i class="fas fa-university"></i> MCNP Health Wing</span>
+              <span><i class="fas fa-calendar-alt"></i> AY 2026–2027 Cycle 1</span>
+            </div>
+          </div>
+          <div class="track-body">
+            <p style="font-size: 0.92rem; color: #475569; margin-bottom: 1.25rem;">
+              Dedicated funding for clinical faculty, health preceptors, and biomedical scholars to advance community healthcare, disease prevention, and clinical practice in Northern Luzon.
+            </p>
+            <div class="track-feature-list">
+              <div class="track-feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>Target Proponents:</strong> Faculty in Nursing, Medical Technology, Radiologic Technology, and Pharmacy.</span>
+              </div>
+              <div class="track-feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>Priority Areas:</strong> Community Hypertension &amp; Lifestyle Interventions, Phytochemical/Herbal Pharmacology, Pediatric Care, and Radiological Diagnostics.</span>
+              </div>
+              <div class="track-feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>Required Output:</strong> 1 IMRAD article for MCNP Health Journal + 1 Community Health Utilization Action Plan.</span>
+              </div>
+            </div>
+            <div class="track-grant-amount">
+              <span>Seed Grant Ceiling:</span>
+              <strong>Up to ₱50,000 / Study</strong>
+            </div>
+            <div class="track-footer">
+              <a href="#proposal-form" class="btn btn-sm btn-primary" style="flex: 1; text-align: center;" onclick="prefillTrack('MCNP Institutional Health Research Seed Grant (IHRSG)')">Apply for this Track &rarr;</a>
+              <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20002-APPLICATION%20FOR%20RESEARCH%20DEFENSE.docx" download class="btn btn-sm btn-outline-primary" title="Download MCNP Proposal Form 002 (DOCX)"><i class="fas fa-file-word"></i> Form 002 (DOCX)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Track 2: ISAP Multidisciplinary Innovation Grant -->
+        <div class="track-card">
+          <div class="track-header isap-theme">
+            <span class="track-status-pill pill-open"><i class="fas fa-circle" style="font-size: 0.55rem; vertical-align: middle;"></i> Open for Submissions</span>
+            <h3 class="track-title">ISAP Multidisciplinary &amp; Social Innovation Grant (IMSIG)</h3>
+            <div class="track-meta">
+              <span><i class="fas fa-shield-alt"></i> ISAP Multidisciplinary Wing</span>
+              <span><i class="fas fa-calendar-alt"></i> AY 2026–2027 Cycle 1</span>
+            </div>
+          </div>
+          <div class="track-body">
+            <p style="font-size: 0.92rem; color: #475569; margin-bottom: 1.25rem;">
+              Supports scientific inquiries into law enforcement, crime science, border &amp; customs logistics, computational intelligence, rural business, and educational pedagogy.
+            </p>
+            <div class="track-feature-list">
+              <div class="track-feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>Target Proponents:</strong> Faculty in Criminology, Customs Administration, Information Technology, Business, and Education.</span>
+              </div>
+              <div class="track-feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>Priority Areas:</strong> Smart Policing &amp; Forensics, Cybercrime Prevention, Regional Supply Chain Logistics, and Inclusive Pedagogy.</span>
+              </div>
+              <div class="track-feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>Required Output:</strong> 1 IMRAD article for ISAP DAWA Journal + 1 Policy Brief or Tech Adoption MOA.</span>
+              </div>
+            </div>
+            <div class="track-grant-amount">
+              <span>Seed Grant Ceiling:</span>
+              <strong>Up to ₱50,000 / Study</strong>
+            </div>
+            <div class="track-footer">
+              <a href="#proposal-form" class="btn btn-sm btn-primary" style="flex: 1; text-align: center; background: var(--isap-blue); border-color: var(--isap-blue);" onclick="prefillTrack('ISAP Multidisciplinary & Social Innovation Grant (IMSIG)')">Apply for this Track &rarr;</a>
+              <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20002-APPLICATION%20FOR%20RESEARCH%20DEFENSE.docx" download class="btn btn-sm btn-outline-primary" title="Download ISAP Proposal Form 002 (DOCX)"><i class="fas fa-file-word"></i> Form 002 (DOCX)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Track 3: Regional Research Fund (DOST-CVHRDC) -->
+        <div class="track-card">
+          <div class="track-header collab-theme">
+            <span class="track-status-pill pill-special"><i class="fas fa-handshake" style="vertical-align: middle;"></i> Regional Co-Hosted Call</span>
+            <h3 class="track-title">Regional Research Fund (RRF) — DOST &amp; CVHRDC Collaborative Track</h3>
+            <div class="track-meta">
+              <span><i class="fas fa-globe-asia"></i> DOST Region 02 / CVHRDC</span>
+              <span><i class="fas fa-tag"></i> Competitive Regional Fund</span>
+            </div>
+          </div>
+          <div class="track-body">
+            <p style="font-size: 0.92rem; color: #475569; margin-bottom: 1.25rem;">
+              In partnership with the Cagayan Valley Health Research &amp; Development Consortium (CVHRDC) and DOST Region 02, co-hosted by MCNP &amp; ISAP to finance major health solutions.
+            </p>
+            <div class="track-feature-list">
+              <div class="track-feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>Target Proponents:</strong> Senior faculty researchers, multidisciplinary consortia teams, and regional researchers.</span>
+              </div>
+              <div class="track-feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>Priority Areas:</strong> Infectious disease surveillance, climate-health resilience, digital telehealth for isolated communities, and indigenous medicine.</span>
+              </div>
+              <div class="track-feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>Required Output:</strong> Scopus/WoS indexed publication + Regional Policy Adoption / Agency Transfer.</span>
+              </div>
+            </div>
+            <div class="track-grant-amount">
+              <span>Regional Funding Ceiling:</span>
+              <strong>Up to ₱500,000 / Grant</strong>
+            </div>
+            <div class="track-footer">
+              <a href="#proposal-form" class="btn btn-sm btn-gold" style="flex: 1; text-align: center;" onclick="prefillTrack('Regional Research Fund (RRF) — DOST-CVHRDC Track')">Submit Intent to Apply &rarr;</a>
+              <a href="contact.html" class="btn btn-sm btn-outline-white" style="color: #334155; border-color: #cbd5e1;">Consult RDC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Track 4: Student Capstone & SDG Research Snap Grants -->
+        <div class="track-card">
+          <div class="track-header student-theme">
+            <span class="track-status-pill pill-continuous"><i class="fas fa-sync-alt" style="vertical-align: middle;"></i> Rolling / Semester Cycle</span>
+            <h3 class="track-title">Student Thesis &amp; Capstone SDG Research Snap Grants</h3>
+            <div class="track-meta">
+              <span><i class="fas fa-user-graduate"></i> Undergraduate Researchers</span>
+              <span><i class="fas fa-leaf"></i> SDG SPOT @ RDC</span>
+            </div>
+          </div>
+          <div class="track-body">
+            <p style="font-size: 0.92rem; color: #475569; margin-bottom: 1.25rem;">
+              Comprehensive institutional research support package awarded to student thesis groups actively addressing the 17 UN Sustainable Development Goals.
+            </p>
+            <div class="track-feature-list">
+              <div class="track-feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>Target Proponents:</strong> 3rd and 4th-year undergraduate thesis groups with endorsed faculty advisers.</span>
+              </div>
+              <div class="track-feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>Package Benefits:</strong> Free statistical analysis &amp; consultation, 100% waived Turnitin similarity audits, and publication sponsorship in college journals.</span>
+              </div>
+              <div class="track-feature-item">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>Special Honors:</strong> Automatic eligibility for the annual RDC Outstanding Student Researcher &amp; Best Paper Awards.</span>
+              </div>
+            </div>
+            <div class="track-grant-amount">
+              <span>Institutional Support:</span>
+              <strong>Full Services &amp; Publication Subsidy</strong>
+            </div>
+            <div class="track-footer">
+              <a href="#proposal-form" class="btn btn-sm btn-primary" style="flex: 1; text-align: center; background: #059669; border-color: #059669;" onclick="prefillTrack('Student Thesis & Capstone SDG Research Snap Grant')">Register Student Protocol &rarr;</a>
+              <a href="about-rdc.html#rdc-sop" class="btn btn-sm btn-outline-primary" style="color: #059669; border-color: #059669;">SOP Steps</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eligibility & Guidelines Section -->
+  <section style="background: #f1f5f9; padding: 4.5rem 0;">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Applicant Requirements</span>
+        <h2>Eligibility Criteria &amp; Guidelines</h2>
+        <p>Please review proponent eligibility criteria and general guidelines before submitting your proposal dossier.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; margin-bottom: 3rem;">
+        <div style="background: #ffffff; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+          <div style="font-size: 1.75rem; color: var(--mcnp-green); margin-bottom: 1rem;"><i class="fas fa-id-badge"></i></div>
+          <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Proponent Eligibility</h4>
+          <p style="font-size: 0.9rem; color: #64748b; line-height: 1.6;">
+            Open to all full-time and regular faculty members, academic heads, and clinical preceptors of MCNP and ISAP. Multidisciplinary teams across colleges (e.g., Nursing + Criminology + IT) are given priority in scoring.
+          </p>
+        </div>
+
+        <div style="background: #ffffff; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+          <div style="font-size: 1.75rem; color: var(--gold); margin-bottom: 1rem;"><i class="fas fa-certificate"></i></div>
+          <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Good Institutional Standing</h4>
+          <p style="font-size: 0.9rem; color: #64748b; line-height: 1.6;">
+            Proponents must have no outstanding unliquidated research grant balances, unresolved ethics non-compliance flags, or uncompleted manuscripts from previous institutional funding cycles.
+          </p>
+        </div>
+
+        <div style="background: #ffffff; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+          <div style="font-size: 1.75rem; color: var(--isap-blue); margin-bottom: 1rem;"><i class="fas fa-compass"></i></div>
+          <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Agenda &amp; SDG Alignment</h4>
+          <p style="font-size: 0.9rem; color: #64748b; line-height: 1.6;">
+            Protocols must clearly articulate direct alignment with at least one pillar of the <strong>INNOVATES Strategic Agenda 2025–2030</strong> and target at least one UN Sustainable Development Goal (SDG).
+          </p>
+        </div>
+
+        <div style="background: #ffffff; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+          <div style="font-size: 1.75rem; color: #059669; margin-bottom: 1rem;"><i class="fas fa-hand-holding-usd"></i></div>
+          <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Fund Disbursement Tranches</h4>
+          <p style="font-size: 0.9rem; color: #64748b; line-height: 1.6;">
+            Institutional grants are released in three tranches: <strong>50%</strong> upon proposal defense approval and MOA signing; <strong>30%</strong> upon midterm progress report; and <strong>20%</strong> upon journal manuscript submission.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step-by-Step Submission Workflow -->
+  <section id="submission-workflow" style="padding: 4.5rem 0;">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Process Map</span>
+        <h2>How to Submit Your Research Proposal</h2>
+        <p>Follow the official Standard Operating Procedure (SOP Stage 1 &amp; 2) from capsule draft to defense and funding approval.</p>
+      </div>
+
+      <div class="cfp-timeline">
+        <!-- Step 1 -->
+        <div class="cfp-step">
+          <div class="cfp-step-number">1</div>
+          <div class="cfp-step-card">
+            <h4>Download and Prepare the Proposal Dossier</h4>
+            <p>
+              Download <strong>RDC Form 002 (Capsule Proposal Application)</strong>, Line-Item Budget (LIB) template, and Work Plan (Gantt Chart). Formulate Chapters 1–3 including conceptual framework, hypothesis, and methodology.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="cfp-step">
+          <div class="cfp-step-number">2</div>
+          <div class="cfp-step-card">
+            <h4>Secure College Endorsement (Form 003)</h4>
+            <p>
+              Present the capsule draft to your Department Head, Research Focal Person, and Academic Dean for initial quality screening and signature on <strong>RDC Form 003 (Institutional Routing Slip)</strong>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="cfp-step">
+          <div class="cfp-step-number">3</div>
+          <div class="cfp-step-card">
+            <h4>Submit Dossier to RDC Secretariat</h4>
+            <p>
+              Submit the complete digital packet via the <strong>Online Proposal Submission Portal</strong> below or email directly to <a href="mailto:researchoffice@mcnp.edu.ph" style="color: var(--mcnp-green); font-weight: 600;">researchoffice@mcnp.edu.ph</a>. An acknowledgment receipt will be issued within 48 hours.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="cfp-step">
+          <div class="cfp-step-number">4</div>
+          <div class="cfp-step-card">
+            <h4>Technical Screening &amp; Agenda Audit</h4>
+            <p>
+              The RDC Secretariat and Technical Review Board evaluate the capsule for agenda alignment, plagiarism compliance (&le; 15% Turnitin similarity), and financial feasibility.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="cfp-step">
+          <div class="cfp-step-number">5</div>
+          <div class="cfp-step-card">
+            <h4>Oral Proposal Defense &amp; Deliberation</h4>
+            <p>
+              Proponents present their 15–20 minute oral defense before the multidisciplinary panel. The panel provides suggestions, formulates the <strong>Matrix of Corrections (Form 005)</strong>, and votes on approval.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="cfp-step">
+          <div class="cfp-step-number">6</div>
+          <div class="cfp-step-card">
+            <h4>Ethics Clearance (IERC) &amp; Memorandum of Agreement (MOA)</h4>
+            <p>
+              Upon integrating defense corrections, human participant protocols undergo Institutional Ethics Review Committee clearance. Proponents sign the official Research Grant MOA, initiating Tranche 1 fund release.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Evaluation Criteria Table -->
+      <div style="margin-top: 4rem;">
+        <div class="section-head" style="margin-bottom: 2rem;">
+          <span class="tag">Rubrics &amp; Scoring</span>
+          <h3>Proposal Evaluation Criteria</h3>
+          <p>Technical review panelists evaluate submitted protocols using the following institutional rubric:</p>
+        </div>
+
+        <div class="rubric-table-wrapper">
+          <table class="rubric-table">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Evaluation Criterion</th>
+                <th style="width: 15%;">Weight</th>
+                <th style="width: 60%;">Performance Indicators &amp; Standards</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Relevance &amp; Agenda Alignment</strong></td>
+                <td><span class="rubric-weight">25%</span></td>
+                <td>Direct congruence with MCNP &amp; ISAP INNOVATES Research Agenda 2025–2030, regional health/security priorities, and explicit alignment with United Nations Sustainable Development Goals.</td>
+              </tr>
+              <tr>
+                <td><strong>Scientific Rigor &amp; Methodology</strong></td>
+                <td><span class="rubric-weight">30%</span></td>
+                <td>Soundness of conceptual framework, appropriateness of research design, valid sampling computation, verified statistical tests, instrument reliability, and adherence to bioethical and data privacy protocols.</td>
+              </tr>
+              <tr>
+                <td><strong>Community Utilization &amp; Impact</strong></td>
+                <td><span class="rubric-weight">25%</span></td>
+                <td>Potential for real-world adoption, evidence-based policy formulation, technology transfer, patentability/copyright, or direct community health/crime prevention benefit in Region II.</td>
+              </tr>
+              <tr>
+                <td><strong>Budget &amp; Timeline Feasibility</strong></td>
+                <td><span class="rubric-weight">20%</span></td>
+                <td>Realistic work plan (Gantt chart), justifiable line-item budget (LIB), prudent use of institutional resources, and clear feasibility of completion within the 10–12 month project period.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Downloadable Forms & Kit -->
+  <section style="background: #f8fafc; padding: 4.5rem 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Templates &amp; Documentation</span>
+        <h2>Downloadable Proposal Kit</h2>
+        <p>Download the official Microsoft Word and Excel templates required to prepare your research proposal dossier.</p>
+      </div>
+
+      <div class="kit-grid">
+        <div class="kit-card">
+          <div class="kit-icon"><i class="fas fa-file-alt"></i></div>
+          <h4>RDC Form 002: Capsule Proposal Application</h4>
+          <p>Official 4-page capsule proposal template containing title, proponents, rationale, methodology, and target outputs.</p>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem;">
+            <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20002-APPLICATION%20FOR%20RESEARCH%20DEFENSE.docx" download class="btn btn-sm btn-outline-primary"><i class="fas fa-file-word"></i> MCNP Form 002</a>
+            <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20002-APPLICATION%20FOR%20RESEARCH%20DEFENSE.docx" download class="btn btn-sm btn-outline-primary"><i class="fas fa-file-word"></i> ISAP Form 002</a>
+          </div>
+        </div>
+
+        <div class="kit-card">
+          <div class="kit-icon"><i class="fas fa-signature"></i></div>
+          <h4>RDC Form 003: Routing &amp; Endorsement Slip</h4>
+          <p>Official routing form required for signatures from Department Head, Research Focal Person, and Academic Dean.</p>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem;">
+            <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20003-CAPSULE%20PROPOSAL%20FORM.docx" download class="btn btn-sm btn-outline-primary"><i class="fas fa-file-word"></i> MCNP Form 003</a>
+            <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20003-CAPSULE%20PROPOSAL%20FORM.docx" download class="btn btn-sm btn-outline-primary"><i class="fas fa-file-word"></i> ISAP Form 003</a>
+          </div>
+        </div>
+
+        <div class="kit-card">
+          <div class="kit-icon"><i class="fas fa-calculator"></i></div>
+          <h4>Line-Item Budget (LIB) Template</h4>
+          <p>Standard financial breakdown sheet covering maintenance and other operating expenses (MOOE), travel, and supplies.</p>
+          <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem;">
+            <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC%20Form%20No%20005-APPLICATION%20FOR%20RESEARCH%20DEFENSE%20CHECKLIST.docx" download class="btn btn-sm btn-outline-primary"><i class="fas fa-file-word"></i> MCNP Form 005</a>
+            <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC%20Form%20No%20005-APPLICATION%20FOR%20RESEARCH%20DEFENSE%20CHECKLIST.docx" download class="btn btn-sm btn-outline-primary"><i class="fas fa-file-word"></i> ISAP Form 005</a>
+          </div>
+        </div>
+
+        <div class="kit-card">
+          <div class="kit-icon"><i class="fas fa-folder-open"></i></div>
+          <h4>All Registered RDC Forms (Cloud Archive)</h4>
+          <p>Full institutional repository containing Forms 002 through 012 for both MCNP and ISAP research wings.</p>
+          <a href="about-rdc.html#rdc-sop" class="btn btn-sm btn-gold"><i class="fas fa-external-link-alt"></i> Browse All SOP Forms &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Proposal Submission Form -->
+  <section id="proposal-form" style="padding: 5rem 0;">
+    <div class="container">
+      <div class="cfp-form-box">
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+          <span class="tag" style="background: rgba(212,175,55,0.15); color: #996515;">Electronic Intent &amp; Proposal Submission</span>
+          <h2 style="font-size: 2rem; color: var(--dark-text); margin-top: 0.5rem;">Submit Research Proposal Intent</h2>
+          <p style="color: var(--muted-text); font-size: 0.95rem;">
+            Fill out the official intent form below to register your proposal with the RDC Secretariat. Our technical committee will review your submission and issue an official acknowledgment.
+          </p>
+        </div>
+
+        <form id="cfpSubmitForm" onsubmit="handleCfpSubmit(event)">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div class="form-group">
+              <label style="display: block; font-weight: 600; font-size: 0.88rem; margin-bottom: 0.4rem;">Lead Proponent Full Name *</label>
+              <input type="text" id="propName" class="form-control" placeholder="e.g., Dr. Juan M. Dela Cruz, RN, MAN" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px;">
+            </div>
+
+            <div class="form-group">
+              <label style="display: block; font-weight: 600; font-size: 0.88rem; margin-bottom: 0.4rem;">Institutional Email Address *</label>
+              <input type="email" id="propEmail" class="form-control" placeholder="name@mcnp.edu.ph or name@isap.edu.ph" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px;">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div class="form-group">
+              <label style="display: block; font-weight: 600; font-size: 0.88rem; margin-bottom: 0.4rem;">Contact Phone / Mobile *</label>
+              <input type="tel" id="propPhone" class="form-control" placeholder="+63 9XX XXX XXXX" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px;">
+            </div>
+
+            <div class="form-group">
+              <label style="display: block; font-weight: 600; font-size: 0.88rem; margin-bottom: 0.4rem;">Institution &amp; College / Wing *</label>
+              <select id="propInstitution" class="form-control" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff;">
+                <option value="">Select College / Department...</option>
+                <optgroup label="Medical Colleges of Northern Philippines (MCNP)">
+                  <option value="MCNP - College of Nursing">MCNP - College of Nursing</option>
+                  <option value="MCNP - College of Medical Technology">MCNP - College of Medical Technology</option>
+                  <option value="MCNP - College of Radiologic Technology">MCNP - College of Radiologic Technology</option>
+                  <option value="MCNP - College of Pharmacy">MCNP - College of Pharmacy</option>
+                  <option value="MCNP - College of Physical Therapy">MCNP - College of Physical Therapy</option>
+                </optgroup>
+                <optgroup label="International School of Asia and the Pacific (ISAP)">
+                  <option value="ISAP - College of Criminal Justice Education">ISAP - College of Criminal Justice Education (COCJE)</option>
+                  <option value="ISAP - College of Customs Administration">ISAP - College of Customs Administration</option>
+                  <option value="ISAP - College of Information Technology">ISAP - College of Information Technology</option>
+                  <option value="ISAP - College of Business Education">ISAP - College of Business Education</option>
+                  <option value="ISAP - College of Teacher Education">ISAP - College of Teacher Education</option>
+                  <option value="ISAP - Graduate School">ISAP - Graduate Studies</option>
+                </optgroup>
+                <optgroup label="Other Affiliation">
+                  <option value="External Collaborative Institution">External Partner / Consortia Researcher</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div class="form-group">
+              <label style="display: block; font-weight: 600; font-size: 0.88rem; margin-bottom: 0.4rem;">Proponent Category *</label>
+              <select id="propCategory" class="form-control" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff;">
+                <option value="">Select Applicant Category...</option>
+                <option value="Faculty Researcher (Full-time / Regular)">Faculty Researcher (Full-time / Regular)</option>
+                <option value="Academic Head / Program Chair">Academic Head / Program Chair</option>
+                <option value="Clinical Instructor / Preceptor">Clinical Instructor / Preceptor</option>
+                <option value="Undergraduate Thesis Proponent Group">Undergraduate Thesis Proponent Group</option>
+                <option value="Postgraduate / Masteral Researcher">Postgraduate / Masteral Researcher</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label style="display: block; font-weight: 600; font-size: 0.88rem; margin-bottom: 0.4rem;">Target Call Track *</label>
+              <select id="propTrack" class="form-control" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff;">
+                <option value="">Select Call Track...</option>
+                <option value="MCNP Institutional Health Research Seed Grant (IHRSG)">MCNP Institutional Health Research Seed Grant (IHRSG) — Up to ₱50k</option>
+                <option value="ISAP Multidisciplinary & Social Innovation Grant (IMSIG)">ISAP Multidisciplinary &amp; Social Innovation Grant (IMSIG) — Up to ₱50k</option>
+                <option value="Regional Research Fund (RRF) — DOST-CVHRDC Track">Regional Research Fund (RRF) — DOST-CVHRDC Track — Up to ₱500k</option>
+                <option value="Student Thesis & Capstone SDG Research Snap Grant">Student Thesis &amp; Capstone SDG Research Snap Grant</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label style="display: block; font-weight: 600; font-size: 0.88rem; margin-bottom: 0.4rem;">Proposed Research Title *</label>
+            <input type="text" id="propTitle" class="form-control" placeholder="Complete working research title..." required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px;">
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div class="form-group">
+              <label style="display: block; font-weight: 600; font-size: 0.88rem; margin-bottom: 0.4rem;">Target Sustainable Development Goal (SDG) *</label>
+              <select id="propSdg" class="form-control" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff;">
+                <option value="">Select Primary UN SDG...</option>
+                <option value="SDG 3: Good Health and Well-being">SDG 3: Good Health and Well-being</option>
+                <option value="SDG 4: Quality Education">SDG 4: Quality Education</option>
+                <option value="SDG 5: Gender Equality">SDG 5: Gender Equality</option>
+                <option value="SDG 8: Decent Work and Economic Growth">SDG 8: Decent Work and Economic Growth</option>
+                <option value="SDG 9: Industry, Innovation and Infrastructure">SDG 9: Industry, Innovation and Infrastructure</option>
+                <option value="SDG 11: Sustainable Cities and Communities">SDG 11: Sustainable Cities and Communities</option>
+                <option value="SDG 16: Peace, Justice and Strong Institutions">SDG 16: Peace, Justice and Strong Institutions</option>
+                <option value="SDG 17: Partnerships for the Goals">SDG 17: Partnerships for the Goals</option>
+                <option value="Other SDG">Other Applicable SDG (1, 2, 6, 7, 10, 12, 13, 14, 15)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label style="display: block; font-weight: 600; font-size: 0.88rem; margin-bottom: 0.4rem;"><i class="fas fa-paperclip" style="color: var(--gold);"></i> Attach Form 002 &amp; Capsule Proposal Document (File Upload) *</label>
+              <input type="file" id="propFile" class="form-control" accept=".docx,.doc,.pdf" style="width: 100%; padding: 0.55rem 0.85rem; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff;" required>
+              <small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Accepted file formats: .docx, .doc, .pdf (Max size: 25MB). Upload your completed proposal form file directly.</small>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label style="display: block; font-weight: 600; font-size: 0.88rem; margin-bottom: 0.4rem;">Executive Summary / Capsule Abstract (250–400 words) *</label>
+            <textarea id="propAbstract" rows="5" class="form-control" placeholder="Summarize your background/rationale, statement of the problem, proposed methodology, sampling design, and anticipated community utilization or institutional impact..." required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px;"></textarea>
+          </div>
+
+          <div style="background: #f8fafc; padding: 1rem 1.25rem; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 1.75rem;">
+            <label style="display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.85rem; color: #475569; cursor: pointer;">
+              <input type="checkbox" required style="margin-top: 0.2rem;">
+              <span>I hereby certify that all information submitted is true and that the proposed research has not been simultaneously submitted to another funding body without disclosure. I agree to abide by the institutional ethics code, data privacy policies, and the MCNP &amp; ISAP RDC Standard Operating Procedures.</span>
+            </label>
+          </div>
+
+          <div style="text-align: center;">
+            <button type="submit" class="btn btn-gold" style="padding: 0.85rem 2.5rem; font-size: 1rem; font-weight: 700; width: 100%; max-width: 400px;">
+              <i class="fas fa-paper-plane"></i> Submit Proposal Registration
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proposal FAQs Section -->
+  <section style="background: #f8fafc; padding: 4.5rem 0; border-top: 1px solid var(--border-color);">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-head">
+        <span class="tag">Common Inquiries</span>
+        <h2>Frequently Asked Questions on Calls for Proposals</h2>
+        <p>Key information regarding proposal guidelines, funding guidelines, and technical review.</p>
+      </div>
+
+      <div class="faq-accordion" style="display: flex; flex-direction: column; gap: 1rem;">
+        <details style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem 1.5rem; cursor: pointer;">
+          <summary style="font-weight: 700; color: var(--dark-text); font-size: 1.05rem;">Can a faculty proponent submit multiple proposals in a single cycle?</summary>
+          <p style="margin-top: 0.75rem; font-size: 0.92rem; color: #64748b; line-height: 1.6;">
+            A faculty member may serve as the <strong>Lead Proponent (Principal Investigator)</strong> on only one (1) institutional grant per funding cycle. However, they may participate as a Co-Proponent / Technical Consultant on one (1) additional multidisciplinary research team.
+          </p>
+        </details>
+
+        <details style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem 1.5rem; cursor: pointer;">
+          <summary style="font-weight: 700; color: var(--dark-text); font-size: 1.05rem;">When is Ethics Review Clearance (IERC) required?</summary>
+          <p style="margin-top: 0.75rem; font-size: 0.92rem; color: #64748b; line-height: 1.6;">
+            All studies involving human participants (patients, students, community respondents, hospital personnel), identifiable personal health data, vulnerable populations, or animal testing must secure formal certification from the <strong>Institutional Ethics Review Committee (IERC)</strong> under PHREB Level 1 standards before data collection begins. Ethics clearance is processed in SOP Stage 3 following proposal defense approval.
+          </p>
+        </details>
+
+        <details style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem 1.5rem; cursor: pointer;">
+          <summary style="font-weight: 700; color: var(--dark-text); font-size: 1.05rem;">What expenses are eligible under the Line-Item Budget (LIB)?</summary>
+          <p style="margin-top: 0.75rem; font-size: 0.92rem; color: #64748b; line-height: 1.6;">
+            Eligible expenses include: (1) Research supplies and laboratory consumables, (2) Travel expenses for field surveys or community testing within Region II, (3) Statistical analysis and data processing fees, (4) Honoraria for external defense panelists or field enumerators, and (5) Publication processing charges (APC) or journal indexing support. Capital outlays (e.g. personal laptops or mobile phones) are not permitted under institutional seed grants.
+          </p>
+        </details>
+
+        <details style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem 1.5rem; cursor: pointer;">
+          <summary style="font-weight: 700; color: var(--dark-text); font-size: 1.05rem;">How does the DOST-CVHRDC Regional Research Fund evaluation differ from internal seed grants?</summary>
+          <p style="margin-top: 0.75rem; font-size: 0.92rem; color: #64748b; line-height: 1.6;">
+            Regional Research Fund (RRF) proposals undergo competitive inter-institutional evaluation conducted by the Regional Technical Review Board co-hosted by DOST Region 02 and CVHRDC. Successful projects receive external regional grant funding up to ₱500,000, and proponents are required to present findings at regional health conferences and publish in international peer-reviewed journals.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Submission Confirmation Modal -->
+  <div id="cfpSuccessModal" class="sub-modal-overlay">
+    <div class="sub-modal">
+      <div class="sub-modal-icon"><i class="fas fa-check"></i></div>
+      <h3 style="font-size: 1.4rem; color: var(--dark-text); margin-bottom: 0.5rem;">Proposal Intent Registered!</h3>
+      <p style="color: #64748b; font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem;">
+        Thank you for submitting your research proposal intent to the MCNP &amp; ISAP Research &amp; Development Center. Your tracking ticket is <strong id="modalTicketCode" style="color: var(--mcnp-green);">#RDC-2026-CFP-0000</strong>.
+      </p>
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; text-align: left; font-size: 0.85rem; color: #334155; margin-bottom: 1.5rem;">
+        <p style="margin-bottom: 0.4rem;"><strong>Proponent:</strong> <span id="modalProponentName"></span></p>
+        <p style="margin-bottom: 0.4rem;"><strong>Track:</strong> <span id="modalTrackName"></span></p>
+        <p style="margin-bottom: 0;"><strong>Title:</strong> <span id="modalTitle"></span></p>
+      </div>
+      <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 1.5rem;">
+        An official confirmation receipt has been generated. The RDC Secretariat will audit your capsule proposal within 5 business days.
+      </p>
+      <button type="button" class="btn btn-gold" style="width: 100%;" onclick="closeCfpModal()">Done</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>MCNP &amp; ISAP <span>RDC</span></h4>
+          <p>
+            The official Research and Development Center serving the Medical Colleges of Northern Philippines and International School of Asia and the Pacific. Fostering innovation, scientific ethics, and community progress.
+          </p>
+          <div style="display: flex; gap: 0.5rem;">
+            <span class="badge-pill">MCNP</span>
+            <span class="badge-pill">ISAP</span>
+            <span class="badge-pill">RDC Region II</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Institutional Portals</h5>
+          <ul class="footer-links">
+            <li><a href="about-mcnp.html">&rarr; MCNP Institution</a></li>
+            <li><a href="about-isap.html">&rarr; ISAP Institution</a></li>
+            <li><a href="about-rdc.html">&rarr; About RDC (Unified)</a></li>
+            <li><a href="about-rdc-mcnp.html">&rarr; MCNP Research Hub</a></li>
+            <li><a href="about-rdc-isap.html">&rarr; ISAP Research Hub</a></li>
+            <li><a href="rdc-agenda.html">&rarr; RDC Research Agenda</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Journals &amp; Publications</h5>
+          <ul class="footer-links">
+            <li><a href="call-for-proposals.html">&rarr; Calls for Research Proposals</a></li>
+            <li><a href="journal.html">&rarr; All Journals Portal (Overview)</a></li>
+            <li><a href="journal-mcnp.html">&rarr; MCNP Health Journal</a></li>
+            <li><a href="journal-isap.html">&rarr; ISAP Multidisciplinary</a></li>
+            <li><a href="journal-admin.html">&rarr; Journal of Admin (FlipBook)</a></li>
+            <li><a href="utilization.html">&rarr; Research Utilization</a></li>
+            <li><a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer">&rarr; Direct FlipHTML5 ↗</a></li>
+            <li><a href="news-events.html">&rarr; News &amp; Events</a></li>
+            <li><a href="news-events.html#training-calendar">&rarr; Research Training Calendar</a></li>
+            <li><a href="contact.html#faq">&rarr; Frequently Asked Questions (FAQs)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>RDC Secretariat</h5>
+          <div class="footer-contact-item">
+            <span>📍</span>
+            <span>Research &amp; Development Center, Administration Bldg., Alimannao Hills, Peñablanca, Cagayan</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>✉️</span>
+            <span><a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <span>📞</span>
+            <span><a href="tel:+639989847781" style="color:inherit">(+63) 998 984 7781</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <span>📘</span>
+            <span><a href="https://www.facebook.com/profile.php?id=61593412015654" target="_blank" rel="noopener noreferrer" style="color: #ffdf70; text-decoration: underline;">Facebook Page ↗</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <span>🕒</span>
+            <span>Mon–Fri 8:00 AM – 5:00 PM | Sat 8:00 AM – 12:00 PM</span>
+          </div>
+          <div style="margin-top: 1rem;">
+            <a href="contact.html" class="btn btn-sm btn-gold">Inquire with RDC</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Research &amp; Development Center (RDC) — Medical Colleges of Northern Philippines &amp; International School of Asia and the Pacific. All rights reserved.
+        </div>
+        <div>
+          <span>Alimannao Hills, Peñablanca, Cagayan Valley</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function prefillTrack(trackName) {
+      var trackSelect = document.getElementById('propTrack');
+      if (trackSelect) {
+        trackSelect.value = trackName;
+      }
+    }
+
+    function handleCfpSubmit(e) {
+      e.preventDefault();
+      var name = document.getElementById('propName').value;
+      var track = document.getElementById('propTrack').value;
+      var title = document.getElementById('propTitle').value;
+      var fileInput = document.getElementById('propFile');
+      var uploadedFile = (fileInput && fileInput.files && fileInput.files[0]) ? fileInput.files[0].name : 'Form 002 Document Attached';
+      var randomCode = Math.floor(1000 + Math.random() * 9000);
+
+      document.getElementById('modalTicketCode').textContent = '#RDC-2026-CFP-' + randomCode;
+      document.getElementById('modalProponentName').textContent = name;
+      document.getElementById('modalTrackName').textContent = track;
+      document.getElementById('modalTitle').textContent = title + ' (File: ' + uploadedFile + ')';
+
+      document.getElementById('cfpSuccessModal').classList.add('open');
+    }
+
+    function closeCfpModal() {
+      document.getElementById('cfpSuccessModal').classList.remove('open');
+      document.getElementById('cfpSubmitForm').reset();
+    }
+  </script>
+</body>
+</html>

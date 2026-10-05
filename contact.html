@@ -3,25 +3,381 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | MCNP &amp; ISAP Research &amp; Development Center</title>
-  <meta name="description" content="Contact the MCNP &amp; ISAP Research &amp; Development Center Secretariat. Inquire about research ethics reviews, faculty grants, journal submissions, and partnerships.">
+  <title>Contact &amp; Online Service Requests | MCNP &amp; ISAP RDC</title>
+  <meta name="description" content="Official Contact Directory, Online Service Request Portal (e-Services), Directory, and FAQs for the Research & Development Center of MCNP and ISAP.">
   <link rel="icon" type="image/png" href="assets/rdc-logo.png">
   <link rel="apple-touch-icon" href="assets/rdc-logo.png">
 
-  <!-- Open Graph / Facebook / Messenger -->
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Contact Us | MCNP &amp; ISAP Research &amp; Development Center">
-  <meta property="og:description" content="Reach out to the RDC Secretariat for research ethics review, faculty grants, journal submissions, and institutional partnerships.">
+  <meta property="og:title" content="Contact &amp; Online Service Requests | MCNP &amp; ISAP RDC">
+  <meta property="og:description" content="Connect with the RDC Secretariat, submit online requests for statistical analysis, ethics clearance (IERC), and Turnitin checks.">
   <meta property="og:image" content="assets/rdc-logo.png">
-  <meta property="og:site_name" content="MCNP &amp; ISAP RDC">
-
-  <!-- Twitter / X Cards -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Contact Us | MCNP &amp; ISAP Research &amp; Development Center">
-  <meta name="twitter:description" content="Reach out to the RDC Secretariat for ethics review, grants, and journal submissions.">
-  <meta name="twitter:image" content="assets/rdc-logo.png">
 
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Service Request Portal Tabs & Cards */
+    .portal-nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+      background: #f1f5f9;
+      padding: 0.4rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color, #e2e8f0);
+    }
+    .portal-pill-btn {
+      flex: 1 1 180px;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      color: var(--muted-text, #596780);
+      font-weight: 700;
+      font-size: 0.86rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+    .portal-pill-btn:hover {
+      background: rgba(255,255,255,0.7);
+      color: var(--dark-text, #1a202c);
+    }
+    .portal-pill-btn.active {
+      background: #ffffff;
+      color: var(--mcnp-green, #1e5ea8);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    /* Desk Cards Grid */
+    .desk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .desk-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color, #e2e8f0);
+      border-radius: 12px;
+      padding: 1.75rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .desk-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.07);
+      border-color: var(--gold, #d4af37);
+    }
+    .desk-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: rgba(30, 94, 168, 0.08);
+      color: var(--mcnp-green, #1e5ea8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+    }
+    .desk-card.isap-theme .desk-icon-wrap {
+      background: rgba(122, 31, 45, 0.08);
+      color: var(--isap-blue, #7a1f2d);
+    }
+    .desk-card.gold-theme .desk-icon-wrap {
+      background: rgba(212, 175, 55, 0.12);
+      color: #996515;
+    }
+    .desk-title {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--dark-text, #1a202c);
+      margin-bottom: 0.35rem;
+    }
+    .desk-focal {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gold-hover, #b89726);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+    }
+    .desk-desc {
+      font-size: 0.88rem;
+      color: #64748b;
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+    .desk-contact-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.84rem;
+      color: #334155;
+      margin-top: 0.4rem;
+    }
+    .desk-contact-row i {
+      color: var(--muted-text, #596780);
+      width: 16px;
+    }
+
+    /* Personnel Directory Cards Grid */
+    .personnel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 3.5rem;
+    }
+    .personnel-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color, #e2e8f0);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+      transition: all 0.28s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .personnel-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.09);
+      border-color: var(--gold, #d4af37);
+    }
+    .card-image-wrap {
+      position: relative;
+      background: #0f172a;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 1050 / 600;
+    }
+    .personnel-calling-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+    .card-image-wrap:hover .personnel-calling-card-img {
+      transform: scale(1.03);
+    }
+    .card-zoom-hint {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(15, 23, 42, 0.82);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+    .card-image-wrap:hover .card-zoom-hint {
+      opacity: 1;
+    }
+    .personnel-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .personnel-badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      margin-bottom: 0.6rem;
+    }
+    .badge-exec { background: rgba(212, 175, 55, 0.15); color: #92400e; border: 1px solid rgba(212, 175, 55, 0.4); }
+    .badge-mcnp-unit { background: rgba(30, 94, 168, 0.1); color: #1e5ea8; border: 1px solid rgba(30, 94, 168, 0.25); }
+    .badge-isap-unit { background: rgba(122, 31, 45, 0.1); color: #7a1f2d; border: 1px solid rgba(122, 31, 45, 0.25); }
+    .badge-tech-unit { background: rgba(16, 185, 129, 0.1); color: #047857; border: 1px solid rgba(16, 185, 129, 0.25); }
+    
+    .personnel-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 0.25rem;
+      line-height: 1.35;
+    }
+    .personnel-role {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--mcnp-green, #1e5ea8);
+      margin-bottom: 0.75rem;
+    }
+    .personnel-desc {
+      font-size: 0.85rem;
+      color: #64748b;
+      line-height: 1.55;
+      margin-bottom: 1.1rem;
+      flex-grow: 1;
+    }
+    .personnel-meta {
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 0.75rem 0.9rem;
+      margin-bottom: 1.15rem;
+      font-size: 0.82rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .personnel-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: #334155;
+      word-break: break-all;
+    }
+    .personnel-meta-item i {
+      color: var(--muted-text, #64748b);
+      width: 15px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .personnel-meta-item a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .personnel-meta-item a:hover {
+      color: var(--mcnp-green, #1e5ea8);
+      text-decoration: underline;
+    }
+    .personnel-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.2fr;
+      gap: 0.5rem;
+    }
+    .p-act-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.5rem 0.6rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .p-act-btn.call-btn {
+      background: #f1f5f9;
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+    }
+    .p-act-btn.call-btn:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .p-act-btn.mail-btn {
+      background: #f1f5f9;
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+    }
+    .p-act-btn.mail-btn:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .p-act-btn.req-btn {
+      background: linear-gradient(135deg, #1e5ea8 0%, #16467d 100%);
+      color: #ffffff;
+      border: 1px solid #1e5ea8;
+    }
+    .p-act-btn.req-btn:hover {
+      background: #16467d;
+      color: #ffffff;
+    }
+
+    /* Personnel Filter Tabs */
+    .personnel-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .p-tab-btn {
+      padding: 0.5rem 1.1rem;
+      border-radius: 20px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .p-tab-btn.active, .p-tab-btn:hover {
+      background: #1e5ea8;
+      color: #ffffff;
+      border-color: #1e5ea8;
+    }
+
+    
+
+    /* Modals */
+    .sr-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 3000;
+      padding: 1.5rem;
+    }
+    .sr-modal-overlay.open { display: flex; }
+    .sr-modal {
+      background: #ffffff;
+      max-width: 580px;
+      width: 100%;
+      border-radius: 14px;
+      padding: 2.5rem;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+      animation: modalSlideUp 0.22s ease-out;
+    }
+    @keyframes modalSlideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .sr-modal-icon {
+      width: 72px;
+      height: 72px;
+      background: #dcfce7;
+      color: #16a34a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin: 0 auto 1.5rem;
+    }
+  
+    
+
+  </style>
 </head>
 <body>
 
@@ -31,9 +387,12 @@
       <div class="topbar-info">
         <span>📍 Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
         <span>✉️ <a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
-        <span>📞 +639989847781</span>
+        <span>📞 <a href="tel:+639989847781" style="color:inherit">(+63) 998 984 7781</a></span>
       </div>
       <div class="topbar-right">
+        <a href="call-for-proposals.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 700; font-size: 0.78rem;">📢 Calls for Proposals (Open)</a>
+        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;">❓ FAQs</a>
+        <a href="news-events.html#training-calendar" style="color: #ffffff; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">📅 Training Calendar</a>
         <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
       </div>
     </div>
@@ -134,8 +493,24 @@
               <a href="utilization.html" class="nav-link">UTILIZATION</a>
             </li>
 
-            <li class="nav-item">
-              <a href="news-events.html" class="nav-link">NEWS &amp; EVENTS</a>
+            <li class="nav-item dropdown">
+              <a href="news-events.html" class="nav-link">
+                NEWS &amp; EVENTS <span class="arrow">&#9662;</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="news-events.html" class="dropdown-link">
+                  <span>News &amp; Events Archive</span>
+                  <span class="dropdown-badge badge-admin">NEWS</span>
+                </a>
+                <a href="call-for-proposals.html" class="dropdown-link">
+                  <span>Calls for Research Proposals</span>
+                  <span class="dropdown-badge badge-mcnp">OPEN</span>
+                </a>
+                <a href="news-events.html#training-calendar" class="dropdown-link">
+                  <span>Research Training Calendar</span>
+                  <span class="dropdown-badge badge-mcnp">2026–2027</span>
+                </a>
+              </div>
             </li>
 
             <li class="nav-item">
@@ -144,7 +519,7 @@
 
             <!-- 8. CONTACT -->
             <li class="nav-item">
-              <a href="contact.html" class="nav-link active">CONTACT</a>
+              <a href="contact.html" class="nav-link active">CONTACT &amp; E-SERVICES</a>
             </li>
           </ul>
         </nav>
@@ -158,115 +533,681 @@
   <section class="page-hero">
     <div class="container">
       <div class="breadcrumbs">
-        <a href="index.html">Home</a> &gt; <span>Contact</span>
+        <a href="index.html">Home</a> &gt; <span>Contact &amp; Online Service Requests</span>
       </div>
-      <h1>Contact the RDC Secretariat</h1>
-      <p>Connect with our research directors, ethics committees, journal editors, or community advocacy coordinators.</p>
+      <h1>Contact &amp; Online Service Requests</h1>
+      <p>Official Help Desk, Electronic Service Requests, and RDC Secretariat Contact Directory for MCNP &amp; ISAP.</p>
+      <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <a href="#service-request-portal" class="btn btn-sm btn-gold" style="display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 700;">
+          <span>⚡ Submit Online Service Request &darr;</span>
+        </a>
+        <a href="#focal-desks" class="btn btn-sm btn-outline-white" style="display: inline-flex; align-items: center; gap: 0.4rem;">
+          <span>👥 RDC Desks &amp; Personnel Directory &darr;</span>
+        </a>
+        <a href="#faq" class="btn btn-sm btn-outline-white" style="display: inline-flex; align-items: center; gap: 0.4rem;">
+          <span>❓ Research FAQs</span>
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- Main Content -->
+  <!-- Main Content Container -->
   <main class="section">
     <div class="container">
-      <div class="contact-grid">
-        <!-- Contact Form -->
-        <div>
-          <span class="section-tag">Direct Inquiries</span>
-          <h2 class="section-title">Send Us a Message</h2>
-          <p class="section-desc" style="margin-bottom: 2rem;">
-            Whether you are inquiring about ethical clearance, research collaboration, journal submissions, or institutional grants, our secretariat will respond promptly.
+
+      <!-- ==========================================================================
+           SECTION 1: ITEM 45 ONLINE SERVICE REQUEST SYSTEM (E-SERVICES)
+           ========================================================================== -->
+      <section id="online-request" style="margin-bottom: 4.5rem; scroll-margin-top: 2rem;"><span id="service-request-portal" style="display:block; position:relative; top:-2rem; visibility:hidden;"></span>
+        <div class="section-title-wrap" style="text-align: center; max-width: 780px; margin: 0 auto 2.5rem;">
+          <span class="section-tag" style="background: rgba(30, 94, 168, 0.1); color: var(--mcnp-green); font-weight: 800;">E-Services &amp; Help Desk</span>
+          <h2 class="section-title" style="font-size: 2.2rem; margin-top: 0.5rem;">RDC Online Service Request Portal</h2>
+          <p class="section-desc">
+            Submit your research service application digitally to the RDC Secretariat. Get automated tracking ticket issuance, real-time docket logging, and direct routing to institutional specialists.
           </p>
+        </div>
 
-          <div class="form-card">
-            <form id="contactForm">
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
-                <div class="form-group">
-                  <label class="form-label">Full Name</label>
-                  <input type="text" class="form-control" placeholder="Dr. / Prof. / Mr. / Ms." required>
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Email Address</label>
-                  <input type="email" class="form-control" placeholder="yourname@email.com" required>
-                </div>
-              </div>
+        <div style="background: #ffffff; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 15px 35px rgba(0,0,0,0.05); padding: clamp(1.75rem, 3.5vw, 3rem); max-width: 980px; margin: 0 auto;">
+          
+          <!-- Category Selector Pills -->
+          <div class="portal-nav-pills">
+            <button type="button" class="portal-pill-btn active" onclick="switchServiceCategory('stats', this)">
+              <i class="fas fa-chart-pie"></i> Statistical Clinic
+            </button>
+            <button type="button" class="portal-pill-btn" onclick="switchServiceCategory('ethics', this)">
+              <i class="fas fa-clipboard-check"></i> Ethics Clearance
+            </button>
+            <button type="button" class="portal-pill-btn" onclick="switchServiceCategory('turnitin', this)">
+              <i class="fas fa-search-plus"></i> Turnitin Plagiarism
+            </button>
+            <button type="button" class="portal-pill-btn" onclick="switchServiceCategory('defense', this)">
+              <i class="fas fa-calendar-alt"></i> Defense Scheduling
+            </button>
+            <button type="button" class="portal-pill-btn" onclick="switchServiceCategory('general', this)">
+              <i class="fas fa-envelope-open-text"></i> General Inquiry
+            </button>
+          </div>
 
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
-                <div class="form-group">
-                  <label class="form-label">Phone / Mobile</label>
-                  <input type="tel" class="form-control" placeholder="+63 917 000 0000">
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Affiliation / Institution</label>
-                  <input type="text" class="form-control" placeholder="University, Hospital, or Agency" required>
-                </div>
-              </div>
+          <!-- Dynamic Service Request Form -->
+          <form id="onlineServiceRequestForm" onsubmit="handleServiceRequestSubmit(event)">
+            
+            <!-- Hidden Service Type Input -->
+            <input type="hidden" id="srServiceCategory" value="Statistical Consultation & Data Processing (Form 011)">
 
+            <!-- Dynamic Service Guidance Banner -->
+            <div id="serviceGuidanceBanner" style="background: #eff6ff; border-left: 4px solid var(--mcnp-green); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 2rem; font-size: 0.88rem; color: #1e3a8a; line-height: 1.55;">
+              <strong>📊 Statistical Consultation &amp; Data Analysis (Form 011):</strong> Settle statistical consultations with institutional biostatisticians. Requires statement of the problem, hypotheses, and coded Excel dataset. Turnaround: 5–7 working days.
+            </div>
+
+            <!-- Proponent Information Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem;">
               <div class="form-group">
-                <label class="form-label">Department / Inquiry Category</label>
-                <select class="form-control" required>
-                  <option value="">Select Department...</option>
-                  <option value="ethics">Institutional Ethics Review Committee (IERC)</option>
-                  <option value="mcnp-journal">MCNP Health Journal Editorial Office</option>
-                  <option value="isap-journal">ISAP Multidisciplinary Journal Editorial Office</option>
-                  <option value="grants">Institutional Research Grants &amp; Agenda</option>
-                  <option value="advocacy">SDG Community Advocacy &amp; Extension</option>
-                  <option value="general">General Secretariat Inquiries</option>
+                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Requester / Lead Proponent Name *</label>
+                <input type="text" id="srName" class="form-control" placeholder="Dr. / Prof. / Mr. / Ms. Full Name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Institutional Email Address *</label>
+                <input type="email" id="srEmail" class="form-control" placeholder="username@mcnp.edu.ph or @isap.edu.ph" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Contact Phone / Mobile *</label>
+                <input type="tel" id="srPhone" class="form-control" placeholder="+63 9XX XXX XXXX" required>
+              </div>
+            </div>
+
+            <!-- Institutional Affiliation & Category -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem;">
+              <div class="form-group">
+                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">College / Department Affiliation *</label>
+                <select id="srDepartment" class="form-control" required style="background: #fff;">
+                  <option value="">Select College / Unit...</option>
+                  <optgroup label="MCNP Health Wing">
+                    <option value="MCNP - College of Nursing">MCNP - College of Nursing</option>
+                    <option value="MCNP - College of Medical Technology">MCNP - College of Medical Technology</option>
+                    <option value="MCNP - College of Radiologic Technology">MCNP - College of Radiologic Technology</option>
+                    <option value="MCNP - College of Pharmacy">MCNP - College of Pharmacy</option>
+                    <option value="MCNP - College of Physical Therapy">MCNP - College of Physical Therapy</option>
+                  </optgroup>
+                  <optgroup label="ISAP Multidisciplinary Wing">
+                    <option value="ISAP - College of Criminal Justice Education">ISAP - College of Criminal Justice Education (COCJE)</option>
+                    <option value="ISAP - College of Customs Administration">ISAP - College of Customs Administration</option>
+                    <option value="ISAP - College of Information Technology">ISAP - College of Information Technology</option>
+                    <option value="ISAP - College of Business Education">ISAP - College of Business Education</option>
+                    <option value="ISAP - College of Teacher Education">ISAP - College of Teacher Education</option>
+                    <option value="ISAP - Graduate School">ISAP - Graduate School</option>
+                  </optgroup>
+                  <optgroup label="Other">
+                    <option value="Administrative Staff / Personnel">Administrative Staff / Personnel</option>
+                    <option value="External Partner / Collaborating Agency">External Partner / Collaborating Agency</option>
+                  </optgroup>
                 </select>
               </div>
 
               <div class="form-group">
-                <label class="form-label">Subject</label>
-                <input type="text" class="form-control" placeholder="Summary of inquiry" required>
+                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Client / Proponent Classification *</label>
+                <select id="srRole" class="form-control" required style="background: #fff;">
+                  <option value="Faculty Researcher">Faculty Researcher (Full-time / Regular)</option>
+                  <option value="Academic Head / Dean">Academic Head / Dean</option>
+                  <option value="Undergraduate Thesis Proponent">Undergraduate Thesis Proponent / Student Group</option>
+                  <option value="Postgraduate Researcher">Postgraduate / Masteral Researcher</option>
+                  <option value="External Agency Representative">External Partner / Agency Representative</option>
+                </select>
               </div>
+            </div>
 
-              <div class="form-group">
-                <label class="form-label">Message Details</label>
-                <textarea class="form-control" placeholder="Please provide details regarding your study, protocol, or inquiry..." required></textarea>
+            <!-- Protocol Title -->
+            <div class="form-group" style="margin-bottom: 1.25rem;">
+              <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Research Protocol / Manuscript Title *</label>
+              <input type="text" id="srTitle" class="form-control" placeholder="Complete working or approved title of the study" required>
+            </div>
+
+            <!-- Dynamic Additional Fields depending on Service Category -->
+            <div id="dynamicServiceFields" style="margin-bottom: 1.25rem;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
+                <div class="form-group">
+                  <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Statistical Analysis Package Requested</label>
+                  <select id="srStatTool" class="form-control" style="background: #fff;">
+                    <option value="SPSS / Jamovi (Parametric & Non-Parametric Tests)">SPSS / Jamovi (Parametric & Non-Parametric Tests)</option>
+                    <option value="R Language / Advanced Modeling">R Language / Advanced Biostatistical Modeling</option>
+                    <option value="Sample Size Computation Only (SOP Stage 1)">Sample Size Computation (SOP Stage 1)</option>
+                    <option value="Qualitative Thematic Coding (ATLAS.ti / NVivo)">Qualitative Thematic Coding (ATLAS.ti / NVivo)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-file-upload" style="color: var(--gold);"></i> Attach Electronic Dataset File (Excel / CSV / SAV) *</label>
+                  <input type="file" id="srFile" class="form-control" accept=".xlsx,.xls,.csv,.sav,.docx,.pdf" required>
+                  <small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Direct local file upload (.xlsx, .csv, .sav, .pdf, .docx, max 25MB).</small>
+                </div>
               </div>
+            </div>
 
-              <button type="submit" class="btn btn-gold" style="width: 100%;">Send Inquiry to RDC</button>
-            </form>
+            <!-- Request Details / Message -->
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Specific Instructions / Objectives / Statement of Hypotheses *</label>
+              <textarea id="srNotes" rows="4" class="form-control" placeholder="Describe the specific services requested, research hypotheses, target timeline, or special requirements..." required></textarea>
+            </div>
+
+            <!-- Compliance Check -->
+            <div style="background: #f8fafc; padding: 1rem 1.25rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 1.75rem;">
+              <label style="display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.85rem; color: #475569; cursor: pointer;">
+                <input type="checkbox" required style="margin-top: 0.2rem;">
+                <span>I confirm that the submitted data/document complies with the Data Privacy Act of 2012 (RA 10173), that proper consent was secured from respondents, and that all information provided is accurate.</span>
+              </label>
+            </div>
+
+            <div style="text-align: center;">
+              <button type="submit" class="btn btn-gold" style="padding: 0.85rem 3rem; font-weight: 700; font-size: 1rem; width: 100%; max-width: 440px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);">
+                <i class="fas fa-paper-plane"></i> Submit Electronic Service Request
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECTION 2: ITEM 4 RDC PERSONNEL DIRECTORY & CONTACT INFORMATION
+           ========================================================================== -->
+      <section id="focal-desks" style="margin-bottom: 4.5rem; scroll-margin-top: 2rem;">
+        <div class="section-title-wrap" style="text-align: center; max-width: 820px; margin: 0 auto 2.5rem;">
+          <span class="section-tag" style="background: rgba(122, 31, 45, 0.1); color: var(--isap-blue); font-weight: 800;">Item 4: Personnel Directory &amp; Focal Officers</span>
+          <h2 class="section-title" style="font-size: 2.2rem; margin-top: 0.5rem;">RDC Key Personnel &amp; Service Contacts</h2>
+          <p class="section-desc">
+            Direct institutional telephone lines, verified official emails, and executive calling cards of our Research and Development Center leadership, coordinators, statisticians, IT, and secretariat staff.
+          </p>
+
+          <!-- Personnel Category Filters -->
+          <div class="personnel-tabs">
+            <button type="button" class="p-tab-btn active" onclick="filterPersonnel('all', this)"><i class="fas fa-users"></i> All Personnel (8)</button>
+            <button type="button" class="p-tab-btn" onclick="filterPersonnel('leadership', this)"><i class="fas fa-user-tie"></i> Leadership &amp; Coordinators (3)</button>
+            <button type="button" class="p-tab-btn" onclick="filterPersonnel('statistics', this)"><i class="fas fa-chart-line"></i> Biostatisticians (3)</button>
+            <button type="button" class="p-tab-btn" onclick="filterPersonnel('support', this)"><i class="fas fa-laptop-code"></i> Systems &amp; Secretariat (2)</button>
           </div>
         </div>
 
-        <!-- Right Column: Campus Info + Map -->
-        <div>
-          <div class="campus-card">
-            <h4>🏛️ Visiting the Campus</h4>
-            <p>
-              The MCNP and ISAP twin campuses are located along the national highway atop scenic <strong>Alimannao Hills, Peñablanca, Cagayan</strong>, just 10 minutes east of Tuguegarao City proper.
-            </p>
-            <div class="info-box">
-              <div class="info-box-item">
-                🕒 <strong>Office Hours:</strong>
-                <div style="margin-top: 0.25rem; padding-left: 1.55rem; color: #f1f5f9; line-height: 1.5;">
-                  <div>Monday – Friday: 8:00 AM – 5:00 PM</div>
-                  <div>Saturday: 8:00 AM – 12:00 PM</div>
-                </div>
+        <!-- 8 Personnel Calling Cards Grid -->
+        <div class="personnel-grid">
+
+          <!-- Personnel 1: Dr. Ryan C. Fontanilla -->
+          <div class="personnel-card" data-category="leadership">
+            <div class="card-image-wrap" onclick="openCardModal('assets/RDC%20Personal/1.png', 'Dr. Ryan C. Fontanilla, Ph.D.-EM')">
+              <img src="assets/RDC%20Personal/1.png" alt="Dr. Ryan C. Fontanilla, Ph.D.-EM - Research Director" loading="lazy" class="personnel-calling-card-img">
+              <span class="card-zoom-hint"><i class="fas fa-search-plus"></i> View Card</span>
+            </div>
+            <div class="personnel-card-body">
+              <span class="personnel-badge badge-exec">Executive Leadership</span>
+              <h3 class="personnel-name">Dr. Ryan C. Fontanilla, Ph.D.-EM</h3>
+              <div class="personnel-role">Research Director</div>
+              <p class="personnel-desc">
+                Directs overall institutional research agenda, institutional ethics compliance, government funding (DOST, CHED, CVHRDC, PCHRD), national/international research linkages, and executive policy governance for MCNP &amp; ISAP.
+              </p>
+              <div class="personnel-meta">
+                <div class="personnel-meta-item"><i class="fas fa-phone-alt"></i> <a href="tel:+639989847781">+63 998 984 7781</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-envelope"></i> <a href="mailto:researchoffice@mcnp.edu.ph">researchoffice@mcnp.edu.ph</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-map-marker-alt"></i> Research &amp; Development Center (RDC) Office, Alimannao Hills, Peñablanca, Cagayan</div>
               </div>
-              <div class="info-box-item">📞 <strong>Mobile:</strong> +639989847781</div>
-              <div class="info-box-item">✉️ <strong>Email:</strong> researchoffice@mcnp.edu.ph</div>
-              <div class="info-box-item">📘 <strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=61593412015654" target="_blank" rel="noopener noreferrer">MCNP &amp; ISAP RDC Facebook Page</a></div>
+              <div class="personnel-actions">
+                <a href="tel:+639989847781" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
+                <a href="mailto:researchoffice@mcnp.edu.ph" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="#online-request" onclick="selectServiceForPerson('general')" class="p-act-btn req-btn"><i class="fas fa-paper-plane"></i> Request</a>
+              </div>
             </div>
           </div>
 
-          <div class="map-card">
-            <div class="map-card-label">Campus Location</div>
-            <iframe
-              src="https://www.google.com/maps?q=Medical%20Colleges%20of%20Northern%20Philippines,%20Alimannao,%20Pe%C3%B1ablanca,%20Cagayan&output=embed"
-              width="100%"
-              height="260"
-              style="border:0; border-radius: 10px;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="MCNP and ISAP RDC location map">
-            </iframe>
+          <!-- Personnel 2: Ms. Rio Frances G. Callores -->
+          <div class="personnel-card" data-category="leadership">
+            <div class="card-image-wrap" onclick="openCardModal('assets/RDC%20Personal/2.png', 'Ms. Rio Frances G. Callores, MSc')">
+              <img src="assets/RDC%20Personal/2.png" alt="Ms. Rio Frances G. Callores, MSc - MCNP Research Coordinator" loading="lazy" class="personnel-calling-card-img">
+              <span class="card-zoom-hint"><i class="fas fa-search-plus"></i> View Card</span>
+            </div>
+            <div class="personnel-card-body">
+              <span class="personnel-badge badge-mcnp-unit">MCNP Health Wing</span>
+              <h3 class="personnel-name">Ms. Rio Frances G. Callores, MSc</h3>
+              <div class="personnel-role">MCNP Research Coordinator</div>
+              <p class="personnel-desc">
+                Oversees health and medical sciences research programs across Nursing, Medical Technology, Radiologic Technology, Pharmacy, and Physical Therapy. Coordinates health proposal evaluations and clinical mentoring.
+              </p>
+              <div class="personnel-meta">
+                <div class="personnel-meta-item"><i class="fas fa-phone-alt"></i> <a href="tel:+639167511596">+63 916 751 1596</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-envelope"></i> <a href="mailto:rcallores@mcnp.edu.ph">rcallores@mcnp.edu.ph</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-map-marker-alt"></i> Research &amp; Development Center (RDC) Office, Alimannao Hills, Peñablanca, Cagayan</div>
+              </div>
+              <div class="personnel-actions">
+                <a href="tel:+639167511596" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
+                <a href="mailto:rcallores@mcnp.edu.ph" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="#online-request" onclick="selectServiceForPerson('defense')" class="p-act-btn req-btn"><i class="fas fa-calendar-alt"></i> Defense</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personnel 3: Engr. KC R. Placido -->
+          <div class="personnel-card" data-category="leadership">
+            <div class="card-image-wrap" onclick="openCardModal('assets/RDC%20Personal/3.png', 'Engr. KC R. Placido')">
+              <img src="assets/RDC%20Personal/3.png" alt="Engr. KC R. Placido - ISAP Research Coordinator" loading="lazy" class="personnel-calling-card-img">
+              <span class="card-zoom-hint"><i class="fas fa-search-plus"></i> View Card</span>
+            </div>
+            <div class="personnel-card-body">
+              <span class="personnel-badge badge-isap-unit">ISAP Multidisciplinary Wing</span>
+              <h3 class="personnel-name">Engr. KC R. Placido</h3>
+              <div class="personnel-role">ISAP Research Coordinator</div>
+              <p class="personnel-desc">
+                Facilitates multidisciplinary research across Criminology &amp; Criminal Justice (COCJE), Customs Administration, Information Technology, Teacher Education, Business, and applied technological innovation.
+              </p>
+              <div class="personnel-meta">
+                <div class="personnel-meta-item"><i class="fas fa-phone-alt"></i> <a href="tel:+639654972865">+63 965 497 2865</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-envelope"></i> <a href="mailto:kcplacido@isap.edu.ph">kcplacido@isap.edu.ph</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-map-marker-alt"></i> Research &amp; Development Center (RDC) Office, Alimannao Hills, Peñablanca, Cagayan</div>
+              </div>
+              <div class="personnel-actions">
+                <a href="tel:+639654972865" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
+                <a href="mailto:kcplacido@isap.edu.ph" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="#online-request" onclick="selectServiceForPerson('defense')" class="p-act-btn req-btn"><i class="fas fa-calendar-alt"></i> Defense</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personnel 4: Ms. Tshaine Anne T. Labang -->
+          <div class="personnel-card" data-category="statistics">
+            <div class="card-image-wrap" onclick="openCardModal('assets/RDC%20Personal/4.png', 'Ms. Tshaine Anne T. Labang, LPT')">
+              <img src="assets/RDC%20Personal/4.png" alt="Ms. Tshaine Anne T. Labang, LPT - Statistician for Faculty and Administration" loading="lazy" class="personnel-calling-card-img">
+              <span class="card-zoom-hint"><i class="fas fa-search-plus"></i> View Card</span>
+            </div>
+            <div class="personnel-card-body">
+              <span class="personnel-badge badge-exec">Faculty &amp; Admin Analytics</span>
+              <h3 class="personnel-name">Ms. Tshaine Anne T. Labang, LPT</h3>
+              <div class="personnel-role">Statistician for Faculty and Administration</div>
+              <p class="personnel-desc">
+                Specializes in advanced parametric and non-parametric data modeling, institutional performance analytics, multivariate regression, ANOVA, SEM, and faculty research clearance certifications.
+              </p>
+              <div class="personnel-meta">
+                <div class="personnel-meta-item"><i class="fas fa-phone-alt"></i> <a href="tel:+639263270441">+63 926 327 0441</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-envelope"></i> <a href="mailto:talabang@mcnp.edu.ph">talabang@mcnp.edu.ph</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-map-marker-alt"></i> Research &amp; Development Center (RDC) Office, Alimannao Hills, Peñablanca, Cagayan</div>
+              </div>
+              <div class="personnel-actions">
+                <a href="tel:+639263270441" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
+                <a href="mailto:talabang@mcnp.edu.ph" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="#online-request" onclick="selectServiceForPerson('stats')" class="p-act-btn req-btn"><i class="fas fa-chart-pie"></i> Consult</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personnel 5: Ms. Ruchelle B. Langcay -->
+          <div class="personnel-card" data-category="statistics">
+            <div class="card-image-wrap" onclick="openCardModal('assets/RDC%20Personal/5.png', 'Ms. Ruchelle B. Langcay')">
+              <img src="assets/RDC%20Personal/5.png" alt="Ms. Ruchelle B. Langcay - MCNP Statistician" loading="lazy" class="personnel-calling-card-img">
+              <span class="card-zoom-hint"><i class="fas fa-search-plus"></i> View Card</span>
+            </div>
+            <div class="personnel-card-body">
+              <span class="personnel-badge badge-mcnp-unit">Health Biostatistics Desk</span>
+              <h3 class="personnel-name">Ms. Ruchelle B. Langcay</h3>
+              <div class="personnel-role">MCNP Statistician</div>
+              <p class="personnel-desc">
+                Assists MCNP health sciences researchers with sample size calculations, clinical survey reliability testing, Jamovi/SPSS statistical analysis, hypotheses interpretation, and Form 011 Statistical Clearance.
+              </p>
+              <div class="personnel-meta">
+                <div class="personnel-meta-item"><i class="fas fa-phone-alt"></i> <a href="tel:+639503653177">+63 950 365 3177</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-envelope"></i> <a href="mailto:ruchellelangcay26@gmail.com">ruchellelangcay26@gmail.com</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-map-marker-alt"></i> Research &amp; Development Center (RDC) Office, Alimannao Hills, Peñablanca, Cagayan</div>
+              </div>
+              <div class="personnel-actions">
+                <a href="tel:+639503653177" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
+                <a href="mailto:ruchellelangcay26@gmail.com" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="#online-request" onclick="selectServiceForPerson('stats')" class="p-act-btn req-btn"><i class="fas fa-chart-pie"></i> Consult</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personnel 6: Ms. Maryjane B. Agabin -->
+          <div class="personnel-card" data-category="statistics">
+            <div class="card-image-wrap" onclick="openCardModal('assets/RDC%20Personal/6.png', 'Ms. Maryjane B. Agabin')">
+              <img src="assets/RDC%20Personal/6.png" alt="Ms. Maryjane B. Agabin - ISAP Statistician" loading="lazy" class="personnel-calling-card-img">
+              <span class="card-zoom-hint"><i class="fas fa-search-plus"></i> View Card</span>
+            </div>
+            <div class="personnel-card-body">
+              <span class="personnel-badge badge-isap-unit">Multidisciplinary Biostatistics Desk</span>
+              <h3 class="personnel-name">Ms. Maryjane B. Agabin</h3>
+              <div class="personnel-role">ISAP Statistician</div>
+              <p class="personnel-desc">
+                Conducts statistical clinics for ISAP researchers, instrument pilot testing, Cronbach's alpha reliability computations, cross-tabulations, chi-square, correlation metrics, and quantitative thesis clearances.
+              </p>
+              <div class="personnel-meta">
+                <div class="personnel-meta-item"><i class="fas fa-phone-alt"></i> <a href="tel:+639935634105">+63 993 563 4105</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-envelope"></i> <a href="mailto:agabinmaryjane4@gmail.com">agabinmaryjane4@gmail.com</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-map-marker-alt"></i> Research &amp; Development Center (RDC) Office, Alimannao Hills, Peñablanca, Cagayan</div>
+              </div>
+              <div class="personnel-actions">
+                <a href="tel:+639935634105" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
+                <a href="mailto:agabinmaryjane4@gmail.com" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="#online-request" onclick="selectServiceForPerson('stats')" class="p-act-btn req-btn"><i class="fas fa-chart-pie"></i> Consult</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personnel 7: Mr. Jerald J. Guiquing -->
+          <div class="personnel-card" data-category="support">
+            <div class="card-image-wrap" onclick="openCardModal('assets/RDC%20Personal/7.png', 'Mr. Jerald J. Guiquing')">
+              <img src="assets/RDC%20Personal/7.png" alt="Mr. Jerald J. Guiquing - IT Specialist" loading="lazy" class="personnel-calling-card-img">
+              <span class="card-zoom-hint"><i class="fas fa-search-plus"></i> View Card</span>
+            </div>
+            <div class="personnel-card-body">
+              <span class="personnel-badge badge-tech-unit">Systems &amp; Digital Repositories</span>
+              <h3 class="personnel-name">Mr. Jerald J. Guiquing</h3>
+              <div class="personnel-role">IT Specialist</div>
+              <p class="personnel-desc">
+                Oversees RDC digital infrastructure, institutional repository management, Open Journal Systems (OJS) support, Turnitin plagiarism database administration, and online service ticketing systems.
+              </p>
+              <div class="personnel-meta">
+                <div class="personnel-meta-item"><i class="fas fa-phone-alt"></i> <a href="tel:+639687596359">+63 968 759 6359</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-envelope"></i> <a href="mailto:jguiquing@mcnp.edu.ph">jguiquing@mcnp.edu.ph</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-map-marker-alt"></i> Research &amp; Development Center (RDC) Office, Alimannao Hills, Peñablanca, Cagayan</div>
+              </div>
+              <div class="personnel-actions">
+                <a href="tel:+639687596359" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
+                <a href="mailto:jguiquing@mcnp.edu.ph" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="#online-request" onclick="selectServiceForPerson('turnitin')" class="p-act-btn req-btn"><i class="fas fa-shield-alt"></i> Turnitin</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personnel 8: Ms. Lea M. Paddayuman -->
+          <div class="personnel-card" data-category="support">
+            <div class="card-image-wrap" onclick="openCardModal('assets/RDC%20Personal/8.png', 'Ms. Lea M. Paddayuman')">
+              <img src="assets/RDC%20Personal/8.png" alt="Ms. Lea M. Paddayuman - Secretary" loading="lazy" class="personnel-calling-card-img">
+              <span class="card-zoom-hint"><i class="fas fa-search-plus"></i> View Card</span>
+            </div>
+            <div class="personnel-card-body">
+              <span class="personnel-badge badge-tech-unit">Secretariat &amp; Records</span>
+              <h3 class="personnel-name">Ms. Lea M. Paddayuman</h3>
+              <div class="personnel-role">Secretary</div>
+              <p class="personnel-desc">
+                Manages office communications, protocol submissions, IERC review logs, oral defense scheduling, completion clearance releases, certificate generation, and general researcher appointments.
+              </p>
+              <div class="personnel-meta">
+                <div class="personnel-meta-item"><i class="fas fa-phone-alt"></i> <a href="tel:+639168859290">+63 916 885 9290</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-envelope"></i> <a href="mailto:lpaddayuman@mcnp.edu.ph">lpaddayuman@mcnp.edu.ph</a></div>
+                <div class="personnel-meta-item"><i class="fas fa-map-marker-alt"></i> Research &amp; Development Center (RDC) Office, Alimannao Hills, Peñablanca, Cagayan</div>
+              </div>
+              <div class="personnel-actions">
+                <a href="tel:+639168859290" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
+                <a href="mailto:lpaddayuman@mcnp.edu.ph" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="#online-request" onclick="selectServiceForPerson('defense')" class="p-act-btn req-btn"><i class="fas fa-calendar-check"></i> Schedule</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Subsection: Specialized Service Desks & Transaction Offices -->
+        <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: 14px; padding: 2.25rem; margin-top: 1rem;">
+          <div style="text-align: center; margin-bottom: 2rem;">
+            <span class="section-tag" style="background: #e2e8f0; color: #334155; font-weight: 700;">Transaction Routing Guide</span>
+            <h3 style="font-size: 1.55rem; color: #0f172a; margin-top: 0.35rem;">Specialized Functional Service Desks</h3>
+            <p style="font-size: 0.92rem; color: #64748b; max-width: 650px; margin: 0.35rem auto 0;">
+              Need help routing a specific document, protocol clearance, or research grant application? Reference our core institutional transaction desks below:
+            </p>
+          </div>
+
+          <div class="desk-grid" style="margin-bottom: 0;">
+            <!-- Desk 1: Director Desk -->
+            <div class="desk-card gold-theme">
+              <div class="desk-icon-wrap"><i class="fas fa-university"></i></div>
+              <h3 class="desk-title">Office of the RDC Director</h3>
+              <span class="desk-focal">Executive Research Administration</span>
+              <p class="desk-desc">Oversees institutional research direction, national DOST/CVHRDC linkages, agenda alignment, research funding grants, and external MOA execution.</p>
+              <div class="desk-contact-row"><i class="fas fa-user-tie"></i> <span>Focal: Dr. Ryan C. Fontanilla, Ph.D.-EM</span></div>
+              <div class="desk-contact-row"><i class="fas fa-envelope"></i> <span><a href="mailto:researchoffice@mcnp.edu.ph" style="color: inherit; text-decoration: underline;">researchoffice@mcnp.edu.ph</a></span></div>
+              <div class="desk-contact-row"><i class="fas fa-phone"></i> <span>(+63) 998 984 7781</span></div>
+            </div>
+
+            <!-- Desk 2: Health Wing (MCNP) -->
+            <div class="desk-card">
+              <div class="desk-icon-wrap"><i class="fas fa-heartbeat"></i></div>
+              <h3 class="desk-title">MCNP Health Research Wing</h3>
+              <span class="desk-focal">Clinical &amp; Allied Health Desk</span>
+              <p class="desk-desc">Coordinates faculty and undergraduate health studies in Nursing, Medical Technology, Radiologic Technology, Pharmacy, and Physical Therapy.</p>
+              <div class="desk-contact-row"><i class="fas fa-user-tie"></i> <span>Focal: Ms. Rio Frances G. Callores, MSc</span></div>
+              <div class="desk-contact-row"><i class="fas fa-envelope"></i> <span><a href="mailto:rcallores@mcnp.edu.ph" style="color: inherit; text-decoration: underline;">rcallores@mcnp.edu.ph</a></span></div>
+              <div class="desk-contact-row"><i class="fas fa-phone"></i> <span>(+63) 916 751 1596</span></div>
+            </div>
+
+            <!-- Desk 3: Multidisciplinary Wing (ISAP) -->
+            <div class="desk-card isap-theme">
+              <div class="desk-icon-wrap"><i class="fas fa-shield-alt"></i></div>
+              <h3 class="desk-title">ISAP Multidisciplinary Wing</h3>
+              <span class="desk-focal">Criminology, Tech &amp; Social Desk</span>
+              <p class="desk-desc">Facilitates research protocols in Criminal Justice (COCJE), Customs Administration, IT, Business Education, Teacher Education, and Graduate Studies.</p>
+              <div class="desk-contact-row"><i class="fas fa-user-tie"></i> <span>Focal: Engr. KC R. Placido</span></div>
+              <div class="desk-contact-row"><i class="fas fa-envelope"></i> <span><a href="mailto:kcplacido@isap.edu.ph" style="color: inherit; text-decoration: underline;">kcplacido@isap.edu.ph</a></span></div>
+              <div class="desk-contact-row"><i class="fas fa-phone"></i> <span>(+63) 965 497 2865</span></div>
+            </div>
+
+            <!-- Desk 4: Ethics Review Committee (IERC) -->
+            <div class="desk-card">
+              <div class="desk-icon-wrap"><i class="fas fa-balance-scale"></i></div>
+              <h3 class="desk-title">Institutional Ethics Review Committee</h3>
+              <span class="desk-focal">PHREB Level 1 Accredited IERC</span>
+              <p class="desk-desc">Administers ethical clearance for protocols involving human participants, patient clinical trials, survey instruments, and vulnerable populations.</p>
+              <div class="desk-contact-row"><i class="fas fa-map-marker-alt"></i> <span>Ethics Secretariat Office</span></div>
+              <div class="desk-contact-row"><i class="fas fa-envelope"></i> <span><a href="mailto:ierc.rdc@mcnp.edu.ph" style="color: inherit; text-decoration: underline;">ierc.rdc@mcnp.edu.ph</a></span></div>
+              <div class="desk-contact-row"><i class="fas fa-clock"></i> <span>Reviews: 10–15 business days</span></div>
+            </div>
+
+            <!-- Desk 5: Biostatistics Unit -->
+            <div class="desk-card gold-theme">
+              <div class="desk-icon-wrap"><i class="fas fa-calculator"></i></div>
+              <h3 class="desk-title">Biostatistics &amp; Data Analytics Clinic</h3>
+              <span class="desk-focal">Quantitative Analysis &amp; Modeling</span>
+              <p class="desk-desc">Offers one-on-one biostatistical clinic consultations, sample size validation, Jamovi/SPSS data coding, hypotheses testing, and statistical clearance.</p>
+              <div class="desk-contact-row"><i class="fas fa-users"></i> <span>Focals: Ms. Labang, Ms. Langcay, Ms. Agabin</span></div>
+              <div class="desk-contact-row"><i class="fas fa-envelope"></i> <span><a href="mailto:statistics.rdc@mcnp.edu.ph" style="color: inherit; text-decoration: underline;">statistics.rdc@mcnp.edu.ph</a></span></div>
+              <div class="desk-contact-row"><i class="fas fa-check-circle"></i> <span>Form 011 Clearance Issuer</span></div>
+            </div>
+
+            <!-- Desk 6: Scholarly Press & Plagiarism Desk -->
+            <div class="desk-card isap-theme">
+              <div class="desk-icon-wrap"><i class="fas fa-book-reader"></i></div>
+              <h3 class="desk-title">Scholarly Press &amp; Originality Desk</h3>
+              <span class="desk-focal">Turnitin Checks &amp; OJS Journals</span>
+              <p class="desk-desc">Processes digital Turnitin similarity audits (&le; 15% threshold), IMRAD formatting, DOI registration, and OJS double-blind peer-review coordination.</p>
+              <div class="desk-contact-row"><i class="fas fa-laptop-code"></i> <span>Focal: Mr. Jerald Guiquing</span></div>
+              <div class="desk-contact-row"><i class="fas fa-envelope"></i> <span><a href="mailto:journals.rdc@mcnp.edu.ph" style="color: inherit; text-decoration: underline;">journals.rdc@mcnp.edu.ph</a></span></div>
+              <div class="desk-contact-row"><i class="fas fa-file-alt"></i> <span>Similarity Target: &le; 15%</span></div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+            <!-- ==========================================================================
+           SECTION 3: CAMPUS LOCATION, OFFICE HOURS & MAP
+           ========================================================================== -->
+      <section style="margin-bottom: 4rem;">
+        <div class="contact-grid">
+          <div>
+            <div class="campus-card">
+              <h4>🏛️ Visiting the RDC Secretariat</h4>
+              <p>
+                The MCNP and ISAP twin campuses are located along the national highway atop scenic <strong>Alimannao Hills, Peñablanca, Cagayan</strong>, just 10 minutes east of Tuguegarao City proper.
+              </p>
+              <div class="info-box">
+                <div class="info-box-item">
+                  🕒 <strong>Office Operating Hours:</strong>
+                  <div style="margin-top: 0.25rem; padding-left: 1.55rem; color: #f1f5f9; line-height: 1.5;">
+                    <div>Monday – Friday: 8:00 AM – 5:00 PM</div>
+                    <div>Saturday: 8:00 AM – 12:00 PM</div>
+                    <div>Sunday &amp; Holidays: Closed</div>
+                  </div>
+                </div>
+                <div class="info-box-item">📞 <strong>Direct Mobile:</strong> (+63) 998 984 7781</div>
+                <div class="info-box-item">✉️ <strong>Official Email:</strong> researchoffice@mcnp.edu.ph</div>
+                <div class="info-box-item">📘 <strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=61593412015654" target="_blank" rel="noopener noreferrer" style="color: #ffdf70; text-decoration: underline;">MCNP &amp; ISAP RDC Facebook Page ↗</a></div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="map-card">
+              <div class="map-card-label">Campus Satellite &amp; Map Coordinates</div>
+              <iframe
+                src="https://www.google.com/maps?q=Medical%20Colleges%20of%20Northern%20Philippines,%20Alimannao,%20Pe%C3%B1ablanca,%20Cagayan&output=embed"
+                width="100%"
+                height="260"
+                style="border:0; border-radius: 10px;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="MCNP and ISAP RDC location map">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECTION 4: ITEM 43 FREQUENTLY ASKED QUESTIONS (FAQ) ACCORDION
+           ========================================================================== -->
+      <section class="faq-section" id="faq">
+        <div class="faq-header-wrap">
+          <span class="section-tag">Help &amp; Knowledge Base</span>
+          <h2 class="section-title">❓ Frequently Asked Questions (FAQs)</h2>
+          <p class="section-desc">
+            Quick, clear answers to common questions about research protocol ethics clearance (IERC), statistical consultation, defense procedures, registered forms, journal publishing, and research utilization.
+          </p>
+        </div>
+
+        <div class="faq-controls-bar">
+          <div class="faq-search-input">
+            <span>🔍</span>
+            <input type="text" id="faqSearchInput" placeholder="Search questions by topic, keyword, or requirement...">
+          </div>
+          <div class="faq-toggle-all-btns">
+            <button type="button" class="faq-btn-toggle" onclick="toggleAllFaqs(true)">Expand All</button>
+            <button type="button" class="faq-btn-toggle" onclick="toggleAllFaqs(false)">Collapse All</button>
+          </div>
+        </div>
+
+        <div class="faq-filter-chips">
+          <button type="button" class="faq-chip active" data-category="all" onclick="filterFaqCategory('all', this)">All Questions (8)</button>
+          <button type="button" class="faq-chip" data-category="ethics" onclick="filterFaqCategory('ethics', this)">Ethics &amp; IERC</button>
+          <button type="button" class="faq-chip" data-category="stats" onclick="filterFaqCategory('stats', this)">Statistical Clinics</button>
+          <button type="button" class="faq-chip" data-category="sop" onclick="filterFaqCategory('sop', this)">Defense &amp; Forms</button>
+          <button type="button" class="faq-chip" data-category="journals" onclick="filterFaqCategory('journals', this)">Journals &amp; Publishing</button>
+          <button type="button" class="faq-chip" data-category="utilization" onclick="filterFaqCategory('utilization', this)">Utilization &amp; Impact</button>
+        </div>
+
+        <div class="faq-container">
+          <!-- Q1 -->
+          <details class="faq-card" data-category="ethics" open>
+            <summary class="faq-question-btn">
+              <div class="faq-q-left">
+                <span class="faq-category-tag">Ethics &amp; IERC Review</span>
+                <span>What is the standard procedure for obtaining an Institutional Ethics Review Committee (IERC) clearance?</span>
+              </div>
+              <div class="faq-icon-indicator">+</div>
+            </summary>
+            <div class="faq-answer-body">
+              <p>All research protocols involving human participants, health records, clinical trials, vulnerable populations (e.g., minors, inmates, indigenous groups), or community surveys must secure ethical clearance from the <strong>PHREB Level 1 Accredited Institutional Ethics Review Committee (IERC)</strong> before data collection begins.</p>
+              <div class="faq-callout">
+                <strong>Mandatory Protocol Submission Packet:</strong> Proponents must submit accomplished <strong>Form 012 (Ethics Protocol Review Application)</strong>, participant informed consent / assent documents, survey instruments, and a signed data privacy pledge to the RDC Secretariat.
+              </div>
+              <p>Review turnaround typically requires <strong>10 to 15 working days</strong> for expedited protocols and up to 21 working days for full-board reviews. Once approved, an official <em>Certificate of Ethical Clearance</em> is issued and recorded in the master defense dossier.</p>
+            </div>
+          </details>
+
+          <!-- Q2 -->
+          <details class="faq-card" data-category="stats">
+            <summary class="faq-question-btn">
+              <div class="faq-q-left">
+                <span class="faq-category-tag">Statistical Consultation</span>
+                <span>How do researchers schedule a Statistical Consultation or Data Analysis session?</span>
+              </div>
+              <div class="faq-icon-indicator">+</div>
+            </summary>
+            <div class="faq-answer-body">
+              <p>Researchers across MCNP and ISAP can avail of institutional biostatistical and quantitative analysis support through the RDC Biostatistics Unit:</p>
+              <ol>
+                <li>Accomplish <strong>Form 011 (Statistical Consultation Service Request Form)</strong> detailing the statement of the problem, operational variables, proposed analytical tests, and clean electronic dataset.</li>
+                <li>Submit the request to the RDC Secretariat or via the <a href="#service-request-portal" style="color:var(--mcnp-green);font-weight:600;">Online Service Request Portal</a>.</li>
+                <li>Attend the scheduled consultation clinic where institutional data analysts perform computations using SPSS, Jamovi, or R, and provide formal interpretation matrices.</li>
+                <li>Receive the official <strong>Statistician’s Clearance Certificate</strong> required for scheduling the final oral defense.</li>
+              </ol>
+            </div>
+          </details>
+
+          <!-- Q3 -->
+          <details class="faq-card" data-category="sop">
+            <summary class="faq-question-btn">
+              <div class="faq-q-left">
+                <span class="faq-category-tag">Defense &amp; SOP</span>
+                <span>What are the prerequisites before a proposal or final oral defense can be calendared?</span>
+              </div>
+              <div class="faq-icon-indicator">+</div>
+            </summary>
+            <div class="faq-answer-body">
+              <p>Under the institutional Standard Operating Procedures (SOP Stages 1.3 and 5.1), defenses are scheduled only after completing all prerequisites:</p>
+              <ul>
+                <li><strong>Proposal Defense:</strong> Completed Chapters 1–3, signed Adviser Endorsement (Form 003), and RDC Capsule Proposal verification.</li>
+                <li><strong>Final Defense:</strong> Completed 5-chapter manuscript, Statistician’s Clearance Certificate (Form 011), Institutional Ethics Clearance Certificate (IERC), and verified Matrix of Corrections compliance from the proposal defense.</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Q4 -->
+          <details class="faq-card" data-category="journals">
+            <summary class="faq-question-btn">
+              <div class="faq-q-left">
+                <span class="faq-category-tag">Journals &amp; Publishing</span>
+                <span>What is the institutional benchmark for plagiarism similarity index checks?</span>
+              </div>
+              <div class="faq-icon-indicator">+</div>
+            </summary>
+            <div class="faq-answer-body">
+              <p>In accordance with institutional research integrity standards, all academic theses, faculty research papers, and journal manuscripts undergo digital similarity verification via <strong>Turnitin</strong>:</p>
+              <ul>
+                <li><strong>Benchmark:</strong> The overall similarity index must be <strong>&le; 15%</strong> (excluding bibliography and small matches under 1%).</li>
+                <li>Manuscripts exceeding 15% must be revised and resubmitted to the RDC Plagiarism Officer for re-evaluation before final hardbound binding or journal editorial acceptance.</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Q5 -->
+          <details class="faq-card" data-category="utilization">
+            <summary class="faq-question-btn">
+              <div class="faq-q-left">
+                <span class="faq-category-tag">Utilization &amp; Impact</span>
+                <span>How does a completed study transition into a Research Utilization project?</span>
+              </div>
+              <div class="faq-icon-indicator">+</div>
+            </summary>
+            <div class="faq-answer-body">
+              <p>Through our dedicated <strong>Research Utilization Framework</strong>, completed studies with actionable findings are evaluated for 4 pathways: Policy Governance, Community Extension, Industry Tech Transfer, or Curricular Integration. The RDC drafts an official Memorandum of Agreement (MOA) with partner agencies (e.g. RHUs, LGUs, PNP Regional Office 2) to deploy the research findings into real-world practice.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
     </div>
   </main>
+
+  <!-- Service Request Confirmation Modal -->
+  <div id="srSuccessModal" class="sr-modal-overlay">
+    <div class="sr-modal">
+      <div class="sr-modal-icon"><i class="fas fa-check"></i></div>
+      <h3 style="font-size: 1.45rem; color: var(--dark-text); margin-bottom: 0.5rem;">Service Request Logged!</h3>
+      <p style="color: #64748b; font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem;">
+        Your electronic request has been registered in the RDC master docket. Your tracking reference ticket is <strong id="srModalTicketCode" style="color: var(--mcnp-green); font-size: 1.05rem;">#RDC-SR-2026-0000</strong>.
+      </p>
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.1rem; text-align: left; font-size: 0.86rem; color: #334155; margin-bottom: 1.5rem;">
+        <p style="margin-bottom: 0.4rem;"><strong>Client Name:</strong> <span id="srModalClientName"></span></p>
+        <p style="margin-bottom: 0.4rem;"><strong>Service Category:</strong> <span id="srModalService"></span></p>
+        <p style="margin-bottom: 0.4rem;"><strong>Protocol / Title:</strong> <span id="srModalTitle"></span></p>
+        <p style="margin-bottom: 0;"><strong>Estimated Turnaround:</strong> <span id="srModalTurnaround" style="color: #059669; font-weight: 700;">3–5 Business Days</span></p>
+      </div>
+      <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 1.5rem;">
+        An electronic receipt copy has been generated. The designated desk focal person will reach out to your institutional email.
+      </p>
+      <button type="button" class="btn btn-gold" style="width: 100%; font-weight: 700;" onclick="closeSrModal()">Done &amp; Close</button>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -274,7 +1215,12 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h4>MCNP &amp; ISAP <span>RDC</span></h4>
-          <p>Medical Colleges of Northern Philippines &amp; International School of Asia and the Pacific. Fostering research innovation, ethics, and community leadership.</p>
+          <p>Medical Colleges of Northern Philippines &amp; International School of Asia and the Pacific. Fostering research innovation, scientific ethics, and community leadership across Region II.</p>
+          <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem;">
+            <span class="badge-pill">MCNP</span>
+            <span class="badge-pill">ISAP</span>
+            <span class="badge-pill">RDC Region II</span>
+          </div>
         </div>
         <div class="footer-col">
           <h5>Institutional Portals</h5>
@@ -290,29 +1236,233 @@
         <div class="footer-col">
           <h5>Research &amp; Journals</h5>
           <ul class="footer-links">
-            <li><a href="rdc-agenda.html">&rarr; RDC Agenda</a></li>
-            <li><a href="journal-mcnp.html">&rarr; MCNP Journal</a></li>
-            <li><a href="journal-isap.html">&rarr; ISAP Journal</a></li>
+            <li><a href="call-for-proposals.html">&rarr; Calls for Research Proposals</a></li>
+            <li><a href="journal.html">&rarr; All Journals Portal (Overview)</a></li>
+            <li><a href="journal-mcnp.html">&rarr; MCNP Health Journal</a></li>
+            <li><a href="journal-isap.html">&rarr; ISAP Multidisciplinary</a></li>
             <li><a href="journal-admin.html">&rarr; Journal of Admin (FlipBook)</a></li>
             <li><a href="utilization.html">&rarr; Research Utilization</a></li>
-            <li><a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer">&rarr; Direct FlipHTML5 ↗</a></li>
+            <li><a href="news-events.html#training-calendar">&rarr; Research Training Calendar</a></li>
+            <li><a href="contact.html#faq">&rarr; Frequently Asked Questions (FAQs)</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h5>Contact Secretariat</h5>
-          <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 0.5rem;">Alimannao Hills, Peñablanca, Cagayan</p>
-          <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 0.5rem;"><a href="mailto:researchoffice@mcnp.edu.ph" style="color: inherit;">researchoffice@mcnp.edu.ph</a> | +639989847781</p>
-          <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 0.5rem;">Mon–Fri 8:00 AM – 5:00 PM | Sat 8:00 AM – 12:00 PM</p>
-          <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 0.6rem;">📘 <a href="https://www.facebook.com/profile.php?id=61593412015654" target="_blank" rel="noopener noreferrer" style="color: #ffdf70; text-decoration: underline;">Facebook Page ↗</a></p>
-          <a href="contact.html" class="btn btn-sm btn-gold" style="margin-top: 0.5rem;">Contact Us</a>
+          <div class="footer-contact-item">
+            <span>📍</span>
+            <span>Alimannao Hills, Peñablanca, Cagayan</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>✉️</span>
+            <span><a href="mailto:researchoffice@mcnp.edu.ph" style="color: inherit;">researchoffice@mcnp.edu.ph</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <span>📞</span>
+            <span><a href="tel:+639989847781" style="color: inherit;">(+63) 998 984 7781</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <span>🕒</span>
+            <span>Mon–Fri 8:00 AM – 5:00 PM | Sat 8:00 AM – 12:00 PM</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>📘</span>
+            <span><a href="https://www.facebook.com/profile.php?id=61593412015654" target="_blank" rel="noopener noreferrer" style="color: #ffdf70; text-decoration: underline;">Facebook Page ↗</a></span>
+          </div>
+          <a href="contact.html#service-request-portal" class="btn btn-sm btn-gold" style="margin-top: 0.75rem;">Submit Online Request</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <div>&copy; 2026 Research &amp; Development Center (RDC) — MCNP &amp; ISAP.</div>
+        <div>&copy; 2026 Research &amp; Development Center (RDC) — MCNP &amp; ISAP. All rights reserved.</div>
       </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    // Service Category Switching
+    var categoryData = {
+      'stats': {
+        name: 'Statistical Consultation & Data Processing (Form 011)',
+        guidance: '<strong>📊 Statistical Consultation &amp; Data Analysis (Form 011):</strong> Settle statistical consultations with institutional biostatisticians. Requires statement of the problem, hypotheses, and coded Excel dataset. Turnaround: 5–7 working days.',
+        fields: '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">' +
+                  '<div class="form-group">' +
+                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Statistical Tool / Tests Requested</label>' +
+                    '<select id="srStatTool" class="form-control" style="background: #fff;">' +
+                      '<option value="SPSS / Jamovi (Parametric & Non-Parametric)">SPSS / Jamovi (Parametric & Non-Parametric)</option>' +
+                      '<option value="R Language / Advanced Modeling">R Language / Advanced Biostatistical Modeling</option>' +
+                      '<option value="Sample Size Computation Only">Sample Size Computation (SOP Stage 1)</option>' +
+                      '<option value="Qualitative Thematic Analysis (NVivo/ATLAS.ti)">Qualitative Thematic Analysis (NVivo/ATLAS.ti)</option>' +
+                    '</select>' +
+                  '</div>' +
+                  '<div class="form-group">' +
+                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-file-upload" style="color: var(--gold);"></i> Attach Electronic Dataset File (Excel / CSV / SAV) *</label>' +
+                    '<input type="file" id="srFile" class="form-control" accept=".xlsx,.xls,.csv,.sav,.docx,.pdf" required>' +
+                    '<small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Direct local file upload (.xlsx, .csv, .sav, max 25MB).</small>' +
+                  '</div>' +
+                '</div>',
+        turnaround: '5–7 Business Days'
+      },
+      'ethics': {
+        name: 'Institutional Ethics Protocol Clearance (IERC Review)',
+        guidance: '<strong>📋 Institutional Ethics Protocol Clearance (IERC):</strong> Under PHREB Level 1 standards, human subject research, community health surveys, and identifiable data protocols undergo ethics evaluation. Turnaround: 10–15 business days.',
+        fields: '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">' +
+                  '<div class="form-group">' +
+                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Review Pathway Requested</label>' +
+                    '<select class="form-control" style="background: #fff;">' +
+                      '<option value="Expedited Review (Minimal Risk / Non-Invasive)">Expedited Review (Minimal Risk / Non-Invasive Survey)</option>' +
+                      '<option value="Full Committee Review (Vulnerable Subjects / Clinical)">Full Committee Review (Vulnerable Subjects / Clinical)</option>' +
+                      '<option value="Exemption from Review (Public Archival Data)">Exemption from Review (Public Archival Data)</option>' +
+                    '</select>' +
+                  '</div>' +
+                  '<div class="form-group">' +
+                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-file-upload" style="color: var(--gold);"></i> Attach Ethics Protocol & Consent Dossier File *</label>' +
+                    '<input type="file" id="srFile" class="form-control" accept=".docx,.doc,.pdf" required>' +
+                    '<small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Direct local file upload (.docx, .pdf, max 25MB).</small>' +
+                  '</div>' +
+                '</div>',
+        turnaround: '10–15 Business Days'
+      },
+      'turnitin': {
+        name: 'Turnitin Plagiarism & Originality Verification Check',
+        guidance: '<strong>🔍 Turnitin Originality Verification Check:</strong> Submit your digital manuscript for institutional plagiarism check. The maximum allowable similarity threshold is &le; 15%. Turnaround: 24–48 working hours.',
+        fields: '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">' +
+                  '<div class="form-group">' +
+                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Manuscript Type</label>' +
+                    '<select class="form-control" style="background: #fff;">' +
+                      '<option value="Undergraduate Thesis (Complete 5 Chapters)">Undergraduate Thesis (Complete 5 Chapters)</option>' +
+                      '<option value="Faculty Research Manuscript">Faculty Research Manuscript</option>' +
+                      '<option value="IMRAD Journal Article for Publishing">IMRAD Journal Article for Publishing</option>' +
+                      '<option value="Graduate School Dissertation / Thesis">Graduate School Dissertation / Thesis</option>' +
+                    '</select>' +
+                  '</div>' +
+                  '<div class="form-group">' +
+                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-file-upload" style="color: var(--gold);"></i> Attach Digital Manuscript File (DOCX / PDF) *</label>' +
+                    '<input type="file" id="srFile" class="form-control" accept=".docx,.doc,.pdf" required>' +
+                    '<small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Direct local file upload (.docx, .pdf, max 25MB).</small>' +
+                  '</div>' +
+                '</div>',
+        turnaround: '24–48 Hours'
+      },
+      'defense': {
+        name: 'Research Proposal or Final Oral Defense Scheduling',
+        guidance: '<strong>📅 Defense Scheduling Assistance (SOP Stage 1.3 & 5.2):</strong> Coordinate oral defense date, panel room reservation, notice issuance, and panel recommendations with the RDC Secretariat.',
+        fields: '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">' +
+                  '<div class="form-group">' +
+                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Defense Type</label>' +
+                    '<select class="form-control" style="background: #fff;">' +
+                      '<option value="Proposal Defense (Chapters 1–3)">Proposal Defense (Chapters 1–3)</option>' +
+                      '<option value="Final Oral Defense (5-Chapter Manuscript)">Final Oral Defense (5-Chapter Manuscript)</option>' +
+                    '</select>' +
+                  '</div>' +
+                  '<div class="form-group">' +
+                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Preferred Defense Date & Time Slot</label>' +
+                    '<input type="text" class="form-control" placeholder="e.g., Nov 12, 2026 - 1:30 PM">' +
+                  '</div>' +
+                '</div>',
+        turnaround: '3–5 Business Days'
+      },
+      'general': {
+        name: 'General Secretariat Inquiries & Research Partnerships',
+        guidance: '<strong>✉️ General Inquiries &amp; Collaborative Partnerships:</strong> For general questions, external academic MOA collaborations, resource speaker requests, and administrative clarifications. Response time: 24–48 hours.',
+        fields: '<div class="form-group">' +
+                  '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Inquiry Topic</label>' +
+                  '<input type="text" class="form-control" placeholder="Subject or partnership topic">' +
+                '</div>',
+        turnaround: '24–48 Hours'
+      }
+    };
+
+    var currentCategoryKey = 'stats';
+
+    function switchServiceCategory(key, btn) {
+      currentCategoryKey = key;
+      var pills = document.querySelectorAll('.portal-pill-btn');
+      pills.forEach(function(p) { p.classList.remove('active'); });
+      if (btn) btn.classList.add('active');
+
+      var item = categoryData[key];
+      if (item) {
+        document.getElementById('srServiceCategory').value = item.name;
+        document.getElementById('serviceGuidanceBanner').innerHTML = item.guidance;
+        document.getElementById('dynamicServiceFields').innerHTML = item.fields;
+      }
+    }
+
+    function handleServiceRequestSubmit(e) {
+      e.preventDefault();
+      var name = document.getElementById('srName').value;
+      var title = document.getElementById('srTitle').value;
+      var serviceName = document.getElementById('srServiceCategory').value;
+      var ticketNum = Math.floor(1000 + Math.random() * 9000);
+
+      document.getElementById('srModalTicketCode').textContent = '#RDC-SR-2026-' + ticketNum;
+      document.getElementById('srModalClientName').textContent = name;
+      document.getElementById('srModalService').textContent = serviceName;
+      var fileInput = document.getElementById('srFile');
+      var uploadedFile = (fileInput && fileInput.files && fileInput.files[0]) ? fileInput.files[0].name : 'Direct File Attached';
+      document.getElementById('srModalTitle').textContent = title + ' (File: ' + uploadedFile + ')';
+      document.getElementById('srModalTurnaround').textContent = categoryData[currentCategoryKey].turnaround;
+
+      document.getElementById('srSuccessModal').classList.add('open');
+    }
+
+    function closeSrModal() {
+      document.getElementById('srSuccessModal').classList.remove('open');
+      document.getElementById('onlineServiceRequestForm').reset();
+      switchServiceCategory('stats', document.querySelector('.portal-pill-btn'));
+    }
+
+    function openCardModal(imgSrc, name) {
+      document.getElementById('lightboxImg').src = imgSrc;
+      document.getElementById('lightboxName').textContent = name + ' - Official Calling Card';
+      document.getElementById('cardLightboxModal').classList.add('open');
+    }
+
+    function closeCardModal(e) {
+      if (e.target.id === 'cardLightboxModal') {
+        document.getElementById('cardLightboxModal').classList.remove('open');
+      }
+    }
+
+    function closeCardModalDirect() {
+      document.getElementById('cardLightboxModal').classList.remove('open');
+    }
+
+    function filterPersonnel(category, btn) {
+      var btns = document.querySelectorAll('.p-tab-btn');
+      btns.forEach(function(b) { b.classList.remove('active'); });
+      if (btn) btn.classList.add('active');
+      var cards = document.querySelectorAll('.personnel-card');
+      cards.forEach(function(card) {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function selectServiceForPerson(serviceKey) {
+      var btn = document.querySelector('.portal-pill-btn[onclick*="' + serviceKey + '"]');
+      switchServiceCategory(serviceKey, btn);
+      var formElem = document.getElementById('online-request');
+      if (formElem) {
+        formElem.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  
+    </script>
+  <!-- Lightbox Modal for Personnel Calling Card -->
+  <div id="cardLightboxModal" class="sr-modal-overlay" onclick="closeCardModal(event)">
+    <div class="sr-modal" style="max-width: 720px; padding: 1.5rem; background: #0f172a; color: #fff; text-align: center; border: 1px solid rgba(255,255,255,0.15);" onclick="event.stopPropagation()">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h4 id="lightboxName" style="color: #fff; margin: 0; font-size: 1.05rem;">Official Calling Card</h4>
+        <button onclick="closeCardModalDirect()" style="background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; padding: 0.25rem 0.5rem;">&times;</button>
+      </div>
+      <img id="lightboxImg" src="" alt="Calling Card" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); aspect-ratio: 1050/600; object-fit: contain; background: #000;">
+      <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 0.75rem; margin-bottom: 0;">Official RDC Issued Calling Card &bull; Medical Colleges of Northern Philippines &amp; International School of Asia and the Pacific</p>
+    </div>
+  </div>
+
 </body>
 </html>

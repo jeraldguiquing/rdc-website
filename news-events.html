@@ -370,9 +370,9 @@
         <span>📞 +639989847781</span>
       </div>
       <div class="topbar-right">
+        <a href="call-for-proposals.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 700; font-size: 0.78rem;">📢 Calls for Proposals (Open)</a>
         <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;">❓ FAQs</a>
-        <a href="news-events.html#training-calendar" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">📅 Training Calendar</a>
-        
+        <a href="news-events.html#training-calendar" style="color: #ffffff; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">📅 Training Calendar</a>
         <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
       </div>
     </div>
@@ -473,8 +473,24 @@
               <a href="utilization.html" class="nav-link">UTILIZATION</a>
             </li>
 
-            <li class="nav-item">
-              <a href="news-events.html" class="nav-link active">NEWS &amp; EVENTS</a>
+            <li class="nav-item dropdown">
+              <a href="news-events.html" class="nav-link active">
+                NEWS &amp; EVENTS <span class="arrow">&#9662;</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="news-events.html" class="dropdown-link active">
+                  <span>News &amp; Events Archive</span>
+                  <span class="dropdown-badge badge-admin">NEWS</span>
+                </a>
+                <a href="call-for-proposals.html" class="dropdown-link">
+                  <span>Calls for Research Proposals</span>
+                  <span class="dropdown-badge badge-mcnp">OPEN</span>
+                </a>
+                <a href="news-events.html#training-calendar" class="dropdown-link">
+                  <span>Research Training Calendar</span>
+                  <span class="dropdown-badge badge-mcnp">2026–2027</span>
+                </a>
+              </div>
             </li>
 
             <li class="nav-item">
@@ -501,7 +517,10 @@
       <h1>News &amp; Events</h1>
       <p>Explore research breakthroughs, institutional updates, scholarly colloquiums, workshops, and milestones across MCNP &amp; ISAP.</p>
       <div style="margin-top: 1.25rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
-        <a href="#training-calendar" class="btn btn-sm btn-gold" style="display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 700;">
+        <a href="call-for-proposals.html" class="btn btn-sm btn-gold" style="display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 700;">
+          <span>📢 Calls for Research Proposals (Open) &rarr;</span>
+        </a>
+        <a href="#training-calendar" class="btn btn-sm btn-outline-white" style="display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600;">
           <span>📅 View Research Training Calendar (2026–2027) &darr;</span>
         </a>
         <a href="contact.html#faq" class="btn btn-sm btn-outline-white" style="display: inline-flex; align-items: center; gap: 0.4rem;">
@@ -514,6 +533,28 @@
   <!-- Main Content -->
   <main class="section">
     <div class="container">
+      
+      <!-- Call for Proposals Alert Banner -->
+      <div style="background: linear-gradient(135deg, #0b2545 0%, #1e5ea8 100%); color: #ffffff; border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem; box-shadow: 0 10px 25px rgba(30, 94, 168, 0.2);">
+        <div style="display: flex; align-items: center; gap: 1.25rem;">
+          <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.75rem;">📢</div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+              <span style="background: #e11d48; color: #fff; font-size: 0.7rem; font-weight: 800; padding: 0.15rem 0.5rem; border-radius: 4px; text-transform: uppercase;">ACTIVE CALL</span>
+              <strong style="font-size: 1.1rem; color: #ffffff;">Calls for Research Proposals (AY 2026–2027) Now Open!</strong>
+            </div>
+            <p style="font-size: 0.88rem; color: #cbd5e1; margin: 0; line-height: 1.4;">
+              Submit your research protocol for the MCNP Health Research Grant (up to ₱50k), ISAP Innovation Grant (up to ₱50k), or the DOST-CVHRDC Regional Research Fund (up to ₱500k).
+            </p>
+          </div>
+        </div>
+        <div>
+          <a href="call-for-proposals.html" class="btn btn-gold" style="font-weight: 700; white-space: nowrap; font-size: 0.88rem; padding: 0.65rem 1.5rem;">
+            View Guidelines &amp; Apply Online &rarr;
+          </a>
+        </div>
+      </div>
+
       <div class="event-page-news-only section-title-wrap">
         <span class="section-tag">News &amp; Event Archive</span>
         <h2 class="section-title">Research, Publications &amp; Institutional Events</h2>
@@ -880,16 +921,11 @@
       </div>
 
       <section aria-labelledby="event-highlights-title">
-        <div class="section-title-wrap" style="margin-bottom: 1.75rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+        <div class="section-title-wrap" style="margin-bottom: 1.75rem;">
           <div>
             <span class="section-tag">Updates &amp; Happenings</span>
             <h2 id="event-highlights-title" class="section-title">News &amp; Event Highlights</h2>
             <p class="section-desc">Dates, locations, activities, breakthroughs, and achievements from RDC, MCNP, and ISAP.</p>
-          </div>
-          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-            <a href="video-accomplishments.html" class="btn btn-primary" style="background: linear-gradient(135deg, #1e3a8a, #2563eb); color: #fff; padding: 0.65rem 1.25rem; border-radius: 10px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(37,99,235,0.3);">
-              <span>🎥 Watch &amp; Download Videos (Sept &amp; Aug 2026)</span>
-            </a>
           </div>
         </div>
 
