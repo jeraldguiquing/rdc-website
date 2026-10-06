@@ -23,6 +23,233 @@
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* MCNP Organizational Structure Styles */
+    .mcnp-org-chart-wrapper {
+      background: #f8fafc;
+      border: 1px solid var(--border-color, #e2e8f0);
+      border-radius: 16px;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .mcnp-org-level {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      width: 100%;
+    }
+    .mcnp-org-connector {
+      width: 2px;
+      height: 26px;
+      background: #cbd5e1;
+      margin: 0 auto;
+    }
+    .mcnp-org-node {
+      background: #ffffff;
+      border: 1px solid var(--border-color, #e2e8f0);
+      border-radius: 12px;
+      padding: 1.15rem 1.4rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+      text-align: center;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .mcnp-org-node:hover {
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+      border-color: var(--gold, #d4af37);
+      transform: translateY(-2px);
+    }
+    .node-title-main {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0.4rem 0 0.2rem;
+      line-height: 1.3;
+    }
+    .node-role-main {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--mcnp-green, #1e5ea8);
+      margin-bottom: 0.35rem;
+    }
+    .node-sub-text {
+      font-size: 0.78rem;
+      color: #64748b;
+      line-height: 1.4;
+    }
+    .node-tag-badge {
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.22rem 0.6rem;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 0.35rem;
+    }
+    .badge-pres { background: #0f172a; color: #ffffff; }
+    .badge-vp { background: #e0f2fe; color: #0284c7; }
+    .badge-rdc-exec { background: #fef3c7; color: #b45309; }
+    .badge-support { background: #f1f5f9; color: #475569; }
+    .badge-college { background: #dcfce7; color: #166534; }
+    .badge-focal { background: #ede9fe; color: #6d28d9; }
+    
+    /* Exec Grid */
+    .exec-grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.15rem;
+      width: 100%;
+      max-width: 1100px;
+    }
+    .exec-card-president {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      border: none;
+    }
+    .exec-card-president .node-title-main { color: #ffffff; font-size: 1.2rem; }
+    .exec-card-president .node-role-main { color: #ffdf70; }
+    .exec-card-president .node-sub-text { color: #cbd5e1; }
+
+    /* Directorate Grid */
+    .directorate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      width: 100%;
+      max-width: 860px;
+    }
+    @media (max-width: 720px) {
+      .directorate-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Support Units Grid */
+    .support-units-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    /* College Academic Cards Grid */
+    .colleges-network-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      width: 100%;
+    }
+    .college-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color, #e2e8f0);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .college-card:hover {
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      border-color: var(--mcnp-green, #1e5ea8);
+      transform: translateY(-2px);
+    }
+    .college-card-header {
+      background: linear-gradient(135deg, #1e5ea8 0%, #0d3b73 100%);
+      color: #ffffff;
+      padding: 1rem 1.25rem;
+    }
+    .college-dept-icon {
+      font-size: 1.25rem;
+      margin-bottom: 0.35rem;
+      color: #ffdf70;
+    }
+    .college-dept-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin: 0;
+      color: #ffffff;
+    }
+    .college-card-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex-grow: 1;
+    }
+    .college-person-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      position: relative;
+    }
+    .college-person-box.focal-box {
+      border-left: 3px solid #7c3aed;
+      background: #faf5ff;
+    }
+    .college-person-box.coord-box {
+      border-left: 3px solid var(--mcnp-green, #1e5ea8);
+      background: #f0f7ff;
+    }
+    .cp-role-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.2rem;
+      display: block;
+    }
+    .cp-role-coord { color: var(--mcnp-green, #1e5ea8); }
+    .cp-role-focal { color: #6d28d9; }
+    .cp-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.3;
+    }
+    .cp-sub {
+      font-size: 0.76rem;
+      color: #64748b;
+      margin-top: 0.15rem;
+    }
+
+    /* Filter Tabs */
+    .org-filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .org-filter-btn {
+      background: #ffffff;
+      border: 1px solid var(--border-color, #e2e8f0);
+      color: #475569;
+      padding: 0.45rem 1rem;
+      border-radius: 30px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .org-filter-btn:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+    .org-filter-btn.active {
+      background: var(--mcnp-green, #1e5ea8);
+      color: #ffffff;
+      border-color: var(--mcnp-green, #1e5ea8);
+      box-shadow: 0 4px 10px rgba(30, 94, 168, 0.2);
+    }
+  </style>
 </head>
 <body>
 
@@ -258,6 +485,7 @@
           </div>
 
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="#org-structure" class="btn btn-gold" style="box-shadow: 0 4px 12px rgba(212,175,55,0.25);"><i class="fas fa-sitemap"></i> View MCNP Org Structure &darr;</a>
             <a href="journal-mcnp.html" class="btn btn-mcnp">Visit MCNP Health Journal &rarr;</a>
             <a href="contact.html" class="btn btn-outline-white" style="color: var(--mcnp-green); border-color: var(--mcnp-green);">Submit Ethics Protocol Inquiry</a>
           </div>
@@ -285,6 +513,319 @@
       </div>
     </div>
   </main>
+
+  <!-- ==========================================================================
+       SECTION: MCNP RESEARCH & DEVELOPMENT CENTER ORGANIZATIONAL STRUCTURE
+       ========================================================================== -->
+  <section id="org-structure" class="section" style="background: #ffffff; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 4rem 0;">
+    <div class="container">
+      <div class="section-title-wrap" style="text-align: center; max-width: 860px; margin: 0 auto 2.5rem;">
+        <span class="section-tag" style="background: rgba(30, 94, 168, 0.1); color: var(--mcnp-green); font-weight: 800;">MCNP Governance &amp; Research Administration</span>
+        <h2 class="section-title" style="font-size: 2.25rem; margin-top: 0.5rem;">MCNP Organizational Structure</h2>
+        <p class="section-desc" style="color: #475569; font-size: 1.02rem;">
+          The official organizational structure of the Medical Colleges of Northern Philippines (MCNP) Research and Development Center — linking institutional executive leadership, research governance, biostatistics support, academic college leaders, and departmental research focal persons.
+        </p>
+
+        <!-- Department Category Filter Tabs -->
+        <div class="org-filter-bar">
+          <button type="button" class="org-filter-btn active" onclick="filterMcnpOrg('all', this)"><i class="fas fa-sitemap"></i> All Hierarchy</button>
+          <button type="button" class="org-filter-btn" onclick="filterMcnpOrg('exec', this)"><i class="fas fa-crown"></i> Executive Board</button>
+          <button type="button" class="org-filter-btn" onclick="filterMcnpOrg('rdc', this)"><i class="fas fa-microscope"></i> RDC Directorate &amp; Units</button>
+          <button type="button" class="org-filter-btn" onclick="filterMcnpOrg('nursing', this)"><i class="fas fa-user-nurse"></i> Nursing</button>
+          <button type="button" class="org-filter-btn" onclick="filterMcnpOrg('radtech', this)"><i class="fas fa-x-ray"></i> Radiologic Tech</button>
+          <button type="button" class="org-filter-btn" onclick="filterMcnpOrg('mls', this)"><i class="fas fa-vial"></i> Medical Lab Sci</button>
+          <button type="button" class="org-filter-btn" onclick="filterMcnpOrg('pt', this)"><i class="fas fa-bone"></i> Physical Therapy</button>
+          <button type="button" class="org-filter-btn" onclick="filterMcnpOrg('pharmacy', this)"><i class="fas fa-pills"></i> Pharmacy</button>
+          <a href="assets/MCNP_FINAL_ORGANIZATIONAL_STRUCTURE.png" target="_blank" class="org-filter-btn" style="background: var(--mcnp-green, #1e5ea8); color: #ffffff; border-color: var(--mcnp-green, #1e5ea8);"><i class="fas fa-image"></i> View Full Poster Diagram</a>
+        </div>
+      </div>
+
+      <div class="mcnp-org-chart-wrapper">
+
+        <!-- LEVEL 1: EXECUTIVE GOVERNANCE & PRESIDENCY -->
+        <div class="mcnp-org-level" data-org-cat="all exec">
+          <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <!-- President Node -->
+            <div class="mcnp-org-node exec-card-president" style="max-width: 680px; width: 100%; margin-bottom: 1.25rem;">
+              <span class="node-tag-badge" style="background: rgba(212,175,55,0.25); color: #ffdf70;">Chief Executive &amp; Institutional Governance</span>
+              <div class="node-title-main">Christian R. Guzman</div>
+              <div class="node-role-main">President</div>
+              <div class="node-sub-text">Overall institutional leadership, strategic direction, and policy promulgation for MCNP.</div>
+            </div>
+
+            <!-- Executive Assistant -->
+            <div class="mcnp-org-node" style="max-width: 480px; width: 100%; background: #f8fafc; border: 1px dashed #94a3b8; margin-bottom: 1.25rem;">
+              <span class="node-tag-badge badge-pres">Executive Office</span>
+              <div class="node-title-main" style="font-size: 1.02rem;">Reynaldo C. Adducul</div>
+              <div class="node-role-main" style="color: #475569;">Executive Assistant to the President</div>
+              <div class="node-sub-text">Executive office liaison, institutional correspondence, and presidential coordination.</div>
+            </div>
+
+            <!-- Vice Presidents Grid -->
+            <div class="exec-grid-container">
+              <div class="mcnp-org-node">
+                <span class="node-tag-badge badge-vp">Executive Leadership</span>
+                <div class="node-title-main">Wilma Roa-Guzman</div>
+                <div class="node-role-main">Executive Vice President</div>
+                <div class="node-sub-text">Executive operations management and institutional strategic execution.</div>
+              </div>
+
+              <div class="mcnp-org-node">
+                <span class="node-tag-badge badge-vp">Finance &amp; Admin</span>
+                <div class="node-title-main">Wilma Roa-Guzman</div>
+                <div class="node-role-main">Vice President for Administration and Finance</div>
+                <div class="node-sub-text">Fiscal oversight, campus operations, resource allocation, and facility management.</div>
+              </div>
+
+              <div class="mcnp-org-node">
+                <span class="node-tag-badge badge-vp">Academic Governance</span>
+                <div class="node-title-main">Winnie T. Cancejo</div>
+                <div class="node-role-main">Vice President for Academic Affairs</div>
+                <div class="node-sub-text">Curricular quality standards, faculty development, and collegiate academic oversight.</div>
+              </div>
+
+              <div class="mcnp-org-node">
+                <span class="node-tag-badge badge-vp">Innovation &amp; Linkages</span>
+                <div class="node-title-main">Atty. Cristina G. Natividad</div>
+                <div class="node-role-main">Vice President for Innovation and External Affairs</div>
+                <div class="node-sub-text">External institutional partnerships, industry linkages, and innovation initiatives.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mcnp-org-connector" data-org-cat="all exec rdc"></div>
+
+        <!-- LEVEL 2: RDC DIRECTORATE & MCNP COORDINATOR -->
+        <div class="mcnp-org-level" data-org-cat="all rdc">
+          <div class="directorate-grid">
+            <div class="mcnp-org-node" style="border: 2px solid var(--gold, #d4af37);">
+              <span class="node-tag-badge badge-rdc-exec">Executive Research Head</span>
+              <div class="node-title-main" style="font-size: 1.15rem;">Dr. Ryan C. Fontanilla, Ph.D.-EM</div>
+              <div class="node-role-main" style="color: #b45309; font-size: 0.95rem;">Director, Research &amp; Development Center</div>
+              <p class="node-sub-text">Institutional agenda governance, DOST/CHED/CVHRDC linkages, ethics compliance oversight, and research grants.</p>
+              <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #475569;">
+                <i class="fas fa-envelope"></i> <a href="mailto:researchoffice@mcnp.edu.ph" style="color: var(--mcnp-green);">researchoffice@mcnp.edu.ph</a>
+              </div>
+            </div>
+
+            <div class="mcnp-org-node" style="border-top: 4px solid var(--mcnp-green, #1e5ea8);">
+              <span class="node-tag-badge" style="background: #e0f2fe; color: #0369a1;">Health Sciences Wing Lead</span>
+              <div class="node-title-main" style="font-size: 1.15rem;">Ms. Rio Frances G. Callores, MSc</div>
+              <div class="node-role-main" style="color: var(--mcnp-green); font-size: 0.95rem;">MCNP Research Coordinator</div>
+              <p class="node-sub-text">Health &amp; medical sciences research program administration, protocol routing, thesis mentoring, and faculty research.</p>
+              <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #475569;">
+                <i class="fas fa-envelope"></i> <a href="mailto:rcallores@mcnp.edu.ph" style="color: var(--mcnp-green);">rcallores@mcnp.edu.ph</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mcnp-org-connector" data-org-cat="all rdc"></div>
+
+        <!-- LEVEL 3: SPECIALIZED TECHNICAL & SUPPORT UNITS -->
+        <div class="mcnp-org-level" data-org-cat="all rdc">
+          <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <div style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; color: #64748b; margin-bottom: 0.75rem; letter-spacing: 0.05em;">
+              RDC Support Units &bull; Biostatistics, IT, &amp; Secretariat
+            </div>
+            <div class="support-units-grid">
+              <!-- Statistician 1 -->
+              <div class="mcnp-org-node">
+                <span class="node-tag-badge badge-support"><i class="fas fa-chart-pie"></i> Analytics Clinic</span>
+                <div class="node-title-main">Ms. Tshaine Anne T. Labang, LPT</div>
+                <div class="node-role-main">Statistician for Faculty and Administration</div>
+                <div class="node-sub-text">Advanced statistical analysis, faculty papers, multivariate modeling, and data clearance.</div>
+              </div>
+
+              <!-- Statistician 2 -->
+              <div class="mcnp-org-node">
+                <span class="node-tag-badge badge-support"><i class="fas fa-calculator"></i> Health Statistics</span>
+                <div class="node-title-main">Ms. Ruchelle B. Langcay</div>
+                <div class="node-role-main">MCNP Statistician</div>
+                <div class="node-sub-text">Health sciences student theses, clinical trial data verification, Jamovi/SPSS support, and Form 011.</div>
+              </div>
+
+              <!-- IT Specialist -->
+              <div class="mcnp-org-node">
+                <span class="node-tag-badge badge-support"><i class="fas fa-laptop-code"></i> Systems &amp; Repositories</span>
+                <div class="node-title-main">Mr. Jerald J. Guiquing</div>
+                <div class="node-role-main">IT Specialist</div>
+                <div class="node-sub-text">Digital institutional repository, Turnitin anti-plagiarism system, and research portal management.</div>
+              </div>
+
+              <!-- Secretary -->
+              <div class="mcnp-org-node">
+                <span class="node-tag-badge badge-support"><i class="fas fa-folder-open"></i> Secretariat</span>
+                <div class="node-title-main">Ms. Lea M. Paddayuman</div>
+                <div class="node-role-main">Secretary &amp; Records Officer</div>
+                <div class="node-sub-text">Protocol intake, defense scheduling, records custody, compliance tracking, and certifications.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mcnp-org-connector" data-org-cat="all nursing radtech mls pt pharmacy"></div>
+
+        <!-- LEVEL 4 & 5: HEALTH SCIENCES COLLEGES (DEANS, PROGRAM COORDINATORS & RESEARCH FOCAL PERSONS) -->
+        <div class="mcnp-org-level">
+          <div style="width: 100%;">
+            <div style="text-align: center; margin-bottom: 1.5rem;" data-org-cat="all nursing radtech mls pt pharmacy">
+              <span class="node-tag-badge badge-college" style="font-size: 0.78rem; padding: 0.35rem 0.85rem;">
+                <i class="fas fa-hospital-user"></i> MCNP Health Sciences Academic Network &bull; Deans, Program Coordinators &amp; Research Focal Persons
+              </span>
+            </div>
+
+            <div class="colleges-network-grid">
+
+              <!-- COLLEGE 1: NURSING -->
+              <div class="college-card" data-org-cat="all nursing">
+                <div class="college-card-header">
+                  <div class="college-dept-icon"><i class="fas fa-user-nurse"></i></div>
+                  <h3 class="college-dept-title">College of Nursing</h3>
+                </div>
+                <div class="college-card-body">
+                  <div class="college-person-box coord-box">
+                    <span class="cp-role-label cp-role-coord">Collegiate Leadership</span>
+                    <div class="cp-name">Reynaldo M. Adducul</div>
+                    <div class="cp-sub">OIC Dean of Nursing</div>
+                  </div>
+
+                  <div class="college-person-box focal-box">
+                    <span class="cp-role-label cp-role-focal">Research Focal Person</span>
+                    <div class="cp-name">Kryss Nicole Abad</div>
+                    <div class="cp-sub">Focal Person of Nursing</div>
+                  </div>
+
+                  <div class="college-person-box focal-box">
+                    <span class="cp-role-label cp-role-focal">Research Focal Team</span>
+                    <div class="cp-name">Randolf Cabigas</div>
+                    <div class="cp-sub">Assistant Focal Person of Nursing</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLLEGE 2: RADIOLOGIC TECHNOLOGY -->
+              <div class="college-card" data-org-cat="all radtech">
+                <div class="college-card-header" style="background: linear-gradient(135deg, #0e7490 0%, #155e75 100%);">
+                  <div class="college-dept-icon"><i class="fas fa-x-ray"></i></div>
+                  <h3 class="college-dept-title">College of Radiologic Technology</h3>
+                </div>
+                <div class="college-card-body">
+                  <div class="college-person-box coord-box">
+                    <span class="cp-role-label cp-role-coord" style="color: #0e7490;">Program Leadership</span>
+                    <div class="cp-name">Janine Claire Buco</div>
+                    <div class="cp-sub">Program Coordinator of Radiologic Technology</div>
+                  </div>
+
+                  <div class="college-person-box focal-box">
+                    <span class="cp-role-label cp-role-focal">Research Focal Person</span>
+                    <div class="cp-name">CJ Angela P. Cammagay</div>
+                    <div class="cp-sub">Focal Person, College of Radiologic Technology</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLLEGE 3: MEDICAL LABORATORY SCIENCE -->
+              <div class="college-card" data-org-cat="all mls">
+                <div class="college-card-header" style="background: linear-gradient(135deg, #047857 0%, #065f46 100%);">
+                  <div class="college-dept-icon"><i class="fas fa-vial"></i></div>
+                  <h3 class="college-dept-title">Medical Laboratory Science</h3>
+                </div>
+                <div class="college-card-body">
+                  <div class="college-person-box coord-box">
+                    <span class="cp-role-label cp-role-coord" style="color: #047857;">Program Leadership</span>
+                    <div class="cp-name">Jeric Tuazon</div>
+                    <div class="cp-sub">Program Coordinator of Medical Laboratory Science</div>
+                  </div>
+
+                  <div class="college-person-box focal-box">
+                    <span class="cp-role-label cp-role-focal">Research Focal Person</span>
+                    <div class="cp-name">Hearthwick Cuarteros</div>
+                    <div class="cp-sub">Focal Person, College of Medical Laboratory Science</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLLEGE 4: PHYSICAL THERAPY -->
+              <div class="college-card" data-org-cat="all pt">
+                <div class="college-card-header" style="background: linear-gradient(135deg, #b45309 0%, #92400e 100%);">
+                  <div class="college-dept-icon"><i class="fas fa-bone"></i></div>
+                  <h3 class="college-dept-title">College of Physical Therapy</h3>
+                </div>
+                <div class="college-card-body">
+                  <div class="college-person-box coord-box">
+                    <span class="cp-role-label cp-role-coord" style="color: #b45309;">Program Leadership</span>
+                    <div class="cp-name">Daicy Liza B. Taccad</div>
+                    <div class="cp-sub">Program Coordinator of Physical Therapy</div>
+                  </div>
+
+                  <div class="college-person-box focal-box">
+                    <span class="cp-role-label cp-role-focal">Research Focal Person</span>
+                    <div class="cp-name">Daisy Liza B. Taccad</div>
+                    <div class="cp-sub">Focal Person, College of Physical Therapy</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLLEGE 5: PHARMACY -->
+              <div class="college-card" data-org-cat="all pharmacy">
+                <div class="college-card-header" style="background: linear-gradient(135deg, #4338ca 0%, #3730a3 100%);">
+                  <div class="college-dept-icon"><i class="fas fa-pills"></i></div>
+                  <h3 class="college-dept-title">College of Pharmacy</h3>
+                </div>
+                <div class="college-card-body">
+                  <div class="college-person-box coord-box">
+                    <span class="cp-role-label cp-role-coord" style="color: #4338ca;">Program Leadership</span>
+                    <div class="cp-name">Melanie P. Guillermo</div>
+                    <div class="cp-sub">Program Coordinator of Pharmacy</div>
+                  </div>
+
+                  <div class="college-person-box focal-box">
+                    <span class="cp-role-label cp-role-focal">Research Focal Person</span>
+                    <div class="cp-name">Joshua Dave Tumacay</div>
+                    <div class="cp-sub">Focal Person, College of Pharmacy</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Link to ISAP Companion Structure -->
+      <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; text-align: center; margin-top: 2rem;">
+        <h4 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Looking for the ISAP Multidisciplinary Wing Org Structure?</h4>
+        <p style="margin: 0 0 1rem; font-size: 0.88rem; color: #64748b;">Explore the leadership, coordinators, and research focal network for Criminology, Customs, IT, Education, and Business.</p>
+        <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+          <a href="about-rdc-isap.html#org-structure" class="btn btn-sm btn-isap" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-sitemap"></i> View ISAP Org Structure &rarr;
+          </a>
+          <a href="assets/MCNP_FINAL_ORGANIZATIONAL_STRUCTURE.png" target="_blank" class="btn btn-sm" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--mcnp-green, #1e5ea8); color: #ffffff;">
+            <i class="fas fa-file-image"></i> View MCNP Chart Poster &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function filterMcnpOrg(category, btn) {
+      document.querySelectorAll('.org-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const items = document.querySelectorAll('[data-org-cat]');
+      items.forEach(el => {
+        const cats = el.getAttribute('data-org-cat').split(' ');
+        if (category === 'all' || cats.includes(category)) {
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    }
+  </script>
 
   <section class="section">
     <div class="container">

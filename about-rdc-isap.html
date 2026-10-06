@@ -23,6 +23,238 @@
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ISAP Organizational Structure Styles */
+    .isap-org-chart-wrapper {
+      background: #f8fafc;
+      border: 1px solid var(--border-color, #e2e8f0);
+      border-radius: 16px;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .isap-org-level {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      width: 100%;
+    }
+    .isap-org-connector {
+      width: 2px;
+      height: 26px;
+      background: #cbd5e1;
+      margin: 0 auto;
+    }
+    .isap-org-node {
+      background: #ffffff;
+      border: 1px solid var(--border-color, #e2e8f0);
+      border-radius: 12px;
+      padding: 1.15rem 1.4rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+      text-align: center;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .isap-org-node:hover {
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+      border-color: var(--gold, #d4af37);
+      transform: translateY(-2px);
+    }
+    .node-title-main {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0.4rem 0 0.2rem;
+      line-height: 1.3;
+    }
+    .node-role-main {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--isap-blue, #7a1f2d);
+      margin-bottom: 0.35rem;
+    }
+    .node-sub-text {
+      font-size: 0.78rem;
+      color: #64748b;
+      line-height: 1.4;
+    }
+    .node-tag-badge {
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.22rem 0.6rem;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 0.35rem;
+    }
+    .badge-pres { background: #0f172a; color: #ffffff; }
+    .badge-vp { background: #fdf2f8; color: #be185d; }
+    .badge-rdc-exec { background: #fef3c7; color: #b45309; }
+    .badge-support { background: #f1f5f9; color: #475569; }
+    .badge-college { background: #fee2e2; color: #991b1b; }
+    .badge-focal { background: #ede9fe; color: #6d28d9; }
+    
+    /* Exec Grid */
+    .exec-grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.15rem;
+      width: 100%;
+      max-width: 1100px;
+    }
+    .exec-card-president {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      border: none;
+    }
+    .exec-card-president .node-title-main { color: #ffffff; font-size: 1.2rem; }
+    .exec-card-president .node-role-main { color: #ffdf70; }
+    .exec-card-president .node-sub-text { color: #cbd5e1; }
+
+    /* Directorate Grid */
+    .directorate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      width: 100%;
+      max-width: 860px;
+    }
+    @media (max-width: 720px) {
+      .directorate-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Support Units Grid */
+    .support-units-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    /* College Academic Cards Grid */
+    .colleges-network-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 1.25rem;
+      width: 100%;
+    }
+    .college-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color, #e2e8f0);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .college-card:hover {
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      border-color: var(--isap-blue, #7a1f2d);
+      transform: translateY(-2px);
+    }
+    .college-card-header {
+      background: linear-gradient(135deg, #7a1f2d 0%, #4b0d1b 100%);
+      color: #ffffff;
+      padding: 1rem 1.25rem;
+    }
+    .college-dept-icon {
+      font-size: 1.25rem;
+      margin-bottom: 0.35rem;
+      color: #ffdf70;
+    }
+    .college-dept-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin: 0;
+      color: #ffffff;
+    }
+    .college-card-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      flex-grow: 1;
+    }
+    .college-person-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      position: relative;
+    }
+    .college-person-box.focal-box {
+      border-left: 3px solid #7c3aed;
+      background: #faf5ff;
+    }
+    .college-person-box.coord-box {
+      border-left: 3px solid var(--isap-blue, #7a1f2d);
+      background: #fff5f5;
+    }
+    .college-person-box.dean-box {
+      border-left: 3px solid #0284c7;
+      background: #f0f9ff;
+    }
+    .cp-role-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.2rem;
+      display: block;
+    }
+    .cp-role-dean { color: #0284c7; }
+    .cp-role-coord { color: var(--isap-blue, #7a1f2d); }
+    .cp-role-focal { color: #6d28d9; }
+    .cp-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.3;
+    }
+    .cp-sub {
+      font-size: 0.76rem;
+      color: #64748b;
+      margin-top: 0.15rem;
+    }
+
+    /* Filter Tabs */
+    .org-filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .org-filter-btn {
+      background: #ffffff;
+      border: 1px solid var(--border-color, #e2e8f0);
+      color: #475569;
+      padding: 0.45rem 1rem;
+      border-radius: 30px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .org-filter-btn:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+    .org-filter-btn.active {
+      background: var(--isap-blue, #7a1f2d);
+      color: #ffffff;
+      border-color: var(--isap-blue, #7a1f2d);
+      box-shadow: 0 4px 10px rgba(122, 31, 45, 0.25);
+    }
+  </style>
 </head>
 <body>
 
@@ -357,6 +589,7 @@
           </div>
 
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="#org-structure" class="btn btn-gold" style="box-shadow: 0 4px 12px rgba(212,175,55,0.25);"><i class="fas fa-sitemap"></i> View ISAP Org Structure &darr;</a>
             <a href="journal-isap.html" class="btn btn-isap">Explore ISAP Multidisciplinary Journal &rarr;</a>
             <a href="contact.html" class="btn btn-outline-white" style="color: var(--isap-blue); border-color: var(--isap-blue);">Inquire for Collaborative Research</a>
           </div>
@@ -385,6 +618,396 @@
       </div>
     </div>
   </main>
+
+  <!-- ==========================================================================
+       SECTION: ISAP RESEARCH & DEVELOPMENT CENTER ORGANIZATIONAL STRUCTURE
+       ========================================================================== -->
+  <section id="org-structure" class="section" style="background: #ffffff; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 4rem 0;">
+    <div class="container">
+      <div class="section-title-wrap" style="text-align: center; max-width: 860px; margin: 0 auto 2.5rem;">
+        <span class="section-tag" style="background: rgba(122, 31, 45, 0.1); color: var(--isap-blue); font-weight: 800;">ISAP Governance &amp; Research Administration</span>
+        <h2 class="section-title" style="font-size: 2.25rem; margin-top: 0.5rem;">ISAP Organizational Structure</h2>
+        <p class="section-desc" style="color: #475569; font-size: 1.02rem;">
+          The official organizational structure of the International School of Asia and the Pacific (ISAP) Research and Development Center — connecting institutional executive governance, multidisciplinary research coordination, biostatistics services, collegiate deans, program coordinators, and departmental research focal persons.
+        </p>
+
+        <!-- Department Category Filter Tabs -->
+        <div class="org-filter-bar">
+          <button type="button" class="org-filter-btn active" onclick="filterIsapOrg('all', this)"><i class="fas fa-sitemap"></i> All Hierarchy</button>
+          <button type="button" class="org-filter-btn" onclick="filterIsapOrg('exec', this)"><i class="fas fa-crown"></i> Executive Board</button>
+          <button type="button" class="org-filter-btn" onclick="filterIsapOrg('rdc', this)"><i class="fas fa-brain"></i> RDC Directorate &amp; Units</button>
+          <button type="button" class="org-filter-btn" onclick="filterIsapOrg('cocje', this)"><i class="fas fa-shield-alt"></i> Criminology (COCJE)</button>
+          <button type="button" class="org-filter-btn" onclick="filterIsapOrg('ite', this)"><i class="fas fa-laptop-code"></i> IT &amp; Engineering</button>
+          <button type="button" class="org-filter-btn" onclick="filterIsapOrg('caste', this)"><i class="fas fa-graduation-cap"></i> CASTE (Edu, SW, Psych)</button>
+          <button type="button" class="org-filter-btn" onclick="filterIsapOrg('thm', this)"><i class="fas fa-concierge-bell"></i> Hospitality &amp; Tourism</button>
+          <button type="button" class="org-filter-btn" onclick="filterIsapOrg('acc-customs', this)"><i class="fas fa-calculator"></i> Accountancy &amp; Customs</button>
+          <button type="button" class="org-filter-btn" onclick="filterIsapOrg('bsba', this)"><i class="fas fa-chart-line"></i> Business Admin</button>
+          <a href="assets/ISAP_FINAL_ORGANIZATIONAL_STRUCTURE.png" target="_blank" class="org-filter-btn" style="background: var(--isap-blue, #7a1f2d); color: #ffffff; border-color: var(--isap-blue, #7a1f2d);"><i class="fas fa-image"></i> View Full Poster Diagram</a>
+        </div>
+      </div>
+
+      <div class="isap-org-chart-wrapper">
+
+        <!-- LEVEL 1: EXECUTIVE GOVERNANCE & PRESIDENCY -->
+        <div class="isap-org-level" data-org-cat="all exec">
+          <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <!-- President Node -->
+            <div class="isap-org-node exec-card-president" style="max-width: 680px; width: 100%; margin-bottom: 1.25rem;">
+              <span class="node-tag-badge" style="background: rgba(212,175,55,0.25); color: #ffdf70;">Chief Executive &amp; Institutional Governance</span>
+              <div class="node-title-main">Christian R. Guzman</div>
+              <div class="node-role-main">President</div>
+              <div class="node-sub-text">Overall institutional leadership, strategic direction, and policy promulgation for ISAP.</div>
+            </div>
+
+            <!-- Executive Assistant -->
+            <div class="isap-org-node" style="max-width: 480px; width: 100%; background: #f8fafc; border: 1px dashed #94a3b8; margin-bottom: 1.25rem;">
+              <span class="node-tag-badge badge-pres">Executive Office</span>
+              <div class="node-title-main" style="font-size: 1.02rem;">Reynaldo C. Adducul</div>
+              <div class="node-role-main" style="color: #475569;">Executive Assistant to the President</div>
+              <div class="node-sub-text">Executive office liaison, institutional correspondence, and presidential coordination.</div>
+            </div>
+
+            <!-- Vice Presidents Grid -->
+            <div class="exec-grid-container">
+              <div class="isap-org-node">
+                <span class="node-tag-badge badge-vp">Executive Leadership</span>
+                <div class="node-title-main">Wilma Roa-Guzman</div>
+                <div class="node-role-main">Executive Vice President</div>
+                <div class="node-sub-text">Executive operations management and institutional strategic execution.</div>
+              </div>
+
+              <div class="isap-org-node">
+                <span class="node-tag-badge badge-vp">Finance &amp; Admin</span>
+                <div class="node-title-main">Wilma Roa-Guzman</div>
+                <div class="node-role-main">Vice President for Administration and Finance</div>
+                <div class="node-sub-text">Fiscal oversight, campus operations, resource allocation, and facility management.</div>
+              </div>
+
+              <div class="isap-org-node">
+                <span class="node-tag-badge badge-vp">Academic Governance</span>
+                <div class="node-title-main">Winnie T. Cancejo</div>
+                <div class="node-role-main">Vice President for Academic Affairs</div>
+                <div class="node-sub-text">Curricular quality standards, faculty development, and collegiate academic oversight.</div>
+              </div>
+
+              <div class="isap-org-node">
+                <span class="node-tag-badge badge-vp">Innovation &amp; Linkages</span>
+                <div class="node-title-main">Atty. Cristina G. Natividad</div>
+                <div class="node-role-main">Vice President for Innovation and External Affairs</div>
+                <div class="node-sub-text">External institutional partnerships, industry linkages, and innovation initiatives.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="isap-org-connector" data-org-cat="all exec rdc"></div>
+
+        <!-- LEVEL 2: RDC DIRECTORATE & ISAP COORDINATOR -->
+        <div class="isap-org-level" data-org-cat="all rdc">
+          <div class="directorate-grid">
+            <div class="isap-org-node" style="border: 2px solid var(--gold, #d4af37);">
+              <span class="node-tag-badge badge-rdc-exec">Executive Research Head</span>
+              <div class="node-title-main" style="font-size: 1.15rem;">Dr. Ryan C. Fontanilla, Ph.D.-EM</div>
+              <div class="node-role-main" style="color: #b45309; font-size: 0.95rem;">Director, Research &amp; Development Center</div>
+              <p class="node-sub-text">Institutional agenda governance, DOST/CHED/PCHRD linkages, ethics compliance oversight, and research grants.</p>
+              <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #475569;">
+                <i class="fas fa-envelope"></i> <a href="mailto:researchoffice@mcnp.edu.ph" style="color: var(--isap-blue);">researchoffice@mcnp.edu.ph</a>
+              </div>
+            </div>
+
+            <div class="isap-org-node" style="border-top: 4px solid var(--isap-blue, #7a1f2d);">
+              <span class="node-tag-badge" style="background: #fee2e2; color: #991b1b;">Multidisciplinary Wing Lead</span>
+              <div class="node-title-main" style="font-size: 1.15rem;">Engr. KC R. Placido</div>
+              <div class="node-role-main" style="color: var(--isap-blue); font-size: 0.95rem;">ISAP Research Coordinator</div>
+              <p class="node-sub-text">Multidisciplinary research coordination across Computing, Engineering, Arts &amp; Sciences, Business, Hospitality, and Social Sciences.</p>
+              <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #475569;">
+                <i class="fas fa-envelope"></i> <a href="mailto:kcplacido@isap.edu.ph" style="color: var(--isap-blue);">kcplacido@isap.edu.ph</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="isap-org-connector" data-org-cat="all rdc"></div>
+
+        <!-- LEVEL 3: SPECIALIZED TECHNICAL & SUPPORT UNITS -->
+        <div class="isap-org-level" data-org-cat="all rdc">
+          <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <div style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; color: #64748b; margin-bottom: 0.75rem; letter-spacing: 0.05em;">
+              RDC Support Units &bull; Biostatistics, IT, &amp; Secretariat
+            </div>
+            <div class="support-units-grid">
+              <!-- Statistician 1 -->
+              <div class="isap-org-node">
+                <span class="node-tag-badge badge-support"><i class="fas fa-chart-pie"></i> Analytics Clinic</span>
+                <div class="node-title-main">Ms. Tshaine Anne T. Labang, LPT</div>
+                <div class="node-role-main">Statistician for Faculty and Administration</div>
+                <div class="node-sub-text">Advanced statistical modeling, faculty publications, multivariate analysis, and institutional clearance.</div>
+              </div>
+
+              <!-- Statistician 2 -->
+              <div class="isap-org-node">
+                <span class="node-tag-badge badge-support"><i class="fas fa-calculator"></i> ISAP Biostatistics</span>
+                <div class="node-title-main">Ms. Maryjane B. Agabin</div>
+                <div class="node-role-main">ISAP Statistician</div>
+                <div class="node-sub-text">Multidisciplinary student theses, pilot reliability testing, Jamovi/SPSS support, and Form 011 clearance.</div>
+              </div>
+
+              <!-- IT Specialist -->
+              <div class="isap-org-node">
+                <span class="node-tag-badge badge-support"><i class="fas fa-laptop-code"></i> Systems &amp; Repositories</span>
+                <div class="node-title-main">Mr. Jerald J. Guiquing</div>
+                <div class="node-role-main">IT Specialist</div>
+                <div class="node-sub-text">Digital institutional repository, Turnitin anti-plagiarism system, and research portal management.</div>
+              </div>
+
+              <!-- Secretary -->
+              <div class="isap-org-node">
+                <span class="node-tag-badge badge-support"><i class="fas fa-folder-open"></i> Secretariat</span>
+                <div class="node-title-main">Ms. Lea M. Paddayuman</div>
+                <div class="node-role-main">Secretary &amp; Records Officer</div>
+                <div class="node-sub-text">Protocol intake, defense scheduling, records custody, compliance tracking, and certifications.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="isap-org-connector" data-org-cat="all cocje ite caste thm acc-customs bsba"></div>
+
+        <!-- LEVEL 4 & 5: ISAP MULTIDISCIPLINARY ACADEMIC COLLEGES & RESEARCH FOCAL NETWORK -->
+        <div class="isap-org-level">
+          <div style="width: 100%;">
+            <div style="text-align: center; margin-bottom: 1.5rem;" data-org-cat="all cocje ite caste thm acc-customs bsba">
+              <span class="node-tag-badge badge-college" style="font-size: 0.78rem; padding: 0.35rem 0.85rem;">
+                <i class="fas fa-university"></i> ISAP Multidisciplinary Academic Network &bull; Deans, Program Coordinators &amp; Research Focal Persons
+              </span>
+            </div>
+
+            <div class="colleges-network-grid">
+
+              <!-- COLLEGE 1: CRIMINAL JUSTICE EDUCATION (COCJE) -->
+              <div class="college-card" data-org-cat="all cocje">
+                <div class="college-card-header" style="background: linear-gradient(135deg, #1e3a8a 0%, #172554 100%);">
+                  <div class="college-dept-icon"><i class="fas fa-shield-alt"></i></div>
+                  <h3 class="college-dept-title">College of Criminal Justice Education (COCJE)</h3>
+                </div>
+                <div class="college-card-body">
+                  <div class="college-person-box dean-box">
+                    <span class="cp-role-label cp-role-dean">Collegiate Leadership</span>
+                    <div class="cp-name">Rizza C. Concha</div>
+                    <div class="cp-sub">OIC Dean, College of Criminal Justice Education (COCJE)</div>
+                  </div>
+
+                  <div class="college-person-box focal-box">
+                    <span class="cp-role-label cp-role-focal">Research Focal Person</span>
+                    <div class="cp-name">Pia Cuaresma</div>
+                    <div class="cp-sub">Focal Person, College of Criminal Justice Education (COCJE)</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLLEGE 2: IT & ENGINEERING -->
+              <div class="college-card" data-org-cat="all ite">
+                <div class="college-card-header" style="background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);">
+                  <div class="college-dept-icon"><i class="fas fa-laptop-code"></i></div>
+                  <h3 class="college-dept-title">College of Information Technology &amp; Engineering</h3>
+                </div>
+                <div class="college-card-body">
+                  <div class="college-person-box dean-box">
+                    <span class="cp-role-label cp-role-dean">Collegiate Leadership</span>
+                    <div class="cp-name">Myke Albert Tejada</div>
+                    <div class="cp-sub">OIC Dean, College of Information Technology and Engineering</div>
+                  </div>
+
+                  <div class="college-person-box focal-box">
+                    <span class="cp-role-label cp-role-focal">BSIT Research Focal Person</span>
+                    <div class="cp-name">Alexander Oliveras</div>
+                    <div class="cp-sub">Focal Person of BS Information Technology (BSIT)</div>
+                  </div>
+
+                  <div class="college-person-box coord-box" style="border-left-color: #0f766e; background: #f0fdfa;">
+                    <span class="cp-role-label" style="color: #0f766e;">BSCoE Research Coordinator / Focal</span>
+                    <div class="cp-name">Engr. KC R. Placido</div>
+                    <div class="cp-sub">Focal Person of BS Computer Engineering (BSCoE)</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLLEGE 3: CASTE - EDUCATION -->
+              <div class="college-card" data-org-cat="all caste">
+                <div class="college-card-header" style="background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);">
+                  <div class="college-dept-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                  <h3 class="college-dept-title">CASTE &bull; Teacher Education (BSED / BPED)</h3>
+                </div>
+                <div class="college-card-body">
+                  <div class="college-person-box dean-box">
+                    <span class="cp-role-label cp-role-dean">Collegiate Leadership</span>
+                    <div class="cp-name">Jeric T. Cepeda</div>
+                    <div class="cp-sub">OIC Dean of CASTE</div>
+                  </div>
+
+                  <div class="college-person-box coord-box" style="border-left-color: #1d4ed8; background: #eff6ff;">
+                    <span class="cp-role-label" style="color: #1d4ed8;">Program Leadership</span>
+                    <div class="cp-name">Sheryl Tannagan</div>
+                    <div class="cp-sub">Program Coordinator of BSED / BPED</div>
+                  </div>
+
+                  <div class="college-person-box focal-box">
+                    <span class="cp-role-label cp-role-focal">Research Focal Person</span>
+                    <div class="cp-name">Julius Tolentino</div>
+                    <div class="cp-sub">Focal Person of BSED / BPED</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLLEGE 4: CASTE - SOCIAL WORK & PSYCHOLOGY -->
+              <div class="college-card" data-org-cat="all caste">
+                <div class="college-card-header" style="background: linear-gradient(135deg, #4338ca 0%, #3730a3 100%);">
+                  <div class="college-dept-icon"><i class="fas fa-hands-helping"></i></div>
+                  <h3 class="college-dept-title">CASTE &bull; Social Work &amp; Psychology</h3>
+                </div>
+                <div class="college-card-body">
+                  <div class="college-person-box dean-box">
+                    <span class="cp-role-label cp-role-dean">Collegiate Leadership</span>
+                    <div class="cp-name">Jeric T. Cepeda</div>
+                    <div class="cp-sub">OIC Dean of CASTE</div>
+                  </div>
+
+                  <div class="college-person-box" style="border-left: 3px solid #6366f1; background: #eef2ff;">
+                    <span class="cp-role-label" style="color: #4338ca;">Social Work (BSSW) Network</span>
+                    <div class="cp-name">Vy Angela S. Mateo</div>
+                    <div class="cp-sub">Program Coordinator of BSSW</div>
+                    <div style="margin-top: 0.35rem; padding-top: 0.35rem; border-top: 1px dashed #cbd5e1;">
+                      <strong style="font-size: 0.88rem; color: #0f172a;">Marc Simon Villon</strong>
+                      <div class="cp-sub">Focal Person of BSSW</div>
+                    </div>
+                  </div>
+
+                  <div class="college-person-box" style="border-left: 3px solid #8b5cf6; background: #f5f3ff;">
+                    <span class="cp-role-label" style="color: #7c3aed;">Psychology (BSPsych) Network</span>
+                    <div class="cp-name">David S. Durian</div>
+                    <div class="cp-sub">Program Coordinator of BSPsych</div>
+                    <div style="margin-top: 0.35rem; padding-top: 0.35rem; border-top: 1px dashed #cbd5e1;">
+                      <strong style="font-size: 0.88rem; color: #0f172a;">John Carlo Suyu</strong>
+                      <div class="cp-sub">Focal Person of BSPsych</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLLEGE 5: TOURISM & HOSPITALITY MANAGEMENT -->
+              <div class="college-card" data-org-cat="all thm">
+                <div class="college-card-header" style="background: linear-gradient(135deg, #b45309 0%, #92400e 100%);">
+                  <div class="college-dept-icon"><i class="fas fa-hotel"></i></div>
+                  <h3 class="college-dept-title">Hospitality &amp; Tourism (BSTM &amp; BSHM)</h3>
+                </div>
+                <div class="college-card-body">
+                  <div class="college-person-box coord-box" style="border-left-color: #b45309; background: #fffbeb;">
+                    <span class="cp-role-label" style="color: #b45309;">Program Leadership</span>
+                    <div class="cp-name">Geraldin Espejo</div>
+                    <div class="cp-sub">Program Coordinator of BSTM &amp; BSHM</div>
+                  </div>
+
+                  <div class="college-person-box focal-box">
+                    <span class="cp-role-label cp-role-focal">BSTM Research Focal Person</span>
+                    <div class="cp-name">Lorie Jane Molina</div>
+                    <div class="cp-sub">Focal Person of Tourism Management (BSTM)</div>
+                  </div>
+
+                  <div class="college-person-box focal-box">
+                    <span class="cp-role-label cp-role-focal">BSHM Research Focal Person</span>
+                    <div class="cp-name">Geraldin Espejo</div>
+                    <div class="cp-sub">Focal Person of Hospitality Management (BSHM)</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLLEGE 6: ACCOUNTANCY & CUSTOMS ADMINISTRATION -->
+              <div class="college-card" data-org-cat="all acc-customs">
+                <div class="college-card-header" style="background: linear-gradient(135deg, #0e7490 0%, #155e75 100%);">
+                  <div class="college-dept-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                  <h3 class="college-dept-title">Accountancy (BSAC) &amp; Customs (BSCA)</h3>
+                </div>
+                <div class="college-card-body">
+                  <div class="college-person-box" style="border-left: 3px solid #0284c7; background: #f0f9ff;">
+                    <span class="cp-role-label" style="color: #0284c7;">Accountancy (BSAC) Leadership</span>
+                    <div class="cp-name">John Poul S. Millanes</div>
+                    <div class="cp-sub">Program Coordinator of BSAC</div>
+                    <div style="margin-top: 0.35rem; padding-top: 0.35rem; border-top: 1px dashed #cbd5e1;">
+                      <strong style="font-size: 0.88rem; color: #0f172a;">Mia Faye Cabildo</strong>
+                      <div class="cp-sub">Focal Person of BSAC</div>
+                    </div>
+                  </div>
+
+                  <div class="college-person-box" style="border-left: 3px solid #0d9488; background: #f0fdfa;">
+                    <span class="cp-role-label" style="color: #0f766e;">Customs Administration (BSCA)</span>
+                    <div class="cp-name">Eduard John Opina</div>
+                    <div class="cp-sub">Program Coordinator of BSCA</div>
+                    <div style="margin-top: 0.35rem; padding-top: 0.35rem; border-top: 1px dashed #cbd5e1;">
+                      <strong style="font-size: 0.88rem; color: #0f172a;">Reylyn Battad</strong>
+                      <div class="cp-sub">Focal Person of BSCA</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COLLEGE 7: BUSINESS ADMINISTRATION -->
+              <div class="college-card" data-org-cat="all bsba">
+                <div class="college-card-header" style="background: linear-gradient(135deg, #7a1f2d 0%, #4b0d1b 100%);">
+                  <div class="college-dept-icon"><i class="fas fa-briefcase"></i></div>
+                  <h3 class="college-dept-title">Business Administration (BSBA)</h3>
+                </div>
+                <div class="college-card-body">
+                  <div class="college-person-box coord-box">
+                    <span class="cp-role-label cp-role-coord">Program Leadership</span>
+                    <div class="cp-name">Ronalyn Castillo</div>
+                    <div class="cp-sub">Program Coordinator of BS Business Administration</div>
+                  </div>
+
+                  <div class="college-person-box focal-box">
+                    <span class="cp-role-label cp-role-focal">Research Focal Person</span>
+                    <div class="cp-name">Aramea Bañera</div>
+                    <div class="cp-sub">Focal Person of BS Business Administration (BSBA)</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Link to MCNP Companion Structure -->
+      <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; text-align: center; margin-top: 2rem;">
+        <h4 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Looking for the MCNP Health Research Wing Org Structure?</h4>
+        <p style="margin: 0 0 1rem; font-size: 0.88rem; color: #64748b;">Explore the leadership, coordinators, and research focal network for Nursing, RadTech, MLS, PT, and Pharmacy.</p>
+        <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+          <a href="about-rdc-mcnp.html#org-structure" class="btn btn-sm btn-mcnp" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-sitemap"></i> View MCNP Org Structure &rarr;
+          </a>
+          <a href="assets/ISAP_FINAL_ORGANIZATIONAL_STRUCTURE.png" target="_blank" class="btn btn-sm" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--isap-blue, #7a1f2d); color: #ffffff;">
+            <i class="fas fa-file-image"></i> View ISAP Chart Poster &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function filterIsapOrg(category, btn) {
+      document.querySelectorAll('.org-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const items = document.querySelectorAll('[data-org-cat]');
+      items.forEach(el => {
+        const cats = el.getAttribute('data-org-cat').split(' ');
+        if (category === 'all' || cats.includes(category)) {
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    }
+  </script>
 
   <section class="section">
     <div class="container">
