@@ -2807,3 +2807,145 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+
+// ==========================================================================
+// FLOATING FACEBOOK MESSENGER CHAT WIDGET
+// ==========================================================================
+window.initRdcMessengerWidget = function() {
+  if (document.getElementById('rdcMessengerWidget')) return;
+
+  const widget = document.createElement('div');
+  widget.className = 'rdc-msgr-widget';
+  widget.id = 'rdcMessengerWidget';
+  widget.innerHTML = `
+    <div class="rdc-msgr-pill" id="rdcMsgrPill" role="status">
+      <span>Chat with RDC on Messenger 👋</span>
+      <button type="button" class="rdc-msgr-pill-close" id="rdcMsgrPillClose" aria-label="Dismiss greeting">&times;</button>
+    </div>
+
+    <div class="rdc-msgr-card" id="rdcMsgrCard" role="dialog" aria-modal="false" aria-label="RDC Facebook Messenger Chat">
+      <div class="rdc-msgr-header">
+        <div class="rdc-msgr-brand">
+          <div class="rdc-msgr-avatar" aria-hidden="true">
+            <svg viewBox="0 0 28 28" width="20" height="20" fill="currentColor">
+              <path d="M14 2C7.373 2 2 6.955 2 13.067c0 3.483 1.745 6.592 4.475 8.57V26l4.24-2.328c1.036.287 2.138.441 3.285.441 6.627 0 12-4.955 12-11.067C26 6.955 20.627 2 14 2zm1.32 14.887l-3.32-3.54-6.48 3.54 7.127-7.568 3.4 3.54 6.4-3.54-7.127 7.568z"/>
+            </svg>
+            <span class="rdc-msgr-avatar-dot"></span>
+          </div>
+          <div>
+            <div class="rdc-msgr-title">RDC MCNP &amp; ISAP</div>
+            <div class="rdc-msgr-subtitle">Official Facebook Page</div>
+          </div>
+        </div>
+        <button type="button" class="rdc-msgr-close-btn" id="rdcMsgrCloseBtn" aria-label="Minimize Messenger Chat">&times;</button>
+      </div>
+
+      <div class="rdc-msgr-body">
+        <div class="rdc-msgr-bubble">
+          👋 Kumusta! Welcome to the <strong>Research &amp; Development Center</strong>. How can we help you today with your research inquiry?
+        </div>
+        <div>
+          <div class="rdc-msgr-chips-title">Quick Inquiries</div>
+          <div class="rdc-msgr-chips">
+            <a href="https://m.me/61593412015654?ref=stats" target="_blank" rel="noopener noreferrer" class="rdc-msgr-chip">📊 Biostatistics</a>
+            <a href="https://m.me/61593412015654?ref=ethics" target="_blank" rel="noopener noreferrer" class="rdc-msgr-chip">📋 IERC Ethics</a>
+            <a href="https://m.me/61593412015654?ref=turnitin" target="_blank" rel="noopener noreferrer" class="rdc-msgr-chip">🔍 Turnitin Check</a>
+            <a href="https://m.me/61593412015654?ref=defense" target="_blank" rel="noopener noreferrer" class="rdc-msgr-chip">📅 Defense / SOP</a>
+            <a href="https://m.me/61593412015654?ref=general" target="_blank" rel="noopener noreferrer" class="rdc-msgr-chip">✉️ General Help</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rdc-msgr-footer">
+        <a href="https://m.me/61593412015654" target="_blank" rel="noopener noreferrer" class="rdc-msgr-send-btn">
+          <svg viewBox="0 0 28 28" width="18" height="18" fill="currentColor" aria-hidden="true">
+            <path d="M14 2C7.373 2 2 6.955 2 13.067c0 3.483 1.745 6.592 4.475 8.57V26l4.24-2.328c1.036.287 2.138.441 3.285.441 6.627 0 12-4.955 12-11.067C26 6.955 20.627 2 14 2zm1.32 14.887l-3.32-3.54-6.48 3.54 7.127-7.568 3.4 3.54 6.4-3.54-7.127 7.568z"/>
+          </svg>
+          <span>Chat on Facebook Messenger</span>
+        </a>
+        <p class="rdc-msgr-note">Opens official Messenger for FB Page ID: 61593412015654</p>
+      </div>
+    </div>
+
+    <button type="button" class="rdc-msgr-trigger" id="rdcMsgrTrigger" aria-label="Open Messenger chat with RDC">
+      <span class="rdc-msgr-badge" aria-hidden="true"></span>
+      <span class="rdc-msgr-icon-msgr" aria-hidden="true">
+        <svg viewBox="0 0 28 28" width="28" height="28" fill="white">
+          <path d="M14 2C7.373 2 2 6.955 2 13.067c0 3.483 1.745 6.592 4.475 8.57V26l4.24-2.328c1.036.287 2.138.441 3.285.441 6.627 0 12-4.955 12-11.067C26 6.955 20.627 2 14 2zm1.32 14.887l-3.32-3.54-6.48 3.54 7.127-7.568 3.4 3.54 6.4-3.54-7.127 7.568z"/>
+        </svg>
+      </span>
+      <span class="rdc-msgr-icon-close" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </span>
+    </button>
+  `;
+
+  document.body.appendChild(widget);
+
+  const trigger = document.getElementById('rdcMsgrTrigger');
+  const closeBtn = document.getElementById('rdcMsgrCloseBtn');
+  const pill = document.getElementById('rdcMsgrPill');
+  const pillClose = document.getElementById('rdcMsgrPillClose');
+
+  const toggleWidget = (e) => {
+    if (e) e.stopPropagation();
+    const isOpen = widget.classList.toggle('open');
+    if (isOpen && pill) {
+      pill.classList.remove('show');
+    }
+  };
+
+  const closeWidget = () => {
+    widget.classList.remove('open');
+  };
+
+  if (trigger) trigger.addEventListener('click', toggleWidget);
+  if (closeBtn) closeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeWidget();
+  });
+
+  if (pillClose) {
+    pillClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (pill) pill.classList.remove('show');
+      try { sessionStorage.setItem('rdc_msgr_pill_dismissed', '1'); } catch (err) {}
+    });
+  }
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (widget.classList.contains('open') && !widget.contains(e.target)) {
+      closeWidget();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && widget.classList.contains('open')) {
+      closeWidget();
+      if (trigger) trigger.focus();
+    }
+  });
+
+  // Show greeting pill after 3 seconds if not dismissed
+  try {
+    if (!sessionStorage.getItem('rdc_msgr_pill_dismissed')) {
+      setTimeout(() => {
+        if (!widget.classList.contains('open') && pill) {
+          pill.classList.add('show');
+        }
+      }, 3000);
+    }
+  } catch (err) {}
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', window.initRdcMessengerWidget);
+} else {
+  window.initRdcMessengerWidget();
+}
