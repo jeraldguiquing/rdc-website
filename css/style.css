@@ -6641,6 +6641,101 @@ textarea.form-control {
   }
 }
 
+/* Past Events Calendar & Two-Way Link Styling */
+.cal-pill-past {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.cal-day-cell.has-past-event {
+  background: rgba(13, 92, 58, 0.07);
+  border-color: #0d5c3a;
+}
+
+.cal-day-cell.has-past-event .day-number {
+  color: #0d5c3a;
+  font-weight: 800;
+}
+
+.cal-day-cell.has-past-event .day-event-tag {
+  background: #0d5c3a;
+  color: #ffffff;
+}
+
+.cal-day-cell.has-past-event .day-event-dot {
+  background: #0d5c3a;
+}
+
+.cal-legend-dot.past-event-dot {
+  background: #0d5c3a;
+}
+
+.cal-event-counter {
+  font-size: 0.62rem;
+  font-weight: 700;
+  background: #0b2545;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 1px 4px;
+  margin-top: 2px;
+}
+
+.event-card-cal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #1e5ea8;
+  background: #f0f7ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.event-card-cal-btn:hover {
+  background: #1e5ea8;
+  color: #ffffff;
+  border-color: #1e5ea8;
+}
+
+.news-date-badge.clickable-cal-date {
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.news-date-badge.clickable-cal-date:hover {
+  transform: scale(1.05);
+  background: #0b2545 !important;
+  color: #ffffff !important;
+}
+
+.inspector-multi-event-item {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.inspector-multi-event-item:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.inspector-event-thumb {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  border: 1px solid #e2e8f0;
+}
+
 .cal-status-badge {
   display: inline-flex;
   align-items: center;

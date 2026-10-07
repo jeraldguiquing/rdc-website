@@ -2834,6 +2834,499 @@ window.trainingCalendarEvents = [
   }
 ];
 
+window.pastCalendarEvents = [
+  {
+    "id": "past-event-community-needs-assessment",
+    "cardId": "event-community-needs-assessment",
+    "isPastEvent": true,
+    "dates": [
+      "2026-09-25"
+    ],
+    "displayDate": "Sep 25, 2026",
+    "pillText": "RDC & CESO Collaboration",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Community Needs",
+    "title": "From Community Needs to Responsive Extension Programs",
+    "desc": "The MCNP–ISAP Research and Development Center (RDC), in collaboration with the Community Extension Services Office (CESO), presented the results of the Communit...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/community-assessment-1.jpg"
+  },
+  {
+    "id": "past-event-data-infographics",
+    "cardId": "event-data-infographics",
+    "isPastEvent": true,
+    "dates": [
+      "2026-09-25"
+    ],
+    "displayDate": "Sep 25, 2026",
+    "pillText": "Statistical Month 2026",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Data Infographics",
+    "title": "📊 Turning Data into Meaningful Stories",
+    "desc": "The MCNP–ISAP Research and Development Center conducted the Statistical Month 2026: Data Interpretation and Infographics Activity on September 25, 2026. The act...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/data-interpretation-5.jpg"
+  },
+  {
+    "id": "past-event-poster-art-showcase",
+    "cardId": "event-poster-art-showcase",
+    "isPastEvent": true,
+    "dates": [
+      "2026-09-24"
+    ],
+    "displayDate": "Sep 24, 2026",
+    "pillText": "Poster Art Showcase",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Data Art Showcase",
+    "title": "🎨 When Data Finds Its Voice Through Art",
+    "desc": "These winning entries from the MCNP–ISAP Statistical Month Poster-Making Contest show that statistics is more than numbers—it is a powerful tool for understandi...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/poster-activity-1.jpg"
+  },
+  {
+    "id": "past-event-poster-making-activity",
+    "cardId": "event-poster-making-activity",
+    "isPastEvent": true,
+    "dates": [
+      "2026-09-23"
+    ],
+    "displayDate": "Sep 23, 2026",
+    "pillText": "Institutional Competition",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Poster Making",
+    "title": "🎨📊 Where Creativity Meets Statistics",
+    "desc": "The MCNP–ISAP Research and Development Center conducted the Statistical Month 2026 Poster-Making Activity on September 23, 2026. Participants transformed statis...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/poster-activity-19.jpg"
+  },
+  {
+    "id": "past-event-tourism-defense",
+    "cardId": "event-tourism-defense",
+    "isPastEvent": true,
+    "dates": [
+      "2026-09-22",
+      "2026-09-23"
+    ],
+    "displayDate": "Sep 22–23, 2026",
+    "pillText": "BS Tourism Management",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Tourism Defense",
+    "title": "BS Tourism Management Students Connect Research Proposals with Global Goals",
+    "desc": "BS Tourism Management students successfully presented and defended their research proposals on September 22–23, 2026, demonstrating their developing competence ...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/tourism-defense-1.jpg"
+  },
+  {
+    "id": "past-event-statistical-quiz-bee",
+    "cardId": "event-statistical-quiz-bee",
+    "isPastEvent": true,
+    "dates": [
+      "2026-09-21"
+    ],
+    "displayDate": "Sep 21, 2026",
+    "pillText": "Statistical Month Quiz Bee",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Stats Quiz Bee",
+    "title": "📊 Numbers, Knowledge, and a Winning Spirit!",
+    "desc": "The MCNP–ISAP Statistical Month Institutional Quiz Bee brought students together on September 21, 2026, to test their knowledge of statistics and celebrate the ...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/quiz-bee-13.jpg"
+  },
+  {
+    "id": "past-event-data-skills",
+    "cardId": "event-data-skills",
+    "isPastEvent": true,
+    "dates": [
+      "2026-09-17",
+      "2026-09-18"
+    ],
+    "displayDate": "Sep 17–18, 2026",
+    "pillText": "Professional Development",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Health Data Skills",
+    "title": "Strengthening Data Skills for Better Health Research",
+    "desc": "RDC staff from MCNP and ISAP participated in the Training on Data Analytics and Data Presentation for Health Research held on September 17–18, 2026, at Philippi...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/health-research-analytics-1.jpg"
+  },
+  {
+    "id": "past-event-pharmacy-research",
+    "cardId": "event-pharmacy-research",
+    "isPastEvent": true,
+    "dates": [
+      "2026-09-17",
+      "2026-09-18"
+    ],
+    "displayDate": "Sep 17–18, 2026",
+    "pillText": "BS Pharmacy",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Pharmacy Research",
+    "title": "Pharmacy Research with Purpose: Every Study, a Goal and an Impact",
+    "desc": "BS Pharmacy students presented and defended their research proposals on September 17–18, 2026, at the Research Office. Beyond demonstrating their knowledge and ...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/pharmacy-defense-1.jpg"
+  },
+  {
+    "id": "past-event-problems-to-purpose",
+    "cardId": "event-problems-to-purpose",
+    "isPastEvent": true,
+    "dates": [
+      "2026-09-16"
+    ],
+    "displayDate": "Sep 16, 2026",
+    "pillText": "General Education Department",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Problems to Purpose",
+    "title": "From Problems to Purpose: Strengthening Research Capacity",
+    "desc": "The General Education Department, in collaboration with the MCNP–ISAP Research and Development Center, conducted a Research Colloquium and Capacity-Building Pro...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/colloquium-1.jpg"
+  },
+  {
+    "id": "past-event-leading-through-inquiry",
+    "cardId": "event-leading-through-inquiry",
+    "isPastEvent": true,
+    "dates": [
+      "2026-09-16"
+    ],
+    "displayDate": "Sep 16, 2026",
+    "pillText": "Academic Heads",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Inquiry & Evidence",
+    "title": "Leading Through Inquiry, Improving Through Evidence",
+    "desc": "The MCNP–ISAP Research and Development Center conducted the Academic Heads Research Proposal Defense on September 16, 2026, featuring research proposals from th...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/proposal-defense-sep16-1.jpg"
+  },
+  {
+    "id": "past-event-numbers-to-narratives",
+    "cardId": "event-numbers-to-narratives",
+    "isPastEvent": true,
+    "dates": [
+      "2026-09-15"
+    ],
+    "displayDate": "Sep 15, 2026",
+    "pillText": "Data Appreciation",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Data Narratives",
+    "title": "From Numbers to Narratives: Making Data Meaningful",
+    "desc": "The MCNP–ISAP Research and Development Center conducted the Stat. Month Data Appreciation Seminar via Zoom on September 15, 2026, with first-year students and f...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/stat-seminar-1.png"
+  },
+  {
+    "id": "past-event-research-leadership",
+    "cardId": "event-research-leadership",
+    "isPastEvent": true,
+    "dates": [
+      "2026-09-09"
+    ],
+    "displayDate": "Sep 9, 2026",
+    "pillText": "Academic Heads",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Research Leadership",
+    "title": "Research Leadership in Action",
+    "desc": "The MCNP–ISAP Research and Development Center conducted the Academic Heads Research Proposal Defense on September 9, 2026. Academic leaders presented and defend...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/proposal-defense-sep9-1.jpg"
+  },
+  {
+    "id": "past-event-innovation-to-opportunity",
+    "cardId": "event-innovation-to-opportunity",
+    "isPastEvent": true,
+    "dates": [
+      "2026-09-09",
+      "2026-09-10",
+      "2026-09-11"
+    ],
+    "displayDate": "Sep 9–11, 2026",
+    "pillText": "Cagayan Valley STI Week",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Innovation Funding",
+    "title": "From Innovation to Opportunity: Advancing Ideas for Possible Funding",
+    "desc": "Faculty delegates from MCNP and ISAP participated in the 2026 Cagayan Valley Regional Science, Technology, and Innovation Week, held on September 9–11, 2026, in...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/sti-week-1.jpg"
+  },
+  {
+    "id": "past-event-research-sees-everyone",
+    "cardId": "event-research-sees-everyone",
+    "isPastEvent": true,
+    "dates": [
+      "2026-09-09",
+      "2026-09-10"
+    ],
+    "displayDate": "Sep 9–10, 2026",
+    "pillText": "Regional Seminar-Training",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Gender-Responsive",
+    "title": "Research That Sees Everyone: Advancing Knowledge through a Gender-Responsive Lens",
+    "desc": "MCNP–ISAP personnel participated in the Regional Seminar-Training on Gender Research, held on September 9–10, 2026, at CSU Andrews Campus, Tuguegarao City. The ...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/gender-research-1.jpg"
+  },
+  {
+    "id": "past-event-samples-to-statistics",
+    "cardId": "event-samples-to-statistics",
+    "isPastEvent": true,
+    "dates": [
+      "2026-08-28"
+    ],
+    "displayDate": "Aug 28, 2026",
+    "pillText": "Episode 2",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Samples to Stats",
+    "title": "From Samples to Statistics: Turning Data into Meaningful Discoveries",
+    "desc": "The ISAP High School Research Summit–Episode 2, held online on August 28, 2026, featured Dr. Ryan C. Fontanilla on Sampling Techniques and Research Designs and ...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/research-summit-1.jpg"
+  },
+  {
+    "id": "past-event-sdg-spot-launch",
+    "cardId": "event-sdg-spot-launch",
+    "isPastEvent": true,
+    "dates": [
+      "2026-08-28"
+    ],
+    "displayDate": "Aug 28, 2026",
+    "pillText": "Research for the Goals",
+    "pillClass": "cal-pill-past",
+    "shortTag": "SDG Spot Launch",
+    "title": "Pick a Goal. Raise Your Flag. Make Your Impact.",
+    "desc": "The SDG SPOT @ RDC: Research for the Goals officially came to life through its soft opening on August 28, 2026, in front of the Research and Development Center....",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/sdg-spot-1.jpg"
+  },
+  {
+    "id": "past-event-equipping-students",
+    "cardId": "event-equipping-students",
+    "isPastEvent": true,
+    "dates": [
+      "2026-08-24"
+    ],
+    "displayDate": "Aug 24, 2026",
+    "pillText": "Community Extension Services",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Student Community",
+    "title": "Equipping Students for Meaningful Community Engagement",
+    "desc": "The MCNP–ISAP Community Extension Services Office conducted the seminar and field orientation titled &ldquo;Listening to the Community: Qualitative Data Gatheri...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/community-ext-1.jpg"
+  },
+  {
+    "id": "past-event-general-assembly",
+    "cardId": "event-general-assembly",
+    "isPastEvent": true,
+    "dates": [
+      "2026-08-24"
+    ],
+    "displayDate": "Aug 24, 2026",
+    "pillText": "MCNP–ISAP RDC",
+    "pillClass": "cal-pill-past",
+    "shortTag": "General Assembly",
+    "title": "Strengthening Research Through Shared Direction",
+    "desc": "The MCNP–ISAP Research and Development Center convened its General Assembly 2026 on August 24, bringing together RDC personnel and research focal persons to rev...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/assembly-1.jpg"
+  },
+  {
+    "id": "past-event-health-research-collaboration",
+    "cardId": "event-health-research-collaboration",
+    "isPastEvent": true,
+    "dates": [
+      "2026-08-19",
+      "2026-08-20"
+    ],
+    "displayDate": "Aug 19–20, 2026",
+    "pillText": "RRF Technical Review",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Health Collab",
+    "title": "Advancing Health Research Through Collaboration",
+    "desc": "MCNP and ISAP proudly co-hosted the Regional Research Fund (RRF) Technical Review Board Evaluation on August 19–20, 2026, in partnership with DOST–Cagayan Valle...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/health-research-1.jpg"
+  },
+  {
+    "id": "past-event-icir-2026",
+    "cardId": "event-icir-2026",
+    "isPastEvent": true,
+    "dates": [
+      "2026-08-07"
+    ],
+    "displayDate": "Aug 07, 2026",
+    "pillText": "ISAP-K Conference",
+    "pillClass": "cal-pill-past",
+    "shortTag": "ICIR 2026",
+    "title": "Research for Sustainable Impact",
+    "desc": "The 1st ISAP-K Conference on Interdisciplinary Research (ICIR 2026), themed \"Unifying Perspectives: Empowering Student Investigators Across Disciplines to Advan...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/icir-1.jpg"
+  },
+  {
+    "id": "past-event-cbcp-ust-collab",
+    "cardId": "event-cbcp-ust-collab",
+    "isPastEvent": true,
+    "dates": [
+      "2024-11-17"
+    ],
+    "displayDate": "Nov 17, 2024",
+    "pillText": "MCNP-ISAP RDC",
+    "pillClass": "cal-pill-past",
+    "shortTag": "CBCP-UST Collab",
+    "title": "RDC Joins CBCP-UST Collaborative Project on Catholic Christianity",
+    "desc": "The MCNP-ISAP Research and Development Center, led by Research Director Ryan C. Fontanilla, participated in the CBCP and University of Santo Tomas project at th...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/1.jpg"
+  },
+  {
+    "id": "past-event-fontanilla-tejada-collab",
+    "cardId": "event-fontanilla-tejada-collab",
+    "isPastEvent": true,
+    "dates": [
+      "2024-10-08"
+    ],
+    "displayDate": "Oct 08, 2024",
+    "pillText": "Research Collaboration",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Research Collab",
+    "title": "Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada Participate in Collaborative Study",
+    "desc": "Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada represented MCNP and ISAP at the Archdiocese of Tuguegarao meeting for the CBCP-UST in...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/fontanilla-tejada-1.jpg"
+  },
+  {
+    "id": "past-event-rdafest-champion-2024",
+    "cardId": "event-rdafest-champion-2024",
+    "isPastEvent": true,
+    "dates": [
+      "2024-10-03",
+      "2024-10-04"
+    ],
+    "displayDate": "Oct 03–04, 2024",
+    "pillText": "RDaFest 2024",
+    "pillClass": "cal-pill-past",
+    "shortTag": "RDAFest Champion",
+    "title": "Region 2 Emerges as Overall Champion",
+    "desc": "Representing Cagayan Valley, delegates from USLT, MCNP, SFC, QSU Cabarroguis, and SMU secured the Overall Champion title at the 2024 Regional Data Festival for ...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/rdafest-champion-1.jpg"
+  },
+  {
+    "id": "past-event-stats-color-fun-run",
+    "cardId": "event-stats-color-fun-run",
+    "isPastEvent": true,
+    "dates": [
+      "2024-10-04"
+    ],
+    "displayDate": "Oct 04, 2024",
+    "pillText": "Color Fun Run",
+    "pillClass": "cal-pill-past",
+    "shortTag": "Stats Fun Run",
+    "title": "School Statisticians Join the 35th National Statistics Month Color Fun Run",
+    "desc": "Ms. Cristine Kae Aragon and Ms. Guadalupe Agabin represented their institution in the Philippine Statistics Authority event in Tuguegarao City, promoting awaren...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/stats-colorrun-1.jpg"
+  },
+  {
+    "id": "past-event-lapus-rdafest-2024",
+    "cardId": "event-lapus-rdafest-2024",
+    "isPastEvent": true,
+    "dates": [
+      "2024-10-03",
+      "2024-10-04"
+    ],
+    "displayDate": "Oct 03–04, 2024",
+    "pillText": "RDaFest 2024",
+    "pillClass": "cal-pill-past",
+    "shortTag": "RDAFest Delegate",
+    "title": "Wendy Mae G. Lapus Represents ISAP at Regional Data Festival",
+    "desc": "Ms. Lapus presented \"A Relationship Study between Job Demands, Resources, and Personnel Motivation in HEIs: The Case of the International School of Asia and the...",
+    "participants": "MCNP & ISAP Faculty, Students & Researchers",
+    "venue": "📍 MCNP & ISAP Campus",
+    "lead": "RDC & Partner Academic Departments",
+    "category": "past",
+    "img": "upload/lapus-rdafest-1.jpg"
+  }
+];
+
+window.getAllCalendarEvents = function() {
+  const roadmapEvents = window.trainingCalendarEvents || [];
+  const pastEvents = window.pastCalendarEvents || [];
+  return [...roadmapEvents, ...pastEvents];
+};
+
 window.interactiveCalState = {
   year: 2026,
   month: 9, // 0-indexed: 9 = October
@@ -2889,11 +3382,17 @@ window.renderInteractiveCalendar = function(year, month) {
     cell.className = 'cal-day-cell';
     cell.setAttribute('data-date', dateStr);
 
-    const event = window.trainingCalendarEvents.find(e => e.dates.includes(dateStr));
+    const matchingEvents = window.getAllCalendarEvents().filter(e => e.dates.includes(dateStr));
+    const hasEvent = matchingEvents.length > 0;
+    const hasPast = matchingEvents.some(e => e.isPastEvent);
+    const hasRoadmap = matchingEvents.some(e => !e.isPastEvent);
 
-    if (event) {
+    if (hasEvent) {
       cell.classList.add('has-event');
-      cell.title = `${event.shortTag}: ${event.title}`;
+      if (hasPast && !hasRoadmap) {
+        cell.classList.add('has-past-event');
+      }
+      cell.title = matchingEvents.map(e => e.title).join(' | ');
     }
 
     if (dateStr === window.interactiveCalState.selectedDate) {
@@ -2901,13 +3400,17 @@ window.renderInteractiveCalendar = function(year, month) {
     }
 
     let cellHTML = `<span class="day-number">${day}</span>`;
-    if (event) {
-      cellHTML += `<span class="day-event-tag" title="${event.title}">${event.shortTag}</span>`;
+    if (hasEvent) {
+      if (matchingEvents.length === 1) {
+        cellHTML += `<span class="day-event-tag" title="${matchingEvents[0].title}">${matchingEvents[0].shortTag}</span>`;
+      } else {
+        cellHTML += `<span class="day-event-tag" title="${matchingEvents.map(e => e.title).join(' | ')}">${matchingEvents[0].shortTag} +${matchingEvents.length - 1}</span>`;
+      }
     }
     cell.innerHTML = cellHTML;
 
     cell.addEventListener('click', function() {
-      window.selectCalendarDate(dateStr, event);
+      window.selectCalendarDate(dateStr, matchingEvents);
     });
 
     grid.appendChild(cell);
@@ -2924,7 +3427,7 @@ window.renderInteractiveCalendar = function(year, month) {
   }
 };
 
-window.selectCalendarDate = function(dateStr, directEvent) {
+window.selectCalendarDate = function(dateStr, directMatchingEvents) {
   window.interactiveCalState.selectedDate = dateStr;
 
   // Highlight selected cell in grid
@@ -2937,14 +3440,13 @@ window.selectCalendarDate = function(dateStr, directEvent) {
     }
   });
 
-  const event = directEvent || window.trainingCalendarEvents.find(e => e.dates.includes(dateStr));
+  const matchingEvents = directMatchingEvents || window.getAllCalendarEvents().filter(e => e.dates.includes(dateStr));
   const dateHeader = document.getElementById('inspectorSelectedDateLabel');
   const badgeWrap = document.getElementById('inspectorBadgeWrap');
   const contentWrap = document.getElementById('inspectorContent');
 
   if (!contentWrap) return;
 
-  // Format date display (e.g. October 23, 2026)
   const parts = dateStr.split('-');
   const y = parseInt(parts[0], 10);
   const m = parseInt(parts[1], 10) - 1;
@@ -2960,12 +3462,43 @@ window.selectCalendarDate = function(dateStr, directEvent) {
     dateHeader.textContent = formattedDateTitle;
   }
 
-  if (event) {
+  if (matchingEvents.length === 1) {
+    const event = matchingEvents[0];
     if (badgeWrap) {
-      badgeWrap.innerHTML = `<span class="cal-pill ${event.pillClass}">${event.pillText}</span>`;
+      if (event.isPastEvent) {
+        badgeWrap.innerHTML = `<span class="cal-pill cal-pill-past">Completed Event</span> <span class="cal-pill ${event.pillClass || 'cal-pill-past'}">${event.pillText}</span>`;
+      } else {
+        badgeWrap.innerHTML = `<span class="cal-pill ${event.pillClass}">${event.pillText}</span>`;
+      }
+    }
+
+    let actionsHTML = '';
+    if (event.isPastEvent && event.cardId) {
+      actionsHTML = `
+        <div class="inspector-actions">
+          <button type="button" class="btn btn-sm btn-primary" onclick="window.openEventModalById('${event.cardId}')" style="font-size: 0.82rem; padding: 0.45rem 1rem;">
+            📖 Read Full Story &amp; Photos
+          </button>
+          <button type="button" class="btn btn-sm btn-outline" onclick="window.scrollToArticleCard('${event.cardId}')" style="font-size: 0.82rem; padding: 0.45rem 1rem;">
+            🔍 View in Highlights Grid
+          </button>
+        </div>
+      `;
+    } else {
+      actionsHTML = `
+        <div class="inspector-actions">
+          <button type="button" class="btn btn-sm btn-primary" onclick="window.scrollToTableEvent(${event.id})" style="font-size: 0.82rem; padding: 0.45rem 1rem;">
+            📋 Highlight in Schedule Table
+          </button>
+          <a href="#contact" class="btn btn-sm btn-outline" style="font-size: 0.82rem; padding: 0.45rem 1rem;">
+            💬 Inquire About Workshop
+          </a>
+        </div>
+      `;
     }
 
     contentWrap.innerHTML = `
+      ${event.img ? `<img src="${event.img}" class="inspector-event-thumb" alt="${event.title}" loading="lazy">` : ''}
       <h4 class="inspector-event-title">${event.title}</h4>
       <div class="inspector-meta-item">
         <strong>📅 Schedule:</strong>
@@ -2976,25 +3509,54 @@ window.selectCalendarDate = function(dateStr, directEvent) {
       </div>
       <div class="inspector-meta-item">
         <strong>👥 Target:</strong>
-        <span>${event.participants}</span>
+        <span>${event.participants || 'MCNP & ISAP Academic Community'}</span>
       </div>
       <div class="inspector-meta-item">
         <strong>📍 Venue &amp; Lead:</strong>
         <div>
-          <div>${event.venue}</div>
-          <div style="font-size: 0.8rem; color: #64748b; margin-top: 0.2rem;">${event.lead}</div>
+          <div>${event.venue || 'MCNP & ISAP Campus'}</div>
+          <div style="font-size: 0.8rem; color: #64748b; margin-top: 0.2rem;">${event.lead || 'RDC Secretariat'}</div>
         </div>
       </div>
-      <div class="inspector-actions">
-        <button type="button" class="btn btn-sm btn-primary" onclick="window.scrollToTableEvent(${event.id})" style="font-size: 0.82rem; padding: 0.45rem 1rem;">
-          📋 Highlight in Schedule Table
-        </button>
-        <a href="#contact" class="btn btn-sm btn-outline" style="font-size: 0.82rem; padding: 0.45rem 1rem;">
-          💬 Inquire About Workshop
-        </a>
-      </div>
+      ${actionsHTML}
     `;
+  } else if (matchingEvents.length > 1) {
+    if (badgeWrap) {
+      badgeWrap.innerHTML = `<span class="cal-pill cal-pill-unified">${matchingEvents.length} Events on this Date</span>`;
+    }
+
+    let itemsHTML = '';
+    matchingEvents.forEach((ev) => {
+      itemsHTML += `
+        <div class="inspector-multi-event-item">
+          <div style="display: flex; gap: 0.4rem; align-items: center; margin-bottom: 0.4rem; flex-wrap: wrap;">
+            ${ev.isPastEvent ? '<span class="cal-pill cal-pill-past">Completed Event</span>' : '<span class="cal-pill cal-pill-mcnp">Roadmap Workshop</span>'}
+            <span class="cal-pill ${ev.pillClass || 'cal-pill-past'}">${ev.pillText}</span>
+          </div>
+          ${ev.img ? `<img src="${ev.img}" class="inspector-event-thumb" alt="${ev.title}" style="height: 100px;" loading="lazy">` : ''}
+          <h4 class="inspector-event-title" style="font-size: 1.05rem;">${ev.title}</h4>
+          <p style="font-size: 0.84rem; color: #475569; margin: 0.35rem 0 0.6rem; line-height: 1.45;">${ev.desc}</p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            ${ev.cardId ? `
+              <button type="button" class="btn btn-sm btn-primary" onclick="window.openEventModalById('${ev.cardId}')" style="font-size: 0.78rem; padding: 0.35rem 0.85rem;">
+                📖 Read Story &amp; Photos
+              </button>
+              <button type="button" class="btn btn-sm btn-outline" onclick="window.scrollToArticleCard('${ev.cardId}')" style="font-size: 0.78rem; padding: 0.35rem 0.85rem;">
+                🔍 View in Grid
+              </button>
+            ` : `
+              <button type="button" class="btn btn-sm btn-primary" onclick="window.scrollToTableEvent(${ev.id})" style="font-size: 0.78rem; padding: 0.35rem 0.85rem;">
+                📋 Highlight in Table
+              </button>
+            `}
+          </div>
+        </div>
+      `;
+    });
+
+    contentWrap.innerHTML = itemsHTML;
   } else {
+    // Empty state
     if (badgeWrap) {
       badgeWrap.innerHTML = `<span style="font-size: 0.76rem; color: #64748b; font-weight: 600;">No Event Scheduled</span>`;
     }
@@ -3002,9 +3564,9 @@ window.selectCalendarDate = function(dateStr, directEvent) {
     contentWrap.innerHTML = `
       <div class="inspector-empty">
         <div class="inspector-empty-icon">📅</div>
-        <div class="inspector-empty-title">No Workshop on This Date</div>
+        <div class="inspector-empty-title">No Workshop or Event on This Date</div>
         <div class="inspector-empty-desc">
-          There are no research trainings scheduled for <strong>${formattedDateTitle}</strong>. You can browse scheduled dates on the calendar or view our next workshop.
+          There are no research trainings or events recorded for <strong>${formattedDateTitle}</strong>. You can browse other scheduled dates on the calendar or jump to the next session.
         </div>
         <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem;">
           <button type="button" class="btn btn-sm btn-primary" onclick="window.jumpToNextEvent('${dateStr}')" style="font-size: 0.82rem; padding: 0.45rem 0.95rem;">
@@ -3049,11 +3611,12 @@ window.scrollToTableEvent = function(eventId) {
 };
 
 window.jumpToNextEvent = function(currentDateStr) {
+  const allEvents = window.getAllCalendarEvents();
   // Find next event whose dates are after currentDateStr
-  let nextEvent = window.trainingCalendarEvents.find(e => e.dates[0] > currentDateStr);
+  let nextEvent = allEvents.find(e => e.dates[0] > currentDateStr);
   if (!nextEvent) {
     // Wrap around to first event
-    nextEvent = window.trainingCalendarEvents[0];
+    nextEvent = allEvents[0];
   }
   if (nextEvent) {
     window.jumpToCalendarDate(nextEvent.dates[0]);
@@ -3108,7 +3671,7 @@ document.addEventListener('DOMContentLoaded', function() {
           window.renderInteractiveCalendar(y, m);
 
           // Find first event in this month if any
-          const monthEvent = window.trainingCalendarEvents.find(e => {
+          const monthEvent = window.getAllCalendarEvents().find(e => {
             return e.dates.some(d => d.startsWith(val));
           });
           if (monthEvent) {

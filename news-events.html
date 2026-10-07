@@ -2017,14 +2017,15 @@
             </div>
             <div>
               <select class="cal-month-select" id="calMonthJumpSelect" aria-label="Jump to Scheduled Month">
-                <option value="2026-09">September 2026</option>
-                <option value="2026-10" selected>October 2026 (1 Event)</option>
-                <option value="2026-11">November 2026 (1 Event)</option>
-                <option value="2026-12">December 2026 (1 Event)</option>
-                <option value="2027-01">January 2027 (1 Event)</option>
-                <option value="2027-02">February 2027 (1 Event)</option>
-                <option value="2027-03">March 2027 (1 Event)</option>
-                <option value="2027-04">April 2027 (1 Event)</option>
+                <option value="2026-08">August 2026 (6 Completed Events)</option>
+                <option value="2026-09">September 2026 (14 Completed Events)</option>
+                <option value="2026-10" selected>October 2026 (1 Roadmap Workshop)</option>
+                <option value="2026-11">November 2026 (1 Roadmap Workshop)</option>
+                <option value="2026-12">December 2026 (1 Roadmap Workshop)</option>
+                <option value="2027-01">January 2027 (1 Roadmap Workshop)</option>
+                <option value="2027-02">February 2027 (1 Roadmap Workshop)</option>
+                <option value="2027-03">March 2027 (1 Roadmap Workshop)</option>
+                <option value="2027-04">April 2027 (1 Research Congress)</option>
                 <option value="2027-05">May 2027</option>
               </select>
             </div>
@@ -2047,7 +2048,11 @@
           <div class="cal-legend">
             <div class="cal-legend-item">
               <span class="cal-legend-dot has-event-dot"></span>
-              <span>Scheduled Workshop / Event</span>
+              <span>Upcoming Training Roadmap</span>
+            </div>
+            <div class="cal-legend-item">
+              <span class="cal-legend-dot past-event-dot"></span>
+              <span>Completed Institutional Event</span>
             </div>
             <div class="cal-legend-item">
               <span class="cal-legend-dot selected-dot"></span>
@@ -2425,10 +2430,26 @@
       }
       var sdgs = Object.keys(sdgSet).map(Number).sort(function (a, b) { return a - b; });
 
+      var rawDate = dateEl ? dateEl.textContent.trim() : '';
+      var calendarDates = [];
+      var mDate = rawDate.match(/^([A-Za-z]{3})\s+(\d{1,2})(?:[–\-](\d{1,2}))?,\s+(\d{4})$/);
+      if (mDate) {
+        var monthMap = { 'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04', 'May': '05', 'Jun': '06', 'Jul': '07', 'Aug': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12' };
+        var mon = monthMap[mDate[1]];
+        var startDay = parseInt(mDate[2], 10);
+        var endDay = mDate[3] ? parseInt(mDate[3], 10) : startDay;
+        var year = mDate[4];
+        for (var d = startDay; d <= endDay; d++) {
+          calendarDates.push(year + '-' + mon + '-' + String(d).padStart(2, '0'));
+        }
+      }
+
       return {
         id: card.id || ('event-' + index),
         title: titleEl ? titleEl.textContent.trim() : 'Event',
-        date: dateEl ? dateEl.textContent.trim() : '',
+        date: rawDate,
+        calendarDates: calendarDates,
+        firstCalendarDate: calendarDates.length ? calendarDates[0] : null,
         category: badgeEl ? badgeEl.textContent.trim() : '',
         thumbStyle: thumb ? thumb.getAttribute('style') : '',
         paragraphs: excerpts.map(function (p) { return p.innerHTML; }),
@@ -2467,6 +2488,19 @@
       cats.forEach(function (c) {
         if (catCounts[c] !== undefined && c !== 'all') catCounts[c]++;
       });
+
+      // Make date badge clickable to jump to calendar
+      var dateBadge = card.querySelector('.news-date-badge');
+      if (dateBadge && ev.firstCalendarDate) {
+        dateBadge.classList.add('clickable-cal-date');
+        dateBadge.title = 'Click to jump to ' + ev.date + ' on Calendar';
+        dateBadge.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (window.jumpToCalendarDate) {
+            window.jumpToCalendarDate(ev.firstCalendarDate);
+          }
+        });
+      }
 
       var content = card.querySelector('.news-content > div');
       if (content) {
@@ -2516,6 +2550,22 @@
             }
           });
           content.appendChild(span);
+        }
+
+        // Add "View on Calendar" action button for dated events
+        if (ev.firstCalendarDate && !content.querySelector('.event-card-cal-btn')) {
+          var calBtn = document.createElement('button');
+          calBtn.type = 'button';
+          calBtn.className = 'event-card-cal-btn';
+          calBtn.innerHTML = '📅 View Date on Calendar';
+          calBtn.title = 'Jump to ' + ev.date + ' on Research Training Calendar';
+          calBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (window.jumpToCalendarDate) {
+              window.jumpToCalendarDate(ev.firstCalendarDate);
+            }
+          });
+          content.appendChild(calBtn);
         }
       }
     });
@@ -2711,6 +2761,39 @@
         overlay.querySelectorAll('.tab-panel').forEach(function (p) { p.classList.toggle('active', p.dataset.panel === tab); });
       });
     });
+
+    // Expose global methods for Interactive Calendar linkage
+    window.openEventModal = openModal;
+    window.newsEventsList = events;
+    window.openEventModalById = function (cardId) {
+      var idx = events.findIndex(function (e) { return e.id === cardId; });
+      if (idx !== -1) {
+        openModal(idx);
+        return true;
+      }
+      var card = document.getElementById(cardId);
+      if (card) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        card.style.outline = '3px solid #1e5ea8';
+        setTimeout(function () { card.style.outline = ''; }, 2000);
+        return true;
+      }
+      return false;
+    };
+
+    window.scrollToArticleCard = function (cardId) {
+      var card = document.getElementById(cardId);
+      if (card) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        card.style.transition = 'box-shadow 0.3s ease, outline 0.3s ease';
+        card.style.outline = '3px solid #0d5c3a';
+        card.style.boxShadow = '0 0 25px rgba(13, 92, 58, 0.4)';
+        setTimeout(function () {
+          card.style.outline = '';
+          card.style.boxShadow = '';
+        }, 2500);
+      }
+    };
 
     // Interactive Category Filter and Real-Time Search
     var filterBtns = Array.prototype.slice.call(document.querySelectorAll('.event-pill-btn'));
