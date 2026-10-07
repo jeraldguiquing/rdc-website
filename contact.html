@@ -556,149 +556,62 @@
     <div class="container">
 
       <!-- ==========================================================================
-           SECTION 1: RDC ONLINE INQUIRY SYSTEM & HELP DESK
+           SECTION 1: SIMPLE RDC ONLINE INQUIRY FORM
            ========================================================================== -->
       <section id="online-request" style="margin-bottom: 4.5rem; scroll-margin-top: 2rem;"><span id="service-request-portal" style="display:block; position:relative; top:-2rem; visibility:hidden;"></span>
-        <div class="section-title-wrap" style="text-align: center; max-width: 780px; margin: 0 auto 2.5rem;">
-          <span class="section-tag" style="background: rgba(30, 94, 168, 0.1); color: var(--mcnp-green); font-weight: 800;">Help Desk &amp; Inquiries</span>
-          <h2 class="section-title" style="font-size: 2.2rem; margin-top: 0.5rem;">RDC Online Inquiry Portal</h2>
+        <div class="section-title-wrap" style="text-align: center; max-width: 680px; margin: 0 auto 2rem;">
+          <span class="section-tag" style="background: rgba(30, 94, 168, 0.1); color: var(--mcnp-green); font-weight: 800;">Help Desk</span>
+          <h2 class="section-title" style="font-size: 2.2rem; margin-top: 0.5rem;">RDC Inquiry Form</h2>
           <p class="section-desc">
-            Have a question or need assistance from the Research &amp; Development Center? Submit your inquiry directly to the RDC Secretariat. We will route your question to the appropriate focal officer and respond promptly.
+            Have a question, need assistance, or want to consult with the Research &amp; Development Center? Fill out the simple inquiry form below and our secretariat will assist you.
           </p>
         </div>
 
-        <div style="background: #ffffff; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 15px 35px rgba(0,0,0,0.05); padding: clamp(1.75rem, 3.5vw, 3rem); max-width: 980px; margin: 0 auto;">
-          
-          <!-- Category Selector Pills -->
-          <div class="portal-nav-pills">
-            <button type="button" class="portal-pill-btn active" onclick="switchServiceCategory('general', this)">
-              <i class="fas fa-envelope-open-text"></i> General Inquiry
-            </button>
-            <button type="button" class="portal-pill-btn" onclick="switchServiceCategory('stats', this)">
-              <i class="fas fa-chart-pie"></i> Statistical Consultation
-            </button>
-            <button type="button" class="portal-pill-btn" onclick="switchServiceCategory('ethics', this)">
-              <i class="fas fa-clipboard-check"></i> Ethics Clearance (IERC)
-            </button>
-            <button type="button" class="portal-pill-btn" onclick="switchServiceCategory('turnitin', this)">
-              <i class="fas fa-search-plus"></i> Turnitin &amp; Journals
-            </button>
-            <button type="button" class="portal-pill-btn" onclick="switchServiceCategory('defense', this)">
-              <i class="fas fa-calendar-alt"></i> Defense Scheduling
-            </button>
-          </div>
-
-          <!-- Dynamic Service Request Form -->
-          <form id="onlineServiceRequestForm" onsubmit="handleServiceRequestSubmit(event)">
+        <div style="background: #ffffff; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: clamp(1.5rem, 3.5vw, 2.75rem); max-width: 720px; margin: 0 auto;">
+          <form id="onlineInquiryForm" onsubmit="handleInquirySubmit(event)">
             
-            <!-- Hidden Service Type Input -->
-            <input type="hidden" id="srServiceCategory" value="General Secretariat Inquiry & Research Assistance">
-
-            <!-- Dynamic Service Guidance Banner -->
-            <div id="serviceGuidanceBanner" style="background: #eff6ff; border-left: 4px solid var(--mcnp-green); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 2rem; font-size: 0.88rem; color: #1e3a8a; line-height: 1.55;">
-              <strong>✉️ General Research Inquiry:</strong> Have questions about RDC policies, institutional research guidelines, upcoming activities, or academic partnerships? Send your inquiry to the RDC Secretariat. Response time: within 24–48 hours.
-            </div>
-
-            <!-- Proponent Information Grid -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem;">
               <div class="form-group">
-                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Requester / Full Name *</label>
-                <input type="text" id="srName" class="form-control" placeholder="Dr. / Prof. / Mr. / Ms. Full Name" required>
+                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Full Name *</label>
+                <input type="text" id="inqName" class="form-control" placeholder="Your Full Name" required>
               </div>
               <div class="form-group">
-                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Institutional / Contact Email *</label>
-                <input type="email" id="srEmail" class="form-control" placeholder="username@mcnp.edu.ph or personal email" required>
-              </div>
-              <div class="form-group">
-                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Contact Phone / Mobile *</label>
-                <input type="tel" id="srPhone" class="form-control" placeholder="+63 9XX XXX XXXX" required>
+                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Email Address *</label>
+                <input type="email" id="inqEmail" class="form-control" placeholder="your.email@example.com" required>
               </div>
             </div>
 
-            <!-- Institutional Affiliation & Category -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem;">
               <div class="form-group">
-                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">College / Department Affiliation *</label>
-                <select id="srDepartment" class="form-control" required style="background: #fff;">
-                  <option value="">Select College / Unit...</option>
-                  <optgroup label="MCNP Health Wing">
-                    <option value="MCNP - College of Nursing">MCNP - College of Nursing</option>
-                    <option value="MCNP - College of Medical Technology">MCNP - College of Medical Technology</option>
-                    <option value="MCNP - College of Radiologic Technology">MCNP - College of Radiologic Technology</option>
-                    <option value="MCNP - College of Pharmacy">MCNP - College of Pharmacy</option>
-                    <option value="MCNP - College of Physical Therapy">MCNP - College of Physical Therapy</option>
-                  </optgroup>
-                  <optgroup label="ISAP Multidisciplinary Wing">
-                    <option value="ISAP - College of Criminal Justice Education">ISAP - College of Criminal Justice Education (COCJE)</option>
-                    <option value="ISAP - College of Customs Administration">ISAP - College of Customs Administration</option>
-                    <option value="ISAP - College of Information Technology">ISAP - College of Information Technology</option>
-                    <option value="ISAP - College of Business Education">ISAP - College of Business Education</option>
-                    <option value="ISAP - College of Teacher Education">ISAP - College of Teacher Education</option>
-                    <option value="ISAP - Graduate School">ISAP - Graduate School</option>
-                  </optgroup>
-                  <optgroup label="Other">
-                    <option value="Administrative Staff / Personnel">Administrative Staff / Personnel</option>
-                    <option value="External Partner / Collaborating Agency">External Partner / Collaborating Agency</option>
-                  </optgroup>
-                </select>
+                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Contact Number</label>
+                <input type="tel" id="inqPhone" class="form-control" placeholder="+63 9XX XXX XXXX">
               </div>
-
               <div class="form-group">
-                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Client / Inquirer Classification *</label>
-                <select id="srRole" class="form-control" required style="background: #fff;">
-                  <option value="Faculty Researcher">Faculty Researcher (Full-time / Regular)</option>
-                  <option value="Academic Head / Dean">Academic Head / Dean</option>
-                  <option value="Undergraduate Thesis Proponent">Undergraduate Thesis Proponent / Student Group</option>
-                  <option value="Postgraduate Researcher">Postgraduate / Masteral Researcher</option>
-                  <option value="External Agency Representative">External Partner / Agency Representative</option>
+                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Inquiry Topic *</label>
+                <select id="inqTopic" class="form-control" style="background: #fff;" required>
+                  <option value="General Inquiry">General Inquiry</option>
+                  <option value="Statistical Consultation">Statistical Consultation</option>
+                  <option value="Ethics Clearance (IERC)">Ethics Clearance (IERC)</option>
+                  <option value="Turnitin & Journal Publishing">Turnitin &amp; Journal Publishing</option>
+                  <option value="Defense & SOP Scheduling">Defense &amp; SOP Scheduling</option>
+                  <option value="Research Partnerships / Other">Research Partnerships / Other</option>
                 </select>
               </div>
             </div>
 
-            <!-- Subject of Inquiry -->
             <div class="form-group" style="margin-bottom: 1.25rem;">
-              <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Subject of Inquiry *</label>
-              <input type="text" id="srTitle" class="form-control" placeholder="Brief subject or topic of your inquiry" required>
+              <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Subject *</label>
+              <input type="text" id="inqSubject" class="form-control" placeholder="Brief subject or title of your inquiry" required>
             </div>
 
-            <!-- Dynamic Additional Fields depending on Inquiry Category -->
-            <div id="dynamicServiceFields" style="margin-bottom: 1.25rem;">
-              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
-                <div class="form-group">
-                  <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Inquiry Topic Area</label>
-                  <select class="form-control" style="background: #fff;">
-                    <option value="Institutional Policies & SOPs">Institutional Policies &amp; Research SOPs</option>
-                    <option value="Academic MOA & External Collaboration">Academic MOA &amp; External Collaboration</option>
-                    <option value="Research Grants & Incentives">Research Grants &amp; Faculty Incentives</option>
-                    <option value="Student Capstone & Thesis Inquiry">Student Capstone &amp; Thesis Guidance</option>
-                    <option value="Other General Inquiry">Other General Inquiry</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-paperclip" style="color: var(--gold);"></i> Supporting File (Optional)</label>
-                  <input type="file" id="srFile" class="form-control" accept=".xlsx,.xls,.csv,.sav,.docx,.doc,.pdf">
-                  <small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Optional draft or reference file (.pdf, .docx, max 25MB).</small>
-                </div>
-              </div>
-            </div>
-
-            <!-- Request Details / Message -->
-            <div class="form-group" style="margin-bottom: 1.5rem;">
-              <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Inquiry Details / Message *</label>
-              <textarea id="srNotes" rows="4" class="form-control" placeholder="Please write your questions, inquiries, or details here..." required></textarea>
-            </div>
-
-            <!-- Compliance Check -->
-            <div style="background: #f8fafc; padding: 1rem 1.25rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 1.75rem;">
-              <label style="display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.85rem; color: #475569; cursor: pointer;">
-                <input type="checkbox" required style="margin-top: 0.2rem;">
-                <span>I confirm that the information provided is accurate and consent to the processing of this inquiry in accordance with the Data Privacy Act of 2012 (RA 10173).</span>
-              </label>
+            <div class="form-group" style="margin-bottom: 1.75rem;">
+              <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Message *</label>
+              <textarea id="inqMessage" rows="5" class="form-control" placeholder="Type your message or inquiry here..." required></textarea>
             </div>
 
             <div style="text-align: center;">
-              <button type="submit" class="btn btn-gold" style="padding: 0.85rem 3rem; font-weight: 700; font-size: 1rem; width: 100%; max-width: 440px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);">
-                <i class="fas fa-paper-plane"></i> Submit Inquiry
+              <button type="submit" class="btn btn-gold" style="padding: 0.85rem 3rem; font-weight: 700; font-size: 1rem; width: 100%; max-width: 380px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);">
+                <i class="fas fa-paper-plane"></i> Send Inquiry
               </button>
             </div>
           </form>
@@ -1269,7 +1182,7 @@
             <span>📘</span>
             <span><a href="https://www.facebook.com/profile.php?id=61593412015654" target="_blank" rel="noopener noreferrer" style="color: #ffdf70; text-decoration: underline;">Facebook Page ↗</a></span>
           </div>
-          <a href="contact.html#service-request-portal" class="btn btn-sm btn-gold" style="margin-top: 0.75rem;">Submit Online Request</a>
+          <a href="contact.html#online-request" class="btn btn-sm btn-gold" style="margin-top: 0.75rem;">Submit Online Inquiry</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -1280,158 +1193,26 @@
 
   <script src="js/main.js"></script>
   <script>
-    // Inquiry Category Switching & Guidance
-    var categoryData = {
-      'general': {
-        name: 'General Secretariat Inquiry & Research Assistance',
-        guidance: '<strong>✉️ General Research Inquiry:</strong> Have questions about RDC policies, institutional research guidelines, upcoming activities, or academic partnerships? Send your inquiry to the RDC Secretariat. Response time: within 24–48 hours.',
-        fields: '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">' +
-                  '<div class="form-group">' +
-                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Inquiry Topic Area</label>' +
-                    '<select class="form-control" style="background: #fff;">' +
-                      '<option value="Institutional Policies & SOPs">Institutional Policies &amp; Research SOPs</option>' +
-                      '<option value="Academic MOA & External Collaboration">Academic MOA &amp; External Collaboration</option>' +
-                      '<option value="Research Grants & Incentives">Research Grants &amp; Faculty Incentives</option>' +
-                      '<option value="Student Capstone & Thesis Inquiry">Student Capstone &amp; Thesis Guidance</option>' +
-                      '<option value="Other General Inquiry">Other General Inquiry</option>' +
-                    '</select>' +
-                  '</div>' +
-                  '<div class="form-group">' +
-                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-paperclip" style="color: var(--gold);"></i> Supporting File (Optional)</label>' +
-                    '<input type="file" id="srFile" class="form-control" accept=".xlsx,.xls,.csv,.sav,.docx,.doc,.pdf">' +
-                    '<small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Optional draft or reference file (.pdf, .docx, max 25MB).</small>' +
-                  '</div>' +
-                '</div>',
-        turnaround: 'Within 24–48 Hours'
-      },
-      'stats': {
-        name: 'Statistical Consultation & Analysis Inquiry',
-        guidance: '<strong>📊 Statistical Consultation Inquiry:</strong> Inquire about statistical clinic schedules, parametric/non-parametric tests, sample size determination, or Form 011 clearance with our institutional biostatisticians.',
-        fields: '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">' +
-                  '<div class="form-group">' +
-                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Statistical Service Inquired</label>' +
-                    '<select id="srStatTool" class="form-control" style="background: #fff;">' +
-                      '<option value="Statistical Consultation Clinic Schedule">Statistical Consultation Clinic Schedule</option>' +
-                      '<option value="SPSS / Jamovi Statistical Modeling Advice">SPSS / Jamovi Statistical Modeling Advice</option>' +
-                      '<option value="Sample Size & Sampling Technique">Sample Size &amp; Sampling Technique Guidance</option>' +
-                      '<option value="Form 011 Statistical Clearance Requirements">Form 011 Statistical Clearance Requirements</option>' +
-                      '<option value="Qualitative Coding (NVivo / ATLAS.ti)">Qualitative Thematic Coding (NVivo / ATLAS.ti)</option>' +
-                    '</select>' +
-                  '</div>' +
-                  '<div class="form-group">' +
-                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-paperclip" style="color: var(--gold);"></i> Dataset or Draft (Optional)</label>' +
-                    '<input type="file" id="srFile" class="form-control" accept=".xlsx,.xls,.csv,.sav,.docx,.doc,.pdf">' +
-                    '<small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Optional dataset or questionnaire draft (.xlsx, .csv, .docx, max 25MB).</small>' +
-                  '</div>' +
-                '</div>',
-        turnaround: 'Within 24–48 Hours'
-      },
-      'ethics': {
-        name: 'Institutional Ethics Protocol Clearance (IERC) Inquiry',
-        guidance: '<strong>📋 Ethics Clearance (IERC Review) Inquiry:</strong> Have questions about PHREB Level 1 compliance, human subject protections, informed consent templates, or protocol submission schedules?',
-        fields: '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">' +
-                  '<div class="form-group">' +
-                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Ethics Review Topic</label>' +
-                    '<select class="form-control" style="background: #fff;">' +
-                      '<option value="Protocol Submission Process & Checklist">Protocol Submission Process &amp; Checklist</option>' +
-                      '<option value="Expedited Review Requirements">Expedited Review Requirements (Minimal Risk)</option>' +
-                      '<option value="Full Committee Review Scheduling">Full Committee Review Scheduling</option>' +
-                      '<option value="Informed Consent & Assent Guidelines">Informed Consent &amp; Assent Guidelines</option>' +
-                      '<option value="Exemption from Ethics Review">Exemption from Ethics Review Criteria</option>' +
-                    '</select>' +
-                  '</div>' +
-                  '<div class="form-group">' +
-                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-paperclip" style="color: var(--gold);"></i> Protocol Draft (Optional)</label>' +
-                    '<input type="file" id="srFile" class="form-control" accept=".docx,.doc,.pdf">' +
-                    '<small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Optional protocol summary (.docx, .pdf, max 25MB).</small>' +
-                  '</div>' +
-                '</div>',
-        turnaround: 'Within 24–48 Hours'
-      },
-      'turnitin': {
-        name: 'Turnitin Similarity Check & Journal Publishing Inquiry',
-        guidance: '<strong>🔍 Turnitin &amp; Journal Publishing Inquiry:</strong> Inquire about plagiarism screening thresholds (&le; 15%), manuscript formatting for MCNP/ISAP journals, indexing procedures, or OJS submissions.',
-        fields: '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">' +
-                  '<div class="form-group">' +
-                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Publishing / Turnitin Topic</label>' +
-                    '<select class="form-control" style="background: #fff;">' +
-                      '<option value="Turnitin Similarity Verification Guidelines">Turnitin Similarity Verification Guidelines (&le; 15%)</option>' +
-                      '<option value="Undergraduate Thesis Similarity Check">Undergraduate Thesis Similarity Check</option>' +
-                      '<option value="MCNP Health Journal Submission Guidelines">MCNP Health Journal Submission Guidelines</option>' +
-                      '<option value="ISAP Multidisciplinary Journal Guidelines">ISAP Multidisciplinary Journal Guidelines</option>' +
-                      '<option value="IMRAD Manuscript Structuring Advice">IMRAD Manuscript Structuring Advice</option>' +
-                    '</select>' +
-                  '</div>' +
-                  '<div class="form-group">' +
-                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-paperclip" style="color: var(--gold);"></i> Draft Manuscript (Optional)</label>' +
-                    '<input type="file" id="srFile" class="form-control" accept=".docx,.doc,.pdf">' +
-                    '<small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Optional draft manuscript (.docx, .pdf, max 25MB).</small>' +
-                  '</div>' +
-                '</div>',
-        turnaround: 'Within 24–48 Hours'
-      },
-      'defense': {
-        name: 'Research Defense Scheduling & SOP Inquiry',
-        guidance: '<strong>📅 Defense Scheduling &amp; SOP Inquiry:</strong> Inquire about oral defense scheduling, panel reservation, SOP document routing, or clearance release timelines with the Secretariat.',
-        fields: '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">' +
-                  '<div class="form-group">' +
-                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Defense Inquiry Topic</label>' +
-                    '<select class="form-control" style="background: #fff;">' +
-                      '<option value="Proposal Defense Scheduling (Chapters 1–3)">Proposal Defense Scheduling (Chapters 1–3)</option>' +
-                      '<option value="Final Oral Defense Scheduling (5 Chapters)">Final Oral Defense Scheduling (5 Chapters)</option>' +
-                      '<option value="Defense Panel Coordination & Guidelines">Defense Panel Coordination &amp; Guidelines</option>' +
-                      '<option value="Completion Clearance & Hardbound Submission">Completion Clearance &amp; Hardbound Submission</option>' +
-                    '</select>' +
-                  '</div>' +
-                  '<div class="form-group">' +
-                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-paperclip" style="color: var(--gold);"></i> Supporting Schedule (Optional)</label>' +
-                    '<input type="file" id="srFile" class="form-control" accept=".docx,.doc,.pdf">' +
-                    '<small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Optional defense draft or endorsement (.docx, .pdf, max 25MB).</small>' +
-                  '</div>' +
-                '</div>',
-        turnaround: 'Within 24–48 Hours'
-      }
-    };
-
-    var currentCategoryKey = 'general';
-
-    function switchServiceCategory(key, btn) {
-      currentCategoryKey = key;
-      var pills = document.querySelectorAll('.portal-pill-btn');
-      pills.forEach(function(p) { p.classList.remove('active'); });
-      if (btn) btn.classList.add('active');
-
-      var item = categoryData[key];
-      if (item) {
-        document.getElementById('srServiceCategory').value = item.name;
-        document.getElementById('serviceGuidanceBanner').innerHTML = item.guidance;
-        document.getElementById('dynamicServiceFields').innerHTML = item.fields;
-      }
-    }
-
-    function handleServiceRequestSubmit(e) {
+    function handleInquirySubmit(e) {
       e.preventDefault();
-      var name = document.getElementById('srName').value;
-      var title = document.getElementById('srTitle').value;
-      var serviceName = document.getElementById('srServiceCategory').value;
+      var name = document.getElementById('inqName').value;
+      var topic = document.getElementById('inqTopic').value;
+      var subject = document.getElementById('inqSubject').value;
       var ticketNum = Math.floor(1000 + Math.random() * 9000);
 
       document.getElementById('srModalTicketCode').textContent = '#RDC-INQ-2026-' + ticketNum;
       document.getElementById('srModalClientName').textContent = name;
-      document.getElementById('srModalService').textContent = serviceName;
-      var fileInput = document.getElementById('srFile');
-      var uploadedFile = (fileInput && fileInput.files && fileInput.files[0]) ? fileInput.files[0].name : '';
-      var titleDisplay = title + (uploadedFile ? ' (Attachment: ' + uploadedFile + ')' : '');
-      document.getElementById('srModalTitle').textContent = titleDisplay;
-      document.getElementById('srModalTurnaround').textContent = categoryData[currentCategoryKey].turnaround;
+      document.getElementById('srModalService').textContent = topic;
+      document.getElementById('srModalTitle').textContent = subject;
+      document.getElementById('srModalTurnaround').textContent = 'Within 24–48 Hours';
 
       document.getElementById('srSuccessModal').classList.add('open');
     }
 
     function closeSrModal() {
       document.getElementById('srSuccessModal').classList.remove('open');
-      document.getElementById('onlineServiceRequestForm').reset();
-      switchServiceCategory('general', document.querySelector('.portal-pill-btn'));
+      var form = document.getElementById('onlineInquiryForm');
+      if (form) form.reset();
     }
 
     function openCardModal(imgSrc, name) {
@@ -1464,38 +1245,37 @@
       });
     }
 
-    function selectServiceForPerson(serviceKey) {
-      var btn = document.querySelector('.portal-pill-btn[onclick*="' + serviceKey + '"]');
-      switchServiceCategory(serviceKey, btn);
+    function selectServiceForPerson(topicKey) {
+      var selectElem = document.getElementById('inqTopic');
+      if (selectElem && topicKey) {
+        var map = {
+          'general': 'General Inquiry',
+          'training': 'General Inquiry',
+          'stats': 'Statistical Consultation',
+          'statistics': 'Statistical Consultation',
+          'ethics': 'Ethics Clearance (IERC)',
+          'turnitin': 'Turnitin & Journal Publishing',
+          'defense': 'Defense & SOP Scheduling'
+        };
+        if (map[topicKey.toLowerCase()]) {
+          selectElem.value = map[topicKey.toLowerCase()];
+        }
+      }
       var formElem = document.getElementById('online-request');
       if (formElem) {
         formElem.scrollIntoView({ behavior: 'smooth' });
       }
     }
 
-    // Auto-select category if URL param present, or default to general inquiry
+    // Auto-select topic if URL param present
     document.addEventListener('DOMContentLoaded', function() {
       var params = new URLSearchParams(window.location.search);
       var inq = params.get('inquiry') || params.get('service');
       if (inq) {
-        var keyMap = {
-          'training': 'general',
-          'general': 'general',
-          'stats': 'stats',
-          'statistics': 'stats',
-          'ethics': 'ethics',
-          'turnitin': 'turnitin',
-          'defense': 'defense'
-        };
-        var targetKey = keyMap[inq.toLowerCase()] || 'general';
-        var btn = document.querySelector('.portal-pill-btn[onclick*="' + targetKey + '"]');
-        if (btn) {
-          switchServiceCategory(targetKey, btn);
-        }
+        selectServiceForPerson(inq.toLowerCase());
       }
     });
-  
-    </script>
+  </script>
   <!-- Lightbox Modal for Personnel Calling Card -->
   <div id="cardLightboxModal" class="sr-modal-overlay" onclick="closeCardModal(event)">
     <div class="sr-modal" style="max-width: 720px; padding: 1.5rem; background: #0f172a; color: #fff; text-align: center; border: 1px solid rgba(255,255,255,0.15);" onclick="event.stopPropagation()">
