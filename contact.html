@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact &amp; Online Service Requests | MCNP &amp; ISAP RDC</title>
-  <meta name="description" content="Official Contact Directory, Online Service Request Portal (e-Services), Directory, and FAQs for the Research & Development Center of MCNP and ISAP.">
+  <title>Contact &amp; Online Inquiries | MCNP &amp; ISAP RDC</title>
+  <meta name="description" content="Official Contact Directory, Online Inquiry Portal, Directory, and FAQs for the Research & Development Center of MCNP and ISAP.">
   <link rel="icon" type="image/png" href="assets/rdc-logo.png">
   <link rel="apple-touch-icon" href="assets/rdc-logo.png">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Contact &amp; Online Service Requests | MCNP &amp; ISAP RDC">
-  <meta property="og:description" content="Connect with the RDC Secretariat, submit online requests for statistical analysis, ethics clearance (IERC), and Turnitin checks.">
+  <meta property="og:title" content="Contact &amp; Online Inquiries | MCNP &amp; ISAP RDC">
+  <meta property="og:description" content="Connect with the RDC Secretariat, submit online inquiries for statistical consultations, ethics clearance (IERC), Turnitin checks, and research partnerships.">
   <meta property="og:image" content="assets/rdc-logo.png">
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    /* Service Request Portal Tabs & Cards */
+    /* Online Inquiry Portal Tabs & Cards */
     .portal-nav-pills {
       display: flex;
       flex-wrap: wrap;
@@ -533,13 +533,13 @@
   <section class="page-hero">
     <div class="container">
       <div class="breadcrumbs">
-        <a href="index.html">Home</a> &gt; <span>Contact &amp; Online Service Requests</span>
+        <a href="index.html">Home</a> &gt; <span>Contact &amp; Online Inquiries</span>
       </div>
-      <h1>Contact &amp; Online Service Requests</h1>
-      <p>Official Help Desk, Electronic Service Requests, and RDC Secretariat Contact Directory for MCNP &amp; ISAP.</p>
+      <h1>Contact &amp; Online Inquiries</h1>
+      <p>Official Help Desk, Online Inquiries, and RDC Secretariat Contact Directory for MCNP &amp; ISAP.</p>
       <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
         <a href="#service-request-portal" class="btn btn-sm btn-gold" style="display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 700;">
-          <span>⚡ Submit Online Service Request &darr;</span>
+          <span>✉️ Submit Online Inquiry &darr;</span>
         </a>
         <a href="#focal-desks" class="btn btn-sm btn-outline-white" style="display: inline-flex; align-items: center; gap: 0.4rem;">
           <span>👥 RDC Desks &amp; Personnel Directory &darr;</span>
@@ -556,14 +556,14 @@
     <div class="container">
 
       <!-- ==========================================================================
-           SECTION 1: ITEM 45 ONLINE SERVICE REQUEST SYSTEM (E-SERVICES)
+           SECTION 1: RDC ONLINE INQUIRY SYSTEM & HELP DESK
            ========================================================================== -->
       <section id="online-request" style="margin-bottom: 4.5rem; scroll-margin-top: 2rem;"><span id="service-request-portal" style="display:block; position:relative; top:-2rem; visibility:hidden;"></span>
         <div class="section-title-wrap" style="text-align: center; max-width: 780px; margin: 0 auto 2.5rem;">
-          <span class="section-tag" style="background: rgba(30, 94, 168, 0.1); color: var(--mcnp-green); font-weight: 800;">E-Services &amp; Help Desk</span>
-          <h2 class="section-title" style="font-size: 2.2rem; margin-top: 0.5rem;">RDC Online Service Request Portal</h2>
+          <span class="section-tag" style="background: rgba(30, 94, 168, 0.1); color: var(--mcnp-green); font-weight: 800;">Help Desk &amp; Inquiries</span>
+          <h2 class="section-title" style="font-size: 2.2rem; margin-top: 0.5rem;">RDC Online Inquiry Portal</h2>
           <p class="section-desc">
-            Submit your research service application digitally to the RDC Secretariat. Get automated tracking ticket issuance, real-time docket logging, and direct routing to institutional specialists.
+            Have a question or need assistance from the Research &amp; Development Center? Submit your inquiry directly to the RDC Secretariat. We will route your question to the appropriate focal officer and respond promptly.
           </p>
         </div>
 
@@ -571,20 +571,20 @@
           
           <!-- Category Selector Pills -->
           <div class="portal-nav-pills">
-            <button type="button" class="portal-pill-btn active" onclick="switchServiceCategory('stats', this)">
-              <i class="fas fa-chart-pie"></i> Statistical Clinic
+            <button type="button" class="portal-pill-btn active" onclick="switchServiceCategory('general', this)">
+              <i class="fas fa-envelope-open-text"></i> General Inquiry
+            </button>
+            <button type="button" class="portal-pill-btn" onclick="switchServiceCategory('stats', this)">
+              <i class="fas fa-chart-pie"></i> Statistical Consultation
             </button>
             <button type="button" class="portal-pill-btn" onclick="switchServiceCategory('ethics', this)">
-              <i class="fas fa-clipboard-check"></i> Ethics Clearance
+              <i class="fas fa-clipboard-check"></i> Ethics Clearance (IERC)
             </button>
             <button type="button" class="portal-pill-btn" onclick="switchServiceCategory('turnitin', this)">
-              <i class="fas fa-search-plus"></i> Turnitin Plagiarism
+              <i class="fas fa-search-plus"></i> Turnitin &amp; Journals
             </button>
             <button type="button" class="portal-pill-btn" onclick="switchServiceCategory('defense', this)">
               <i class="fas fa-calendar-alt"></i> Defense Scheduling
-            </button>
-            <button type="button" class="portal-pill-btn" onclick="switchServiceCategory('general', this)">
-              <i class="fas fa-envelope-open-text"></i> General Inquiry
             </button>
           </div>
 
@@ -592,22 +592,22 @@
           <form id="onlineServiceRequestForm" onsubmit="handleServiceRequestSubmit(event)">
             
             <!-- Hidden Service Type Input -->
-            <input type="hidden" id="srServiceCategory" value="Statistical Consultation & Data Processing (Form 011)">
+            <input type="hidden" id="srServiceCategory" value="General Secretariat Inquiry & Research Assistance">
 
             <!-- Dynamic Service Guidance Banner -->
             <div id="serviceGuidanceBanner" style="background: #eff6ff; border-left: 4px solid var(--mcnp-green); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 2rem; font-size: 0.88rem; color: #1e3a8a; line-height: 1.55;">
-              <strong>📊 Statistical Consultation &amp; Data Analysis (Form 011):</strong> Settle statistical consultations with institutional biostatisticians. Requires statement of the problem, hypotheses, and coded Excel dataset. Turnaround: 5–7 working days.
+              <strong>✉️ General Research Inquiry:</strong> Have questions about RDC policies, institutional research guidelines, upcoming activities, or academic partnerships? Send your inquiry to the RDC Secretariat. Response time: within 24–48 hours.
             </div>
 
             <!-- Proponent Information Grid -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem;">
               <div class="form-group">
-                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Requester / Lead Proponent Name *</label>
+                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Requester / Full Name *</label>
                 <input type="text" id="srName" class="form-control" placeholder="Dr. / Prof. / Mr. / Ms. Full Name" required>
               </div>
               <div class="form-group">
-                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Institutional Email Address *</label>
-                <input type="email" id="srEmail" class="form-control" placeholder="username@mcnp.edu.ph or @isap.edu.ph" required>
+                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Institutional / Contact Email *</label>
+                <input type="email" id="srEmail" class="form-control" placeholder="username@mcnp.edu.ph or personal email" required>
               </div>
               <div class="form-group">
                 <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Contact Phone / Mobile *</label>
@@ -644,7 +644,7 @@
               </div>
 
               <div class="form-group">
-                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Client / Proponent Classification *</label>
+                <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Client / Inquirer Classification *</label>
                 <select id="srRole" class="form-control" required style="background: #fff;">
                   <option value="Faculty Researcher">Faculty Researcher (Full-time / Regular)</option>
                   <option value="Academic Head / Dean">Academic Head / Dean</option>
@@ -655,49 +655,50 @@
               </div>
             </div>
 
-            <!-- Protocol Title -->
+            <!-- Subject of Inquiry -->
             <div class="form-group" style="margin-bottom: 1.25rem;">
-              <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Research Protocol / Manuscript Title *</label>
-              <input type="text" id="srTitle" class="form-control" placeholder="Complete working or approved title of the study" required>
+              <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Subject of Inquiry *</label>
+              <input type="text" id="srTitle" class="form-control" placeholder="Brief subject or topic of your inquiry" required>
             </div>
 
-            <!-- Dynamic Additional Fields depending on Service Category -->
+            <!-- Dynamic Additional Fields depending on Inquiry Category -->
             <div id="dynamicServiceFields" style="margin-bottom: 1.25rem;">
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
                 <div class="form-group">
-                  <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Statistical Analysis Package Requested</label>
-                  <select id="srStatTool" class="form-control" style="background: #fff;">
-                    <option value="SPSS / Jamovi (Parametric & Non-Parametric Tests)">SPSS / Jamovi (Parametric & Non-Parametric Tests)</option>
-                    <option value="R Language / Advanced Modeling">R Language / Advanced Biostatistical Modeling</option>
-                    <option value="Sample Size Computation Only (SOP Stage 1)">Sample Size Computation (SOP Stage 1)</option>
-                    <option value="Qualitative Thematic Coding (ATLAS.ti / NVivo)">Qualitative Thematic Coding (ATLAS.ti / NVivo)</option>
+                  <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Inquiry Topic Area</label>
+                  <select class="form-control" style="background: #fff;">
+                    <option value="Institutional Policies & SOPs">Institutional Policies &amp; Research SOPs</option>
+                    <option value="Academic MOA & External Collaboration">Academic MOA &amp; External Collaboration</option>
+                    <option value="Research Grants & Incentives">Research Grants &amp; Faculty Incentives</option>
+                    <option value="Student Capstone & Thesis Inquiry">Student Capstone &amp; Thesis Guidance</option>
+                    <option value="Other General Inquiry">Other General Inquiry</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-file-upload" style="color: var(--gold);"></i> Attach Electronic Dataset File (Excel / CSV / SAV) *</label>
-                  <input type="file" id="srFile" class="form-control" accept=".xlsx,.xls,.csv,.sav,.docx,.pdf" required>
-                  <small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Direct local file upload (.xlsx, .csv, .sav, .pdf, .docx, max 25MB).</small>
+                  <label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-paperclip" style="color: var(--gold);"></i> Supporting File (Optional)</label>
+                  <input type="file" id="srFile" class="form-control" accept=".xlsx,.xls,.csv,.sav,.docx,.doc,.pdf">
+                  <small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Optional draft or reference file (.pdf, .docx, max 25MB).</small>
                 </div>
               </div>
             </div>
 
             <!-- Request Details / Message -->
             <div class="form-group" style="margin-bottom: 1.5rem;">
-              <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Specific Instructions / Objectives / Statement of Hypotheses *</label>
-              <textarea id="srNotes" rows="4" class="form-control" placeholder="Describe the specific services requested, research hypotheses, target timeline, or special requirements..." required></textarea>
+              <label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Inquiry Details / Message *</label>
+              <textarea id="srNotes" rows="4" class="form-control" placeholder="Please write your questions, inquiries, or details here..." required></textarea>
             </div>
 
             <!-- Compliance Check -->
             <div style="background: #f8fafc; padding: 1rem 1.25rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 1.75rem;">
               <label style="display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.85rem; color: #475569; cursor: pointer;">
                 <input type="checkbox" required style="margin-top: 0.2rem;">
-                <span>I confirm that the submitted data/document complies with the Data Privacy Act of 2012 (RA 10173), that proper consent was secured from respondents, and that all information provided is accurate.</span>
+                <span>I confirm that the information provided is accurate and consent to the processing of this inquiry in accordance with the Data Privacy Act of 2012 (RA 10173).</span>
               </label>
             </div>
 
             <div style="text-align: center;">
               <button type="submit" class="btn btn-gold" style="padding: 0.85rem 3rem; font-weight: 700; font-size: 1rem; width: 100%; max-width: 440px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);">
-                <i class="fas fa-paper-plane"></i> Submit Electronic Service Request
+                <i class="fas fa-paper-plane"></i> Submit Inquiry
               </button>
             </div>
           </form>
@@ -748,7 +749,7 @@
               <div class="personnel-actions">
                 <a href="tel:+639989847781" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
                 <a href="mailto:researchoffice@mcnp.edu.ph" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
-                <a href="#online-request" onclick="selectServiceForPerson('general')" class="p-act-btn req-btn"><i class="fas fa-paper-plane"></i> Request</a>
+                <a href="#online-request" onclick="selectServiceForPerson('general')" class="p-act-btn req-btn"><i class="fas fa-paper-plane"></i> Inquire</a>
               </div>
             </div>
           </div>
@@ -774,7 +775,7 @@
               <div class="personnel-actions">
                 <a href="tel:+639167511596" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
                 <a href="mailto:rcallores@mcnp.edu.ph" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
-                <a href="#online-request" onclick="selectServiceForPerson('defense')" class="p-act-btn req-btn"><i class="fas fa-calendar-alt"></i> Defense</a>
+                <a href="#online-request" onclick="selectServiceForPerson('defense')" class="p-act-btn req-btn"><i class="fas fa-calendar-alt"></i> Inquire</a>
               </div>
             </div>
           </div>
@@ -800,7 +801,7 @@
               <div class="personnel-actions">
                 <a href="tel:+639654972865" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
                 <a href="mailto:kcplacido@isap.edu.ph" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
-                <a href="#online-request" onclick="selectServiceForPerson('defense')" class="p-act-btn req-btn"><i class="fas fa-calendar-alt"></i> Defense</a>
+                <a href="#online-request" onclick="selectServiceForPerson('defense')" class="p-act-btn req-btn"><i class="fas fa-calendar-alt"></i> Inquire</a>
               </div>
             </div>
           </div>
@@ -826,7 +827,7 @@
               <div class="personnel-actions">
                 <a href="tel:+639263270441" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
                 <a href="mailto:talabang@mcnp.edu.ph" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
-                <a href="#online-request" onclick="selectServiceForPerson('stats')" class="p-act-btn req-btn"><i class="fas fa-chart-pie"></i> Consult</a>
+                <a href="#online-request" onclick="selectServiceForPerson('stats')" class="p-act-btn req-btn"><i class="fas fa-chart-pie"></i> Inquire</a>
               </div>
             </div>
           </div>
@@ -852,7 +853,7 @@
               <div class="personnel-actions">
                 <a href="tel:+639503653177" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
                 <a href="mailto:ruchellelangcay26@gmail.com" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
-                <a href="#online-request" onclick="selectServiceForPerson('stats')" class="p-act-btn req-btn"><i class="fas fa-chart-pie"></i> Consult</a>
+                <a href="#online-request" onclick="selectServiceForPerson('stats')" class="p-act-btn req-btn"><i class="fas fa-chart-pie"></i> Inquire</a>
               </div>
             </div>
           </div>
@@ -878,7 +879,7 @@
               <div class="personnel-actions">
                 <a href="tel:+639935634105" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
                 <a href="mailto:agabinmaryjane4@gmail.com" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
-                <a href="#online-request" onclick="selectServiceForPerson('stats')" class="p-act-btn req-btn"><i class="fas fa-chart-pie"></i> Consult</a>
+                <a href="#online-request" onclick="selectServiceForPerson('stats')" class="p-act-btn req-btn"><i class="fas fa-chart-pie"></i> Inquire</a>
               </div>
             </div>
           </div>
@@ -904,7 +905,7 @@
               <div class="personnel-actions">
                 <a href="tel:+639687596359" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
                 <a href="mailto:jguiquing@mcnp.edu.ph" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
-                <a href="#online-request" onclick="selectServiceForPerson('turnitin')" class="p-act-btn req-btn"><i class="fas fa-shield-alt"></i> Turnitin</a>
+                <a href="#online-request" onclick="selectServiceForPerson('turnitin')" class="p-act-btn req-btn"><i class="fas fa-shield-alt"></i> Inquire</a>
               </div>
             </div>
           </div>
@@ -930,7 +931,7 @@
               <div class="personnel-actions">
                 <a href="tel:+639168859290" class="p-act-btn call-btn"><i class="fas fa-phone"></i> Call</a>
                 <a href="mailto:lpaddayuman@mcnp.edu.ph" class="p-act-btn mail-btn"><i class="fas fa-envelope"></i> Email</a>
-                <a href="#online-request" onclick="selectServiceForPerson('defense')" class="p-act-btn req-btn"><i class="fas fa-calendar-check"></i> Schedule</a>
+                <a href="#online-request" onclick="selectServiceForPerson('defense')" class="p-act-btn req-btn"><i class="fas fa-calendar-check"></i> Inquire</a>
               </div>
             </div>
           </div>
@@ -1126,7 +1127,7 @@
               <p>Researchers across MCNP and ISAP can avail of institutional biostatistical and quantitative analysis support through the RDC Biostatistics Unit:</p>
               <ol>
                 <li>Accomplish <strong>Form 011 (Statistical Consultation Service Request Form)</strong> detailing the statement of the problem, operational variables, proposed analytical tests, and clean electronic dataset.</li>
-                <li>Submit the request to the RDC Secretariat or via the <a href="#service-request-portal" style="color:var(--mcnp-green);font-weight:600;">Online Service Request Portal</a>.</li>
+                <li>Submit the request to the RDC Secretariat or via the <a href="#service-request-portal" style="color:var(--mcnp-green);font-weight:600;">Online Inquiry Portal</a>.</li>
                 <li>Attend the scheduled consultation clinic where institutional data analysts perform computations using SPSS, Jamovi, or R, and provide formal interpretation matrices.</li>
                 <li>Receive the official <strong>Statistician’s Clearance Certificate</strong> required for scheduling the final oral defense.</li>
               </ol>
@@ -1188,22 +1189,22 @@
     </div>
   </main>
 
-  <!-- Service Request Confirmation Modal -->
+  <!-- Inquiry Confirmation Modal -->
   <div id="srSuccessModal" class="sr-modal-overlay">
     <div class="sr-modal">
       <div class="sr-modal-icon"><i class="fas fa-check"></i></div>
-      <h3 style="font-size: 1.45rem; color: var(--dark-text); margin-bottom: 0.5rem;">Service Request Logged!</h3>
+      <h3 style="font-size: 1.45rem; color: var(--dark-text); margin-bottom: 0.5rem;">Inquiry Sent Successfully!</h3>
       <p style="color: #64748b; font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem;">
-        Your electronic request has been registered in the RDC master docket. Your tracking reference ticket is <strong id="srModalTicketCode" style="color: var(--mcnp-green); font-size: 1.05rem;">#RDC-SR-2026-0000</strong>.
+        Your inquiry has been received by the RDC Secretariat. Your reference tracking number is <strong id="srModalTicketCode" style="color: var(--mcnp-green); font-size: 1.05rem;">#RDC-INQ-2026-0000</strong>.
       </p>
       <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.1rem; text-align: left; font-size: 0.86rem; color: #334155; margin-bottom: 1.5rem;">
-        <p style="margin-bottom: 0.4rem;"><strong>Client Name:</strong> <span id="srModalClientName"></span></p>
-        <p style="margin-bottom: 0.4rem;"><strong>Service Category:</strong> <span id="srModalService"></span></p>
-        <p style="margin-bottom: 0.4rem;"><strong>Protocol / Title:</strong> <span id="srModalTitle"></span></p>
-        <p style="margin-bottom: 0;"><strong>Estimated Turnaround:</strong> <span id="srModalTurnaround" style="color: #059669; font-weight: 700;">3–5 Business Days</span></p>
+        <p style="margin-bottom: 0.4rem;"><strong>Inquirer Name:</strong> <span id="srModalClientName"></span></p>
+        <p style="margin-bottom: 0.4rem;"><strong>Inquiry Category:</strong> <span id="srModalService"></span></p>
+        <p style="margin-bottom: 0.4rem;"><strong>Subject:</strong> <span id="srModalTitle"></span></p>
+        <p style="margin-bottom: 0;"><strong>Estimated Response:</strong> <span id="srModalTurnaround" style="color: #059669; font-weight: 700;">Within 24–48 Hours</span></p>
       </div>
       <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 1.5rem;">
-        An electronic receipt copy has been generated. The designated desk focal person will reach out to your institutional email.
+        An acknowledgment has been logged. The designated desk officer will reach out directly to your provided contact email.
       </p>
       <button type="button" class="btn btn-gold" style="width: 100%; font-weight: 700;" onclick="closeSrModal()">Done &amp; Close</button>
     </div>
@@ -1279,100 +1280,120 @@
 
   <script src="js/main.js"></script>
   <script>
-    // Service Category Switching
+    // Inquiry Category Switching & Guidance
     var categoryData = {
-      'stats': {
-        name: 'Statistical Consultation & Data Processing (Form 011)',
-        guidance: '<strong>📊 Statistical Consultation &amp; Data Analysis (Form 011):</strong> Settle statistical consultations with institutional biostatisticians. Requires statement of the problem, hypotheses, and coded Excel dataset. Turnaround: 5–7 working days.',
+      'general': {
+        name: 'General Secretariat Inquiry & Research Assistance',
+        guidance: '<strong>✉️ General Research Inquiry:</strong> Have questions about RDC policies, institutional research guidelines, upcoming activities, or academic partnerships? Send your inquiry to the RDC Secretariat. Response time: within 24–48 hours.',
         fields: '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">' +
                   '<div class="form-group">' +
-                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Statistical Tool / Tests Requested</label>' +
-                    '<select id="srStatTool" class="form-control" style="background: #fff;">' +
-                      '<option value="SPSS / Jamovi (Parametric & Non-Parametric)">SPSS / Jamovi (Parametric & Non-Parametric)</option>' +
-                      '<option value="R Language / Advanced Modeling">R Language / Advanced Biostatistical Modeling</option>' +
-                      '<option value="Sample Size Computation Only">Sample Size Computation (SOP Stage 1)</option>' +
-                      '<option value="Qualitative Thematic Analysis (NVivo/ATLAS.ti)">Qualitative Thematic Analysis (NVivo/ATLAS.ti)</option>' +
+                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Inquiry Topic Area</label>' +
+                    '<select class="form-control" style="background: #fff;">' +
+                      '<option value="Institutional Policies & SOPs">Institutional Policies &amp; Research SOPs</option>' +
+                      '<option value="Academic MOA & External Collaboration">Academic MOA &amp; External Collaboration</option>' +
+                      '<option value="Research Grants & Incentives">Research Grants &amp; Faculty Incentives</option>' +
+                      '<option value="Student Capstone & Thesis Inquiry">Student Capstone &amp; Thesis Guidance</option>' +
+                      '<option value="Other General Inquiry">Other General Inquiry</option>' +
                     '</select>' +
                   '</div>' +
                   '<div class="form-group">' +
-                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-file-upload" style="color: var(--gold);"></i> Attach Electronic Dataset File (Excel / CSV / SAV) *</label>' +
-                    '<input type="file" id="srFile" class="form-control" accept=".xlsx,.xls,.csv,.sav,.docx,.pdf" required>' +
-                    '<small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Direct local file upload (.xlsx, .csv, .sav, max 25MB).</small>' +
+                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-paperclip" style="color: var(--gold);"></i> Supporting File (Optional)</label>' +
+                    '<input type="file" id="srFile" class="form-control" accept=".xlsx,.xls,.csv,.sav,.docx,.doc,.pdf">' +
+                    '<small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Optional draft or reference file (.pdf, .docx, max 25MB).</small>' +
                   '</div>' +
                 '</div>',
-        turnaround: '5–7 Business Days'
+        turnaround: 'Within 24–48 Hours'
+      },
+      'stats': {
+        name: 'Statistical Consultation & Analysis Inquiry',
+        guidance: '<strong>📊 Statistical Consultation Inquiry:</strong> Inquire about statistical clinic schedules, parametric/non-parametric tests, sample size determination, or Form 011 clearance with our institutional biostatisticians.',
+        fields: '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">' +
+                  '<div class="form-group">' +
+                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Statistical Service Inquired</label>' +
+                    '<select id="srStatTool" class="form-control" style="background: #fff;">' +
+                      '<option value="Statistical Consultation Clinic Schedule">Statistical Consultation Clinic Schedule</option>' +
+                      '<option value="SPSS / Jamovi Statistical Modeling Advice">SPSS / Jamovi Statistical Modeling Advice</option>' +
+                      '<option value="Sample Size & Sampling Technique">Sample Size &amp; Sampling Technique Guidance</option>' +
+                      '<option value="Form 011 Statistical Clearance Requirements">Form 011 Statistical Clearance Requirements</option>' +
+                      '<option value="Qualitative Coding (NVivo / ATLAS.ti)">Qualitative Thematic Coding (NVivo / ATLAS.ti)</option>' +
+                    '</select>' +
+                  '</div>' +
+                  '<div class="form-group">' +
+                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-paperclip" style="color: var(--gold);"></i> Dataset or Draft (Optional)</label>' +
+                    '<input type="file" id="srFile" class="form-control" accept=".xlsx,.xls,.csv,.sav,.docx,.doc,.pdf">' +
+                    '<small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Optional dataset or questionnaire draft (.xlsx, .csv, .docx, max 25MB).</small>' +
+                  '</div>' +
+                '</div>',
+        turnaround: 'Within 24–48 Hours'
       },
       'ethics': {
-        name: 'Institutional Ethics Protocol Clearance (IERC Review)',
-        guidance: '<strong>📋 Institutional Ethics Protocol Clearance (IERC):</strong> Under PHREB Level 1 standards, human subject research, community health surveys, and identifiable data protocols undergo ethics evaluation. Turnaround: 10–15 business days.',
+        name: 'Institutional Ethics Protocol Clearance (IERC) Inquiry',
+        guidance: '<strong>📋 Ethics Clearance (IERC Review) Inquiry:</strong> Have questions about PHREB Level 1 compliance, human subject protections, informed consent templates, or protocol submission schedules?',
         fields: '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">' +
                   '<div class="form-group">' +
-                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Review Pathway Requested</label>' +
+                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Ethics Review Topic</label>' +
                     '<select class="form-control" style="background: #fff;">' +
-                      '<option value="Expedited Review (Minimal Risk / Non-Invasive)">Expedited Review (Minimal Risk / Non-Invasive Survey)</option>' +
-                      '<option value="Full Committee Review (Vulnerable Subjects / Clinical)">Full Committee Review (Vulnerable Subjects / Clinical)</option>' +
-                      '<option value="Exemption from Review (Public Archival Data)">Exemption from Review (Public Archival Data)</option>' +
+                      '<option value="Protocol Submission Process & Checklist">Protocol Submission Process &amp; Checklist</option>' +
+                      '<option value="Expedited Review Requirements">Expedited Review Requirements (Minimal Risk)</option>' +
+                      '<option value="Full Committee Review Scheduling">Full Committee Review Scheduling</option>' +
+                      '<option value="Informed Consent & Assent Guidelines">Informed Consent &amp; Assent Guidelines</option>' +
+                      '<option value="Exemption from Ethics Review">Exemption from Ethics Review Criteria</option>' +
                     '</select>' +
                   '</div>' +
                   '<div class="form-group">' +
-                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-file-upload" style="color: var(--gold);"></i> Attach Ethics Protocol & Consent Dossier File *</label>' +
-                    '<input type="file" id="srFile" class="form-control" accept=".docx,.doc,.pdf" required>' +
-                    '<small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Direct local file upload (.docx, .pdf, max 25MB).</small>' +
+                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-paperclip" style="color: var(--gold);"></i> Protocol Draft (Optional)</label>' +
+                    '<input type="file" id="srFile" class="form-control" accept=".docx,.doc,.pdf">' +
+                    '<small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Optional protocol summary (.docx, .pdf, max 25MB).</small>' +
                   '</div>' +
                 '</div>',
-        turnaround: '10–15 Business Days'
+        turnaround: 'Within 24–48 Hours'
       },
       'turnitin': {
-        name: 'Turnitin Plagiarism & Originality Verification Check',
-        guidance: '<strong>🔍 Turnitin Originality Verification Check:</strong> Submit your digital manuscript for institutional plagiarism check. The maximum allowable similarity threshold is &le; 15%. Turnaround: 24–48 working hours.',
+        name: 'Turnitin Similarity Check & Journal Publishing Inquiry',
+        guidance: '<strong>🔍 Turnitin &amp; Journal Publishing Inquiry:</strong> Inquire about plagiarism screening thresholds (&le; 15%), manuscript formatting for MCNP/ISAP journals, indexing procedures, or OJS submissions.',
         fields: '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">' +
                   '<div class="form-group">' +
-                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Manuscript Type</label>' +
+                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Publishing / Turnitin Topic</label>' +
                     '<select class="form-control" style="background: #fff;">' +
-                      '<option value="Undergraduate Thesis (Complete 5 Chapters)">Undergraduate Thesis (Complete 5 Chapters)</option>' +
-                      '<option value="Faculty Research Manuscript">Faculty Research Manuscript</option>' +
-                      '<option value="IMRAD Journal Article for Publishing">IMRAD Journal Article for Publishing</option>' +
-                      '<option value="Graduate School Dissertation / Thesis">Graduate School Dissertation / Thesis</option>' +
+                      '<option value="Turnitin Similarity Verification Guidelines">Turnitin Similarity Verification Guidelines (&le; 15%)</option>' +
+                      '<option value="Undergraduate Thesis Similarity Check">Undergraduate Thesis Similarity Check</option>' +
+                      '<option value="MCNP Health Journal Submission Guidelines">MCNP Health Journal Submission Guidelines</option>' +
+                      '<option value="ISAP Multidisciplinary Journal Guidelines">ISAP Multidisciplinary Journal Guidelines</option>' +
+                      '<option value="IMRAD Manuscript Structuring Advice">IMRAD Manuscript Structuring Advice</option>' +
                     '</select>' +
                   '</div>' +
                   '<div class="form-group">' +
-                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-file-upload" style="color: var(--gold);"></i> Attach Digital Manuscript File (DOCX / PDF) *</label>' +
-                    '<input type="file" id="srFile" class="form-control" accept=".docx,.doc,.pdf" required>' +
-                    '<small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Direct local file upload (.docx, .pdf, max 25MB).</small>' +
+                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-paperclip" style="color: var(--gold);"></i> Draft Manuscript (Optional)</label>' +
+                    '<input type="file" id="srFile" class="form-control" accept=".docx,.doc,.pdf">' +
+                    '<small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Optional draft manuscript (.docx, .pdf, max 25MB).</small>' +
                   '</div>' +
                 '</div>',
-        turnaround: '24–48 Hours'
+        turnaround: 'Within 24–48 Hours'
       },
       'defense': {
-        name: 'Research Proposal or Final Oral Defense Scheduling',
-        guidance: '<strong>📅 Defense Scheduling Assistance (SOP Stage 1.3 & 5.2):</strong> Coordinate oral defense date, panel room reservation, notice issuance, and panel recommendations with the RDC Secretariat.',
+        name: 'Research Defense Scheduling & SOP Inquiry',
+        guidance: '<strong>📅 Defense Scheduling &amp; SOP Inquiry:</strong> Inquire about oral defense scheduling, panel reservation, SOP document routing, or clearance release timelines with the Secretariat.',
         fields: '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">' +
                   '<div class="form-group">' +
-                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Defense Type</label>' +
+                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Defense Inquiry Topic</label>' +
                     '<select class="form-control" style="background: #fff;">' +
-                      '<option value="Proposal Defense (Chapters 1–3)">Proposal Defense (Chapters 1–3)</option>' +
-                      '<option value="Final Oral Defense (5-Chapter Manuscript)">Final Oral Defense (5-Chapter Manuscript)</option>' +
+                      '<option value="Proposal Defense Scheduling (Chapters 1–3)">Proposal Defense Scheduling (Chapters 1–3)</option>' +
+                      '<option value="Final Oral Defense Scheduling (5 Chapters)">Final Oral Defense Scheduling (5 Chapters)</option>' +
+                      '<option value="Defense Panel Coordination & Guidelines">Defense Panel Coordination &amp; Guidelines</option>' +
+                      '<option value="Completion Clearance & Hardbound Submission">Completion Clearance &amp; Hardbound Submission</option>' +
                     '</select>' +
                   '</div>' +
                   '<div class="form-group">' +
-                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Preferred Defense Date & Time Slot</label>' +
-                    '<input type="text" class="form-control" placeholder="e.g., Nov 12, 2026 - 1:30 PM">' +
+                    '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;"><i class="fas fa-paperclip" style="color: var(--gold);"></i> Supporting Schedule (Optional)</label>' +
+                    '<input type="file" id="srFile" class="form-control" accept=".docx,.doc,.pdf">' +
+                    '<small style="color: #64748b; font-size: 0.76rem; display: block; margin-top: 0.25rem;">Optional defense draft or endorsement (.docx, .pdf, max 25MB).</small>' +
                   '</div>' +
                 '</div>',
-        turnaround: '3–5 Business Days'
-      },
-      'general': {
-        name: 'General Secretariat Inquiries & Research Partnerships',
-        guidance: '<strong>✉️ General Inquiries &amp; Collaborative Partnerships:</strong> For general questions, external academic MOA collaborations, resource speaker requests, and administrative clarifications. Response time: 24–48 hours.',
-        fields: '<div class="form-group">' +
-                  '<label class="form-label" style="font-weight: 700; font-size: 0.86rem;">Inquiry Topic</label>' +
-                  '<input type="text" class="form-control" placeholder="Subject or partnership topic">' +
-                '</div>',
-        turnaround: '24–48 Hours'
+        turnaround: 'Within 24–48 Hours'
       }
     };
 
-    var currentCategoryKey = 'stats';
+    var currentCategoryKey = 'general';
 
     function switchServiceCategory(key, btn) {
       currentCategoryKey = key;
@@ -1395,12 +1416,13 @@
       var serviceName = document.getElementById('srServiceCategory').value;
       var ticketNum = Math.floor(1000 + Math.random() * 9000);
 
-      document.getElementById('srModalTicketCode').textContent = '#RDC-SR-2026-' + ticketNum;
+      document.getElementById('srModalTicketCode').textContent = '#RDC-INQ-2026-' + ticketNum;
       document.getElementById('srModalClientName').textContent = name;
       document.getElementById('srModalService').textContent = serviceName;
       var fileInput = document.getElementById('srFile');
-      var uploadedFile = (fileInput && fileInput.files && fileInput.files[0]) ? fileInput.files[0].name : 'Direct File Attached';
-      document.getElementById('srModalTitle').textContent = title + ' (File: ' + uploadedFile + ')';
+      var uploadedFile = (fileInput && fileInput.files && fileInput.files[0]) ? fileInput.files[0].name : '';
+      var titleDisplay = title + (uploadedFile ? ' (Attachment: ' + uploadedFile + ')' : '');
+      document.getElementById('srModalTitle').textContent = titleDisplay;
       document.getElementById('srModalTurnaround').textContent = categoryData[currentCategoryKey].turnaround;
 
       document.getElementById('srSuccessModal').classList.add('open');
@@ -1409,7 +1431,7 @@
     function closeSrModal() {
       document.getElementById('srSuccessModal').classList.remove('open');
       document.getElementById('onlineServiceRequestForm').reset();
-      switchServiceCategory('stats', document.querySelector('.portal-pill-btn'));
+      switchServiceCategory('general', document.querySelector('.portal-pill-btn'));
     }
 
     function openCardModal(imgSrc, name) {
@@ -1450,6 +1472,28 @@
         formElem.scrollIntoView({ behavior: 'smooth' });
       }
     }
+
+    // Auto-select category if URL param present, or default to general inquiry
+    document.addEventListener('DOMContentLoaded', function() {
+      var params = new URLSearchParams(window.location.search);
+      var inq = params.get('inquiry') || params.get('service');
+      if (inq) {
+        var keyMap = {
+          'training': 'general',
+          'general': 'general',
+          'stats': 'stats',
+          'statistics': 'stats',
+          'ethics': 'ethics',
+          'turnitin': 'turnitin',
+          'defense': 'defense'
+        };
+        var targetKey = keyMap[inq.toLowerCase()] || 'general';
+        var btn = document.querySelector('.portal-pill-btn[onclick*="' + targetKey + '"]');
+        if (btn) {
+          switchServiceCategory(targetKey, btn);
+        }
+      }
+    });
   
     </script>
   <!-- Lightbox Modal for Personnel Calling Card -->
