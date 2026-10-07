@@ -2824,12 +2824,12 @@ window.initRdcMessengerWidget = function() {
       <button type="button" class="rdc-msgr-pill-close" id="rdcMsgrPillClose" aria-label="Dismiss greeting">&times;</button>
     </div>
 
-    <div class="rdc-msgr-card" id="rdcMsgrCard" role="dialog" aria-modal="false" aria-label="MCNP-ISAP Facebook Messenger Chat">
+    <div class="rdc-msgr-card" id="rdcMsgrCard" role="dialog" aria-modal="false" aria-label="RDC Facebook Messenger Chat">
       <div class="rdc-msgr-header">
         <div class="rdc-msgr-brand">
-          <img src="assets/mcnp-isap-messenger-avatar.png" alt="MCNP-ISAP" class="rdc-msgr-avatar-img">
+          <img src="assets/rdc-messenger-avatar.png" alt="RDC" class="rdc-msgr-avatar-img">
           <div class="rdc-msgr-brand-text">
-            <div class="rdc-msgr-title">MCNP-ISAP</div>
+            <div class="rdc-msgr-title">RDC</div>
             <div class="rdc-msgr-subtitle">Replies within 1 day</div>
           </div>
         </div>
