@@ -7102,13 +7102,13 @@ textarea.form-control {
 /* Popup Chat Card */
 .rdc-msgr-card {
   position: absolute;
-  bottom: 74px;
+  bottom: 78px;
   right: 0;
-  width: 330px;
+  width: 350px;
   background: #ffffff;
-  border-radius: 16px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.2);
+  border-radius: 18px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   overflow: hidden;
   opacity: 0;
   visibility: hidden;
@@ -7127,182 +7127,130 @@ textarea.form-control {
 
 /* Card Header */
 .rdc-msgr-header {
-  background: #0f172a;
-  color: #ffffff;
-  padding: 1rem 1.1rem;
+  background: #ffffff;
+  padding: 1.15rem 1.25rem 0.95rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid #f0f2f5;
 }
 
 .rdc-msgr-brand {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.85rem;
 }
 
-.rdc-msgr-avatar {
-  position: relative;
-  width: 38px;
-  height: 38px;
+.rdc-msgr-avatar-img {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: linear-gradient(45deg, #0078ff 0%, #0084ff 20%, #8b2cf5 60%, #e03368 90%, #f04374 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-size: 1.1rem;
+  object-fit: cover;
   flex-shrink: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
-.rdc-msgr-avatar-dot {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 10px;
-  height: 10px;
-  background: #10b981;
-  border: 2px solid #0f172a;
-  border-radius: 50%;
+.rdc-msgr-brand-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .rdc-msgr-title {
-  font-size: 0.92rem;
+  font-size: 1.05rem;
   font-weight: 700;
+  color: #1c1e21;
   line-height: 1.25;
-  color: #ffffff;
 }
 
 .rdc-msgr-subtitle {
-  font-size: 0.74rem;
-  color: #94a3b8;
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  margin-top: 0.15rem;
-}
-
-.rdc-msgr-subtitle::before {
-  content: "";
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background: #10b981;
-  border-radius: 50%;
+  font-size: 0.84rem;
+  color: #65676b;
+  margin-top: 0.2rem;
+  font-weight: 400;
 }
 
 .rdc-msgr-close-btn {
-  background: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f0f2f5;
   border: none;
-  color: #94a3b8;
-  font-size: 1.3rem;
-  line-height: 1;
+  color: #606770;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  padding: 0.25rem 0.4rem;
-  border-radius: 6px;
-  transition: color 0.15s ease, background 0.15s ease;
+  transition: background 0.15s ease, color 0.15s ease;
+  padding: 0;
+  flex-shrink: 0;
 }
 
 .rdc-msgr-close-btn:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.1);
+  background: #e4e6eb;
+  color: #1c1e21;
 }
 
 /* Card Body */
 .rdc-msgr-body {
-  padding: 1.1rem;
-  background: #f8fafc;
+  padding: 1rem 1.25rem 1.25rem;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+}
+
+.rdc-msgr-date {
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #65676b;
+  margin-top: 0.25rem;
+  margin-bottom: 1.15rem;
 }
 
 .rdc-msgr-bubble {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px 12px 12px 3px;
-  padding: 0.85rem 0.95rem;
-  font-size: 0.85rem;
-  color: #334155;
+  background: #f0f2f5;
+  color: #050505;
+  border-radius: 20px;
+  padding: 0.95rem 1.25rem;
+  font-size: 0.98rem;
   line-height: 1.45;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  margin-bottom: 1.75rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.rdc-msgr-chips-title {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: #64748b;
-  margin-bottom: 0.35rem;
-}
-
-.rdc-msgr-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.rdc-msgr-chip {
-  background: #ffffff;
-  border: 1px solid #cbd5e1;
-  border-radius: 16px;
-  padding: 0.35rem 0.7rem;
-  font-size: 0.78rem;
-  color: #1e293b;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-weight: 500;
-  transition: all 0.18s ease;
-}
-
-.rdc-msgr-chip:hover {
-  background: #006aff;
-  color: #ffffff;
-  border-color: #006aff;
-  transform: translateY(-1px);
-}
-
-/* Card Footer */
-.rdc-msgr-footer {
-  padding: 0.9rem 1.1rem;
-  background: #ffffff;
-  border-top: 1px solid #e2e8f0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-
-.rdc-msgr-send-btn {
+.rdc-msgr-start-btn {
+  background: #0084ff;
+  color: #ffffff !important;
+  border-radius: 26px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.55rem;
-  background: linear-gradient(45deg, #0078ff 0%, #0084ff 20%, #8b2cf5 60%, #e03368 90%, #f04374 100%);
-  color: #ffffff !important;
+  gap: 0.6rem;
+  font-size: 0.98rem;
   font-weight: 700;
-  font-size: 0.9rem;
   text-decoration: none;
-  padding: 0.75rem 1rem;
-  border-radius: 10px;
-  box-shadow: 0 3px 12px rgba(0, 106, 255, 0.32);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: background 0.18s ease, transform 0.18s ease;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
 }
 
-.rdc-msgr-send-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 18px rgba(0, 106, 255, 0.45);
+.rdc-msgr-start-btn:hover {
+  background: #0073e6;
+  transform: translateY(-1px);
 }
 
-.rdc-msgr-note {
-  font-size: 0.72rem;
-  color: #94a3b8;
+.rdc-msgr-powered {
   text-align: center;
-  margin: 0;
+  font-size: 0.74rem;
+  color: #8a8d91;
+  margin-top: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
 }
 
 /* Mobile Compatibility */
@@ -7312,17 +7260,17 @@ textarea.form-control {
     right: 16px;
   }
   .rdc-msgr-trigger {
-    width: 52px;
-    height: 52px;
+    width: 54px;
+    height: 54px;
   }
   .rdc-msgr-card {
     width: calc(100vw - 32px);
-    max-width: 340px;
-    bottom: 66px;
+    max-width: 350px;
+    bottom: 70px;
     right: 0;
   }
   .rdc-msgr-pill {
-    bottom: 62px;
+    bottom: 66px;
   }
 }
 

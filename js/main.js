@@ -2824,47 +2824,37 @@ window.initRdcMessengerWidget = function() {
       <button type="button" class="rdc-msgr-pill-close" id="rdcMsgrPillClose" aria-label="Dismiss greeting">&times;</button>
     </div>
 
-    <div class="rdc-msgr-card" id="rdcMsgrCard" role="dialog" aria-modal="false" aria-label="RDC Facebook Messenger Chat">
+    <div class="rdc-msgr-card" id="rdcMsgrCard" role="dialog" aria-modal="false" aria-label="MCNP-ISAP Facebook Messenger Chat">
       <div class="rdc-msgr-header">
         <div class="rdc-msgr-brand">
-          <div class="rdc-msgr-avatar" aria-hidden="true">
-            <svg viewBox="0 0 36 36" width="22" height="22">
-              <path fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" d="M18 6C11.373 6 6 10.955 6 17.067c0 3.483 1.745 6.592 4.475 8.57V30l4.24-2.328c1.036.287 2.138.441 3.285.441 6.627 0 12-4.955 12-11.067C30 10.955 24.627 6 18 6zm1.32 14.887l-3.32-3.54-6.48 3.54 7.127-7.568 3.4 3.54 6.4-3.54-7.127 7.568z"/>
-            </svg>
-            <span class="rdc-msgr-avatar-dot"></span>
-          </div>
-          <div>
-            <div class="rdc-msgr-title">RDC MCNP &amp; ISAP</div>
-            <div class="rdc-msgr-subtitle">Official Facebook Page</div>
+          <img src="assets/mcnp-isap-messenger-avatar.png" alt="MCNP-ISAP" class="rdc-msgr-avatar-img">
+          <div class="rdc-msgr-brand-text">
+            <div class="rdc-msgr-title">MCNP-ISAP</div>
+            <div class="rdc-msgr-subtitle">Replies within 1 day</div>
           </div>
         </div>
-        <button type="button" class="rdc-msgr-close-btn" id="rdcMsgrCloseBtn" aria-label="Minimize Messenger Chat">&times;</button>
+        <button type="button" class="rdc-msgr-close-btn" id="rdcMsgrCloseBtn" aria-label="Close Messenger Chat">
+          <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
       </div>
 
       <div class="rdc-msgr-body">
+        <div class="rdc-msgr-date">Today</div>
         <div class="rdc-msgr-bubble">
-          👋 Kumusta! Welcome to the <strong>Research &amp; Development Center</strong>. How can we help you today with your research inquiry?
+          Hey! 👋 How can we help you?
         </div>
-        <div>
-          <div class="rdc-msgr-chips-title">Quick Inquiries</div>
-          <div class="rdc-msgr-chips">
-            <a href="https://m.me/61593412015654?ref=stats" target="_blank" rel="noopener noreferrer" class="rdc-msgr-chip">📊 Biostatistics</a>
-            <a href="https://m.me/61593412015654?ref=ethics" target="_blank" rel="noopener noreferrer" class="rdc-msgr-chip">📋 IERC Ethics</a>
-            <a href="https://m.me/61593412015654?ref=turnitin" target="_blank" rel="noopener noreferrer" class="rdc-msgr-chip">🔍 Turnitin Check</a>
-            <a href="https://m.me/61593412015654?ref=defense" target="_blank" rel="noopener noreferrer" class="rdc-msgr-chip">📅 Defense / SOP</a>
-            <a href="https://m.me/61593412015654?ref=general" target="_blank" rel="noopener noreferrer" class="rdc-msgr-chip">✉️ General Help</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="rdc-msgr-footer">
-        <a href="https://m.me/61593412015654" target="_blank" rel="noopener noreferrer" class="rdc-msgr-send-btn">
-          <svg viewBox="0 0 36 36" width="20" height="20" fill="currentColor" aria-hidden="true">
+        <a href="https://m.me/61593412015654" target="_blank" rel="noopener noreferrer" class="rdc-msgr-start-btn">
+          <svg viewBox="0 0 36 36" width="22" height="22" aria-hidden="true">
             <path fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" d="M18 6C11.373 6 6 10.955 6 17.067c0 3.483 1.745 6.592 4.475 8.57V30l4.24-2.328c1.036.287 2.138.441 3.285.441 6.627 0 12-4.955 12-11.067C30 10.955 24.627 6 18 6zm1.32 14.887l-3.32-3.54-6.48 3.54 7.127-7.568 3.4 3.54 6.4-3.54-7.127 7.568z"/>
           </svg>
-          <span>Chat on Facebook Messenger</span>
+          <span>Start chat</span>
         </a>
-        <p class="rdc-msgr-note">Opens official Messenger for FB Page ID: 61593412015654</p>
+        <div class="rdc-msgr-powered">
+          Powered by <span style="font-size: 0.95rem; line-height: 1;">🤖</span> Buttonizer
+        </div>
       </div>
     </div>
 
