@@ -2005,6 +2005,75 @@
         </div>
       </div>
 
+      <!-- Interactive Monthly Date Calendar & Event Inspector -->
+      <div class="interactive-cal-container" id="interactiveCalendarSection">
+        <!-- Calendar Grid Card -->
+        <div class="interactive-cal-card">
+          <div class="cal-nav-header">
+            <div class="cal-nav-controls">
+              <button type="button" class="cal-nav-btn" id="calPrevMonthBtn" aria-label="Previous Month">&larr; Prev</button>
+              <h3 class="cal-current-month-label" id="calCurrentMonthLabel">October 2026</h3>
+              <button type="button" class="cal-nav-btn" id="calNextMonthBtn" aria-label="Next Month">Next &rarr;</button>
+            </div>
+            <div>
+              <select class="cal-month-select" id="calMonthJumpSelect" aria-label="Jump to Scheduled Month">
+                <option value="2026-09">September 2026</option>
+                <option value="2026-10" selected>October 2026 (1 Event)</option>
+                <option value="2026-11">November 2026 (1 Event)</option>
+                <option value="2026-12">December 2026 (1 Event)</option>
+                <option value="2027-01">January 2027 (1 Event)</option>
+                <option value="2027-02">February 2027 (1 Event)</option>
+                <option value="2027-03">March 2027 (1 Event)</option>
+                <option value="2027-04">April 2027 (1 Event)</option>
+                <option value="2027-05">May 2027</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="cal-weekdays-row">
+            <span>Sun</span>
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+          </div>
+
+          <div class="cal-days-grid" id="calDaysGrid">
+            <!-- Dynamically populated day cells -->
+          </div>
+
+          <div class="cal-legend">
+            <div class="cal-legend-item">
+              <span class="cal-legend-dot has-event-dot"></span>
+              <span>Scheduled Workshop / Event</span>
+            </div>
+            <div class="cal-legend-item">
+              <span class="cal-legend-dot selected-dot"></span>
+              <span>Selected Date</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Selected Date Event Inspector Card -->
+        <div class="interactive-cal-inspector" id="calInspectorCard">
+          <div class="inspector-header">
+            <div>
+              <div class="inspector-date-label">Selected Date Details</div>
+              <h3 class="inspector-date-title" id="inspectorSelectedDateLabel">October 23, 2026</h3>
+            </div>
+            <div id="inspectorBadgeWrap">
+              <span class="cal-pill cal-pill-mcnp">MCNP Health Sciences</span>
+            </div>
+          </div>
+
+          <div id="inspectorContent" class="inspector-event-body">
+            <!-- Event details or empty state rendered dynamically -->
+          </div>
+        </div>
+      </div>
+
       <div class="calendar-table-wrap">
         <table class="calendar-table">
           <thead>

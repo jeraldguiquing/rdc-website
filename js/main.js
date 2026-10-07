@@ -2732,6 +2732,410 @@ window.searchCalendar = function(query) {
   window.filterCalendar(category, activeBtn);
 };
 
+// --- Interactive Monthly Date Calendar & Event Inspector ---
+window.trainingCalendarEvents = [
+  {
+    id: 1,
+    dates: ['2026-10-23', '2026-10-24'],
+    displayDate: 'October 23–24, 2026',
+    pillText: 'MCNP Health Sciences',
+    pillClass: 'cal-pill-mcnp',
+    shortTag: 'Biostatistics',
+    title: 'Advanced Biostatistics & Quantitative Modeling with SPSS and Jamovi',
+    desc: 'Hands-on statistical workshop on multivariate regression, survival curve analysis, parametric vs. non-parametric hypothesis testing, and statistical clearance preparation (Form 011).',
+    participants: 'Faculty Researchers & Clinical Advisers (Nursing, Pharmacy, Radiologic Technology, Medical Laboratory Science)',
+    venue: '📍 MCNP Computer Lab B & Hybrid Zoom',
+    lead: 'Institutional Biostatistics Unit & Guest Data Scientist',
+    category: 'mcnp stats'
+  },
+  {
+    id: 2,
+    dates: ['2026-11-12', '2026-11-13'],
+    displayDate: 'November 12–13, 2026',
+    pillText: 'Institutional Unified',
+    pillClass: 'cal-pill-unified',
+    shortTag: 'Ethics Review',
+    title: 'National Research Ethics Protocol Review & PHREB Compliance Seminar',
+    desc: 'Standards of the Philippine Health Research Ethics Board (PHREB Level 1), protocol vulnerability assessments, participant informed consent pledges, and expeditious review routing.',
+    participants: 'IERC Members, Faculty & Thesis Proponents (All Health & Multidisciplinary Academic Programs)',
+    venue: '📍 Audio-Visual Center (AVC) & Livestream',
+    lead: 'Institutional Ethics Review Committee (IERC)',
+    category: 'ethics mcnp isap'
+  },
+  {
+    id: 3,
+    dates: ['2026-12-04'],
+    displayDate: 'December 04, 2026',
+    pillText: 'Institutional Unified',
+    pillClass: 'cal-pill-unified',
+    shortTag: 'Turnitin & Publishing',
+    title: 'Turnitin Screening & IMRAD Manuscript Structuring for High-Impact Indexing',
+    desc: 'Navigating similarity index thresholds (≤15%), avoiding mosaic plagiarism, structured abstracts, ORCID registration, and preparing manuscripts for OJS and Scopus/WoS submission.',
+    participants: 'Publishing Faculty, Authors & Coordinators (MCNP & ISAP Faculty Authors, Journal Editors)',
+    venue: '📍 ISAP Computer Laboratory 1',
+    lead: 'RDC Editorial Secretariat & Plagiarism Officer',
+    category: 'isap mcnp grants'
+  },
+  {
+    id: 4,
+    dates: ['2027-01-15', '2027-01-16'],
+    displayDate: 'January 15–16, 2027',
+    pillText: 'ISAP Multidisciplinary',
+    pillClass: 'cal-pill-isap',
+    shortTag: 'NVivo / Qualitative',
+    title: 'Qualitative Inquiry, Thematic Analysis & Computer-Assisted Coding (NVivo / MAXQDA)',
+    desc: 'Phenomenological methods, narrative inquiries, codebook development, inter-coder reliability, and thematic clustering in social science and criminal justice studies.',
+    participants: 'Criminology, Business & Education Faculty (ISAP College of Criminal Justice, CBA, CICT, CTE)',
+    venue: '📍 ISAP Amphitheater & Media Studio',
+    lead: 'Senior Qualitative Research Fellows',
+    category: 'isap'
+  },
+  {
+    id: 5,
+    dates: ['2027-02-19'],
+    displayDate: 'February 19, 2027',
+    pillText: 'Institutional Unified',
+    pillClass: 'cal-pill-unified',
+    shortTag: 'Policy Briefs',
+    title: 'Translating Academic Findings into Policy Briefs & Community Utilization Interventions',
+    desc: 'The 4 pathways of utilization: transforming clinical and empirical findings into hospital care manuals, municipal ordinances, technology transfer assets, and instructional modules.',
+    participants: 'Department Chairs & Community Extension Officers (All Academic Deans, Research Directors, LGU Liaisons)',
+    venue: '📍 RDC Boardroom, Administration Building',
+    lead: 'Research Director Dr. Ryan C. Fontanilla',
+    category: 'isap mcnp'
+  },
+  {
+    id: 6,
+    dates: ['2027-03-11', '2027-03-12'],
+    displayDate: 'March 11–12, 2027',
+    pillText: 'Grants & Funding',
+    pillClass: 'cal-pill-unified',
+    shortTag: 'Grants Packaging',
+    title: 'CHED, DOST, & PCHRD External Grants Proposal Packaging Colloquium',
+    desc: 'Comprehensive grant proposal writing masterclass: line-item budgeting (LIB), gender responsiveness (GAD checklist), milestone deliverable formulation, and external funding compliance.',
+    participants: 'Tenured Faculty Researchers & Interdisciplinary Clusters (MCNP & ISAP Research Leads)',
+    venue: '📍 MCNP-ISAP Multi-Purpose Hall',
+    lead: 'RDC Grants Unit with DOST Region 02 Experts',
+    category: 'grants mcnp isap'
+  },
+  {
+    id: 7,
+    dates: ['2027-04-22', '2027-04-23'],
+    displayDate: 'April 22–23, 2027',
+    pillText: 'Institutional Culmination',
+    pillClass: 'cal-pill-unified',
+    shortTag: 'Research Congress',
+    title: '2027 MCNP & ISAP Annual Institutional Student & Faculty Research Congress',
+    desc: 'Twin-campus oral defense symposium, best undergraduate capstone awards, digital scientific poster competition, and presentation of institutional innovation projects.',
+    participants: 'All Students, Faculty Authors & External Reviewers (University-wide Participation)',
+    venue: '📍 MCNP-ISAP Gymnasium & Breakout Rooms',
+    lead: 'MCNP & ISAP Research Council & Academic Deans',
+    category: 'mcnp isap'
+  }
+];
+
+window.interactiveCalState = {
+  year: 2026,
+  month: 9, // 0-indexed: 9 = October
+  selectedDate: '2026-10-23'
+};
+
+const CAL_MONTH_NAMES = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+];
+
+window.renderInteractiveCalendar = function(year, month) {
+  const grid = document.getElementById('calDaysGrid');
+  const monthLabel = document.getElementById('calCurrentMonthLabel');
+  const jumpSelect = document.getElementById('calMonthJumpSelect');
+  if (!grid || !monthLabel) return;
+
+  window.interactiveCalState.year = year;
+  window.interactiveCalState.month = month;
+
+  monthLabel.textContent = `${CAL_MONTH_NAMES[month]} ${year}`;
+
+  // Sync jump dropdown if matched
+  const ymKey = `${year}-${String(month + 1).padStart(2, '0')}`;
+  if (jumpSelect) {
+    const matchingOption = Array.from(jumpSelect.options).find(opt => opt.value === ymKey);
+    if (matchingOption) {
+      jumpSelect.value = ymKey;
+    }
+  }
+
+  grid.innerHTML = '';
+
+  const firstDayOfWeek = new Date(year, month, 1).getDay(); // 0 = Sun, 6 = Sat
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const prevMonthDays = new Date(year, month, 0).getDate();
+
+  // Preceding month padding days
+  for (let i = firstDayOfWeek - 1; i >= 0; i--) {
+    const cell = document.createElement('div');
+    cell.className = 'cal-day-cell other-month';
+    cell.innerHTML = `<span class="day-number">${prevMonthDays - i}</span>`;
+    grid.appendChild(cell);
+  }
+
+  // Current month days
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dayStr = String(day).padStart(2, '0');
+    const monthStr = String(month + 1).padStart(2, '0');
+    const dateStr = `${year}-${monthStr}-${dayStr}`;
+
+    const cell = document.createElement('div');
+    cell.className = 'cal-day-cell';
+    cell.setAttribute('data-date', dateStr);
+
+    const event = window.trainingCalendarEvents.find(e => e.dates.includes(dateStr));
+
+    if (event) {
+      cell.classList.add('has-event');
+      cell.title = `${event.shortTag}: ${event.title}`;
+    }
+
+    if (dateStr === window.interactiveCalState.selectedDate) {
+      cell.classList.add('selected');
+    }
+
+    let cellHTML = `<span class="day-number">${day}</span>`;
+    if (event) {
+      cellHTML += `<span class="day-event-tag" title="${event.title}">${event.shortTag}</span>`;
+    }
+    cell.innerHTML = cellHTML;
+
+    cell.addEventListener('click', function() {
+      window.selectCalendarDate(dateStr, event);
+    });
+
+    grid.appendChild(cell);
+  }
+
+  // Trailing month padding days to complete grid row (multiple of 7)
+  const totalCells = firstDayOfWeek + daysInMonth;
+  const trailingCells = (7 - (totalCells % 7)) % 7;
+  for (let i = 1; i <= trailingCells; i++) {
+    const cell = document.createElement('div');
+    cell.className = 'cal-day-cell other-month';
+    cell.innerHTML = `<span class="day-number">${i}</span>`;
+    grid.appendChild(cell);
+  }
+};
+
+window.selectCalendarDate = function(dateStr, directEvent) {
+  window.interactiveCalState.selectedDate = dateStr;
+
+  // Highlight selected cell in grid
+  const allCells = document.querySelectorAll('.cal-day-cell:not(.other-month)');
+  allCells.forEach(cell => {
+    if (cell.getAttribute('data-date') === dateStr) {
+      cell.classList.add('selected');
+    } else {
+      cell.classList.remove('selected');
+    }
+  });
+
+  const event = directEvent || window.trainingCalendarEvents.find(e => e.dates.includes(dateStr));
+  const dateHeader = document.getElementById('inspectorSelectedDateLabel');
+  const badgeWrap = document.getElementById('inspectorBadgeWrap');
+  const contentWrap = document.getElementById('inspectorContent');
+
+  if (!contentWrap) return;
+
+  // Format date display (e.g. October 23, 2026)
+  const parts = dateStr.split('-');
+  const y = parseInt(parts[0], 10);
+  const m = parseInt(parts[1], 10) - 1;
+  const d = parseInt(parts[2], 10);
+  const dObj = new Date(y, m, d);
+  const formattedDateTitle = dObj.toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  });
+
+  if (dateHeader) {
+    dateHeader.textContent = formattedDateTitle;
+  }
+
+  if (event) {
+    if (badgeWrap) {
+      badgeWrap.innerHTML = `<span class="cal-pill ${event.pillClass}">${event.pillText}</span>`;
+    }
+
+    contentWrap.innerHTML = `
+      <h4 class="inspector-event-title">${event.title}</h4>
+      <div class="inspector-meta-item">
+        <strong>📅 Schedule:</strong>
+        <span style="font-weight: 700; color: #1e5ea8;">${event.displayDate}</span>
+      </div>
+      <div class="inspector-event-desc">
+        ${event.desc}
+      </div>
+      <div class="inspector-meta-item">
+        <strong>👥 Target:</strong>
+        <span>${event.participants}</span>
+      </div>
+      <div class="inspector-meta-item">
+        <strong>📍 Venue &amp; Lead:</strong>
+        <div>
+          <div>${event.venue}</div>
+          <div style="font-size: 0.8rem; color: #64748b; margin-top: 0.2rem;">${event.lead}</div>
+        </div>
+      </div>
+      <div class="inspector-actions">
+        <button type="button" class="btn btn-sm btn-primary" onclick="window.scrollToTableEvent(${event.id})" style="font-size: 0.82rem; padding: 0.45rem 1rem;">
+          📋 Highlight in Schedule Table
+        </button>
+        <a href="#contact" class="btn btn-sm btn-outline" style="font-size: 0.82rem; padding: 0.45rem 1rem;">
+          💬 Inquire About Workshop
+        </a>
+      </div>
+    `;
+  } else {
+    if (badgeWrap) {
+      badgeWrap.innerHTML = `<span style="font-size: 0.76rem; color: #64748b; font-weight: 600;">No Event Scheduled</span>`;
+    }
+
+    contentWrap.innerHTML = `
+      <div class="inspector-empty">
+        <div class="inspector-empty-icon">📅</div>
+        <div class="inspector-empty-title">No Workshop on This Date</div>
+        <div class="inspector-empty-desc">
+          There are no research trainings scheduled for <strong>${formattedDateTitle}</strong>. You can browse scheduled dates on the calendar or view our next workshop.
+        </div>
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem;">
+          <button type="button" class="btn btn-sm btn-primary" onclick="window.jumpToNextEvent('${dateStr}')" style="font-size: 0.82rem; padding: 0.45rem 0.95rem;">
+            Jump to Next Event &rarr;
+          </button>
+          <a href="#contact" class="btn btn-sm btn-outline" style="font-size: 0.82rem; padding: 0.45rem 0.95rem;">
+            Request Training
+          </a>
+        </div>
+      </div>
+    `;
+  }
+};
+
+window.jumpToCalendarDate = function(dateStr) {
+  const parts = dateStr.split('-');
+  const y = parseInt(parts[0], 10);
+  const m = parseInt(parts[1], 10) - 1;
+
+  window.renderInteractiveCalendar(y, m);
+  window.selectCalendarDate(dateStr);
+
+  const container = document.getElementById('interactiveCalendarSection');
+  if (container) {
+    container.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+};
+
+window.scrollToTableEvent = function(eventId) {
+  const event = window.trainingCalendarEvents.find(e => e.id === eventId);
+  const rows = document.querySelectorAll('.calendar-table tbody tr.calendar-row');
+  if (rows && rows[eventId - 1]) {
+    const targetRow = rows[eventId - 1];
+    targetRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    targetRow.style.transition = 'background-color 0.4s ease';
+    const originalBg = targetRow.style.backgroundColor;
+    targetRow.style.backgroundColor = '#e0f2fe';
+    setTimeout(() => {
+      targetRow.style.backgroundColor = originalBg;
+    }, 1800);
+  }
+};
+
+window.jumpToNextEvent = function(currentDateStr) {
+  // Find next event whose dates are after currentDateStr
+  let nextEvent = window.trainingCalendarEvents.find(e => e.dates[0] > currentDateStr);
+  if (!nextEvent) {
+    // Wrap around to first event
+    nextEvent = window.trainingCalendarEvents[0];
+  }
+  if (nextEvent) {
+    window.jumpToCalendarDate(nextEvent.dates[0]);
+  }
+};
+
+// Initialize interactive calendar when DOM loads
+document.addEventListener('DOMContentLoaded', function() {
+  const calGrid = document.getElementById('calDaysGrid');
+  if (calGrid) {
+    // Render default month (October 2026)
+    window.renderInteractiveCalendar(2026, 9);
+    // Select default date (October 23, 2026)
+    window.selectCalendarDate('2026-10-23');
+
+    // Prev / Next button listeners
+    const prevBtn = document.getElementById('calPrevMonthBtn');
+    const nextBtn = document.getElementById('calNextMonthBtn');
+    const jumpSelect = document.getElementById('calMonthJumpSelect');
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function() {
+        let y = window.interactiveCalState.year;
+        let m = window.interactiveCalState.month - 1;
+        if (m < 0) {
+          m = 11;
+          y--;
+        }
+        window.renderInteractiveCalendar(y, m);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function() {
+        let y = window.interactiveCalState.year;
+        let m = window.interactiveCalState.month + 1;
+        if (m > 11) {
+          m = 0;
+          y++;
+        }
+        window.renderInteractiveCalendar(y, m);
+      });
+    }
+
+    if (jumpSelect) {
+      jumpSelect.addEventListener('change', function() {
+        const val = jumpSelect.value;
+        if (val) {
+          const parts = val.split('-');
+          const y = parseInt(parts[0], 10);
+          const m = parseInt(parts[1], 10) - 1;
+          window.renderInteractiveCalendar(y, m);
+
+          // Find first event in this month if any
+          const monthEvent = window.trainingCalendarEvents.find(e => {
+            return e.dates.some(d => d.startsWith(val));
+          });
+          if (monthEvent) {
+            window.selectCalendarDate(monthEvent.dates[0]);
+          }
+        }
+      });
+    }
+
+    // Connect table rows so clicking any row jumps to calendar
+    const tableRows = document.querySelectorAll('.calendar-table tbody tr.calendar-row');
+    tableRows.forEach((row, idx) => {
+      row.style.cursor = 'pointer';
+      row.title = 'Click to view on interactive date calendar';
+      const eventData = window.trainingCalendarEvents[idx];
+      if (eventData) {
+        row.addEventListener('click', function(e) {
+          // If not clicking a link or button
+          if (e.target.tagName !== 'A' && e.target.tagName !== 'BUTTON') {
+            window.jumpToCalendarDate(eventData.dates[0]);
+          }
+        });
+      }
+    });
+  }
+});
+
 // --- FAQ Filtering, Search & Expand / Collapse ---
 window.toggleAllFaqs = function(expand) {
   const faqCards = document.querySelectorAll('.faq-card');
