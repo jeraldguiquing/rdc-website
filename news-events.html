@@ -372,7 +372,7 @@
       <div class="topbar-right">
         <a href="call-for-proposals.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 700; font-size: 0.78rem;">📢 Calls for Proposals (Open)</a>
         <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;">❓ FAQs</a>
-        <a href="news-events.html#training-calendar" style="color: #ffffff; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">📅 Training Calendar</a>
+        <a href="news-events.html#training-calendar" style="color: #ffffff; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">📅 Schedule Calendar</a>
         <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
       </div>
     </div>
@@ -487,7 +487,7 @@
                   <span class="dropdown-badge badge-mcnp">OPEN</span>
                 </a>
                 <a href="news-events.html#training-calendar" class="dropdown-link">
-                  <span>Research Training Calendar</span>
+                  <span>Research Schedule Calendar</span>
                   <span class="dropdown-badge badge-mcnp">2026–2027</span>
                 </a>
               </div>
@@ -521,7 +521,7 @@
           <span>📢 Calls for Research Proposals (Open) &rarr;</span>
         </a>
         <a href="#training-calendar" class="btn btn-sm btn-outline-white" style="display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600;">
-          <span>📅 View Research Training Calendar (2026–2027) &darr;</span>
+          <span>📅 View Research Schedule Calendar (2026–2027) &darr;</span>
         </a>
         <a href="contact.html#faq" class="btn btn-sm btn-outline-white" style="display: inline-flex; align-items: center; gap: 0.4rem;">
           <span>❓ Research FAQs</span>
@@ -1977,13 +1977,14 @@
     </div>
   
   <!-- ==========================================================================
-       ITEM 24: RESEARCH TRAINING CALENDAR & WORKSHOPS SCHEDULE
+       ITEM 24: RESEARCH SCHEDULE CALENDAR & WORKSHOPS SCHEDULE
        ========================================================================== -->
-  <section class="calendar-section" id="training-calendar">
+  <section class="calendar-section" id="schedule-calendar">
+    <div id="training-calendar" style="position: absolute; margin-top: -80px;"></div>
     <div class="container">
       <div class="section-title-wrap">
         <span class="section-tag">Capability-Building Roadmap</span>
-        <h2 class="section-title">📅 Research Training &amp; Workshop Calendar (2026–2027)</h2>
+        <h2 class="section-title">📅 Research Schedule Calendar (2026–2027)</h2>
         <p class="section-desc">
           Official institutional schedule of research capability-building seminars, statistical clinics, ethics review workshops, and manuscript packaging colloquiums for faculty, researchers, and students across MCNP and ISAP.
         </p>
@@ -2019,12 +2020,12 @@
               <select class="cal-month-select" id="calMonthJumpSelect" aria-label="Jump to Scheduled Month">
                 <option value="2026-08">August 2026 (6 Completed Events)</option>
                 <option value="2026-09">September 2026 (14 Completed Events)</option>
-                <option value="2026-10" selected>October 2026 (1 Roadmap Workshop)</option>
-                <option value="2026-11">November 2026 (1 Roadmap Workshop)</option>
-                <option value="2026-12">December 2026 (1 Roadmap Workshop)</option>
-                <option value="2027-01">January 2027 (1 Roadmap Workshop)</option>
-                <option value="2027-02">February 2027 (1 Roadmap Workshop)</option>
-                <option value="2027-03">March 2027 (1 Roadmap Workshop)</option>
+                <option value="2026-10" selected>October 2026 (1 Scheduled Workshop)</option>
+                <option value="2026-11">November 2026 (1 Scheduled Workshop)</option>
+                <option value="2026-12">December 2026 (1 Scheduled Workshop)</option>
+                <option value="2027-01">January 2027 (1 Scheduled Workshop)</option>
+                <option value="2027-02">February 2027 (1 Scheduled Workshop)</option>
+                <option value="2027-03">March 2027 (1 Scheduled Workshop)</option>
                 <option value="2027-04">April 2027 (1 Research Congress)</option>
                 <option value="2027-05">May 2027</option>
               </select>
@@ -2048,7 +2049,7 @@
           <div class="cal-legend">
             <div class="cal-legend-item">
               <span class="cal-legend-dot has-event-dot"></span>
-              <span>Upcoming Training Roadmap</span>
+              <span>Upcoming Schedule Roadmap</span>
             </div>
             <div class="cal-legend-item">
               <span class="cal-legend-dot past-event-dot"></span>
@@ -2303,7 +2304,7 @@
             <li><a href="journal-admin.html">&rarr; Journal of Admin (FlipBook)</a></li>
             <li><a href="utilization.html">&rarr; Research Utilization</a></li>
             <li><a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer">&rarr; Direct FlipHTML5 ↗</a></li>
-                      <li><a href="news-events.html#training-calendar">&rarr; Research Training Calendar</a></li>
+                      <li><a href="news-events.html#training-calendar">&rarr; Research Schedule Calendar</a></li>
             <li><a href="contact.html#faq">&rarr; Frequently Asked Questions (FAQs)</a></li>
 </ul>
         </div>
@@ -2558,7 +2559,7 @@
           calBtn.type = 'button';
           calBtn.className = 'event-card-cal-btn';
           calBtn.innerHTML = '📅 View Date on Calendar';
-          calBtn.title = 'Jump to ' + ev.date + ' on Research Training Calendar';
+          calBtn.title = 'Jump to ' + ev.date + ' on Research Schedule Calendar';
           calBtn.addEventListener('click', function(e) {
             e.stopPropagation();
             if (window.jumpToCalendarDate) {

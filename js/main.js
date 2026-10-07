@@ -3530,7 +3530,7 @@ window.selectCalendarDate = function(dateStr, directMatchingEvents) {
       itemsHTML += `
         <div class="inspector-multi-event-item">
           <div style="display: flex; gap: 0.4rem; align-items: center; margin-bottom: 0.4rem; flex-wrap: wrap;">
-            ${ev.isPastEvent ? '<span class="cal-pill cal-pill-past">Completed Event</span>' : '<span class="cal-pill cal-pill-mcnp">Roadmap Workshop</span>'}
+            ${ev.isPastEvent ? '<span class="cal-pill cal-pill-past">Completed Event</span>' : '<span class="cal-pill cal-pill-mcnp">Scheduled Workshop</span>'}
             <span class="cal-pill ${ev.pillClass || 'cal-pill-past'}">${ev.pillText}</span>
           </div>
           ${ev.img ? `<img src="${ev.img}" class="inspector-event-thumb" alt="${ev.title}" style="height: 100px;" loading="lazy">` : ''}
