@@ -2828,8 +2828,8 @@ window.initRdcMessengerWidget = function() {
       <div class="rdc-msgr-header">
         <div class="rdc-msgr-brand">
           <div class="rdc-msgr-avatar" aria-hidden="true">
-            <svg viewBox="0 0 28 28" width="20" height="20" fill="currentColor">
-              <path d="M14 2C7.373 2 2 6.955 2 13.067c0 3.483 1.745 6.592 4.475 8.57V26l4.24-2.328c1.036.287 2.138.441 3.285.441 6.627 0 12-4.955 12-11.067C26 6.955 20.627 2 14 2zm1.32 14.887l-3.32-3.54-6.48 3.54 7.127-7.568 3.4 3.54 6.4-3.54-7.127 7.568z"/>
+            <svg viewBox="0 0 36 36" width="22" height="22">
+              <path fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" d="M18 6C11.373 6 6 10.955 6 17.067c0 3.483 1.745 6.592 4.475 8.57V30l4.24-2.328c1.036.287 2.138.441 3.285.441 6.627 0 12-4.955 12-11.067C30 10.955 24.627 6 18 6zm1.32 14.887l-3.32-3.54-6.48 3.54 7.127-7.568 3.4 3.54 6.4-3.54-7.127 7.568z"/>
             </svg>
             <span class="rdc-msgr-avatar-dot"></span>
           </div>
@@ -2859,8 +2859,8 @@ window.initRdcMessengerWidget = function() {
 
       <div class="rdc-msgr-footer">
         <a href="https://m.me/61593412015654" target="_blank" rel="noopener noreferrer" class="rdc-msgr-send-btn">
-          <svg viewBox="0 0 28 28" width="18" height="18" fill="currentColor" aria-hidden="true">
-            <path d="M14 2C7.373 2 2 6.955 2 13.067c0 3.483 1.745 6.592 4.475 8.57V26l4.24-2.328c1.036.287 2.138.441 3.285.441 6.627 0 12-4.955 12-11.067C26 6.955 20.627 2 14 2zm1.32 14.887l-3.32-3.54-6.48 3.54 7.127-7.568 3.4 3.54 6.4-3.54-7.127 7.568z"/>
+          <svg viewBox="0 0 36 36" width="20" height="20" fill="currentColor" aria-hidden="true">
+            <path fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" d="M18 6C11.373 6 6 10.955 6 17.067c0 3.483 1.745 6.592 4.475 8.57V30l4.24-2.328c1.036.287 2.138.441 3.285.441 6.627 0 12-4.955 12-11.067C30 10.955 24.627 6 18 6zm1.32 14.887l-3.32-3.54-6.48 3.54 7.127-7.568 3.4 3.54 6.4-3.54-7.127 7.568z"/>
           </svg>
           <span>Chat on Facebook Messenger</span>
         </a>
@@ -2869,10 +2869,9 @@ window.initRdcMessengerWidget = function() {
     </div>
 
     <button type="button" class="rdc-msgr-trigger" id="rdcMsgrTrigger" aria-label="Open Messenger chat with RDC">
-      <span class="rdc-msgr-badge" aria-hidden="true"></span>
       <span class="rdc-msgr-icon-msgr" aria-hidden="true">
-        <svg viewBox="0 0 28 28" width="28" height="28" fill="white">
-          <path d="M14 2C7.373 2 2 6.955 2 13.067c0 3.483 1.745 6.592 4.475 8.57V26l4.24-2.328c1.036.287 2.138.441 3.285.441 6.627 0 12-4.955 12-11.067C26 6.955 20.627 2 14 2zm1.32 14.887l-3.32-3.54-6.48 3.54 7.127-7.568 3.4 3.54 6.4-3.54-7.127 7.568z"/>
+        <svg viewBox="0 0 36 36" width="34" height="34">
+          <path fill="#ffffff" fill-rule="evenodd" clip-rule="evenodd" d="M18 6C11.373 6 6 10.955 6 17.067c0 3.483 1.745 6.592 4.475 8.57V30l4.24-2.328c1.036.287 2.138.441 3.285.441 6.627 0 12-4.955 12-11.067C30 10.955 24.627 6 18 6zm1.32 14.887l-3.32-3.54-6.48 3.54 7.127-7.568 3.4 3.54 6.4-3.54-7.127 7.568z"/>
         </svg>
       </span>
       <span class="rdc-msgr-icon-close" aria-hidden="true">

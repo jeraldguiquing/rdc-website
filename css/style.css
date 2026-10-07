@@ -6978,12 +6978,12 @@ textarea.form-control {
 
 /* Floating Trigger Button */
 .rdc-msgr-trigger {
-  width: 58px;
-  height: 58px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #00b2fe 0%, #006aff 100%);
+  background: linear-gradient(45deg, #0078ff 0%, #0084ff 20%, #8b2cf5 60%, #e03368 90%, #f04374 100%);
   border: none;
-  box-shadow: 0 4px 18px rgba(0, 106, 255, 0.42);
+  box-shadow: 0 8px 24px rgba(0, 120, 255, 0.35), 0 4px 12px rgba(224, 51, 104, 0.25);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -6997,7 +6997,7 @@ textarea.form-control {
 
 .rdc-msgr-trigger:hover {
   transform: scale(1.08);
-  box-shadow: 0 6px 22px rgba(0, 106, 255, 0.55);
+  box-shadow: 0 12px 30px rgba(0, 120, 255, 0.45), 0 6px 18px rgba(224, 51, 104, 0.35);
 }
 
 .rdc-msgr-trigger:active {
@@ -7147,7 +7147,7 @@ textarea.form-control {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #00b2fe 0%, #006aff 100%);
+  background: linear-gradient(45deg, #0078ff 0%, #0084ff 20%, #8b2cf5 60%, #e03368 90%, #f04374 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7282,7 +7282,7 @@ textarea.form-control {
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  background: linear-gradient(135deg, #00b2fe 0%, #006aff 100%);
+  background: linear-gradient(45deg, #0078ff 0%, #0084ff 20%, #8b2cf5 60%, #e03368 90%, #f04374 100%);
   color: #ffffff !important;
   font-weight: 700;
   font-size: 0.9rem;
