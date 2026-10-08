@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Schedule Calendar (2026–2027) | MCNP &amp; ISAP RDC</title>
+  <meta name="description" content="Official Capability-Building Roadmap, Interactive Monthly Event Calendar, and Workshop Schedule (2026-2027) for the Research & Development Center of MCNP and ISAP.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Research Schedule Calendar (2026–2027) | MCNP &amp; ISAP RDC">
+  <meta property="og:description" content="Official Research Capability-Building Roadmap, Seminars, Workshops, and Academic Calendar for MCNP and ISAP.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/hero-bg.jpg">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Specific styles for Calendar Landing Page */
+    .cal-stats-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .cal-stat-item {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      backdrop-filter: blur(8px);
+    }
+    .cal-stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #ffdf70;
+      line-height: 1;
+      font-family: 'Outfit', sans-serif;
+    }
+    .cal-stat-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 0.35rem;
+    }
+    .cal-stat-sub {
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      margin-top: 0.2rem;
+    }
+    .track-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.75rem;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .track-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+    .track-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+    }
+    .track-card-title {
+      font-size: 1.15rem;
+      color: #0f172a;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    .track-card-desc {
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+    .track-badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: auto;
+    }
+    .track-badge-item {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.25rem 0.55rem;
+      border-radius: 4px;
+      background: #f1f5f9;
+      color: #334155;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-bar-left">
+        <span><i class="fas fa-map-marker-alt"></i> Alimannao Hills, Peñablanca, Cagayan</span>
+        <span><i class="fas fa-envelope"></i> researchoffice@mcnp.edu.ph</span>
+        <span><i class="fas fa-phone"></i> (+63) 998 984 7781</span>
+      </div>
+      <div class="top-bar-right">
+        <a href="calendar.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 700; font-size: 0.78rem;">📅 Schedule Calendar</a>
+        <a href="news-events.html" style="color: #ffffff; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">News &amp; Events</a>
+        <a href="contact.html" style="color: #ffffff; font-weight: 600; font-size: 0.78rem;">Help Desk</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="logo-area">
+        <img src="assets/logo.png" alt="MCNP ISAP RDC Logo" class="site-logo">
+        <div class="logo-text">
+          <span class="logo-title">MCNP &amp; ISAP</span>
+          <span class="logo-sub">Research &amp; Development Center</span>
+        </div>
+      </a>
+
+      <div class="nav-wrapper">
+        <nav class="main-nav">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="index.html" class="nav-link">HOME</a></li>
+
+            <li class="nav-item dropdown">
+              <a href="about-rdc.html" class="nav-link">
+                ABOUT RDC <span class="arrow">&#9662;</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="about-rdc.html" class="dropdown-link">
+                  <span>About RDC (Overview)</span>
+                  <span class="dropdown-badge badge-admin">Overview</span>
+                </a>
+                <a href="about-rdc-mcnp.html" class="dropdown-link">
+                  <span>About RDC MCNP</span>
+                  <span class="dropdown-badge badge-mcnp">MCNP</span>
+                </a>
+                <a href="about-rdc-isap.html" class="dropdown-link">
+                  <span>About RDC ISAP</span>
+                  <span class="dropdown-badge badge-isap">ISAP</span>
+                </a>
+                <a href="about-mcnp.html" class="dropdown-link">
+                  <span>About MCNP</span>
+                  <span class="dropdown-badge badge-mcnp">MCNP</span>
+                </a>
+                <a href="about-isap.html" class="dropdown-link">
+                  <span>About ISAP</span>
+                  <span class="dropdown-badge badge-isap">ISAP</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a href="rdc-agenda.html" class="nav-link">RESEARCH AGENDA</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="call-for-proposals.html" class="nav-link">CALL FOR PROPOSALS</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a href="journal.html" class="nav-link">
+                JOURNALS <span class="arrow">&#9662;</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="journal.html" class="dropdown-link">
+                  <span>All Journals Portal (Overview)</span>
+                  <span class="dropdown-badge badge-admin">ALL</span>
+                </a>
+                <a href="journal-mcnp.html" class="dropdown-link">
+                  <span>MCNP Health &amp; Allied Sciences</span>
+                  <span class="dropdown-badge badge-mcnp">MCNP</span>
+                </a>
+                <a href="journal-isap.html" class="dropdown-link">
+                  <span>ISAP Multidisciplinary Journal</span>
+                  <span class="dropdown-badge badge-isap">ISAP</span>
+                </a>
+                <a href="journal-admin.html" class="dropdown-link">
+                  <span>Journal of Admin (Faculty Research)</span>
+                  <span class="dropdown-badge badge-admin">ADMIN</span>
+                </a>
+                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link" style="border-top: 1px dashed var(--border-color); color: #b89726; font-size: 0.82rem;">
+                  <span>Direct Online FlipBook ↗</span>
+                  <span class="dropdown-badge badge-admin">FlipHTML5</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a href="utilization.html" class="nav-link">UTILIZATION</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a href="news-events.html" class="nav-link active">
+                NEWS &amp; EVENTS <span class="arrow">&#9662;</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="news-events.html" class="dropdown-link">
+                  <span>News &amp; Events Archive</span>
+                  <span class="dropdown-badge badge-admin">NEWS</span>
+                </a>
+                <a href="call-for-proposals.html" class="dropdown-link">
+                  <span>Calls for Research Proposals</span>
+                  <span class="dropdown-badge badge-mcnp">OPEN</span>
+                </a>
+                <a href="calendar.html" class="dropdown-link active" style="font-weight: 700;">
+                  <span>Research Schedule Calendar</span>
+                  <span class="dropdown-badge badge-mcnp">2026–2027</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a href="adg-advocacy.html" class="nav-link">SDG ADVOCACIES</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link">CONTACT</a>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="mobile-toggle" aria-label="Toggle Navigation">&#9776;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> &gt; <a href="news-events.html">Capability-Building</a> &gt; <span>Research Schedule Calendar</span>
+      </div>
+      <span class="badge-pill" style="margin-bottom: 0.75rem; background: rgba(255, 223, 112, 0.2); color: #ffdf70; border: 1px solid rgba(255, 223, 112, 0.4);">ITEM 24: INSTITUTIONAL CAPABILITY-BUILDING ROADMAP</span>
+      <h1>Research Schedule Calendar</h1>
+      <p style="max-width: 820px;">
+        Official 2026–2027 calendar of research seminars, biostatistics clinics, ethics review protocols, grant proposal colloquiums, and annual research congress milestones for MCNP and ISAP.
+      </p>
+
+      <!-- Quick Action Buttons -->
+      <div style="margin-top: 1.75rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <a href="#interactiveCalendarSection" class="btn btn-sm btn-gold" style="display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 700;">
+          <span>📅 Interactive Month Calendar &darr;</span>
+        </a>
+        <a href="#calendarTableSection" class="btn btn-sm btn-outline-white" style="display: inline-flex; align-items: center; gap: 0.4rem;">
+          <span>📋 Schedule Matrix (7 Programs) &darr;</span>
+        </a>
+        <button type="button" onclick="window.print()" class="btn btn-sm btn-outline-white" style="display: inline-flex; align-items: center; gap: 0.4rem;">
+          <span>🖨️ Print Schedule</span>
+        </button>
+        <a href="contact.html?inquiry=training" class="btn btn-sm btn-outline-white" style="display: inline-flex; align-items: center; gap: 0.4rem;">
+          <span>💬 Request Training Session</span>
+        </a>
+      </div>
+
+      <!-- Quick Metrics Strip -->
+      <div class="cal-stats-strip">
+        <div class="cal-stat-item">
+          <div class="cal-stat-number">7</div>
+          <div class="cal-stat-label">Institutional Milestones</div>
+          <div class="cal-stat-sub">Spanning Oct 2026 – Apr 2027</div>
+        </div>
+        <div class="cal-stat-item">
+          <div class="cal-stat-number">20+</div>
+          <div class="cal-stat-label">Completed &amp; Archived Events</div>
+          <div class="cal-stat-sub">Aug – Sep 2026 field documentation</div>
+        </div>
+        <div class="cal-stat-item">
+          <div class="cal-stat-number">100%</div>
+          <div class="cal-stat-label">Academic Faculty &amp; Proponent Reach</div>
+          <div class="cal-stat-sub">Health &amp; Multidisciplinary clusters</div>
+        </div>
+        <div class="cal-stat-item">
+          <div class="cal-stat-number">2</div>
+          <div class="cal-stat-label">Twin Campuses Unified</div>
+          <div class="cal-stat-sub">MCNP Health &amp; ISAP Multidisciplinary</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <main class="section" style="padding-top: 3rem;">
+    <div class="container">
+
+      <!-- ==========================================================================
+           SECTION 1: CALENDAR TOPBAR (FILTERS & REAL-TIME SEARCH)
+           ========================================================================== -->
+      <div class="calendar-topbar" style="margin-bottom: 2rem;">
+        <div class="calendar-filters">
+          <button type="button" class="cal-filter-btn active" data-filter="all" onclick="filterCalendar('all', this)">All Programs (7)</button>
+          <button type="button" class="cal-filter-btn" data-filter="mcnp" onclick="filterCalendar('mcnp', this)">Health Sciences (MCNP)</button>
+          <button type="button" class="cal-filter-btn" data-filter="isap" onclick="filterCalendar('isap', this)">Multidisciplinary (ISAP)</button>
+          <button type="button" class="cal-filter-btn" data-filter="ethics" onclick="filterCalendar('ethics', this)">Ethics &amp; Integrity</button>
+          <button type="button" class="cal-filter-btn" data-filter="stats" onclick="filterCalendar('stats', this)">Biostatistics &amp; Analysis</button>
+          <button type="button" class="cal-filter-btn" data-filter="grants" onclick="filterCalendar('grants', this)">Grants &amp; Packaging</button>
+        </div>
+
+        <div class="calendar-search-box">
+          <span>🔍</span>
+          <input type="text" id="calendarSearchInput" placeholder="Search workshops, speakers, venues...">
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           SECTION 2: INTERACTIVE MONTHLY DATE CALENDAR & EVENT INSPECTOR
+           ========================================================================== -->
+      <div class="section-title-wrap" style="text-align: left; margin-bottom: 1.5rem;">
+        <span class="section-tag">Interactive Date Explorer</span>
+        <h2 class="section-title" style="font-size: 1.85rem; margin-top: 0.35rem;">Click Any Scheduled Date to Inspect Agenda</h2>
+        <p class="section-desc" style="max-width: 100%; margin: 0;">
+          Select a date cell on the monthly calendar grid to view full workshop objectives, target participants, venue details, and lead coordinators in the inspector panel.
+        </p>
+      </div>
+
+      <div class="interactive-cal-container" id="interactiveCalendarSection">
+        <!-- Calendar Grid Card -->
+        <div class="interactive-cal-card">
+          <div class="cal-nav-header">
+            <div class="cal-nav-controls">
+              <button type="button" class="cal-nav-btn" id="calPrevMonthBtn" aria-label="Previous Month">&larr; Prev</button>
+              <h3 class="cal-current-month-label" id="calCurrentMonthLabel">October 2026</h3>
+              <button type="button" class="cal-nav-btn" id="calNextMonthBtn" aria-label="Next Month">Next &rarr;</button>
+            </div>
+            <div>
+              <select class="cal-month-select" id="calMonthJumpSelect" aria-label="Jump to Scheduled Month">
+                <option value="2026-08">August 2026 (6 Completed Events)</option>
+                <option value="2026-09">September 2026 (14 Completed Events)</option>
+                <option value="2026-10" selected>October 2026 (1 Scheduled Workshop)</option>
+                <option value="2026-11">November 2026 (1 Scheduled Workshop)</option>
+                <option value="2026-12">December 2026 (1 Scheduled Workshop)</option>
+                <option value="2027-01">January 2027 (1 Scheduled Workshop)</option>
+                <option value="2027-02">February 2027 (1 Scheduled Workshop)</option>
+                <option value="2027-03">March 2027 (1 Scheduled Workshop)</option>
+                <option value="2027-04">April 2027 (1 Research Congress)</option>
+                <option value="2027-05">May 2027</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="cal-weekdays-row">
+            <span>Sun</span>
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+          </div>
+
+          <div class="cal-days-grid" id="calDaysGrid">
+            <!-- Dynamically populated day cells by main.js -->
+          </div>
+
+          <div class="cal-legend">
+            <div class="cal-legend-item">
+              <span class="cal-legend-dot has-event-dot"></span>
+              <span>Upcoming Schedule Roadmap</span>
+            </div>
+            <div class="cal-legend-item">
+              <span class="cal-legend-dot past-event-dot"></span>
+              <span>Completed Institutional Event</span>
+            </div>
+            <div class="cal-legend-item">
+              <span class="cal-legend-dot selected-dot"></span>
+              <span>Selected Date</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Selected Date Event Inspector Card -->
+        <div class="interactive-cal-inspector" id="calInspectorCard">
+          <div class="inspector-header">
+            <div>
+              <div class="inspector-date-label">Selected Date Details</div>
+              <h3 class="inspector-date-title" id="inspectorSelectedDateLabel">October 23, 2026</h3>
+            </div>
+            <div id="inspectorBadgeWrap">
+              <span class="cal-pill cal-pill-mcnp">MCNP Health Sciences</span>
+            </div>
+          </div>
+
+          <div id="inspectorContent" class="inspector-event-body">
+            <!-- Event details or empty state rendered dynamically by main.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           SECTION 3: FULL WORKSHOP & TRAINING MATRIX (7 PROGRAMS)
+           ========================================================================== -->
+      <div id="calendarTableSection" style="margin-top: 3.5rem; margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+        <div class="section-title-wrap" style="text-align: left; margin-bottom: 1.5rem;">
+          <span class="section-tag">Schedule Matrix</span>
+          <h2 class="section-title" style="font-size: 1.85rem; margin-top: 0.35rem;">Capability-Building Programs Schedule Matrix</h2>
+          <p class="section-desc" style="max-width: 100%; margin: 0;">
+            Click any row to instantly focus and inspect that event on the interactive monthly calendar above.
+          </p>
+        </div>
+
+        <div class="calendar-table-wrap">
+          <table class="calendar-table">
+            <thead>
+              <tr>
+                <th style="width: 140px;">Date &amp; Schedule</th>
+                <th style="width: 360px;">Workshop Title &amp; Scope</th>
+                <th style="width: 240px;">Target Participants</th>
+                <th style="width: 260px;">Venue &amp; Resource Lead</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Row 1: Advanced Biostatistics -->
+              <tr class="calendar-row" data-category="mcnp stats">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">OCT</span>
+                    <span class="cal-date-day">23–24</span>
+                    <span class="cal-date-year">2026</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-mcnp">MCNP Health Sciences</span>
+                  <h4>Advanced Biostatistics &amp; Quantitative Modeling with SPSS and Jamovi</h4>
+                  <div class="cal-title-desc">Hands-on statistical workshop on multivariate regression, survival curve analysis, parametric vs. non-parametric hypothesis testing, and statistical clearance preparation (Form 011).</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">Faculty Researchers &amp; Clinical Advisers</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">Nursing, Pharmacy, Radiologic Technology, Medical Laboratory Science</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 MCNP Computer Lab B &amp; Hybrid Zoom</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: Institutional Biostatistics Unit &amp; Guest Data Scientist</div>
+                </td>
+              </tr>
+
+              <!-- Row 2: Ethics Review -->
+              <tr class="calendar-row" data-category="ethics mcnp isap">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">NOV</span>
+                    <span class="cal-date-day">12–13</span>
+                    <span class="cal-date-year">2026</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-unified">Institutional Unified</span>
+                  <h4>National Research Ethics Protocol Review &amp; PHREB Compliance Seminar</h4>
+                  <div class="cal-title-desc">Standards of the Philippine Health Research Ethics Board (PHREB Level 1), protocol vulnerability assessments, participant informed consent pledges, and expeditious review routing.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">IERC Members, Faculty &amp; Thesis Proponents</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">All Health &amp; Multidisciplinary Academic Programs</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 Audio-Visual Center (AVC) &amp; Livestream</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: Institutional Ethics Review Committee (IERC)</div>
+                </td>
+              </tr>
+
+              <!-- Row 3: Turnitin & Publishing -->
+              <tr class="calendar-row" data-category="isap mcnp grants">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">DEC</span>
+                    <span class="cal-date-day">04</span>
+                    <span class="cal-date-year">2026</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-unified">Institutional Unified</span>
+                  <h4>Turnitin Screening &amp; IMRAD Manuscript Structuring for High-Impact Indexing</h4>
+                  <div class="cal-title-desc">Navigating similarity index thresholds (&le;15%), avoiding mosaic plagiarism, structured abstracts, ORCID registration, and preparing manuscripts for OJS and Scopus/WoS submission.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">Publishing Faculty, Authors &amp; Coordinators</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">MCNP &amp; ISAP Faculty Authors, Journal Editors</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 ISAP Computer Laboratory 1</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: RDC Editorial Secretariat &amp; Plagiarism Officer</div>
+                </td>
+              </tr>
+
+              <!-- Row 4: Qualitative & NVivo -->
+              <tr class="calendar-row" data-category="isap">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">JAN</span>
+                    <span class="cal-date-day">15–16</span>
+                    <span class="cal-date-year">2027</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-isap">ISAP Multidisciplinary</span>
+                  <h4>Qualitative Inquiry, Thematic Analysis &amp; Computer-Assisted Coding (NVivo / MAXQDA)</h4>
+                  <div class="cal-title-desc">Phenomenological methods, narrative inquiries, codebook development, inter-coder reliability, and thematic clustering in social science and criminal justice studies.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">Criminology, Business &amp; Education Faculty</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">ISAP College of Criminal Justice, CBA, CICT, CTE</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 ISAP Amphitheater &amp; Media Studio</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: Senior Qualitative Research Fellows</div>
+                </td>
+              </tr>
+
+              <!-- Row 5: Policy Translation -->
+              <tr class="calendar-row" data-category="isap mcnp">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">FEB</span>
+                    <span class="cal-date-day">19</span>
+                    <span class="cal-date-year">2027</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-unified">Institutional Unified</span>
+                  <h4>Translating Academic Findings into Policy Briefs &amp; Community Utilization Interventions</h4>
+                  <div class="cal-title-desc">The 4 pathways of utilization: transforming clinical and empirical findings into hospital care manuals, municipal ordinances, technology transfer assets, and instructional modules.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">Department Chairs &amp; Community Extension Officers</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">All Academic Deans, Research Directors, LGU Liaisons</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 RDC Boardroom, Administration Building</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: Research Director Dr. Ryan C. Fontanilla</div>
+                </td>
+              </tr>
+
+              <!-- Row 6: External Grants Proposal -->
+              <tr class="calendar-row" data-category="grants mcnp isap">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">MAR</span>
+                    <span class="cal-date-day">11–12</span>
+                    <span class="cal-date-year">2027</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-unified">Grants &amp; Funding</span>
+                  <h4>CHED, DOST, &amp; PCHRD External Grants Proposal Packaging Colloquium</h4>
+                  <div class="cal-title-desc">Comprehensive grant proposal writing masterclass: line-item budgeting (LIB), gender responsiveness (GAD checklist), milestone deliverable formulation, and external funding compliance.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">Tenured Faculty Researchers &amp; Interdisciplinary Clusters</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">MCNP &amp; ISAP Research Leads</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 MCNP-ISAP Multi-Purpose Hall</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: RDC Grants Unit with DOST Region 02 Experts</div>
+                </td>
+              </tr>
+
+              <!-- Row 7: Annual Research Congress -->
+              <tr class="calendar-row" data-category="mcnp isap">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">APR</span>
+                    <span class="cal-date-day">22–23</span>
+                    <span class="cal-date-year">2027</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-unified">Institutional Culmination</span>
+                  <h4>2027 MCNP &amp; ISAP Annual Institutional Student &amp; Faculty Research Congress</h4>
+                  <div class="cal-title-desc">Twin-campus oral defense symposium, best undergraduate capstone awards, digital scientific poster competition, and presentation of institutional innovation projects.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">All Students, Faculty Authors &amp; External Reviewers</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">University-wide Participation</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 MCNP-ISAP Gymnasium &amp; Breakout Rooms</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: MCNP &amp; ISAP Research Council &amp; Academic Deans</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="calendar-callout-footer" style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; padding: 1.25rem 1.5rem; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 8px;">
+          <div style="font-size: 0.88rem; color: #475569;">
+            💡 <strong>Specialized Departmental Training Request:</strong> Need a customized session, biostatistics clinic, or thesis adviser briefing for your program?
+          </div>
+          <div class="calendar-callout-btns" style="display: flex; gap: 0.75rem;">
+            <button type="button" onclick="window.print()" class="btn btn-sm btn-outline-white" style="color: var(--dark-text); border-color: #cbd5e1; font-size: 0.78rem;">🖨️ Print Schedule</button>
+            <a href="contact.html?inquiry=training" class="btn btn-sm btn-gold" style="font-size: 0.78rem;">Contact Secretariat &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           SECTION 4: FOUR CAPABILITY-BUILDING STREAMS
+           ========================================================================== -->
+      <div style="margin-bottom: 3.5rem;">
+        <div class="section-title-wrap" style="text-align: left; margin-bottom: 1.75rem;">
+          <span class="section-tag">Institutional Pathways</span>
+          <h2 class="section-title" style="font-size: 1.85rem; margin-top: 0.35rem;">Four Core Capability-Building Streams</h2>
+          <p class="section-desc" style="max-width: 100%; margin: 0;">
+            Our continuous learning program is categorized into four strategic streams designed to elevate research rigor and societal impact.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+          <!-- Stream 1 -->
+          <div class="track-card">
+            <div>
+              <div class="track-card-icon" style="background: rgba(30, 94, 168, 0.1); color: var(--mcnp-green);">
+                <i class="fas fa-heartbeat"></i>
+              </div>
+              <h3 class="track-card-title">Health &amp; Clinical Sciences</h3>
+              <p class="track-card-desc">
+                Specialized in clinical protocols, hospital and laboratory research, epidemiological sampling, and quantitative health outcome assessments across MCNP programs.
+              </p>
+            </div>
+            <div class="track-badge-list">
+              <span class="track-badge-item">Nursing &amp; MedTech</span>
+              <span class="track-badge-item">Pharmacy &amp; RadTech</span>
+              <span class="track-badge-item">Physical Therapy</span>
+            </div>
+          </div>
+
+          <!-- Stream 2 -->
+          <div class="track-card">
+            <div>
+              <div class="track-card-icon" style="background: rgba(122, 31, 45, 0.1); color: var(--isap-blue);">
+                <i class="fas fa-balance-scale"></i>
+              </div>
+              <h3 class="track-card-title">Multidisciplinary &amp; Social Sciences</h3>
+              <p class="track-card-desc">
+                Focusing on crime prevention, law enforcement policies, computing software architecture, education pedagogy, and entrepreneurship research across ISAP colleges.
+              </p>
+            </div>
+            <div class="track-badge-list">
+              <span class="track-badge-item">Criminal Justice</span>
+              <span class="track-badge-item">Computer Studies (CICT)</span>
+              <span class="track-badge-item">Business &amp; Education</span>
+            </div>
+          </div>
+
+          <!-- Stream 3 -->
+          <div class="track-card">
+            <div>
+              <div class="track-card-icon" style="background: rgba(16, 185, 129, 0.1); color: #059669;">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3 class="track-card-title">Ethics Review &amp; Publication</h3>
+              <p class="track-card-desc">
+                Administering PHREB Level 1 human participant ethics clearance, Turnitin digital originality checks (&le;15%), IMRAD structure refinement, and OJS submission workflows.
+              </p>
+            </div>
+            <div class="track-badge-list">
+              <span class="track-badge-item">PHREB Level 1</span>
+              <span class="track-badge-item">Turnitin Audits</span>
+              <span class="track-badge-item">Double-Blind Peer Review</span>
+            </div>
+          </div>
+
+          <!-- Stream 4 -->
+          <div class="track-card">
+            <div>
+              <div class="track-card-icon" style="background: rgba(212, 175, 55, 0.15); color: #b45309;">
+                <i class="fas fa-award"></i>
+              </div>
+              <h3 class="track-card-title">Grants Packaging &amp; Utilization</h3>
+              <p class="track-card-desc">
+                Guiding proponents in securing competitive external research funding from DOST, CHED, and CVHRDC, followed by policy translation and municipal extension rollouts.
+              </p>
+            </div>
+            <div class="track-badge-list">
+              <span class="track-badge-item">DOST / PCHRD Grants</span>
+              <span class="track-badge-item">CHED Line-Item Budget</span>
+              <span class="track-badge-item">Policy Briefs &amp; Extension</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           SECTION 5: CALL TO ACTION BANNER
+           ========================================================================== -->
+      <div style="background: linear-gradient(135deg, var(--mcnp-green-dark), var(--isap-blue-dark)); border-radius: 16px; padding: 3rem 2rem; color: #fff; text-align: center; margin-bottom: 2rem;">
+        <h3 style="font-size: 1.85rem; color: #ffffff; margin-bottom: 0.75rem;">Ready to Advance Your Research Protocol?</h3>
+        <p style="max-width: 680px; margin: 0 auto 1.75rem; color: #e2e8f0; font-size: 1rem; line-height: 1.7;">
+          Whether preparing for institutional ethics clearance, booking a statistical consultation clinic, or submitting to our peer-reviewed journals, our secretariat is ready to assist you.
+        </p>
+        <div style="display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html?inquiry=training" class="btn btn-gold" style="font-weight: 700; padding: 0.75rem 2rem;">
+            <i class="fas fa-envelope"></i> Inquire or Request Training
+          </a>
+          <a href="call-for-proposals.html" class="btn btn-outline-white" style="padding: 0.75rem 2rem;">
+            <i class="fas fa-file-alt"></i> View Calls for Proposals
+          </a>
+          <a href="news-events.html" class="btn btn-outline-white" style="padding: 0.75rem 2rem;">
+            <i class="fas fa-newspaper"></i> News &amp; Events Highlights
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>MCNP &amp; ISAP <span>RDC</span></h4>
+          <p>Medical Colleges of Northern Philippines &amp; International School of Asia and the Pacific. Fostering research innovation, ethics, and community leadership.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Institutional Portals</h5>
+          <ul class="footer-links">
+            <li><a href="about-mcnp.html">&rarr; MCNP Institution</a></li>
+            <li><a href="about-isap.html">&rarr; ISAP Institution</a></li>
+            <li><a href="about-rdc.html">&rarr; About RDC (Unified)</a></li>
+            <li><a href="about-rdc-mcnp.html">&rarr; MCNP Research Hub</a></li>
+            <li><a href="about-rdc-isap.html">&rarr; ISAP Research Hub</a></li>
+            <li><a href="rdc-agenda.html">&rarr; RDC Research Agenda</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Research &amp; Journals</h5>
+          <ul class="footer-links">
+            <li><a href="journal.html">&rarr; All Journals Portal</a></li>
+            <li><a href="journal-mcnp.html">&rarr; MCNP Health Sciences Journal</a></li>
+            <li><a href="journal-isap.html">&rarr; ISAP Multidisciplinary Journal</a></li>
+            <li><a href="journal-admin.html">&rarr; Journal of Admin (Faculty)</a></li>
+            <li><a href="call-for-proposals.html">&rarr; Calls for Proposals (Item 25)</a></li>
+            <li><a href="calendar.html">&rarr; Research Schedule Calendar</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Secretariat &amp; Help Desk</h5>
+          <p class="footer-contact-info">
+            <strong>RDC Secretariat Office</strong><br>
+            Alimannao Hills, Peñablanca, Cagayan<br>
+            <i class="fas fa-envelope"></i> researchoffice@mcnp.edu.ph<br>
+            <i class="fas fa-phone"></i> (+63) 998 984 7781<br>
+            <i class="fas fa-clock"></i> Mon–Fri: 8:00 AM – 5:00 PM<br>
+            <i class="fas fa-clock"></i> Sat: 8:00 AM – 12:00 PM
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Medical Colleges of Northern Philippines &amp; International School of Asia and the Pacific &bull; Research &amp; Development Center. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script>
+    // Link handler for clicking articles/news from inspector on this standalone landing page
+    window.openEventModalById = function(cardId) {
+      window.location.href = 'news-events.html#' + cardId;
+      return true;
+    };
+    window.scrollToArticleCard = function(cardId) {
+      window.location.href = 'news-events.html#' + cardId;
+    };
+  </script>
+</body>
+</html>
