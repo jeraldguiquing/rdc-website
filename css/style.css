@@ -6232,19 +6232,19 @@ textarea.form-control {
 .cal-pill-mcnp {
   background: #e6f0fa;
   color: #1e5ea8;
-  border: 1px solid #bdd7f5;
+  border: 1px solid #cbd5e1;
 }
 
 .cal-pill-isap {
   background: #fdf2f4;
   color: #7a1f2d;
-  border: 1px solid #f7ccd3;
+  border: 1px solid #cbd5e1;
 }
 
 .cal-pill-unified {
   background: #fef9e7;
   color: #947600;
-  border: 1px solid #f6e59c;
+  border: 1px solid #cbd5e1;
 }
 
 /* ==========================================================================
@@ -6388,7 +6388,7 @@ textarea.form-control {
 
 .cal-day-cell.has-event {
   background: rgba(30, 94, 168, 0.07);
-  border-color: #1e5ea8;
+  border-color: #cbd5e1;
   font-weight: 700;
 }
 
@@ -6545,9 +6545,10 @@ textarea.form-control {
   color: #475569;
   line-height: 1.5;
   background: #f8fafc;
-  border-left: 3px solid #1e5ea8;
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid #cbd5e1;
   padding: 0.75rem 0.95rem;
-  border-radius: 0 8px 8px 0;
+  border-radius: 8px;
 }
 
 .inspector-meta-item {
@@ -6645,12 +6646,12 @@ textarea.form-control {
 .cal-pill-past {
   background: #ecfdf5;
   color: #065f46;
-  border: 1px solid #a7f3d0;
+  border: 1px solid #cbd5e1;
 }
 
 .cal-day-cell.has-past-event {
   background: rgba(13, 92, 58, 0.07);
-  border-color: #0d5c3a;
+  border-color: #cbd5e1;
 }
 
 .cal-day-cell.has-past-event .day-number {
@@ -6691,7 +6692,7 @@ textarea.form-control {
   font-weight: 700;
   color: #1e5ea8;
   background: #f0f7ff;
-  border: 1px solid #bfdbfe;
+  border: 1px solid #cbd5e1;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -6750,7 +6751,7 @@ textarea.form-control {
 .cal-status-open {
   background: #ecfdf5;
   color: #065f46;
-  border: 1px solid #a7f3d0;
+  border: 1px solid #cbd5e1;
 }
 
 .cal-status-open::before {
@@ -6772,7 +6773,7 @@ textarea.form-control {
 .cal-status-upcoming {
   background: #eff6ff;
   color: #1e40af;
-  border: 1px solid #bfdbfe;
+  border: 1px solid #cbd5e1;
 }
 
 .cal-status-scheduled {
@@ -6919,7 +6920,7 @@ textarea.form-control {
 }
 
 .faq-card[open] {
-  border-color: var(--mcnp-green-light);
+  border-color: #cbd5e1;
   box-shadow: 0 8px 24px rgba(30, 94, 168, 0.08);
 }
 
@@ -7004,7 +7005,8 @@ textarea.form-control {
 
 .faq-callout {
   background: #f8fafc;
-  border-left: 4px solid var(--gold);
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #cbd5e1;
   border-radius: 6px;
   padding: 0.9rem 1.15rem;
   margin: 1rem 0;
@@ -7429,7 +7431,7 @@ textarea.form-control {
 .sop-form-link.mcnp-link {
   background: #ffffff;
   color: var(--mcnp-green, #1e5ea8);
-  border: 1px solid rgba(30, 94, 168, 0.25);
+  border: 1px solid #cbd5e1;
 }
 .sop-form-link.mcnp-link:hover {
   background: var(--mcnp-green, #1e5ea8);
@@ -7438,7 +7440,7 @@ textarea.form-control {
 .sop-form-link.isap-link {
   background: #ffffff;
   color: var(--isap-blue, #7a1f2d);
-  border: 1px solid rgba(122, 31, 45, 0.25);
+  border: 1px solid #cbd5e1;
 }
 .sop-form-link.isap-link:hover {
   background: var(--isap-blue, #7a1f2d);
@@ -7447,7 +7449,7 @@ textarea.form-control {
 .sop-form-link.pdf-link {
   background: #ffffff;
   color: #b91c1c;
-  border: 1px solid rgba(185, 28, 28, 0.25);
+  border: 1px solid #cbd5e1;
 }
 .sop-form-link.pdf-link:hover {
   background: #b91c1c;
