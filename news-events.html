@@ -1993,22 +1993,6 @@
         </p>
       </div>
 
-      <div class="calendar-topbar">
-        <div class="calendar-filters">
-          <button type="button" class="cal-filter-btn active" data-filter="all" onclick="filterCalendar('all', this)">All Programs (7)</button>
-          <button type="button" class="cal-filter-btn" data-filter="mcnp" onclick="filterCalendar('mcnp', this)">Health Sciences (MCNP)</button>
-          <button type="button" class="cal-filter-btn" data-filter="isap" onclick="filterCalendar('isap', this)">Multidisciplinary (ISAP)</button>
-          <button type="button" class="cal-filter-btn" data-filter="ethics" onclick="filterCalendar('ethics', this)">Ethics &amp; Integrity</button>
-          <button type="button" class="cal-filter-btn" data-filter="stats" onclick="filterCalendar('stats', this)">Biostatistics &amp; Analysis</button>
-          <button type="button" class="cal-filter-btn" data-filter="grants" onclick="filterCalendar('grants', this)">Grants &amp; Packaging</button>
-        </div>
-
-        <div class="calendar-search-box">
-          <span>🔍</span>
-          <input type="text" id="calendarSearchInput" placeholder="Search workshops, speakers, venues...">
-        </div>
-      </div>
-
       <!-- Interactive Monthly Date Calendar & Event Inspector -->
       <div class="interactive-cal-container" id="interactiveCalendarSection">
         <!-- Calendar Grid Card -->
@@ -2083,8 +2067,34 @@
         </div>
       </div>
 
-      <div class="calendar-table-wrap">
-        <table class="calendar-table">
+      <!-- Schedule Matrix & Registry Table -->
+      <div id="calendarTableSection" style="margin-top: 3.5rem; margin-bottom: 2.5rem; scroll-margin-top: 2rem;">
+        <div class="section-title-wrap" style="text-align: left; margin-bottom: 1.25rem;">
+          <span class="section-tag">Schedule Matrix &amp; Registry</span>
+          <h3 class="section-title" style="font-size: 1.65rem; margin-top: 0.35rem;">📋 Capability-Building Programs Schedule Matrix</h3>
+          <p class="section-desc" style="max-width: 100%; margin: 0;">
+            Filter by focus cluster or search programs. Click any schedule row to highlight and inspect its full curriculum agenda on the interactive monthly calendar above.
+          </p>
+        </div>
+
+        <div class="calendar-topbar" style="margin-bottom: 1.5rem;">
+          <div class="calendar-filters">
+            <button type="button" class="cal-filter-btn active" data-filter="all" onclick="filterCalendar('all', this)">All Programs (7)</button>
+            <button type="button" class="cal-filter-btn" data-filter="mcnp" onclick="filterCalendar('mcnp', this)">Health Sciences (MCNP)</button>
+            <button type="button" class="cal-filter-btn" data-filter="isap" onclick="filterCalendar('isap', this)">Multidisciplinary (ISAP)</button>
+            <button type="button" class="cal-filter-btn" data-filter="ethics" onclick="filterCalendar('ethics', this)">Ethics &amp; Integrity</button>
+            <button type="button" class="cal-filter-btn" data-filter="stats" onclick="filterCalendar('stats', this)">Biostatistics &amp; Analysis</button>
+            <button type="button" class="cal-filter-btn" data-filter="grants" onclick="filterCalendar('grants', this)">Grants &amp; Packaging</button>
+          </div>
+
+          <div class="calendar-search-box">
+            <span>🔍</span>
+            <input type="text" id="calendarSearchInput" placeholder="Search workshops, speakers, venues...">
+          </div>
+        </div>
+
+        <div class="calendar-table-wrap">
+          <table class="calendar-table">
           <thead>
             <tr>
               <th style="width: 140px;">Date &amp; Schedule</th>
@@ -2894,8 +2904,19 @@
       });
     });
 
-    // Deep-link hash scrolling and highlighting
-    if (window.location.hash) {
+    // Deep-link hash scrolling, highlighting, and auto modal opening
+    var urlParams = new URLSearchParams(window.location.search);
+    var eventParam = urlParams.get('event');
+    var hashVal = window.location.hash ? window.location.hash.substring(1) : '';
+    var targetCardId = eventParam || (hashVal && hashVal.startsWith('event-') ? hashVal : null);
+
+    if (targetCardId) {
+      setTimeout(function () {
+        if (typeof window.openEventModalById === 'function') {
+          window.openEventModalById(targetCardId);
+        }
+      }, 350);
+    } else if (window.location.hash) {
       var target = document.querySelector(window.location.hash);
       if (target) {
         setTimeout(function () {

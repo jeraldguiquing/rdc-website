@@ -306,32 +306,13 @@
     <div class="container">
 
       <!-- ==========================================================================
-           SECTION 1: CALENDAR TOPBAR (FILTERS & REAL-TIME SEARCH)
-           ========================================================================== -->
-      <div class="calendar-topbar" style="margin-bottom: 2rem;">
-        <div class="calendar-filters">
-          <button type="button" class="cal-filter-btn active" data-filter="all" onclick="filterCalendar('all', this)">All Programs (7)</button>
-          <button type="button" class="cal-filter-btn" data-filter="mcnp" onclick="filterCalendar('mcnp', this)">Health Sciences (MCNP)</button>
-          <button type="button" class="cal-filter-btn" data-filter="isap" onclick="filterCalendar('isap', this)">Multidisciplinary (ISAP)</button>
-          <button type="button" class="cal-filter-btn" data-filter="ethics" onclick="filterCalendar('ethics', this)">Ethics &amp; Integrity</button>
-          <button type="button" class="cal-filter-btn" data-filter="stats" onclick="filterCalendar('stats', this)">Biostatistics &amp; Analysis</button>
-          <button type="button" class="cal-filter-btn" data-filter="grants" onclick="filterCalendar('grants', this)">Grants &amp; Packaging</button>
-        </div>
-
-        <div class="calendar-search-box">
-          <span>🔍</span>
-          <input type="text" id="calendarSearchInput" placeholder="Search workshops, speakers, venues...">
-        </div>
-      </div>
-
-      <!-- ==========================================================================
-           SECTION 2: INTERACTIVE MONTHLY DATE CALENDAR & EVENT INSPECTOR
+           SECTION 1: INTERACTIVE MONTHLY DATE CALENDAR & EVENT INSPECTOR
            ========================================================================== -->
       <div class="section-title-wrap" style="text-align: left; margin-bottom: 1.5rem;">
         <span class="section-tag">Interactive Date Explorer</span>
-        <h2 class="section-title" style="font-size: 1.85rem; margin-top: 0.35rem;">Click Any Scheduled Date to Inspect Agenda</h2>
+        <h2 class="section-title" style="font-size: 1.85rem; margin-top: 0.35rem;">📅 Interactive Monthly Calendar &amp; Agenda Inspector</h2>
         <p class="section-desc" style="max-width: 100%; margin: 0;">
-          Select a date cell on the monthly calendar grid to view full workshop objectives, target participants, venue details, and lead coordinators in the inspector panel.
+          Select any date cell on the monthly calendar grid to view full workshop objectives, target participants, venue details, and lead coordinators in the inspector panel.
         </p>
       </div>
 
@@ -409,15 +390,32 @@
       </div>
 
       <!-- ==========================================================================
-           SECTION 3: FULL WORKSHOP & TRAINING MATRIX (7 PROGRAMS)
+           SECTION 2: FULL WORKSHOP & TRAINING MATRIX (7 PROGRAMS)
            ========================================================================== -->
-      <div id="calendarTableSection" style="margin-top: 3.5rem; margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
-        <div class="section-title-wrap" style="text-align: left; margin-bottom: 1.5rem;">
-          <span class="section-tag">Schedule Matrix</span>
-          <h2 class="section-title" style="font-size: 1.85rem; margin-top: 0.35rem;">Capability-Building Programs Schedule Matrix</h2>
+      <div id="calendarTableSection" style="margin-top: 4rem; margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+        <div class="section-title-wrap" style="text-align: left; margin-bottom: 1.25rem;">
+          <span class="section-tag">Schedule Matrix &amp; Registry</span>
+          <h2 class="section-title" style="font-size: 1.85rem; margin-top: 0.35rem;">📋 Capability-Building Programs Schedule Matrix</h2>
           <p class="section-desc" style="max-width: 100%; margin: 0;">
-            Click any row to instantly focus and inspect that event on the interactive monthly calendar above.
+            Filter by focus cluster or search programs. Click any schedule row to highlight and inspect its full curriculum agenda on the interactive monthly calendar above.
           </p>
+        </div>
+
+        <!-- Filter Bar & Real-Time Search directly atop the Table -->
+        <div class="calendar-topbar" style="margin-bottom: 1.5rem;">
+          <div class="calendar-filters">
+            <button type="button" class="cal-filter-btn active" data-filter="all" onclick="filterCalendar('all', this)">All Programs (7)</button>
+            <button type="button" class="cal-filter-btn" data-filter="mcnp" onclick="filterCalendar('mcnp', this)">Health Sciences (MCNP)</button>
+            <button type="button" class="cal-filter-btn" data-filter="isap" onclick="filterCalendar('isap', this)">Multidisciplinary (ISAP)</button>
+            <button type="button" class="cal-filter-btn" data-filter="ethics" onclick="filterCalendar('ethics', this)">Ethics &amp; Integrity</button>
+            <button type="button" class="cal-filter-btn" data-filter="stats" onclick="filterCalendar('stats', this)">Biostatistics &amp; Analysis</button>
+            <button type="button" class="cal-filter-btn" data-filter="grants" onclick="filterCalendar('grants', this)">Grants &amp; Packaging</button>
+          </div>
+
+          <div class="calendar-search-box">
+            <span>🔍</span>
+            <input type="text" id="calendarSearchInput" placeholder="Search workshops, speakers, venues...">
+          </div>
         </div>
 
         <div class="calendar-table-wrap">
@@ -778,12 +776,13 @@
   <script>
     // Link handler for clicking articles/news from inspector on this standalone landing page
     window.openEventModalById = function(cardId) {
-      window.location.href = 'news-events.html#' + cardId;
+      window.location.href = 'news-events.html?event=' + encodeURIComponent(cardId) + '#' + encodeURIComponent(cardId);
       return true;
     };
     window.scrollToArticleCard = function(cardId) {
-      window.location.href = 'news-events.html#' + cardId;
+      window.location.href = 'news-events.html#' + encodeURIComponent(cardId);
     };
   </script>
 </body>
 </html>
+

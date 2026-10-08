@@ -2724,12 +2724,33 @@ window.filterCalendar = function(category, btnElement) {
   } else if (emptyMsg) {
     emptyMsg.remove();
   }
+
+  // Also synchronize Interactive Month Calendar with category filter
+  if (category !== 'all' && typeof window.jumpToCalendarDate === 'function') {
+    const matched = (window.trainingCalendarEvents || []).find(e => (e.category || '').includes(category));
+    if (matched && matched.dates && matched.dates[0]) {
+      window.jumpToCalendarDate(matched.dates[0]);
+    }
+  }
 };
 
 window.searchCalendar = function(query) {
   const activeBtn = document.querySelector('.cal-filter-btn.active');
   const category = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
   window.filterCalendar(category, activeBtn);
+
+  // If search query matches an upcoming event title, jump calendar to it
+  const cleanQ = (query || '').toLowerCase().trim();
+  if (cleanQ.length >= 3 && typeof window.jumpToCalendarDate === 'function') {
+    const matched = (window.trainingCalendarEvents || []).find(e =>
+      e.title.toLowerCase().includes(cleanQ) ||
+      e.desc.toLowerCase().includes(cleanQ) ||
+      (e.shortTag && e.shortTag.toLowerCase().includes(cleanQ))
+    );
+    if (matched && matched.dates && matched.dates[0]) {
+      window.jumpToCalendarDate(matched.dates[0]);
+    }
+  }
 };
 
 // --- Interactive Monthly Date Calendar & Event Inspector ---
@@ -3490,7 +3511,7 @@ window.selectCalendarDate = function(dateStr, directMatchingEvents) {
           <button type="button" class="btn btn-sm btn-primary" onclick="window.scrollToTableEvent(${event.id})" style="font-size: 0.82rem; padding: 0.45rem 1rem;">
             📋 Highlight in Schedule Table
           </button>
-          <a href="#contact" class="btn btn-sm btn-outline" style="font-size: 0.82rem; padding: 0.45rem 1rem;">
+          <a href="contact.html?inquiry=training" class="btn btn-sm btn-outline" style="font-size: 0.82rem; padding: 0.45rem 1rem;">
             💬 Inquire About Workshop
           </a>
         </div>
@@ -3572,7 +3593,7 @@ window.selectCalendarDate = function(dateStr, directMatchingEvents) {
           <button type="button" class="btn btn-sm btn-primary" onclick="window.jumpToNextEvent('${dateStr}')" style="font-size: 0.82rem; padding: 0.45rem 0.95rem;">
             Jump to Next Event &rarr;
           </button>
-          <a href="#contact" class="btn btn-sm btn-outline" style="font-size: 0.82rem; padding: 0.45rem 0.95rem;">
+          <a href="contact.html?inquiry=training" class="btn btn-sm btn-outline" style="font-size: 0.82rem; padding: 0.45rem 0.95rem;">
             Request Training
           </a>
         </div>
@@ -3580,6 +3601,41 @@ window.selectCalendarDate = function(dateStr, directMatchingEvents) {
     `;
   }
 };
+
+// Global fallback methods for cross-linking calendar to event modal & highlights grid
+if (typeof window.openEventModalById !== 'function') {
+  window.openEventModalById = function(cardId) {
+    const card = document.getElementById(cardId);
+    if (card && typeof window.openModal === 'function') {
+      const events = window.newsEventsList || [];
+      const idx = events.findIndex(e => e.id === cardId);
+      if (idx !== -1) {
+        window.openModal(idx);
+        return true;
+      }
+    }
+    window.location.href = 'news-events.html?event=' + encodeURIComponent(cardId) + '#' + encodeURIComponent(cardId);
+    return true;
+  };
+}
+
+if (typeof window.scrollToArticleCard !== 'function') {
+  window.scrollToArticleCard = function(cardId) {
+    const card = document.getElementById(cardId);
+    if (card) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      card.style.transition = 'box-shadow 0.3s ease, outline 0.3s ease';
+      card.style.outline = '3px solid #0d5c3a';
+      card.style.boxShadow = '0 0 25px rgba(13, 92, 58, 0.4)';
+      setTimeout(() => {
+        card.style.outline = '';
+        card.style.boxShadow = '';
+      }, 2500);
+      return;
+    }
+    window.location.href = 'news-events.html#' + encodeURIComponent(cardId);
+  };
+}
 
 window.jumpToCalendarDate = function(dateStr) {
   const parts = dateStr.split('-');
@@ -3596,35 +3652,66 @@ window.jumpToCalendarDate = function(dateStr) {
 };
 
 window.scrollToTableEvent = function(eventId) {
-  const event = window.trainingCalendarEvents.find(e => e.id === eventId);
+  // Ensure table filters don't hide the target row
+  const allFilterBtn = document.querySelector('.cal-filter-btn[data-filter="all"]');
+  if (allFilterBtn && !allFilterBtn.classList.contains('active')) {
+    window.filterCalendar('all', allFilterBtn);
+  }
+  const searchInput = document.getElementById('calendarSearchInput');
+  if (searchInput && searchInput.value) {
+    searchInput.value = '';
+    window.filterCalendar('all', allFilterBtn);
+  }
+
   const rows = document.querySelectorAll('.calendar-table tbody tr.calendar-row');
   if (rows && rows[eventId - 1]) {
     const targetRow = rows[eventId - 1];
     targetRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    targetRow.style.transition = 'background-color 0.4s ease';
+    targetRow.style.transition = 'background-color 0.4s ease, box-shadow 0.4s ease';
     const originalBg = targetRow.style.backgroundColor;
     targetRow.style.backgroundColor = '#e0f2fe';
+    targetRow.style.boxShadow = '0 0 15px rgba(30, 94, 168, 0.35)';
     setTimeout(() => {
       targetRow.style.backgroundColor = originalBg;
-    }, 1800);
+      targetRow.style.boxShadow = '';
+    }, 2000);
   }
 };
 
+// Chronological event jumping
 window.jumpToNextEvent = function(currentDateStr) {
-  const allEvents = window.getAllCalendarEvents();
-  // Find next event whose dates are after currentDateStr
+  const allEvents = window.getAllCalendarEvents()
+    .slice()
+    .sort((a, b) => (a.dates[0] || '').localeCompare(b.dates[0] || ''));
+
+  // Find next event whose start date is strictly after currentDateStr
   let nextEvent = allEvents.find(e => e.dates[0] > currentDateStr);
   if (!nextEvent) {
-    // Wrap around to first event
+    // Loop back to earliest event
     nextEvent = allEvents[0];
   }
-  if (nextEvent) {
+  if (nextEvent && nextEvent.dates && nextEvent.dates[0]) {
     window.jumpToCalendarDate(nextEvent.dates[0]);
   }
 };
 
+// Select the first chronological event in a given month, or the 1st of the month if none
+window.selectFirstEventOrDayInMonth = function(year, month) {
+  const ymKey = `${year}-${String(month + 1).padStart(2, '0')}`;
+  const allEvents = window.getAllCalendarEvents();
+  const monthEvents = allEvents
+    .filter(e => e.dates && e.dates.some(d => d.startsWith(ymKey)))
+    .sort((a, b) => (a.dates[0] || '').localeCompare(b.dates[0] || ''));
+
+  if (monthEvents.length > 0) {
+    window.selectCalendarDate(monthEvents[0].dates[0], [monthEvents[0]]);
+  } else {
+    window.selectCalendarDate(`${ymKey}-01`, []);
+  }
+};
+
 // Initialize interactive calendar when DOM loads
-document.addEventListener('DOMContentLoaded', function() {
+function initInteractiveCalendar() {
   const calGrid = document.getElementById('calDaysGrid');
   if (calGrid) {
     // Render default month (October 2026)
@@ -3646,6 +3733,7 @@ document.addEventListener('DOMContentLoaded', function() {
           y--;
         }
         window.renderInteractiveCalendar(y, m);
+        window.selectFirstEventOrDayInMonth(y, m);
       });
     }
 
@@ -3658,6 +3746,7 @@ document.addEventListener('DOMContentLoaded', function() {
           y++;
         }
         window.renderInteractiveCalendar(y, m);
+        window.selectFirstEventOrDayInMonth(y, m);
       });
     }
 
@@ -3669,14 +3758,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const y = parseInt(parts[0], 10);
           const m = parseInt(parts[1], 10) - 1;
           window.renderInteractiveCalendar(y, m);
-
-          // Find first event in this month if any
-          const monthEvent = window.getAllCalendarEvents().find(e => {
-            return e.dates.some(d => d.startsWith(val));
-          });
-          if (monthEvent) {
-            window.selectCalendarDate(monthEvent.dates[0]);
-          }
+          window.selectFirstEventOrDayInMonth(y, m);
         }
       });
     }
@@ -3689,7 +3771,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const eventData = window.trainingCalendarEvents[idx];
       if (eventData) {
         row.addEventListener('click', function(e) {
-          // If not clicking a link or button
           if (e.target.tagName !== 'A' && e.target.tagName !== 'BUTTON') {
             window.jumpToCalendarDate(eventData.dates[0]);
           }
@@ -3697,7 +3778,13 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initInteractiveCalendar);
+} else {
+  initInteractiveCalendar();
+}
 
 // --- FAQ Filtering, Search & Expand / Collapse ---
 window.toggleAllFaqs = function(expand) {
