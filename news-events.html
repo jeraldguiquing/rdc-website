@@ -2548,7 +2548,7 @@
           strip.className = 'card-sdg-strip';
           strip.innerHTML = '<span class="card-sdg-label">SDGs:</span>' + ev.sdgs.map(function (n) {
             var name = SDG_NAMES[n] || ('SDG ' + n);
-            return '<a href="adg-advocacy.html?goal=' + n + '" class="card-sdg-badge" title="SDG ' + n + ': ' + name + '" target="_blank" rel="noopener" onclick="event.stopPropagation();">' +
+            return '<a href="sdg-overview.html?goal=' + n + '" class="card-sdg-badge" title="SDG ' + n + ': ' + name + '" target="_blank" rel="noopener" onclick="event.stopPropagation();">' +
               '<img src="' + getSdgIcon(n) + '" alt="SDG ' + n + ': ' + name + '" loading="lazy">' +
             '</a>';
           }).join('');
@@ -2623,7 +2623,7 @@
         var name = SDG_NAMES[n] || ('SDG ' + n);
         var chip = document.createElement('a');
         chip.className = 'event-sdg-chip';
-        chip.href = 'adg-advocacy.html?goal=' + n;
+        chip.href = 'sdg-overview.html?goal=' + n;
         chip.target = '_blank';
         chip.rel = 'noopener';
         chip.title = 'SDG ' + n + ': ' + name;
