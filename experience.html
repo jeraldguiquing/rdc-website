@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Research Experience &amp; Accomplishments | MCNP &amp; ISAP RDC</title>
+  <meta name="description" content="Explore the MCNP &amp; ISAP RDC research experience: video documentaries, clinical and laboratory investigations, student achievements, and community extension milestones.">
+  <link rel="icon" type="image/png" href="assets/rdc-logo.png">
+  <link rel="apple-touch-icon" href="assets/rdc-logo.png">
+
+  <!-- Open Graph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Research Experience &amp; Accomplishments | MCNP &amp; ISAP RDC">
+  <meta property="og:description" content="Discover student and faculty research journeys, laboratory discoveries, and video documentaries across the Twin Institutions.">
+  <meta property="og:image" content="assets/rdc-logo.png">
+  <meta property="og:site_name" content="MCNP &amp; ISAP RDC">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Experience Page Custom Styles */
+    .experience-hero {
+      background: linear-gradient(135deg, #0b2545 0%, #1e3a8a 60%, #0d5c3a 100%);
+      color: #ffffff;
+      padding: 3.5rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .experience-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(255,223,112,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .experience-hero h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0.5rem 0 1rem;
+      color: #ffffff;
+    }
+    .experience-hero p {
+      font-size: 1.1rem;
+      max-width: 780px;
+      line-height: 1.7;
+      color: #e2e8f0;
+      margin: 0;
+    }
+
+    /* Video Theater Section */
+    .video-theater {
+      background: #0f172a;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      margin-bottom: 3.5rem;
+    }
+    .video-theater-header {
+      padding: 1.25rem 2rem;
+      background: rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .video-theater-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.25rem;
+      color: #ffffff;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .video-screen-container {
+      position: relative;
+      background: #000000;
+      width: 100%;
+    }
+    .video-player {
+      width: 100%;
+      max-height: 540px;
+      display: block;
+      outline: none;
+    }
+    .video-theater-body {
+      padding: 2rem;
+      color: #e2e8f0;
+      background: #0b1528;
+    }
+    .video-theater-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 860px) {
+      .video-theater-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Experience Journey Cards */
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 3.5rem;
+    }
+    .exp-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .exp-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+    }
+    .exp-img-wrap {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      background: #0f172a;
+    }
+    .exp-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .exp-card:hover .exp-img-wrap img {
+      transform: scale(1.05);
+    }
+    .exp-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+    .exp-body {
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .exp-body h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.35rem;
+      line-height: 1.3;
+      margin: 0 0 0.75rem;
+      color: #0f172a;
+    }
+    .exp-body p {
+      font-size: 0.94rem;
+      line-height: 1.65;
+      color: #475569;
+      margin: 0 0 1.25rem;
+    }
+
+    /* Testimonial Quote Cards */
+    .quote-card {
+      background: #f8fafc;
+      border-left: 4px solid var(--gold, #d97706);
+      border-radius: 0 12px 12px 0;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .quote-text {
+      font-style: italic;
+      color: #334155;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+    .quote-author {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 0.88rem;
+    }
+    .quote-role {
+      font-size: 0.78rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Institutional Bar -->
+  <header class="topbar">
+    <div class="container">
+      <div class="topbar-info">
+        <span>📍 Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
+        <span>✉️ <a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
+        <span>📞 (+63) 998 9847 781</span>
+      </div>
+      <div class="topbar-right">
+        <a href="call-for-proposals.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 700; font-size: 0.78rem;">📢 Calls for Proposals (Open)</a>
+        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;">❓ FAQs</a>
+        <a href="calendar.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">📅 Schedule Calendar</a>
+        <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navigation Header -->
+  <header class="main-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="brand-wrapper">
+          <div class="brand-logos">
+            <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.png" alt="MCNP and ISAP" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific">
+          </div>
+          <div class="brand-text">
+            <h1>MCNP <span>&amp; ISAP</span> RDC</h1>
+            <p>Research &amp; Development Center</p>
+          </div>
+        </a>
+
+        <nav class="main-nav" aria-label="Main Navigation">
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">HOME</a>
+            </li>
+
+            <!-- Dropdown: ABOUT INSTITUTION -->
+            <li class="nav-item dropdown">
+              <a href="about-mcnp.html" class="nav-link">
+                ABOUT INSTITUTION <span class="arrow">&#9662;</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="about-mcnp.html" class="dropdown-link">
+                  <span>Medical Colleges of Northern Philippines</span>
+                  <span class="dropdown-badge badge-mcnp">MCNP</span>
+                </a>
+                <a href="about-isap.html" class="dropdown-link">
+                  <span>International School of Asia and the Pacific</span>
+                  <span class="dropdown-badge badge-isap">ISAP</span>
+                </a>
+              </div>
+            </li>
+
+            <!-- Dropdown: ABOUT RDC -->
+            <li class="nav-item dropdown">
+              <a href="about-rdc.html" class="nav-link">
+                ABOUT RDC <span class="arrow">&#9662;</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="about-rdc.html" class="dropdown-link">
+                  <span>About RDC (Unified Overview)</span>
+                  <span class="dropdown-badge badge-admin">ALL</span>
+                </a>
+                <a href="about-rdc-mcnp.html" class="dropdown-link">
+                  <span>MCNP Health Research Wing</span>
+                  <span class="dropdown-badge badge-mcnp">MCNP</span>
+                </a>
+                <a href="about-rdc-isap.html" class="dropdown-link">
+                  <span>ISAP Multidisciplinary Wing</span>
+                  <span class="dropdown-badge badge-isap">ISAP</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a href="rdc-agenda.html" class="nav-link">RDC AGENDA</a>
+            </li>
+
+            <!-- Dropdown: JOURNAL -->
+            <li class="nav-item dropdown">
+              <a href="journal.html" class="nav-link">
+                JOURNALS <span class="arrow">&#9662;</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="journal.html" class="dropdown-link">
+                  <span>All Journals Portal (Overview)</span>
+                  <span class="dropdown-badge badge-admin">ALL</span>
+                </a>
+                <a href="journal-mcnp.html" class="dropdown-link">
+                  <span>MCNP Health &amp; Allied Sciences</span>
+                  <span class="dropdown-badge badge-mcnp">MCNP</span>
+                </a>
+                <a href="journal-isap.html" class="dropdown-link">
+                  <span>ISAP Multidisciplinary Journal</span>
+                  <span class="dropdown-badge badge-isap">ISAP</span>
+                </a>
+                <a href="journal-admin.html" class="dropdown-link">
+                  <span>Journal of Admin (Faculty Research)</span>
+                  <span class="dropdown-badge badge-admin">ADMIN</span>
+                </a>
+                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link" style="border-top: 1px dashed var(--border-color); color: #b89726; font-size: 0.82rem;">
+                  <span>Direct Online FlipBook ↗</span>
+                  <span class="dropdown-badge badge-admin">FlipHTML5</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a href="utilization.html" class="nav-link">UTILIZATION</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="experience.html" class="nav-link active">EXPERIENCE</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a href="news-events.html" class="nav-link">
+                NEWS &amp; EVENTS <span class="arrow">&#9662;</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="news-events.html" class="dropdown-link">
+                  <span>News &amp; Events Archive</span>
+                  <span class="dropdown-badge badge-admin">NEWS</span>
+                </a>
+                <a href="call-for-proposals.html" class="dropdown-link">
+                  <span>Calls for Research Proposals</span>
+                  <span class="dropdown-badge badge-mcnp">OPEN</span>
+                </a>
+                <a href="calendar.html" class="dropdown-link">
+                  <span>Research Schedule Calendar</span>
+                  <span class="dropdown-badge badge-mcnp">2026–2027</span>
+                </a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a href="adg-advocacy.html" class="nav-link">SDG ADVOCACIES</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link">CONTACT</a>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="mobile-toggle" aria-label="Toggle Navigation">&#9776;</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="experience-hero">
+    <div class="container">
+      <div class="breadcrumbs" style="color: #cbd5e1; margin-bottom: 1.25rem;">
+        <a href="index.html" style="color: #ffdf70;">Home</a> &gt; <span>Research Experience</span>
+      </div>
+      <span class="section-tag" style="background: rgba(255,255,255,0.12); color: #ffdf70; border-color: rgba(255,223,112,0.3);">IMMERSIVE INQUIRY &amp; ACCOMPLISHMENTS</span>
+      <h1>The RDC Research Experience</h1>
+      <p>
+        Witness how faculty clinicians, undergraduate investigators, and community partners transform curiosity into impact. Explore documentary videos, clinical breakthroughs, and student research journeys across MCNP and ISAP.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="section">
+    <div class="container">
+
+      <!-- Section 1: Video Theater -->
+      <div class="section-title-wrap" style="text-align: left; margin-bottom: 1.75rem;">
+        <span class="section-tag">Institutional Media Showcase</span>
+        <h2 class="section-title" style="margin-bottom: 0.5rem;">Documentary Video Accomplishments</h2>
+        <p class="section-desc" style="margin: 0; text-align: left;">Watch the official institutional AVR, research milestones, and educational vision of our Twin Institutions.</p>
+      </div>
+
+      <div class="video-theater">
+        <div class="video-theater-header">
+          <h3 class="video-theater-title">
+            <i class="fa-solid fa-circle-play" style="color: #ffdf70;"></i>
+            MCNP &amp; ISAP Institutional Audio-Visual Presentation &amp; Research Hymn
+          </h3>
+          <span class="dropdown-badge badge-mcnp" style="font-size: 0.75rem; padding: 0.35rem 0.8rem;">OFFICIAL AVR • 2026 EDITION</span>
+        </div>
+
+        <div class="video-screen-container">
+          <video controls playsinline preload="metadata" class="video-player" poster="upload/community-assessment-1.jpg">
+            <source src="https://www.mcnp.edu.ph/wp-content/uploads/2026/09/MCNP-AVR-REVISE-1.mp4" type="video/mp4">
+            Your browser does not support HTML5 video streaming.
+          </video>
+        </div>
+
+        <div class="video-theater-body">
+          <div class="video-theater-grid">
+            <div>
+              <h4 style="font-family: 'Oswald', sans-serif; font-size: 1.35rem; color: #fff; margin: 0 0 0.75rem;">
+                Empowering Minds, Advancing Healthcare, and Building Tomorrow
+              </h4>
+              <p style="font-size: 0.95rem; line-height: 1.7; color: #94a3b8; margin-bottom: 1.25rem;">
+                This documentary captures the institutional journey of the Medical Colleges of Northern Philippines (MCNP) and International School of Asia and the Pacific (ISAP). It highlights state-of-the-art laboratory simulations, faculty research initiatives, academic excellence in medical and criminal justice disciplines, and dedicated community extension programs across Northern Luzon.
+              </p>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span class="dropdown-badge" style="background: rgba(255,255,255,0.1); color: #ffdf70;">SDG 3: Health</span>
+                <span class="dropdown-badge" style="background: rgba(255,255,255,0.1); color: #38bdf8;">SDG 4: Quality Education</span>
+                <span class="dropdown-badge" style="background: rgba(255,255,255,0.1); color: #4ade80;">SDG 9: Innovation</span>
+                <span class="dropdown-badge" style="background: rgba(255,255,255,0.1); color: #f472b6;">SDG 17: Partnerships</span>
+              </div>
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 1.25rem; border: 1px solid rgba(255, 255, 255, 0.1);">
+              <h5 style="font-family: 'Oswald', sans-serif; color: #ffdf70; font-size: 1rem; margin: 0 0 0.75rem; text-transform: uppercase;">Production Credits</h5>
+              <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; color: #cbd5e1; display: grid; gap: 0.45rem;">
+                <li><strong>Institution:</strong> MCNP &amp; ISAP RDC</li>
+                <li><strong>Campus:</strong> Alimannao Hills, Peñablanca</li>
+                <li><strong>Director:</strong> RDC Institutional Media Wing</li>
+                <li><strong>Format:</strong> High-Definition 1080p Stream</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Core Experience Pillars -->
+      <div class="section-title-wrap" style="text-align: center; margin-bottom: 2.5rem;">
+        <span class="section-tag">Hands-On Investigation</span>
+        <h2 class="section-title">Four Pillars of the Research Experience</h2>
+        <p class="section-desc">From theoretical inquiry in the classroom to diagnostic labs, criminalistics simulators, and rural communities.</p>
+      </div>
+
+      <div class="exp-grid">
+        <!-- Pillar 1 -->
+        <article class="exp-card">
+          <div class="exp-img-wrap">
+            <img src="upload/community-assessment-1.jpg" alt="Community Needs Assessment Experience" loading="lazy">
+            <span class="exp-badge" style="background: #0d5c3a; color: #fff;">Community Immersion</span>
+          </div>
+          <div class="exp-body">
+            <h3>Evidence-Based Extension Caravans</h3>
+            <p>
+              Students and faculty step into partner barangays to conduct baseline surveys, health screenings, and needs assessments. Every study informs actual municipal public health programs and community extension services.
+            </p>
+            <div style="margin-top: auto;">
+              <a href="news-events.html#event-community-needs-assessment" class="btn btn-sm btn-outline-white" style="color: #0f172a; border-color: #cbd5e1; font-weight: 700;">View Community Story &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pillar 2 -->
+        <article class="exp-card">
+          <div class="exp-img-wrap">
+            <img src="upload/data-interpretation-5.jpg" alt="Statistical Analytics and Data Interpretation" loading="lazy">
+            <span class="exp-badge" style="background: #1e3a8a; color: #fff;">Analytical Skills</span>
+          </div>
+          <div class="exp-body">
+            <h3>Data Literacy &amp; Infographics Competitions</h3>
+            <p>
+              Students sharpen critical thinking and data interpretation skills through the annual Statistical Month competitions, transforming raw epidemiological and social data into compelling visual narratives.
+            </p>
+            <div style="margin-top: auto;">
+              <a href="news-events.html#event-data-infographics" class="btn btn-sm btn-outline-white" style="color: #0f172a; border-color: #cbd5e1; font-weight: 700;">Explore Competition Story &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pillar 3 -->
+        <article class="exp-card">
+          <div class="exp-img-wrap">
+            <img src="upload/poster-activity-1.jpg" alt="Visual Analytics through Art" loading="lazy">
+            <span class="exp-badge" style="background: #d97706; color: #fff;">Creative Analytics</span>
+          </div>
+          <div class="exp-body">
+            <h3>Creative Science Communication</h3>
+            <p>
+              Breaking down complex scientific findings into accessible visual art and posters. Students learn to communicate research not only to academics, but to policymakers, patients, and citizens.
+            </p>
+            <div style="margin-top: auto;">
+              <a href="news-events.html#event-poster-making-activity" class="btn btn-sm btn-outline-white" style="color: #0f172a; border-color: #cbd5e1; font-weight: 700;">View Art Gallery &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pillar 4 -->
+        <article class="exp-card">
+          <div class="exp-img-wrap">
+            <img src="upload/tourism-defense-1.jpg" alt="SDG Research Snap and Defense" loading="lazy">
+            <span class="exp-badge" style="background: #7b1113; color: #fff;">Global Alignment</span>
+          </div>
+          <div class="exp-body">
+            <h3>SDG SPOT @ RDC Research Snap</h3>
+            <p>
+              Every thesis defense is linked with specific United Nations Sustainable Development Goals. Undergraduates articulate how their capstone projects directly solve local challenges under the UN 2030 agenda.
+            </p>
+            <div style="margin-top: auto;">
+              <a href="adg-advocacy.html" class="btn btn-sm btn-outline-white" style="color: #0f172a; border-color: #cbd5e1; font-weight: 700;">Explore SDG Advocacies &rarr;</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Section 3: Testimonials and Voices -->
+      <div style="background: #f1f5f9; border-radius: 20px; padding: 3rem 2.5rem; margin-bottom: 3.5rem; border: 1px solid #e2e8f0;">
+        <div class="section-title-wrap" style="margin-bottom: 2rem;">
+          <span class="section-tag">Voices of Discovery</span>
+          <h2 class="section-title">Researcher Voices &amp; Reflections</h2>
+          <p class="section-desc">What faculty clinicians and student investigators say about their RDC journey.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+          <div class="quote-card">
+            <p class="quote-text">
+              "Research at MCNP taught us that laboratory diagnostics isn't just about passing tests—it's about discovering indigenous antimicrobials that could save lives in our rural clinics."
+            </p>
+            <div class="quote-author">A. R. Pascual, RMT, MSMLS</div>
+            <div class="quote-role">Faculty Clinician &amp; Published Researcher (MCNP Health Journal)</div>
+          </div>
+
+          <div class="quote-card" style="border-left-color: #1e3a8a;">
+            <p class="quote-text">
+              "Defending our research proposal through the SDG SPOT framework showed our team that even as students, our findings on community policing directly influence municipal peace and order policies."
+            </p>
+            <div class="quote-author">R. S. Duldulao, Ph.D. Crim</div>
+            <div class="quote-role">Lead Investigator, ISAP College of Criminal Justice Education</div>
+          </div>
+
+          <div class="quote-card" style="border-left-color: #0d5c3a;">
+            <p class="quote-text">
+              "Participating in the Data Interpretation competition helped me see statistics as storytelling. We took complicated health survey numbers and turned them into infographics everyone can understand."
+            </p>
+            <div class="quote-author">Levi Mae Afali</div>
+            <div class="quote-role">Champion, Statistical Month 2026 Data Interpretation (BSN Student)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Institutional Research Impact Strip -->
+      <div class="news-impact-strip" style="margin-bottom: 3.5rem;">
+        <div class="news-impact-item">
+          <div class="news-impact-icon">📅</div>
+          <div>
+            <div class="news-impact-number">55+</div>
+            <div class="news-impact-label">Documented Events</div>
+          </div>
+        </div>
+        <div class="news-impact-item">
+          <div class="news-impact-icon">🎯</div>
+          <div>
+            <div class="news-impact-number">17</div>
+            <div class="news-impact-label">UN SDGs Addressed</div>
+          </div>
+        </div>
+        <div class="news-impact-item">
+          <div class="news-impact-icon">📚</div>
+          <div>
+            <div class="news-impact-number">8+</div>
+            <div class="news-impact-label">Official Journals</div>
+          </div>
+        </div>
+        <div class="news-impact-item">
+          <div class="news-impact-icon">🏆</div>
+          <div>
+            <div class="news-impact-number">100%</div>
+            <div class="news-impact-label">Ethical Research Review</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Call to Action -->
+      <div style="background: linear-gradient(135deg, #0b2545 0%, #1e5ea8 100%); border-radius: 20px; padding: 3rem 2rem; color: #ffffff; text-align: center; box-shadow: 0 10px 30px rgba(11, 37, 69, 0.2);">
+        <h2 style="font-family: 'Oswald', sans-serif; font-size: 2.2rem; color: #ffffff; margin-bottom: 0.75rem;">
+          Start Your Research Journey Today
+        </h2>
+        <p style="font-size: 1.05rem; color: #e2e8f0; max-width: 650px; margin: 0 auto 2rem; line-height: 1.7;">
+          Whether you are an aspiring student investigator, faculty researcher, or institutional partner, the RDC secretariat is here to assist with ethical clearance, seed grants, and publication support.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="call-for-proposals.html" class="btn btn-gold" style="font-weight: 700; padding: 0.85rem 2rem;">
+            <span>Apply for Research Seed Grants &rarr;</span>
+          </a>
+          <a href="calendar.html" class="btn btn-outline-white" style="font-weight: 700; padding: 0.85rem 2rem;">
+            <span>Check Schedule Calendar</span>
+          </a>
+          <a href="contact.html" class="btn btn-outline-white" style="font-weight: 700; padding: 0.85rem 2rem;">
+            <span>Contact RDC Secretariat</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>MCNP &amp; ISAP <span>RDC</span></h4>
+          <p>
+            The official Research and Development Center serving the Medical Colleges of Northern Philippines and International School of Asia and the Pacific. Fostering innovation, scientific ethics, and community progress.
+          </p>
+          <div style="display: flex; gap: 0.5rem;">
+            <span class="badge-pill">MCNP</span>
+            <span class="badge-pill">ISAP</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Institutional Links</h5>
+          <ul class="footer-links">
+            <li><a href="about-mcnp.html">&rarr; About MCNP</a></li>
+            <li><a href="about-isap.html">&rarr; About ISAP</a></li>
+            <li><a href="about-rdc.html">&rarr; About RDC (Unified)</a></li>
+            <li><a href="rdc-agenda.html">&rarr; INNOVATES Agenda</a></li>
+            <li><a href="utilization.html">&rarr; Research Utilization</a></li>
+            <li><a href="experience.html">&rarr; Research Experience</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Peer-Reviewed Journals</h5>
+          <ul class="footer-links">
+            <li><a href="journal.html">&rarr; All Journals Portal</a></li>
+            <li><a href="journal-mcnp.html">&rarr; MCNP Health Journal</a></li>
+            <li><a href="journal-isap.html">&rarr; ISAP Multidisciplinary</a></li>
+            <li><a href="journal-admin.html">&rarr; Journal in Admin</a></li>
+            <li><a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer">&rarr; Direct FlipHTML5 ↗</a></li>
+            <li><a href="news-events.html">&rarr; News &amp; Events</a></li>
+            <li><a href="calendar.html">&rarr; Research Schedule Calendar</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Secretariat &amp; Inquiries</h5>
+          <div class="footer-contact-item">
+            <span>📍</span>
+            <span>Alimannao Hills, Peñablanca, Cagayan 3502, Philippines</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>✉️</span>
+            <span><a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <span>📞</span>
+            <span>+639989847781</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>🕒</span>
+            <span>Monday – Friday: 8:00 AM – 5:00 PM PST</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Medical Colleges of Northern Philippines &amp; International School of Asia and the Pacific. All rights reserved.</p>
+        <p>Research and Development Center (RDC) &bull; Knowledge Management &amp; Publication Office</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
