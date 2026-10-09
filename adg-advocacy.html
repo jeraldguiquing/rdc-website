@@ -93,6 +93,9 @@
     .un-related-date{display:block;font-size:.68rem;letter-spacing:.03em;text-transform:uppercase;color:var(--goal);font-weight:600;margin-bottom:.2rem}
     .un-related-title{display:block;font:600 .98rem/1.4 var(--oswald);color:#222}
     .un-related-empty{color:#666;margin:0;padding:1rem;border:1px dashed #cbd5e1;border-radius:8px}
+    a.sdg-goal-card:not(.sdg-goal-cta){text-decoration:none}
+    .sdg-goal-card{display:flex;flex-direction:column;align-items:center;text-align:center}
+    .sdg-goal-events{display:block;width:100%;text-align:center}
   </style>
 </head>
 <body>
@@ -228,12 +231,167 @@
   </header>
 
   <main class="un-page" id="un-page" style="--goal:#E5243B">
-    <section class="un-hero">
+    <!-- SDG Interactive Showcase & Filter Grid -->
+    <section class="sdg-showcase" id="sdg-grid-showcase">
       <div class="container">
-        <div class="breadcrumbs">
+        <div class="breadcrumbs" style="margin-bottom: 1.5rem;">
           <a href="index.html">Home</a> &gt; <span>SDG Advocacies</span>
         </div>
-        <a href="?goal=1" data-goal="1" class="un-label">Goals</a>
+
+        <div class="sdg-showcase-header">
+          <div class="sdg-showcase-brand">
+            <svg class="sdg-wheel-svg" viewBox="0 0 100 100" width="52" height="52" aria-hidden="true" focusable="false">
+              <path fill="#E5243B" d="M51.01 2.01A48 48 0 0 1 66.40 4.89L57.52 29.32A22 22 0 0 0 50.46 28.00Z"/>
+              <path fill="#DDA63A" d="M68.27 5.61A48 48 0 0 1 81.59 13.86L64.48 33.43A22 22 0 0 0 58.38 29.66Z"/>
+              <path fill="#4C9F38" d="M83.07 15.21A48 48 0 0 1 92.51 27.71L69.48 39.78A22 22 0 0 0 65.16 34.06Z"/>
+              <path fill="#C5192D" d="M93.41 29.51A48 48 0 0 1 97.69 44.57L71.86 47.51A22 22 0 0 0 69.89 40.61Z"/>
+              <path fill="#FF3A21" d="M97.88 46.57A48 48 0 0 1 96.43 62.17L71.28 55.58A22 22 0 0 0 71.94 48.43Z"/>
+              <path fill="#26BDE2" d="M95.88 64.10A48 48 0 0 1 88.90 78.12L67.83 62.89A22 22 0 0 0 71.03 56.46Z"/>
+              <path fill="#FCC30B" d="M87.69 79.72A48 48 0 0 1 76.12 90.27L61.97 68.46A22 22 0 0 0 67.27 63.62Z"/>
+              <path fill="#A21942" d="M74.41 91.33A48 48 0 0 1 59.81 96.99L54.49 71.54A22 22 0 0 0 61.19 68.94Z"/>
+              <path fill="#FD6925" d="M57.83 97.36A48 48 0 0 1 42.17 97.36L46.41 71.71A22 22 0 0 0 53.59 71.71Z"/>
+              <path fill="#DD1367" d="M40.19 96.99A48 48 0 0 1 25.59 91.33L38.81 68.94A22 22 0 0 0 45.51 71.54Z"/>
+              <path fill="#FD9D24" d="M23.88 90.27A48 48 0 0 1 12.31 79.72L32.73 63.62A22 22 0 0 0 38.03 68.46Z"/>
+              <path fill="#BF8B2E" d="M11.10 78.12A48 48 0 0 1 4.12 64.10L28.97 56.46A22 22 0 0 0 32.17 62.89Z"/>
+              <path fill="#3F7E44" d="M3.57 62.17A48 48 0 0 1 2.12 46.57L28.06 48.43A22 22 0 0 0 28.72 55.58Z"/>
+              <path fill="#0A97D9" d="M2.31 44.57A48 48 0 0 1 6.59 29.51L30.11 40.61A22 22 0 0 0 28.14 47.51Z"/>
+              <path fill="#56C02B" d="M7.49 27.71A48 48 0 0 1 16.93 15.21L34.84 34.06A22 22 0 0 0 30.52 39.78Z"/>
+              <path fill="#00689D" d="M18.41 13.86A48 48 0 0 1 31.73 5.61L41.62 29.66A22 22 0 0 0 35.52 33.43Z"/>
+              <path fill="#19486A" d="M33.60 4.89A48 48 0 0 1 48.99 2.01L49.54 28.00A22 22 0 0 0 42.48 29.32Z"/>
+            </svg>
+            <div>
+              <h1 class="sdg-showcase-title">Sustainable Development Goals</h1>
+              <p class="sdg-showcase-subtitle">MCNP &amp; ISAP institutional research, caravans, and community extension programs</p>
+            </div>
+          </div>
+
+          <div class="sdg-filter-bar">
+            <button type="button" class="sdg-filter-btn active" onclick="filterSDG('all', this)">All Goals (17)</button>
+            <button type="button" class="sdg-filter-btn" onclick="filterSDG('active', this)">Active Initiatives (7)</button>
+            <span class="sdg-total-badge">🌟 55 Events Documented</span>
+          </div>
+        </div>
+
+        <div class="sdg-grid" aria-label="Sustainable Development Goals">
+          <!-- Goal 1 -->
+          <a href="?goal=1" data-goal="1" class="sdg-goal-card sdg-goal-1" data-events="0" title="SDG 1: No Poverty">
+            <span class="sdg-goal-events">0 Events</span>
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-01.png" alt="SDG 1: No Poverty">
+          </a>
+
+          <!-- Goal 2 -->
+          <a href="?goal=2" data-goal="2" class="sdg-goal-card sdg-goal-2 has-events" data-events="1" title="SDG 2: Zero Hunger">
+            <span class="sdg-goal-events highlight">1 Event</span>
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-02.png" alt="SDG 2: Zero Hunger">
+          </a>
+
+          <!-- Goal 3 -->
+          <a href="?goal=3" data-goal="3" class="sdg-goal-card sdg-goal-3 has-events" data-events="2" title="SDG 3: Good Health and Well-Being">
+            <span class="sdg-goal-events highlight">2 Events</span>
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-03.png" alt="SDG 3: Good Health and Well-Being">
+          </a>
+
+          <!-- Goal 4 -->
+          <a href="?goal=4" data-goal="4" class="sdg-goal-card sdg-goal-4 has-events featured" data-events="15" title="SDG 4: Quality Education">
+            <span class="sdg-goal-events highlight pulse">🔥 15 Events</span>
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png" alt="SDG 4: Quality Education">
+          </a>
+
+          <!-- Goal 5 -->
+          <a href="?goal=5" data-goal="5" class="sdg-goal-card sdg-goal-5 has-events" data-events="1" title="SDG 5: Gender Equality">
+            <span class="sdg-goal-events highlight">1 Event</span>
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-05.png" alt="SDG 5: Gender Equality">
+          </a>
+
+          <!-- Goal 6 -->
+          <a href="?goal=6" data-goal="6" class="sdg-goal-card sdg-goal-6" data-events="0" title="SDG 6: Clean Water and Sanitation">
+            <span class="sdg-goal-events">0 Events</span>
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-06.png" alt="SDG 6: Clean Water and Sanitation">
+          </a>
+
+          <!-- Goal 7 -->
+          <a href="?goal=7" data-goal="7" class="sdg-goal-card sdg-goal-7" data-events="0" title="SDG 7: Affordable and Clean Energy">
+            <span class="sdg-goal-events">0 Events</span>
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-07.png" alt="SDG 7: Affordable and Clean Energy">
+          </a>
+
+          <!-- Goal 8 -->
+          <a href="?goal=8" data-goal="8" class="sdg-goal-card sdg-goal-8" data-events="0" title="SDG 8: Decent Work and Economic Growth">
+            <span class="sdg-goal-events">0 Events</span>
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-08.png" alt="SDG 8: Decent Work and Economic Growth">
+          </a>
+
+          <!-- Goal 9 -->
+          <a href="?goal=9" data-goal="9" class="sdg-goal-card sdg-goal-9 has-events featured" data-events="13" title="SDG 9: Industry, Innovation and Infrastructure">
+            <span class="sdg-goal-events highlight pulse">🔥 13 Events</span>
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9: Industry, Innovation and Infrastructure">
+          </a>
+
+          <!-- Goal 10 -->
+          <a href="?goal=10" data-goal="10" class="sdg-goal-card sdg-goal-10" data-events="0" title="SDG 10: Reduced Inequalities">
+            <span class="sdg-goal-events">0 Events</span>
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-10.png" alt="SDG 10: Reduced Inequalities">
+          </a>
+
+          <!-- Goal 11 -->
+          <a href="?goal=11" data-goal="11" class="sdg-goal-card sdg-goal-11 has-events" data-events="1" title="SDG 11: Sustainable Cities and Communities">
+            <span class="sdg-goal-events highlight">1 Event</span>
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-11.png" alt="SDG 11: Sustainable Cities and Communities">
+          </a>
+
+          <!-- Goal 12 -->
+          <a href="?goal=12" data-goal="12" class="sdg-goal-card sdg-goal-12" data-events="0" title="SDG 12: Responsible Consumption and Production">
+            <span class="sdg-goal-events">0 Events</span>
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-12.png" alt="SDG 12: Responsible Consumption and Production">
+          </a>
+
+          <!-- Goal 13 -->
+          <a href="?goal=13" data-goal="13" class="sdg-goal-card sdg-goal-13" data-events="0" title="SDG 13: Climate Action">
+            <span class="sdg-goal-events">0 Events</span>
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-13.png" alt="SDG 13: Climate Action">
+          </a>
+
+          <!-- Goal 14 -->
+          <a href="?goal=14" data-goal="14" class="sdg-goal-card sdg-goal-14" data-events="0" title="SDG 14: Life Below Water">
+            <span class="sdg-goal-events">0 Events</span>
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-14.png" alt="SDG 14: Life Below Water">
+          </a>
+
+          <!-- Goal 15 -->
+          <a href="?goal=15" data-goal="15" class="sdg-goal-card sdg-goal-15" data-events="0" title="SDG 15: Life on Land">
+            <span class="sdg-goal-events">0 Events</span>
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-15.png" alt="SDG 15: Life on Land">
+          </a>
+
+          <!-- Goal 16 -->
+          <a href="?goal=16" data-goal="16" class="sdg-goal-card sdg-goal-16 has-events featured" data-events="7" title="SDG 16: Peace, Justice and Strong Institutions">
+            <span class="sdg-goal-events highlight">7 Events</span>
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-16.png" alt="SDG 16: Peace, Justice and Strong Institutions">
+          </a>
+
+          <!-- Goal 17 -->
+          <a href="?goal=17" data-goal="17" class="sdg-goal-card sdg-goal-17 has-events featured" data-events="15" title="SDG 17: Partnerships for the Goals">
+            <span class="sdg-goal-events highlight pulse">🔥 15 Events</span>
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.png" alt="SDG 17: Partnerships for the Goals">
+          </a>
+
+          <!-- 18th Card: Seamless 6x3 Desktop Grid Completion -->
+          <a href="#un-hero" class="sdg-goal-card sdg-goal-cta" title="Inspect Selected Goal Agenda Below">
+            <div class="sdg-cta-content">
+              <span class="sdg-cta-icon">🌍</span>
+              <strong>17 Global Goals</strong>
+              <span class="sdg-cta-arrow">Inspect Below &darr;</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="un-hero" id="un-hero">
+      <div class="container">
+        <div style="margin-bottom: 1.25rem;">
+          <a href="#sdg-grid-showcase" class="un-label" style="text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,0.7); font-size: 0.9rem;">&uarr; Back to 17 Goals Grid</a>
+        </div>
         <div class="un-num" id="un-num" aria-hidden="true"></div>
         <h1 id="un-title"></h1>
         <span class="un-rule"></span>
@@ -449,7 +607,12 @@
       var n = Number(link.dataset.goal);
       history.pushState(null, "", "?goal=" + n);
       show(n);
-      window.scrollTo(0, 0);
+      var hero = document.getElementById("un-hero");
+      if (hero) {
+        hero.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.scrollTo(0, 0);
+      }
     });
 
     window.addEventListener("popstate", function(){
