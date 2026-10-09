@@ -2068,14 +2068,16 @@ body.nav-open {
 }
 
 /* ==========================================================================
-   iWANDER RESEARCH AGENDA HOMEPAGE SHOWCASE
+   INNOVATES RESEARCH AGENDA SHOWCASE
    ========================================================================== */
-.iwander-showcase-wrap {
+.iwander-showcase-wrap,
+.innovates-framework-wrap {
   max-width: 980px;
   margin: 0 auto;
 }
 
-.iwander-card {
+.iwander-card,
+.innovates-card {
   display: flex;
   flex-direction: column;
   align-items: center;
