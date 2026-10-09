@@ -81,6 +81,87 @@
     .sdg-pure-card:hover img {
       transform: scale(1.05);
     }
+    .sdg-count-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.32rem;
+      padding: 0.24rem 0.58rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: 0.01em;
+      color: #ffffff;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      pointer-events: none;
+      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .sdg-count-badge .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 5px #22c55e;
+      flex-shrink: 0;
+    }
+    .sdg-count-badge.has-events {
+      background: rgba(15, 23, 42, 0.9);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .sdg-count-badge.highlight {
+      background: #ffffff;
+      color: #0f172a;
+      font-weight: 800;
+      border-color: #ffffff;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+    }
+    .sdg-count-badge.highlight .badge-dot {
+      background: #e11d48;
+      box-shadow: 0 0 6px #e11d48;
+    }
+    .sdg-count-badge.zero {
+      background: rgba(0, 0, 0, 0.55);
+      color: rgba(255, 255, 255, 0.75);
+      border-color: rgba(255, 255, 255, 0.15);
+      font-weight: 600;
+    }
+    .sdg-count-badge.zero .badge-dot {
+      background: rgba(255, 255, 255, 0.4);
+      box-shadow: none;
+      width: 5px;
+      height: 5px;
+    }
+    .sdg-pure-card:hover .sdg-count-badge {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+    }
+    .sdg-pure-card:hover .sdg-count-badge.highlight {
+      background: #fef08a;
+      color: #854d0e;
+      border-color: #fef08a;
+    }
+    @media (max-width: 480px) {
+      .sdg-count-badge {
+        bottom: 6px;
+        right: 6px;
+        padding: 0.18rem 0.48rem;
+        font-size: 0.68rem;
+        gap: 0.25rem;
+      }
+      .sdg-count-badge .badge-dot {
+        width: 5px;
+        height: 5px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -247,88 +328,105 @@
 
         <div class="sdg-grid-clean" id="sdg-grid" aria-label="Sustainable Development Goals">
           <!-- Goal 1 -->
-          <a href="sdg-overview.html?goal=1" class="sdg-pure-card" title="SDG 1: No Poverty">
+          <a href="sdg-overview.html?goal=1" class="sdg-pure-card" title="SDG 1: No Poverty (0 Documented Events)">
             <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-01.png" alt="SDG 1: No Poverty" loading="lazy">
+            <span class="sdg-count-badge zero"><span class="badge-dot"></span>0 Events</span>
           </a>
 
           <!-- Goal 2 -->
-          <a href="sdg-overview.html?goal=2" class="sdg-pure-card" title="SDG 2: Zero Hunger">
+          <a href="sdg-overview.html?goal=2" class="sdg-pure-card" title="SDG 2: Zero Hunger (1 Documented Event)">
             <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-02.png" alt="SDG 2: Zero Hunger" loading="lazy">
+            <span class="sdg-count-badge has-events"><span class="badge-dot"></span>1 Event</span>
           </a>
 
           <!-- Goal 3 -->
-          <a href="sdg-overview.html?goal=3" class="sdg-pure-card" title="SDG 3: Good Health and Well-Being">
+          <a href="sdg-overview.html?goal=3" class="sdg-pure-card" title="SDG 3: Good Health and Well-Being (3 Documented Events)">
             <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-03.png" alt="SDG 3: Good Health and Well-Being" loading="lazy">
+            <span class="sdg-count-badge has-events"><span class="badge-dot"></span>3 Events</span>
           </a>
 
           <!-- Goal 4 -->
-          <a href="sdg-overview.html?goal=4" class="sdg-pure-card" title="SDG 4: Quality Education">
+          <a href="sdg-overview.html?goal=4" class="sdg-pure-card" title="SDG 4: Quality Education (24 Documented Events)">
             <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png" alt="SDG 4: Quality Education" loading="lazy">
+            <span class="sdg-count-badge highlight"><span class="badge-dot"></span>🔥 24 Events</span>
           </a>
 
           <!-- Goal 5 -->
-          <a href="sdg-overview.html?goal=5" class="sdg-pure-card" title="SDG 5: Gender Equality">
+          <a href="sdg-overview.html?goal=5" class="sdg-pure-card" title="SDG 5: Gender Equality (1 Documented Event)">
             <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-05.png" alt="SDG 5: Gender Equality" loading="lazy">
+            <span class="sdg-count-badge has-events"><span class="badge-dot"></span>1 Event</span>
           </a>
 
           <!-- Goal 6 -->
-          <a href="sdg-overview.html?goal=6" class="sdg-pure-card" title="SDG 6: Clean Water and Sanitation">
+          <a href="sdg-overview.html?goal=6" class="sdg-pure-card" title="SDG 6: Clean Water and Sanitation (0 Documented Events)">
             <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-06.png" alt="SDG 6: Clean Water and Sanitation" loading="lazy">
+            <span class="sdg-count-badge zero"><span class="badge-dot"></span>0 Events</span>
           </a>
 
           <!-- Goal 7 -->
-          <a href="sdg-overview.html?goal=7" class="sdg-pure-card" title="SDG 7: Affordable and Clean Energy">
+          <a href="sdg-overview.html?goal=7" class="sdg-pure-card" title="SDG 7: Affordable and Clean Energy (0 Documented Events)">
             <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-07.png" alt="SDG 7: Affordable and Clean Energy" loading="lazy">
+            <span class="sdg-count-badge zero"><span class="badge-dot"></span>0 Events</span>
           </a>
 
           <!-- Goal 8 -->
-          <a href="sdg-overview.html?goal=8" class="sdg-pure-card" title="SDG 8: Decent Work and Economic Growth">
+          <a href="sdg-overview.html?goal=8" class="sdg-pure-card" title="SDG 8: Decent Work and Economic Growth (1 Documented Event)">
             <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-08.png" alt="SDG 8: Decent Work and Economic Growth" loading="lazy">
+            <span class="sdg-count-badge has-events"><span class="badge-dot"></span>1 Event</span>
           </a>
 
           <!-- Goal 9 -->
-          <a href="sdg-overview.html?goal=9" class="sdg-pure-card" title="SDG 9: Industry, Innovation and Infrastructure">
+          <a href="sdg-overview.html?goal=9" class="sdg-pure-card" title="SDG 9: Industry, Innovation and Infrastructure (19 Documented Events)">
             <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9: Industry, Innovation and Infrastructure" loading="lazy">
+            <span class="sdg-count-badge highlight"><span class="badge-dot"></span>🔥 19 Events</span>
           </a>
 
           <!-- Goal 10 -->
-          <a href="sdg-overview.html?goal=10" class="sdg-pure-card" title="SDG 10: Reduced Inequalities">
+          <a href="sdg-overview.html?goal=10" class="sdg-pure-card" title="SDG 10: Reduced Inequalities (0 Documented Events)">
             <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-10.png" alt="SDG 10: Reduced Inequalities" loading="lazy">
+            <span class="sdg-count-badge zero"><span class="badge-dot"></span>0 Events</span>
           </a>
 
           <!-- Goal 11 -->
-          <a href="sdg-overview.html?goal=11" class="sdg-pure-card" title="SDG 11: Sustainable Cities and Communities">
+          <a href="sdg-overview.html?goal=11" class="sdg-pure-card" title="SDG 11: Sustainable Cities and Communities (1 Documented Event)">
             <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-11.png" alt="SDG 11: Sustainable Cities and Communities" loading="lazy">
+            <span class="sdg-count-badge has-events"><span class="badge-dot"></span>1 Event</span>
           </a>
 
           <!-- Goal 12 -->
-          <a href="sdg-overview.html?goal=12" class="sdg-pure-card" title="SDG 12: Responsible Consumption and Production">
+          <a href="sdg-overview.html?goal=12" class="sdg-pure-card" title="SDG 12: Responsible Consumption and Production (0 Documented Events)">
             <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-12.png" alt="SDG 12: Responsible Consumption and Production" loading="lazy">
+            <span class="sdg-count-badge zero"><span class="badge-dot"></span>0 Events</span>
           </a>
 
           <!-- Goal 13 -->
-          <a href="sdg-overview.html?goal=13" class="sdg-pure-card" title="SDG 13: Climate Action">
+          <a href="sdg-overview.html?goal=13" class="sdg-pure-card" title="SDG 13: Climate Action (0 Documented Events)">
             <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-13.png" alt="SDG 13: Climate Action" loading="lazy">
+            <span class="sdg-count-badge zero"><span class="badge-dot"></span>0 Events</span>
           </a>
 
           <!-- Goal 14 -->
-          <a href="sdg-overview.html?goal=14" class="sdg-pure-card" title="SDG 14: Life Below Water">
+          <a href="sdg-overview.html?goal=14" class="sdg-pure-card" title="SDG 14: Life Below Water (0 Documented Events)">
             <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-14.png" alt="SDG 14: Life Below Water" loading="lazy">
+            <span class="sdg-count-badge zero"><span class="badge-dot"></span>0 Events</span>
           </a>
 
           <!-- Goal 15 -->
-          <a href="sdg-overview.html?goal=15" class="sdg-pure-card" title="SDG 15: Life on Land">
+          <a href="sdg-overview.html?goal=15" class="sdg-pure-card" title="SDG 15: Life on Land (0 Documented Events)">
             <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-15.png" alt="SDG 15: Life on Land" loading="lazy">
+            <span class="sdg-count-badge zero"><span class="badge-dot"></span>0 Events</span>
           </a>
 
           <!-- Goal 16 -->
-          <a href="sdg-overview.html?goal=16" class="sdg-pure-card" title="SDG 16: Peace, Justice and Strong Institutions">
+          <a href="sdg-overview.html?goal=16" class="sdg-pure-card" title="SDG 16: Peace, Justice and Strong Institutions (9 Documented Events)">
             <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-16.png" alt="SDG 16: Peace, Justice and Strong Institutions" loading="lazy">
+            <span class="sdg-count-badge has-events"><span class="badge-dot"></span>9 Events</span>
           </a>
 
           <!-- Goal 17 -->
-          <a href="sdg-overview.html?goal=17" class="sdg-pure-card" title="SDG 17: Partnerships for the Goals">
+          <a href="sdg-overview.html?goal=17" class="sdg-pure-card" title="SDG 17: Partnerships for the Goals (24 Documented Events)">
             <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.png" alt="SDG 17: Partnerships for the Goals" loading="lazy">
+            <span class="sdg-count-badge highlight"><span class="badge-dot"></span>🔥 24 Events</span>
           </a>
         </div>
       </div>

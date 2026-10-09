@@ -587,7 +587,7 @@
     <section class="un-section" id="events">
       <div class="container">
         <div class="un-ev-head">
-          <h2 class="un-h">Documented Events &amp; Initiatives</h2>
+          <h2 class="un-h">Documented Events &amp; Initiatives <span id="un-ev-count-badge" style="font-size: 0.85rem; font-weight: 700; color: #fff; background: var(--goal, #0f172a); padding: 0.22rem 0.65rem; border-radius: 999px; vertical-align: middle; margin-left: 0.5rem; letter-spacing: 0;">0 Events</span></h2>
           <a href="news-events.html" class="un-see">Browse All Events &rarr;</a>
         </div>
         <div class="un-events" id="un-events"></div>
@@ -746,6 +746,9 @@
 
       // Filter events & topics
       var list = E.filter(function(item){ return item.g.indexOf(n) > -1; });
+      if ($("un-ev-count-badge")) {
+        $("un-ev-count-badge").textContent = list.length + (list.length === 1 ? " Event" : " Events");
+      }
 
       $("un-topic").innerHTML = list.length ? list.map(function(item){
         return '<li><a href="' + eventUrl(item) + '"><span class="un-related-date">' + item.topic + '</span><span class="un-related-title">' + item.t + '</span></a></li>';
@@ -796,3 +799,4 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+
