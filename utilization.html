@@ -2168,35 +2168,140 @@
       // Render Modal Course Filter Bar with separate MCNP & ISAP tabs
       renderModalCoursePills(data);
 
-      // Render Pane 1: Pathway
+      // Four Pathways of Research Utilization Definition
+      var fourPathwaysData = [
+        {
+          num: 1,
+          icon: '🏛️',
+          title: 'Policy Translation & Institutional Guidelines',
+          color: '#0d5c3a',
+          bg: 'rgba(13, 92, 58, 0.08)',
+          desc: 'Translating research evidence into formal administrative policies, clinical hospital standard operating procedures (SOPs), municipal ordinances, and departmental protocols for enhanced healthcare delivery and governance.',
+          outputs: [
+            'Hospital triage & clinical care manuals (CVMC, district hospitals)',
+            'Evidence-based local government (LGU) peace & order policy briefs',
+            'Institutional laboratory biosafety & ethical compliance standards'
+          ]
+        },
+        {
+          num: 2,
+          icon: '🤝',
+          title: 'Community Extension & Grassroots Adoption',
+          color: '#0b3c5d',
+          bg: 'rgba(11, 60, 93, 0.08)',
+          desc: 'Partnering with the Community Extension Services Office (CESO) to turn research data into community health seminars, nutritional interventions, anti-crime campaigns, and skills development programs in adopted barangays.',
+          outputs: [
+            'Barangay public health & maternal nutrition monitoring toolkits',
+            'Community flood & typhoon early-warning disaster training',
+            'Grassroots livelihood, literacy & crime prevention workshops'
+          ]
+        },
+        {
+          num: 3,
+          icon: '💡',
+          title: 'Technology Transfer & Commercialization',
+          color: '#b89726',
+          bg: 'rgba(184, 151, 38, 0.08)',
+          desc: 'Facilitating patent applications, utility models, and software copyright registration through the Intellectual Property Office of the Philippines (IPOPHL), alongside commercial incubation with regional industries.',
+          outputs: [
+            'Bioactive botanical extracts, ointments & herbal formulations',
+            'Cloud dispatch software, emergency SMS tools & PACS workflows',
+            'IPOPHIL patent utility model filings & cooperative tech transfer'
+          ]
+        },
+        {
+          num: 4,
+          icon: '📚',
+          title: 'Curricular & Instructional Integration',
+          color: '#7b1113',
+          bg: 'rgba(123, 17, 19, 0.08)',
+          desc: 'Embedding empirical research findings and case studies directly into university instructional syllabi, student laboratory manuals, and clinical clerkship rubrics to enrich student learning.',
+          outputs: [
+            'Case study modules in Nursing, RadTech & Medical Technology',
+            'Forensic lab exercises & criminalistics tactical drills in Criminology',
+            'DepEd remedial learning toolkits & licensure exam diagnostic review'
+          ]
+        }
+      ];
+
+      // Render Pane 1: Pathway with the 4 Pathways of Research Utilization
       var panePathway = document.getElementById('utilPanePathway');
       panePathway.innerHTML = `
-        <div style="background: #f8fafc; border-left: 4px solid #0b3c5d; padding: 1.15rem 1.35rem; border-radius: 0 10px 10px 0; margin-bottom: 1.5rem;">
-          <span style="font-size: 0.72rem; font-weight: 800; color: #0b3c5d; text-transform: uppercase; letter-spacing: 0.05em;">Institutional Pathway Focus</span>
-          <h4 style="font-size: 1.15rem; color: #0f172a; margin: 0.25rem 0 0.35rem; font-weight: 800;">${data.pathway.primary}</h4>
-          <p style="font-size: 0.92rem; color: #475569; line-height: 1.7; margin: 0;">${data.pathway.description}</p>
+        <div style="background: #f8fafc; border-left: 4px solid #0b3c5d; padding: 1.25rem 1.4rem; border-radius: 0 12px 12px 0; margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.35rem;">
+            <span style="font-size: 0.72rem; font-weight: 800; color: #0b3c5d; text-transform: uppercase; letter-spacing: 0.06em;">Institutional Utilization Framework</span>
+            <span style="font-size: 0.76rem; font-weight: 700; color: #7b1113; background: rgba(123, 17, 19, 0.08); border: 1px solid rgba(123, 17, 19, 0.2); padding: 0.25rem 0.65rem; border-radius: 20px;">
+              Primary Pillar Focus: ${data.pathway.badge}
+            </span>
+          </div>
+          <h4 style="font-size: 1.25rem; color: #0f172a; margin: 0.2rem 0 0.4rem; font-weight: 800;">Four Pathways of Research Utilization</h4>
+          <p style="font-size: 0.92rem; color: #475569; line-height: 1.65; margin: 0;">
+            Every completed study under <strong>${data.name}</strong> (${data.fullName}) is actively channeled into real-world benefit through one or more of these 4 institutional pathways:
+          </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 1.5rem;">
-          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.25rem;">
-            <h5 style="font-size: 0.95rem; color: #0f172a; margin: 0 0 0.75rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
-              <span>⚙️</span> Core Translation Mechanisms
-            </h5>
-            <ul style="padding-left: 1.2rem; margin: 0; font-size: 0.88rem; color: #475569; line-height: 1.75;">
-              ${data.pathway.mechanisms.map(m => '<li>' + m + '</li>').join('')}
-            </ul>
-          </div>
+        <!-- 4 Pathways Cards Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.15rem; margin-bottom: 1.75rem;">
+          ${fourPathwaysData.map(p => {
+            var isPrimary = (data.pathway.primary || '').toLowerCase().includes('pathway ' + p.num);
+            return `
+              <div style="background: #ffffff; border: 1.5px solid ${isPrimary ? p.color : '#e2e8f0'}; border-radius: 12px; padding: 1.35rem; box-shadow: ${isPrimary ? '0 6px 18px rgba(0,0,0,0.06)' : '0 2px 8px rgba(0,0,0,0.02)'}; display: flex; flex-direction: column; position: relative;">
+                ${isPrimary ? `<span style="position: absolute; top: -10px; right: 12px; font-size: 0.68rem; font-weight: 800; background: ${p.color}; color: #ffffff; padding: 0.2rem 0.55rem; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.04em;">Primary In ${data.name}</span>` : ''}
+                <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.75rem;">
+                  <div style="width: 38px; height: 38px; border-radius: 8px; background: ${p.bg}; color: ${p.color}; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                    ${p.icon}
+                  </div>
+                  <div>
+                    <span style="font-size: 0.72rem; font-weight: 800; color: ${p.color}; text-transform: uppercase;">Pathway 0${p.num}</span>
+                    <h5 style="font-size: 0.96rem; color: #0f172a; margin: 0; font-weight: 800; line-height: 1.3;">${p.title}</h5>
+                  </div>
+                </div>
+                <p style="font-size: 0.85rem; color: #475569; line-height: 1.6; margin-bottom: 0.85rem; flex-grow: 1;">
+                  ${p.desc}
+                </p>
+                <div style="border-top: 1px solid #f1f5f9; padding-top: 0.75rem;">
+                  <div style="font-size: 0.72rem; font-weight: 800; color: #64748b; text-transform: uppercase; margin-bottom: 0.35rem;">Standard Outputs:</div>
+                  <ul style="padding-left: 1.1rem; margin: 0; font-size: 0.78rem; color: #475569; line-height: 1.6;">
+                    ${p.outputs.map(o => `<li>${o}</li>`).join('')}
+                  </ul>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
 
-          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.25rem;">
-            <h5 style="font-size: 0.95rem; color: #0f172a; margin: 0 0 0.75rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
-              <span>🎯</span> Adopting Stakeholders &amp; Formats
-            </h5>
-            <p style="font-size: 0.85rem; color: #64748b; line-height: 1.6; margin-bottom: 0.65rem;">
-              <strong>Key Beneficiaries:</strong><br>${data.pathway.beneficiaries}
-            </p>
-            <p style="font-size: 0.85rem; color: #64748b; line-height: 1.6; margin: 0;">
-              <strong>Output Formats:</strong><br><span style="color: #0f172a; font-weight: 600;">${data.pathway.coreFormats}</span>
-            </p>
+        <!-- Pillar-Specific Mechanism & Beneficiaries -->
+        <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 1.35rem; margin-bottom: 1.25rem;">
+          <h5 style="font-size: 1rem; color: #0f172a; margin: 0 0 0.85rem; font-weight: 800; display: flex; align-items: center; gap: 0.45rem;">
+            <span>🎯</span> ${data.name} Specific Translation Mechanisms &amp; Beneficiaries
+          </h5>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
+            <div>
+              <div style="font-size: 0.75rem; font-weight: 800; color: #0b3c5d; text-transform: uppercase; margin-bottom: 0.4rem;">Pillar Translation Focus:</div>
+              <p style="font-size: 0.88rem; color: #334155; line-height: 1.6; margin-bottom: 0.65rem;">
+                ${data.pathway.description}
+              </p>
+              <ul style="padding-left: 1.15rem; margin: 0; font-size: 0.82rem; color: #475569; line-height: 1.7;">
+                ${data.pathway.mechanisms.map(m => `<li>${m}</li>`).join('')}
+              </ul>
+            </div>
+            <div style="background: #f8fafc; border-radius: 8px; padding: 1rem; border: 1px solid #e2e8f0;">
+              <div style="margin-bottom: 0.65rem;">
+                <span style="font-size: 0.75rem; font-weight: 800; color: #64748b; text-transform: uppercase;">Key Adopters &amp; Beneficiaries:</span>
+                <p style="font-size: 0.84rem; color: #1e293b; margin: 0.2rem 0 0; line-height: 1.5; font-weight: 600;">
+                  ${data.pathway.beneficiaries}
+                </p>
+              </div>
+              <div style="margin-bottom: 0.85rem;">
+                <span style="font-size: 0.75rem; font-weight: 800; color: #64748b; text-transform: uppercase;">Core Delivery Formats:</span>
+                <p style="font-size: 0.84rem; color: #1e293b; margin: 0.2rem 0 0; line-height: 1.5; font-weight: 600;">
+                  ${data.pathway.coreFormats}
+                </p>
+              </div>
+              <button type="button" class="btn btn-sm btn-gold" style="width: 100%; font-weight: 700; font-size: 0.8rem;" onclick="switchUtilizationTab('studies')">
+                View Certified Studies for ${data.name} (${data.utilizations.length}) &rarr;
+              </button>
+            </div>
           </div>
         </div>
       `;
