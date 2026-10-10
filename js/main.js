@@ -3861,3 +3861,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Helper for opening utilization pillar modal from navbar dropdown or cross-page links
+window.openUtilizationPillar = function(pillarKey) {
+  if (typeof window.openUtilizationModal === 'function') {
+    window.openUtilizationModal(pillarKey, 'pathway');
+  } else {
+    window.location.href = 'utilization.html#pillar-' + pillarKey;
+  }
+};
