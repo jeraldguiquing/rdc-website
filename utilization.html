@@ -299,174 +299,82 @@
         </button>
       </div>
 
-      <!-- Dual Institutional Profile Highlights Showcase -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; margin-bottom: 2.75rem;">
-        
-        <!-- MCNP Profile Card -->
-        <div id="mcnp-profile-card" style="background: var(--white); border-radius: 16px; padding: 2rem; border: 1.5px solid rgba(13, 92, 58, 0.25); box-shadow: var(--card-shadow); display: flex; flex-direction: column; position: relative; overflow: hidden;">
-          <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--mcnp-green), #10b981);"></div>
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <img src="assets/Mcnp_Logo.png" alt="MCNP Seal" style="width: 58px; height: 58px; object-fit: contain; filter: drop-shadow(0 3px 8px rgba(13,92,58,0.25)); flex-shrink: 0;">
-            <div>
-              <span class="dropdown-badge badge-mcnp" style="font-size: 0.72rem; padding: 0.25rem 0.6rem;">Health Sciences Wing</span>
-              <h3 style="font-size: 1.25rem; color: var(--mcnp-green); margin: 0.25rem 0 0.15rem; line-height: 1.25;">Medical Colleges of Northern Philippines</h3>
-              <p style="font-size: 0.82rem; color: #64748b; margin: 0;">Clinical Protocols, Triage SOPs &amp; Community Health Impact</p>
-            </div>
-          </div>
-          <p style="font-size: 0.9rem; color: #475569; line-height: 1.65; margin-bottom: 1.25rem; flex-grow: 1;">
-            Translating laboratory discovery and clinical research across nursing, radiologic sciences, medical laboratory technology, pharmacy, and physical therapy into active hospital care pathways and grassroots wellness caravans.
+      <!-- INNOVATES Visual Showcase Grid (Interactive Agenda Showcase) -->
+      <section id="innovates-agenda-showcase" style="margin-bottom: 3.25rem;">
+        <div style="text-align: center; max-width: 780px; margin: 0 auto 2rem;">
+          <span class="badge-pill" style="background: rgba(123, 17, 19, 0.08); color: #7b1113; font-weight: 700;">INNOVATES AGENDA BLUEPRINT</span>
+          <h2 style="font-size: 2rem; color: var(--dark-text); margin-top: 0.5rem; margin-bottom: 0.6rem;">Explore Research by INNOVATES Agenda</h2>
+          <p style="font-size: 0.98rem; color: #64748b; line-height: 1.6; margin: 0;">
+            Click any INNOVATES agenda pillar below to view its strategic focus, priority subtopics, expected institutional outcomes, and translated research protocols.
           </p>
-
-          <!-- MCNP Department Logos Cluster -->
-          <div style="background: #f8fafc; border-radius: 10px; padding: 0.85rem; border: 1px solid #e2e8f0; margin-bottom: 1.25rem;">
-            <div style="font-size: 0.74rem; font-weight: 800; color: #0d5c3a; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.6rem;">MCNP Health Colleges Utilization Network:</div>
-            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.4rem;">
-              <div class="dept-logo-pill">
-                <img src="assets/dept-logos/mcnp-nursing.png" alt="Nursing">
-                <span>Nursing</span>
-              </div>
-              <div class="dept-logo-pill">
-                <img src="assets/dept-logos/mcnp-radtech.png" alt="Radiologic Tech">
-                <span>RadTech</span>
-              </div>
-              <div class="dept-logo-pill">
-                <img src="assets/dept-logos/mcnp-mls.png" alt="MLS">
-                <span>Med Lab</span>
-              </div>
-              <div class="dept-logo-pill">
-                <img src="assets/dept-logos/mcnp-pt.png" alt="PT">
-                <span>Phys Therapy</span>
-              </div>
-              <div class="dept-logo-pill">
-                <img src="assets/dept-logos/mcnp-pharmacy.png" alt="Pharmacy">
-                <span>Pharmacy</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- MCNP INNOVATES Agenda Alignment -->
-          <div style="background: #f0fdf4; border-radius: 10px; padding: 0.85rem; border: 1px solid #bbf7d0; margin-bottom: 1.25rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-              <span style="font-size: 0.74rem; font-weight: 800; color: #166534; text-transform: uppercase; letter-spacing: 0.04em;">Key INNOVATES Pillars (Click to View):</span>
-              <a href="rdc-agenda.html" style="font-size: 0.72rem; color: #166534; font-weight: 700; text-decoration: none;">View Agenda &rarr;</a>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.4rem;">
-              <a href="#pillar-value" class="dept-logo-pill" onclick="openAgendaModal('value', 'focus'); return false;" style="border-color: #86efac; background: #ffffff; cursor: pointer; text-decoration: none;" title="Click to view VALUE Agenda">
-                <img src="assets/agenda/agenda-5-value.png" alt="VALUE" style="width: 26px; height: 26px; object-fit: contain;">
-                <span style="font-size: 0.65rem; font-weight: 700; color: #166534;">VALUE</span>
-              </a>
-              <a href="#pillar-operationalize" class="dept-logo-pill" onclick="openAgendaModal('operationalize', 'focus'); return false;" style="border-color: #86efac; background: #ffffff; cursor: pointer; text-decoration: none;" title="Click to view OPERATIONALIZE Agenda">
-                <img src="assets/agenda/agenda-4-operationalize.png" alt="OPERATIONALIZE" style="width: 26px; height: 26px; object-fit: contain;">
-                <span style="font-size: 0.65rem; font-weight: 700; color: #166534;">OPERATIONALIZE</span>
-              </a>
-              <a href="#pillar-navigate" class="dept-logo-pill" onclick="openAgendaModal('navigate', 'focus'); return false;" style="border-color: #86efac; background: #ffffff; cursor: pointer; text-decoration: none;" title="Click to view NAVIGATE Agenda">
-                <img src="assets/agenda/agenda-3-navigate.png" alt="NAVIGATE" style="width: 26px; height: 26px; object-fit: contain;">
-                <span style="font-size: 0.65rem; font-weight: 700; color: #166534;">NAVIGATE</span>
-              </a>
-              <a href="#pillar-advance" class="dept-logo-pill" onclick="openAgendaModal('advance', 'focus'); return false;" style="border-color: #86efac; background: #ffffff; cursor: pointer; text-decoration: none;" title="Click to view ADVANCE Agenda">
-                <img src="assets/agenda/agenda-6-advance.png" alt="ADVANCE" style="width: 26px; height: 26px; object-fit: contain;">
-                <span style="font-size: 0.65rem; font-weight: 700; color: #166534;">ADVANCE</span>
-              </a>
-            </div>
-          </div>
-
-          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem; margin-top: auto;">
-            <span style="font-size: 0.82rem; font-weight: 700; color: var(--mcnp-green);"><i class="fas fa-hospital-user"></i> 24+ Hospital Protocols</span>
-            <a href="#mcnp-utilization" class="btn btn-sm btn-mcnp" onclick="filterUtilizationWing('mcnp', document.getElementById('btn-tab-mcnp'));" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Explore MCNP Cases &darr;</a>
-          </div>
         </div>
 
-        <!-- ISAP Profile Card -->
-        <div id="isap-profile-card" style="background: var(--white); border-radius: 16px; padding: 2rem; border: 1.5px solid rgba(11, 60, 93, 0.25); box-shadow: var(--card-shadow); display: flex; flex-direction: column; position: relative; overflow: hidden;">
-          <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--isap-blue), #2563eb);"></div>
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Seal" style="width: 58px; height: 58px; object-fit: contain; filter: drop-shadow(0 3px 8px rgba(11,60,93,0.25)); flex-shrink: 0;">
-            <div>
-              <span class="dropdown-badge badge-isap" style="font-size: 0.72rem; padding: 0.25rem 0.6rem;">Multidisciplinary Wing</span>
-              <h3 style="font-size: 1.25rem; color: var(--isap-blue); margin: 0.25rem 0 0.15rem; line-height: 1.25;">International School of Asia and the Pacific</h3>
-              <p style="font-size: 0.82rem; color: #64748b; margin: 0;">Public Safety, Maritime Trade, ICT &amp; Socio-Economic Policy</p>
-            </div>
-          </div>
-          <p style="font-size: 0.9rem; color: #475569; line-height: 1.65; margin-bottom: 1.25rem; flex-grow: 1;">
-            Translating criminological intelligence, customs classification automation, software systems, rural pedagogy, and restorative welfare studies into government adoption, municipal ordinances, and NGO toolkits.
-          </p>
-
-          <!-- ISAP Department Logos Cluster -->
-          <div style="background: #f8fafc; border-radius: 10px; padding: 0.85rem; border: 1px solid #e2e8f0; margin-bottom: 1.25rem;">
-            <div style="font-size: 0.74rem; font-weight: 800; color: #0b3c5d; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.6rem;">ISAP Multidisciplinary Utilization Network:</div>
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.4rem;">
-              <div class="dept-logo-pill">
-                <img src="assets/dept-logos/isap-cocje.png" alt="COCJE">
-                <span>Criminology</span>
-              </div>
-              <div class="dept-logo-pill">
-                <img src="assets/dept-logos/isap-customs.png" alt="Customs">
-                <span>Customs</span>
-              </div>
-              <div class="dept-logo-pill">
-                <img src="assets/dept-logos/isap-it.png" alt="IT">
-                <span>IT &amp; Systems</span>
-              </div>
-              <div class="dept-logo-pill">
-                <img src="assets/dept-logos/isap-bsed.png" alt="Education">
-                <span>Education</span>
-              </div>
-              <div class="dept-logo-pill">
-                <img src="assets/dept-logos/isap-business.png" alt="Business">
-                <span>Business</span>
-              </div>
-              <div class="dept-logo-pill">
-                <img src="assets/dept-logos/isap-social-work.png" alt="Social Work">
-                <span>Social Work</span>
-              </div>
-              <div class="dept-logo-pill">
-                <img src="assets/dept-logos/isap-psychology.png" alt="Psychology">
-                <span>Psychology</span>
-              </div>
-              <div class="dept-logo-pill">
-                <img src="assets/dept-logos/isap-hospitality.png" alt="Hospitality">
-                <span>Hospitality</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- ISAP INNOVATES Agenda Alignment -->
-          <div style="background: #eff6ff; border-radius: 10px; padding: 0.85rem; border: 1px solid #bfdbfe; margin-bottom: 1.25rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-              <span style="font-size: 0.74rem; font-weight: 800; color: #1e40af; text-transform: uppercase; letter-spacing: 0.04em;">Key INNOVATES Pillars (Click to View):</span>
-              <a href="rdc-agenda.html" style="font-size: 0.72rem; color: #1e40af; font-weight: 700; text-decoration: none;">View Agenda &rarr;</a>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.4rem;">
-              <a href="#pillar-nurture" class="dept-logo-pill" onclick="openAgendaModal('nurture', 'focus'); return false;" style="border-color: #93c5fd; background: #ffffff; cursor: pointer; text-decoration: none;" title="Click to view NURTURE Agenda">
-                <img src="assets/agenda/agenda-2-nurture.png" alt="NURTURE" style="width: 26px; height: 26px; object-fit: contain;">
-                <span style="font-size: 0.65rem; font-weight: 700; color: #1e40af;">NURTURE</span>
-              </a>
-              <a href="#pillar-navigate" class="dept-logo-pill" onclick="openAgendaModal('navigate', 'focus'); return false;" style="border-color: #93c5fd; background: #ffffff; cursor: pointer; text-decoration: none;" title="Click to view NAVIGATE Agenda">
-                <img src="assets/agenda/agenda-3-navigate.png" alt="NAVIGATE" style="width: 26px; height: 26px; object-fit: contain;">
-                <span style="font-size: 0.65rem; font-weight: 700; color: #1e40af;">NAVIGATE</span>
-              </a>
-              <a href="#pillar-strengthen" class="dept-logo-pill" onclick="openAgendaModal('strengthen', 'focus'); return false;" style="border-color: #93c5fd; background: #ffffff; cursor: pointer; text-decoration: none;" title="Click to view STRENGTHEN Agenda">
-                <img src="assets/agenda/agenda-9-strengthen.png" alt="STRENGTHEN" style="width: 26px; height: 26px; object-fit: contain;">
-                <span style="font-size: 0.65rem; font-weight: 700; color: #1e40af;">STRENGTHEN</span>
-              </a>
-              <a href="#pillar-transform" class="dept-logo-pill" onclick="openAgendaModal('transform', 'focus'); return false;" style="border-color: #93c5fd; background: #ffffff; cursor: pointer; text-decoration: none;" title="Click to view TRANSFORM Agenda">
-                <img src="assets/agenda/agenda-7-transform.png" alt="TRANSFORM" style="width: 26px; height: 26px; object-fit: contain;">
-                <span style="font-size: 0.65rem; font-weight: 700; color: #1e40af;">TRANSFORM</span>
-              </a>
-              <a href="#pillar-inspire" class="dept-logo-pill" onclick="openAgendaModal('inspire', 'focus'); return false;" style="border-color: #93c5fd; background: #ffffff; cursor: pointer; text-decoration: none;" title="Click to view INSPIRE Agenda">
-                <img src="assets/agenda/agenda-1-inspire.png" alt="INSPIRE" style="width: 26px; height: 26px; object-fit: contain;">
-                <span style="font-size: 0.65rem; font-weight: 700; color: #1e40af;">INSPIRE</span>
-              </a>
-            </div>
-          </div>
-
-          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem; margin-top: auto;">
-            <span style="font-size: 0.82rem; font-weight: 700; color: var(--isap-blue);"><i class="fas fa-shield-alt"></i> 18+ Law &amp; LGU Protocols</span>
-            <a href="#isap-utilization" class="btn btn-sm btn-isap" onclick="filterUtilizationWing('isap', document.getElementById('btn-tab-isap'));" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Explore ISAP Cases &darr;</a>
-          </div>
+        <div class="innovates-showcase" aria-label="INNOVATES Agenda Framework">
+          <a href="#pillar-inspire" class="innovates-showcase-card" data-wing="isap" onclick="openAgendaModal('inspire', 'focus'); return false;" title="Click to view Focus, Outcomes &amp; Subtopics for INSPIRE">
+            <span class="innovates-letter-badge">I</span>
+            <img src="assets/agenda/agenda-1-inspire.png" alt="INSPIRE: Culture, Capability, and Engagement" class="innovates-showcase-img">
+            <div class="innovates-showcase-title">INSPIRE</div>
+            <div class="innovates-showcase-tag">Culture, Capability, and Engagement</div>
+            <span class="innovates-showcase-action">View Focus, Outcomes &amp; Subtopics &rarr;</span>
+          </a>
+          <a href="#pillar-nurture" class="innovates-showcase-card" data-wing="isap" onclick="openAgendaModal('nurture', 'focus'); return false;" title="Click to view Focus, Outcomes &amp; Subtopics for NURTURE">
+            <span class="innovates-letter-badge">N</span>
+            <img src="assets/agenda/agenda-2-nurture.png" alt="NURTURE: Ethics, Quality, and Accountability" class="innovates-showcase-img">
+            <div class="innovates-showcase-title">NURTURE</div>
+            <div class="innovates-showcase-tag">Ethics, Quality, and Accountability</div>
+            <span class="innovates-showcase-action">View Focus, Outcomes &amp; Subtopics &rarr;</span>
+          </a>
+          <a href="#pillar-navigate" class="innovates-showcase-card" data-wing="both" onclick="openAgendaModal('navigate', 'focus'); return false;" title="Click to view Focus, Outcomes &amp; Subtopics for NAVIGATE">
+            <span class="innovates-letter-badge">N</span>
+            <img src="assets/agenda/agenda-3-navigate.png" alt="NAVIGATE: Digital Transformation and Infrastructure" class="innovates-showcase-img">
+            <div class="innovates-showcase-title">NAVIGATE</div>
+            <div class="innovates-showcase-tag">Digital Transformation and Infrastructure</div>
+            <span class="innovates-showcase-action">View Focus, Outcomes &amp; Subtopics &rarr;</span>
+          </a>
+          <a href="#pillar-operationalize" class="innovates-showcase-card" data-wing="both" onclick="openAgendaModal('operationalize', 'focus'); return false;" title="Click to view Focus, Outcomes &amp; Subtopics for OPERATIONALIZE">
+            <span class="innovates-letter-badge">O</span>
+            <img src="assets/agenda/agenda-4-operationalize.png" alt="OPERATIONALIZE: Knowledge Utilization, Innovation, and Improvement" class="innovates-showcase-img">
+            <div class="innovates-showcase-title">OPERATIONALIZE</div>
+            <div class="innovates-showcase-tag">Knowledge Utilization, Innovation, and Improvement</div>
+            <span class="innovates-showcase-action">View Focus, Outcomes &amp; Subtopics &rarr;</span>
+          </a>
+          <a href="#pillar-value" class="innovates-showcase-card" data-wing="mcnp" onclick="openAgendaModal('value', 'focus'); return false;" title="Click to view Focus, Outcomes &amp; Subtopics for VALUE">
+            <span class="innovates-letter-badge">V</span>
+            <img src="assets/agenda/agenda-5-value.png" alt="VALUE: Health, Safety, and Well-Being" class="innovates-showcase-img">
+            <div class="innovates-showcase-title">VALUE</div>
+            <div class="innovates-showcase-tag">Health, Safety, and Well-Being</div>
+            <span class="innovates-showcase-action">View Focus, Outcomes &amp; Subtopics &rarr;</span>
+          </a>
+          <a href="#pillar-advance" class="innovates-showcase-card" data-wing="both" onclick="openAgendaModal('advance', 'focus'); return false;" title="Click to view Focus, Outcomes &amp; Subtopics for ADVANCE">
+            <span class="innovates-letter-badge">A</span>
+            <img src="assets/agenda/agenda-6-advance.png" alt="ADVANCE: Sustainability and Climate Resilience" class="innovates-showcase-img">
+            <div class="innovates-showcase-title">ADVANCE</div>
+            <div class="innovates-showcase-tag">Sustainability and Climate Resilience</div>
+            <span class="innovates-showcase-action">View Focus, Outcomes &amp; Subtopics &rarr;</span>
+          </a>
+          <a href="#pillar-transform" class="innovates-showcase-card" data-wing="isap" onclick="openAgendaModal('transform', 'focus'); return false;" title="Click to view Focus, Outcomes &amp; Subtopics for TRANSFORM">
+            <span class="innovates-letter-badge">T</span>
+            <img src="assets/agenda/agenda-7-transform.png" alt="TRANSFORM: Community Engagement and Social Impact" class="innovates-showcase-img">
+            <div class="innovates-showcase-title">TRANSFORM</div>
+            <div class="innovates-showcase-tag">Community Engagement and Social Impact</div>
+            <span class="innovates-showcase-action">View Focus, Outcomes &amp; Subtopics &rarr;</span>
+          </a>
+          <a href="#pillar-expand" class="innovates-showcase-card" data-wing="both" onclick="openAgendaModal('expand', 'focus'); return false;" title="Click to view Focus, Outcomes &amp; Subtopics for EXPAND">
+            <span class="innovates-letter-badge">E</span>
+            <img src="assets/agenda/agenda-8-expand.png" alt="EXPAND: Partnerships, Networks, and Global Engagement" class="innovates-showcase-img">
+            <div class="innovates-showcase-title">EXPAND</div>
+            <div class="innovates-showcase-tag">Partnerships, Networks, and Global Engagement</div>
+            <span class="innovates-showcase-action">View Focus, Outcomes &amp; Subtopics &rarr;</span>
+          </a>
+          <a href="#pillar-strengthen" class="innovates-showcase-card" data-wing="isap" onclick="openAgendaModal('strengthen', 'focus'); return false;" title="Click to view Focus, Outcomes &amp; Subtopics for STRENGTHEN">
+            <span class="innovates-letter-badge">S</span>
+            <img src="assets/agenda/agenda-9-strengthen.png" alt="STRENGTHEN: Education and Institutional Performance" class="innovates-showcase-img">
+            <div class="innovates-showcase-title">STRENGTHEN</div>
+            <div class="innovates-showcase-tag">Education and Institutional Performance</div>
+            <span class="innovates-showcase-action">View Focus, Outcomes &amp; Subtopics &rarr;</span>
+          </a>
         </div>
-
-      </div>
+      </section>
 
       <!-- Strategic Overview Banner -->
       <div style="background: var(--white); border-radius: 16px; padding: 2.25rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); margin-bottom: 3rem;">
@@ -506,82 +414,6 @@
         </div>
       </div>
 
-      <!-- INNOVATES Visual Showcase Grid (Interactive Agenda Showcase) -->
-      <section id="innovates-agenda-showcase" style="margin-bottom: 3.5rem;">
-        <div style="text-align: center; max-width: 760px; margin: 0 auto 2.25rem;">
-          <span class="badge-pill" style="background: rgba(123, 17, 19, 0.08); color: #7b1113; font-weight: 700;">INNOVATES AGENDA BLUEPRINT</span>
-          <h2 style="font-size: 2rem; color: var(--dark-text); margin-top: 0.5rem; margin-bottom: 0.6rem;">Translate Research by INNOVATES Agenda</h2>
-          <p style="font-size: 0.98rem; color: #64748b; line-height: 1.6; margin: 0;">
-            Click any INNOVATES agenda pillar below to view its strategic focus, priority subtopics, expected institutional outcomes, and translated research protocols.
-          </p>
-        </div>
-
-        <div class="innovates-showcase" aria-label="INNOVATES Agenda Framework">
-          <a href="#pillar-inspire" class="innovates-showcase-card" onclick="openAgendaModal('inspire', 'focus'); return false;" title="Click to view Focus, Outcomes &amp; Subtopics for INSPIRE">
-            <span class="innovates-letter-badge">I</span>
-            <img src="assets/agenda/agenda-1-inspire.png" alt="INSPIRE: Culture, Capability, and Engagement" class="innovates-showcase-img">
-            <div class="innovates-showcase-title">INSPIRE</div>
-            <div class="innovates-showcase-tag">Culture, Capability, and Engagement</div>
-            <span class="innovates-showcase-action">View Focus, Outcomes &amp; Subtopics &rarr;</span>
-          </a>
-          <a href="#pillar-nurture" class="innovates-showcase-card" onclick="openAgendaModal('nurture', 'focus'); return false;" title="Click to view Focus, Outcomes &amp; Subtopics for NURTURE">
-            <span class="innovates-letter-badge">N</span>
-            <img src="assets/agenda/agenda-2-nurture.png" alt="NURTURE: Ethics, Quality, and Accountability" class="innovates-showcase-img">
-            <div class="innovates-showcase-title">NURTURE</div>
-            <div class="innovates-showcase-tag">Ethics, Quality, and Accountability</div>
-            <span class="innovates-showcase-action">View Focus, Outcomes &amp; Subtopics &rarr;</span>
-          </a>
-          <a href="#pillar-navigate" class="innovates-showcase-card" onclick="openAgendaModal('navigate', 'focus'); return false;" title="Click to view Focus, Outcomes &amp; Subtopics for NAVIGATE">
-            <span class="innovates-letter-badge">N</span>
-            <img src="assets/agenda/agenda-3-navigate.png" alt="NAVIGATE: Digital Transformation and Infrastructure" class="innovates-showcase-img">
-            <div class="innovates-showcase-title">NAVIGATE</div>
-            <div class="innovates-showcase-tag">Digital Transformation and Infrastructure</div>
-            <span class="innovates-showcase-action">View Focus, Outcomes &amp; Subtopics &rarr;</span>
-          </a>
-          <a href="#pillar-operationalize" class="innovates-showcase-card" onclick="openAgendaModal('operationalize', 'focus'); return false;" title="Click to view Focus, Outcomes &amp; Subtopics for OPERATIONALIZE">
-            <span class="innovates-letter-badge">O</span>
-            <img src="assets/agenda/agenda-4-operationalize.png" alt="OPERATIONALIZE: Knowledge Utilization, Innovation, and Improvement" class="innovates-showcase-img">
-            <div class="innovates-showcase-title">OPERATIONALIZE</div>
-            <div class="innovates-showcase-tag">Knowledge Utilization, Innovation, and Improvement</div>
-            <span class="innovates-showcase-action">View Focus, Outcomes &amp; Subtopics &rarr;</span>
-          </a>
-          <a href="#pillar-value" class="innovates-showcase-card" onclick="openAgendaModal('value', 'focus'); return false;" title="Click to view Focus, Outcomes &amp; Subtopics for VALUE">
-            <span class="innovates-letter-badge">V</span>
-            <img src="assets/agenda/agenda-5-value.png" alt="VALUE: Health, Safety, and Well-Being" class="innovates-showcase-img">
-            <div class="innovates-showcase-title">VALUE</div>
-            <div class="innovates-showcase-tag">Health, Safety, and Well-Being</div>
-            <span class="innovates-showcase-action">View Focus, Outcomes &amp; Subtopics &rarr;</span>
-          </a>
-          <a href="#pillar-advance" class="innovates-showcase-card" onclick="openAgendaModal('advance', 'focus'); return false;" title="Click to view Focus, Outcomes &amp; Subtopics for ADVANCE">
-            <span class="innovates-letter-badge">A</span>
-            <img src="assets/agenda/agenda-6-advance.png" alt="ADVANCE: Sustainability and Climate Resilience" class="innovates-showcase-img">
-            <div class="innovates-showcase-title">ADVANCE</div>
-            <div class="innovates-showcase-tag">Sustainability and Climate Resilience</div>
-            <span class="innovates-showcase-action">View Focus, Outcomes &amp; Subtopics &rarr;</span>
-          </a>
-          <a href="#pillar-transform" class="innovates-showcase-card" onclick="openAgendaModal('transform', 'focus'); return false;" title="Click to view Focus, Outcomes &amp; Subtopics for TRANSFORM">
-            <span class="innovates-letter-badge">T</span>
-            <img src="assets/agenda/agenda-7-transform.png" alt="TRANSFORM: Community Engagement and Social Impact" class="innovates-showcase-img">
-            <div class="innovates-showcase-title">TRANSFORM</div>
-            <div class="innovates-showcase-tag">Community Engagement and Social Impact</div>
-            <span class="innovates-showcase-action">View Focus, Outcomes &amp; Subtopics &rarr;</span>
-          </a>
-          <a href="#pillar-expand" class="innovates-showcase-card" onclick="openAgendaModal('expand', 'focus'); return false;" title="Click to view Focus, Outcomes &amp; Subtopics for EXPAND">
-            <span class="innovates-letter-badge">E</span>
-            <img src="assets/agenda/agenda-8-expand.png" alt="EXPAND: Partnerships, Networks, and Global Engagement" class="innovates-showcase-img">
-            <div class="innovates-showcase-title">EXPAND</div>
-            <div class="innovates-showcase-tag">Partnerships, Networks, and Global Engagement</div>
-            <span class="innovates-showcase-action">View Focus, Outcomes &amp; Subtopics &rarr;</span>
-          </a>
-          <a href="#pillar-strengthen" class="innovates-showcase-card" onclick="openAgendaModal('strengthen', 'focus'); return false;" title="Click to view Focus, Outcomes &amp; Subtopics for STRENGTHEN">
-            <span class="innovates-letter-badge">S</span>
-            <img src="assets/agenda/agenda-9-strengthen.png" alt="STRENGTHEN: Education and Institutional Performance" class="innovates-showcase-img">
-            <div class="innovates-showcase-title">STRENGTHEN</div>
-            <div class="innovates-showcase-tag">Education and Institutional Performance</div>
-            <span class="innovates-showcase-action">View Focus, Outcomes &amp; Subtopics &rarr;</span>
-          </a>
-        </div>
-      </section>
 
       <!-- Section: 4 Key Pillars of Utilization -->
       <div style="margin-bottom: 3.5rem;">
@@ -1135,8 +967,7 @@
     function filterUtilizationWing(wing, btn) {
       var mcnpSec = document.getElementById('mcnp-utilization');
       var isapSec = document.getElementById('isap-utilization');
-      var mcnpProf = document.getElementById('mcnp-profile-card');
-      var isapProf = document.getElementById('isap-profile-card');
+      var showcaseCards = document.querySelectorAll('#innovates-agenda-showcase .innovates-showcase-card');
       
       var btnAll = document.getElementById('btn-tab-all');
       var btnMcnp = document.getElementById('btn-tab-mcnp');
@@ -1152,22 +983,35 @@
         if (btnMcnp) btnMcnp.classList.add('active-mcnp');
         if (mcnpSec) mcnpSec.classList.remove('hidden-wing');
         if (isapSec) isapSec.classList.add('hidden-wing');
-        if (mcnpProf) mcnpProf.style.display = 'flex';
-        if (isapProf) isapProf.style.display = 'none';
+        showcaseCards.forEach(function(card) {
+          var cardWing = card.getAttribute('data-wing') || 'both';
+          if (cardWing === 'mcnp' || cardWing === 'both') {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
         try { history.replaceState(null, null, '#mcnp-utilization'); } catch(e){}
       } else if (wing === 'isap') {
         if (btnIsap) btnIsap.classList.add('active-isap');
         if (mcnpSec) mcnpSec.classList.add('hidden-wing');
         if (isapSec) isapSec.classList.remove('hidden-wing');
-        if (mcnpProf) mcnpProf.style.display = 'none';
-        if (isapProf) isapProf.style.display = 'flex';
+        showcaseCards.forEach(function(card) {
+          var cardWing = card.getAttribute('data-wing') || 'both';
+          if (cardWing === 'isap' || cardWing === 'both') {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
         try { history.replaceState(null, null, '#isap-utilization'); } catch(e){}
       } else {
         if (btnAll) btnAll.classList.add('active-all');
         if (mcnpSec) mcnpSec.classList.remove('hidden-wing');
         if (isapSec) isapSec.classList.remove('hidden-wing');
-        if (mcnpProf) mcnpProf.style.display = 'flex';
-        if (isapProf) isapProf.style.display = 'flex';
+        showcaseCards.forEach(function(card) {
+          card.style.display = 'flex';
+        });
         try { history.replaceState(null, null, '#all'); } catch(e){}
       }
     }
