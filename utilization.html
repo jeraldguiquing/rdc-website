@@ -23,6 +23,86 @@
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .util-tab-btn {
+      padding: 0.65rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: 1.5px solid #cbd5e1;
+      background: #ffffff;
+      color: #334155;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .util-tab-btn:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+      transform: translateY(-1px);
+    }
+    .util-tab-btn.active-all {
+      background: #0f172a;
+      color: #ffffff;
+      border-color: #0f172a;
+      box-shadow: 0 4px 12px rgba(15,23,42,0.2);
+    }
+    .util-tab-btn.active-mcnp {
+      background: var(--mcnp-green, #0d5c3a);
+      color: #ffffff;
+      border-color: var(--mcnp-green, #0d5c3a);
+      box-shadow: 0 4px 12px rgba(13,92,58,0.25);
+    }
+    .util-tab-btn.active-isap {
+      background: var(--isap-blue, #0b3c5d);
+      color: #ffffff;
+      border-color: var(--isap-blue, #0b3c5d);
+      box-shadow: 0 4px 12px rgba(11,60,93,0.25);
+    }
+    .util-wing-section {
+      transition: opacity 0.3s ease;
+    }
+    .util-wing-section.hidden-wing {
+      display: none !important;
+    }
+    .dept-logo-pill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      text-align: center;
+      background: #f8fafc;
+      padding: 0.65rem 0.5rem;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      transition: all 0.2s ease;
+    }
+    .dept-logo-pill:hover {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .dept-logo-pill img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 5px rgba(0,0,0,0.18));
+      transition: transform 0.2s ease;
+    }
+    .dept-logo-pill:hover img {
+      transform: scale(1.08);
+    }
+    .dept-logo-pill span {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #1e293b;
+      line-height: 1.25;
+    }
+  </style>
 </head>
 <body>
 
@@ -141,8 +221,31 @@
               </div>
             </li>
 
-            <li class="nav-item">
-              <a href="utilization.html" class="nav-link active">UTILIZATION</a>
+            <!-- Dropdown: UTILIZATION -->
+            <li class="nav-item dropdown">
+              <a href="utilization.html" class="nav-link active">
+                UTILIZATION <span class="arrow">&#9662;</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="utilization.html" class="dropdown-link" onclick="filterUtilizationWing('all', document.getElementById('btn-tab-all'));">
+                  <span>All Utilization (Unified Overview)</span>
+                  <span class="dropdown-badge badge-admin">ALL</span>
+                </a>
+                <a href="utilization.html#mcnp-utilization" class="dropdown-link" onclick="filterUtilizationWing('mcnp', document.getElementById('btn-tab-mcnp'));">
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;">
+                    <span>MCNP Health Sciences Utilization</span>
+                  </div>
+                  <span class="dropdown-badge badge-mcnp">MCNP</span>
+                </a>
+                <a href="utilization.html#isap-utilization" class="dropdown-link" onclick="filterUtilizationWing('isap', document.getElementById('btn-tab-isap'));">
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;">
+                    <span>ISAP Multidisciplinary Utilization</span>
+                  </div>
+                  <span class="dropdown-badge badge-isap">ISAP</span>
+                </a>
+              </div>
             </li>
 
             <li class="nav-item">
@@ -182,6 +285,132 @@
   <!-- Main Content -->
   <main class="section">
     <div class="container">
+
+      <!-- Interactive Institution Selector Tabs -->
+      <div style="display: flex; justify-content: center; gap: 0.75rem; margin-bottom: 2.25rem; flex-wrap: wrap;">
+        <button type="button" class="util-tab-btn active-all" id="btn-tab-all" onclick="filterUtilizationWing('all', this)">
+          <i class="fas fa-layer-group"></i> All Utilization (Unified)
+        </button>
+        <button type="button" class="util-tab-btn" id="btn-tab-mcnp" onclick="filterUtilizationWing('mcnp', this)">
+          <img src="assets/Mcnp_Logo.png" alt="MCNP" style="width: 20px; height: 20px; object-fit: contain;"> MCNP Health Sciences Wing
+        </button>
+        <button type="button" class="util-tab-btn" id="btn-tab-isap" onclick="filterUtilizationWing('isap', this)">
+          <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP" style="width: 20px; height: 20px; object-fit: contain;"> ISAP Multidisciplinary Wing
+        </button>
+      </div>
+
+      <!-- Dual Institutional Profile Highlights Showcase -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; margin-bottom: 2.75rem;">
+        
+        <!-- MCNP Profile Card -->
+        <div id="mcnp-profile-card" style="background: var(--white); border-radius: 16px; padding: 2rem; border: 1.5px solid rgba(13, 92, 58, 0.25); box-shadow: var(--card-shadow); display: flex; flex-direction: column; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--mcnp-green), #10b981);"></div>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <img src="assets/Mcnp_Logo.png" alt="MCNP Seal" style="width: 58px; height: 58px; object-fit: contain; filter: drop-shadow(0 3px 8px rgba(13,92,58,0.25)); flex-shrink: 0;">
+            <div>
+              <span class="dropdown-badge badge-mcnp" style="font-size: 0.72rem; padding: 0.25rem 0.6rem;">Health Sciences Wing</span>
+              <h3 style="font-size: 1.25rem; color: var(--mcnp-green); margin: 0.25rem 0 0.15rem; line-height: 1.25;">Medical Colleges of Northern Philippines</h3>
+              <p style="font-size: 0.82rem; color: #64748b; margin: 0;">Clinical Protocols, Triage SOPs &amp; Community Health Impact</p>
+            </div>
+          </div>
+          <p style="font-size: 0.9rem; color: #475569; line-height: 1.65; margin-bottom: 1.25rem; flex-grow: 1;">
+            Translating laboratory discovery and clinical research across nursing, radiologic sciences, medical laboratory technology, pharmacy, and physical therapy into active hospital care pathways and grassroots wellness caravans.
+          </p>
+
+          <!-- MCNP Department Logos Cluster -->
+          <div style="background: #f8fafc; border-radius: 10px; padding: 0.85rem; border: 1px solid #e2e8f0; margin-bottom: 1.25rem;">
+            <div style="font-size: 0.74rem; font-weight: 800; color: #0d5c3a; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.6rem;">MCNP Health Colleges Utilization Network:</div>
+            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.4rem;">
+              <div class="dept-logo-pill">
+                <img src="assets/dept-logos/mcnp-nursing.png" alt="Nursing">
+                <span>Nursing</span>
+              </div>
+              <div class="dept-logo-pill">
+                <img src="assets/dept-logos/mcnp-radtech.png" alt="Radiologic Tech">
+                <span>RadTech</span>
+              </div>
+              <div class="dept-logo-pill">
+                <img src="assets/dept-logos/mcnp-mls.png" alt="MLS">
+                <span>Med Lab</span>
+              </div>
+              <div class="dept-logo-pill">
+                <img src="assets/dept-logos/mcnp-pt.png" alt="PT">
+                <span>Phys Therapy</span>
+              </div>
+              <div class="dept-logo-pill">
+                <img src="assets/dept-logos/mcnp-pharmacy.png" alt="Pharmacy">
+                <span>Pharmacy</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem; margin-top: auto;">
+            <span style="font-size: 0.82rem; font-weight: 700; color: var(--mcnp-green);"><i class="fas fa-hospital-user"></i> 24+ Hospital Protocols</span>
+            <a href="#mcnp-utilization" class="btn btn-sm btn-mcnp" onclick="filterUtilizationWing('mcnp', document.getElementById('btn-tab-mcnp'));" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Explore MCNP Cases &darr;</a>
+          </div>
+        </div>
+
+        <!-- ISAP Profile Card -->
+        <div id="isap-profile-card" style="background: var(--white); border-radius: 16px; padding: 2rem; border: 1.5px solid rgba(11, 60, 93, 0.25); box-shadow: var(--card-shadow); display: flex; flex-direction: column; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--isap-blue), #2563eb);"></div>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Seal" style="width: 58px; height: 58px; object-fit: contain; filter: drop-shadow(0 3px 8px rgba(11,60,93,0.25)); flex-shrink: 0;">
+            <div>
+              <span class="dropdown-badge badge-isap" style="font-size: 0.72rem; padding: 0.25rem 0.6rem;">Multidisciplinary Wing</span>
+              <h3 style="font-size: 1.25rem; color: var(--isap-blue); margin: 0.25rem 0 0.15rem; line-height: 1.25;">International School of Asia and the Pacific</h3>
+              <p style="font-size: 0.82rem; color: #64748b; margin: 0;">Public Safety, Maritime Trade, ICT &amp; Socio-Economic Policy</p>
+            </div>
+          </div>
+          <p style="font-size: 0.9rem; color: #475569; line-height: 1.65; margin-bottom: 1.25rem; flex-grow: 1;">
+            Translating criminological intelligence, customs classification automation, software systems, rural pedagogy, and restorative welfare studies into government adoption, municipal ordinances, and NGO toolkits.
+          </p>
+
+          <!-- ISAP Department Logos Cluster -->
+          <div style="background: #f8fafc; border-radius: 10px; padding: 0.85rem; border: 1px solid #e2e8f0; margin-bottom: 1.25rem;">
+            <div style="font-size: 0.74rem; font-weight: 800; color: #0b3c5d; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.6rem;">ISAP Multidisciplinary Utilization Network:</div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.4rem;">
+              <div class="dept-logo-pill">
+                <img src="assets/dept-logos/isap-cocje.png" alt="COCJE">
+                <span>Criminology</span>
+              </div>
+              <div class="dept-logo-pill">
+                <img src="assets/dept-logos/isap-customs.png" alt="Customs">
+                <span>Customs</span>
+              </div>
+              <div class="dept-logo-pill">
+                <img src="assets/dept-logos/isap-it.png" alt="IT">
+                <span>IT &amp; Systems</span>
+              </div>
+              <div class="dept-logo-pill">
+                <img src="assets/dept-logos/isap-bsed.png" alt="Education">
+                <span>Education</span>
+              </div>
+              <div class="dept-logo-pill">
+                <img src="assets/dept-logos/isap-business.png" alt="Business">
+                <span>Business</span>
+              </div>
+              <div class="dept-logo-pill">
+                <img src="assets/dept-logos/isap-social-work.png" alt="Social Work">
+                <span>Social Work</span>
+              </div>
+              <div class="dept-logo-pill">
+                <img src="assets/dept-logos/isap-psychology.png" alt="Psychology">
+                <span>Psychology</span>
+              </div>
+              <div class="dept-logo-pill">
+                <img src="assets/dept-logos/isap-hospitality.png" alt="Hospitality">
+                <span>Hospitality</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem; margin-top: auto;">
+            <span style="font-size: 0.82rem; font-weight: 700; color: var(--isap-blue);"><i class="fas fa-shield-alt"></i> 18+ Law &amp; LGU Protocols</span>
+            <a href="#isap-utilization" class="btn btn-sm btn-isap" onclick="filterUtilizationWing('isap', document.getElementById('btn-tab-isap'));" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Explore ISAP Cases &darr;</a>
+          </div>
+        </div>
+
+      </div>
 
       <!-- Strategic Overview Banner -->
       <div style="background: var(--white); border-radius: 16px; padding: 2.25rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); margin-bottom: 3rem;">
@@ -343,58 +572,296 @@
         </div>
       </div>
 
-      <!-- Section: Featured Utilization Highlights -->
-      <div style="margin-bottom: 3.5rem;">
-        <div style="margin-bottom: 2rem;">
-          <span class="badge-pill">FIELD EVIDENCE</span>
-          <h2 style="font-size: 1.8rem; color: var(--dark-text); margin-top: 0.5rem;">Recent Institutional Research Adoptions</h2>
-          <p style="font-size: 0.95rem; color: #64748b;">Selected examples of verified academic research translated into active practice.</p>
+      <!-- Section: MCNP Health Sciences Research Utilization Wing -->
+      <div id="mcnp-utilization" class="util-wing-section" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+        <div style="background: linear-gradient(135deg, rgba(13, 92, 58, 0.08) 0%, rgba(16, 185, 129, 0.04) 100%); border-radius: 16px; padding: 2rem; border: 1.5px solid rgba(13, 92, 58, 0.2); margin-bottom: 2rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1.25rem;">
+              <img src="assets/Mcnp_Logo.png" alt="MCNP Official Seal" style="width: 65px; height: 65px; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(13,92,58,0.3));">
+              <div>
+                <span class="dropdown-badge badge-mcnp" style="font-size: 0.75rem;">Health Sciences Research Wing</span>
+                <h2 style="font-size: 1.75rem; color: var(--mcnp-green); margin: 0.35rem 0 0.2rem;">MCNP Research Utilization &amp; Clinical Impact</h2>
+                <p style="font-size: 0.92rem; color: #475569; margin: 0;">Verified hospital protocols, clinical diagnostic tools, and community health translations across Cagayan Valley.</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 0.6rem; align-items: center;">
+              <span class="badge-pill" style="background: rgba(13, 92, 58, 0.15); color: var(--mcnp-green); font-weight: 700;">24+ Clinical Adoptions</span>
+            </div>
+          </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
           
-          <div style="background: var(--white); border-radius: 12px; padding: 1.75rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow);">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
-              <span class="dropdown-badge badge-mcnp">HEALTH SCIENCES</span>
-              <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">Adopted: Affiliated Hospitals</span>
+          <!-- MCNP 1: Nursing -->
+          <div style="background: var(--white); border-radius: 14px; padding: 1.75rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.85rem;">
+              <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <img src="assets/dept-logos/mcnp-nursing.png" alt="College of Nursing" style="width: 36px; height: 36px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));">
+                <span class="dropdown-badge badge-mcnp">COLLEGE OF NURSING</span>
+              </div>
+              <span style="font-size: 0.74rem; color: #0d5c3a; font-weight: 700; background: #e8f5e9; padding: 0.2rem 0.5rem; border-radius: 4px;">Hospital Adopted</span>
             </div>
-            <h4 style="font-size: 1.1rem; color: #0f172a; margin-bottom: 0.5rem;">Pediatric Medication Error Reduction Protocols</h4>
-            <p style="font-size: 0.88rem; color: #475569; line-height: 1.6; margin-bottom: 1rem;">
-              Clinical study comparing dual-signoff digital dosage verification vs manual calculations, officially integrated into clinical nursing orientation in partner medical centers.
+            <h4 style="font-size: 1.12rem; color: #0f172a; margin-bottom: 0.5rem; line-height: 1.35;">Pediatric Medication Error-Mitigation Protocol</h4>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.65; margin-bottom: 1rem; flex-grow: 1;">
+              Dual-signoff digital dosage verification and syringe barcode checks, lowering pediatric inpatient dosing variances by 41% during clinical handovers.
             </p>
-            <div style="font-size: 0.8rem; color: #0d5c3a; font-weight: 600; display: flex; align-items: center; gap: 0.35rem;">
-              <span>✓ Verified Utilization Certificate #RDC-UT-2025-014</span>
+            <div style="background: #f8fafc; border-radius: 8px; padding: 0.7rem 0.85rem; font-size: 0.8rem; border-left: 3px solid var(--mcnp-green); margin-bottom: 0.75rem;">
+              <strong>Adopting Agency:</strong> Cagayan Valley Medical Center (CVMC) &amp; St. Paul Hospital
+            </div>
+            <div style="font-size: 0.78rem; color: #0d5c3a; font-weight: 700; display: flex; align-items: center; gap: 0.35rem;">
+              <i class="fas fa-check-circle"></i> Certificate of Utilization #RDC-UT-2025-014
             </div>
           </div>
 
-          <div style="background: var(--white); border-radius: 12px; padding: 1.75rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow);">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
-              <span class="dropdown-badge badge-isap">CRIMINOLOGY &amp; SAFETY</span>
-              <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">Adopted: Local Police Stations</span>
+          <!-- MCNP 2: RadTech -->
+          <div style="background: var(--white); border-radius: 14px; padding: 1.75rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.85rem;">
+              <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <img src="assets/dept-logos/mcnp-radtech.png" alt="Radiologic Technology" style="width: 36px; height: 36px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));">
+                <span class="dropdown-badge badge-mcnp">RADIOLOGIC TECH (CORT)</span>
+              </div>
+              <span style="font-size: 0.74rem; color: #0d5c3a; font-weight: 700; background: #e8f5e9; padding: 0.2rem 0.5rem; border-radius: 4px;">Diagnostic Adopted</span>
             </div>
-            <h4 style="font-size: 1.1rem; color: #0f172a; margin-bottom: 0.5rem;">GIS-Based Night Patrol Geospatial Mapping</h4>
-            <p style="font-size: 0.88rem; color: #475569; line-height: 1.6; margin-bottom: 1rem;">
-              Crime hotspot data analysis and spatial dispatch route modeling adopted by surrounding municipal police stations to optimize police response times.
+            <h4 style="font-size: 1.12rem; color: #0f172a; margin-bottom: 0.5rem; line-height: 1.35;">Low-Dose CT (LDCT) Shielding &amp; Exposure Calibration Protocol</h4>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.65; margin-bottom: 1rem; flex-grow: 1;">
+              Customized bismuth and lead apron shielding routines reducing pediatric and geriatric gonadal radiation absorption by 22% while preserving high-contrast diagnostic clarity.
             </p>
-            <div style="font-size: 0.8rem; color: #0d5c3a; font-weight: 600; display: flex; align-items: center; gap: 0.35rem;">
-              <span>✓ Verified Utilization Certificate #RDC-UT-2025-022</span>
+            <div style="background: #f8fafc; border-radius: 8px; padding: 0.7rem 0.85rem; font-size: 0.8rem; border-left: 3px solid var(--mcnp-green); margin-bottom: 0.75rem;">
+              <strong>Adopting Agency:</strong> Regional Diagnostic &amp; Imaging Centers (Region II)
+            </div>
+            <div style="font-size: 0.78rem; color: #0d5c3a; font-weight: 700; display: flex; align-items: center; gap: 0.35rem;">
+              <i class="fas fa-check-circle"></i> Certificate of Utilization #RDC-UT-2025-019
             </div>
           </div>
 
-          <div style="background: var(--white); border-radius: 12px; padding: 1.75rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow);">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
-              <span class="dropdown-badge badge-admin">COMMUNITY EXTENSION</span>
-              <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">Adopted: Peñablanca Barangays</span>
+          <!-- MCNP 3: MLS -->
+          <div style="background: var(--white); border-radius: 14px; padding: 1.75rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.85rem;">
+              <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <img src="assets/dept-logos/mcnp-mls.png" alt="Medical Laboratory Science" style="width: 36px; height: 36px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));">
+                <span class="dropdown-badge badge-mcnp">MEDICAL LABORATORY SCIENCE</span>
+              </div>
+              <span style="font-size: 0.74rem; color: #0d5c3a; font-weight: 700; background: #e8f5e9; padding: 0.2rem 0.5rem; border-radius: 4px;">RHU Adopted</span>
             </div>
-            <h4 style="font-size: 1.1rem; color: #0f172a; margin-bottom: 0.5rem;">Community Nutritional Needs Assessment</h4>
-            <p style="font-size: 0.88rem; color: #475569; line-height: 1.6; margin-bottom: 1rem;">
-              Direct translation of dietary intake surveys into localized vegetable gardening and micronutrient supplementation caravans facilitated with CESO.
+            <h4 style="font-size: 1.12rem; color: #0f172a; margin-bottom: 0.5rem; line-height: 1.35;">Multiplex Waterborne Enteric Pathogen Screening Protocol</h4>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.65; margin-bottom: 1rem; flex-grow: 1;">
+              Field-deployable colorimetric screening assay detecting coliform bacteria and giardia cysts in rural wellsprings within 4 hours following river basin flood surges.
             </p>
-            <div style="font-size: 0.8rem; color: #0d5c3a; font-weight: 600; display: flex; align-items: center; gap: 0.35rem;">
-              <span>✓ Verified Utilization Certificate #RDC-UT-2026-003</span>
+            <div style="background: #f8fafc; border-radius: 8px; padding: 0.7rem 0.85rem; font-size: 0.8rem; border-left: 3px solid var(--mcnp-green); margin-bottom: 0.75rem;">
+              <strong>Adopting Agency:</strong> Peñablanca Rural Health Unit &amp; Cagayan Provincial Health Office
+            </div>
+            <div style="font-size: 0.78rem; color: #0d5c3a; font-weight: 700; display: flex; align-items: center; gap: 0.35rem;">
+              <i class="fas fa-check-circle"></i> Certificate of Utilization #RDC-UT-2025-027
             </div>
           </div>
 
+          <!-- MCNP 4: PT -->
+          <div style="background: var(--white); border-radius: 14px; padding: 1.75rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.85rem;">
+              <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <img src="assets/dept-logos/mcnp-pt.png" alt="Physical Therapy" style="width: 36px; height: 36px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));">
+                <span class="dropdown-badge badge-mcnp">COLLEGE OF PHYSICAL THERAPY</span>
+              </div>
+              <span style="font-size: 0.74rem; color: #0d5c3a; font-weight: 700; background: #e8f5e9; padding: 0.2rem 0.5rem; border-radius: 4px;">LGU Adopted</span>
+            </div>
+            <h4 style="font-size: 1.12rem; color: #0f172a; margin-bottom: 0.5rem; line-height: 1.35;">Ergonomic Musculoskeletal Rehabilitation for Agrarian Workers</h4>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.65; margin-bottom: 1rem; flex-grow: 1;">
+              Field postural rehabilitation and biomechanical stretch regimens preventing chronic lumbar and degenerative joint strains in corn and tobacco harvesters.
+            </p>
+            <div style="background: #f8fafc; border-radius: 8px; padding: 0.7rem 0.85rem; font-size: 0.8rem; border-left: 3px solid var(--mcnp-green); margin-bottom: 0.75rem;">
+              <strong>Adopting Agency:</strong> Peñablanca Farmers Agricultural Cooperatives &amp; Municipal Health Office
+            </div>
+            <div style="font-size: 0.78rem; color: #0d5c3a; font-weight: 700; display: flex; align-items: center; gap: 0.35rem;">
+              <i class="fas fa-check-circle"></i> Certificate of Utilization #RDC-UT-2026-002
+            </div>
+          </div>
+
+          <!-- MCNP 5: Pharmacy -->
+          <div style="background: var(--white); border-radius: 14px; padding: 1.75rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.85rem;">
+              <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <img src="assets/dept-logos/mcnp-pharmacy.png" alt="College of Pharmacy" style="width: 36px; height: 36px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));">
+                <span class="dropdown-badge badge-mcnp">COLLEGE OF PHARMACY</span>
+              </div>
+              <span style="font-size: 0.74rem; color: #0d5c3a; font-weight: 700; background: #e8f5e9; padding: 0.2rem 0.5rem; border-radius: 4px;">Community Adopted</span>
+            </div>
+            <h4 style="font-size: 1.12rem; color: #0f172a; margin-bottom: 0.5rem; line-height: 1.35;">Standardized Antimicrobial Botanical Ointment Formulation</h4>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.65; margin-bottom: 1rem; flex-grow: 1;">
+              Standardized extraction and pharmaceutical compounding monograph for native Akapulko and Guava leaf extracts, formulated into sterile antiseptic salves.
+            </p>
+            <div style="background: #f8fafc; border-radius: 8px; padding: 0.7rem 0.85rem; font-size: 0.8rem; border-left: 3px solid var(--mcnp-green); margin-bottom: 0.75rem;">
+              <strong>Adopting Agency:</strong> CESO Barangay Herbal Pharmacies &amp; Rural Health Stations
+            </div>
+            <div style="font-size: 0.78rem; color: #0d5c3a; font-weight: 700; display: flex; align-items: center; gap: 0.35rem;">
+              <i class="fas fa-check-circle"></i> Certificate of Utilization #RDC-UT-2026-007
+            </div>
+          </div>
+
+        </div>
+
+        <!-- MCNP Affiliated Adopters -->
+        <div style="background: #f8fafc; border-radius: 12px; padding: 1.25rem 1.5rem; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+          <div style="font-size: 0.86rem; color: #475569;">
+            🏥 <strong>Official MCNP Clinical Adopters:</strong> Cagayan Valley Medical Center (CVMC), St. Paul Hospital, Divine Mercy Clinic, Peñablanca RHU, Tuguegarao City Health Office.
+          </div>
+          <a href="about-rdc-mcnp.html" class="btn btn-sm btn-outline-white" style="color: var(--mcnp-green); border-color: var(--mcnp-green); font-size: 0.8rem;">Explore MCNP Research Hub &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Section: ISAP Multidisciplinary Research Utilization Wing -->
+      <div id="isap-utilization" class="util-wing-section" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+        <div style="background: linear-gradient(135deg, rgba(11, 60, 93, 0.08) 0%, rgba(37, 99, 235, 0.04) 100%); border-radius: 16px; padding: 2rem; border: 1.5px solid rgba(11, 60, 93, 0.2); margin-bottom: 2rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1.25rem;">
+              <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Official Seal" style="width: 65px; height: 65px; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(11,60,93,0.3));">
+              <div>
+                <span class="dropdown-badge badge-isap" style="font-size: 0.75rem;">Multidisciplinary Research Wing</span>
+                <h2 style="font-size: 1.75rem; color: var(--isap-blue); margin: 0.35rem 0 0.2rem;">ISAP Research Utilization &amp; Policy Impact</h2>
+                <p style="font-size: 0.92rem; color: #475569; margin: 0;">Verified law enforcement models, customs trade matrices, community ICT solutions, and social policy briefs.</p>
+              </div>
+            </div>
+            <div style="display: flex; gap: 0.6rem; align-items: center;">
+              <span class="badge-pill" style="background: rgba(11, 60, 93, 0.15); color: var(--isap-blue); font-weight: 700;">18+ Policy &amp; Tech Adoptions</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+          
+          <!-- ISAP 1: COCJE -->
+          <div style="background: var(--white); border-radius: 14px; padding: 1.75rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.85rem;">
+              <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <img src="assets/dept-logos/isap-cocje.png" alt="COCJE" style="width: 36px; height: 36px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));">
+                <span class="dropdown-badge badge-isap">CRIMINAL JUSTICE (COCJE)</span>
+              </div>
+              <span style="font-size: 0.74rem; color: #1e3a8a; font-weight: 700; background: #e0f2fe; padding: 0.2rem 0.5rem; border-radius: 4px;">Police Adopted</span>
+            </div>
+            <h4 style="font-size: 1.12rem; color: #0f172a; margin-bottom: 0.5rem; line-height: 1.35;">GIS-Based Night Patrol Geospatial Mapping</h4>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.65; margin-bottom: 1rem; flex-grow: 1;">
+              Crime hotspot cluster analysis and tactical patrol routing algorithms adopted by municipal police stations, improving tactical arrival time by 35%.
+            </p>
+            <div style="background: #f8fafc; border-radius: 8px; padding: 0.7rem 0.85rem; font-size: 0.8rem; border-left: 3px solid var(--isap-blue); margin-bottom: 0.75rem;">
+              <strong>Adopting Agency:</strong> Philippine National Police (PNP PRO2 &amp; Peñablanca Police Station)
+            </div>
+            <div style="font-size: 0.78rem; color: #1e3a8a; font-weight: 700; display: flex; align-items: center; gap: 0.35rem;">
+              <i class="fas fa-check-circle"></i> Certificate of Utilization #RDC-UT-2025-022
+            </div>
+          </div>
+
+          <!-- ISAP 2: Customs -->
+          <div style="background: var(--white); border-radius: 14px; padding: 1.75rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.85rem;">
+              <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <img src="assets/dept-logos/isap-customs.png" alt="Customs" style="width: 36px; height: 36px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));">
+                <span class="dropdown-badge badge-isap">CUSTOMS ADMINISTRATION</span>
+              </div>
+              <span style="font-size: 0.74rem; color: #1e3a8a; font-weight: 700; background: #e0f2fe; padding: 0.2rem 0.5rem; border-radius: 4px;">Port Adopted</span>
+            </div>
+            <h4 style="font-size: 1.12rem; color: #0f172a; margin-bottom: 0.5rem; line-height: 1.35;">Electronic Harmonized Tariff Classification Decision-Matrix</h4>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.65; margin-bottom: 1rem; flex-grow: 1;">
+              Algorithmic valuation and commodity categorization matrix for imported agricultural goods, cutting customs clearance discrepancy disputes by 60%.
+            </p>
+            <div style="background: #f8fafc; border-radius: 8px; padding: 0.7rem 0.85rem; font-size: 0.8rem; border-left: 3px solid var(--isap-blue); margin-bottom: 0.75rem;">
+              <strong>Adopting Agency:</strong> Port of Aparri Customs Brokers Association &amp; Forwarders
+            </div>
+            <div style="font-size: 0.78rem; color: #1e3a8a; font-weight: 700; display: flex; align-items: center; gap: 0.35rem;">
+              <i class="fas fa-check-circle"></i> Certificate of Utilization #RDC-UT-2025-031
+            </div>
+          </div>
+
+          <!-- ISAP 3: IT & CpE -->
+          <div style="background: var(--white); border-radius: 14px; padding: 1.75rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.85rem;">
+              <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <img src="assets/dept-logos/isap-it.png" alt="IT" style="width: 36px; height: 36px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));">
+                <span class="dropdown-badge badge-isap">IT &amp; COMPUTER ENG</span>
+              </div>
+              <span style="font-size: 0.74rem; color: #1e3a8a; font-weight: 700; background: #e0f2fe; padding: 0.2rem 0.5rem; border-radius: 4px;">MDRRMO Adopted</span>
+            </div>
+            <h4 style="font-size: 1.12rem; color: #0f172a; margin-bottom: 0.5rem; line-height: 1.35;">Cloud Disaster Evacuation &amp; Relief Logistics Dispatch System</h4>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.65; margin-bottom: 1rem; flex-grow: 1;">
+              Offline-capable web portal providing real-time headcount verification, flood telemetry monitoring, and ration dispatch tracking in typhoon centers.
+            </p>
+            <div style="background: #f8fafc; border-radius: 8px; padding: 0.7rem 0.85rem; font-size: 0.8rem; border-left: 3px solid var(--isap-blue); margin-bottom: 0.75rem;">
+              <strong>Adopting Agency:</strong> Municipal Disaster Risk Reduction &amp; Management Office (MDRRMO)
+            </div>
+            <div style="font-size: 0.78rem; color: #1e3a8a; font-weight: 700; display: flex; align-items: center; gap: 0.35rem;">
+              <i class="fas fa-check-circle"></i> Certificate of Utilization #RDC-UT-2025-038
+            </div>
+          </div>
+
+          <!-- ISAP 4: Teacher Education -->
+          <div style="background: var(--white); border-radius: 14px; padding: 1.75rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.85rem;">
+              <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <img src="assets/dept-logos/isap-bsed.png" alt="Education" style="width: 36px; height: 36px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));">
+                <span class="dropdown-badge badge-isap">TEACHER EDUCATION</span>
+              </div>
+              <span style="font-size: 0.74rem; color: #1e3a8a; font-weight: 700; background: #e0f2fe; padding: 0.2rem 0.5rem; border-radius: 4px;">DepEd Adopted</span>
+            </div>
+            <h4 style="font-size: 1.12rem; color: #0f172a; margin-bottom: 0.5rem; line-height: 1.35;">Remedial Reading &amp; Physical Fitness Multigrade Toolkits</h4>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.65; margin-bottom: 1rem; flex-grow: 1;">
+              Culturally grounded contextual learning materials and gamified motor skill routines bridging fundamental reading and health deficits in rural elementary learners.
+            </p>
+            <div style="background: #f8fafc; border-radius: 8px; padding: 0.7rem 0.85rem; font-size: 0.8rem; border-left: 3px solid var(--isap-blue); margin-bottom: 0.75rem;">
+              <strong>Adopting Agency:</strong> Department of Education (DepEd Cagayan Division)
+            </div>
+            <div style="font-size: 0.78rem; color: #1e3a8a; font-weight: 700; display: flex; align-items: center; gap: 0.35rem;">
+              <i class="fas fa-check-circle"></i> Certificate of Utilization #RDC-UT-2026-005
+            </div>
+          </div>
+
+          <!-- ISAP 5: Social Work & Psychology -->
+          <div style="background: var(--white); border-radius: 14px; padding: 1.75rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.85rem;">
+              <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <img src="assets/dept-logos/isap-social-work.png" alt="Social Work" style="width: 36px; height: 36px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));">
+                <span class="dropdown-badge badge-isap">SOCIAL WORK &amp; PSYCHOLOGY</span>
+              </div>
+              <span style="font-size: 0.74rem; color: #1e3a8a; font-weight: 700; background: #e0f2fe; padding: 0.2rem 0.5rem; border-radius: 4px;">BJMP / DSWD Adopted</span>
+            </div>
+            <h4 style="font-size: 1.12rem; color: #0f172a; margin-bottom: 0.5rem; line-height: 1.35;">Trauma-Informed Restorative Justice &amp; Youth Rehabilitation</h4>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.65; margin-bottom: 1rem; flex-grow: 1;">
+              Structured community reintegration sessions and cognitive-behavioral toolkits designed for Children in Conflict with the Law (CICL) to lower recidivism.
+            </p>
+            <div style="background: #f8fafc; border-radius: 8px; padding: 0.7rem 0.85rem; font-size: 0.8rem; border-left: 3px solid var(--isap-blue); margin-bottom: 0.75rem;">
+              <strong>Adopting Agency:</strong> BJMP Regional Office 2 &amp; DSWD Field Office 2
+            </div>
+            <div style="font-size: 0.78rem; color: #1e3a8a; font-weight: 700; display: flex; align-items: center; gap: 0.35rem;">
+              <i class="fas fa-check-circle"></i> Certificate of Utilization #RDC-UT-2026-011
+            </div>
+          </div>
+
+          <!-- ISAP 6: Business & Hospitality -->
+          <div style="background: var(--white); border-radius: 14px; padding: 1.75rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.85rem;">
+              <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <img src="assets/dept-logos/isap-business.png" alt="Business" style="width: 36px; height: 36px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));">
+                <span class="dropdown-badge badge-isap">BUSINESS &amp; HOSPITALITY</span>
+              </div>
+              <span style="font-size: 0.74rem; color: #1e3a8a; font-weight: 700; background: #e0f2fe; padding: 0.2rem 0.5rem; border-radius: 4px;">DOT / LGU Adopted</span>
+            </div>
+            <h4 style="font-size: 1.12rem; color: #0f172a; margin-bottom: 0.5rem; line-height: 1.35;">Micro-Enterprise Digital Bookkeeping &amp; Agro-Tourism Protocols</h4>
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.65; margin-bottom: 1rem; flex-grow: 1;">
+              Simplified spreadsheet cash-flow ledgers and farm-to-table hygiene manuals empowering community cooperatives and homestay operators in tourist enclaves.
+            </p>
+            <div style="background: #f8fafc; border-radius: 8px; padding: 0.7rem 0.85rem; font-size: 0.8rem; border-left: 3px solid var(--isap-blue); margin-bottom: 0.75rem;">
+              <strong>Adopting Agency:</strong> Tuguegarao Chamber of Commerce &amp; Department of Tourism (DOT R2)
+            </div>
+            <div style="font-size: 0.78rem; color: #1e3a8a; font-weight: 700; display: flex; align-items: center; gap: 0.35rem;">
+              <i class="fas fa-check-circle"></i> Certificate of Utilization #RDC-UT-2026-015
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ISAP Affiliated Adopters -->
+        <div style="background: #f8fafc; border-radius: 12px; padding: 1.25rem 1.5rem; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+          <div style="font-size: 0.86rem; color: #475569;">
+            🏛️ <strong>Official ISAP Civic &amp; Law Adopters:</strong> Philippine National Police (PRO2), Bureau of Customs Port of Aparri, MDRRMO, DepEd Region 2, BJMP, DSWD, DOT.
+          </div>
+          <a href="about-rdc-isap.html" class="btn btn-sm btn-outline-white" style="color: var(--isap-blue); border-color: var(--isap-blue); font-size: 0.8rem;">Explore ISAP Research Hub &rarr;</a>
         </div>
       </div>
 
@@ -461,5 +928,66 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    function filterUtilizationWing(wing, btn) {
+      var mcnpSec = document.getElementById('mcnp-utilization');
+      var isapSec = document.getElementById('isap-utilization');
+      var mcnpProf = document.getElementById('mcnp-profile-card');
+      var isapProf = document.getElementById('isap-profile-card');
+      
+      var btnAll = document.getElementById('btn-tab-all');
+      var btnMcnp = document.getElementById('btn-tab-mcnp');
+      var btnIsap = document.getElementById('btn-tab-isap');
+
+      [btnAll, btnMcnp, btnIsap].forEach(function(b) {
+        if (b) {
+          b.classList.remove('active-all', 'active-mcnp', 'active-isap');
+        }
+      });
+
+      if (wing === 'mcnp') {
+        if (btnMcnp) btnMcnp.classList.add('active-mcnp');
+        if (mcnpSec) mcnpSec.classList.remove('hidden-wing');
+        if (isapSec) isapSec.classList.add('hidden-wing');
+        if (mcnpProf) mcnpProf.style.display = 'flex';
+        if (isapProf) isapProf.style.display = 'none';
+        try { history.replaceState(null, null, '#mcnp-utilization'); } catch(e){}
+      } else if (wing === 'isap') {
+        if (btnIsap) btnIsap.classList.add('active-isap');
+        if (mcnpSec) mcnpSec.classList.add('hidden-wing');
+        if (isapSec) isapSec.classList.remove('hidden-wing');
+        if (mcnpProf) mcnpProf.style.display = 'none';
+        if (isapProf) isapProf.style.display = 'flex';
+        try { history.replaceState(null, null, '#isap-utilization'); } catch(e){}
+      } else {
+        if (btnAll) btnAll.classList.add('active-all');
+        if (mcnpSec) mcnpSec.classList.remove('hidden-wing');
+        if (isapSec) isapSec.classList.remove('hidden-wing');
+        if (mcnpProf) mcnpProf.style.display = 'flex';
+        if (isapProf) isapProf.style.display = 'flex';
+        try { history.replaceState(null, null, '#all'); } catch(e){}
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      var hash = window.location.hash.toLowerCase();
+      if (hash.indexOf('mcnp') !== -1) {
+        filterUtilizationWing('mcnp', document.getElementById('btn-tab-mcnp'));
+      } else if (hash.indexOf('isap') !== -1) {
+        filterUtilizationWing('isap', document.getElementById('btn-tab-isap'));
+      }
+    });
+
+    window.addEventListener('hashchange', function() {
+      var hash = window.location.hash.toLowerCase();
+      if (hash.indexOf('mcnp') !== -1) {
+        filterUtilizationWing('mcnp', document.getElementById('btn-tab-mcnp'));
+      } else if (hash.indexOf('isap') !== -1) {
+        filterUtilizationWing('isap', document.getElementById('btn-tab-isap'));
+      } else if (hash.indexOf('all') !== -1) {
+        filterUtilizationWing('all', document.getElementById('btn-tab-all'));
+      }
+    });
+  </script>
 </body>
 </html>
