@@ -321,6 +321,21 @@
         </button>
       </div>
 
+      <!-- Interactive Course Filter Strip -->
+      <div id="courseFilterStrip" style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 1.15rem 1.35rem; margin-bottom: 2.25rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03); max-width: 980px; margin-left: auto; margin-right: auto; text-align: center;">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.85rem;">
+          <div style="display: flex; align-items: center; gap: 0.45rem; font-size: 0.85rem; font-weight: 800; color: #1e293b; text-transform: uppercase; letter-spacing: 0.04em;">
+            <span style="font-size: 1.15rem;">🎓</span> Filter Research by Course:
+          </div>
+          <div id="courseFilterActiveLabel" style="font-size: 0.82rem; font-weight: 700; color: #64748b;">
+            Showing: <span style="color: var(--mcnp-green);" id="currentCourseNameText">All MCNP Courses</span>
+          </div>
+        </div>
+        <div id="mainCoursePills" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.45rem;">
+          <!-- Course pills rendered dynamically -->
+        </div>
+      </div>
+
       <!-- INNOVATES Visual Showcase Grid (Interactive Agenda Showcase) -->
       <section id="innovates-agenda-showcase" style="margin-bottom: 3.25rem;">
         <div style="text-align: center; max-width: 780px; margin: 0 auto 2rem;">
@@ -335,63 +350,54 @@
           <a href="#pillar-inspire" class="innovates-showcase-card" data-wing="isap" onclick="openUtilizationModal('inspire', 'pathway'); return false;" title="Click to view Pathway, Standard Procedure &amp; Research Utilization for INSPIRE">
             <span class="innovates-letter-badge">I</span>
             <img src="assets/agenda/agenda-1-inspire.png" alt="INSPIRE: Culture, Capability, and Engagement" class="innovates-showcase-img">
-            <div class="innovates-showcase-title">INSPIRE</div>
             <div class="innovates-showcase-tag">Culture, Capability, and Engagement</div>
             <span class="innovates-showcase-action">View Pathway, Procedure &amp; Utilization &rarr;</span>
           </a>
           <a href="#pillar-nurture" class="innovates-showcase-card" data-wing="isap" onclick="openUtilizationModal('nurture', 'pathway'); return false;" title="Click to view Pathway, Standard Procedure &amp; Research Utilization for NURTURE">
             <span class="innovates-letter-badge">N</span>
             <img src="assets/agenda/agenda-2-nurture.png" alt="NURTURE: Ethics, Quality, and Accountability" class="innovates-showcase-img">
-            <div class="innovates-showcase-title">NURTURE</div>
             <div class="innovates-showcase-tag">Ethics, Quality, and Accountability</div>
             <span class="innovates-showcase-action">View Pathway, Procedure &amp; Utilization &rarr;</span>
           </a>
           <a href="#pillar-navigate" class="innovates-showcase-card" data-wing="both" onclick="openUtilizationModal('navigate', 'pathway'); return false;" title="Click to view Pathway, Standard Procedure &amp; Research Utilization for NAVIGATE">
             <span class="innovates-letter-badge">N</span>
             <img src="assets/agenda/agenda-3-navigate.png" alt="NAVIGATE: Digital Transformation and Infrastructure" class="innovates-showcase-img">
-            <div class="innovates-showcase-title">NAVIGATE</div>
             <div class="innovates-showcase-tag">Digital Transformation and Infrastructure</div>
             <span class="innovates-showcase-action">View Pathway, Procedure &amp; Utilization &rarr;</span>
           </a>
           <a href="#pillar-operationalize" class="innovates-showcase-card" data-wing="both" onclick="openUtilizationModal('operationalize', 'pathway'); return false;" title="Click to view Pathway, Standard Procedure &amp; Research Utilization for OPERATIONALIZE">
             <span class="innovates-letter-badge">O</span>
             <img src="assets/agenda/agenda-4-operationalize.png" alt="OPERATIONALIZE: Knowledge Utilization, Innovation, and Improvement" class="innovates-showcase-img">
-            <div class="innovates-showcase-title">OPERATIONALIZE</div>
             <div class="innovates-showcase-tag">Knowledge Utilization, Innovation, and Improvement</div>
             <span class="innovates-showcase-action">View Pathway, Procedure &amp; Utilization &rarr;</span>
           </a>
           <a href="#pillar-value" class="innovates-showcase-card" data-wing="mcnp" onclick="openUtilizationModal('value', 'pathway'); return false;" title="Click to view Pathway, Standard Procedure &amp; Research Utilization for VALUE">
             <span class="innovates-letter-badge">V</span>
             <img src="assets/agenda/agenda-5-value.png" alt="VALUE: Health, Safety, and Well-Being" class="innovates-showcase-img">
-            <div class="innovates-showcase-title">VALUE</div>
             <div class="innovates-showcase-tag">Health, Safety, and Well-Being</div>
             <span class="innovates-showcase-action">View Pathway, Procedure &amp; Utilization &rarr;</span>
           </a>
           <a href="#pillar-advance" class="innovates-showcase-card" data-wing="both" onclick="openUtilizationModal('advance', 'pathway'); return false;" title="Click to view Pathway, Standard Procedure &amp; Research Utilization for ADVANCE">
             <span class="innovates-letter-badge">A</span>
             <img src="assets/agenda/agenda-6-advance.png" alt="ADVANCE: Sustainability and Climate Resilience" class="innovates-showcase-img">
-            <div class="innovates-showcase-title">ADVANCE</div>
             <div class="innovates-showcase-tag">Sustainability and Climate Resilience</div>
             <span class="innovates-showcase-action">View Pathway, Procedure &amp; Utilization &rarr;</span>
           </a>
           <a href="#pillar-transform" class="innovates-showcase-card" data-wing="isap" onclick="openUtilizationModal('transform', 'pathway'); return false;" title="Click to view Pathway, Standard Procedure &amp; Research Utilization for TRANSFORM">
             <span class="innovates-letter-badge">T</span>
             <img src="assets/agenda/agenda-7-transform.png" alt="TRANSFORM: Community Engagement and Social Impact" class="innovates-showcase-img">
-            <div class="innovates-showcase-title">TRANSFORM</div>
             <div class="innovates-showcase-tag">Community Engagement and Social Impact</div>
             <span class="innovates-showcase-action">View Pathway, Procedure &amp; Utilization &rarr;</span>
           </a>
           <a href="#pillar-expand" class="innovates-showcase-card" data-wing="both" onclick="openUtilizationModal('expand', 'pathway'); return false;" title="Click to view Pathway, Standard Procedure &amp; Research Utilization for EXPAND">
             <span class="innovates-letter-badge">E</span>
             <img src="assets/agenda/agenda-8-expand.png" alt="EXPAND: Partnerships, Networks, and Global Engagement" class="innovates-showcase-img">
-            <div class="innovates-showcase-title">EXPAND</div>
             <div class="innovates-showcase-tag">Partnerships, Networks, and Global Engagement</div>
             <span class="innovates-showcase-action">View Pathway, Procedure &amp; Utilization &rarr;</span>
           </a>
           <a href="#pillar-strengthen" class="innovates-showcase-card" data-wing="isap" onclick="openUtilizationModal('strengthen', 'pathway'); return false;" title="Click to view Pathway, Standard Procedure &amp; Research Utilization for STRENGTHEN">
             <span class="innovates-letter-badge">S</span>
             <img src="assets/agenda/agenda-9-strengthen.png" alt="STRENGTHEN: Education and Institutional Performance" class="innovates-showcase-img">
-            <div class="innovates-showcase-title">STRENGTHEN</div>
             <div class="innovates-showcase-tag">Education and Institutional Performance</div>
             <span class="innovates-showcase-action">View Pathway, Procedure &amp; Utilization &rarr;</span>
           </a>
@@ -451,11 +457,735 @@
   <script src="js/main.js"></script>
   <script>
     var currentSelectedWing = 'mcnp';
+    var currentSelectedCourse = 'all';
+    var currentUtilKey = 'inspire';
+    var currentUtilTab = 'pathway';
+    var currentUtilCourse = 'all';
+
+    var coursesMap = {
+      'nursing': { name: 'BS Nursing', icon: '🩺', wing: 'mcnp', color: '#006a3c' },
+      'radtech': { name: 'BS Radiologic Technology', icon: '☢️', wing: 'mcnp', color: '#006a3c' },
+      'mls': { name: 'BS Medical Laboratory Science', icon: '🔬', wing: 'mcnp', color: '#006a3c' },
+      'pharmacy': { name: 'BS Pharmacy', icon: '💊', wing: 'mcnp', color: '#006a3c' },
+      'pt': { name: 'BS Physical Therapy', icon: '🏃', wing: 'mcnp', color: '#006a3c' },
+      'criminology': { name: 'BS Criminology', icon: '⚖️', wing: 'isap', color: '#0b3c5d' },
+      'teacher-ed': { name: 'BS Teacher Education', icon: '📚', wing: 'isap', color: '#0b3c5d' },
+      'it': { name: 'BS Information Technology', icon: '💻', wing: 'isap', color: '#0b3c5d' },
+      'customs': { name: 'BS Customs Administration', icon: '🚢', wing: 'isap', color: '#0b3c5d' },
+      'business': { name: 'BS Business Administration', icon: '💼', wing: 'isap', color: '#0b3c5d' },
+      'psychology': { name: 'BS Psychology & Social Work', icon: '🧠', wing: 'isap', color: '#0b3c5d' },
+      'institutional': { name: 'Institutional & QA', icon: '🏛️', wing: 'both', color: '#7b1113' }
+    };
+
+    var mcnpCourses = [
+      { id: 'all', label: 'All MCNP Courses', icon: '🏛️' },
+      { id: 'nursing', label: 'BS Nursing', icon: '🩺' },
+      { id: 'radtech', label: 'BS Radiologic Technology', icon: '☢️' },
+      { id: 'mls', label: 'BS Medical Laboratory Science', icon: '🔬' },
+      { id: 'pharmacy', label: 'BS Pharmacy', icon: '💊' },
+      { id: 'pt', label: 'BS Physical Therapy', icon: '🏃' }
+    ];
+
+    var isapCourses = [
+      { id: 'all', label: 'All ISAP Courses', icon: '🏛️' },
+      { id: 'criminology', label: 'BS Criminology', icon: '⚖️' },
+      { id: 'teacher-ed', label: 'BS Teacher Education', icon: '📚' },
+      { id: 'it', label: 'BS Information Technology', icon: '💻' },
+      { id: 'customs', label: 'BS Customs Administration', icon: '🚢' },
+      { id: 'business', label: 'BS Business Administration', icon: '💼' },
+      { id: 'psychology', label: 'BS Psychology & Social Work', icon: '🧠' }
+    ];
+
+    const utilizationPillarsData = {
+  inspire: {
+    key: 'inspire',
+    name: 'INSPIRE',
+    letter: 'I',
+    fullName: 'INSPIRE: Culture, Capability, and Engagement',
+    emblem: 'assets/agenda/agenda-1-inspire.png',
+    wing: 'ISAP Multidisciplinary Wing (Teacher Education & Humanities)',
+    wingBadge: { bg: 'rgba(11, 60, 93, 0.12)', color: '#0b3c5d', text: 'ISAP Lead' },
+    pathway: {
+      primary: 'Pathway 4: Curricular & Instructional Integration & Pathway 2: Community Extension',
+      badge: 'Curricular & Community Extension',
+      description: 'Channelling empirical educational and behavioral research into classroom learning toolkits, multigrade teacher syllabi, and community capability-building seminars.',
+      mechanisms: [
+        'Curricular syllabus infusion in Teacher Education & Criminology pedagogy',
+        'DepEd district-level remedial learning toolkits & literacy modules',
+        'Faculty professional mentoring and micro-credentialing rubrics'
+      ],
+      beneficiaries: 'DepEd Cagayan Valley Divisions, Public Elementary & High Schools, Community Mentors, Higher Education Faculty',
+      coreFormats: 'Instructional Syllabus Modules, Remedial Phonics Toolkits, Teacher Training Manuals'
+    },
+    procedure: {
+      stage1: 'Proponents submit defense-approved pedagogical manuscripts and ethics clearances to the RDC Repository.',
+      stage2: 'Action research is synthesized into modular teaching guides, remedial lesson packets, and competency matrices.',
+      stage3: 'Formal turnover to DepEd Division of Cagayan and partner public school heads via Memorandum of Agreement (MoA).',
+      stage4: 'Classroom adoption verified by DepEd Master Teachers; RDC issues the official Certificate of Research Utilization.'
+    },
+    utilizations: [
+      {
+        course: 'teacher-ed',
+        title: 'Remedial Reading & Physical Fitness Multigrade Toolkits',
+        dept: 'ISAP College of Teacher Education',
+        partner: 'DepEd Region II (Peñablanca & Solana Districts)',
+        summary: 'Action research translated into structured phonics diagnostic guides, daily remedial exercises, and active playtime fitness toolkits for rural multigrade classrooms.',
+        impact: 'Adopted across 12 public elementary schools; boosted reading comprehension fluency by 41% among grade 3–5 struggling readers.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-019'
+      },
+      {
+        course: 'teacher-ed',
+        title: 'Faculty Micro-Credentialing & Peer Mentoring Framework',
+        dept: 'ISAP Academic Affairs & Teacher Education',
+        partner: 'MCNP & ISAP Institutional Deans Council',
+        summary: 'Research on professional development barriers translated into a 4-tier micro-credentialing matrix for newly hired collegiate instructors.',
+        impact: 'Integrated into institutional faculty onboarding across 11 collegiate departments.',
+        status: 'Institutional Policy Implemented #POL-2025-004'
+      },
+      {
+        course: 'nursing',
+        title: 'Clinical Preceptor Mentorship & Resiliency Module',
+        dept: 'MCNP College of Nursing',
+        partner: 'Cagayan Valley Medical Center (CVMC) Nursing Directorate',
+        summary: 'Evidence-based mentoring protocol to mitigate compassion fatigue and clinical orientation burnout among newly deployed ward nurses.',
+        impact: 'Decreased 90-day clinical turnover by 38% and elevated clinical preceptor competence evaluations across 4 regional training hospitals.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-025'
+      },
+      {
+        course: 'criminology',
+        title: 'Police Cadet Leadership & Ethical Culture Matrix',
+        dept: 'ISAP College of Criminal Justice Education',
+        partner: 'Philippine National Police Academy & Regional Training Center 2',
+        summary: 'Structured curriculum infusion evaluating ethical dilemma responses, emotional endurance, and servant-leadership practices.',
+        impact: 'Adopted across 2 regional training centers; achieved 96% compliance with national tactical ethics evaluation rubrics.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-026'
+      }
+    ]
+  },
+  nurture: {
+    key: 'nurture',
+    name: 'NURTURE',
+    letter: 'N',
+    fullName: 'NURTURE: Ethics, Quality, and Accountability',
+    emblem: 'assets/agenda/agenda-2-nurture.png',
+    wing: 'ISAP Multidisciplinary Wing (Criminology & Public Safety)',
+    wingBadge: { bg: 'rgba(11, 60, 93, 0.12)', color: '#0b3c5d', text: 'ISAP Lead' },
+    pathway: {
+      primary: 'Pathway 1: Policy Translation & Institutional Guidelines & Pathway 2: Community Extension',
+      badge: 'Policy Translation & Public Safety',
+      description: 'Translating criminological empirical intelligence, crime pattern analytics, and correctional welfare studies into local municipal ordinances, police patrol tactical SOPs, and restorative rehabilitation modules.',
+      mechanisms: [
+        'Local Government Unit (LGU) Peace & Order Council policy resolutions',
+        'Philippine National Police (PNP) tactical precinct patrol SOPs and crime heatmaps',
+        'Correctional institution restorative justice and youth rehabilitation toolkits'
+      ],
+      beneficiaries: 'Tuguegarao City Police Station, PNP Region II, Bureau of Jail Management and Penology (BJMP), Municipal Peace Councils',
+      coreFormats: 'Municipal Safety Ordinances, Police Patrol Standard Operating Procedures, Restorative Justice Manuals'
+    },
+    procedure: {
+      stage1: 'Crime pattern surveys, forensic assessments, and correctional studies defended and cleared by IERC.',
+      stage2: 'Criminology faculty and student researchers draft 2-page LGU Policy Briefs and patrol deployment protocols.',
+      stage3: 'Executive briefing and formal turnover to the Chief of Police and City Mayor under institutional MoA.',
+      stage4: 'Precinct patrol deployment confirmed; RDC validates crime reduction impact and issues Certificate of Research Utilization.'
+    },
+    utilizations: [
+      {
+        course: 'criminology',
+        title: 'GIS-Based Night Patrol Geospatial Mapping Protocol',
+        dept: 'ISAP College of Criminal Justice Education (COCJE)',
+        partner: 'Tuguegarao City Police Station & LGU Tuguegarao',
+        summary: 'Geographic information system (GIS) mapping of nighttime theft and robbery hot-spots transformed into a targeted motorcycle patrol route SOP.',
+        impact: 'Adopted as Official Precinct Tactical SOP; decreased nighttime petty theft incidents by 32% in commercial zones over 6 months.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-014'
+      },
+      {
+        course: 'criminology',
+        title: 'Trauma-Informed Restorative Justice & Youth Rehabilitation Manual',
+        dept: 'ISAP Criminology & Social Sciences',
+        partner: 'BJMP Cagayan & Regional Youth Detention Center',
+        summary: 'Restorative justice research translated into a structured psycho-social rehabilitation curriculum for youth in conflict with the law (CICL).',
+        impact: 'Deployed across 2 correctional facilities, reducing behavioral infractions among juvenile detainees by 45%.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-021'
+      },
+      {
+        course: 'mls',
+        title: 'Biosafety & Ethical Diagnostic Specimen Chain-of-Custody SOP',
+        dept: 'MCNP College of Medical Laboratory Science',
+        partner: 'Provincial Health Office of Cagayan & RDC Biosafety Committee',
+        summary: 'Strict protocol establishing digital bio-specimen tracking, patient confidentiality safeguarding, and bio-waste decontamination tracking.',
+        impact: 'Implemented in 8 provincial district laboratories; eliminated chain-of-custody discrepancies by 100%.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-027'
+      },
+      {
+        course: 'customs',
+        title: 'Customs Integrity & Valuation Compliance Assessment Tool',
+        dept: 'ISAP College of Customs Administration',
+        partner: 'Bureau of Customs (BOC) Port of Aparri & Sub-port of Irene',
+        summary: 'Analytical framework benchmarking ethical tariff assessments, anti-corruption monitoring, and declaration validation.',
+        impact: 'Formally integrated into regional customs officer continuing education seminars; sped clearance auditing by 29%.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-028'
+      }
+    ]
+  },
+  navigate: {
+    key: 'navigate',
+    name: 'NAVIGATE',
+    letter: 'N',
+    fullName: 'NAVIGATE: Digital Transformation and Infrastructure',
+    emblem: 'assets/agenda/agenda-3-navigate.png',
+    wing: 'Joint: MCNP & ISAP Informatics (IT & Customs Administration)',
+    wingBadge: { bg: 'rgba(184, 151, 38, 0.15)', color: '#8a6e14', text: 'Joint Synergy' },
+    pathway: {
+      primary: 'Pathway 3: Technology Transfer & Commercialization / Digital Systems',
+      badge: 'Technology Transfer & Digital Systems',
+      description: 'Converting algorithmic research, informatics capstones, and automation studies into working software solutions, mobile field dispatch systems, and decision-support engines.',
+      mechanisms: [
+        'Deployment of cloud dispatch web applications to municipal emergency desks',
+        'Digital customs valuation lookup tools licensed to brokerage firms',
+        'Campus digital learning platform integrations and laboratory LMS systems'
+      ],
+      beneficiaries: 'Municipal DRRM Offices, Regional Cargo Brokerages, Hospital Triage Desks, Regional IT Consortia',
+      coreFormats: 'Cloud Web Apps, Mobile Dispatch Portals, Automated Tariff Lookup Matrices'
+    },
+    procedure: {
+      stage1: 'Prototype system defended, code repository benchmarked, security and data privacy cleared by RDC Tech Unit.',
+      stage2: 'User acceptance testing (UAT) conducted with target agency technicians and operating personnel.',
+      stage3: 'Software handover, API key deployment, and system administrator training under Technology Transfer Agreement.',
+      stage4: '30-day production uptime confirmed; RDC issues Technology Transfer Utilization Certificate.'
+    },
+    utilizations: [
+      {
+        course: 'customs',
+        title: 'Electronic Harmonized Tariff Classification Decision-Matrix',
+        dept: 'ISAP College of Customs Administration',
+        partner: 'Bureau of Customs (BOC) Port of Aparri',
+        summary: 'Interactive decision-support matrix assisting customs brokers and examiners in classifying complex agricultural and medical cargo entries.',
+        impact: 'Adopted as regional reference tool; reduced valuation assessment disputes by 48% at the Port of Aparri.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-007'
+      },
+      {
+        course: 'it',
+        title: 'Cloud Disaster Evacuation & Relief Logistics Dispatch System',
+        dept: 'ISAP College of Information Technology',
+        partner: 'MDRRMO Peñablanca & Cagayan PDRRMO',
+        summary: 'Cloud-native inventory and family dispatch database engineered for rural typhoon evacuation shelters during monsoon calamities.',
+        impact: 'Deployed during Typhoon Egay & Carina; coordinated relief food pack distribution across 14 rural barangays in real time.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-011'
+      },
+      {
+        course: 'radtech',
+        title: 'PACS & AI Diagnostic Imaging Workflow Optimization System',
+        dept: 'MCNP College of Radiologic Technology',
+        partner: 'St. Paul Hospital & CVMC Department of Radiology',
+        summary: 'Cloud-integrated picture archiving and communication system (PACS) protocols for accelerated peer-review and emergency radiograph triage.',
+        impact: 'Reduced acute trauma radiograph interpretation turnaround time from 45 minutes to under 12 minutes in emergency bays.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-029'
+      },
+      {
+        course: 'nursing',
+        title: 'Tele-Nursing Remote Triage & Rural Health Dashboard',
+        dept: 'MCNP College of Nursing',
+        partner: 'Rural Health Units (RHUs) of Solana & Iguig',
+        summary: 'Digital triage application enabling barangay health workers to transmit real-time patient vital sign alerts to municipal health officers.',
+        impact: 'Deployed across 18 rural health stations; facilitated over 1,400 timely tele-consultations for high-risk hypertensive patients.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-030'
+      }
+    ]
+  },
+  operationalize: {
+    key: 'operationalize',
+    name: 'OPERATIONALIZE',
+    letter: 'O',
+    fullName: 'OPERATIONALIZE: Knowledge Utilization, Innovation, and Improvement',
+    emblem: 'assets/agenda/agenda-4-operationalize.png',
+    wing: 'Systems & Innovation Directorate / MCNP Pharmacy & Health Sciences',
+    wingBadge: { bg: 'rgba(0, 106, 60, 0.12)', color: '#006a3c', text: 'MCNP Lead' },
+    pathway: {
+      primary: 'Pathway 3: Technology Transfer & Commercialization / Clinical Formulations',
+      badge: 'Product Development & Clinical SOPs',
+      description: 'Transforming natural product bio-assays, pharmacy laboratory discoveries, and clinical process audits into validated commercial prototypes, standardized herbal formulations, and institutional SOPs.',
+      mechanisms: [
+        'Formulation standardization & patent filing for botanical topicals with IPOPHIL',
+        'Standard Operating Procedure (SOP) manuals adopted by hospital clinical laboratories',
+        'Production technology licensing to local agrarian and health cooperatives'
+      ],
+      beneficiaries: 'Regional Herbal Product Cooperatives, Diagnostic Laboratories, Primary Healthcare Clinics',
+      coreFormats: 'Standardized Herbal Formulations, Clinical SOP Manuals, IPOPHIL Patent Utility Filings'
+    },
+    procedure: {
+      stage1: 'Experimental pharmacology or laboratory efficiency thesis successfully defended with verified cytotoxicity and efficacy assays.',
+      stage2: 'Formulation batch testing and shelf-life stability verification in accordance with FDA standards.',
+      stage3: 'Transfer of production methodology to partner cooperative or clinical laboratory via Technology Transfer Agreement.',
+      stage4: 'Commercial or institutional utilization documented; RDC certifies formal research product adoption.'
+    },
+    utilizations: [
+      {
+        course: 'pharmacy',
+        title: 'Standardized Antimicrobial Botanical Ointment Formulation',
+        dept: 'MCNP College of Pharmacy',
+        partner: 'DOST Region II & Cagayan Valley Health Research Consortium',
+        summary: 'Phytochemical analysis of indigenous Cagayan flora translated into a stabilized topical antibacterial balm for superficial skin abrasions.',
+        impact: 'Filed Utility Model with IPOPHIL; adopted by 2 community agrarian cooperatives for commercial production.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-003'
+      },
+      {
+        course: 'mls',
+        title: 'Evidence-to-Action Clinical Laboratory SOP System',
+        dept: 'MCNP Medical Laboratory Science',
+        partner: 'Tuguegarao City Health Office & Barangay Clinical Laboratories',
+        summary: 'Process mapping of pre-analytical diagnostic errors translated into a visual color-coded specimen handling protocol.',
+        impact: 'Adopted across 6 city-operated clinical laboratories; reduced sample rejection and re-bleed rates by 64%.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-016'
+      },
+      {
+        course: 'it',
+        title: 'Automated Municipal Business Permit & Registry Solution',
+        dept: 'ISAP College of Information Technology',
+        partner: 'LGU Peñablanca Business Permits and Licensing Office',
+        summary: 'Digital platform translating local governance process audits into a paperless, queue-free business licensing portal.',
+        impact: 'Reduced permit processing turnaround from 3 days to 25 minutes; boosted local merchant registration by 44%.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-031'
+      },
+      {
+        course: 'business',
+        title: 'SME Inventory Turnover & Cashflow Optimization Toolkit',
+        dept: 'ISAP College of Business & Accountancy',
+        partner: 'Department of Trade and Industry (DTI) Negosyo Center',
+        summary: 'Applied accounting research converted into modular bookkeeping workbooks and cash conversion calculators for micro-entrepreneurs.',
+        impact: 'Adopted by 65 local agro-producers and handicraft cooperatives; reduced inventory holding waste by 33%.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-032'
+      }
+    ]
+  },
+  value: {
+    key: 'value',
+    name: 'VALUE',
+    letter: 'V',
+    fullName: 'VALUE: Health, Safety, and Well-Being',
+    emblem: 'assets/agenda/agenda-5-value.png',
+    wing: 'MCNP Health Sciences Wing (Nursing, RadTech, MLS, PT, Pharmacy)',
+    wingBadge: { bg: 'rgba(0, 106, 60, 0.12)', color: '#006a3c', text: 'MCNP Lead' },
+    pathway: {
+      primary: 'Pathway 1: Policy Translation & Clinical Guidelines & Pathway 2: Community Health Extension',
+      badge: 'Clinical Guidelines & Community Health',
+      description: 'Bridging healthcare student capstones, clinical epidemiological trials, and public health investigations into bedside clinical SOPs, hospital patient safety bundles, and rural health center protocols.',
+      mechanisms: [
+        'Infusion into regional hospital clinical nursing and diagnostic imaging standard protocols',
+        'Department of Health (DOH) Center for Health Development II public health guidelines',
+        'Barangay Health Station maternal, pediatric, and ergonomic community programs'
+      ],
+      beneficiaries: 'CVMC, District Hospitals, Rural Health Units (RHUs), Barangay Health Stations, Regional Patients',
+      coreFormats: 'Bedside Clinical Guidelines, Hospital Safety SOPs, Community Diagnostic Screening Protocols'
+    },
+    procedure: {
+      stage1: 'Clinical study defended with full IERC human ethics clearance and hospital medical director consent.',
+      stage2: 'Findings synthesized into an evidence-based Clinical Practice Guideline (CPG) or Patient Safety SOP.',
+      stage3: 'Clinical demonstration and hospital committee review at Cagayan Valley Medical Center or partner institution.',
+      stage4: 'Hospital Chief Nurse / Medical Director signs adoption certificate; RDC registers utilization protocol.'
+    },
+    utilizations: [
+      {
+        course: 'nursing',
+        title: 'Pediatric Medication Error-Mitigation Protocol',
+        dept: 'MCNP College of Nursing',
+        partner: 'Cagayan Valley Medical Center (CVMC) Pediatric Wing',
+        summary: 'Clinical audit investigating pediatric dosing slip discrepancies translated into a standardized bedside dual-verification checklist.',
+        impact: 'Formally adopted as CVMC Department of Nursing SOP #NUR-2025-08; zero critical pediatric calculation errors reported in pilot units.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-001'
+      },
+      {
+        course: 'radtech',
+        title: 'Low-Dose CT (LDCT) Shielding & Exposure Calibration Protocol',
+        dept: 'MCNP College of Radiologic Technology',
+        partner: 'Dr. Ronald P. Guzman Medical Center Radiology Center',
+        summary: 'Biomedical radiation study establishing personalized lead apron placement guidelines for pediatric and geriatric patients.',
+        impact: 'Integrated into institutional radiologic procedures; reduced unnecessary scatter radiation exposure by 35% without degrading diagnostic clarity.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-004'
+      },
+      {
+        course: 'mls',
+        title: 'Multiplex Waterborne Enteric Pathogen Screening Protocol',
+        dept: 'MCNP College of Medical Laboratory Science',
+        partner: 'Provincial Health Office of Cagayan',
+        summary: 'Evaluation of rapid microbiological assays for post-flood drinking water quality translated into a municipal field surveillance kit.',
+        impact: 'Adopted across 5 flood-prone Cagayan river municipalities; shortened post-typhoon waterborne outbreak detection from 5 days to 6 hours.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-010'
+      },
+      {
+        course: 'pt',
+        title: 'Ergonomic Musculoskeletal Rehabilitation for Agrarian Workers',
+        dept: 'MCNP College of Physical Therapy',
+        partner: 'Department of Agriculture Region II & Agrarian Reform Beneficiaries',
+        summary: 'Biomechanical study of lower-back strain in rice planting converted into a daily 15-minute stretching routine and adapted posture toolkits.',
+        impact: 'Adopted across 8 farming cooperatives in Solana and Iguig; reported 52% reduction in debilitating chronic lumbar pain incidents.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-015'
+      },
+      {
+        course: 'criminology',
+        title: 'Tactical Officer Stress Resilience & De-escalation Protocol',
+        dept: 'ISAP College of Criminal Justice Education',
+        partner: 'Philippine National Police (PNP) Regional Training Center 2',
+        summary: 'Psychophysiological stress conditioning protocol reducing excessive force incidents through scenario-based mindfulness and tactical pause drills.',
+        impact: 'Integrated into SWAT and patrol refresher coursework; 92% of trainees demonstrated sustained emotional control in simulated critical encounters.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-033'
+      }
+    ]
+  },
+  advance: {
+    key: 'advance',
+    name: 'ADVANCE',
+    letter: 'A',
+    fullName: 'ADVANCE: Sustainability and Climate Resilience',
+    emblem: 'assets/agenda/agenda-6-advance.png',
+    wing: 'Joint: SDG Advocacies Synergy (Environmental Sciences & General Services)',
+    wingBadge: { bg: 'rgba(184, 151, 38, 0.15)', color: '#8a6e14', text: 'Joint Synergy' },
+    pathway: {
+      primary: 'Pathway 1: Institutional Policy & Pathway 2: Community Environmental Extension',
+      badge: 'Environmental Policy & Eco-Extension',
+      description: 'Translating campus environmental audits, climate vulnerability data, and renewable energy studies into institutional operational policies and municipal disaster-resilience programs.',
+      mechanisms: [
+        'Institutional campus environmental sustainability policies and greywater standards',
+        'Municipal DRRMO riverbank contingency blueprints and flood evacuation algorithms',
+        'DENR Region II biodiversity conservation partnerships and reforestation protocols'
+      ],
+      beneficiaries: 'Regional Riverine Municipalities, DENR-EMB Region II, Campus Community, Local Farmers',
+      coreFormats: 'Institutional Eco-Policies, Riverbank Flood Contingency Blueprints, Waste Diversion Protocols'
+    },
+    procedure: {
+      stage1: 'Ecological impact assessment or disaster contingency study defended and approved by RDC Environmental Panel.',
+      stage2: 'Findings formatted into institutional operational policies or municipal LGU environmental resolutions.',
+      stage3: 'Presentation to Campus Executive Committee or Municipal Sangguniang Bayan for legislative adoption.',
+      stage4: 'Institutional or municipal ordinance enacted; RDC certifies research utilization.'
+    },
+    utilizations: [
+      {
+        course: 'mls',
+        title: 'Solar-Assisted Greywater Recycling & Botanical Filtration',
+        dept: 'MCNP Environmental Sciences & Campus General Services',
+        partner: 'DENR-EMB Region II & LGU Tuguegarao City Environment Office',
+        summary: 'Engineering analysis of natural phytoremediation plants translated into a permanent campus botanical filtration bed for dormitory wastewater.',
+        impact: 'Recycles 4,500 liters of greywater daily for landscape irrigation; reduced institutional fresh water consumption by 22%.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-008'
+      },
+      {
+        course: 'criminology',
+        title: 'Climate-Resilient Riverbank Flood Contingency Blueprint',
+        dept: 'ISAP Criminology & Disaster Studies',
+        partner: 'Office of Civil Defense (OCD) Region II & Cagayan PDRRMC',
+        summary: 'Geographic assessment of riverine surge vulnerability converted into a community-led early-warning evacuation timetable for Cagayan River communities.',
+        impact: 'Adopted as Official Municipal Flood Evacuation Manual for 4 high-risk riparian barangays.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-012'
+      },
+      {
+        course: 'pharmacy',
+        title: 'Green Phytochemical Extraction & Zero-Waste Herbal Processing Protocol',
+        dept: 'MCNP College of Pharmacy',
+        partner: 'DOST Food Innovation Center & Cagayan Herbal Cooperatives',
+        summary: 'Zero-waste solvent extraction procedure maximizing flavonoid yield while repurposing plant biomass into organic soil conditioning compost.',
+        impact: 'Commercialized through local herbal cooperatives; reduced organic solvent chemical waste by 75%.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-034'
+      },
+      {
+        course: 'customs',
+        title: 'Green Customs & Hazardous Eco-Cargo Clearance Guide',
+        dept: 'ISAP College of Customs Administration',
+        partner: 'Bureau of Customs Environmental Protection Unit',
+        summary: 'Standard operating inspection protocol for intercepting illegal e-waste, ozone-depleting substances, and hazardous transboundary waste.',
+        impact: 'Designated as standard training handbook for regional border security inspection teams.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-035'
+      }
+    ]
+  },
+  transform: {
+    key: 'transform',
+    name: 'TRANSFORM',
+    letter: 'T',
+    fullName: 'TRANSFORM: Community Engagement and Social Impact',
+    emblem: 'assets/agenda/agenda-7-transform.png',
+    wing: 'ISAP Multidisciplinary Wing (Community Extension, Social Work & Psychology)',
+    wingBadge: { bg: 'rgba(11, 60, 93, 0.12)', color: '#0b3c5d', text: 'ISAP Lead' },
+    pathway: {
+      primary: 'Pathway 2: Community Extension & Field Deployment',
+      badge: 'Community Extension & Social Impact',
+      description: 'Converting participatory action research, community needs assessments, and psychosocial wellness studies into sustainable extension interventions delivered through the Community Extension Services Office (CESO).',
+      mechanisms: [
+        'Adoption as CESO flagship multi-year community development programs',
+        'Barangay Council ordinances endorsing grassroots health and youth interventions',
+        'DSWD Region II community empowerment partner training toolkits'
+      ],
+      beneficiaries: 'Adopted Rural Barangays in Peñablanca & Solana, DSWD Field Office II, Indigenous Communities, Daycare Centers',
+      coreFormats: 'Community Extension Curricula, Psychosocial Toolkits, Grassroots Nutritional Manuals'
+    },
+    procedure: {
+      stage1: 'Community needs assessment defended and vetted with the Community Extension Services Office (CESO).',
+      stage2: 'Co-design of training modules, diagnostic screening kits, and monitoring rubrics with barangay officials.',
+      stage3: 'Barangay Sangguniang Council passes a formal resolution adopting the program; MoA executed.',
+      stage4: 'Baseline and 6-month impact evaluations conducted; RDC issues Community Utilization Certificate.'
+    },
+    utilizations: [
+      {
+        course: 'nursing',
+        title: 'Community-Based Maternal & Infant Nutritional Intervention Toolkit',
+        dept: 'MCNP Nursing & ISAP Social Work',
+        partner: 'National Nutrition Council Region II & Municipal Health Office',
+        summary: 'Nutritional field study converted into indigenous recipe guides, infant feeding schedules, and weekly weight-monitoring cards for rural mothers.',
+        impact: 'Adopted across 6 adopted barangays in Peñablanca; reduced moderate-to-severe child stunting by 36% over 12 months.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-002'
+      },
+      {
+        course: 'psychology',
+        title: 'Grassroots Disaster Psychosocial First-Aid Toolkit',
+        dept: 'ISAP College of Psychology & Social Work',
+        partner: 'DSWD Field Office II & Municipal Social Welfare Development',
+        summary: 'Psychological trauma assessment after super-typhoon disasters translated into a 3-stage peer emotional debriefing manual for community volunteers.',
+        impact: 'Trained 180 barangay disaster leaders; served over 600 flood-displaced families with certified psychosocial support.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-017'
+      },
+      {
+        course: 'teacher-ed',
+        title: 'Rural Indigenous Literacy & Community Learning Circles',
+        dept: 'ISAP College of Teacher Education',
+        partner: 'National Commission on Indigenous Peoples (NCIP) & DepEd IPED',
+        summary: 'Culturally responsive mother-tongue reading primers and storytelling kits designed for indigenous Agta communities in Cagayan.',
+        impact: 'Adopted across 5 IP learning centers; achieved 68% improvement in foundational bilingual literacy among early learners.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-036'
+      },
+      {
+        course: 'pt',
+        title: 'Community Geriatric Fall-Prevention & Mobility Regimen',
+        dept: 'MCNP College of Physical Therapy',
+        partner: 'Office of Senior Citizens Affairs (OSCA) Tuguegarao',
+        summary: 'Evidence-based functional movement routines and home safety checklists designed for elderly community residents.',
+        impact: 'Adopted in 14 barangay senior citizen associations; documented a 52% reduction in reported domestic fall injuries.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-037'
+      }
+    ]
+  },
+  expand: {
+    key: 'expand',
+    name: 'EXPAND',
+    letter: 'E',
+    fullName: 'EXPAND: Partnerships, Networks, and Global Engagement',
+    emblem: 'assets/agenda/agenda-8-expand.png',
+    wing: 'Joint: External Affairs & RDC Directorate (Business, Customs & Hospitality)',
+    wingBadge: { bg: 'rgba(184, 151, 38, 0.15)', color: '#8a6e14', text: 'Joint Synergy' },
+    pathway: {
+      primary: 'Pathway 1: Policy Translation & Pathway 3: Technology Transfer / Industry Alliances',
+      badge: 'Industry Alliances & Global Consortia',
+      description: 'Bridging economic studies, supply chain analytics, and cross-border academic research into inter-agency partnerships, international exchange protocols, and industry incubation networks.',
+      mechanisms: [
+        'Inter-institutional research consortia with ASEAN and international universities',
+        'Industry-academia technology transfer memoranda with regional business councils',
+        'Department of Tourism (DOT) regional heritage and hospitality protocols'
+      ],
+      beneficiaries: 'Regional Tourism Cooperatives, Cross-border Academic Partners, Export Enterprises, Higher Education Consortia',
+      coreFormats: 'Inter-Agency MOUs, Industry Integration Toolkits, Cross-border Academic Exchange Protocols'
+    },
+    procedure: {
+      stage1: 'Macroeconomic, tourism, or international benchmarking study defended with external reviewer endorsement.',
+      stage2: 'Formulation of standardized partnership framework or industry integration manual.',
+      stage3: 'Execution of bilateral or multilateral Memorandum of Understanding (MoU) with institutional partner.',
+      stage4: 'Active program rollout verified by External Affairs Directorate; RDC registers Collaborative Utilization.'
+    },
+    utilizations: [
+      {
+        course: 'business',
+        title: 'Micro-Enterprise Digital Bookkeeping & Agro-Tourism Protocols',
+        dept: 'ISAP College of Business & Hospitality Management',
+        partner: 'Department of Tourism (DOT) Region II & DTI Cagayan',
+        summary: 'Financial literacy study of rural farm-tourism sites converted into simplified POS record-keeping templates and tourism service quality standards.',
+        impact: 'Adopted by 22 certified agro-tourism destinations across Region II; increased average visitor dwell time and farm revenue by 28%.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-009'
+      },
+      {
+        course: 'nursing',
+        title: 'Cross-Border Allied Health Clinical Apprenticeship Protocol',
+        dept: 'MCNP External Affairs & Nursing Directorate',
+        partner: 'Global Healthcare Education Alliance (Singapore & Japan)',
+        summary: 'Comparative clinical competency study translated into a dual-accredited geriatric nursing pre-departure training curriculum.',
+        impact: 'Facilitated placement of 34 MCNP graduates in high-skill international hospital apprenticeships under verified institutional MoA.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-018'
+      },
+      {
+        course: 'it',
+        title: 'Regional Cross-Border Logistics API Integration Framework',
+        dept: 'ISAP College of Information Technology & Customs',
+        partner: 'Subic-Clark-Cagayan Regional Logistics Consortium',
+        summary: 'Standardized digital data exchange API linking regional freight trackers with customs declaration databases.',
+        impact: 'Streamlined regional transit cargo documentation by 40% across Northern Luzon transport corridors.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-038'
+      },
+      {
+        course: 'radtech',
+        title: 'International Teleradiology Quality Peer-Review Consortium',
+        dept: 'MCNP College of Radiologic Technology',
+        partner: 'Asian Oceanian Society of Radiology (AOSR) Academic Network',
+        summary: 'Multi-institutional quality assurance benchmark for diagnostic radiologic examinations and remote second opinions.',
+        impact: 'Standardized cross-institutional peer-review for over 800 complex MRI/CT diagnostic reads.',
+        status: 'Certificate of Utilization Issued #UTIL-2025-039'
+      }
+    ]
+  },
+  strengthen: {
+    key: 'strengthen',
+    name: 'STRENGTHEN',
+    letter: 'S',
+    fullName: 'STRENGTHEN: Education and Institutional Performance',
+    emblem: 'assets/agenda/agenda-9-strengthen.png',
+    wing: 'ISAP Multidisciplinary Wing & Academic Affairs (Institutional QA)',
+    wingBadge: { bg: 'rgba(11, 60, 93, 0.12)', color: '#0b3c5d', text: 'ISAP Lead' },
+    pathway: {
+      primary: 'Pathway 1: Institutional Policy Translation & Pathway 4: Curricular Integration',
+      badge: 'Institutional Governance & Curricular Quality',
+      description: 'Channelling institutional assessments, licensure exam analytics, and faculty productivity studies into institutional board review policies, faculty incentive guidelines, and QA accreditation frameworks.',
+      mechanisms: [
+        'Institutional policies enacted by the Board of Trustees and Executive Council',
+        'Academic Council revisions to professional licensure intensive mock reviews',
+        'Human Resource research productivity and intellectual property incentives'
+      ],
+      beneficiaries: 'MCNP & ISAP Academic Colleges, Faculty Researchers, Graduating Board Examinees, QA Audit Teams',
+      coreFormats: 'Institutional Board Policies, Academic Council Resolutions, Licensure Analytics Diagnostic Rubrics'
+    },
+    procedure: {
+      stage1: 'Institutional efficiency study, accreditation review, or licensure analytics report completed and vetted.',
+      stage2: 'Policy proposal formulated with specific KPIs, budget implications, and implementation guidelines.',
+      stage3: 'Presentation to Academic Council and Board of Trustees for formal deliberation and approval.',
+      stage4: 'Institutional Policy / SOP promulgated campus-wide; RDC records Internal Institutional Utilization.'
+    },
+    utilizations: [
+      {
+        course: 'teacher-ed',
+        title: 'Board Licensure Intensive Review & Diagnostic Analytics Model',
+        dept: 'MCNP & ISAP Institutional Research & Academic Council',
+        partner: 'Professional Regulation Commission (PRC) Region II Advisory Board',
+        summary: 'Predictive analytics study identifying high-yield diagnostic question clusters translated into a mandatory 120-hour modular review curriculum.',
+        impact: 'Elevated institutional licensure examination passing rates across Nursing, RadTech, MLS, and Criminology by an average of 14.8%.',
+        status: 'Institutional Policy Implemented #POL-2025-001'
+      },
+      {
+        course: 'institutional',
+        title: 'Institutional Research Productivity & Incentivization SOP',
+        dept: 'RDC Directorate & Quality Assurance Office',
+        partner: 'CHED Region II & Philippine Association of Research Managers',
+        summary: 'Policy research examining publication barriers translated into a tiered institutional deloading and cash incentive policy for peer-reviewed journal papers.',
+        impact: 'Increased faculty research submissions by 115% and indexed international publications by 80% year-on-year.',
+        status: 'Institutional SOP Implemented #SOP-2025-006'
+      },
+      {
+        course: 'nursing',
+        title: 'Clinical Simulation Competency & Board Mastery Index',
+        dept: 'MCNP College of Nursing & Allied Health',
+        partner: 'MCNP Clinical Simulation Center & Regional Board Review Council',
+        summary: 'High-fidelity simulation clinical decision-making rubric predicting licensure examination weak points and targeted remediation.',
+        impact: 'Boosted MCNP first-time taker Nursing Licensure Examination passing rate to 98.4% with two national board topnotchers.',
+        status: 'Institutional Policy Implemented #POL-2025-008'
+      },
+      {
+        course: 'criminology',
+        title: 'Criminology Board Examination Diagnostic Mock & Mastery System',
+        dept: 'ISAP College of Criminal Justice Education',
+        partner: 'ISAP Board Exam Readiness Center & Regional Criminology Council',
+        summary: 'Data-driven diagnostic testing matrix isolating substantive law and criminalistics performance trends for individualized mentoring.',
+        impact: 'Produced consistent 90%+ institutional passing rates and continuous placement among Top Performing Criminology Schools in Region II.',
+        status: 'Institutional Policy Implemented #POL-2025-009'
+      }
+    ]
+  }
+};
+
+    function countStudiesForCourse(courseId, wing) {
+      var count = 0;
+      Object.keys(utilizationPillarsData).forEach(function(k) {
+        var p = utilizationPillarsData[k];
+        if (p.utilizations) {
+          p.utilizations.forEach(function(u) {
+            if (courseId === 'all') {
+              if (wing === 'isap' && coursesMap[u.course] && (coursesMap[u.course].wing === 'isap' || coursesMap[u.course].wing === 'both')) {
+                count++;
+              } else if (wing !== 'isap' && coursesMap[u.course] && (coursesMap[u.course].wing === 'mcnp' || coursesMap[u.course].wing === 'both')) {
+                count++;
+              }
+            } else if (u.course === courseId) {
+              count++;
+            }
+          });
+        }
+      });
+      return count;
+    }
+
+    function renderMainCoursePills() {
+      var wrap = document.getElementById('mainCoursePills');
+      var label = document.getElementById('courseFilterActiveLabel');
+      if (!wrap) return;
+
+      var courses = (currentSelectedWing === 'isap') ? isapCourses : mcnpCourses;
+      var themeColor = (currentSelectedWing === 'isap') ? 'var(--isap-blue)' : 'var(--mcnp-green)';
+
+      wrap.innerHTML = courses.map(function(c) {
+        var isActive = (currentSelectedCourse === c.id);
+        var count = countStudiesForCourse(c.id, currentSelectedWing);
+        var countBadge = (c.id === 'all') ? '' : ' <span style="font-size:0.75rem; opacity:0.85;">(' + count + ')</span>';
+        var activeBg = (currentSelectedWing === 'isap') ? 'var(--isap-blue)' : 'var(--mcnp-green)';
+        var activeBorder = (currentSelectedWing === 'isap') ? 'var(--isap-blue)' : 'var(--mcnp-green)';
+
+        return '<button type="button" class="main-course-pill ' + (isActive ? 'active' : '') + '" onclick="setMainCourseFilter(\'' + c.id + '\')" ' +
+          'style="padding:0.42rem 0.95rem; border-radius:24px; font-size:0.82rem; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:0.4rem; transition:all 0.2s ease; ' +
+          (isActive ? 'background:' + activeBg + '; color:#ffffff; border:1.5px solid ' + activeBorder + '; box-shadow:0 3px 10px rgba(0,0,0,0.15);' : 'background:#ffffff; color:#475569; border:1.5px solid #cbd5e1;') + '">' +
+          '<span>' + c.icon + '</span> <span>' + c.label + countBadge + '</span>' +
+          '</button>';
+      }).join('');
+
+      if (label) {
+        var cur = courses.find(function(c) { return c.id === currentSelectedCourse; }) || courses[0];
+        label.innerHTML = 'Showing: <strong style="color:' + themeColor + ';">' + cur.icon + ' ' + cur.label + '</strong>';
+      }
+    }
+
+    function setMainCourseFilter(courseId) {
+      currentSelectedCourse = courseId;
+      renderMainCoursePills();
+      updateShowcaseCardsForCourse(courseId);
+    }
+
+    function updateShowcaseCardsForCourse(courseId) {
+      var showcaseCards = document.querySelectorAll('#innovates-agenda-showcase .innovates-showcase-card');
+      showcaseCards.forEach(function(card) {
+        var href = card.getAttribute('href') || '';
+        var match = href.match(/pillar-([a-z]+)/);
+        if (!match) return;
+        var pKey = match[1];
+        var pData = utilizationPillarsData[pKey];
+        if (!pData) return;
+
+        var existingBadge = card.querySelector('.card-course-count-badge');
+        if (existingBadge) existingBadge.remove();
+
+        if (courseId === 'all') {
+          card.style.opacity = '1';
+          return;
+        }
+
+        var matchingCount = (pData.utilizations || []).filter(function(u) { return u.course === courseId; }).length;
+        if (matchingCount > 0) {
+          card.style.opacity = '1';
+          var cInfo = coursesMap[courseId] || { name: 'Course', icon: '🎓', color: '#7b1113' };
+          var badgeEl = document.createElement('span');
+          badgeEl.className = 'card-course-count-badge';
+          badgeEl.style.cssText = 'position:absolute; bottom:12px; right:12px; font-size:0.7rem; font-weight:800; background:' + cInfo.color + '; color:#fff; padding:0.2rem 0.55rem; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,0.2); z-index:2;';
+          badgeEl.innerHTML = cInfo.icon + ' ' + matchingCount + ' Study' + (matchingCount > 1 ? 'ies' : '');
+          card.style.position = 'relative';
+          card.appendChild(badgeEl);
+        } else {
+          card.style.opacity = '0.55';
+        }
+      });
+    }
 
     function filterUtilizationWing(wing, btn) {
       currentSelectedWing = (wing === 'isap') ? 'isap' : 'mcnp';
-      var showcaseCards = document.querySelectorAll('#innovates-agenda-showcase .innovates-showcase-card');
-      
+      currentSelectedCourse = 'all';
+
       var btnMcnp = document.getElementById('btn-tab-mcnp');
       var btnIsap = document.getElementById('btn-tab-isap');
       var badge = document.getElementById('utilization-blueprint-badge');
@@ -476,7 +1206,6 @@
         if (desc) desc.innerHTML = 'Explore ISAP research utilization across Criminology, Education, Customs, Business, and IT. Click any pillar to view its <strong>Pathway</strong>, <strong>Standard Procedure</strong>, and active <strong>Research Utilization</strong> case studies.';
         try { history.replaceState(null, null, '#isap'); } catch(e){}
       } else {
-        // default to mcnp
         if (btnMcnp) btnMcnp.classList.add('active-mcnp');
         if (badge) {
           badge.textContent = 'MCNP HEALTH SCIENCES UTILIZATION';
@@ -488,445 +1217,9 @@
         try { history.replaceState(null, null, '#mcnp'); } catch(e){}
       }
 
-      // Every institution has the full innovation icons available
-      showcaseCards.forEach(function(card) {
-        card.style.display = 'flex';
-      });
+      renderMainCoursePills();
+      updateShowcaseCardsForCourse('all');
     }
-
-    /* ==========================================================================
-       RESEARCH UTILIZATION MODAL DATA & CONTROLLER
-       Features 3 Dedicated Panes:
-       1. Pathway
-       2. Standard Procedure for Research Utilization
-       3. Research Utilization
-       ========================================================================== */
-    var utilizationPillarsData = {
-      inspire: {
-        key: 'inspire',
-        name: 'INSPIRE',
-        letter: 'I',
-        fullName: 'INSPIRE: Culture, Capability, and Engagement',
-        emblem: 'assets/agenda/agenda-1-inspire.png',
-        wing: 'ISAP Multidisciplinary Wing (Teacher Education & Humanities)',
-        wingBadge: { bg: 'rgba(11, 60, 93, 0.12)', color: '#0b3c5d', text: 'ISAP Lead' },
-        pathway: {
-          primary: 'Pathway 4: Curricular & Instructional Integration & Pathway 2: Community Extension',
-          badge: 'Curricular & Community Extension',
-          description: 'Channelling empirical educational and behavioral research into classroom learning toolkits, multigrade teacher syllabi, and community capability-building seminars.',
-          mechanisms: [
-            'Curricular syllabus infusion in Teacher Education & Criminology pedagogy',
-            'DepEd district-level remedial learning toolkits & literacy modules',
-            'Faculty professional mentoring and micro-credentialing rubrics'
-          ],
-          beneficiaries: 'DepEd Cagayan Valley Divisions, Public Elementary & High Schools, Community Mentors, Higher Education Faculty',
-          coreFormats: 'Instructional Syllabus Modules, Remedial Phonics Toolkits, Teacher Training Manuals'
-        },
-        procedure: {
-          stage1: 'Proponents submit defense-approved pedagogical manuscripts and ethics clearances to the RDC Repository.',
-          stage2: 'Action research is synthesized into modular teaching guides, remedial lesson packets, and competency matrices.',
-          stage3: 'Formal turnover to DepEd Division of Cagayan and partner public school heads via Memorandum of Agreement (MoA).',
-          stage4: 'Classroom adoption verified by DepEd Master Teachers; RDC issues the official Certificate of Research Utilization.'
-        },
-        utilizations: [
-          {
-            title: 'Remedial Reading & Physical Fitness Multigrade Toolkits',
-            dept: 'ISAP College of Teacher Education',
-            partner: 'DepEd Region II (Peñablanca & Solana Districts)',
-            summary: 'Action research translated into structured phonics diagnostic guides, daily remedial exercises, and active playtime fitness toolkits for rural multigrade classrooms.',
-            impact: 'Adopted across 12 public elementary schools; boosted reading comprehension fluency by 41% among grade 3–5 struggling readers.',
-            status: 'Certificate of Utilization Issued #UTIL-2025-019'
-          },
-          {
-            title: 'Faculty Micro-Credentialing & Peer Mentoring Framework',
-            dept: 'ISAP Academic Affairs & Teacher Education',
-            partner: 'MCNP & ISAP Institutional Deans Council',
-            summary: 'Research on professional development barriers translated into a 4-tier micro-credentialing matrix for newly hired collegiate instructors.',
-            impact: 'Integrated into institutional faculty onboarding across 11 collegiate departments.',
-            status: 'Institutional Policy Implemented #POL-2025-004'
-          }
-        ]
-      },
-      nurture: {
-        key: 'nurture',
-        name: 'NURTURE',
-        letter: 'N',
-        fullName: 'NURTURE: Ethics, Quality, and Accountability',
-        emblem: 'assets/agenda/agenda-2-nurture.png',
-        wing: 'ISAP Multidisciplinary Wing (Criminology & Public Safety)',
-        wingBadge: { bg: 'rgba(11, 60, 93, 0.12)', color: '#0b3c5d', text: 'ISAP Lead' },
-        pathway: {
-          primary: 'Pathway 1: Policy Translation & Institutional Guidelines & Pathway 2: Community Extension',
-          badge: 'Policy Translation & Public Safety',
-          description: 'Translating criminological empirical intelligence, crime pattern analytics, and correctional welfare studies into local municipal ordinances, police patrol tactical SOPs, and restorative rehabilitation modules.',
-          mechanisms: [
-            'Local Government Unit (LGU) Peace & Order Council policy resolutions',
-            'Philippine National Police (PNP) tactical precinct patrol SOPs and crime heatmaps',
-            'Correctional institution restorative justice and youth rehabilitation toolkits'
-          ],
-          beneficiaries: 'Tuguegarao City Police Station, PNP Region II, Bureau of Jail Management and Penology (BJMP), Municipal Peace Councils',
-          coreFormats: 'Municipal Safety Ordinances, Police Patrol Standard Operating Procedures, Restorative Justice Manuals'
-        },
-        procedure: {
-          stage1: 'Crime pattern surveys, forensic assessments, and correctional studies defended and cleared by IERC.',
-          stage2: 'Criminology faculty and student researchers draft 2-page LGU Policy Briefs and patrol deployment protocols.',
-          stage3: 'Executive briefing and formal turnover to the Chief of Police and City Mayor under institutional MoA.',
-          stage4: 'Precinct patrol deployment confirmed; RDC validates crime reduction impact and issues Certificate of Research Utilization.'
-        },
-        utilizations: [
-          {
-            title: 'GIS-Based Night Patrol Geospatial Mapping Protocol',
-            dept: 'ISAP College of Criminal Justice Education (COCJE)',
-            partner: 'Tuguegarao City Police Station & LGU Tuguegarao',
-            summary: 'Geographic information system (GIS) mapping of nighttime theft and robbery hot-spots transformed into a targeted motorcycle patrol route SOP.',
-            impact: 'Adopted as Official Precinct Tactical SOP; decreased nighttime petty theft incidents by 32% in commercial zones over 6 months.',
-            status: 'Certificate of Utilization Issued #UTIL-2025-014'
-          },
-          {
-            title: 'Trauma-Informed Restorative Justice & Youth Rehabilitation Manual',
-            dept: 'ISAP Criminology & Social Sciences',
-            partner: 'BJMP Cagayan & Regional Youth Detention Center',
-            summary: 'Restorative justice research translated into a structured psycho-social rehabilitation curriculum for youth in conflict with the law (CICL).',
-            impact: 'Deployed across 2 correctional facilities, reducing behavioral infractions among juvenile detainees by 45%.',
-            status: 'Certificate of Utilization Issued #UTIL-2025-021'
-          }
-        ]
-      },
-      navigate: {
-        key: 'navigate',
-        name: 'NAVIGATE',
-        letter: 'N',
-        fullName: 'NAVIGATE: Digital Transformation and Infrastructure',
-        emblem: 'assets/agenda/agenda-3-navigate.png',
-        wing: 'Joint: MCNP & ISAP Informatics (IT & Customs Administration)',
-        wingBadge: { bg: 'rgba(123, 17, 19, 0.12)', color: '#7b1113', text: 'Joint Synergy' },
-        pathway: {
-          primary: 'Pathway 3: Technology Transfer & Commercialization & Pathway 1: Policy Translation',
-          badge: 'Technology Transfer & Digital Systems',
-          description: 'Translating software architectures, algorithmic models, and logistics data pipelines into operational web platforms, customs classification decision matrices, and emergency dispatch systems.',
-          mechanisms: [
-            'Proprietary software deployment and web applications with source code escrow',
-            'Customs broker and freight forwarding automated tariff classification decision engines',
-            'Municipal emergency relief logistics and disaster dispatch cloud portals'
-          ],
-          beneficiaries: 'Bureau of Customs (BOC Sub-Port of Aparri), Municipal Disaster Risk Reduction Offices (MDRRMO), Regional Freight Forwarders, Hospitals',
-          coreFormats: 'Cloud Web Applications, Decision-Matrix Algorithms, System Runbooks, IPOPHL Software Copyrights'
-        },
-        procedure: {
-          stage1: 'Software architecture, database schemas, and unit test results cleared by IT Defense Panel.',
-          stage2: 'User documentation, API endpoints, system administration manual, and IPOPHL copyright application filed.',
-          stage3: 'Server deployment, database migration, and staff training executed under institutional MoA.',
-          stage4: 'Partner agency confirms 99.5%+ uptime and operational integration; RDC issues Certificate of Research Utilization.'
-        },
-        utilizations: [
-          {
-            title: 'Electronic Harmonized Tariff Classification Decision-Matrix',
-            dept: 'ISAP College of Customs Administration',
-            partner: 'Bureau of Customs (BOC Sub-Port of Aparri) & 8 Regional Brokerages',
-            summary: 'Automated digital decision-tree matching import product manifests against ASEAN Harmonized Tariff Nomenclature (AHTN).',
-            impact: 'Cut declaration processing time from 45 mins to 8 mins; slashed misclassification compliance errors by 74%.',
-            status: 'Certificate of Utilization Issued #UTIL-2025-016'
-          },
-          {
-            title: 'Cloud Disaster Evacuation & Relief Logistics Dispatch System',
-            dept: 'ISAP College of Information Technology',
-            partner: 'Peñablanca MDRRMO & Provincial Disaster Operations Center',
-            summary: 'Cloud-enabled real-time inventory tracking and evacuation center census dispatch system deployed during flood emergencies.',
-            impact: 'Successfully deployed during Super Typhoon recovery across 18 evacuation centers, preventing relief pack misallocation.',
-            status: 'Certificate of Utilization Issued #UTIL-2025-018'
-          }
-        ]
-      },
-      operationalize: {
-        key: 'operationalize',
-        name: 'OPERATIONALIZE',
-        letter: 'O',
-        fullName: 'OPERATIONALIZE: Knowledge Utilization, Innovation, and Improvement',
-        emblem: 'assets/agenda/agenda-4-operationalize.png',
-        wing: 'Systems & Innovation Directorate / MCNP Pharmacy & Health Sciences',
-        wingBadge: { bg: 'rgba(13, 92, 58, 0.12)', color: '#0d5c3a', text: 'MCNP Lead' },
-        pathway: {
-          primary: 'Pathway 3: Technology Transfer & Commercialization & Pathway 1: Policy Translation',
-          badge: 'Technology Transfer & Clinical Compounding',
-          description: 'Translating empirical laboratory formulations, phytochemical bioassays, and clinical compounding methods into standardized pharmaceutical salves, diagnostic monographs, and institutional knowledge assets.',
-          mechanisms: [
-            'Intellectual Property Office of the Philippines (IPOPHL) utility models and patents',
-            'Standardized pharmacy compounding monographs and botanical extract protocols',
-            'Institutional quality management systems (QMS) and operational workflow audits'
-          ],
-          beneficiaries: 'Regional Community Pharmacies, Hospital Compounding Units, Rural Health Centers, Regional Agricultural Producers',
-          coreFormats: 'Compounding Monographs, IPOPHL Utility Models, Pilot Production SOPs, Laboratory Assay Manuals'
-        },
-        procedure: {
-          stage1: 'Bioassay testing, phytochemical analysis, and microbial validation defended and verified in RDC laboratories.',
-          stage2: 'Formulation monograph drafted, quality control specifications set, and IPOPHL Utility Model filed.',
-          stage3: 'Trial batch production and turnover to partner community clinics and CESO health caravan teams.',
-          stage4: 'Clinical safety and patient efficacy audited; RDC awards official Certificate of Research Utilization.'
-        },
-        utilizations: [
-          {
-            title: 'Standardized Antimicrobial Botanical Ointment Formulation',
-            dept: 'MCNP College of Pharmacy',
-            partner: 'CESO Community Health Missions & 4 Peñablanca Rural Health Units',
-            summary: 'Compounding monograph for standardized extraction of native Akapulko (Senna alata) and Guava leaf extracts formulated into sterile topical antiseptic ointments.',
-            impact: 'Awarded IPOPHL Utility Model; distributed over 1,200 sterile salves during rural medical caravans treating superficial fungal infections.',
-            status: 'Certificate of Utilization Issued #UTIL-2025-011'
-          },
-          {
-            title: 'Evidence-to-Action Clinical Laboratory SOP System',
-            dept: 'MCNP Medical Laboratory Science',
-            partner: 'MCNP Diagnostic Center & Regional Clinical Laboratories',
-            summary: 'Standardized laboratory workflow streamlining specimen turnaround times and reagent waste reduction.',
-            impact: 'Integrated into routine hospital lab rotations; reduced reagent wastage by 28% and accelerated routine blood test reporting.',
-            status: 'Certificate of Utilization Issued #UTIL-2025-009'
-          }
-        ]
-      },
-      value: {
-        key: 'value',
-        name: 'VALUE',
-        letter: 'V',
-        fullName: 'VALUE: Health, Safety, and Well-Being',
-        emblem: 'assets/agenda/agenda-5-value.png',
-        wing: 'MCNP Health Sciences Wing (Nursing, RadTech, MLS, PT, Pharmacy)',
-        wingBadge: { bg: 'rgba(13, 92, 58, 0.12)', color: '#0d5c3a', text: 'MCNP Lead' },
-        pathway: {
-          primary: 'Pathway 1: Policy Translation & Clinical Guidelines & Pathway 2: Community Extension',
-          badge: 'Clinical Guidelines & Hospital SOPs',
-          description: 'Translating hospital-based observational studies, radiology dosage calibration data, diagnostic microbiology screenings, and musculoskeletal ergonomic assessments into verified clinical hospital standard operating procedures and bedside nursing manuals.',
-          mechanisms: [
-            'Hospital clinical care protocols and bedside medication safety double-check systems',
-            'Diagnostic radiology low-dose exposure calibration and radiation shielding guidelines',
-            'Rural health unit waterborne pathogen testing protocols and agronomic rehab guides'
-          ],
-          beneficiaries: 'Cagayan Valley Medical Center (CVMC), Regional Public & Private Hospitals, Rural Health Units, Agrarian Cooperatives',
-          coreFormats: 'Hospital Department SOPs, Bedside Clinical Manuals, Radiology Technical Charts, Ergonomic Rehab Guides'
-        },
-        procedure: {
-          stage1: 'Clinical trials or hospital observational protocols approved by Institutional Ethics Review Committee (IERC).',
-          stage2: 'Research findings extracted into laminated bedside clinical checklists and clinical department SOPs.',
-          stage3: 'Hospital nursing and medical staff in-service training conducted; MOA executed with Hospital Director.',
-          stage4: 'Hospital Quality Assurance Committee verifies protocol compliance; RDC issues Certificate of Research Utilization.'
-        },
-        utilizations: [
-          {
-            title: 'Pediatric Medication Error-Mitigation Protocol',
-            dept: 'MCNP College of Nursing',
-            partner: 'Cagayan Valley Medical Center (CVMC) & 3 Partner Hospitals',
-            summary: 'Translating pediatric nursing thesis on weight-based dosage recalculation errors into a color-coded bedside double-check flowchart and emergency dosing guide.',
-            impact: 'Decreased pediatric dosage calculation delays by 88% and zero reported weight-based adverse drug events in adopted pediatric wards.',
-            status: 'Certificate of Utilization Issued #UTIL-2025-001'
-          },
-          {
-            title: 'Low-Dose CT (LDCT) Shielding & Exposure Calibration Protocol',
-            dept: 'MCNP College of Radiologic Technology',
-            partner: 'St. Paul Hospital & Tuguegarao Diagnostic Imaging Suites',
-            summary: 'Dosimetric study on radiation scatter optimization formulated into organ-specific bismuth shielding and pediatric milliampere-second (mAs) modulation guidelines.',
-            impact: 'Reduced patient radiation dose by 27% in routine abdominal CT examinations without loss of diagnostic image sharpness.',
-            status: 'Certificate of Utilization Issued #UTIL-2025-003'
-          },
-          {
-            title: 'Multiplex Waterborne Enteric Pathogen Screening Protocol',
-            dept: 'MCNP College of Medical Laboratory Science',
-            partner: 'Rural Health Units of Peñablanca and Solana',
-            summary: 'Rapid, cost-effective fecal coliform and protozoan differential staining protocol designed for rural, resource-limited health outposts.',
-            impact: 'Decreased diagnostic confirmation turnaround from 72 hours to 4 hours during seasonal post-flood gastroenteritis spikes.',
-            status: 'Certificate of Utilization Issued #UTIL-2025-005'
-          },
-          {
-            title: 'Ergonomic Musculoskeletal Rehabilitation for Agrarian Workers',
-            dept: 'MCNP College of Physical Therapy',
-            partner: 'Peñablanca Agrarian Reform Beneficiaries Cooperative (PARBC)',
-            summary: 'Biomechanics study on corn and rice farming laborers translated into a preventative stretch-strengthen routine and ergonomic load-carrying technique.',
-            impact: '71% reduction in reported work-limiting chronic lower back pain among 180 enrolled agrarian laborers.',
-            status: 'Certificate of Utilization Issued #UTIL-2025-008'
-          }
-        ]
-      },
-      advance: {
-        key: 'advance',
-        name: 'ADVANCE',
-        letter: 'A',
-        fullName: 'ADVANCE: Sustainability and Climate Resilience',
-        emblem: 'assets/agenda/agenda-6-advance.png',
-        wing: 'Joint: SDG Advocacies Synergy (Environmental Sciences & General Services)',
-        wingBadge: { bg: 'rgba(123, 17, 19, 0.12)', color: '#7b1113', text: 'Joint Synergy' },
-        pathway: {
-          primary: 'Pathway 2: Community Extension & Grassroots Adoption & Pathway 1: Institutional Guidelines',
-          badge: 'Community Resilience & Eco-Operations',
-          description: 'Translating ecological surveys, water conservation data, flood risk models, and renewable energy research into green campus operations and municipal disaster resilience blueprints.',
-          mechanisms: [
-            'Campus sustainable operations SOPs (greywater recycling, botanical filtration, zero single-use plastic)',
-            'Barangay climate disaster evacuation contingency plans and flood alert thresholds',
-            'Agricultural waste composting and organic fertilizer production guides'
-          ],
-          beneficiaries: 'Provincial Disaster Risk Reduction Office (PDRRMO), Riverbank Communities along Cagayan River, Campus Operations',
-          coreFormats: 'Campus Environmental Guidelines, Municipal Climate Contingency Plans, Organic Composting Toolkits'
-        },
-        procedure: {
-          stage1: 'Environmental risk assessments and hydrological risk surveys cleared by RDC Environmental Committee.',
-          stage2: 'Data synthesized into barangay emergency contingency manuals and campus green building SOPs.',
-          stage3: 'Turnover to municipal disaster risk management offices and campus general services under institutional MoA.',
-          stage4: 'Community flood drill execution and campus resource savings verified; RDC issues Certificate of Research Utilization.'
-        },
-        utilizations: [
-          {
-            title: 'Solar-Assisted Greywater Recycling & Botanical Filtration',
-            dept: 'MCNP Environmental Sciences & Campus General Services',
-            partner: 'MCNP Institutional Campus Infrastructure',
-            summary: 'Engineering study on reed-bed botanical filtration and solar pumping for dormitory greywater recycling.',
-            impact: 'Recycles 15,000 liters of water weekly for campus botanical irrigation and landscape maintenance, saving 35% municipal tap water.',
-            status: 'Certificate of Utilization Issued #UTIL-2025-012'
-          },
-          {
-            title: 'Climate-Resilient Riverbank Flood Contingency Blueprint',
-            dept: 'ISAP Criminology & Disaster Studies',
-            partner: 'Peñablanca Municipal Disaster Council (MDRRMO)',
-            summary: 'Hydrological data study establishing rapid evacuation trigger levels for 6 riverbank farming communities.',
-            impact: 'Integrated into official municipal disaster operations manual, resulting in zero flood casualties during consecutive seasonal typhoons.',
-            status: 'Certificate of Utilization Issued #UTIL-2025-015'
-          }
-        ]
-      },
-      transform: {
-        key: 'transform',
-        name: 'TRANSFORM',
-        letter: 'T',
-        fullName: 'TRANSFORM: Community Engagement and Social Impact',
-        emblem: 'assets/agenda/agenda-7-transform.png',
-        wing: 'ISAP Multidisciplinary Wing (Community Extension, Social Work & Psychology)',
-        wingBadge: { bg: 'rgba(11, 60, 93, 0.12)', color: '#0b3c5d', text: 'ISAP Lead' },
-        pathway: {
-          primary: 'Pathway 2: Community Extension & Grassroots Adoption & Pathway 4: Curricular Integration',
-          badge: 'Grassroots Adoption & Social Welfare',
-          description: 'Translating community needs assessments, ethnopsychological evaluations, and social protection studies into actionable community development toolkits, maternal nutrition regimens, and community psychosocial interventions.',
-          mechanisms: [
-            'Community Extension Services Office (CESO) 3-year adopted barangay development master plans',
-            'Barangay nutrition council feeding interventions and maternal health tracking tools',
-            'Department of Social Welfare and Development (DSWD) community psychosocial support manuals'
-          ],
-          beneficiaries: 'Adopted Barangays in Peñablanca, DSWD Field Office 02, Rural Women Associations, Indigenous Community Centers',
-          coreFormats: 'Community Extension Manuals, Maternal Feeding Protocols, Psychosocial First-Aid Kits'
-        },
-        procedure: {
-          stage1: 'Participatory community surveys and ethical clearance certified by IERC.',
-          stage2: 'Action research transformed into field worker guidebooks, maternal feeding guides, and community toolkits.',
-          stage3: 'Signing of Community Partnership Covenant between Barangay Captain, CESO Director, and RDC.',
-          stage4: 'Community health/livelihood metric audits conducted at 6 and 12 months; RDC issues Certificate of Research Utilization.'
-        },
-        utilizations: [
-          {
-            title: 'Community-Based Maternal & Infant Nutritional Intervention Toolkit',
-            dept: 'MCNP Nursing & ISAP Social Work',
-            partner: 'CESO Adopted Barangays (Peñablanca, Cagayan)',
-            summary: 'Translating community health thesis into a 120-day structured indigenous food-source complementary feeding protocol for undernourished infants.',
-            impact: 'Decreased mild-to-moderate child stunting rates by 21% across 5 adopted rural communities over 12 months.',
-            status: 'Certificate of Utilization Issued #UTIL-2025-020'
-          },
-          {
-            title: 'Grassroots Disaster Psychosocial First-Aid Toolkit',
-            dept: 'ISAP College of Psychology & Social Work',
-            partner: 'Philippine Red Cross Cagayan Chapter & Municipal Social Welfare',
-            summary: 'Psychological resilience study adapted into an indigenous-language (Ibanag/Ilokano) emotional debriefing guide for typhoon survivors.',
-            impact: 'Trained 65 barangay health workers in post-disaster trauma triage, deployed across 4 flood evacuation centers.',
-            status: 'Certificate of Utilization Issued #UTIL-2025-022'
-          }
-        ]
-      },
-      expand: {
-        key: 'expand',
-        name: 'EXPAND',
-        letter: 'E',
-        fullName: 'EXPAND: Partnerships, Networks, and Global Engagement',
-        emblem: 'assets/agenda/agenda-8-expand.png',
-        wing: 'Joint: External Affairs & RDC Directorate (Business, Customs & Hospitality)',
-        wingBadge: { bg: 'rgba(123, 17, 19, 0.12)', color: '#7b1113', text: 'Joint Synergy' },
-        pathway: {
-          primary: 'Pathway 1: Policy Translation & Industry MOUs & Pathway 3: Technology Transfer',
-          badge: 'Industry Alliances & Micro-Enterprise',
-          description: 'Translating micro-economic surveys, cross-border trade legalities, and agro-tourism market assessments into business mentoring clinics, cooperative digital bookkeeping systems, and international university academic partnerships.',
-          mechanisms: [
-            'Department of Trade and Industry (DTI Region II) MSME technical incubation modules',
-            'Regional cooperative federations digital bookkeeping and cost-accounting SOPs',
-            'Cross-border higher education institution (HEI) bilateral research exchange agreements'
-          ],
-          beneficiaries: 'Regional MSMEs, Agro-Tourism Cooperatives, DTI Cagayan, Chamber of Commerce, International Partner Universities',
-          coreFormats: 'Industry Collaboration Charters, Digital Bookkeeping SOPs, Bilateral Research Consortium Protocols'
-        },
-        procedure: {
-          stage1: 'Economic analyses, agribusiness feasibility studies, and trade policy papers defended.',
-          stage2: 'Outputs synthesized into turnkey MSME business toolkits, digital spreadsheets, and partnership covenants.',
-          stage3: 'Formal turnover during DTI Regional Negosyo Centers caravans and institutional MoA ceremonial signing.',
-          stage4: 'MSME business revenue and compliance tracking verified; RDC issues Certificate of Research Utilization.'
-        },
-        utilizations: [
-          {
-            title: 'Micro-Enterprise Digital Bookkeeping & Agro-Tourism Protocols',
-            dept: 'ISAP College of Business & Hospitality Management',
-            partner: 'Department of Trade and Industry (DTI Cagayan) & 14 Local MSMEs',
-            summary: 'Business feasibility research translated into an easy-to-use digital cashflow and inventory tracking toolkit for rural homestays and agri-processing cooperatives.',
-            impact: 'Adopted by 14 local food processors and farm tourism sites; increased on-time tax and inventory compliance by 85%.',
-            status: 'Certificate of Utilization Issued #UTIL-2025-023'
-          },
-          {
-            title: 'Cross-Border Allied Health Clinical Apprenticeship Protocol',
-            dept: 'MCNP External Affairs & Nursing Directorate',
-            partner: 'Southeast Asian Academic Consortium & 2 Overseas Healthcare Centers',
-            summary: 'Comparative clinical competency study translated into a bilateral nursing internship equivalency matrix.',
-            impact: 'Enabled 24 graduating senior health sciences students to qualify for international clinical observation programs.',
-            status: 'Institutional Agreement Ratified #MOU-2025-007'
-          }
-        ]
-      },
-      strengthen: {
-        key: 'strengthen',
-        name: 'STRENGTHEN',
-        letter: 'S',
-        fullName: 'STRENGTHEN: Education and Institutional Performance',
-        emblem: 'assets/agenda/agenda-9-strengthen.png',
-        wing: 'ISAP Multidisciplinary Wing & Academic Affairs (Institutional QA)',
-        wingBadge: { bg: 'rgba(11, 60, 93, 0.12)', color: '#0b3c5d', text: 'ISAP Lead' },
-        pathway: {
-          primary: 'Pathway 4: Curricular & Instructional Integration & Pathway 1: Institutional Guidelines',
-          badge: 'Academic Quality & Board Excellence',
-          description: 'Translating diagnostic exam analytics, board licensure tracer studies, and institutional quality assurance audits into Outcomes-Based Education (OBE) syllabi enhancements, mock licensure diagnostic exams, and faculty research productivity policies.',
-          mechanisms: [
-            'Comprehensive mock licensure exam diagnostic prediction and item-analysis matrices',
-            'Outcomes-Based Education (OBE) course syllabus revision and rubric standardization',
-            'Faculty research publication incentive systems and Institutional Ethics Review SOPs'
-          ],
-          beneficiaries: 'MCNP & ISAP Academic Deans Council, Program Heads, Licensure Examinees, PACUCOA & CHED Quality Audits',
-          coreFormats: 'Institutional Quality Manuals, Board Exam Diagnostic Matrices, OBE Syllabi Guidelines'
-        },
-        procedure: {
-          stage1: 'Institutional tracer studies, psychometric test evaluations, and curriculum assessments completed.',
-          stage2: 'Actionable diagnostic models and syllabus improvement matrices drafted by RDC Education Unit.',
-          stage3: 'Presentation to the Executive Board of Trustees and Deans Council; institutional policy enactment.',
-          stage4: 'Academic program implementation audited; national board passing rate gains verified with Certificate of Utilization.'
-        },
-        utilizations: [
-          {
-            title: 'Board Licensure Intensive Review & Diagnostic Analytics Model',
-            dept: 'MCNP & ISAP Institutional Research & Academic Council',
-            partner: 'Nursing, Criminology, RadTech, and MedTech Review Centers',
-            summary: 'Predictive analytics study identifying student competency gaps in professional board subjects, converted into individualized remediation modules.',
-            impact: 'Applied across all 4 graduating healthcare and public safety cohorts; contributed to MCNP & ISAP achieving 100% and Top 10 national board pass rates.',
-            status: 'Institutional Policy Enacted #POL-2025-001'
-          },
-          {
-            title: 'Institutional Research Productivity & Incentivization SOP',
-            dept: 'RDC Directorate & Quality Assurance Office',
-            partner: 'MCNP & ISAP Faculty Development Office',
-            summary: 'Policy research examining publication barriers translated into a tiered institutional deloading and cash incentive policy for peer-reviewed journal papers.',
-            impact: 'Increased faculty research submissions by 115% and indexed international publications by 80% year-on-year.',
-            status: 'Institutional SOP Implemented #SOP-2025-006'
-          }
-        ]
-      }
-    };
-
-    var currentUtilKey = 'inspire';
-    var currentUtilTab = 'pathway';
 
     function ensureUtilizationModalExists() {
       var modal = document.getElementById('utilizationModal');
@@ -966,6 +1259,16 @@
             </button>
           </div>
 
+          <!-- Course Filter Inside Modal -->
+          <div id="modalCourseFilterBar" style="background: #f8fafc; border-bottom: 1.5px solid #e2e8f0; padding: 0.75rem 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.65rem;">
+            <div style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 800; color: #334155; text-transform: uppercase; letter-spacing: 0.03em;">
+              <span>🎓</span> Filter per Course:
+            </div>
+            <div id="modalCoursePillsWrap" style="display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center;">
+              <!-- Dynamic pills inside modal -->
+            </div>
+          </div>
+
           <div class="agenda-modal-body">
             <div class="agenda-tab-pane active" id="utilPanePathway" role="tabpanel"></div>
             <div class="agenda-tab-pane" id="utilPaneProcedure" role="tabpanel" style="display: none;"></div>
@@ -990,7 +1293,127 @@
       return modal;
     }
 
-    window.openUtilizationModal = function(pillarKey, tabName) {
+    function renderModalCoursePills(pillarData) {
+      var wrap = document.getElementById('modalCoursePillsWrap');
+      if (!wrap) return;
+
+      var availableCourses = new Set();
+      (pillarData.utilizations || []).forEach(function(u) {
+        if (u.course) availableCourses.add(u.course);
+      });
+
+      // Filter options: All Courses + each available course
+      var list = [{ id: 'all', label: 'All Courses (' + (pillarData.utilizations || []).length + ')', icon: '🏛️' }];
+      availableCourses.forEach(function(cId) {
+        var info = coursesMap[cId];
+        if (info) {
+          var cCount = (pillarData.utilizations || []).filter(function(u) { return u.course === cId; }).length;
+          list.push({ id: cId, label: info.name + ' (' + cCount + ')', icon: info.icon, color: info.color });
+        }
+      });
+
+      wrap.innerHTML = list.map(function(item) {
+        var isActive = (currentUtilCourse === item.id);
+        var activeBg = item.color || '#7b1113';
+        return '<button type="button" onclick="filterModalByCourse(\'' + item.id + '\')" ' +
+          'style="padding:0.3rem 0.75rem; border-radius:20px; font-size:0.78rem; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:0.35rem; transition:all 0.2s ease; ' +
+          (isActive ? 'background:' + activeBg + '; color:#ffffff; border:1.5px solid ' + activeBg + '; box-shadow:0 2px 6px rgba(0,0,0,0.18);' : 'background:#ffffff; color:#475569; border:1.5px solid #cbd5e1;') + '">' +
+          '<span>' + item.icon + '</span> <span>' + item.label + '</span>' +
+          '</button>';
+      }).join('');
+    }
+
+    window.filterModalByCourse = function(courseId) {
+      currentUtilCourse = courseId;
+      var data = utilizationPillarsData[currentUtilKey];
+      if (!data) return;
+
+      renderModalCoursePills(data);
+      renderUtilizationStudies(data, currentUtilCourse);
+      switchUtilizationTab('studies');
+    };
+
+    function renderUtilizationStudies(data, courseFilter) {
+      var paneStudies = document.getElementById('utilPaneStudies');
+      var badgeCount = document.getElementById('utilBadgeCount');
+      if (!paneStudies) return;
+
+      var allList = data.utilizations || [];
+      var filtered = allList;
+      if (courseFilter && courseFilter !== 'all') {
+        filtered = allList.filter(function(u) { return u.course === courseFilter; });
+      }
+
+      if (badgeCount) {
+        badgeCount.textContent = filtered.length;
+      }
+
+      var filterInfoText = (courseFilter === 'all') 
+        ? 'Showing all <strong>' + filtered.length + ' certified studies</strong> under ' + data.name + '.' 
+        : 'Filtered by <strong>' + (coursesMap[courseFilter] ? coursesMap[courseFilter].icon + ' ' + coursesMap[courseFilter].name : courseFilter) + '</strong> (' + filtered.length + ' of ' + allList.length + ' studies).';
+
+      var headerHtml = `
+        <div style="background: #f0fdf4; border-left: 4px solid #16a34a; padding: 1.15rem 1.35rem; border-radius: 0 10px 10px 0; margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem; flex-wrap: wrap; gap: 0.5rem;">
+            <span style="font-size: 0.72rem; font-weight: 800; color: #166534; text-transform: uppercase; letter-spacing: 0.05em;">Verified Research Protocols</span>
+            <span style="font-size: 0.78rem; font-weight: 700; color: #166534; background: #dcfce7; padding: 0.2rem 0.6rem; border-radius: 20px;">${filtered.length} Certified Studies</span>
+          </div>
+          <h4 style="font-size: 1.15rem; color: #14532d; margin: 0 0 0.35rem; font-weight: 800;">Research Utilization Studies for ${data.name}</h4>
+          <p style="font-size: 0.9rem; color: #334155; line-height: 1.65; margin: 0;">
+            ${filterInfoText} Applied thesis capstones and clinical protocols with certified regional adoption.
+          </p>
+        </div>
+      `;
+
+      if (filtered.length === 0) {
+        var cMeta = coursesMap[courseFilter] || { name: 'this course', icon: '🎓' };
+        paneStudies.innerHTML = headerHtml + `
+          <div style="background: #f8fafc; border: 1.5px dashed #cbd5e1; border-radius: 12px; padding: 2.75rem 1.5rem; text-align: center;">
+            <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">${cMeta.icon}</div>
+            <h5 style="font-size: 1.1rem; color: #1e293b; font-weight: 800; margin: 0 0 0.4rem;">No ${cMeta.name} Studies in ${data.name}</h5>
+            <p style="font-size: 0.88rem; color: #64748b; max-width: 520px; margin: 0 auto 1.35rem; line-height: 1.6;">
+              There are currently no research utilization protocols specifically tagged for ${cMeta.name} in the ${data.name} pillar.
+            </p>
+            <button type="button" class="btn btn-sm btn-gold" onclick="filterModalByCourse('all')">
+              View All ${allList.length} Studies in ${data.name} &rarr;
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      var cardsHtml = filtered.map(function(u) {
+        var cInfo = coursesMap[u.course] || { name: 'Allied Program', icon: '🎓', color: '#0b3c5d' };
+        return `
+          <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 1.4rem; box-shadow: 0 3px 10px rgba(0,0,0,0.03); margin-bottom: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.65rem; flex-wrap: wrap;">
+              <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+                <span style="display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.74rem; font-weight: 800; color: ${cInfo.color}; background: ${cInfo.color}15; border: 1px solid ${cInfo.color}35; padding: 0.2rem 0.65rem; border-radius: 20px; align-self: flex-start;">
+                  ${cInfo.icon} ${cInfo.name}
+                </span>
+                <h5 style="font-size: 1.12rem; color: #0f172a; margin: 0; font-weight: 800; line-height: 1.35;">${u.title}</h5>
+              </div>
+              <span style="font-size: 0.72rem; font-weight: 700; color: #166534; background: #dcfce7; border: 1px solid #bbf7d0; padding: 0.2rem 0.65rem; border-radius: 20px;">
+                ${u.status}
+              </span>
+            </div>
+            <div style="font-size: 0.82rem; color: #64748b; margin-bottom: 0.85rem;">
+              <strong>Proponent:</strong> ${u.dept} &bull; <strong>Adopting Partner:</strong> <span style="color: #1e293b; font-weight: 700;">${u.partner}</span>
+            </div>
+            <p style="font-size: 0.9rem; color: #475569; line-height: 1.7; margin-bottom: 0.95rem;">
+              ${u.summary}
+            </p>
+            <div style="background: #f8fafc; border-left: 3.5px solid #7b1113; padding: 0.75rem 1rem; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: #1e293b;">
+              <strong style="color: #7b1113;">Measurable Impact:</strong> ${u.impact}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      paneStudies.innerHTML = headerHtml + '<div>' + cardsHtml + '</div>';
+    }
+
+    window.openUtilizationModal = function(pillarKey, tabName, initialCourse) {
       if (!pillarKey) pillarKey = 'inspire';
       var cleanKey = String(pillarKey).toLowerCase().replace(/^pillar-?/, '').trim();
       var validKey = utilizationPillarsData[cleanKey] ? cleanKey : 'inspire';
@@ -998,6 +1421,14 @@
 
       currentUtilKey = validKey;
       var modal = ensureUtilizationModalExists();
+
+      if (initialCourse) {
+        currentUtilCourse = initialCourse;
+      } else if (currentSelectedCourse && currentSelectedCourse !== 'all') {
+        currentUtilCourse = currentSelectedCourse;
+      } else {
+        currentUtilCourse = 'all';
+      }
 
       // Emblem
       var emblem = document.getElementById('utilModalEmblem');
@@ -1010,63 +1441,57 @@
         <span class="dropdown-badge" style="background:${data.wingBadge.bg}; color:${data.wingBadge.color}; font-size:0.75rem; padding:0.25rem 0.65rem;">
           ${data.wingBadge.text}
         </span>
-        <span class="dropdown-badge" style="background:rgba(123, 17, 19, 0.08); color:#7b1113; font-size:0.75rem; padding:0.25rem 0.65rem;">
-          INNOVATES Pillar
+        <span class="dropdown-badge" style="background:rgba(123, 17, 19, 0.12); color:#7b1113; font-size:0.75rem; padding:0.25rem 0.65rem;">
+          ${data.pathway.badge}
         </span>
       `;
 
       // Title & Subtitle
       document.getElementById('utilModalTitle').textContent = data.fullName;
       document.getElementById('utilModalSub').textContent = data.wing;
-      document.getElementById('utilBadgeCount').textContent = data.utilizations.length;
+
+      // Render Modal Course Filter Bar
+      renderModalCoursePills(data);
 
       // Render Pane 1: Pathway
       var panePathway = document.getElementById('utilPanePathway');
       panePathway.innerHTML = `
-        <div style="background: #f8fafc; border-left: 4px solid #7b1113; padding: 1.15rem 1.35rem; border-radius: 0 10px 10px 0; margin-bottom: 1.5rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem; flex-wrap: wrap; gap: 0.5rem;">
-            <span style="font-size: 0.72rem; font-weight: 800; color: #7b1113; text-transform: uppercase; letter-spacing: 0.05em;">Core Institutional Pathway</span>
-            <span style="font-size: 0.78rem; font-weight: 700; color: #0d5c3a; background: #e6f4ea; padding: 0.2rem 0.6rem; border-radius: 20px;">${data.pathway.badge}</span>
-          </div>
-          <h4 style="font-size: 1.18rem; color: #0f172a; margin: 0.25rem 0 0.5rem; font-weight: 800; line-height: 1.35;">
-            ${data.pathway.primary}
-          </h4>
-          <p style="font-size: 0.92rem; color: #475569; line-height: 1.7; margin: 0;">
-            ${data.pathway.description}
-          </p>
+        <div style="background: #f8fafc; border-left: 4px solid #0b3c5d; padding: 1.15rem 1.35rem; border-radius: 0 10px 10px 0; margin-bottom: 1.5rem;">
+          <span style="font-size: 0.72rem; font-weight: 800; color: #0b3c5d; text-transform: uppercase; letter-spacing: 0.05em;">Institutional Pathway Focus</span>
+          <h4 style="font-size: 1.15rem; color: #0f172a; margin: 0.25rem 0 0.35rem; font-weight: 800;">${data.pathway.primary}</h4>
+          <p style="font-size: 0.92rem; color: #475569; line-height: 1.7; margin: 0;">${data.pathway.description}</p>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 1.5rem;">
-          <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 1.35rem; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
-            <h5 style="font-size: 0.95rem; color: #0f172a; margin: 0 0 0.85rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem;">
-              <span>⚙️</span> Pathway Translation Mechanisms
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.25rem;">
+            <h5 style="font-size: 0.95rem; color: #0f172a; margin: 0 0 0.75rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
+              <span>⚙️</span> Core Translation Mechanisms
             </h5>
-            <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.88rem; color: #475569; line-height: 1.8;">
-              ${data.pathway.mechanisms.map(m => `<li>${m}</li>`).join('')}
+            <ul style="padding-left: 1.2rem; margin: 0; font-size: 0.88rem; color: #475569; line-height: 1.75;">
+              ${data.pathway.mechanisms.map(m => '<li>' + m + '</li>').join('')}
             </ul>
           </div>
 
-          <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 1.35rem; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
-            <h5 style="font-size: 0.95rem; color: #0f172a; margin: 0 0 0.85rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem;">
-              <span>🎯</span> Key Stakeholders &amp; Beneficiaries
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.25rem;">
+            <h5 style="font-size: 0.95rem; color: #0f172a; margin: 0 0 0.75rem; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
+              <span>🎯</span> Adopting Stakeholders &amp; Formats
             </h5>
-            <p style="font-size: 0.88rem; color: #475569; line-height: 1.7; margin: 0 0 1rem;">
-              ${data.pathway.beneficiaries}
+            <p style="font-size: 0.85rem; color: #64748b; line-height: 1.6; margin-bottom: 0.65rem;">
+              <strong>Key Beneficiaries:</strong><br>${data.pathway.beneficiaries}
             </p>
-            <div style="border-top: 1px dashed #e2e8f0; padding-top: 0.75rem;">
-              <span style="font-size: 0.75rem; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em;">Primary Outputs:</span>
-              <div style="font-size: 0.86rem; color: #7b1113; font-weight: 700; margin-top: 0.2rem;">${data.pathway.coreFormats}</div>
-            </div>
+            <p style="font-size: 0.85rem; color: #64748b; line-height: 1.6; margin: 0;">
+              <strong>Output Formats:</strong><br><span style="color: #0f172a; font-weight: 600;">${data.pathway.coreFormats}</span>
+            </p>
           </div>
         </div>
       `;
 
-      // Render Pane 2: Standard Procedure
+      // Render Pane 2: Procedure
       var paneProcedure = document.getElementById('utilPaneProcedure');
       paneProcedure.innerHTML = `
-        <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 1.15rem 1.35rem; border-radius: 0 10px 10px 0; margin-bottom: 1.5rem;">
-          <div style="font-size: 0.72rem; font-weight: 800; color: #1e40af; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">Standard Operating Procedure (SOP)</div>
-          <h4 style="font-size: 1.15rem; color: #1e3a8a; margin: 0 0 0.35rem; font-weight: 800;">4-Stage Research-to-Utilization Lifecycle</h4>
+        <div style="background: #fefce8; border-left: 4px solid #b89726; padding: 1.15rem 1.35rem; border-radius: 0 10px 10px 0; margin-bottom: 1.5rem;">
+          <span style="font-size: 0.72rem; font-weight: 800; color: #854d0e; text-transform: uppercase; letter-spacing: 0.05em;">Institutional Lifecycle Procedure</span>
+          <h4 style="font-size: 1.15rem; color: #713f12; margin: 0.25rem 0 0.35rem; font-weight: 800;">Standard Procedure for Research Utilization</h4>
           <p style="font-size: 0.9rem; color: #334155; line-height: 1.65; margin: 0;">
             From finalized defense manuscript to certified regional adoption, every research project under <strong>${data.name}</strong> follows this standardized institutional workflow:
           </p>
@@ -1099,42 +1524,8 @@
         </div>
       `;
 
-      // Render Pane 3: Studies
-      var paneStudies = document.getElementById('utilPaneStudies');
-      paneStudies.innerHTML = `
-        <div style="background: #f0fdf4; border-left: 4px solid #16a34a; padding: 1.15rem 1.35rem; border-radius: 0 10px 10px 0; margin-bottom: 1.5rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem; flex-wrap: wrap; gap: 0.5rem;">
-            <span style="font-size: 0.72rem; font-weight: 800; color: #166534; text-transform: uppercase; letter-spacing: 0.05em;">Verified Research Protocols</span>
-            <span style="font-size: 0.78rem; font-weight: 700; color: #166534; background: #dcfce7; padding: 0.2rem 0.6rem; border-radius: 20px;">${data.utilizations.length} Certified Studies</span>
-          </div>
-          <h4 style="font-size: 1.15rem; color: #14532d; margin: 0 0 0.35rem; font-weight: 800;">Research Utilization Studies for ${data.name}</h4>
-          <p style="font-size: 0.9rem; color: #334155; line-height: 1.65; margin: 0;">
-            Applied thesis capstones, faculty investigations, and clinical protocols with verified partner agency implementation and certified societal benefit.
-          </p>
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
-          ${data.utilizations.map(u => `
-            <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 1.4rem; box-shadow: 0 3px 10px rgba(0,0,0,0.03);">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
-                <h5 style="font-size: 1.12rem; color: #0f172a; margin: 0; font-weight: 800; line-height: 1.35;">${u.title}</h5>
-                <span style="font-size: 0.72rem; font-weight: 700; color: #166534; background: #dcfce7; border: 1px solid #bbf7d0; padding: 0.2rem 0.65rem; border-radius: 20px;">
-                  ${u.status}
-                </span>
-              </div>
-              <div style="font-size: 0.82rem; color: #64748b; margin-bottom: 0.85rem;">
-                <strong>Proponent:</strong> ${u.dept} &bull; <strong>Adopting Partner:</strong> <span style="color: #1e293b; font-weight: 700;">${u.partner}</span>
-              </div>
-              <p style="font-size: 0.9rem; color: #475569; line-height: 1.7; margin-bottom: 0.95rem;">
-                ${u.summary}
-              </p>
-              <div style="background: #f8fafc; border-left: 3.5px solid #7b1113; padding: 0.75rem 1rem; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: #1e293b;">
-                <strong style="color: #7b1113;">Measurable Impact:</strong> ${u.impact}
-              </div>
-            </div>
-          `).join('')}
-        </div>
-      `;
+      // Render Studies Pane
+      renderUtilizationStudies(data, currentUtilCourse);
 
       // Switcher in footer
       var switcherWrap = document.getElementById('utilPillarSwitcher');
@@ -1151,7 +1542,7 @@
       ];
 
       switcherWrap.innerHTML = pillarsList.map(p => `
-        <button type="button" class="pillar-pill-btn ${p.k === validKey ? 'active' : ''}" onclick="openUtilizationModal('${p.k}', currentUtilTab)">
+        <button type="button" class="pillar-pill-btn ${p.k === validKey ? 'active' : ''}" onclick="openUtilizationModal('${p.k}', currentUtilTab, currentUtilCourse)">
           ${p.label}
         </button>
       `).join('');
