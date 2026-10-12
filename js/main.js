@@ -2772,6 +2772,160 @@ window.searchCalendar = function(query) {
 // --- Interactive Monthly Date Calendar & Event Inspector ---
 window.trainingCalendarEvents = [
   {
+    id: 101,
+    dates: ['2026-10-05'],
+    displayDate: 'October 05, 2026',
+    pillText: 'Institutional Unified',
+    pillClass: 'cal-pill-unified',
+    shortTag: 'PSQ Competition',
+    title: '34th Philippine Statistics Quiz (PSQ) Institutional Coordination & Coaching',
+    desc: 'Institutional orientation, candidate selection, and preliminary elimination coaching for MCNP and ISAP student contenders and faculty statistical advisers competing in the annual Philippine Statistics Quiz (PSQ) provincial and regional competitions.',
+    participants: 'Student Statistics Quiz Contestants, Mathematics/Statistics Faculty & Department Coaches',
+    venue: '📍 RDC Secretariat Conference Room & Online Consultation',
+    lead: 'Ms. Sharon & Ms. Jane (Institutional Statistical Coordinators)',
+    category: 'stats mcnp isap'
+  },
+  {
+    id: 102,
+    dates: ['2026-10-12', '2026-10-13'],
+    displayDate: 'October 12–13, 2026',
+    pillText: 'MCNP Health Sciences',
+    pillClass: 'cal-pill-mcnp',
+    shortTag: 'BSMLS Final Defense',
+    title: 'Bachelor of Science in Medical Laboratory Science (BSMLS) Final Thesis Defense (Days 1–2)',
+    desc: 'Comprehensive final oral thesis defense examinations, statistical verification, and oral deliberations for graduating BSMLS research candidate groups presenting completed laboratory and clinical diagnostic studies.',
+    participants: 'Graduating BSMLS Student Proponents, Laboratory Advisers & Technical Defense Panel',
+    venue: '📍 MCNP Health Sciences Defense Amphitheater / AVR',
+    lead: 'Department of Medical Laboratory Science & RDC Defense Committee',
+    category: 'mcnp'
+  },
+  {
+    id: 103,
+    dates: ['2026-10-12', '2026-10-13'],
+    displayDate: 'October 12–13, 2026',
+    pillText: 'ISAP Multidisciplinary',
+    pillClass: 'cal-pill-isap',
+    shortTag: 'BSTM 3 Proposal',
+    title: 'BS Tourism Management (BSTM Level 3) Research Proposal Defense',
+    desc: 'Formal title and methodology proposal defense colloquium for 3rd-Year BS Tourism Management research groups presenting regional tourism potential, heritage preservation, and hospitality management investigations.',
+    participants: 'BSTM 3rd-Year Research Proponents, Thesis Advisers & Interdisciplinary Evaluation Panel',
+    venue: '📍 ISAP Hospitality Center / Case Room 2',
+    lead: 'College of Hospitality & Tourism Management & RDC Research Panel',
+    category: 'isap'
+  },
+  {
+    id: 104,
+    dates: ['2026-10-14', '2026-10-15'],
+    displayDate: 'October 14–15, 2026',
+    pillText: 'MCNP Health Sciences',
+    pillClass: 'cal-pill-mcnp',
+    shortTag: 'BSN 3B Proposal',
+    title: 'Bachelor of Science in Nursing (BSN Level 3, Section B) Research Proposal Defense',
+    desc: 'Institutional proposal hearings and methodology evaluations for BSN 3B student investigator groups presenting epidemiological, clinical bedside, and community health interventions for ethical and protocol clearance.',
+    participants: 'BSN Level 3 Section B Proponents, Clinical Instructors & Nursing Research Panel',
+    venue: '📍 MCNP Nursing Amphitheater / AVR 1',
+    lead: 'College of Nursing & RDC Defense Committee',
+    category: 'mcnp ethics'
+  },
+  {
+    id: 105,
+    dates: ['2026-10-15'],
+    displayDate: 'October 15, 2026',
+    pillText: 'Institutional Unified',
+    pillClass: 'cal-pill-unified',
+    shortTag: 'Research Presentation',
+    title: 'Student & Graduate Research Presentation Colloquium',
+    desc: 'Institutional oral research dissemination session and peer review presentations showcasing notable student capstones, clinical theses, and graduate academic projects.',
+    participants: 'Selected Undergraduate & Graduate Student Presenters, Faculty Research Mentors, Peer Reviewers',
+    venue: '📍 MCNP-ISAP Audio-Visual Center (AVC) & Livestream',
+    lead: 'RDC Secretariat & Academic Research Coordinators',
+    category: 'mcnp isap'
+  },
+  {
+    id: 106,
+    dates: ['2026-10-15', '2026-10-16'],
+    displayDate: 'October 15–16, 2026',
+    pillText: 'Consortium & Grants',
+    pillClass: 'cal-pill-unified',
+    shortTag: 'CVHRDC Meeting',
+    title: 'DOST Cagayan Valley Health Research and Development Consortium (CVHRDC) 3rd Quarter Meeting',
+    desc: 'Official regional consortium quarterly assembly with DOST Region 02 CVHRDC executive council, evaluating regional health research priorities, collaborative grants, and multi-institutional project allocations.',
+    participants: 'Institutional Consortium Representatives, RDC Director, Lead Health Researchers & DOST Delegates',
+    venue: '📍 DOST Regional Office 02 / CVHRDC Boardroom & Virtual Bridge',
+    lead: 'Sir Ryan (RDC Secretariat / CVHRDC Institutional Liaison)',
+    category: 'grants mcnp isap'
+  },
+  {
+    id: 107,
+    dates: ['2026-10-16'],
+    displayDate: 'October 16, 2026',
+    pillText: 'MCNP Health Sciences',
+    pillClass: 'cal-pill-mcnp',
+    shortTag: 'BSMLS Final Defense',
+    title: 'Bachelor of Science in Medical Laboratory Science (BSMLS) Final Thesis Defense (Day 3)',
+    desc: 'Continuation of final oral defense deliberations and manuscript validations for remaining BSMLS graduating candidate groups before submission for binding and journal packaging.',
+    participants: 'BSMLS Candidate Groups & Board of Evaluators',
+    venue: '📍 MCNP Health Sciences Defense Amphitheater',
+    lead: 'Department of Medical Laboratory Science & Research Panel',
+    category: 'mcnp'
+  },
+  {
+    id: 108,
+    dates: ['2026-10-19', '2026-10-20'],
+    displayDate: 'October 19–20, 2026',
+    pillText: 'MCNP Health Sciences',
+    pillClass: 'cal-pill-mcnp',
+    shortTag: 'BSMLS Final Defense',
+    title: 'Bachelor of Science in Medical Laboratory Science (BSMLS) Final Thesis Defense (Concluding Clusters)',
+    desc: 'Final round of oral examinations, statistical model defense, and rubric scoring for the concluding batches of BSMLS thesis proponents.',
+    participants: 'BSMLS Finalists, Department Advisers & Panel Chairs',
+    venue: '📍 MCNP Health Sciences Defense Amphitheater',
+    lead: 'Department of Medical Laboratory Science & RDC Panel',
+    category: 'mcnp'
+  },
+  {
+    id: 109,
+    dates: ['2026-10-20'],
+    displayDate: 'October 20, 2026 (1:30 PM)',
+    pillText: 'Grants & Inter-Agency',
+    pillClass: 'cal-pill-unified',
+    shortTag: 'CPD Meeting',
+    title: 'Commission on Population and Development (CPD / POPCOM) Institutional Partnership Meeting',
+    desc: 'Inter-agency consultative session and demographic research alignment meeting with the Commission on Population and Development (CPD Region II / POPCOM) at 1:30 PM, focusing on adolescent health data, family planning, and population dynamics research.',
+    participants: 'RDC Directorate, Health & Social Sciences Researchers, CPD Regional Officers',
+    venue: '📍 RDC Executive Conference Room & Hybrid Zoom',
+    lead: 'Sir Ryan (RDC Secretariat)',
+    category: 'grants isap mcnp'
+  },
+  {
+    id: 110,
+    dates: ['2026-10-21'],
+    displayDate: 'October 21, 2026',
+    pillText: 'Institutional Unified',
+    pillClass: 'cal-pill-unified',
+    shortTag: 'Block Rosary',
+    title: 'Institutional Block Rosary & October Marian Devotion',
+    desc: 'Traditional October Marian Month institutional block rosary prayer gathering hosted by the Research and Development Center community, fostering institutional unity, reflection, and spiritual solidarity across twin campuses.',
+    participants: 'RDC Staff, Faculty Researchers, Student Proponents, Campus Community',
+    venue: '📍 RDC Secretariat Prayer Alcove & Campus Chapel',
+    lead: 'Institutional Campus Ministry & RDC Community',
+    category: 'mcnp isap'
+  },
+  {
+    id: 111,
+    dates: ['2026-10-21', '2026-10-22'],
+    displayDate: 'October 21–22, 2026',
+    pillText: 'MCNP Health Sciences',
+    pillClass: 'cal-pill-mcnp',
+    shortTag: 'BSN 3A Proposal',
+    title: 'Bachelor of Science in Nursing (BSN Level 3, Section A) Research Proposal Defense',
+    desc: 'Proposal defense hearings and clinical methodology vetting for BSN Level 3 Section A researcher cohorts, addressing specialized maternal-child health, patient safety, and geriatric nursing care.',
+    participants: 'BSN Level 3 Section A Proponents, Clinical Preceptors & Defense Panelists',
+    venue: '📍 MCNP Nursing Amphitheater / AVR 1',
+    lead: 'College of Nursing & RDC Defense Committee',
+    category: 'mcnp ethics'
+  },
+  {
     id: 1,
     dates: ['2026-10-23', '2026-10-24'],
     displayDate: 'October 23–24, 2026',
@@ -2784,6 +2938,34 @@ window.trainingCalendarEvents = [
     venue: '📍 MCNP Computer Lab B & Hybrid Zoom',
     lead: 'Institutional Biostatistics Unit & Guest Data Scientist',
     category: 'mcnp stats'
+  },
+  {
+    id: 112,
+    dates: ['2026-10-26', '2026-10-27'],
+    displayDate: 'October 26–27, 2026',
+    pillText: 'MCNP Health Sciences',
+    pillClass: 'cal-pill-mcnp',
+    shortTag: 'BSN 3N Proposal',
+    title: 'Bachelor of Science in Nursing (BSN Level 3, Section N) Research Proposal Defense',
+    desc: 'Title and methodology defense colloquium for BSN Level 3 Section N research groups presenting acute care protocols, disaster risk management in healthcare, and community health nursing inquiries.',
+    participants: 'BSN Level 3 Section N Proponents, Academic Advisers & Examining Panel',
+    venue: '📍 MCNP Nursing Amphitheater / AVR 1',
+    lead: 'College of Nursing & RDC Defense Committee',
+    category: 'mcnp ethics'
+  },
+  {
+    id: 113,
+    dates: ['2026-10-28', '2026-10-29'],
+    displayDate: 'October 28–29, 2026',
+    pillText: 'MCNP Health Sciences',
+    pillClass: 'cal-pill-mcnp',
+    shortTag: 'BSN 3D Proposal',
+    title: 'Bachelor of Science in Nursing (BSN Level 3, Section D) Research Proposal Defense',
+    desc: 'Concluding cohort research proposal defense for BSN Level 3 Section D student researchers, focusing on instrument validation, ethics compliance, and data collection frameworks.',
+    participants: 'BSN Level 3 Section D Proponents, Thesis Committee & Nursing Faculty',
+    venue: '📍 MCNP Nursing Amphitheater / AVR 1',
+    lead: 'College of Nursing & RDC Defense Committee',
+    category: 'mcnp ethics'
   },
   {
     id: 2,
@@ -3367,7 +3549,7 @@ window.getAllCalendarEvents = function() {
 window.interactiveCalState = {
   year: 2026,
   month: 9, // 0-indexed: 9 = October
-  selectedDate: '2026-10-23'
+  selectedDate: '2026-10-05'
 };
 
 const CAL_MONTH_NAMES = [
@@ -3680,8 +3862,11 @@ window.scrollToTableEvent = function(eventId) {
   }
 
   const rows = document.querySelectorAll('.calendar-table tbody tr.calendar-row');
-  if (rows && rows[eventId - 1]) {
-    const targetRow = rows[eventId - 1];
+  let targetRow = Array.from(rows).find(r => r.getAttribute('data-event-id') === String(eventId));
+  if (!targetRow && rows[eventId - 1]) {
+    targetRow = rows[eventId - 1];
+  }
+  if (targetRow) {
     targetRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
     targetRow.style.transition = 'background-color 0.4s ease, box-shadow 0.4s ease';
     const originalBg = targetRow.style.backgroundColor;
@@ -3732,8 +3917,8 @@ function initInteractiveCalendar() {
   if (calGrid) {
     // Render default month (October 2026)
     window.renderInteractiveCalendar(2026, 9);
-    // Select default date (October 23, 2026)
-    window.selectCalendarDate('2026-10-23');
+    // Select default date (October 05, 2026)
+    window.selectCalendarDate('2026-10-05');
 
     // Prev / Next button listeners
     const prevBtn = document.getElementById('calPrevMonthBtn');
@@ -3784,8 +3969,10 @@ function initInteractiveCalendar() {
     tableRows.forEach((row, idx) => {
       row.style.cursor = 'pointer';
       row.title = 'Click to view on interactive date calendar';
-      const eventData = window.trainingCalendarEvents[idx];
-      if (eventData) {
+      const eventId = row.getAttribute('data-event-id');
+      const allEvents = window.getAllCalendarEvents ? window.getAllCalendarEvents() : (window.trainingCalendarEvents || []);
+      const eventData = eventId ? allEvents.find(e => String(e.id) === String(eventId)) : window.trainingCalendarEvents[idx];
+      if (eventData && eventData.dates && eventData.dates[0]) {
         row.addEventListener('click', function(e) {
           if (e.target.tagName !== 'A' && e.target.tagName !== 'BUTTON') {
             window.jumpToCalendarDate(eventData.dates[0]);

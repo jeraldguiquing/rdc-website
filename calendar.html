@@ -288,7 +288,7 @@
           <span>📅 Interactive Month Calendar &darr;</span>
         </a>
         <a href="#calendarTableSection" class="btn btn-sm btn-outline-white" style="display: inline-flex; align-items: center; gap: 0.4rem;">
-          <span>📋 Schedule Matrix (7 Programs) &darr;</span>
+          <span>📋 Schedule Matrix (19 Events &amp; Defenses) &darr;</span>
         </a>
         <button type="button" onclick="window.print()" class="btn btn-sm btn-outline-white" style="display: inline-flex; align-items: center; gap: 0.4rem;">
           <span>🖨️ Print Schedule</span>
@@ -301,8 +301,8 @@
       <!-- Quick Metrics Strip -->
       <div class="cal-stats-strip">
         <div class="cal-stat-item">
-          <div class="cal-stat-number">7</div>
-          <div class="cal-stat-label">Institutional Milestones</div>
+          <div class="cal-stat-number">19</div>
+          <div class="cal-stat-label">Scheduled Milestones &amp; Defenses</div>
           <div class="cal-stat-sub">Spanning Oct 2026 – Apr 2027</div>
         </div>
         <div class="cal-stat-item">
@@ -352,7 +352,7 @@
               <select class="cal-month-select" id="calMonthJumpSelect" aria-label="Jump to Scheduled Month">
                 <option value="2026-08">August 2026 (6 Completed Events)</option>
                 <option value="2026-09">September 2026 (14 Completed Events)</option>
-                <option value="2026-10" selected>October 2026 (1 Scheduled Workshop)</option>
+                <option value="2026-10" selected>October 2026 (13 Scheduled Defenses, Meetings &amp; Workshops)</option>
                 <option value="2026-11">November 2026 (1 Scheduled Workshop)</option>
                 <option value="2026-12">December 2026 (1 Scheduled Workshop)</option>
                 <option value="2027-01">January 2027 (1 Scheduled Workshop)</option>
@@ -399,10 +399,10 @@
           <div class="inspector-header">
             <div>
               <div class="inspector-date-label">Selected Date Details</div>
-              <h3 class="inspector-date-title" id="inspectorSelectedDateLabel">October 23, 2026</h3>
+              <h3 class="inspector-date-title" id="inspectorSelectedDateLabel">October 5, 2026</h3>
             </div>
             <div id="inspectorBadgeWrap">
-              <span class="cal-pill cal-pill-mcnp">MCNP Health Sciences</span>
+              <span class="cal-pill cal-pill-unified">Institutional Unified</span>
             </div>
           </div>
 
@@ -413,12 +413,12 @@
       </div>
 
       <!-- ==========================================================================
-           SECTION 2: FULL WORKSHOP & TRAINING MATRIX (7 PROGRAMS)
+           SECTION 2: FULL WORKSHOP & TRAINING MATRIX (19 PROGRAMS & DEFENSES)
            ========================================================================== -->
       <div id="calendarTableSection" style="margin-top: 4rem; margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
         <div class="section-title-wrap" style="text-align: left; margin-bottom: 1.25rem;">
           <span class="section-tag">Schedule Matrix &amp; Registry</span>
-          <h2 class="section-title" style="font-size: 1.85rem; margin-top: 0.35rem;">📋 Capability-Building Programs Schedule Matrix</h2>
+          <h2 class="section-title" style="font-size: 1.85rem; margin-top: 0.35rem;">📋 Capability-Building &amp; Research Defense Schedule Matrix</h2>
           <p class="section-desc" style="max-width: 100%; margin: 0;">
             Filter by focus cluster or search programs. Click any schedule row to highlight and inspect its full curriculum agenda on the interactive monthly calendar above.
           </p>
@@ -427,7 +427,7 @@
         <!-- Filter Bar & Real-Time Search directly atop the Table -->
         <div class="calendar-topbar" style="margin-bottom: 1.5rem;">
           <div class="calendar-filters">
-            <button type="button" class="cal-filter-btn active" data-filter="all" onclick="filterCalendar('all', this)">All Programs (7)</button>
+            <button type="button" class="cal-filter-btn active" data-filter="all" onclick="filterCalendar('all', this)">All Events &amp; Defenses (19)</button>
             <button type="button" class="cal-filter-btn" data-filter="mcnp" onclick="filterCalendar('mcnp', this)">Health Sciences (MCNP)</button>
             <button type="button" class="cal-filter-btn" data-filter="isap" onclick="filterCalendar('isap', this)">Multidisciplinary (ISAP)</button>
             <button type="button" class="cal-filter-btn" data-filter="ethics" onclick="filterCalendar('ethics', this)">Ethics &amp; Integrity</button>
@@ -452,8 +452,272 @@
               </tr>
             </thead>
             <tbody>
+              <!-- Row: PSQ Coordination & Coaching -->
+              <tr class="calendar-row" data-category="stats mcnp isap" data-event-id="101">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">OCT</span>
+                    <span class="cal-date-day">05</span>
+                    <span class="cal-date-year">2026</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-unified">Institutional Unified</span>
+                  <h4>34th Philippine Statistics Quiz (PSQ) Institutional Coordination &amp; Coaching</h4>
+                  <div class="cal-title-desc">Institutional orientation, candidate selection, and preliminary elimination coaching for MCNP and ISAP student contenders and faculty statistical advisers competing in the annual Philippine Statistics Quiz (PSQ) provincial and regional competitions.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">Student Statistics Quiz Contestants</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">Mathematics/Statistics Faculty &amp; Department Coaches</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 RDC Secretariat Conference Room &amp; Online Consultation</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: Ms. Sharon &amp; Ms. Jane (Institutional Statistical Coordinators)</div>
+                </td>
+              </tr>
+
+              <!-- Row: BSMLS Final Defense Days 1-2 -->
+              <tr class="calendar-row" data-category="mcnp" data-event-id="102">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">OCT</span>
+                    <span class="cal-date-day">12–13</span>
+                    <span class="cal-date-year">2026</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-mcnp">MCNP Health Sciences</span>
+                  <h4>Bachelor of Science in Medical Laboratory Science (BSMLS) Final Thesis Defense (Days 1–2)</h4>
+                  <div class="cal-title-desc">Comprehensive final oral thesis defense examinations, statistical verification, and oral deliberations for graduating BSMLS research candidate groups presenting completed laboratory and clinical diagnostic studies.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">Graduating BSMLS Student Proponents</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">Laboratory Advisers &amp; Technical Defense Panel</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 MCNP Health Sciences Defense Amphitheater / AVR</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: Department of Medical Laboratory Science &amp; RDC Defense Committee</div>
+                </td>
+              </tr>
+
+              <!-- Row: BSTM 3 Proposal Defense -->
+              <tr class="calendar-row" data-category="isap" data-event-id="103">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">OCT</span>
+                    <span class="cal-date-day">12–13</span>
+                    <span class="cal-date-year">2026</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-isap">ISAP Multidisciplinary</span>
+                  <h4>BS Tourism Management (BSTM Level 3) Research Proposal Defense</h4>
+                  <div class="cal-title-desc">Formal title and methodology proposal defense colloquium for 3rd-Year BS Tourism Management research groups presenting regional tourism potential, heritage preservation, and hospitality management investigations.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">BSTM 3rd-Year Research Proponents</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">Thesis Advisers &amp; Interdisciplinary Evaluation Panel</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 ISAP Hospitality Center / Case Room 2</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: College of Hospitality &amp; Tourism Management &amp; RDC Research Panel</div>
+                </td>
+              </tr>
+
+              <!-- Row: BSN 3B Proposal Defense -->
+              <tr class="calendar-row" data-category="mcnp ethics" data-event-id="104">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">OCT</span>
+                    <span class="cal-date-day">14–15</span>
+                    <span class="cal-date-year">2026</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-mcnp">MCNP Health Sciences</span>
+                  <h4>Bachelor of Science in Nursing (BSN Level 3, Section B) Research Proposal Defense</h4>
+                  <div class="cal-title-desc">Institutional proposal hearings and methodology evaluations for BSN 3B student investigator groups presenting epidemiological, clinical bedside, and community health interventions for ethical and protocol clearance.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">BSN Level 3 Section B Proponents</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">Clinical Instructors &amp; Nursing Research Panel</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 MCNP Nursing Amphitheater / AVR 1</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: College of Nursing &amp; RDC Defense Committee</div>
+                </td>
+              </tr>
+
+              <!-- Row: Student Research Presentation -->
+              <tr class="calendar-row" data-category="mcnp isap" data-event-id="105">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">OCT</span>
+                    <span class="cal-date-day">15</span>
+                    <span class="cal-date-year">2026</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-unified">Institutional Unified</span>
+                  <h4>Student &amp; Graduate Research Presentation Colloquium</h4>
+                  <div class="cal-title-desc">Institutional oral research dissemination session and peer review presentations showcasing notable student capstones, clinical theses, and graduate academic projects.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">Selected Undergraduate &amp; Graduate Presenters</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">Faculty Research Mentors &amp; Peer Reviewers</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 MCNP-ISAP Audio-Visual Center (AVC) &amp; Livestream</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: RDC Secretariat &amp; Academic Research Coordinators</div>
+                </td>
+              </tr>
+
+              <!-- Row: DOST CVHRDC Meeting -->
+              <tr class="calendar-row" data-category="grants mcnp isap" data-event-id="106">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">OCT</span>
+                    <span class="cal-date-day">15–16</span>
+                    <span class="cal-date-year">2026</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-unified">Consortium &amp; Grants</span>
+                  <h4>DOST Cagayan Valley Health Research and Development Consortium (CVHRDC) 3rd Quarter Meeting</h4>
+                  <div class="cal-title-desc">Official regional consortium quarterly assembly with DOST Region 02 CVHRDC executive council, evaluating regional health research priorities, collaborative grants, and multi-institutional project allocations.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">Institutional Consortium Representatives</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">RDC Director, Lead Health Researchers &amp; DOST Delegates</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 DOST Regional Office 02 / CVHRDC Boardroom &amp; Virtual Bridge</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: Sir Ryan (RDC Secretariat / CVHRDC Institutional Liaison)</div>
+                </td>
+              </tr>
+
+              <!-- Row: BSMLS Final Defense Day 3 -->
+              <tr class="calendar-row" data-category="mcnp" data-event-id="107">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">OCT</span>
+                    <span class="cal-date-day">16</span>
+                    <span class="cal-date-year">2026</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-mcnp">MCNP Health Sciences</span>
+                  <h4>Bachelor of Science in Medical Laboratory Science (BSMLS) Final Thesis Defense (Day 3)</h4>
+                  <div class="cal-title-desc">Continuation of final oral defense deliberations and manuscript validations for remaining BSMLS graduating candidate groups before submission for binding and journal packaging.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">BSMLS Candidate Groups &amp; Board of Evaluators</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">Medical Laboratory Science Graduating Proponents</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 MCNP Health Sciences Defense Amphitheater</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: Department of Medical Laboratory Science &amp; Research Panel</div>
+                </td>
+              </tr>
+
+              <!-- Row: BSMLS Final Defense Concluding Clusters -->
+              <tr class="calendar-row" data-category="mcnp" data-event-id="108">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">OCT</span>
+                    <span class="cal-date-day">19–20</span>
+                    <span class="cal-date-year">2026</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-mcnp">MCNP Health Sciences</span>
+                  <h4>Bachelor of Science in Medical Laboratory Science (BSMLS) Final Thesis Defense (Concluding Clusters)</h4>
+                  <div class="cal-title-desc">Final round of oral examinations, statistical model defense, and rubric scoring for the concluding batches of BSMLS thesis proponents.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">BSMLS Finalists &amp; Department Advisers</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">Panel Chairs &amp; Evaluating Clinicians</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 MCNP Health Sciences Defense Amphitheater</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: Department of Medical Laboratory Science &amp; RDC Panel</div>
+                </td>
+              </tr>
+
+              <!-- Row: CPD Meeting -->
+              <tr class="calendar-row" data-category="grants isap mcnp" data-event-id="109">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">OCT</span>
+                    <span class="cal-date-day">20</span>
+                    <span class="cal-date-year">2026</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-unified">Grants &amp; Inter-Agency</span>
+                  <h4>Commission on Population and Development (CPD / POPCOM) Institutional Partnership Meeting</h4>
+                  <div class="cal-title-desc">Inter-agency consultative session and demographic research alignment meeting with the Commission on Population and Development (CPD Region II / POPCOM) at 1:30 PM, focusing on adolescent health data, family planning, and population dynamics research.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">RDC Directorate &amp; Health Researchers</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">Social Sciences Researchers &amp; CPD Regional Officers</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 RDC Executive Conference Room &amp; Hybrid Zoom</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: Sir Ryan (RDC Secretariat, 1:30 PM)</div>
+                </td>
+              </tr>
+
+              <!-- Row: Block Rosary -->
+              <tr class="calendar-row" data-category="mcnp isap" data-event-id="110">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">OCT</span>
+                    <span class="cal-date-day">21</span>
+                    <span class="cal-date-year">2026</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-unified">Institutional Unified</span>
+                  <h4>Institutional Block Rosary &amp; October Marian Devotion</h4>
+                  <div class="cal-title-desc">Traditional October Marian Month institutional block rosary prayer gathering hosted by the Research and Development Center community, fostering institutional unity, reflection, and spiritual solidarity across twin campuses.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">RDC Staff, Faculty &amp; Researchers</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">Student Proponents &amp; Campus Ministry</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 RDC Secretariat Prayer Alcove &amp; Campus Chapel</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: Institutional Campus Ministry &amp; RDC Community</div>
+                </td>
+              </tr>
+
+              <!-- Row: BSN 3A Proposal Defense -->
+              <tr class="calendar-row" data-category="mcnp ethics" data-event-id="111">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">OCT</span>
+                    <span class="cal-date-day">21–22</span>
+                    <span class="cal-date-year">2026</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-mcnp">MCNP Health Sciences</span>
+                  <h4>Bachelor of Science in Nursing (BSN Level 3, Section A) Research Proposal Defense</h4>
+                  <div class="cal-title-desc">Proposal defense hearings and clinical methodology vetting for BSN Level 3 Section A researcher cohorts, addressing specialized maternal-child health, patient safety, and geriatric nursing care.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">BSN Level 3 Section A Proponents</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">Clinical Preceptors &amp; Defense Panelists</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 MCNP Nursing Amphitheater / AVR 1</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: College of Nursing &amp; RDC Defense Committee</div>
+                </td>
+              </tr>
+
               <!-- Row 1: Advanced Biostatistics -->
-              <tr class="calendar-row" data-category="mcnp stats">
+              <tr class="calendar-row" data-category="mcnp stats" data-event-id="1">
                 <td class="cal-date-cell">
                   <div class="cal-date-badge">
                     <span class="cal-date-month">OCT</span>
@@ -476,8 +740,56 @@
                 </td>
               </tr>
 
+              <!-- Row: BSN 3N Proposal Defense -->
+              <tr class="calendar-row" data-category="mcnp ethics" data-event-id="112">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">OCT</span>
+                    <span class="cal-date-day">26–27</span>
+                    <span class="cal-date-year">2026</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-mcnp">MCNP Health Sciences</span>
+                  <h4>Bachelor of Science in Nursing (BSN Level 3, Section N) Research Proposal Defense</h4>
+                  <div class="cal-title-desc">Title and methodology defense colloquium for BSN Level 3 Section N research groups presenting acute care protocols, disaster risk management in healthcare, and community health nursing inquiries.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">BSN Level 3 Section N Proponents</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">Academic Advisers &amp; Examining Panel</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 MCNP Nursing Amphitheater / AVR 1</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: College of Nursing &amp; RDC Defense Committee</div>
+                </td>
+              </tr>
+
+              <!-- Row: BSN 3D Proposal Defense -->
+              <tr class="calendar-row" data-category="mcnp ethics" data-event-id="113">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">OCT</span>
+                    <span class="cal-date-day">28–29</span>
+                    <span class="cal-date-year">2026</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-mcnp">MCNP Health Sciences</span>
+                  <h4>Bachelor of Science in Nursing (BSN Level 3, Section D) Research Proposal Defense</h4>
+                  <div class="cal-title-desc">Concluding cohort research proposal defense for BSN Level 3 Section D student researchers, focusing on instrument validation, ethics compliance, and data collection frameworks.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">BSN Level 3 Section D Proponents</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">Thesis Committee &amp; Nursing Faculty</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;">📍 MCNP Nursing Amphitheater / AVR 1</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: College of Nursing &amp; RDC Defense Committee</div>
+                </td>
+              </tr>
+
               <!-- Row 2: Ethics Review -->
-              <tr class="calendar-row" data-category="ethics mcnp isap">
+              <tr class="calendar-row" data-category="ethics mcnp isap" data-event-id="2">
                 <td class="cal-date-cell">
                   <div class="cal-date-badge">
                     <span class="cal-date-month">NOV</span>
@@ -501,7 +813,7 @@
               </tr>
 
               <!-- Row 3: Turnitin & Publishing -->
-              <tr class="calendar-row" data-category="isap mcnp grants">
+              <tr class="calendar-row" data-category="isap mcnp grants" data-event-id="3">
                 <td class="cal-date-cell">
                   <div class="cal-date-badge">
                     <span class="cal-date-month">DEC</span>
@@ -525,7 +837,7 @@
               </tr>
 
               <!-- Row 4: Qualitative & NVivo -->
-              <tr class="calendar-row" data-category="isap">
+              <tr class="calendar-row" data-category="isap" data-event-id="4">
                 <td class="cal-date-cell">
                   <div class="cal-date-badge">
                     <span class="cal-date-month">JAN</span>
@@ -549,7 +861,7 @@
               </tr>
 
               <!-- Row 5: Policy Translation -->
-              <tr class="calendar-row" data-category="isap mcnp">
+              <tr class="calendar-row" data-category="isap mcnp" data-event-id="5">
                 <td class="cal-date-cell">
                   <div class="cal-date-badge">
                     <span class="cal-date-month">FEB</span>
@@ -573,7 +885,7 @@
               </tr>
 
               <!-- Row 6: External Grants Proposal -->
-              <tr class="calendar-row" data-category="grants mcnp isap">
+              <tr class="calendar-row" data-category="grants mcnp isap" data-event-id="6">
                 <td class="cal-date-cell">
                   <div class="cal-date-badge">
                     <span class="cal-date-month">MAR</span>
@@ -597,7 +909,7 @@
               </tr>
 
               <!-- Row 7: Annual Research Congress -->
-              <tr class="calendar-row" data-category="mcnp isap">
+              <tr class="calendar-row" data-category="mcnp isap" data-event-id="7">
                 <td class="cal-date-cell">
                   <div class="cal-date-badge">
                     <span class="cal-date-month">APR</span>
