@@ -416,17 +416,25 @@
     var currentUtilCourse = 'all';
 
     var coursesMap = {
+      // MCNP Health Sciences (5 Courses)
       'nursing': { name: 'BS Nursing', icon: '🩺', wing: 'mcnp', color: '#006a3c' },
       'radtech': { name: 'BS Radiologic Technology', icon: '☢️', wing: 'mcnp', color: '#006a3c' },
       'mls': { name: 'BS Medical Laboratory Science', icon: '🔬', wing: 'mcnp', color: '#006a3c' },
       'pharmacy': { name: 'BS Pharmacy', icon: '💊', wing: 'mcnp', color: '#006a3c' },
       'pt': { name: 'BS Physical Therapy', icon: '🏃', wing: 'mcnp', color: '#006a3c' },
+      // ISAP Multidisciplinary (12 Courses)
       'criminology': { name: 'BS Criminology', icon: '⚖️', wing: 'isap', color: '#0b3c5d' },
-      'teacher-ed': { name: 'BS Teacher Education', icon: '📚', wing: 'isap', color: '#0b3c5d' },
       'it': { name: 'BS Information Technology', icon: '💻', wing: 'isap', color: '#0b3c5d' },
-      'customs': { name: 'BS Customs Administration', icon: '🚢', wing: 'isap', color: '#0b3c5d' },
-      'business': { name: 'BS Business Administration', icon: '💼', wing: 'isap', color: '#0b3c5d' },
-      'psychology': { name: 'BS Psychology & Social Work', icon: '🧠', wing: 'isap', color: '#0b3c5d' }
+      'computer-eng': { name: 'BS Computer Engineering', icon: '⚙️', wing: 'isap', color: '#0b3c5d' },
+      'bsed': { name: 'Secondary Education (BSED)', icon: '📚', wing: 'isap', color: '#0b3c5d' },
+      'bped': { name: 'Physical Education (BPED)', icon: '🏅', wing: 'isap', color: '#0b3c5d' },
+      'social-work': { name: 'BS Social Work (BSSW)', icon: '🤝', wing: 'isap', color: '#0b3c5d' },
+      'psychology': { name: 'BS Psychology (BSPsych)', icon: '🧠', wing: 'isap', color: '#0b3c5d' },
+      'tourism': { name: 'Tourism Management (BSTM)', icon: '✈️', wing: 'isap', color: '#0b3c5d' },
+      'hospitality': { name: 'Hospitality Management (BSHM)', icon: '🏨', wing: 'isap', color: '#0b3c5d' },
+      'accountancy': { name: 'BS Accountancy (BSAC)', icon: '📊', wing: 'isap', color: '#0b3c5d' },
+      'customs': { name: 'Customs Administration (BSCA)', icon: '🚢', wing: 'isap', color: '#0b3c5d' },
+      'business': { name: 'Business Administration (BSBA)', icon: '💼', wing: 'isap', color: '#0b3c5d' }
     };
 
     var mcnpCourses = [
@@ -439,13 +447,19 @@
     ];
 
     var isapCourses = [
-      { id: 'all', label: 'All ISAP Courses', icon: '🏛️' },
+      { id: 'all', label: 'All ISAP Courses (12)', icon: '🏛️' },
       { id: 'criminology', label: 'BS Criminology', icon: '⚖️' },
-      { id: 'teacher-ed', label: 'BS Teacher Education', icon: '📚' },
       { id: 'it', label: 'BS Information Technology', icon: '💻' },
-      { id: 'customs', label: 'BS Customs Administration', icon: '🚢' },
-      { id: 'business', label: 'BS Business Administration', icon: '💼' },
-      { id: 'psychology', label: 'BS Psychology & Social Work', icon: '🧠' }
+      { id: 'computer-eng', label: 'BS Computer Engineering', icon: '⚙️' },
+      { id: 'bsed', label: 'Secondary Education (BSED)', icon: '📚' },
+      { id: 'bped', label: 'Physical Education (BPED)', icon: '🏅' },
+      { id: 'social-work', label: 'BS Social Work (BSSW)', icon: '🤝' },
+      { id: 'psychology', label: 'BS Psychology (BSPsych)', icon: '🧠' },
+      { id: 'tourism', label: 'Tourism Management (BSTM)', icon: '✈️' },
+      { id: 'hospitality', label: 'Hospitality Management (BSHM)', icon: '🏨' },
+      { id: 'accountancy', label: 'BS Accountancy (BSAC)', icon: '📊' },
+      { id: 'customs', label: 'Customs Administration (BSCA)', icon: '🚢' },
+      { id: 'business', label: 'Business Administration (BSBA)', icon: '💼' }
     ];
 
     const utilizationPillarsData = {
@@ -485,110 +499,170 @@
         "course": "nursing",
         "title": "Clinical Preceptor Mentorship & Resiliency Module",
         "dept": "MCNP College of Nursing",
-        "partner": "Cagayan Valley Medical Center (CVMC) Nursing Directorate",
+        "partner": "CVMC Nursing Directorate",
         "summary": "Evidence-based mentoring protocol designed to mitigate compassion fatigue and clinical orientation turnover among newly hired staff nurses in emergency and ICU bays.",
         "impact": "Decreased 90-day clinical attrition by 38% and elevated clinical preceptor competence evaluations across 4 regional training hospitals.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-025"
+        "status": "#UTIL-2025-025"
       },
       {
         "wing": "mcnp",
         "course": "radtech",
         "title": "Radiologic Technologist Interpersonal & Patient Anxiety De-escalation Protocol",
         "dept": "MCNP College of Radiologic Technology",
-        "partner": "St. Paul Hospital & CVMC Department of Radiology",
+        "partner": "St. Paul Hospital & CVMC Radiology",
         "summary": "Patient-centered communication training guide for radiographers handling pediatric and claustrophobic patients undergoing MRI and CT examinations.",
         "impact": "Reduced patient scan abort rates by 46% and shortened imaging room turnaround times by 8 minutes per patient.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-041"
+        "status": "#UTIL-2025-041"
       },
       {
         "wing": "mcnp",
         "course": "mls",
         "title": "Medical Laboratory Intern Competency Mentorship & Error-Reduction Framework",
         "dept": "MCNP College of Medical Laboratory Science",
-        "partner": "Provincial Health Office of Cagayan Clinical Laboratories",
+        "partner": "Provincial Health Office Clinical Laboratories",
         "summary": "Structured laboratory peer-mentorship model focused on high-precision hematology and clinical chemistry pipetting validation under senior technologist guidance.",
         "impact": "Reduced intern pre-analytical re-test frequencies by 54% across 6 accredited internship training hospital laboratories.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-042"
+        "status": "#UTIL-2025-042"
       },
       {
         "wing": "mcnp",
         "course": "pharmacy",
         "title": "Clinical Pharmacist Collaborative Patient Counseling & Motivational Interviewing Guide",
         "dept": "MCNP College of Pharmacy",
-        "partner": "Tuguegarao City Outpatient Care Center & DOH CHD2",
+        "partner": "Tuguegarao City Outpatient Care Center",
         "summary": "Motivational interviewing module for hospital and community pharmacists counseling hypertensive and diabetic patients on lifelong prescription compliance.",
         "impact": "Boosted chronic medication adherence rates by 33% among enrolled community patients over a 6-month clinical evaluation.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-043"
+        "status": "#UTIL-2025-043"
       },
       {
         "wing": "mcnp",
         "course": "pt",
         "title": "Physical Therapy Patient Engagement & Functional Motivation Protocol",
         "dept": "MCNP College of Physical Therapy",
-        "partner": "CVMC Department of Physical Medicine and Rehabilitation",
+        "partner": "CVMC Department of Physical Medicine & Rehab",
         "summary": "Psychosocial engagement strategies embedded into post-stroke motor rehabilitation sessions to counter patient depression and rehabilitation dropout.",
         "impact": "Increased patient adherence to outpatient physical therapy regimens from 58% to 89% across partner rehabilitation centers.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-044"
+        "status": "#UTIL-2025-044"
       },
       {
         "wing": "isap",
         "course": "criminology",
         "title": "Police Cadet Leadership & Ethical Culture Matrix",
         "dept": "ISAP College of Criminal Justice Education",
-        "partner": "Philippine National Police Academy & Regional Training Center 2",
+        "partner": "PNP Academy & Regional Training Center 2",
         "summary": "Structured curriculum infusion evaluating ethical dilemma responses, emotional endurance, and servant-leadership practices under tactical stress.",
         "impact": "Adopted across 2 regional training centers; achieved 96% compliance with national tactical ethics evaluation rubrics.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-026"
-      },
-      {
-        "wing": "isap",
-        "course": "teacher-ed",
-        "title": "Remedial Reading & Multigrade Teacher Empowerment Toolkits",
-        "dept": "ISAP College of Teacher Education",
-        "partner": "DepEd Region II (Pe\u00f1ablanca & Solana Districts)",
-        "summary": "Action research translated into structured phonics diagnostic guides, daily remedial exercises, and active playtime fitness toolkits for rural multigrade classrooms.",
-        "impact": "Adopted across 12 public elementary schools; boosted reading comprehension fluency by 41% among grade 3\u20135 struggling readers.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-019"
+        "status": "#UTIL-2025-026"
       },
       {
         "wing": "isap",
         "course": "it",
-        "title": "Campus Collaborative Learning & Developer Mentorship Sandbox",
+        "title": "Campus Agile Collaborative Developer Mentorship Sandbox",
         "dept": "ISAP College of Information Technology",
-        "partner": "Cagayan Valley IT Research Consortium & Regional Hackathons",
+        "partner": "Cagayan Valley IT Research Consortium",
         "summary": "Peer coding review and collaborative agile development framework implemented in collegiate software engineering studios to nurture junior developer capabilities.",
         "impact": "Increased student capstone software completion rates by 65% and produced 8 regional software development competition champions.",
-        "status": "Institutional SOP Implemented #SOP-2025-012"
+        "status": "#SOP-2025-012"
       },
       {
         "wing": "isap",
-        "course": "customs",
-        "title": "Customs Broker Professional Ethics & Mentorship Competency Code",
-        "dept": "ISAP College of Customs Administration",
-        "partner": "Chamber of Customs Brokers, Inc. (CCBI) Northern Luzon Chapter",
-        "summary": "Professional capability framework infusing international supply chain ethics and tariff dispute resolution standards into customs brokerage apprenticeships.",
-        "impact": "Adopted by 18 licensed brokerage firms across Northern Luzon as mandatory onboarding syllabus for junior customs specialists.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-045"
+        "course": "computer-eng",
+        "title": "Hardware Prototyping & Microcontroller Peer Mentoring Studio",
+        "dept": "ISAP College of Information Technology and Engineering",
+        "partner": "DOST Region II FabLab & Tech Incubator",
+        "summary": "Hands-on maker laboratory mentorship protocol bridging circuit schematics and embedded firmware programming for junior computer engineering students.",
+        "impact": "Accelerated prototype hardware testing cycles by 40% and resulted in 5 patent utility model submissions.",
+        "status": "#UTIL-2025-101"
       },
       {
         "wing": "isap",
-        "course": "business",
-        "title": "Agri-Enterprise Entrepreneurship & Cooperative Leadership Development Toolkit",
-        "dept": "ISAP College of Business & Accountancy",
-        "partner": "Cooperative Development Authority (CDA) Region II",
-        "summary": "Leadership and financial accountability training syllabus designed for rural agrarian cooperative directors and young agribusiness founders.",
-        "impact": "Adopted by 14 agricultural cooperatives; improved cooperative governance audit scores by 42% in annual regulatory audits.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-046"
+        "course": "bsed",
+        "title": "Remedial Reading & Pedagogical Teacher Empowerment Toolkits",
+        "dept": "ISAP CASTE • Teacher Education (BSED)",
+        "partner": "DepEd Region II (Peñablanca & Solana Districts)",
+        "summary": "Action research translated into structured phonics diagnostic guides, daily remedial exercises, and active learning toolkits for rural classrooms.",
+        "impact": "Adopted across 12 public elementary schools; boosted reading comprehension fluency by 41% among grade 3–5 struggling readers.",
+        "status": "#UTIL-2025-019"
+      },
+      {
+        "wing": "isap",
+        "course": "bped",
+        "title": "School Sports Coaching & Physical Fitness Competency Framework",
+        "dept": "ISAP CASTE • Physical Education (BPED)",
+        "partner": "DepEd Cagayan Sports Development Unit",
+        "summary": "Scientific physical fitness benchmarking and youth sports coaching manual equipping rural teachers to conduct injury-free athletic training.",
+        "impact": "Adopted across 15 public schools; reduced juvenile sports training muscle strain injuries by 45%.",
+        "status": "#UTIL-2025-102"
+      },
+      {
+        "wing": "isap",
+        "course": "social-work",
+        "title": "Community Case Management & Empathy-Centered Social Work Training",
+        "dept": "ISAP CASTE • Social Work (BSSW)",
+        "partner": "DSWD Field Office II & Municipal SWDO",
+        "summary": "Reflective mentorship framework for child welfare caseworkers managing multi-problem families in agrarian communities.",
+        "impact": "Improved timely case resolution rates by 34% across 8 municipal social welfare bureaus.",
+        "status": "#UTIL-2025-103"
       },
       {
         "wing": "isap",
         "course": "psychology",
         "title": "Workplace Psychosocial Thriving & Peer Counselor Training Manual",
-        "dept": "ISAP College of Psychology & Social Work",
-        "partner": "Civil Service Commission Region II & Regional Government Agencies",
+        "dept": "ISAP CASTE • Psychology (BSPsych)",
+        "partner": "Civil Service Commission Region II & Regional Agencies",
         "summary": "Peer support and emotional debriefing training protocol for human resource managers handling high-stress public frontline personnel.",
         "impact": "Trained 95 designated agency peer counselors; decreased reported employee absenteeism due to burnout by 27%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-047"
+        "status": "#UTIL-2025-047"
+      },
+      {
+        "wing": "isap",
+        "course": "tourism",
+        "title": "Community Tour Guiding & Regional Eco-Heritage Storytelling Guide",
+        "dept": "ISAP Hospitality & Tourism (BSTM)",
+        "partner": "Department of Tourism (DOT) Region II & LGUs",
+        "summary": "Heritage interpretation and tourist communication modules empowering local boatmen and youth tour guides at Callao Caves and Peñablanca protected landscapes.",
+        "impact": "Accredited 42 community tour guides; increased positive tourist feedback scores by 54%.",
+        "status": "#UTIL-2025-104"
+      },
+      {
+        "wing": "isap",
+        "course": "hospitality",
+        "title": "Service Excellence & Cultural Hospitality Apprenticeship Manual",
+        "dept": "ISAP Hospitality & Tourism (BSHM)",
+        "partner": "Tuguegarao Hotel & Restaurant Association",
+        "summary": "Front-office and culinary guest relations training manual embedding Cagayan hospitality traditions into hotel employee onboarding.",
+        "impact": "Adopted by 14 regional hotel establishments; boosted repeat guest satisfaction ratings by 29%.",
+        "status": "#UTIL-2025-105"
+      },
+      {
+        "wing": "isap",
+        "course": "accountancy",
+        "title": "Small Business Bookkeeping & Ethical Financial Leadership Matrix",
+        "dept": "ISAP Accountancy (BSAC)",
+        "partner": "PICPA Cagayan Chapter & DTI Negosyo Centers",
+        "summary": "Financial literacy mentorship syllabus training micro-entrepreneurs and youth leaders in basic ledger balancing and ethical bookkeeping.",
+        "impact": "Adopted by 30 local agrarian cooperatives; reduced bookkeeping variance errors by 55%.",
+        "status": "#UTIL-2025-106"
+      },
+      {
+        "wing": "isap",
+        "course": "customs",
+        "title": "Customs Broker Professional Ethics & Mentorship Competency Code",
+        "dept": "ISAP College of Customs Administration (BSCA)",
+        "partner": "Chamber of Customs Brokers, Inc. (CCBI) Northern Luzon",
+        "summary": "Professional capability framework infusing international supply chain ethics and tariff dispute resolution standards into customs brokerage apprenticeships.",
+        "impact": "Adopted by 18 licensed brokerage firms across Northern Luzon as mandatory onboarding syllabus for junior customs specialists.",
+        "status": "#UTIL-2025-045"
+      },
+      {
+        "wing": "isap",
+        "course": "business",
+        "title": "Agri-Enterprise Entrepreneurship & Cooperative Leadership Toolkit",
+        "dept": "ISAP Business Administration (BSBA)",
+        "partner": "Cooperative Development Authority (CDA) Region II",
+        "summary": "Leadership and financial accountability training syllabus designed for rural agrarian cooperative directors and young agribusiness founders.",
+        "impact": "Adopted by 14 agricultural cooperatives; improved cooperative governance audit scores by 42% in annual regulatory audits.",
+        "status": "#UTIL-2025-046"
       }
     ]
   },
@@ -628,40 +702,40 @@
         "course": "nursing",
         "title": "Clinical Nursing Ethics & Informed Consent Quality Assurance SOP",
         "dept": "MCNP College of Nursing",
-        "partner": "Dr. Ronald P. Guzman Medical Center Clinical Ethics Committee",
+        "partner": "Dr. Ronald P. Guzman Medical Center Ethics Board",
         "summary": "Standardized hospital protocol ensuring patient rights, culturally sensitive informed consent translation, and ethical documentation in acute care wards.",
         "impact": "Zero ethical compliance violations recorded across 5 hospital departments over 12 months of systematic post-admission audits.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-048"
+        "status": "#UTIL-2025-048"
       },
       {
         "wing": "mcnp",
         "course": "radtech",
         "title": "Diagnostic Radiation Safety & Patient Shielding Compliance Audit Matrix",
         "dept": "MCNP College of Radiologic Technology",
-        "partner": "Center for Device Regulation, Radiation Health, and Research (CDRRHR) & CVMC",
+        "partner": "CDRRHR & CVMC Radiology",
         "summary": "Quality assurance audit methodology enforcing patient thyroid, gonad, and eye shielding standards during computed tomography and fluoroscopy procedures.",
         "impact": "Elevated departmental radiation safety compliance audit scores from 76% to 99.4% in tertiary hospital radiology facilities.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-049"
+        "status": "#UTIL-2025-049"
       },
       {
         "wing": "mcnp",
         "course": "mls",
         "title": "Biosafety & Ethical Diagnostic Specimen Chain-of-Custody SOP",
         "dept": "MCNP College of Medical Laboratory Science",
-        "partner": "Provincial Health Office of Cagayan & RDC Biosafety Committee",
+        "partner": "Provincial Health Office & RDC Biosafety Committee",
         "summary": "Strict protocol establishing digital bio-specimen tracking, patient confidentiality safeguarding, and bio-waste decontamination tracking.",
         "impact": "Implemented in 8 provincial district laboratories; eliminated chain-of-custody discrepancies by 100%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-027"
+        "status": "#UTIL-2025-027"
       },
       {
         "wing": "mcnp",
         "course": "pharmacy",
         "title": "Good Dispensing Practice & Controlled Substance Audit Protocol",
         "dept": "MCNP College of Pharmacy",
-        "partner": "Philippine Drug Enforcement Agency (PDEA) Region II & Hospital Pharmacies",
+        "partner": "PDEA Region II & Hospital Pharmacies",
         "summary": "Hospital pharmacy dispensing verification system preventing medication diversion and safeguarding controlled dangerous drug prescription records.",
         "impact": "Adopted in 3 hospital pharmacies; achieved flawless 100% regulatory audit compliance ratings in annual PDEA inspections.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-050"
+        "status": "#UTIL-2025-050"
       },
       {
         "wing": "mcnp",
@@ -671,67 +745,127 @@
         "partner": "St. Paul Hospital Physical Rehabilitation Unit",
         "summary": "Risk assessment and ethical mobilization protocols safeguarding acute neurological and orthopedic patients against early mobilization fall injuries.",
         "impact": "Documented zero patient fall or adverse therapy events during acute inpatient mobilization across 450 monitored cases.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-051"
+        "status": "#UTIL-2025-051"
       },
       {
         "wing": "isap",
         "course": "criminology",
         "title": "GIS-Based Night Patrol Geospatial Mapping Protocol",
-        "dept": "ISAP College of Criminal Justice Education (COCJE)",
-        "partner": "Tuguegarao City Police Station & LGU Tuguegarao",
+        "dept": "ISAP College of Criminal Justice Education",
+        "partner": "Tuguegarao City Police Station & LGU",
         "summary": "Geographic information system (GIS) mapping of nighttime theft and robbery hot-spots transformed into a targeted motorcycle patrol route SOP.",
         "impact": "Adopted as Official Precinct Tactical SOP; decreased nighttime petty theft incidents by 32% in commercial zones over 6 months.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-014"
-      },
-      {
-        "wing": "isap",
-        "course": "teacher-ed",
-        "title": "Child Protection & Fair Educational Assessment Policy Matrix",
-        "dept": "ISAP College of Teacher Education",
-        "partner": "DepEd Division of Cagayan Child Protection Unit",
-        "summary": "Standard operating guidelines for investigating classroom behavioral concerns, preventing cyber-bullying, and ensuring equitable grading rubrics.",
-        "impact": "Adopted by 15 public secondary schools; reduced unresolved student grievances by 58% across partner school districts.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-052"
+        "status": "#UTIL-2025-014"
       },
       {
         "wing": "isap",
         "course": "it",
         "title": "Institutional Data Privacy & Secure Academic Records Governance Framework",
         "dept": "ISAP College of Information Technology",
-        "partner": "National Privacy Commission (NPC) Regional Compliance Group & HEIs",
+        "partner": "National Privacy Commission (NPC) Compliance Group",
         "summary": "Data privacy impact assessment protocol safeguarding collegiate student records, biometric logs, and financial transactions from cyber-intrusions.",
         "impact": "Achieved 100% compliance with Republic Act 10173 (Data Privacy Act) across institutional university database systems.",
-        "status": "Institutional Policy Implemented #POL-2025-015"
+        "status": "#POL-2025-015"
       },
       {
         "wing": "isap",
-        "course": "customs",
-        "title": "Customs Integrity & Valuation Compliance Assessment Tool",
-        "dept": "ISAP College of Customs Administration",
-        "partner": "Bureau of Customs (BOC) Port of Aparri & Sub-port of Irene",
-        "summary": "Analytical framework benchmarking ethical tariff assessments, anti-corruption monitoring, and declaration validation.",
-        "impact": "Formally integrated into regional customs officer continuing education seminars; sped clearance auditing by 29%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-028"
+        "course": "computer-eng",
+        "title": "Campus Hardware Lab Electrical Safety & Equipment Maintenance Matrix",
+        "dept": "ISAP College of Information Technology and Engineering",
+        "partner": "Regional Electrical Engineers Society & DOLE R2",
+        "summary": "Strict maintenance protocol for oscilloscope, soldering stations, and 3D printing equipment preventing electrical fire hazards in student labs.",
+        "impact": "Zero laboratory safety incidents or hardware failures recorded over 3 academic years.",
+        "status": "#UTIL-2025-107"
       },
       {
         "wing": "isap",
-        "course": "business",
-        "title": "Corporate Governance & Internal Audit Transparency Toolkit for SMEs",
-        "dept": "ISAP College of Business & Accountancy",
-        "partner": "Securities and Exchange Commission (SEC) Northern Luzon & Local Chambers",
-        "summary": "Standardized internal auditing checklist helping family-owned enterprises and rural cooperatives establish ethical financial transparency.",
-        "impact": "Adopted by 28 local enterprises; eliminated tax assessment penalties and audit disputes by 45%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-053"
+        "course": "bsed",
+        "title": "Child Protection & Fair Educational Assessment Policy Matrix",
+        "dept": "ISAP CASTE • Teacher Education (BSED)",
+        "partner": "DepEd Division of Cagayan Child Protection Unit",
+        "summary": "Standard operating guidelines for investigating classroom behavioral concerns, preventing cyber-bullying, and ensuring equitable grading rubrics.",
+        "impact": "Adopted by 15 public secondary schools; reduced unresolved student grievances by 58% across partner school districts.",
+        "status": "#UTIL-2025-052"
+      },
+      {
+        "wing": "isap",
+        "course": "bped",
+        "title": "Athletic Ethics & Anti-Doping Fair Play Compliance Guidelines",
+        "dept": "ISAP CASTE • Physical Education (BPED)",
+        "partner": "Philippine Sports Commission & Regional Athletic Meets",
+        "summary": "Fair play curriculum educating student athletes on the health hazards of illicit performance enhancers and unsportsmanlike behavior.",
+        "impact": "Integrated into regional collegiate athletic regulations; zero doping or behavioral disqualifications recorded.",
+        "status": "#UTIL-2025-108"
+      },
+      {
+        "wing": "isap",
+        "course": "social-work",
+        "title": "Child Welfare Legal Protocol & Custody Case Accountability Guide",
+        "dept": "ISAP CASTE • Social Work (BSSW)",
+        "partner": "Cagayan Provincial Social Welfare & Family Court",
+        "summary": "Documentary evidence standardization guide for court-mandated social case study reports involving abused minors.",
+        "impact": "Increased courtroom report acceptance efficiency by 50%, accelerating protective foster custody orders.",
+        "status": "#UTIL-2025-109"
       },
       {
         "wing": "isap",
         "course": "psychology",
         "title": "Trauma-Informed Restorative Justice & Youth Rehabilitation Manual",
-        "dept": "ISAP College of Psychology & Social Work",
+        "dept": "ISAP CASTE • Psychology (BSPsych)",
         "partner": "BJMP Cagayan & Regional Youth Detention Center",
         "summary": "Restorative justice research translated into a structured psycho-social rehabilitation curriculum for youth in conflict with the law (CICL).",
         "impact": "Deployed across 2 correctional facilities, reducing behavioral infractions among juvenile detainees by 45%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-021"
+        "status": "#UTIL-2025-021"
+      },
+      {
+        "wing": "isap",
+        "course": "tourism",
+        "title": "Eco-Tourism Cultural Integrity & Indigenous Community Code of Conduct",
+        "dept": "ISAP Hospitality & Tourism (BSTM)",
+        "partner": "National Commission on Indigenous Peoples (NCIP) Region II",
+        "summary": "Ethical tourism protocol preventing the commercial exploitation of Agta indigenous cultural traditions and sacred ancestral domains.",
+        "impact": "Adopted across 4 municipal tourism offices; guaranteed 100% equitable community benefit sharing from tour revenues.",
+        "status": "#UTIL-2025-110"
+      },
+      {
+        "wing": "isap",
+        "course": "hospitality",
+        "title": "HACCP Food Safety & Sanitary Audit Protocols for Regional Dining",
+        "dept": "ISAP Hospitality & Tourism (BSHM)",
+        "partner": "DOH CHD2 Food Safety Unit & City Health Office",
+        "summary": "Hazard Analysis Critical Control Point (HACCP) self-inspection checklist tailored for local restaurants and catering services.",
+        "impact": "Adopted by 26 dining establishments; eliminated foodborne illness outbreaks during major regional festivals.",
+        "status": "#UTIL-2025-111"
+      },
+      {
+        "wing": "isap",
+        "course": "accountancy",
+        "title": "Internal Financial Auditing & Anti-Fraud Compliance Manual for LGUs",
+        "dept": "ISAP Accountancy (BSAC)",
+        "partner": "Commission on Audit (COA) Region II & Municipal Treasurers",
+        "summary": "Risk-based internal audit checklist identifying payroll ghost entries and procurement irregularities in municipal governance.",
+        "impact": "Adopted in 3 municipal treasuries; accelerated annual audit clearance turnaround times by 48%.",
+        "status": "#UTIL-2025-112"
+      },
+      {
+        "wing": "isap",
+        "course": "customs",
+        "title": "Customs Integrity & Valuation Compliance Assessment Tool",
+        "dept": "ISAP College of Customs Administration (BSCA)",
+        "partner": "Bureau of Customs (BOC) Port of Aparri",
+        "summary": "Analytical framework benchmarking ethical tariff assessments, anti-corruption monitoring, and declaration validation.",
+        "impact": "Formally integrated into regional customs officer continuing education seminars; sped clearance auditing by 29%.",
+        "status": "#UTIL-2025-028"
+      },
+      {
+        "wing": "isap",
+        "course": "business",
+        "title": "Corporate Governance & Internal Audit Transparency Toolkit for SMEs",
+        "dept": "ISAP Business Administration (BSBA)",
+        "partner": "SEC Northern Luzon & Local Chambers of Commerce",
+        "summary": "Standardized internal auditing checklist helping family-owned enterprises and rural cooperatives establish ethical financial transparency.",
+        "impact": "Adopted by 28 local enterprises; eliminated tax assessment penalties and audit disputes by 45%.",
+        "status": "#UTIL-2025-053"
       }
     ]
   },
@@ -774,47 +908,47 @@
         "partner": "Rural Health Units (RHUs) of Solana & Iguig",
         "summary": "Digital triage application enabling barangay health workers to transmit real-time patient vital sign alerts to municipal health officers.",
         "impact": "Deployed across 18 rural health stations; facilitated over 1,400 timely tele-consultations for high-risk hypertensive patients.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-030"
+        "status": "#UTIL-2025-030"
       },
       {
         "wing": "mcnp",
         "course": "radtech",
         "title": "PACS & AI Diagnostic Imaging Workflow Optimization System",
         "dept": "MCNP College of Radiologic Technology",
-        "partner": "St. Paul Hospital & CVMC Department of Radiology",
+        "partner": "St. Paul Hospital & CVMC Radiology",
         "summary": "Cloud-integrated picture archiving and communication system (PACS) protocols for accelerated peer-review and emergency radiograph triage.",
         "impact": "Reduced acute trauma radiograph interpretation turnaround time from 45 minutes to under 12 minutes in emergency bays.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-029"
+        "status": "#UTIL-2025-029"
       },
       {
         "wing": "mcnp",
         "course": "mls",
         "title": "Laboratory Information Management System (LIMS) Automated Reporting Interface",
         "dept": "MCNP College of Medical Laboratory Science",
-        "partner": "Tuguegarao City Health Office Diagnostic Laboratory",
+        "partner": "Tuguegarao City Health Office Diagnostic Lab",
         "summary": "Cloud-based automated reporting portal linking automated hematology analyzers directly with patient electronic health records.",
         "impact": "Eliminated manual transcription errors by 99% and expedited same-day diagnostic release by 3.5 hours.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-054"
+        "status": "#UTIL-2025-054"
       },
       {
         "wing": "mcnp",
         "course": "pharmacy",
         "title": "Digital Drug-Interaction Checker & Inventory Optimization Dashboard",
         "dept": "MCNP College of Pharmacy",
-        "partner": "District Hospitals of Cagayan & Provincial Health Office",
+        "partner": "District Hospitals of Cagayan & PHO",
         "summary": "Clinical decision-support tool alerting ward physicians and hospital pharmacists to adverse contraindications and stock expiration dates.",
         "impact": "Intercepted 184 potentially severe drug interactions in pilot wards; lowered expired drug wastage by 41%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-055"
+        "status": "#UTIL-2025-055"
       },
       {
         "wing": "mcnp",
         "course": "pt",
         "title": "Telerehabilitation & Remote Biomechanical Goniometry Mobile Platform",
         "dept": "MCNP College of Physical Therapy",
-        "partner": "Cagayan Valley Orthopedic & Rehabilitation Clinics",
+        "partner": "Cagayan Valley Orthopedic & Rehab Clinics",
         "summary": "Smartphone video application measuring joint range of motion (ROM) accurately for rural patients unable to travel for weekly therapy.",
         "impact": "Maintained 94% patient recovery compliance rates among post-surgical ACL and fracture rehabilitation patients living in isolated municipalities.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-056"
+        "status": "#UTIL-2025-056"
       },
       {
         "wing": "isap",
@@ -824,57 +958,117 @@
         "partner": "Tuguegarao City Police Station Information Desk",
         "summary": "Secure web portal converting paper police desk blotters into real-time geospatial incident visualizations for tactical patrol commanders.",
         "impact": "Cut incident report encoding time from 20 minutes to 3 minutes; sped dispatch response times by 26%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-057"
-      },
-      {
-        "wing": "isap",
-        "course": "teacher-ed",
-        "title": "Hybrid Learning Management & Offline-Sync Modular Tablet System",
-        "dept": "ISAP College of Teacher Education",
-        "partner": "DepEd Pe\u00f1ablanca East District & Rural High Schools",
-        "summary": "Offline-first educational tablet repository enabling students in mountain barangays without internet to access multimedia science lessons.",
-        "impact": "Deployed in 4 remote mountain schools; raised STEM quarter exam scores by 31% compared to standard paper modules.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-058"
+        "status": "#UTIL-2025-057"
       },
       {
         "wing": "isap",
         "course": "it",
         "title": "Cloud Disaster Evacuation & Relief Logistics Dispatch System",
         "dept": "ISAP College of Information Technology",
-        "partner": "MDRRMO Pe\u00f1ablanca & Cagayan PDRRMO",
+        "partner": "MDRRMO Peñablanca & Cagayan PDRRMO",
         "summary": "Cloud-native inventory and family dispatch database engineered for rural typhoon evacuation shelters during monsoon calamities.",
         "impact": "Deployed during Typhoon Egay & Carina; coordinated relief food pack distribution across 14 rural barangays in real time.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-011"
+        "status": "#UTIL-2025-011"
       },
       {
         "wing": "isap",
-        "course": "customs",
-        "title": "Electronic Harmonized Tariff Classification Decision-Matrix",
-        "dept": "ISAP College of Customs Administration",
-        "partner": "Bureau of Customs (BOC) Port of Aparri",
-        "summary": "Interactive decision-support matrix assisting customs brokers and examiners in classifying complex agricultural and medical cargo entries.",
-        "impact": "Adopted as regional reference tool; reduced valuation assessment disputes by 48% at the Port of Aparri.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-007"
+        "course": "computer-eng",
+        "title": "Smart Microgrid & IoT Solar Power Monitoring System for Remote Facilities",
+        "dept": "ISAP College of Information Technology and Engineering",
+        "partner": "CAGELCO II & Off-Grid Barangay Centers",
+        "summary": "Microcontroller-based energy monitoring device logging solar battery storage and load balancing in real time.",
+        "impact": "Deployed across 4 remote mountain barangay clinics; reduced diesel generator backup fuel consumption by 60%.",
+        "status": "#UTIL-2025-113"
       },
       {
         "wing": "isap",
-        "course": "business",
-        "title": "E-Commerce Cloud Logistics & POS Integration System for Local MSMEs",
-        "dept": "ISAP College of Business & Accountancy",
-        "partner": "DTI Region II E-Commerce Assistance Center",
-        "summary": "Integrated digital point-of-sale and online shipment tracking portal created for regional agricultural and handicraft producers.",
-        "impact": "Adopted by 45 local enterprises; increased out-of-region retail revenue by 52% in the first quarter of deployment.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-059"
+        "course": "bsed",
+        "title": "Hybrid Learning Management & Offline-Sync Modular Tablet System",
+        "dept": "ISAP CASTE • Teacher Education (BSED)",
+        "partner": "DepEd Peñablanca East District Schools",
+        "summary": "Offline-first educational tablet repository enabling students in mountain barangays without internet to access multimedia science lessons.",
+        "impact": "Deployed in 4 remote mountain schools; raised STEM quarter exam scores by 31% compared to standard paper modules.",
+        "status": "#UTIL-2025-058"
+      },
+      {
+        "wing": "isap",
+        "course": "bped",
+        "title": "Digital Athletic Performance Tracking & Biometric Sensor System",
+        "dept": "ISAP CASTE • Physical Education (BPED)",
+        "partner": "Regional Sports Academy & Track Teams",
+        "summary": "Wearable sensor software capturing student heart rate, sprinting acceleration, and cadence during track and field training.",
+        "impact": "Adopted by 5 athletic varsity teams; improved sprinting sprint splits by an average of 0.45 seconds.",
+        "status": "#UTIL-2025-114"
+      },
+      {
+        "wing": "isap",
+        "course": "social-work",
+        "title": "Digital Welfare Registry & Case Tracking Database for LGUs",
+        "dept": "ISAP CASTE • Social Work (BSSW)",
+        "partner": "Municipal Social Welfare & Development Office Solana",
+        "summary": "Cloud database replacing paper family index cards to prevent duplicate emergency cash aid releases during disasters.",
+        "impact": "Sped disaster emergency relief processing from 4 days to 4 hours while preventing aid duplications by 100%.",
+        "status": "#UTIL-2025-115"
       },
       {
         "wing": "isap",
         "course": "psychology",
         "title": "Tele-Mental Health Support & Crisis Hotline Scheduling Portal",
-        "dept": "ISAP College of Psychology & Social Work",
-        "partner": "Cagayan Provincial Youth Development Office & DSWD",
+        "dept": "ISAP CASTE • Psychology (BSPsych)",
+        "partner": "Cagayan Provincial Youth Development Office",
         "summary": "Confidential appointment scheduling and crisis triage web portal connecting distressed collegiate youth with certified mental health counselors.",
         "impact": "Handled over 850 crisis consultations; reduced critical psychiatric intervention delays by 68%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-060"
+        "status": "#UTIL-2025-060"
+      },
+      {
+        "wing": "isap",
+        "course": "tourism",
+        "title": "Geographic Information System (GIS) Cagayan Heritage Tourism Map",
+        "dept": "ISAP Hospitality & Tourism (BSTM)",
+        "partner": "Provincial Tourism Office of Cagayan",
+        "summary": "Interactive mobile web map cataloging historical landmarks, ecotourism routes, and emergency assistance stations in Region II.",
+        "impact": "Accessed by over 45,000 regional visitors; increased visits to secondary rural tourism sites by 38%.",
+        "status": "#UTIL-2025-116"
+      },
+      {
+        "wing": "isap",
+        "course": "hospitality",
+        "title": "Contactless Hotel Check-In & Smart Room Inventory Management App",
+        "dept": "ISAP Hospitality & Tourism (BSHM)",
+        "partner": "Regional Boutique Hotel Network",
+        "summary": "Mobile web app enabling mobile room check-in, digital guest requests, and housekeeping supply tracking.",
+        "impact": "Reduced front-desk check-in queue times from 12 minutes to 90 seconds in partner hotels.",
+        "status": "#UTIL-2025-117"
+      },
+      {
+        "wing": "isap",
+        "course": "accountancy",
+        "title": "Automated Financial Statement Generator & Tax Compliance Software",
+        "dept": "ISAP Accountancy (BSAC)",
+        "partner": "Bureau of Internal Revenue (BIR) RDO 13 & SMEs",
+        "summary": "Automated spreadsheet macro suite assisting micro-enterprises in preparing BIR-compliant income tax returns and VAT schedules.",
+        "impact": "Adopted by 80 small business owners; lowered tax preparation costs by 65%.",
+        "status": "#UTIL-2025-118"
+      },
+      {
+        "wing": "isap",
+        "course": "customs",
+        "title": "Electronic Harmonized Tariff Classification Decision-Matrix",
+        "dept": "ISAP College of Customs Administration (BSCA)",
+        "partner": "Bureau of Customs Port of Aparri",
+        "summary": "Interactive decision-support matrix assisting customs brokers and examiners in classifying complex agricultural and medical cargo entries.",
+        "impact": "Adopted as regional reference tool; reduced valuation assessment disputes by 48% at the Port of Aparri.",
+        "status": "#UTIL-2025-007"
+      },
+      {
+        "wing": "isap",
+        "course": "business",
+        "title": "E-Commerce Cloud Logistics & POS Integration System for Local MSMEs",
+        "dept": "ISAP Business Administration (BSBA)",
+        "partner": "DTI Region II E-Commerce Center",
+        "summary": "Integrated digital point-of-sale and online shipment tracking portal created for regional agricultural and handicraft producers.",
+        "impact": "Adopted by 45 local enterprises; increased out-of-region retail revenue by 52% in the first quarter of deployment.",
+        "status": "#UTIL-2025-059"
       }
     ]
   },
@@ -914,40 +1108,40 @@
         "course": "nursing",
         "title": "Rapid Bedside Triage & SBAR Clinical Handover Protocol",
         "dept": "MCNP College of Nursing",
-        "partner": "Cagayan Valley Medical Center Emergency Department",
+        "partner": "CVMC Adult Emergency Department",
         "summary": "Structured Situation-Background-Assessment-Recommendation (SBAR) handover checklist minimizing critical diagnostic omissions between shifts.",
         "impact": "Adopted across all adult emergency bays; reduced vital sign handover documentation errors by 62%.",
-        "status": "Institutional SOP Implemented #SOP-2025-018"
+        "status": "#SOP-2025-018"
       },
       {
         "wing": "mcnp",
         "course": "radtech",
         "title": "Diagnostic Fluoroscopy Dose-Reduction Calibration Manual",
         "dept": "MCNP College of Radiologic Technology",
-        "partner": "Dr. Ronald P. Guzman Medical Center Radiology Unit",
+        "partner": "Dr. Ronald P. Guzman Medical Center",
         "summary": "Technical adjustment guidelines for fluoroscopic pulse rate and collimation during gastrointestinal examinations.",
         "impact": "Decreased patient entrance skin dose by 28% without sacrificing image resolution for barium swallow studies.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-061"
+        "status": "#UTIL-2025-061"
       },
       {
         "wing": "mcnp",
         "course": "mls",
         "title": "Evidence-to-Action Clinical Laboratory Pre-Analytical SOP System",
         "dept": "MCNP College of Medical Laboratory Science",
-        "partner": "Tuguegarao City Health Office & Barangay Clinical Laboratories",
+        "partner": "Tuguegarao City Health Diagnostic Laboratories",
         "summary": "Process mapping of pre-analytical diagnostic errors translated into a visual color-coded specimen handling protocol.",
         "impact": "Adopted across 6 city-operated clinical laboratories; reduced sample rejection and re-bleed rates by 64%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-016"
+        "status": "#UTIL-2025-016"
       },
       {
         "wing": "mcnp",
         "course": "pharmacy",
         "title": "Standardized Antimicrobial Botanical Ointment Formulation",
         "dept": "MCNP College of Pharmacy",
-        "partner": "DOST Region II & Cagayan Valley Health Research Consortium",
+        "partner": "DOST Region II & CVHRDC",
         "summary": "Phytochemical analysis of indigenous Cagayan flora translated into a stabilized topical antibacterial balm for superficial skin abrasions.",
         "impact": "Filed Utility Model with IPOPHIL; adopted by 2 community agrarian cooperatives for commercial production.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-003"
+        "status": "#UTIL-2025-003"
       },
       {
         "wing": "mcnp",
@@ -957,67 +1151,127 @@
         "partner": "CVMC Acute Stroke Unit & Neurology Department",
         "summary": "Standardized bedside physical therapy timeline indicating physiological parameters for beginning sitting and standing drills within 48 hours of stroke onset.",
         "impact": "Reduced average post-stroke hospital length of stay from 14 days to 9 days across participating stroke units.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-062"
+        "status": "#UTIL-2025-062"
       },
       {
         "wing": "isap",
         "course": "criminology",
         "title": "Forensic Crime Scene Evidence Preservation Standard Operational Protocol",
         "dept": "ISAP College of Criminal Justice Education",
-        "partner": "Philippine National Police Forensic Unit Regional Office 2",
+        "partner": "PNP Forensic Unit Regional Office 2",
         "summary": "Standardized field guide for first responding patrol officers covering physical evidence cordoning, latent fingerprint preservation, and chain of custody packaging.",
         "impact": "Increased forensic evidence court admissibility rates by 44% in local criminal prosecution trials.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-063"
-      },
-      {
-        "wing": "isap",
-        "course": "teacher-ed",
-        "title": "Diagnostic Formative Assessment & Differentiated Instruction Toolkit",
-        "dept": "ISAP College of Teacher Education",
-        "partner": "DepEd Tuguegarao City Division High Schools",
-        "summary": "Continuous assessment rubric enabling secondary school teachers to rapidly differentiate lesson pacing for gifted and remedial students in math and language.",
-        "impact": "Adopted by 8 public high schools; increased average student competency scores in regional mastery tests by 24%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-064"
+        "status": "#UTIL-2025-063"
       },
       {
         "wing": "isap",
         "course": "it",
         "title": "Automated Municipal Business Permit & Registry Solution",
         "dept": "ISAP College of Information Technology",
-        "partner": "LGU Pe\u00f1ablanca Business Permits and Licensing Office",
+        "partner": "LGU Peñablanca Business Permits Office",
         "summary": "Digital platform translating local governance process audits into a paperless, queue-free business licensing portal.",
         "impact": "Reduced permit processing turnaround from 3 days to 25 minutes; boosted local merchant registration by 44%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-031"
+        "status": "#UTIL-2025-031"
       },
       {
         "wing": "isap",
-        "course": "customs",
-        "title": "Port Inspection Risk Assessment & Cargo Manifest Decision-Matrix",
-        "dept": "ISAP College of Customs Administration",
-        "partner": "Bureau of Customs Port of Aparri Assessment Division",
-        "summary": "Algorithmic risk profiling protocol identifying discrepancies in shipping manifests for high-risk bulk cargo.",
-        "impact": "Sped low-risk cargo clearance by 40% while identifying 12 misdeclared agricultural consignments during pilot deployment.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-065"
+        "course": "computer-eng",
+        "title": "Automated Grain Drying Moisture Sensor & Airflow Controller",
+        "dept": "ISAP College of Information Technology and Engineering",
+        "partner": "Department of Agriculture RFO 2 & Rice Cooperatives",
+        "summary": "Arduino-based sensor system regulating grain dryer temperature and humidity to prevent rice cracking during post-harvest storage.",
+        "impact": "Adopted by 3 grain milling facilities; increased milling head rice recovery rates by 18%.",
+        "status": "#UTIL-2025-119"
       },
       {
         "wing": "isap",
-        "course": "business",
-        "title": "SME Inventory Turnover & Cashflow Optimization Toolkit",
-        "dept": "ISAP College of Business & Accountancy",
-        "partner": "Department of Trade and Industry (DTI) Negosyo Center",
-        "summary": "Applied accounting research converted into modular bookkeeping workbooks and cash conversion calculators for micro-entrepreneurs.",
-        "impact": "Adopted by 65 local agro-producers and handicraft cooperatives; reduced inventory holding waste by 33%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-032"
+        "course": "bsed",
+        "title": "Diagnostic Formative Assessment & Differentiated Instruction Toolkit",
+        "dept": "ISAP CASTE • Teacher Education (BSED)",
+        "partner": "DepEd Tuguegarao City Division High Schools",
+        "summary": "Continuous assessment rubric enabling secondary school teachers to rapidly differentiate lesson pacing for gifted and remedial students in math and language.",
+        "impact": "Adopted by 8 public high schools; increased average student competency scores in regional mastery tests by 24%.",
+        "status": "#UTIL-2025-064"
+      },
+      {
+        "wing": "isap",
+        "course": "bped",
+        "title": "School Sports Injury Prevention & First-Line Rehabilitation Protocol",
+        "dept": "ISAP CASTE • Physical Education (BPED)",
+        "partner": "DepEd Cagayan Division Athletic Trainers",
+        "summary": "Evidence-based PRICE protocol (Protect, Rest, Ice, Compress, Elevate) and dynamic warm-up drills implemented in inter-school varsity tournaments.",
+        "impact": "Reduced acute hamstring pulls and sprains by 52% during regional athletic meets.",
+        "status": "#UTIL-2025-120"
+      },
+      {
+        "wing": "isap",
+        "course": "social-work",
+        "title": "Community Disaster Evacuation Center Management Standard Protocol",
+        "dept": "ISAP CASTE • Social Work (BSSW)",
+        "partner": "DSWD Field Office II & Municipal DRRMOs",
+        "summary": "Step-by-step operating guidelines for setting up child-friendly spaces, women-friendly corners, and orderly food distribution in evacuation centers.",
+        "impact": "Implemented across 10 municipal evacuation centers during typhoon season; zero child separation or protection incidents.",
+        "status": "#UTIL-2025-121"
       },
       {
         "wing": "isap",
         "course": "psychology",
         "title": "Behavioral Intervention & Cognitive Re-tracking Matrix for Youth Facilities",
-        "dept": "ISAP College of Psychology & Social Work",
+        "dept": "ISAP CASTE • Psychology (BSPsych)",
         "partner": "Regional Youth Rehabilitation Center & DSWD",
         "summary": "Operationalized cognitive-behavioral therapy exercises tailored for juvenile centers to improve emotional self-regulation and peer conflict resolution.",
         "impact": "Achieved a 60% reduction in physical altercations among juvenile residents over a 9-month programmatic intervention.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-066"
+        "status": "#UTIL-2025-066"
+      },
+      {
+        "wing": "isap",
+        "course": "tourism",
+        "title": "Regional Tour Destination Carrying Capacity & Crowd Management SOP",
+        "dept": "ISAP Hospitality & Tourism (BSTM)",
+        "partner": "Callao Caves Protected Landscape Management Board",
+        "summary": "Mathematical carrying capacity formula and time-slotted booking system safeguarding limestone formations from over-tourism degradation.",
+        "impact": "Implemented by Protected Area Management Board; eliminated cave trail bottleneck congestion while preserving subterranean cave ecology.",
+        "status": "#UTIL-2025-122"
+      },
+      {
+        "wing": "isap",
+        "course": "hospitality",
+        "title": "Hospitality Waste Minimization & Food Cost Standard Operating Manual",
+        "dept": "ISAP Hospitality & Tourism (BSHM)",
+        "partner": "Hotel & Restaurant Association of Cagayan",
+        "summary": "Standardized recipe portioning and kitchen waste audits helping commercial restaurants reduce ingredient spoilage.",
+        "impact": "Adopted by 18 hotel kitchens; reduced kitchen food waste by 36% and improved gross profit margins by 14%.",
+        "status": "#UTIL-2025-123"
+      },
+      {
+        "wing": "isap",
+        "course": "accountancy",
+        "title": "Cost Accounting & Farm Yield Profitability Matrix for Agrarian Farmers",
+        "dept": "ISAP Accountancy (BSAC)",
+        "partner": "Department of Agrarian Reform (DAR) Region II",
+        "summary": "Simplified unit-costing ledger helping corn and rice smallholders calculate net return on investment per hectare.",
+        "impact": "Adopted by 120 agrarian reform beneficiaries; empowered farmers to negotiate 22% higher market wholesale prices.",
+        "status": "#UTIL-2025-124"
+      },
+      {
+        "wing": "isap",
+        "course": "customs",
+        "title": "Port Inspection Risk Assessment & Cargo Manifest Decision-Matrix",
+        "dept": "ISAP College of Customs Administration (BSCA)",
+        "partner": "Bureau of Customs Port of Aparri",
+        "summary": "Algorithmic risk profiling protocol identifying discrepancies in shipping manifests for high-risk bulk cargo.",
+        "impact": "Sped low-risk cargo clearance by 40% while identifying 12 misdeclared agricultural consignments during pilot deployment.",
+        "status": "#UTIL-2025-065"
+      },
+      {
+        "wing": "isap",
+        "course": "business",
+        "title": "SME Inventory Turnover & Cashflow Optimization Toolkit",
+        "dept": "ISAP Business Administration (BSBA)",
+        "partner": "DTI Negosyo Center & Local Chambers",
+        "summary": "Applied accounting research converted into modular bookkeeping workbooks and cash conversion calculators for micro-entrepreneurs.",
+        "impact": "Adopted by 65 local agro-producers and handicraft cooperatives; reduced inventory holding waste by 33%.",
+        "status": "#UTIL-2025-032"
       }
     ]
   },
@@ -1057,20 +1311,20 @@
         "course": "nursing",
         "title": "Pediatric Medication Error-Mitigation Protocol",
         "dept": "MCNP College of Nursing",
-        "partner": "Cagayan Valley Medical Center (CVMC) Pediatric Wing",
+        "partner": "CVMC Pediatric Wing",
         "summary": "Clinical audit investigating pediatric dosing slip discrepancies translated into a standardized bedside dual-verification checklist.",
         "impact": "Formally adopted as CVMC Department of Nursing SOP #NUR-2025-08; zero critical pediatric calculation errors reported in pilot units.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-001"
+        "status": "#UTIL-2025-001"
       },
       {
         "wing": "mcnp",
         "course": "radtech",
         "title": "Low-Dose CT (LDCT) Shielding & Exposure Calibration Protocol",
         "dept": "MCNP College of Radiologic Technology",
-        "partner": "Dr. Ronald P. Guzman Medical Center Radiology Center",
+        "partner": "Dr. Ronald P. Guzman Medical Center",
         "summary": "Biomedical radiation study establishing personalized lead apron placement guidelines for pediatric and geriatric patients.",
         "impact": "Integrated into institutional radiologic procedures; reduced unnecessary scatter radiation exposure by 35% without degrading diagnostic clarity.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-004"
+        "status": "#UTIL-2025-004"
       },
       {
         "wing": "mcnp",
@@ -1080,87 +1334,147 @@
         "partner": "Provincial Health Office of Cagayan",
         "summary": "Evaluation of rapid microbiological assays for post-flood drinking water quality translated into a municipal field surveillance kit.",
         "impact": "Adopted across 5 flood-prone Cagayan river municipalities; shortened post-typhoon waterborne outbreak detection from 5 days to 6 hours.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-010"
+        "status": "#UTIL-2025-010"
       },
       {
         "wing": "mcnp",
         "course": "pharmacy",
         "title": "Pharmacovigilance Adverse Drug Event Reporting SOP",
         "dept": "MCNP College of Pharmacy",
-        "partner": "Food and Drug Administration (FDA) Region II & CVMC Pharmacy",
+        "partner": "FDA Region II & CVMC Pharmacy",
         "summary": "Standard operating procedure training clinical staff to detect, document, and report suspected adverse drug reactions (ADRs) quickly.",
         "impact": "Increased regional hospital ADR reporting compliance by 140%, resulting in early detection of a substandard antibiotic batch.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-067"
+        "status": "#UTIL-2025-067"
       },
       {
         "wing": "mcnp",
         "course": "pt",
         "title": "Ergonomic Musculoskeletal Rehabilitation for Agrarian Workers",
         "dept": "MCNP College of Physical Therapy",
-        "partner": "Department of Agriculture Region II & Agrarian Reform Beneficiaries",
+        "partner": "Department of Agriculture Region II & Cooperatives",
         "summary": "Biomechanical study of lower-back strain in rice planting converted into a daily 15-minute stretching routine and adapted posture toolkits.",
         "impact": "Adopted across 8 farming cooperatives in Solana and Iguig; reported 52% reduction in debilitating chronic lumbar pain incidents.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-015"
+        "status": "#UTIL-2025-015"
       },
       {
         "wing": "isap",
         "course": "criminology",
         "title": "Tactical Officer Stress Resilience & De-escalation Protocol",
         "dept": "ISAP College of Criminal Justice Education",
-        "partner": "Philippine National Police (PNP) Regional Training Center 2",
+        "partner": "PNP Regional Training Center 2",
         "summary": "Psychophysiological stress conditioning protocol reducing excessive force incidents through scenario-based mindfulness and tactical pause drills.",
         "impact": "Integrated into SWAT and patrol refresher coursework; 92% of trainees demonstrated sustained emotional control in simulated critical encounters.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-033"
-      },
-      {
-        "wing": "isap",
-        "course": "teacher-ed",
-        "title": "School Campus Physical Safety & Emergency Health Response Matrix",
-        "dept": "ISAP College of Teacher Education",
-        "partner": "DepEd Cagayan Division Health & Nutrition Section",
-        "summary": "Operational procedures equipping classroom teachers with immediate basic first-aid and heatstroke emergency intervention skills during sports activities.",
-        "impact": "Implemented across 20 public schools; zero heat-related hospitalization emergencies recorded during annual athletic meets.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-068"
+        "status": "#UTIL-2025-033"
       },
       {
         "wing": "isap",
         "course": "it",
         "title": "Ergonomic Computer Workstation Safety Guidelines & Screen-Time Interventions",
         "dept": "ISAP College of Information Technology",
-        "partner": "Regional BPO & IT Service Centers in Tuguegarao",
+        "partner": "Regional BPO & IT Service Centers",
         "summary": "Workplace health assessment of computer vision syndrome and repetitive strain injury translated into an automated break-reminder utility.",
         "impact": "Adopted by 3 regional IT service hubs; decreased employee carpal tunnel and eye strain complaints by 37%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-069"
+        "status": "#UTIL-2025-069"
       },
       {
         "wing": "isap",
-        "course": "customs",
-        "title": "Port Hazardous Chemical & Cargo Inspection Physical Safety Protocol",
-        "dept": "ISAP College of Customs Administration",
-        "partner": "Bureau of Customs Port of Aparri Enforcement & Security Service",
-        "summary": "Personal protective equipment (PPE) checklist and vapor detection standards for customs examiners inspecting containerized chemical cargo.",
-        "impact": "Eliminated occupational chemical inhalation exposure incidents during physical cargo examinations over 2 years of monitoring.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-070"
+        "course": "computer-eng",
+        "title": "IoT Indoor Air Quality & Temperature Regulation System for Data Centers",
+        "dept": "ISAP College of Information Technology and Engineering",
+        "partner": "Regional Telecom & Server Facility Operators",
+        "summary": "Smart sensor array continuously tracking particulate levels, temperature hot-spots, and humidity to safeguard critical network servers.",
+        "impact": "Prevented server overheating shutdowns by 100% and lowered data center HVAC cooling electricity bills by 22%.",
+        "status": "#UTIL-2025-125"
       },
       {
         "wing": "isap",
-        "course": "business",
-        "title": "Occupational Health & Ergonomic Standards for Retail and Hospitality Workers",
-        "dept": "ISAP College of Business & Accountancy",
-        "partner": "Department of Labor and Employment (DOLE) Region II & Hotel Association",
-        "summary": "Workplace ergonomic assessment of standing retail cashiers and hotel housekeeping personnel translated into a shift-rotation policy.",
-        "impact": "Adopted across 12 partner hotels and supermarkets; reduced musculoskeletal injury claims by 42%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-071"
+        "course": "bsed",
+        "title": "School Campus Physical Safety & Emergency Health Response Matrix",
+        "dept": "ISAP CASTE • Teacher Education (BSED)",
+        "partner": "DepEd Cagayan Division Health Section",
+        "summary": "Operational procedures equipping classroom teachers with immediate basic first-aid and heatstroke emergency intervention skills during sports activities.",
+        "impact": "Implemented across 20 public schools; zero heat-related hospitalization emergencies recorded during annual athletic meets.",
+        "status": "#UTIL-2025-068"
+      },
+      {
+        "wing": "isap",
+        "course": "bped",
+        "title": "Cardiorespiratory Aerobic Training & School Obesity Intervention Program",
+        "dept": "ISAP CASTE • Physical Education (BPED)",
+        "partner": "Tuguegarao City Schools Division PE Dept",
+        "summary": "12-week fun aerobics and high-interval jump rope curriculum targeted at sedentary adolescent elementary pupils.",
+        "impact": "Adopted in 10 public elementary schools; documented average 8% reductions in childhood BMI among enrolled students.",
+        "status": "#UTIL-2025-126"
+      },
+      {
+        "wing": "isap",
+        "course": "social-work",
+        "title": "Grassroots Child Protection & Domestic Abuse Trauma Intervention SOP",
+        "dept": "ISAP CASTE • Social Work (BSSW)",
+        "partner": "Municipal Social Welfare & PNP Women’s Desk",
+        "summary": "Trauma-informed interviewing and safe sanctuary transfer protocol for female and child domestic violence survivors.",
+        "impact": "Adopted across 6 municipal police women and children protection desks; sped temporary protection order filings by 60%.",
+        "status": "#UTIL-2025-127"
       },
       {
         "wing": "isap",
         "course": "psychology",
         "title": "Community Mental Health First Aid & Psychological Wellness Manual",
-        "dept": "ISAP College of Psychology & Social Work",
-        "partner": "Tuguegarao City Social Welfare and Development Office",
+        "dept": "ISAP CASTE • Psychology (BSPsych)",
+        "partner": "Tuguegarao City Social Welfare Office",
         "summary": "Standardized training curriculum enabling barangay health workers to recognize early signs of clinical depression and initiate timely psychiatric referrals.",
         "impact": "Trained 240 barangay health workers; increased timely medical evaluation of severe depressive cases by 53%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-072"
+        "status": "#UTIL-2025-072"
+      },
+      {
+        "wing": "isap",
+        "course": "tourism",
+        "title": "Tourist Travel Safety & Remote Destination Emergency Action Plan",
+        "dept": "ISAP Hospitality & Tourism (BSTM)",
+        "partner": "Cagayan Provincial Disaster Risk Council & DOT",
+        "summary": "Rapid evacuation and first-response manual for remote cave exploration, river rafting, and mountain trekking zones.",
+        "impact": "Adopted across 5 adventure tourism sites; zero fatal tourism accidents recorded over 24 months of implementation.",
+        "status": "#UTIL-2025-128"
+      },
+      {
+        "wing": "isap",
+        "course": "hospitality",
+        "title": "Ergonomic Kitchen Design & Occupational Safety Standards for Hotlines",
+        "dept": "ISAP Hospitality & Tourism (BSHM)",
+        "partner": "Commercial Restaurant Operators Association",
+        "summary": "Kitchen layout optimization guidelines reducing slip-and-fall hazards and repetitive wrist strain among line cooks.",
+        "impact": "Adopted by 15 commercial kitchens; reduced culinary burn and knife laceration worker compensation claims by 48%.",
+        "status": "#UTIL-2025-129"
+      },
+      {
+        "wing": "isap",
+        "course": "accountancy",
+        "title": "Financial Stress Management & Household Budgeting Matrix for Low-Income Workers",
+        "dept": "ISAP Accountancy (BSAC)",
+        "partner": "Community Cooperatives & Agrarian Workers",
+        "summary": "Personal finance planning guide helping wage earners manage high-interest loan debt and build emergency savings buffers.",
+        "impact": "Implemented across 8 employee cooperatives; lowered predatory 5-6 lending reliance among members by 62%.",
+        "status": "#UTIL-2025-130"
+      },
+      {
+        "wing": "isap",
+        "course": "customs",
+        "title": "Port Hazardous Chemical & Cargo Inspection Physical Safety Protocol",
+        "dept": "ISAP College of Customs Administration (BSCA)",
+        "partner": "Bureau of Customs Enforcement Security Service",
+        "summary": "Personal protective equipment (PPE) checklist and vapor detection standards for customs examiners inspecting containerized chemical cargo.",
+        "impact": "Eliminated occupational chemical inhalation exposure incidents during physical cargo examinations over 2 years of monitoring.",
+        "status": "#UTIL-2025-070"
+      },
+      {
+        "wing": "isap",
+        "course": "business",
+        "title": "Occupational Health & Ergonomic Standards for Retail and Hospitality Workers",
+        "dept": "ISAP Business Administration (BSBA)",
+        "partner": "DOLE Region II & Hotel Association",
+        "summary": "Workplace ergonomic assessment of standing retail cashiers and hotel housekeeping personnel translated into a shift-rotation policy.",
+        "impact": "Adopted across 12 partner hotels and supermarkets; reduced musculoskeletal injury claims by 42%.",
+        "status": "#UTIL-2025-071"
       }
     ]
   },
@@ -1200,110 +1514,170 @@
         "course": "nursing",
         "title": "Healthcare Waste Segregation & Bio-Contaminant Minimization Protocol",
         "dept": "MCNP College of Nursing",
-        "partner": "Cagayan Valley Medical Center Environmental Health Office",
+        "partner": "CVMC Environmental Health Office",
         "summary": "Standardized hospital color-coded waste minimization protocol reducing biomedical infectious waste volume through rigorous point-of-use sorting.",
         "impact": "Decreased hazardous infectious waste disposal expenses by 32% while meeting strict DENR hazardous waste management standards.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-073"
+        "status": "#UTIL-2025-073"
       },
       {
         "wing": "mcnp",
         "course": "radtech",
         "title": "Radiologic Chemical Fixer Recovery & Lead Shielding Recycling SOP",
         "dept": "MCNP College of Radiologic Technology",
-        "partner": "DENR-EMB Region II & Regional Diagnostic Centers",
+        "partner": "DENR-EMB Region II & Diagnostic Centers",
         "summary": "Environmentally sound disposal and silver recovery procedure for legacy analog radiograph chemicals and repurposed lead-lined shields.",
         "impact": "Eliminated heavy-metal runoff into municipal drainage systems across 8 diagnostic imaging clinics in Tuguegarao.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-074"
+        "status": "#UTIL-2025-074"
       },
       {
         "wing": "mcnp",
         "course": "mls",
         "title": "Solar-Assisted Greywater Recycling & Botanical Filtration",
         "dept": "MCNP College of Medical Laboratory Science",
-        "partner": "DENR-EMB Region II & LGU Tuguegarao City Environment Office",
+        "partner": "DENR-EMB Region II & Tuguegarao CENRO",
         "summary": "Engineering analysis of natural phytoremediation plants translated into a permanent campus botanical filtration bed for dormitory wastewater.",
         "impact": "Recycles 4,500 liters of greywater daily for landscape irrigation; reduced institutional fresh water consumption by 22%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-008"
+        "status": "#UTIL-2025-008"
       },
       {
         "wing": "mcnp",
         "course": "pharmacy",
         "title": "Green Phytochemical Extraction & Zero-Waste Herbal Processing Protocol",
         "dept": "MCNP College of Pharmacy",
-        "partner": "DOST Food Innovation Center & Cagayan Herbal Cooperatives",
+        "partner": "DOST Food Innovation Center & Herbal Coops",
         "summary": "Zero-waste solvent extraction procedure maximizing flavonoid yield while repurposing plant biomass into organic soil conditioning compost.",
         "impact": "Commercialized through local herbal cooperatives; reduced organic solvent chemical waste by 75%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-034"
+        "status": "#UTIL-2025-034"
       },
       {
         "wing": "mcnp",
         "course": "pt",
         "title": "Active Green Mobility & Low-Carbon Rehabilitation Exercise Campaign",
         "dept": "MCNP College of Physical Therapy",
-        "partner": "Tuguegarao City Health Office & Cycling Advocacies Network",
+        "partner": "Tuguegarao City Health Office & Cycling Clubs",
         "summary": "Community functional walking and cycling prescription matrix promoting physical cardiovascular conditioning and reduced motorized tricycle emissions.",
         "impact": "Adopted in 6 urban barangays; documented a 25% increase in daily active walking trips and corresponding drops in sedentary lifestyle markers.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-075"
+        "status": "#UTIL-2025-075"
       },
       {
         "wing": "isap",
         "course": "criminology",
         "title": "Climate-Resilient Riverbank Flood Contingency Blueprint",
         "dept": "ISAP Criminology & Disaster Studies",
-        "partner": "Office of Civil Defense (OCD) Region II & Cagayan PDRRMC",
+        "partner": "Office of Civil Defense (OCD) Region II & PDRRMC",
         "summary": "Geographic assessment of riverine surge vulnerability converted into a community-led early-warning evacuation timetable for Cagayan River communities.",
         "impact": "Adopted as Official Municipal Flood Evacuation Manual for 4 high-risk riparian barangays.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-012"
-      },
-      {
-        "wing": "isap",
-        "course": "teacher-ed",
-        "title": "Climate Literacy & Disaster Risk Reduction School Curriculum Guide",
-        "dept": "ISAP College of Teacher Education",
-        "partner": "DepEd Region II Curriculum and Learning Management Division",
-        "summary": "Localized instructional modules integrating Cagayan River climate history, flood safety, and tree planting into elementary science and social studies.",
-        "impact": "Integrated into 30 public schools; over 3,500 students completed hands-on environmental DRR community stewardship projects.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-076"
+        "status": "#UTIL-2025-012"
       },
       {
         "wing": "isap",
         "course": "it",
         "title": "IoT Flood Water Level Sensor & Early Warning SMS Broadcasting Network",
         "dept": "ISAP College of Information Technology",
-        "partner": "MDRRMO Enrile & Solana Municipal Disaster Councils",
+        "partner": "MDRRMO Enrile & Solana Disaster Councils",
         "summary": "Low-cost solar-powered ultrasonic river sensor network transmitting instantaneous flood level rise alerts via automated SMS blasts to village captains.",
         "impact": "Provided 4.5 hours of advanced evacuation warning time during severe typhoons; saved over 200 heads of livestock in riparian zones.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-077"
+        "status": "#UTIL-2025-077"
       },
       {
         "wing": "isap",
-        "course": "customs",
-        "title": "Green Customs & Hazardous Eco-Cargo Clearance Guide",
-        "dept": "ISAP College of Customs Administration",
-        "partner": "Bureau of Customs Environmental Protection Unit",
-        "summary": "Standard operating inspection protocol for intercepting illegal e-waste, ozone-depleting substances, and hazardous transboundary waste.",
-        "impact": "Designated as standard training handbook for regional border security inspection teams.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-035"
+        "course": "computer-eng",
+        "title": "Solar-Powered Automated River Gate Control & Telemetry System",
+        "dept": "ISAP College of Information Technology and Engineering",
+        "partner": "National Irrigation Administration (NIA) Region II",
+        "summary": "Autonomous sluice gate control system adjusting irrigation canal intake gates dynamically based on rainfall telemetry.",
+        "impact": "Protected 1,400 hectares of low-lying rice paddies from destructive backwater flooding during monsoon surges.",
+        "status": "#UTIL-2025-131"
       },
       {
         "wing": "isap",
-        "course": "business",
-        "title": "Sustainable Supply Chain & Zero-Plastic Packaging Roadmap for Local Retailers",
-        "dept": "ISAP College of Business & Accountancy",
-        "partner": "DTI Region II Green Business Project & Tuguegarao Merchants Council",
-        "summary": "Business framework assisting local food and souvenir merchants in transitioning from single-use plastics to biodegradable banana fiber packaging.",
-        "impact": "Adopted by 35 local micro-merchants; eliminated an estimated 4.2 tons of single-use plastic waste per year.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-078"
+        "course": "bsed",
+        "title": "Climate Literacy & Disaster Risk Reduction School Curriculum Guide",
+        "dept": "ISAP CASTE • Teacher Education (BSED)",
+        "partner": "DepEd Region II Curriculum Management Division",
+        "summary": "Localized instructional modules integrating Cagayan River climate history, flood safety, and tree planting into elementary science and social studies.",
+        "impact": "Integrated into 30 public schools; over 3,500 students completed hands-on environmental DRR community stewardship projects.",
+        "status": "#UTIL-2025-076"
+      },
+      {
+        "wing": "isap",
+        "course": "bped",
+        "title": "Eco-Trail Running & Green Outdoor Physical Education Framework",
+        "dept": "ISAP CASTE • Physical Education (BPED)",
+        "partner": "DENR Protected Area Superintendent & PE Dept",
+        "summary": "Outdoor endurance course combining trail jogging with student-led riverbank reforestation and clean-up activities.",
+        "impact": "Planted 2,400 native bamboo and narra seedlings along vulnerable Peñablanca riverbanks through physical education classes.",
+        "status": "#UTIL-2025-132"
+      },
+      {
+        "wing": "isap",
+        "course": "social-work",
+        "title": "Climate-Displaced Household Livelihood Adaptation & Recovery Toolkit",
+        "dept": "ISAP CASTE • Social Work (BSSW)",
+        "partner": "DSWD Disaster Response Management Division",
+        "summary": "Social rehabilitation matrix helping flood-prone riverine tenant farmers transition into climate-resilient alternative home crafts and duck farming.",
+        "impact": "Assisted 110 flood-vulnerable households; sustained family income stability during rainy season crop washouts.",
+        "status": "#UTIL-2025-133"
       },
       {
         "wing": "isap",
         "course": "psychology",
         "title": "Eco-Anxiety & Post-Disaster Psychological Resilience Program",
-        "dept": "ISAP College of Psychology & Social Work",
-        "partner": "DSWD Region II & Local Riverine Barangays",
+        "dept": "ISAP CASTE • Psychology (BSPsych)",
+        "partner": "DSWD Region II & Riverine Barangays",
         "summary": "Group therapeutic debriefing manual addressing chronic anxiety and trauma among flood-displaced farmers repeatedly surviving severe monsoon inundations.",
         "impact": "Conducted 45 community healing circles; 88% of participants demonstrated clinically significant decreases in post-typhoon stress symptoms.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-079"
+        "status": "#UTIL-2025-079"
+      },
+      {
+        "wing": "isap",
+        "course": "tourism",
+        "title": "Zero-Plastic Green Tourism Certification Standards for Riverine Resorts",
+        "dept": "ISAP Hospitality & Tourism (BSTM)",
+        "partner": "Cagayan Provincial Tourism Office & DENR",
+        "summary": "Eco-certification rubric evaluating water conservation, composting, and solar lighting in regional ecotourism resorts.",
+        "impact": "Certified 12 river resorts; eliminated single-use plastic water bottles across all participating destination sites.",
+        "status": "#UTIL-2025-134"
+      },
+      {
+        "wing": "isap",
+        "course": "hospitality",
+        "title": "Farm-to-Table Sustainable Food Sourcing Guidelines for Commercial Kitchens",
+        "dept": "ISAP Hospitality & Tourism (BSHM)",
+        "partner": "Department of Agriculture Region II & Hotels",
+        "summary": "Local sourcing framework connecting regional hotel restaurants directly with organic vegetable and free-range livestock producers.",
+        "impact": "Diverted PHP 2.4M in food procurement directly to local smallholders while reducing long-distance food transport carbon emissions by 40%.",
+        "status": "#UTIL-2025-135"
+      },
+      {
+        "wing": "isap",
+        "course": "accountancy",
+        "title": "Environmental Management Accounting & Carbon Footprint Ledger for Agribusiness",
+        "dept": "ISAP Accountancy (BSAC)",
+        "partner": "Board of Investments Region II & Agro-Processors",
+        "summary": "Cost-benefit framework tracking industrial water use, fuel consumption, and biomass waste utilization in commercial rice and corn processing mills.",
+        "impact": "Adopted by 6 milling enterprises; identified operational efficiencies reducing annual electricity costs by 18%.",
+        "status": "#UTIL-2025-136"
+      },
+      {
+        "wing": "isap",
+        "course": "customs",
+        "title": "Green Customs & Hazardous Eco-Cargo Clearance Guide",
+        "dept": "ISAP College of Customs Administration (BSCA)",
+        "partner": "Bureau of Customs Environmental Protection Unit",
+        "summary": "Standard operating inspection protocol for intercepting illegal e-waste, ozone-depleting substances, and hazardous transboundary waste.",
+        "impact": "Designated as standard training handbook for regional border security inspection teams.",
+        "status": "#UTIL-2025-035"
+      },
+      {
+        "wing": "isap",
+        "course": "business",
+        "title": "Sustainable Supply Chain & Zero-Plastic Packaging Roadmap for Local Retailers",
+        "dept": "ISAP Business Administration (BSBA)",
+        "partner": "DTI Green Business Project & Merchants Council",
+        "summary": "Business framework assisting local food and souvenir merchants in transitioning from single-use plastics to biodegradable banana fiber packaging.",
+        "impact": "Adopted by 35 local micro-merchants; eliminated an estimated 4.2 tons of single-use plastic waste per year.",
+        "status": "#UTIL-2025-078"
       }
     ]
   },
@@ -1328,7 +1702,7 @@
         "Barangay Council ordinances endorsing grassroots health and youth interventions",
         "DSWD Region II community empowerment partner training toolkits"
       ],
-      "beneficiaries": "Adopted Rural Barangays in Pe\u00f1ablanca & Solana, DSWD Field Office II, Indigenous Communities, Daycare Centers",
+      "beneficiaries": "Adopted Rural Barangays in Peñablanca & Solana, DSWD Field Office II, Indigenous Communities, Daycare Centers",
       "coreFormats": "Community Extension Curricula, Psychosocial Toolkits, Grassroots Nutritional Manuals"
     },
     "procedure": {
@@ -1342,41 +1716,41 @@
         "wing": "mcnp",
         "course": "nursing",
         "title": "Community-Based Maternal & Infant Nutritional Intervention Toolkit",
-        "dept": "MCNP Nursing & Allied Health",
-        "partner": "National Nutrition Council Region II & Municipal Health Office",
+        "dept": "MCNP College of Nursing",
+        "partner": "National Nutrition Council Region II & MHO",
         "summary": "Nutritional field study converted into indigenous recipe guides, infant feeding schedules, and weekly weight-monitoring cards for rural mothers.",
-        "impact": "Adopted across 6 adopted barangays in Pe\u00f1ablanca; reduced moderate-to-severe child stunting by 36% over 12 months.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-002"
+        "impact": "Adopted across 6 adopted barangays in Peñablanca; reduced moderate-to-severe child stunting by 36% over 12 months.",
+        "status": "#UTIL-2025-002"
       },
       {
         "wing": "mcnp",
         "course": "radtech",
         "title": "Mobile Radiography Tuberculosis Community Outreach Screening Protocol",
         "dept": "MCNP College of Radiologic Technology",
-        "partner": "DOH CHD2 National TB Control Program & Local Health Units",
+        "partner": "DOH CHD2 National TB Control Program",
         "summary": "Standardized field positioning and rapid triage protocol for mobile digital chest radiography vans serving geographically isolated mountain communities.",
         "impact": "Screened 2,800 indigenous Agta and rural residents; achieved a 98% diagnostic image quality rate in rugged field conditions.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-080"
+        "status": "#UTIL-2025-080"
       },
       {
         "wing": "mcnp",
         "course": "mls",
         "title": "Barangay Point-of-Care Anemia & Parasitology Field Testing SOP",
         "dept": "MCNP College of Medical Laboratory Science",
-        "partner": "Cagayan Provincial Health Office & Rural Health Centers",
+        "partner": "Cagayan Provincial Health Office & Rural Centers",
         "summary": "Microbiological and microhematocrit screening protocol operationalized for volunteer health workers in coastal and upland villages.",
         "impact": "Identified and treated iron-deficiency anemia in over 650 malnourished elementary school pupils across 8 rural school districts.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-081"
+        "status": "#UTIL-2025-081"
       },
       {
         "wing": "mcnp",
         "course": "pharmacy",
         "title": "Community Herbal Garden Establishment & Safe Preparation Manual",
         "dept": "MCNP College of Pharmacy",
-        "partner": "Barangay Nutrition Scholars & DOH Traditional Health Program",
+        "partner": "Barangay Nutrition Scholars & DOH PITAHC",
         "summary": "Cultivation and decoction preparation guide for DOH-approved medicinal plants (lagundi, sambong, akapulko) distributed to rural women's associations.",
         "impact": "Established 14 self-sustaining barangay medicinal gardens; reduced out-of-pocket costs for minor cough and skin ailments by 45%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-082"
+        "status": "#UTIL-2025-082"
       },
       {
         "wing": "mcnp",
@@ -1386,27 +1760,17 @@
         "partner": "Office of Senior Citizens Affairs (OSCA) Tuguegarao",
         "summary": "Evidence-based functional movement routines and home safety checklists designed for elderly community residents.",
         "impact": "Adopted in 14 barangay senior citizen associations; documented a 52% reduction in reported domestic fall injuries.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-037"
+        "status": "#UTIL-2025-037"
       },
       {
         "wing": "isap",
         "course": "criminology",
         "title": "Barangay Peacekeeping Action Team (BPAT) Mediation & Crime Prevention Guide",
         "dept": "ISAP College of Criminal Justice Education",
-        "partner": "DILG Cagayan Provincial Office & Tuguegarao City Police",
+        "partner": "DILG Cagayan & Tuguegarao City Police",
         "summary": "Community-oriented policing and conflict de-escalation manual training village tanods in neighborhood dispute settlement and human rights.",
         "impact": "Trained 320 barangay tanods; lowered petty neighborhood dispute escalations by 48% across 16 adopted barangays.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-083"
-      },
-      {
-        "wing": "isap",
-        "course": "teacher-ed",
-        "title": "Rural Indigenous Literacy & Community Learning Circles",
-        "dept": "ISAP College of Teacher Education",
-        "partner": "National Commission on Indigenous Peoples (NCIP) & DepEd IPED",
-        "summary": "Culturally responsive mother-tongue reading primers and storytelling kits designed for indigenous Agta communities in Cagayan.",
-        "impact": "Adopted across 5 IP learning centers; achieved 68% improvement in foundational bilingual literacy among early learners.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-036"
+        "status": "#UTIL-2025-083"
       },
       {
         "wing": "isap",
@@ -1416,37 +1780,107 @@
         "partner": "DICT Region II & Tuguegarao Senior Citizens Federation",
         "summary": "Hands-on smartphone literacy and phishing scam defense workshops teaching senior citizens how to safely navigate digital banking and social media.",
         "impact": "Trained 450 senior citizens; zero participants fell victim to reported phishing scams during the 6-month evaluation period.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-084"
+        "status": "#UTIL-2025-084"
       },
       {
         "wing": "isap",
-        "course": "customs",
-        "title": "Overseas Filipino Worker (OFW) Balikbayan Box Tax Exemption Community Guide",
-        "dept": "ISAP College of Customs Administration",
-        "partner": "Overseas Workers Welfare Administration (OWWA) Region II",
-        "summary": "Simplified infographic brochure and legal briefing explaining tax-free balikbayan box privileges and prohibited item regulations to OFW families.",
-        "impact": "Distributed to over 2,200 OFW households; eliminated customs clearance confusion and package detention incidents.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-085"
+        "course": "computer-eng",
+        "title": "Low-Cost Assistive Listening Devices & Classroom Sound Amplification Prototype",
+        "dept": "ISAP College of Information Technology and Engineering",
+        "partner": "DepEd Special Education (SPED) Centers",
+        "summary": "Rechargeable low-latency microphone and FM earphone set built for hearing-impaired public school students in rural classrooms.",
+        "impact": "Manufactured and deployed 35 headsets across 3 SPED centers; improved classroom lesson comprehension by 56%.",
+        "status": "#UTIL-2025-137"
       },
       {
         "wing": "isap",
-        "course": "business",
-        "title": "Rural Women Livelihood Cooperative Financial Bookkeeping Curriculum",
-        "dept": "ISAP College of Business & Accountancy",
-        "partner": "DTI Cagayan Provincial Office & Rural Weavers Cooperatives",
-        "summary": "Basic costing, pricing, and bookkeeping module developed for indigenous handloom weavers and cassava-processing rural women groups.",
-        "impact": "Assisted 6 women cooperatives in achieving formal SEC registration and increasing net monthly profit margins by 34%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-086"
+        "course": "bsed",
+        "title": "Rural Indigenous Literacy & Community Learning Circles",
+        "dept": "ISAP CASTE • Teacher Education (BSED)",
+        "partner": "NCIP Region II & DepEd IPED",
+        "summary": "Culturally responsive mother-tongue reading primers and storytelling kits designed for indigenous Agta communities in Cagayan.",
+        "impact": "Adopted across 5 IP learning centers; achieved 68% improvement in foundational bilingual literacy among early learners.",
+        "status": "#UTIL-2025-036"
+      },
+      {
+        "wing": "isap",
+        "course": "bped",
+        "title": "Adaptive Physical Education & Motor Skills Program for Children with Special Needs",
+        "dept": "ISAP CASTE • Physical Education (BPED)",
+        "partner": "Tuguegarao SPED Center & Parents Association",
+        "summary": "Specialized gross motor skill development games and adaptive sports activities designed for children with autism and cerebral palsy.",
+        "impact": "Enrolled 65 special needs children; documented measurable improvements in hand-eye coordination and peer socialization.",
+        "status": "#UTIL-2025-138"
+      },
+      {
+        "wing": "isap",
+        "course": "social-work",
+        "title": "Grassroots Livelihood Incubation & Micro-Credit Community Development Model",
+        "dept": "ISAP CASTE • Social Work (BSSW)",
+        "partner": "DSWD Sustainable Livelihood Program (SLP)",
+        "summary": "Participatory community development framework empowering rural women associations to launch cooperative banana chip and handicraft businesses.",
+        "impact": "Established 8 self-reliant community micro-enterprises; increased average participant household monthly earnings by 45%.",
+        "status": "#UTIL-2025-139"
       },
       {
         "wing": "isap",
         "course": "psychology",
         "title": "Grassroots Disaster Psychosocial First-Aid Toolkit",
-        "dept": "ISAP College of Psychology & Social Work",
-        "partner": "DSWD Field Office II & Municipal Social Welfare Development",
+        "dept": "ISAP CASTE • Psychology (BSPsych)",
+        "partner": "DSWD Field Office II & Municipal SWDO",
         "summary": "Psychological trauma assessment after super-typhoon disasters translated into a 3-stage peer emotional debriefing manual for community volunteers.",
         "impact": "Trained 180 barangay disaster leaders; served over 600 flood-displaced families with certified psychosocial support.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-017"
+        "status": "#UTIL-2025-017"
+      },
+      {
+        "wing": "isap",
+        "course": "tourism",
+        "title": "Indigenous Cultural Tourism Empowerment & Heritage Handicraft Value Chain",
+        "dept": "ISAP Hospitality & Tourism (BSTM)",
+        "partner": "Callao Caves Tourism Council & Tribal Leaders",
+        "summary": "Community-based tourism model assisting indigenous Agta bead and woven mat artisans to sell authentic crafts directly to museum and park visitors.",
+        "impact": "Eliminated middlemen; increased tribal artisan net take-home earnings per woven product by 70%.",
+        "status": "#UTIL-2025-140"
+      },
+      {
+        "wing": "isap",
+        "course": "hospitality",
+        "title": "Community Food Preservation & Safe Fermentation Livelihood Workshops",
+        "dept": "ISAP Hospitality & Tourism (BSHM)",
+        "partner": "DTI Cagayan Negosyo Center & Rural Women",
+        "summary": "Instructional training modules teaching rural farm mothers safe vinegar making, fruit jams, and vacuum-sealed food preservation.",
+        "impact": "Trained 140 rural women; enabled home food entrepreneurs to secure municipal sanitary permits and expand local markets.",
+        "status": "#UTIL-2025-141"
+      },
+      {
+        "wing": "isap",
+        "course": "accountancy",
+        "title": "Grassroots Financial Literacy & Micro-Savings Module for Rural Women",
+        "dept": "ISAP Accountancy (BSAC)",
+        "partner": "DSWD Pantawid Pamilya (4Ps) Regional Office",
+        "summary": "Basic budgeting and emergency savings module embedded into monthly Family Development Sessions for 4Ps conditional cash transfer beneficiaries.",
+        "impact": "Adopted across 18 barangay 4Ps clusters; increased participants maintaining active cooperative savings accounts by 58%.",
+        "status": "#UTIL-2025-142"
+      },
+      {
+        "wing": "isap",
+        "course": "customs",
+        "title": "Overseas Filipino Worker (OFW) Balikbayan Box Tax Exemption Community Guide",
+        "dept": "ISAP College of Customs Administration (BSCA)",
+        "partner": "OWWA Region II & OFW Family Circles",
+        "summary": "Simplified infographic brochure and legal briefing explaining tax-free balikbayan box privileges and prohibited item regulations to OFW families.",
+        "impact": "Distributed to over 2,200 OFW households; eliminated customs clearance confusion and package detention incidents.",
+        "status": "#UTIL-2025-085"
+      },
+      {
+        "wing": "isap",
+        "course": "business",
+        "title": "Rural Women Livelihood Cooperative Financial Bookkeeping Curriculum",
+        "dept": "ISAP Business Administration (BSBA)",
+        "partner": "DTI Cagayan & Rural Weavers Cooperatives",
+        "summary": "Basic costing, pricing, and bookkeeping module developed for indigenous handloom weavers and cassava-processing rural women groups.",
+        "impact": "Assisted 6 women cooperatives in achieving formal SEC registration and increasing net monthly profit margins by 34%.",
+        "status": "#UTIL-2025-086"
       }
     ]
   },
@@ -1485,111 +1919,171 @@
         "wing": "mcnp",
         "course": "nursing",
         "title": "Cross-Border Allied Health Clinical Apprenticeship Protocol",
-        "dept": "MCNP External Affairs & Nursing Directorate",
+        "dept": "MCNP College of Nursing",
         "partner": "Global Healthcare Education Alliance (Singapore & Japan)",
         "summary": "Comparative clinical competency study translated into a dual-accredited geriatric nursing pre-departure training curriculum.",
         "impact": "Facilitated placement of 34 MCNP graduates in high-skill international hospital apprenticeships under verified institutional MoA.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-018"
+        "status": "#UTIL-2025-018"
       },
       {
         "wing": "mcnp",
         "course": "radtech",
         "title": "International Teleradiology Quality Peer-Review Consortium",
         "dept": "MCNP College of Radiologic Technology",
-        "partner": "Asian Oceanian Society of Radiology (AOSR) Academic Network",
+        "partner": "Asian Oceanian Society of Radiology (AOSR)",
         "summary": "Multi-institutional quality assurance benchmark for diagnostic radiologic examinations and remote second opinions.",
         "impact": "Standardized cross-institutional peer-review for over 800 complex MRI/CT diagnostic reads.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-039"
+        "status": "#UTIL-2025-039"
       },
       {
         "wing": "mcnp",
         "course": "mls",
         "title": "Regional Laboratory Proficiency Testing & Inter-Hospital Exchange Network",
         "dept": "MCNP College of Medical Laboratory Science",
-        "partner": "Philippine Association of Medical Technologists (PAMET) Region II & RITM",
+        "partner": "PAMET Region II & RITM",
         "summary": "Standardized proficiency testing scheme exchanging blind serum samples among regional hospital diagnostic laboratories for quality validation.",
         "impact": "Enrolled 14 hospital laboratories; raised regional inter-laboratory diagnostic concordances from 81% to 98.7%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-087"
+        "status": "#UTIL-2025-087"
       },
       {
         "wing": "mcnp",
         "course": "pharmacy",
         "title": "Academic-Industrial Botanical Drug Discovery Partnership Model",
         "dept": "MCNP College of Pharmacy",
-        "partner": "Pascual Laboratories & Cagayan Valley Health Research Development Consortium",
+        "partner": "Pascual Laboratories & CVHRDC",
         "summary": "Collaborative research and material transfer agreement framework licensing university botanical bio-assays to pharmaceutical manufacturing laboratories.",
         "impact": "Secured 2 funded industry clinical development grants totaling PHP 1.8M for indigenous Cagayan bioactive compounds.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-088"
+        "status": "#UTIL-2025-088"
       },
       {
         "wing": "mcnp",
         "course": "pt",
         "title": "Cross-Institutional Sports Physical Therapy & Athlete Conditioning Alliance",
         "dept": "MCNP College of Physical Therapy",
-        "partner": "Philippine Sports Commission Region II & Regional Athletic Association",
+        "partner": "Philippine Sports Commission Region II",
         "summary": "Standardized pre-competition screening and acute sideline injury management protocols deployed during regional collegiate athletic competitions.",
         "impact": "Delivered sideline injury assessments for over 1,200 collegiate athletes, reducing tournament withdrawal rates due to cramps by 55%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-089"
+        "status": "#UTIL-2025-089"
       },
       {
         "wing": "isap",
         "course": "criminology",
         "title": "Inter-Agency Maritime & Riverine Counter-Smuggling Coordination Protocol",
         "dept": "ISAP College of Criminal Justice Education",
-        "partner": "Philippine Coast Guard Northern Luzon & PNP Maritime Group",
+        "partner": "Philippine Coast Guard Northern Luzon & PNP",
         "summary": "Joint operational procedure synchronizing intelligence sharing and patrol boat surveillance along the northern Cagayan river mouth and coastal waters.",
         "impact": "Adopted by Joint Task Force Aparri; led to a 38% increase in interdicted maritime timber and contraband transports.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-090"
-      },
-      {
-        "wing": "isap",
-        "course": "teacher-ed",
-        "title": "ASEAN Teacher Exchange & Cross-Cultural Pedagogical Framework",
-        "dept": "ISAP College of Teacher Education",
-        "partner": "Southeast Asian Ministers of Education Organization (SEAMEO)",
-        "summary": "Comparative curriculum mapping model enabling student teachers to undertake credit-bearing virtual internships in Thai and Indonesian basic schools.",
-        "impact": "Facilitated cross-cultural practicum certification for 28 ISAP education seniors with international teaching excellence awards.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-091"
+        "status": "#UTIL-2025-090"
       },
       {
         "wing": "isap",
         "course": "it",
         "title": "Regional Cross-Border Logistics API Integration Framework",
         "dept": "ISAP College of Information Technology",
-        "partner": "Subic-Clark-Cagayan Regional Logistics Consortium",
+        "partner": "Subic-Clark-Cagayan Logistics Consortium",
         "summary": "Standardized digital data exchange API linking regional freight trackers with customs declaration databases.",
         "impact": "Streamlined regional transit cargo documentation by 40% across Northern Luzon transport corridors.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-038"
+        "status": "#UTIL-2025-038"
       },
       {
         "wing": "isap",
-        "course": "customs",
-        "title": "ASEAN Single Window Tariff Clearance Benchmark Study & Guidelines",
-        "dept": "ISAP College of Customs Administration",
-        "partner": "Port Users Association of the Philippines & Subic Bay Metropolitan Authority",
-        "summary": "Comparative study evaluating digital documentation compliance under the ASEAN Single Window agreement for agro-industrial exports.",
-        "impact": "Adopted by 15 export shipping logistics firms; decreased clearance delays at northern international departure points by 35%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-092"
+        "course": "computer-eng",
+        "title": "Cross-University Robotics & IoT Automated Systems Research Consortium",
+        "dept": "ISAP College of Information Technology and Engineering",
+        "partner": "DOST Philippine Council for Industry, Energy and Emerging Technology",
+        "summary": "Joint academic research consortium linking provincial engineering laboratories with national prototyping testbeds for agricultural robotics.",
+        "impact": "Co-authored 3 international IEEE conference papers and won the National Agri-Robotics Innovation Trophy.",
+        "status": "#UTIL-2025-143"
       },
       {
         "wing": "isap",
-        "course": "business",
-        "title": "Micro-Enterprise Digital Bookkeeping & Agro-Tourism Protocols",
-        "dept": "ISAP College of Business & Hospitality Management",
-        "partner": "Department of Tourism (DOT) Region II & DTI Cagayan",
-        "summary": "Financial literacy study of rural farm-tourism sites converted into simplified POS record-keeping templates and tourism service quality standards.",
-        "impact": "Adopted by 22 certified agro-tourism destinations across Region II; increased average visitor dwell time and farm revenue by 28%.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-009"
+        "course": "bsed",
+        "title": "ASEAN Teacher Exchange & Cross-Cultural Pedagogical Framework",
+        "dept": "ISAP CASTE • Teacher Education (BSED)",
+        "partner": "SEAMEO & International Partner Schools",
+        "summary": "Comparative curriculum mapping model enabling student teachers to undertake credit-bearing virtual internships in Thai and Indonesian basic schools.",
+        "impact": "Facilitated cross-cultural practicum certification for 28 ISAP education seniors with international teaching excellence awards.",
+        "status": "#UTIL-2025-091"
+      },
+      {
+        "wing": "isap",
+        "course": "bped",
+        "title": "International Martial Arts & Sports Science Certification Protocol",
+        "dept": "ISAP CASTE • Physical Education (BPED)",
+        "partner": "Arnis Federation & Asian Sports Science Council",
+        "summary": "Standardized judging and biomechanical striking evaluation manual adopting World Arnis standards for regional tournament officiating.",
+        "impact": "Certified 45 regional sports referees; designated official officiating handbook for Northern Luzon Palaro games.",
+        "status": "#UTIL-2025-144"
+      },
+      {
+        "wing": "isap",
+        "course": "social-work",
+        "title": "Transnational Social Case Management Protocol for Repatriated Migrant Workers",
+        "dept": "ISAP CASTE • Social Work (BSSW)",
+        "partner": "Department of Migrant Workers (DMW) Region II",
+        "summary": "Multi-agency case intake and reintegration assessment protocol for distressed overseas domestic workers returning to Cagayan.",
+        "impact": "Delivered comprehensive psychosocial and livelihood reintegration case planning for over 220 repatriated workers.",
+        "status": "#UTIL-2025-145"
       },
       {
         "wing": "isap",
         "course": "psychology",
         "title": "International Migration & Left-Behind Family Psychosocial Support Network",
-        "dept": "ISAP College of Psychology & Social Work",
+        "dept": "ISAP CASTE • Psychology (BSPsych)",
         "partner": "International Organization for Migration (IOM) & OWWA",
         "summary": "Multilateral peer support system providing mental health resources and family coaching for dependents of overseas Filipino workers.",
         "impact": "Established 8 community family circles supporting 350 OFW dependent children; documented substantial gains in academic engagement.",
-        "status": "Certificate of Utilization Issued #UTIL-2025-093"
+        "status": "#UTIL-2025-093"
+      },
+      {
+        "wing": "isap",
+        "course": "tourism",
+        "title": "ASEAN Regional Eco-Tourism Benchmarking & Heritage Promotion Consortium",
+        "dept": "ISAP Hospitality & Tourism (BSTM)",
+        "partner": "ASEAN Tourism Association & DOT Region II",
+        "summary": "Cross-country ecotourism quality benchmarking assessing community benefits, safety infrastructure, and English tour interpretation standards.",
+        "impact": "Adopted across Northern Luzon tourism circuits; elevated international travel agency booking inquiries by 45%.",
+        "status": "#UTIL-2025-146"
+      },
+      {
+        "wing": "isap",
+        "course": "hospitality",
+        "title": "International Cruise Line & Global Resort Culinary Apprenticeship Standards",
+        "dept": "ISAP Hospitality & Tourism (BSHM)",
+        "partner": "International Hospitality Recruitment Alliances",
+        "summary": "Standardized kitchen apprenticeship training aligned with US Coast Guard sanitation and maritime food service regulations.",
+        "impact": "Placed 52 ISAP hospitality seniors in prestigious 5-star international hotel and luxury cruise line apprenticeships.",
+        "status": "#UTIL-2025-147"
+      },
+      {
+        "wing": "isap",
+        "course": "accountancy",
+        "title": "International Financial Reporting Standards (IFRS) SME Conversion Blueprint",
+        "dept": "ISAP Accountancy (BSAC)",
+        "partner": "ASEAN Federation of Accountants Academic Network",
+        "summary": "Practical transition guide helping medium-sized regional exporters align local bookkeeping with international accounting guidelines.",
+        "impact": "Adopted by 16 regional agro-industrial exporters; facilitated multimillion-peso bank trade credit approvals.",
+        "status": "#UTIL-2025-148"
+      },
+      {
+        "wing": "isap",
+        "course": "customs",
+        "title": "ASEAN Single Window Tariff Clearance Benchmark Study & Guidelines",
+        "dept": "ISAP College of Customs Administration (BSCA)",
+        "partner": "Port Users Association & Subic Bay Authority",
+        "summary": "Comparative study evaluating digital documentation compliance under the ASEAN Single Window agreement for agro-industrial exports.",
+        "impact": "Adopted by 15 export shipping logistics firms; decreased clearance delays at northern international departure points by 35%.",
+        "status": "#UTIL-2025-092"
+      },
+      {
+        "wing": "isap",
+        "course": "business",
+        "title": "Micro-Enterprise Digital Bookkeeping & Agro-Tourism Protocols",
+        "dept": "ISAP Business Administration (BSBA)",
+        "partner": "DOT Region II & DTI Cagayan",
+        "summary": "Financial literacy study of rural farm-tourism sites converted into simplified POS record-keeping templates and tourism service quality standards.",
+        "impact": "Adopted by 22 certified agro-tourism destinations across Region II; increased average visitor dwell time and farm revenue by 28%.",
+        "status": "#UTIL-2025-009"
       }
     ]
   },
@@ -1628,111 +2122,171 @@
         "wing": "mcnp",
         "course": "nursing",
         "title": "Clinical Simulation Competency & Board Mastery Index",
-        "dept": "MCNP College of Nursing & Allied Health",
-        "partner": "MCNP Clinical Simulation Center & Regional Board Review Council",
+        "dept": "MCNP College of Nursing",
+        "partner": "MCNP Clinical Simulation Center & PRC Council",
         "summary": "High-fidelity simulation clinical decision-making rubric predicting licensure examination weak points and targeted remediation.",
         "impact": "Boosted MCNP first-time taker Nursing Licensure Examination passing rate to 98.4% with two national board topnotchers.",
-        "status": "Institutional Policy Implemented #POL-2025-008"
+        "status": "#POL-2025-008"
       },
       {
         "wing": "mcnp",
         "course": "radtech",
         "title": "Radiologic Technology Board Exam Diagnostic Analytics & Mock Review System",
         "dept": "MCNP College of Radiologic Technology",
-        "partner": "Philippine Association of Radiologic Technologists (PART) Region II",
+        "partner": "PART Region II Academic Council",
         "summary": "Item-response theory testing software analyzing physics, radiation protection, and radiographic positioning test performance.",
         "impact": "Sustained MCNP's position as Top Performing Radiologic Technology School in the Philippines with a 97.2% overall passing rate.",
-        "status": "Institutional Policy Implemented #POL-2025-010"
+        "status": "#POL-2025-010"
       },
       {
         "wing": "mcnp",
         "course": "mls",
         "title": "Medical Technologist Licensure Competency Mapping & Remediation System",
         "dept": "MCNP College of Medical Laboratory Science",
-        "partner": "PRC Board of Medical Technology Regional Advisory Committee",
+        "partner": "PRC Board of Medical Technology Advisory Board",
         "summary": "Predictive diagnostic algorithm analyzing mock exam weak clusters in clinical microscopy and blood banking for intensive remediation.",
         "impact": "Elevated MCNP Medical Technologist board passing percentage to 96.8% with 100% first-time taker success in major clinical rotations.",
-        "status": "Institutional Policy Implemented #POL-2025-011"
+        "status": "#POL-2025-011"
       },
       {
         "wing": "mcnp",
         "course": "pharmacy",
         "title": "Pharmacy Licensure Mock Examination Mastery & Drug Math Diagnostic Module",
         "dept": "MCNP College of Pharmacy",
-        "partner": "Philippine Pharmacists Association (PPhA) Cagayan Valley Chapter",
+        "partner": "PPhA Cagayan Valley Chapter",
         "summary": "Structured pharmaceutical calculations and biopharmaceutics remedial drill matrix eliminating common math errors on licensure exams.",
         "impact": "Achieved a 94.6% first-time passing mark on the national Pharmacist Licensure Exam, exceeding national averages by 32%.",
-        "status": "Institutional Policy Implemented #POL-2025-012"
+        "status": "#POL-2025-012"
       },
       {
         "wing": "mcnp",
         "course": "pt",
         "title": "Physical Therapy Clinical Internship Objective Structured Assessment (OSCE)",
         "dept": "MCNP College of Physical Therapy",
-        "partner": "Philippine Physical Therapy Association (PPTA) Academic Council",
+        "partner": "PPTA Academic Council",
         "summary": "Multi-station objective structured clinical examination (OSCE) standardizing neuromuscular, cardiopulmonary, and pediatric clinical evaluation skills.",
         "impact": "Increased clinical preceptor satisfaction with MCNP interns to 98%; achieved 95% passing rate on national PT board examinations.",
-        "status": "Institutional Policy Implemented #POL-2025-013"
+        "status": "#POL-2025-013"
       },
       {
         "wing": "isap",
         "course": "criminology",
         "title": "Criminology Board Examination Diagnostic Mock & Mastery System",
         "dept": "ISAP College of Criminal Justice Education",
-        "partner": "ISAP Board Exam Readiness Center & Regional Criminology Council",
+        "partner": "ISAP Board Readiness Center & Regional Council",
         "summary": "Data-driven diagnostic testing matrix isolating substantive law and criminalistics performance trends for individualized mentoring.",
         "impact": "Produced consistent 90%+ institutional passing rates and continuous placement among Top Performing Criminology Schools in Region II.",
-        "status": "Institutional Policy Implemented #POL-2025-009"
-      },
-      {
-        "wing": "isap",
-        "course": "teacher-ed",
-        "title": "Board Licensure Examination for Professional Teachers (BLEPT) Diagnostic Model",
-        "dept": "ISAP College of Teacher Education",
-        "partner": "Professional Regulation Commission (PRC) Region II Advisory Board",
-        "summary": "Predictive analytics study identifying high-yield diagnostic question clusters translated into a mandatory 120-hour modular review curriculum.",
-        "impact": "Elevated institutional licensure examination passing rates across Elementary and Secondary education by 22.4%.",
-        "status": "Institutional Policy Implemented #POL-2025-001"
+        "status": "#POL-2025-009"
       },
       {
         "wing": "isap",
         "course": "it",
         "title": "IT Curriculum Outcome-Based Education (OBE) & Industry Certification Matrix",
         "dept": "ISAP College of Information Technology",
-        "partner": "Philippine Computer Society (PCS) & Regional Industry Tech Council",
+        "partner": "Philippine Computer Society (PCS) Academic Council",
         "summary": "Curriculum alignment model embedding industry cloud certifications and full-stack software development competencies into undergraduate coursework.",
         "impact": "94% of graduating seniors achieved international cloud developer micro-credentials prior to graduation.",
-        "status": "Institutional Policy Implemented #POL-2025-014"
+        "status": "#POL-2025-014"
       },
       {
         "wing": "isap",
-        "course": "customs",
-        "title": "Customs Broker Licensure Examination (CBLE) Intensive Tariff Simulation SOP",
-        "dept": "ISAP College of Customs Administration",
-        "partner": "PRC Board for Customs Brokers Regional Review Network",
-        "summary": "Intensive mock examination system simulating live customs cargo valuation, harmonized classification, and customs laws and regulations.",
-        "impact": "Produced 4 regional board topnotchers and boosted institutional passing rate to 88.5%, significantly above national passing trends.",
-        "status": "Institutional Policy Implemented #POL-2025-016"
+        "course": "computer-eng",
+        "title": "Computer Engineering Board Examination Readiness & Hardware Laboratory Mastery",
+        "dept": "ISAP College of Information Technology and Engineering",
+        "partner": "Institute of Computer Engineers of the Philippines (ICpEP)",
+        "summary": "Comprehensive diagnostic testing modules evaluating microelectronics, computer systems architecture, and discrete mathematics.",
+        "impact": "Boosted institutional engineering licensure simulation pass rates to 89.5% with high regional rankings.",
+        "status": "#POL-2025-021"
       },
       {
         "wing": "isap",
-        "course": "business",
-        "title": "Certified Public Accountant (CPA) Licensure Integrated Review & Analytics Framework",
-        "dept": "ISAP College of Business & Accountancy",
-        "partner": "Philippine Institute of Certified Public Accountants (PICPA) Cagayan",
-        "summary": "Intensive modular auditing and taxation review syllabus featuring real-time diagnostic testing to address conceptual weak spots.",
-        "impact": "Achieved double the national average passing rate in the May and October CPA licensure examinations for institutional candidates.",
-        "status": "Institutional Policy Implemented #POL-2025-017"
+        "course": "bsed",
+        "title": "Board Licensure Examination for Professional Teachers (BLEPT) Diagnostic Model",
+        "dept": "ISAP CASTE • Teacher Education (BSED)",
+        "partner": "PRC Region II Advisory Board",
+        "summary": "Predictive analytics study identifying high-yield diagnostic question clusters translated into a mandatory 120-hour modular review curriculum.",
+        "impact": "Elevated institutional licensure examination passing rates across Elementary and Secondary education by 22.4%.",
+        "status": "#POL-2025-001"
+      },
+      {
+        "wing": "isap",
+        "course": "bped",
+        "title": "Physical Education Teacher Licensure & Sports Pedagogy Competency Rubrics",
+        "dept": "ISAP CASTE • Physical Education (BPED)",
+        "partner": "PRC Board for Professional Teachers Council",
+        "summary": "Standardized movement analysis and sports teaching simulation rubrics evaluating pedagogical readiness for secondary physical education.",
+        "impact": "Achieved a 93.5% first-time passing mark on the BLEPT for BPED majors, significantly surpassing national norms.",
+        "status": "#POL-2025-022"
+      },
+      {
+        "wing": "isap",
+        "course": "social-work",
+        "title": "Social Work Licensure Examination (SWLE) Intensive Case Remediation Syllabus",
+        "dept": "ISAP CASTE • Social Work (BSSW)",
+        "partner": "PRC Board for Social Workers Regional Network",
+        "summary": "Intensive diagnostic mock testing analyzing human behavior, social welfare policies, and community casework scenarios.",
+        "impact": "Produced a 91.2% passing rate in the national SWLE with continuous placement among top-ranked Northern Luzon social work programs.",
+        "status": "#POL-2025-023"
       },
       {
         "wing": "isap",
         "course": "psychology",
         "title": "Psychometrician Licensure Examination (BLEP) Intensive Review Framework",
-        "dept": "ISAP College of Psychology & Social Work",
-        "partner": "Psychological Association of the Philippines (PAP) Academic Chapter",
+        "dept": "ISAP CASTE • Psychology (BSPsych)",
+        "partner": "Psychological Association of the Philippines (PAP)",
         "summary": "Curriculum-aligned item bank focusing on psychological assessment, abnormal psychology, and industrial counseling theories.",
         "impact": "Graduates achieved a 92.8% first-time passing percentage on the Psychometrician Licensure Examination with top institutional rankings.",
-        "status": "Institutional Policy Implemented #POL-2025-018"
+        "status": "#POL-2025-018"
+      },
+      {
+        "wing": "isap",
+        "course": "tourism",
+        "title": "Tourism Management Program CHED Quality Standards & Outcome Assessment SOP",
+        "dept": "ISAP Hospitality & Tourism (BSTM)",
+        "partner": "CHED Regional Quality Assessment Team (RQAT)",
+        "summary": "Continuous quality improvement framework aligning tourism internships and airline ticketing simulations with international standards.",
+        "impact": "Achieved Level III Accredited Status from PACUCOA with highest commendations for industry immersion.",
+        "status": "#POL-2025-024"
+      },
+      {
+        "wing": "isap",
+        "course": "hospitality",
+        "title": "Hospitality Industry Certification & TESDA Assessment Center Model",
+        "dept": "ISAP Hospitality & Tourism (BSHM)",
+        "partner": "TESDA Provincial Training Center & Tourism Council",
+        "summary": "Integrated skills curriculum guaranteeing 100% NC II competency assessment certifications (Cookery, Bread & Pastry, Food & Beverage) before graduation.",
+        "impact": "100% of graduating hospitality seniors certified with national TESDA National Certificates prior to collegiate commencement.",
+        "status": "#POL-2025-025"
+      },
+      {
+        "wing": "isap",
+        "course": "accountancy",
+        "title": "Certified Public Accountant (CPA) Licensure Integrated Review & Analytics Framework",
+        "dept": "ISAP Accountancy (BSAC)",
+        "partner": "PICPA Cagayan & PRC Board of Accountancy",
+        "summary": "Intensive modular auditing and taxation review syllabus featuring real-time diagnostic testing to address conceptual weak spots.",
+        "impact": "Achieved double the national average passing rate in the May and October CPA licensure examinations for institutional candidates.",
+        "status": "#POL-2025-017"
+      },
+      {
+        "wing": "isap",
+        "course": "customs",
+        "title": "Customs Broker Licensure Examination (CBLE) Intensive Tariff Simulation SOP",
+        "dept": "ISAP College of Customs Administration (BSCA)",
+        "partner": "PRC Board for Customs Brokers Regional Review",
+        "summary": "Intensive mock examination system simulating live customs cargo valuation, harmonized classification, and customs laws and regulations.",
+        "impact": "Produced 4 regional board topnotchers and boosted institutional passing rate to 88.5%, significantly above national passing trends.",
+        "status": "#POL-2025-016"
+      },
+      {
+        "wing": "isap",
+        "course": "business",
+        "title": "Business Administration Capstone Innovation & Entrepreneurial Incubation Framework",
+        "dept": "ISAP Business Administration (BSBA)",
+        "partner": "Philippine Association of Collegiate Schools of Business",
+        "summary": "Outcome-based commercial feasibility framework converting senior capstone research into operational business enterprises.",
+        "impact": "Incubated 18 student-led registered startups generating active regional commercial revenue.",
+        "status": "#POL-2025-026"
       }
     ]
   }
@@ -1848,7 +2402,7 @@
           badge.style.color = '#0b3c5d';
         }
         if (title) title.textContent = 'ISAP Multidisciplinary INNOVATES Utilization';
-        if (desc) desc.innerHTML = 'Explore ISAP research utilization across Criminology, Teacher Education, IT, Customs, Business, and Psychology. Every innovation icon has certified studies for all courses.';
+        if (desc) desc.innerHTML = 'Explore ISAP research utilization across all 12 programs: Criminology, IT, Computer Engineering, Education (BSED & BPED), Social Work, Psychology, Tourism, Hospitality, Accountancy, Customs, and Business Administration. Every innovation icon has certified studies for all courses.';
         try { history.replaceState(null, null, '#isap'); } catch(e){}
       } else {
         if (btnMcnp) btnMcnp.classList.add('active-mcnp');
@@ -1900,7 +2454,7 @@
             </button>
             <button type="button" class="agenda-tab-btn" id="utilTabBtnStudies" onclick="switchUtilizationTab('studies')" role="tab" aria-selected="false">
               <span>🔬 Studies</span>
-              <span class="agenda-tab-badge" id="utilBadgeCount">11</span>
+              <span class="agenda-tab-badge" id="utilBadgeCount">17</span>
             </button>
           </div>
 
@@ -1916,10 +2470,10 @@
                   🏥 MCNP Courses (5)
                 </button>
                 <button type="button" id="modalWingTabIsap" onclick="switchModalWing('isap')" style="padding: 0.25rem 0.65rem; border: none; border-radius: 6px; font-size: 0.78rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease;">
-                  🏛️ ISAP Courses (6)
+                  🏛️ ISAP Courses (12)
                 </button>
                 <button type="button" id="modalWingTabAll" onclick="switchModalWing('all')" style="padding: 0.25rem 0.65rem; border: none; border-radius: 6px; font-size: 0.78rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease;">
-                  🌐 All (11)
+                  🌐 All (17)
                 </button>
               </div>
             </div>
@@ -2002,12 +2556,12 @@
           list.push({ id: c.id, label: c.label, icon: c.icon, color: 'var(--mcnp-green)' });
         });
       } else if (currentModalWing === 'isap') {
-        list.push({ id: 'all', label: 'All ISAP Courses (6)', icon: '🏛️', color: 'var(--isap-blue)' });
+        list.push({ id: 'all', label: 'All ISAP Courses (12)', icon: '🏛️', color: 'var(--isap-blue)' });
         isapCourses.slice(1).forEach(function(c) {
           list.push({ id: c.id, label: c.label, icon: c.icon, color: 'var(--isap-blue)' });
         });
       } else {
-        list.push({ id: 'all', label: 'All 11 Courses', icon: '🌐', color: 'var(--maroon)' });
+        list.push({ id: 'all', label: 'All 17 Courses', icon: '🌐', color: 'var(--maroon)' });
         mcnpCourses.slice(1).forEach(function(c) {
           list.push({ id: c.id, label: 'MCNP: ' + c.label, icon: c.icon, color: 'var(--mcnp-green)' });
         });
