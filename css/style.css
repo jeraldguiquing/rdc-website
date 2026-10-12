@@ -500,6 +500,19 @@ body.nav-open {
   overflow: hidden;
 }
 
+body.nav-open::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(2px);
+  z-index: 998;
+  pointer-events: auto;
+}
+
 /* ==========================================================================
    HERO SECTION
    ========================================================================== */
@@ -5058,6 +5071,10 @@ textarea.form-control {
   
   .nav-item.open .dropdown-menu {
     display: block;
+  }
+  
+  .nav-item.open > .nav-link .arrow {
+    transform: rotate(180deg);
   }
   
   .metrics-grid {

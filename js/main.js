@@ -68,8 +68,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navMenu.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
-        if (window.innerWidth > 860 || !link.closest('.dropdown > .nav-link')) closeMobileNav();
+        if (window.innerWidth <= 960) {
+          // If this link is not a dropdown header toggle, close the mobile drawer
+          if (!link.classList.contains('nav-link') || !link.closest('.nav-item.dropdown')) {
+            closeMobileNav();
+          }
+        }
       });
+    });
+
+    // Close mobile nav when clicking outside on backdrop or document
+    document.addEventListener('click', (event) => {
+      if (
+        navMenu.classList.contains('active') &&
+        !navMenu.contains(event.target) &&
+        !mobileToggle.contains(event.target)
+      ) {
+        closeMobileNav();
+      }
     });
 
     document.addEventListener('keydown', (event) => {
@@ -80,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 860) closeMobileNav();
+      if (window.innerWidth > 960) closeMobileNav();
     });
   }
 
@@ -93,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.setAttribute('aria-expanded', 'false');
       link.addEventListener('click', (e) => {
         // If on small screens, toggle dropdown open/close
-        if (window.innerWidth <= 860) {
+        if (window.innerWidth <= 960) {
           e.preventDefault();
           item.classList.toggle('open');
           link.setAttribute('aria-expanded', item.classList.contains('open'));
