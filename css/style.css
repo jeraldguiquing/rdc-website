@@ -5989,6 +5989,23 @@ textarea.form-control {
   }
 }
 
+/* Justified typography for About Institution and RDC layouts */
+.about-layout-grid > div:first-child p,
+.about-layout-grid > div:first-child ol > li,
+.about-layout-grid > div:first-child ul:not(.about-nav-tabs) > li {
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
+}
+
+.inst-banner p,
+.inst-feature-item span,
+.institutions-grid .inst-card p {
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
+}
+
 .about-nav-tabs {
   display: flex;
   flex-wrap: wrap;
