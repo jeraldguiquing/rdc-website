@@ -3,6 +3,8 @@
  * JavaScript Core Interactivity
  */
 
+const MOBILE_NAV_BREAKPOINT = 1100;
+
 // Keep inline toast actions available on pages that use onclick handlers.
 window.showToast = function (message, type = 'success') {
   const colors = {
@@ -45,17 +47,35 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Mobile Menu Navigation Toggle
   const mobileToggle = document.querySelector('.mobile-toggle');
   const navMenu = document.querySelector('.nav-menu');
+  const mainHeader = document.querySelector('.main-header');
+
+  const updateMobileNavPosition = () => {
+    if (mainHeader) {
+      document.documentElement.style.setProperty(
+        '--main-header-height',
+        `${mainHeader.getBoundingClientRect().height}px`
+      );
+    }
+  };
+
+  updateMobileNavPosition();
 
   if (mobileToggle && navMenu) {
     navMenu.id ||= 'primary-navigation';
     mobileToggle.setAttribute('aria-controls', navMenu.id);
     mobileToggle.setAttribute('aria-expanded', 'false');
+    mobileToggle.setAttribute('aria-label', 'Open navigation');
 
     const closeMobileNav = () => {
       navMenu.classList.remove('active');
       document.body.classList.remove('nav-open');
       mobileToggle.setAttribute('aria-expanded', 'false');
+      mobileToggle.setAttribute('aria-label', 'Open navigation');
       mobileToggle.innerHTML = '&#9776;';
+      navMenu.querySelectorAll('.nav-item.dropdown.open').forEach((item) => {
+        item.classList.remove('open');
+        item.querySelector('.nav-link')?.setAttribute('aria-expanded', 'false');
+      });
     };
 
     mobileToggle.addEventListener('click', () => {
@@ -63,12 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const isExpanded = navMenu.classList.contains('active');
       document.body.classList.toggle('nav-open', isExpanded);
       mobileToggle.setAttribute('aria-expanded', isExpanded);
+      mobileToggle.setAttribute('aria-label', isExpanded ? 'Close navigation' : 'Open navigation');
       mobileToggle.innerHTML = isExpanded ? '&#10005;' : '&#9776;';
     });
 
     navMenu.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
-        if (window.innerWidth <= 960) {
+        if (window.innerWidth <= MOBILE_NAV_BREAKPOINT) {
           // If this link is not a dropdown header toggle, close the mobile drawer
           if (!link.classList.contains('nav-link') || !link.closest('.nav-item.dropdown')) {
             closeMobileNav();
@@ -96,8 +117,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 960) closeMobileNav();
+      updateMobileNavPosition();
+      if (window.innerWidth > MOBILE_NAV_BREAKPOINT) closeMobileNav();
     });
+  } else {
+    window.addEventListener('resize', updateMobileNavPosition);
   }
 
   // 2. Mobile Dropdown Toggle (Accordeon on small screens)
@@ -109,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.setAttribute('aria-expanded', 'false');
       link.addEventListener('click', (e) => {
         // If on small screens, toggle dropdown open/close
-        if (window.innerWidth <= 960) {
+        if (window.innerWidth <= MOBILE_NAV_BREAKPOINT) {
           e.preventDefault();
           item.classList.toggle('open');
           link.setAttribute('aria-expanded', item.classList.contains('open'));

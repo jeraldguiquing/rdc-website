@@ -503,6 +503,10 @@
               <a href="experience.html" class="nav-link">EXPERIENCE</a>
             </li>
 
+            <li class="nav-item">
+              <a href="resources.html" class="nav-link">RESOURCES</a>
+            </li>
+
             <li class="nav-item dropdown">
               <a href="news-events.html" class="nav-link">
                 NEWS &amp; EVENTS <span class="arrow">&#9662;</span>
@@ -939,6 +943,9 @@
               <button type="submit" class="btn btn-gold" style="padding: 0.85rem 3rem; font-weight: 700; font-size: 1rem; width: 100%; max-width: 380px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);">
                 <i class="fas fa-paper-plane"></i> Send Inquiry
               </button>
+              <p style="margin: 0.85rem auto 0; max-width: 480px; color: #64748b; font-size: 0.85rem;">
+                This opens your email app with the inquiry filled in. Review the message and press Send to deliver it to the RDC Secretariat.
+              </p>
             </div>
           </form>
         </div>
@@ -1115,27 +1122,6 @@
     </div>
   </main>
 
-  <!-- Inquiry Confirmation Modal -->
-  <div id="srSuccessModal" class="sr-modal-overlay">
-    <div class="sr-modal">
-      <div class="sr-modal-icon"><i class="fas fa-check"></i></div>
-      <h3 style="font-size: 1.45rem; color: var(--dark-text); margin-bottom: 0.5rem;">Inquiry Sent Successfully!</h3>
-      <p style="color: #64748b; font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem;">
-        Your inquiry has been received by the RDC Secretariat. Your reference tracking number is <strong id="srModalTicketCode" style="color: var(--mcnp-green); font-size: 1.05rem;">#RDC-INQ-2026-0000</strong>.
-      </p>
-      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.1rem; text-align: left; font-size: 0.86rem; color: #334155; margin-bottom: 1.5rem;">
-        <p style="margin-bottom: 0.4rem;"><strong>Inquirer Name:</strong> <span id="srModalClientName"></span></p>
-        <p style="margin-bottom: 0.4rem;"><strong>Inquiry Category:</strong> <span id="srModalService"></span></p>
-        <p style="margin-bottom: 0.4rem;"><strong>Subject:</strong> <span id="srModalTitle"></span></p>
-        <p style="margin-bottom: 0;"><strong>Estimated Response:</strong> <span id="srModalTurnaround" style="color: #059669; font-weight: 700;">Within 24–48 Hours</span></p>
-      </div>
-      <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 1.5rem;">
-        An acknowledgment has been logged. The designated desk officer will reach out directly to your provided contact email.
-      </p>
-      <button type="button" class="btn btn-gold" style="width: 100%; font-weight: 700;" onclick="closeSrModal()">Done &amp; Close</button>
-    </div>
-  </div>
-
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
@@ -1208,24 +1194,26 @@
   <script>
     function handleInquirySubmit(e) {
       e.preventDefault();
-      var name = document.getElementById('inqName').value;
+      var name = document.getElementById('inqName').value.trim();
+      var email = document.getElementById('inqEmail').value.trim();
+      var phone = document.getElementById('inqPhone').value.trim();
       var topic = document.getElementById('inqTopic').value;
-      var subject = document.getElementById('inqSubject').value;
-      var ticketNum = Math.floor(1000 + Math.random() * 9000);
+      var subject = document.getElementById('inqSubject').value.trim();
+      var message = document.getElementById('inqMessage').value.trim();
+      var emailSubject = '[RDC Inquiry] ' + subject;
+      var emailBody = [
+        'Name: ' + name,
+        'Email: ' + email,
+        'Contact number: ' + (phone || 'Not provided'),
+        'Inquiry topic: ' + topic,
+        '',
+        'Message:',
+        message
+      ].join('\n');
+      var mailtoUrl = 'mailto:researchoffice@mcnp.edu.ph?subject=' +
+        encodeURIComponent(emailSubject) + '&body=' + encodeURIComponent(emailBody);
 
-      document.getElementById('srModalTicketCode').textContent = '#RDC-INQ-2026-' + ticketNum;
-      document.getElementById('srModalClientName').textContent = name;
-      document.getElementById('srModalService').textContent = topic;
-      document.getElementById('srModalTitle').textContent = subject;
-      document.getElementById('srModalTurnaround').textContent = 'Within 24–48 Hours';
-
-      document.getElementById('srSuccessModal').classList.add('open');
-    }
-
-    function closeSrModal() {
-      document.getElementById('srSuccessModal').classList.remove('open');
-      var form = document.getElementById('onlineInquiryForm');
-      if (form) form.reset();
+      window.location.href = mailtoUrl;
     }
 
     function openCardModal(imgSrc, name) {
