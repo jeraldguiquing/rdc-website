@@ -736,6 +736,34 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Article Modal Card */
+    .article-modal-card {
+      max-width: 960px !important;
+      width: 95%;
+      border-radius: 12px;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      max-height: 92vh;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+    .article-modal-body-scroll {
+      overflow-y: auto;
+      flex: 1;
+      -webkit-overflow-scrolling: touch;
+      background: #ffffff;
+    }
+    .article-modal-body-scroll .article-content-body {
+      padding: 1.75rem 2.25rem 2.5rem;
+    }
+    .article-modal-body-scroll .article-narrative-p,
+    .article-modal-body-scroll p {
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
     .event-modal-head {
       position: relative;
       background: linear-gradient(135deg, #0b3c5d, #0d5c3a);
@@ -1642,11 +1670,11 @@
 
           <div id="articlesGrid" style="margin-bottom: 2.5rem;" aria-label="Published research articles">
           <article class="article-accordion-card" id="article-37th-statistics-month-celebration">
-          <!-- Clickable Header: ONLY THE TITLE & METADATA (Click to show whole article) -->
-          <div class="article-accordion-header" onclick="toggleArticleAccordion('article-37th-statistics-month-celebration')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleArticleAccordion('article-37th-statistics-month-celebration');}" aria-expanded="false" id="header-article-37th-statistics-month-celebration">
+          <!-- Clickable Header: CARD PREVIEW (Click to open full article modal or expand inline) -->
+          <div class="article-accordion-header" onclick="openArticleModal();" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openArticleModal();}" aria-expanded="false" id="header-article-37th-statistics-month-celebration" style="cursor: pointer;">
             <div class="article-title-wrap">
               <div class="article-accordion-meta">
-                <span class="badge-editorial-type">📰 ARTICLE</span>
+                <span class="badge-editorial-type">📰 OFFICIAL ARTICLE</span>
                 <span class="badge-editorial-topic">📊 37th National Statistics Month</span>
                 <span class="article-meta-date" style="font-size: 0.8rem; color: #64748b; font-weight: 600;">🗓️ October 05, 2026</span>
                 <span style="font-size: 0.8rem; color: #64748b; font-weight: 600;">&bull; ⏱️ 4 min read</span>
@@ -1654,10 +1682,29 @@
               <h3 class="article-accordion-title">
                 📊 MCNP–ISAP Advances Statistical Literacy through Month-Long 37th Statistics Month Celebration
               </h3>
+              <p style="font-size: 0.88rem; color: #475569; margin: 0.5rem 0 0.45rem; line-height: 1.55; text-align: justify; text-justify: inter-word;">
+                The Medical Colleges of Northern Philippines (MCNP) and the International School of Asia and the Pacific (ISAP) brought statistics beyond the classroom through a month-long celebration engaging all 17 academic departments in webinars, quiz bees, poster competitions, and infographic data interpretation.
+              </p>
+              <div style="display: flex; gap: 0.5rem; align-items: center; margin-top: 0.45rem; flex-wrap: wrap;">
+                <span style="font-size: 0.72rem; font-weight: 700; color: #64748b; text-transform: uppercase;">Aligned SDGs:</span>
+                <a href="sdg-overview.html?goal=4" class="article-sdg-icon-link" title="SDG 4: Quality Education" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="width: 24px; height: 24px;">
+                  <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png" alt="SDG 4" class="article-sdg-icon-img" loading="lazy">
+                </a>
+                <a href="sdg-overview.html?goal=9" class="article-sdg-icon-link" title="SDG 9: Industry, Innovation and Infrastructure" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="width: 24px; height: 24px;">
+                  <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9" class="article-sdg-icon-img" loading="lazy">
+                </a>
+                <a href="sdg-overview.html?goal=17" class="article-sdg-icon-link" title="SDG 17: Partnerships for the Goals" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="width: 24px; height: 24px;">
+                  <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.png" alt="SDG 17" class="article-sdg-icon-img" loading="lazy">
+                </a>
+              </div>
             </div>
-            <div class="article-expand-toggle" id="toggleBtn-article-37th-statistics-month-celebration">
-              <span class="toggle-text">Read Full Article</span>
-              <span class="toggle-icon">&#9662;</span>
+            <div style="display: flex; flex-direction: column; gap: 0.45rem; align-items: flex-end; flex-shrink: 0;">
+              <button type="button" class="article-expand-toggle" onclick="event.stopPropagation(); openArticleModal();" style="cursor: pointer; border: none;" title="Open article card modal">
+                <span class="toggle-text">📖 Read Full Article Card ↗</span>
+              </button>
+              <button type="button" class="btn btn-sm btn-outline-white" onclick="event.stopPropagation(); toggleArticleAccordion('article-37th-statistics-month-celebration');" style="font-size: 0.74rem; padding: 0.25rem 0.65rem; color: #475569; border-color: #cbd5e1;" title="Expand article inline on page">
+                <span>▾ Expand on Page</span>
+              </button>
             </div>
           </div>
 
@@ -1674,7 +1721,7 @@
               </div>
               <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
                 <div class="article-sdg-strip">
-                  <span class="article-sdg-label">Aligned Goals:</span>
+                  <span class="article-sdg-label">SDG Alignment:</span>
                   <a href="sdg-overview.html?goal=4" class="article-sdg-icon-link" title="SDG 4: Quality Education" target="_blank" rel="noopener" onclick="event.stopPropagation();">
                     <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png" alt="SDG 4: Quality Education" class="article-sdg-icon-img" loading="lazy">
                   </a>
@@ -3460,6 +3507,67 @@
     </div>
   </div>
 
+  <!-- Article Detail Modal Card (Displays the whole article upon clicking) -->
+  <div class="event-modal-overlay" id="articleModalOverlay" role="dialog" aria-modal="true" aria-labelledby="articleModalTitle">
+    <div class="event-modal article-modal-card">
+      <div class="event-modal-head" style="background: linear-gradient(135deg, #0d5c3a 0%, #0b3c5d 100%); padding: 1.75rem 2rem 1.5rem; flex-shrink: 0;">
+        <button class="event-modal-close" id="articleModalClose" aria-label="Close article modal">&times;</button>
+        <div class="event-modal-breadcrumb" style="color: rgba(255,255,255,0.8); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem;">
+          News &amp; Events &gt; Articles &amp; Editorials &gt; 37th Statistics Month
+        </div>
+        <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.6rem; flex-wrap: wrap;">
+          <span style="background: #ffdf70; color: #1e3a2f; font-weight: 800; font-size: 0.72rem; padding: 0.22rem 0.65rem; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.03em;">📰 OFFICIAL ARTICLE</span>
+          <span style="color: rgba(255,255,255,0.92); font-size: 0.82rem; font-weight: 600;">🗓️ October 05, 2026</span>
+          <span style="color: rgba(255,255,255,0.75); font-size: 0.82rem;">&bull; ⏱️ 4 min read</span>
+        </div>
+        <h2 class="event-modal-title" id="articleModalTitle" style="color: #ffffff; font-size: 1.35rem; line-height: 1.4; margin: 0; font-weight: 800;">
+          📊 MCNP–ISAP Advances Statistical Literacy through Month-Long 37th Statistics Month Celebration
+        </h2>
+      </div>
+
+      <!-- Quick Action / SDG Strip inside Modal -->
+      <div style="background: #f1f5f9; padding: 0.75rem 2rem; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; flex-shrink: 0;">
+        <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+          <span style="font-size: 0.76rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.04em;">Aligned SDGs:</span>
+          <a href="sdg-overview.html?goal=4" target="_blank" rel="noopener" title="SDG 4: Quality Education" class="article-sdg-icon-link" style="width: 28px; height: 28px;">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png" alt="SDG 4: Quality Education" class="article-sdg-icon-img" loading="lazy">
+          </a>
+          <a href="sdg-overview.html?goal=9" target="_blank" rel="noopener" title="SDG 9: Industry, Innovation and Infrastructure" class="article-sdg-icon-link" style="width: 28px; height: 28px;">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9: Industry, Innovation and Infrastructure" class="article-sdg-icon-img" loading="lazy">
+          </a>
+          <a href="sdg-overview.html?goal=17" target="_blank" rel="noopener" title="SDG 17: Partnerships for the Goals" class="article-sdg-icon-link" style="width: 28px; height: 28px;">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.png" alt="SDG 17: Partnerships for the Goals" class="article-sdg-icon-img" loading="lazy">
+          </a>
+        </div>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <button type="button" class="btn btn-sm btn-outline-white" onclick="if(window.copyArticleLink){window.copyArticleLink('article-37th-statistics-month-celebration', this);}" style="font-size: 0.78rem; padding: 0.25rem 0.65rem; color: #334155; border-color: #cbd5e1; background: #fff;" title="Copy shareable link">
+            🔗 Copy Link
+          </button>
+          <button type="button" onclick="window.print()" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; padding: 0.25rem 0.65rem; color: #334155; border-color: #cbd5e1; background: #fff;" title="Print this article">
+            🖨️ Print
+          </button>
+        </div>
+      </div>
+
+      <!-- Scrollable Modal Body (Contains the whole article) -->
+      <div class="article-modal-body-scroll" id="articleModalScrollBody">
+        <div id="articleModalContent">
+          <!-- Populated dynamically with the complete article content -->
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="event-modal-actions-bar" style="border-top: 1px solid #e2e8f0; background: #f8fafc; padding: 0.85rem 1.75rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; flex-shrink: 0;">
+        <div style="font-size: 0.82rem; color: #64748b;">
+          Published by <strong>Research &amp; Development Center (RDC)</strong> &bull; Medical Colleges of Northern Philippines &amp; International School of Asia and the Pacific
+        </div>
+        <button type="button" class="btn btn-sm btn-gold" onclick="closeArticleModal();" style="font-size: 0.82rem; font-weight: 700; padding: 0.45rem 1.25rem;">
+          Close Article ✕
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script>
   (function () {
     // Official UN SDG colors
@@ -3801,12 +3909,60 @@
       document.body.style.overflow = '';
     }
 
+    // Article Modal handlers
+    var articleOverlay = document.getElementById('articleModalOverlay');
+    var articleCloseBtn = document.getElementById('articleModalClose');
+
+    function openArticleModal() {
+      if (!articleOverlay) articleOverlay = document.getElementById('articleModalOverlay');
+      var src = document.getElementById('body-article-37th-statistics-month-celebration');
+      var dest = document.getElementById('articleModalContent');
+      if (src && dest && !dest.children.length) {
+        dest.innerHTML = src.innerHTML;
+        // In modal view, hide the inline accordion collapse button
+        var inlineFooter = dest.querySelector('.article-editorial-footer');
+        if (inlineFooter) {
+          inlineFooter.style.display = 'none';
+        }
+      }
+      if (articleOverlay) {
+        articleOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        articleOverlay.scrollTop = 0;
+        var scrollBody = document.getElementById('articleModalScrollBody');
+        if (scrollBody) scrollBody.scrollTop = 0;
+      }
+    }
+
+    function closeArticleModal() {
+      if (!articleOverlay) articleOverlay = document.getElementById('articleModalOverlay');
+      if (articleOverlay) {
+        articleOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    window.openArticleModal = openArticleModal;
+    window.closeArticleModal = closeArticleModal;
+
+    if (articleCloseBtn) {
+      articleCloseBtn.addEventListener('click', closeArticleModal);
+    }
+    if (articleOverlay) {
+      articleOverlay.addEventListener('click', function (e) {
+        if (e.target === articleOverlay) closeArticleModal();
+      });
+    }
+
     closeBtn.addEventListener('click', closeModal);
     overlay.addEventListener('click', function (e) {
       if (e.target === overlay) closeModal();
     });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+      if (e.key === 'Escape') {
+        if (overlay && overlay.classList.contains('open')) closeModal();
+        if (articleOverlay && articleOverlay.classList.contains('open')) closeArticleModal();
+      }
       if (overlay.classList.contains('open')) {
         var curr = parseInt(overlay.dataset.currentIndex || '0', 10);
         if (e.key === 'ArrowLeft' && curr > 0) openModal(curr - 1);
@@ -4063,7 +4219,19 @@
     function handleInitialHash() {
       var urlParams = new URLSearchParams(window.location.search);
       var eventParam = urlParams.get('event');
+      var articleParam = urlParams.get('article');
       var hashVal = window.location.hash ? window.location.hash.substring(1) : '';
+
+      if (articleParam === 'article-37th-statistics-month-celebration' || hashVal === 'article-37th-statistics-month-celebration') {
+        if (window.switchContentView) window.switchContentView('articles', false);
+        setTimeout(function () {
+          if (typeof window.openArticleModal === 'function') {
+            window.openArticleModal();
+          }
+        }, 350);
+        return;
+      }
+
       var targetCardId = eventParam || (hashVal && hashVal.startsWith('event-') ? hashVal : null);
 
       if (targetCardId) {
@@ -4071,9 +4239,6 @@
         if (targetCard) {
           var isArt = targetCard.closest('#articlesGrid') || targetCard.dataset.contentType === 'article';
           if (window.switchContentView) window.switchContentView(isArt ? 'articles' : 'events', false);
-          if (targetCardId === 'article-37th-statistics-month-celebration' && window.toggleArticleAccordion) {
-            window.toggleArticleAccordion('article-37th-statistics-month-celebration', true);
-          }
         }
         setTimeout(function () {
           if (typeof window.openEventModalById === 'function') {
