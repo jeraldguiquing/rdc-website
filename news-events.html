@@ -371,7 +371,7 @@
     .article-sdg-strip {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.45rem;
       flex-wrap: wrap;
     }
     .article-sdg-label {
@@ -379,6 +379,30 @@
       font-weight: 700;
       color: #64748b;
       margin-right: 0.2rem;
+    }
+    .article-sdg-icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      background: #f1f5f9;
+      text-decoration: none;
+      vertical-align: middle;
+    }
+    .article-sdg-icon-link:hover {
+      transform: translateY(-2px) scale(1.14);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .article-sdg-icon-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .article-sdg-badge {
       font-size: 0.72rem;
@@ -1651,9 +1675,15 @@
               <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
                 <div class="article-sdg-strip">
                   <span class="article-sdg-label">Aligned Goals:</span>
-                  <span class="article-sdg-badge badge-sdg4">SDG 4</span>
-                  <span class="article-sdg-badge badge-sdg9">SDG 9</span>
-                  <span class="article-sdg-badge badge-sdg17">SDG 17</span>
+                  <a href="sdg-overview.html?goal=4" class="article-sdg-icon-link" title="SDG 4: Quality Education" target="_blank" rel="noopener" onclick="event.stopPropagation();">
+                    <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png" alt="SDG 4: Quality Education" class="article-sdg-icon-img" loading="lazy">
+                  </a>
+                  <a href="sdg-overview.html?goal=9" class="article-sdg-icon-link" title="SDG 9: Industry, Innovation and Infrastructure" target="_blank" rel="noopener" onclick="event.stopPropagation();">
+                    <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9: Industry, Innovation and Infrastructure" class="article-sdg-icon-img" loading="lazy">
+                  </a>
+                  <a href="sdg-overview.html?goal=17" class="article-sdg-icon-link" title="SDG 17: Partnerships for the Goals" target="_blank" rel="noopener" onclick="event.stopPropagation();">
+                    <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.png" alt="SDG 17: Partnerships for the Goals" class="article-sdg-icon-img" loading="lazy">
+                  </a>
                 </div>
                 <button type="button" class="btn-article-copy" onclick="event.stopPropagation(); if(window.copyArticleLink){window.copyArticleLink('article-37th-statistics-month-celebration', this);}" title="Share this article">
                   <span>🔗 Share</span>
