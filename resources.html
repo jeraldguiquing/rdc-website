@@ -3,17 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Research Resources &amp; Downloads | MCNP &amp; ISAP RDC</title>
-  <meta name="description" content="Official research manuals, IERC ethics review application forms, statistical clinic requests, and publication toolkits for MCNP and ISAP researchers.">
+  <title>Research Resources &amp; Documentation Archive | MCNP &amp; ISAP RDC</title>
+  <meta name="description" content="Click any title to view photo documentation, video documentaries, and institutional forms for MCNP and ISAP.">
   <link rel="icon" type="image/png" href="assets/rdc-logo.png">
   <link rel="apple-touch-icon" href="assets/rdc-logo.png">
-
-  <!-- Open Graph / Social Cards -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Research Resources &amp; Downloads | MCNP &amp; ISAP RDC">
-  <meta property="og:description" content="Access official research manuals, institutional ethics templates, statistical clinic forms, and grant proposal toolkits.">
-  <meta property="og:image" content="assets/rdc-logo.png">
-  <meta property="og:site_name" content="MCNP &amp; ISAP RDC">
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,104 +15,336 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    .resources-hero {
+    :root { --accent-theme: #0f172a; }
+    .res-portal-hero {
       background: linear-gradient(135deg, #0b2545 0%, #1e5ea8 55%, #0d3b73 100%);
       color: #ffffff;
       padding: 3.5rem 0 4rem;
       position: relative;
       overflow: hidden;
     }
-    .resources-hero::after {
+    .res-portal-hero::after {
       content: '';
       position: absolute;
       inset: 0;
       background: radial-gradient(circle at 80% 20%, rgba(255,223,112,0.18) 0%, transparent 60%);
       pointer-events: none;
     }
-    .resources-hero h1 {
+    .res-portal-hero h1 {
       font-size: clamp(2rem, 4vw, 3.2rem);
       font-weight: 800;
       letter-spacing: -0.02em;
-      margin: 0.5rem 0 1rem;
+      margin: 0.5rem 0 0.8rem;
       color: #ffffff;
     }
-    .resources-hero p {
-      font-size: 1.1rem;
+    .res-portal-hero p {
+      font-size: 1.08rem;
       max-width: 780px;
       line-height: 1.7;
       color: #e2e8f0;
       margin: 0;
     }
-
-    .resources-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+    
+    /* Documentation Title Accordion Styles */
+    .doc-filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+      justify-content: center;
     }
-    .resource-card {
+    .doc-filter-btn {
+      padding: 0.55rem 1.25rem;
+      border-radius: 25px;
+      border: 1px solid #cbd5e1;
       background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1.75rem;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      color: #334155;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .doc-filter-btn:hover, .doc-filter-btn.active {
+      background: #0f172a;
+      color: #ffffff;
+      border-color: #0f172a;
+    }
+
+    .doc-accordion-container {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .resource-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-      border-color: #cbd5e1;
-    }
-    .resource-card-header {
-      display: flex;
-      align-items: flex-start;
       gap: 1rem;
-      margin-bottom: 1rem;
+      max-width: 1040px;
+      margin: 0 auto 3.5rem;
     }
-    .resource-icon-box {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
+
+    .doc-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.25s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .doc-item:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+    .doc-item.open {
+      border-color: var(--accent-theme, #1e5ea8);
+      box-shadow: 0 8px 24px rgba(30,94,168,0.12);
+    }
+
+    /* ONLY TITLE IS VISIBLE INITIALLY */
+    .doc-title-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      background: #ffffff;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s ease;
+      gap: 1rem;
+    }
+    .doc-title-trigger:hover {
+      background: #f8fafc;
+    }
+    .doc-item.open .doc-title-trigger {
+      background: #f1f5f9;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .doc-title-left {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex-grow: 1;
+      min-width: 0;
+    }
+    .doc-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.35rem;
+      font-size: 1.15rem;
       flex-shrink: 0;
     }
     .icon-mcnp { background: rgba(30, 94, 168, 0.12); color: #1e5ea8; }
     .icon-isap { background: rgba(122, 31, 45, 0.12); color: #7a1f2d; }
-    .icon-gold { background: rgba(212, 175, 55, 0.2); color: #b89726; }
-    .icon-green { background: rgba(13, 92, 58, 0.12); color: #0d5c3a; }
+    .icon-video { background: rgba(225, 29, 72, 0.12); color: #e11d48; }
+    .icon-form { background: rgba(13, 92, 58, 0.12); color: #0d5c3a; }
 
-    .resource-card h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
+    .doc-title-heading {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
       color: #0f172a;
-      margin: 0.2rem 0 0.4rem;
+      letter-spacing: 0.01em;
+      margin: 0;
       line-height: 1.3;
     }
-    .resource-card p {
-      font-size: 0.9rem;
+    .doc-title-meta {
+      font-size: 0.8rem;
       color: #64748b;
-      line-height: 1.6;
-      margin-bottom: 1.25rem;
+      margin-top: 0.15rem;
+      font-weight: 500;
     }
-    .resource-footer {
+
+    .doc-title-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+    .doc-count-pill {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      background: #e2e8f0;
+      color: #334155;
+    }
+    .doc-toggle-arrow {
+      font-size: 1rem;
+      color: #64748b;
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+    .doc-item.open .doc-toggle-arrow {
+      transform: rotate(180deg);
+      color: var(--accent-theme, #1e5ea8);
+    }
+
+    /* COLLAPSIBLE MEDIA BODY */
+    .doc-media-body {
+      display: none;
+      padding: 1.75rem;
+      background: #fafcff;
+      animation: fadeInDoc 0.25s ease-in;
+    }
+    .doc-item.open .doc-media-body {
+      display: block;
+    }
+
+    @keyframes fadeInDoc {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .doc-desc {
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+      max-width: 820px;
+    }
+
+    .doc-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+    .doc-gallery-thumb {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .doc-gallery-thumb:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+    .doc-gallery-thumb img {
+      width: 100%;
+      height: 165px;
+      object-fit: cover;
+      display: block;
+    }
+    .doc-gallery-thumb .thumb-zoom-icon {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .doc-gallery-thumb:hover .thumb-zoom-icon {
+      opacity: 1;
+    }
+
+    .doc-video-card {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      max-width: 820px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      margin-top: 1rem;
+    }
+    .doc-video-card video {
+      width: 100%;
+      max-height: 460px;
+      display: block;
+    }
+
+    .doc-forms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    .doc-form-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-top: 1rem;
-      border-top: 1px solid #f1f5f9;
-      gap: 0.75rem;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: inherit;
     }
-    .resource-meta {
-      font-size: 0.78rem;
-      color: #94a3b8;
-      font-weight: 500;
+    .doc-form-item:hover {
+      border-color: #0f172a;
+      background: #f8fafc;
+      transform: translateY(-2px);
     }
+    .doc-form-left {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    /* Lightbox Modal */
+    .doc-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: rgba(15, 23, 42, 0.94);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .doc-lightbox.active {
+      display: flex;
+    }
+    .doc-lightbox-img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      object-fit: contain;
+    }
+    .doc-lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      background: rgba(255,255,255,0.15);
+      color: #ffffff;
+      border: none;
+      font-size: 1.75rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+    .doc-lightbox-close:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    .doc-lightbox-caption {
+      position: absolute;
+      bottom: 1.5rem;
+      color: #e2e8f0;
+      font-size: 0.95rem;
+      text-align: center;
+      max-width: 80%;
+      background: rgba(0,0,0,0.6);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+    }
+
   </style>
 </head>
 <body>
@@ -305,15 +530,15 @@
   </header>
 
   <!-- Page Hero -->
-  <section class="resources-hero">
+  <section class="res-portal-hero">
     <div class="container">
       <div class="breadcrumbs" style="color: #cbd5e1; margin-bottom: 1.25rem;">
         <a href="index.html" style="color: #ffdf70;">Home</a> &gt; <span>Resources</span>
       </div>
-      <span class="section-tag" style="background: rgba(255,255,255,0.12); color: #ffdf70; border-color: rgba(255,223,112,0.3);">RESEARCH TOOLKIT</span>
-      <h1>Research Resources &amp; Downloads</h1>
+      <span class="section-tag" style="background: rgba(255,255,255,0.12); color: #ffdf70; border-color: rgba(255,223,112,0.3);">MEDIA &amp; DOCUMENTATION ARCHIVE</span>
+      <h1>Research Resources &amp; Documentation</h1>
       <p>
-        Official institutional research guidelines, IERC ethics review application forms, statistical clinic request toolkits, thesis templates, and external grant packaging resources across MCNP &amp; ISAP.
+        Official photographic documentation, video accomplishment reports, and institutional research forms for the Medical Colleges of Northern Philippines and International School of Asia and the Pacific. Click any title to open the media.
       </p>
     </div>
   </section>
@@ -322,283 +547,739 @@
   <main class="section">
     <div class="container">
 
-      <!-- Institutional Portals Selector -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3.5rem;">
-        <div style="background: linear-gradient(135deg, rgba(30, 94, 168, 0.08) 0%, rgba(30, 94, 168, 0.02) 100%); border: 2px solid rgba(30, 94, 168, 0.25); border-radius: 14px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem;">
-              <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 48px; height: 48px; object-fit: contain;">
-              <div>
-                <span class="dropdown-badge badge-mcnp">MCNP HEALTH SCIENCES</span>
-                <h3 style="margin: 0.2rem 0 0; color: #0f172a; font-size: 1.3rem;">MCNP Resources</h3>
-              </div>
-            </div>
-            <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
-              Clinical protocols, hospital affiliation clearances, lab equipment booking, biosafety review forms, and DOST-CVHRDC health grant packets.
-            </p>
-          </div>
-          <a href="resources-mcnp.html" class="btn btn-primary" style="background: #1e5ea8; border-color: #1e5ea8; justify-content: center; font-weight: 700;">
-            <span>Explore MCNP Toolkits &rarr;</span>
-          </a>
-        </div>
-
-        <div style="background: linear-gradient(135deg, rgba(122, 31, 45, 0.08) 0%, rgba(122, 31, 45, 0.02) 100%); border: 2px solid rgba(122, 31, 45, 0.25); border-radius: 14px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem;">
-              <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 48px; height: 48px; object-fit: contain;">
-              <div>
-                <span class="dropdown-badge badge-isap">ISAP MULTIDISCIPLINARY</span>
-                <h3 style="margin: 0.2rem 0 0; color: #0f172a; font-size: 1.3rem;">ISAP Resources</h3>
-              </div>
-            </div>
-            <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
-              Criminology field investigation clearances, IT computing capstone specifications, social ethics protocols, and business grant toolkits.
-            </p>
-          </div>
-          <a href="resources-isap.html" class="btn btn-primary" style="background: #7a1f2d; border-color: #7a1f2d; justify-content: center; font-weight: 700;">
-            <span>Explore ISAP Toolkits &rarr;</span>
-          </a>
-        </div>
-      </div>
-      
-      <!-- Section: Research Manuals & Institutional Policies -->
-      <div style="margin-bottom: 3rem;">
-        <div class="section-header" style="text-align: left; margin-bottom: 1.25rem;">
-          <span class="section-tag">Institutional Manuals</span>
-          <h2>Policy Guidelines &amp; Manuals</h2>
-          <p style="color: #64748b;">Comprehensive governance frameworks for research conduct, ethics compliance, and scholarly incentives.</p>
-        </div>
-
-        <div class="resources-grid">
-          <div class="resource-card">
-            <div>
-              <div class="resource-card-header">
-                <div class="resource-icon-box icon-green">
-                  <i class="fa-solid fa-book-bookmark"></i>
-                </div>
-                <div>
-                  <span class="dropdown-badge badge-admin">AY 2026–2027</span>
-                  <h3>Unified Research Manual</h3>
-                </div>
-              </div>
-              <p>
-                Complete institutional handbook covering research administration, faculty deloading guidelines, publication incentives, and intellectual property.
-              </p>
-            </div>
-            <div class="resource-footer">
-              <span class="resource-meta">PDF &bull; Official RDC Copy</span>
-              <a href="contact.html" class="btn btn-sm btn-outline">Request Copy &rarr;</a>
-            </div>
-          </div>
-
-          <div class="resource-card">
-            <div>
-              <div class="resource-card-header">
-                <div class="resource-icon-box icon-mcnp">
-                  <i class="fa-solid fa-shield-heart"></i>
-                </div>
-                <div>
-                  <span class="dropdown-badge badge-mcnp">PHREB Level 1</span>
-                  <h3>IERC Ethics Guidelines &amp; SOP</h3>
-                </div>
-              </div>
-              <p>
-                Standard Operating Procedures of the Institutional Ethics Review Committee for clinical, human subjects, and biosafety protocols.
-              </p>
-            </div>
-            <div class="resource-footer">
-              <span class="resource-meta">PDF &bull; PHREB Compliant</span>
-              <a href="contact.html" class="btn btn-sm btn-outline">View SOP &rarr;</a>
-            </div>
-          </div>
-
-          <div class="resource-card">
-            <div>
-              <div class="resource-card-header">
-                <div class="resource-icon-box icon-isap">
-                  <i class="fa-solid fa-scale-balanced"></i>
-                </div>
-                <div>
-                  <span class="dropdown-badge badge-isap">IPR Policy</span>
-                  <h3>Intellectual Property Code</h3>
-                </div>
-              </div>
-              <p>
-                Guidelines on patent filings, utility models, copyrights, and technology commercialization support for faculty and student innovators.
-              </p>
-            </div>
-            <div class="resource-footer">
-              <span class="resource-meta">PDF &bull; IPOPHL Aligned</span>
-              <a href="contact.html" class="btn btn-sm btn-outline">View Code &rarr;</a>
-            </div>
-          </div>
-        </div>
+      <!-- Institutional Quick Filter -->
+      <div class="doc-filter-bar">
+        <button class="doc-filter-btn active" data-filter="all">All Documentation</button>
+        <button class="doc-filter-btn" data-filter="mcnp">MCNP Health Sciences</button>
+        <button class="doc-filter-btn" data-filter="isap">ISAP Multidisciplinary</button>
+        <button class="doc-filter-btn" data-filter="video">Video Documentaries</button>
       </div>
 
-      <!-- Section: Research Ethics & IERC Review Forms -->
-      <div style="margin-bottom: 3rem;">
-        <div class="section-header" style="text-align: left; margin-bottom: 1.25rem;">
-          <span class="section-tag">IERC Ethics Toolkit</span>
-          <h2>Ethics Clearance Application Forms</h2>
-          <p style="color: #64748b;">Download official protocol review forms for initial submission, informed consent, and continuing review.</p>
-        </div>
-
-        <div class="resources-grid">
-          <div class="resource-card">
-            <div>
-              <div class="resource-card-header">
-                <div class="resource-icon-box icon-mcnp">
-                  <i class="fa-solid fa-file-lines"></i>
-                </div>
+      <!-- ACCORDION LIST: ONLY TITLES VISIBLE INITIALLY -->
+      <div class="doc-accordion-container">
+        
+          <div class="doc-item" id="uni-item-1" data-category="mcnp">
+            <button class="doc-title-trigger" type="button" aria-expanded="false">
+              <div class="doc-title-left">
+                <div class="doc-icon icon-mcnp"><i class="fa-solid fa-pills"></i></div>
                 <div>
-                  <span class="dropdown-badge badge-mcnp">Form 001</span>
-                  <h3>Initial Protocol Review Application</h3>
+                  <h3 class="doc-title-heading">MCNP: Pharmacy Research Proposal Defense Documentation</h3>
+                  <div class="doc-title-meta">MCNP Department of Pharmacy • Clinical & Experimental Inquiries</div>
                 </div>
               </div>
-              <p>
-                Required intake form for all undergraduate, graduate, and faculty studies involving human participants or sensitive data.
-              </p>
-            </div>
-            <div class="resource-footer">
-              <span class="resource-meta">DOCX &bull; 145 KB</span>
-              <a href="contact.html" class="btn btn-sm btn-primary">Download Form</a>
-            </div>
-          </div>
-
-          <div class="resource-card">
-            <div>
-              <div class="resource-card-header">
-                <div class="resource-icon-box icon-gold">
-                  <i class="fa-solid fa-signature"></i>
-                </div>
-                <div>
-                  <span class="dropdown-badge badge-admin">Form 002</span>
-                  <h3>Informed Consent Template</h3>
-                </div>
+              <div class="doc-title-right">
+                <span class="doc-count-pill">11 Photos</span>
+                <span class="doc-toggle-arrow"><i class="fa-solid fa-chevron-down"></i></span>
               </div>
-              <p>
-                Standardized informed consent and assent templates available with vernacular translation guides in Ilokano and Ibanag.
-              </p>
-            </div>
-            <div class="resource-footer">
-              <span class="resource-meta">DOCX &bull; 98 KB</span>
-              <a href="contact.html" class="btn btn-sm btn-primary">Download Template</a>
-            </div>
-          </div>
-
-          <div class="resource-card">
-            <div>
-              <div class="resource-card-header">
-                <div class="resource-icon-box icon-isap">
-                  <i class="fa-solid fa-clipboard-check"></i>
-                </div>
-                <div>
-                  <span class="dropdown-badge badge-isap">Form 004</span>
-                  <h3>Protocol Amendment &amp; Progress Form</h3>
-                </div>
-              </div>
-              <p>
-                For reporting protocol modifications, adverse events, or submitting annual continuing review reports for ongoing projects.
-              </p>
-            </div>
-            <div class="resource-footer">
-              <span class="resource-meta">DOCX &bull; 112 KB</span>
-              <a href="contact.html" class="btn btn-sm btn-primary">Download Form</a>
-            </div>
-          </div>
-        </div>
+            </button>
+            <div class="doc-media-body">
+              <p class="doc-desc">Official photo documentation of student and faculty oral research proposal defenses under the Department of Pharmacy, evaluating drug formulation, pharmacognosy, and clinical toxicology protocols.</p>
+              <div class="doc-gallery-grid">
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Pharmacy%20proposal%20Defense/att.7D7gynFcrOSO8bVjDmyk5eZPEy9tqTV4c4wd1RkD8xw.jpg" alt="MCNP Pharmacy Defense - Documentation Photo 1" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
-
-      <!-- Section: Research Services & Manuscript Toolkits -->
-      <div style="margin-bottom: 3rem;">
-        <div class="section-header" style="text-align: left; margin-bottom: 1.25rem;">
-          <span class="section-tag">Scholarly Toolkits</span>
-          <h2>Statistical Support &amp; Publication Kits</h2>
-          <p style="color: #64748b;">Toolkits to support statistical modeling, originality checks, and manuscript submission to peer-reviewed journals.</p>
-        </div>
-
-        <div class="resources-grid">
-          <div class="resource-card">
-            <div>
-              <div class="resource-card-header">
-                <div class="resource-icon-box icon-green">
-                  <i class="fa-solid fa-chart-pie"></i>
-                </div>
-                <div>
-                  <span class="dropdown-badge badge-admin">Statistical Clinic</span>
-                  <h3>Statistical Advisory Request Form</h3>
-                </div>
-              </div>
-              <p>
-                Schedule dedicated advisory sessions with RDC institutional statisticians for sampling determination, Jamovi/SPSS analysis, and data validation.
-              </p>
-            </div>
-            <div class="resource-footer">
-              <span class="resource-meta">Online Booking / Form</span>
-              <a href="contact.html" class="btn btn-sm btn-primary">Book Advisory</a>
-            </div>
-          </div>
-
-          <div class="resource-card">
-            <div>
-              <div class="resource-card-header">
-                <div class="resource-icon-box icon-mcnp">
-                  <i class="fa-solid fa-file-circle-check"></i>
-                </div>
-                <div>
-                  <span class="dropdown-badge badge-mcnp">Similarity Check</span>
-                  <h3>Turnitin Plagiarism Clearance</h3>
-                </div>
-              </div>
-              <p>
-                Official verification routing form for undergraduate and graduate theses prior to pre-oral and final defense scheduling.
-              </p>
-            </div>
-            <div class="resource-footer">
-              <span class="resource-meta">Routing Slip &bull; Form 009</span>
-              <a href="contact.html" class="btn btn-sm btn-outline">Request Clearance</a>
-            </div>
-          </div>
-
-          <div class="resource-card">
-            <div>
-              <div class="resource-card-header">
-                <div class="resource-icon-box icon-gold">
-                  <i class="fa-solid fa-book-open"></i>
-                </div>
-                <div>
-                  <span class="dropdown-badge badge-admin">Author Packet</span>
-                  <h3>Journal Manuscript Author Toolkit</h3>
-                </div>
-              </div>
-              <p>
-                Manuscript template, author declaration, and copyright transfer agreements for submitting to MCNP and ISAP peer-reviewed publications.
-              </p>
-            </div>
-            <div class="resource-footer">
-              <span class="resource-meta">DOCX &bull; APA 7th Edition</span>
-              <a href="journal.html" class="btn btn-sm btn-outline">Explore Journals &rarr;</a>
-            </div>
-          </div>
-        </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Pharmacy%20proposal%20Defense/att.kOWNx1jH780_inNTWBSubOJiFS0nmav3zeY3iVVc5uA.jpg" alt="MCNP Pharmacy Defense - Documentation Photo 2" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
-
-      <!-- Quick Support Box -->
-      <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: 14px; padding: 2.25rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
-        <div>
-          <h3 style="margin: 0 0 0.5rem; font-size: 1.35rem; color: #0f172a;">Need a Custom Form or Direct Submission?</h3>
-          <p style="margin: 0; color: #64748b; font-size: 0.95rem; max-width: 620px;">
-            Visit the Knowledge Management &amp; Publication Office at the RDC Secretariat or submit inquiries directly for expedited review.
-          </p>
-        </div>
-        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-          <a href="contact.html" class="btn btn-primary" style="font-weight: 600;">Contact Secretariat</a>
-          <a href="call-for-proposals.html" class="btn btn-outline" style="font-weight: 600;">Grant Opportunities &rarr;</a>
-        </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Pharmacy%20proposal%20Defense/att.lDkYm9ok95M9BwG5vnGIfzhIcEfrARyGgEjOixDfUCQ.jpg" alt="MCNP Pharmacy Defense - Documentation Photo 3" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Pharmacy%20proposal%20Defense/att.Olzh3DdVtj60-tNWLXkhOBQQjUy9Imw5458gFCKsQHU.jpg" alt="MCNP Pharmacy Defense - Documentation Photo 4" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Pharmacy%20proposal%20Defense/att.rYt28goh525NSEdZsllbcR1LWvEc5HhRmDWpPaBjVX8(1).jpg" alt="MCNP Pharmacy Defense - Documentation Photo 5" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Pharmacy%20proposal%20Defense/att.rYt28goh525NSEdZsllbcR1LWvEc5HhRmDWpPaBjVX8.jpg" alt="MCNP Pharmacy Defense - Documentation Photo 6" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Pharmacy%20proposal%20Defense/att.tuUFJrUKKKTqmcqidReoaD0YSpIqpPIlggL7NUpXnYY.jpg" alt="MCNP Pharmacy Defense - Documentation Photo 7" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Pharmacy%20proposal%20Defense/att.wP7a3uiXueh_6hicN3vX0rP3uUh_ru9dqrkphos8Td4.jpg" alt="MCNP Pharmacy Defense - Documentation Photo 8" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Pharmacy%20proposal%20Defense/att.W_8z-dptzVSqNhuCES4Ev8Jx9QjmGsw3epOqikJYmmw(1).jpg" alt="MCNP Pharmacy Defense - Documentation Photo 9" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Pharmacy%20proposal%20Defense/att.W_8z-dptzVSqNhuCES4Ev8Jx9QjmGsw3epOqikJYmmw.jpg" alt="MCNP Pharmacy Defense - Documentation Photo 10" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Pharmacy%20proposal%20Defense/att.__UmQ6uVIL7kXp5CXYIPEAwoJotjSc5hS_-Ek5ThPoU.jpg" alt="MCNP Pharmacy Defense - Documentation Photo 11" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+  </div>
+            </div>
+          </div>
+        
+          <div class="doc-item" id="uni-item-2" data-category="isap">
+            <button class="doc-title-trigger" type="button" aria-expanded="false">
+              <div class="doc-title-left">
+                <div class="doc-icon icon-isap"><i class="fa-solid fa-umbrella-beach"></i></div>
+                <div>
+                  <h3 class="doc-title-heading">ISAP: BS Tourism Management Research Presentations</h3>
+                  <div class="doc-title-meta">ISAP College of Hospitality & Tourism • Undergraduate Research Defense</div>
+                </div>
+              </div>
+              <div class="doc-title-right">
+                <span class="doc-count-pill">8 Photos</span>
+                <span class="doc-toggle-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </div>
+            </button>
+            <div class="doc-media-body">
+              <p class="doc-desc">Documentation of oral presentations and thesis defense proceedings under the BS Tourism Management program, exploring eco-tourism, local culinary heritage, and destination management.</p>
+              <div class="doc-gallery-grid">
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/BS%20Tourism%20Management%20sep%2022-23/GROUP%20OF%20ABUL.jpg" alt="ISAP Tourism Research - Documentation Photo 1" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/BS%20Tourism%20Management%20sep%2022-23/GROUP%20OF%20AGCAOILI.jpg" alt="ISAP Tourism Research - Documentation Photo 2" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/BS%20Tourism%20Management%20sep%2022-23/GROUP%20OF%20ALTAREJOS.jpg" alt="ISAP Tourism Research - Documentation Photo 3" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/BS%20Tourism%20Management%20sep%2022-23/GROUP%20OF%20BALBER.jpg" alt="ISAP Tourism Research - Documentation Photo 4" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/BS%20Tourism%20Management%20sep%2022-23/GROUP%20OF%20BLANCE.jpg" alt="ISAP Tourism Research - Documentation Photo 5" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/BS%20Tourism%20Management%20sep%2022-23/GROUP%20OF%20CABLILAN.jpg" alt="ISAP Tourism Research - Documentation Photo 6" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/BS%20Tourism%20Management%20sep%2022-23/Group%20of%20Herrera.jpg" alt="ISAP Tourism Research - Documentation Photo 7" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/BS%20Tourism%20Management%20sep%2022-23/GROUP%20OF%20SOMEJO.jpg" alt="ISAP Tourism Research - Documentation Photo 8" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+  </div>
+            </div>
+          </div>
+        
+          <div class="doc-item" id="uni-item-3" data-category="video">
+            <button class="doc-title-trigger" type="button" aria-expanded="false">
+              <div class="doc-title-left">
+                <div class="doc-icon icon-video"><i class="fa-solid fa-video"></i></div>
+                <div>
+                  <h3 class="doc-title-heading">Official RDC Research Accomplishment Report Video Documentary</h3>
+                  <div class="doc-title-meta">Twin Institutions HD Video Production • MCNP & ISAP Research Milestones</div>
+                </div>
+              </div>
+              <div class="doc-title-right">
+                <span class="doc-count-pill">Official Video</span>
+                <span class="doc-toggle-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </div>
+            </button>
+            <div class="doc-media-body">
+              <p class="doc-desc">Watch the full institutional video documentary highlighting collaborative research breakthroughs, state-of-the-art laboratory facilities, faculty publications, and community extensions.</p>
+              <div class="doc-video-card">
+    <video controls preload="metadata" poster="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.png">
+      <source src="assets/videos/rdc_accomplishment_report.mp4" type="video/mp4">
+      Your browser does not support HTML5 video playback.
+    </video>
+  </div>
+            </div>
+          </div>
+        
+          <div class="doc-item" id="uni-item-4" data-category="mcnp">
+            <button class="doc-title-trigger" type="button" aria-expanded="false">
+              <div class="doc-title-left">
+                <div class="doc-icon icon-mcnp"><i class="fa-solid fa-stethoscope"></i></div>
+                <div>
+                  <h3 class="doc-title-heading">MCNP: Health Sciences Research Proposal Defenses – September Cohort</h3>
+                  <div class="doc-title-meta">MCNP Allied Health • Nursing & Medical Laboratory Science</div>
+                </div>
+              </div>
+              <div class="doc-title-right">
+                <span class="doc-count-pill">40 Photos</span>
+                <span class="doc-toggle-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </div>
+            </button>
+            <div class="doc-media-body">
+              <p class="doc-desc">Documentation of health sciences defense proceedings covering epidemiology, clinical microbiology, community health interventions, and diagnostic technology validations.</p>
+              <div class="doc-gallery-grid">
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_228ED57B-0A7F-4B5B-880C-9110E0F1198D.jpeg" alt="Health Sciences Defense - Documentation Photo 1" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_30F1B6EB-06C0-415A-A889-3580CB650EBE.jpeg" alt="Health Sciences Defense - Documentation Photo 2" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_3AE66D31-9426-4BB5-AE9F-CF826B9B622C.jpeg" alt="Health Sciences Defense - Documentation Photo 3" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_3CD9C6BD-90D5-4E62-9BFF-27E4981A5D69.jpeg" alt="Health Sciences Defense - Documentation Photo 4" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_400E7B52-4ECB-4EBC-A54F-AD039D683CBD.jpeg" alt="Health Sciences Defense - Documentation Photo 5" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_4251F15B-3AE6-41CC-9472-890168FFB622.jpeg" alt="Health Sciences Defense - Documentation Photo 6" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_45997E29-A61E-47C3-8A60-25AEF1946AAD.jpeg" alt="Health Sciences Defense - Documentation Photo 7" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_46B74755-5437-4DAC-BCCA-84F97AA69028.jpeg" alt="Health Sciences Defense - Documentation Photo 8" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_51F579D1-82DB-4269-BBCE-5A58BEAB8949.jpeg" alt="Health Sciences Defense - Documentation Photo 9" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_5E51BFD8-9DF7-49B8-A78F-0F5DFFAB5DC7.jpeg" alt="Health Sciences Defense - Documentation Photo 10" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_6B45AB29-8C50-46FF-BF5E-2BDC9257CAD5.jpeg" alt="Health Sciences Defense - Documentation Photo 11" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_7065D6E4-719A-451E-B740-5B21F344BD19.jpeg" alt="Health Sciences Defense - Documentation Photo 12" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_73FD30AB-B182-44D5-AF04-7C5CAB5482B9.jpeg" alt="Health Sciences Defense - Documentation Photo 13" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_783879E2-FDA7-48CE-96D8-900B5018FB4B.jpeg" alt="Health Sciences Defense - Documentation Photo 14" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_805E6F4D-B109-4F8E-944B-4C4DD4082EE6.jpeg" alt="Health Sciences Defense - Documentation Photo 15" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_8937B14B-FC13-42CF-B3A2-616760275605.jpeg" alt="Health Sciences Defense - Documentation Photo 16" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_957EC81E-E13D-4348-B995-6454760FC395.jpeg" alt="Health Sciences Defense - Documentation Photo 17" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_9A3BF9CA-DD32-4748-9039-D637F31FBEE8.jpeg" alt="Health Sciences Defense - Documentation Photo 18" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_A06C8126-DB19-4B5C-A8CE-135412AB16E3.jpeg" alt="Health Sciences Defense - Documentation Photo 19" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_A5049D32-09E3-4079-9C90-976A03A7C5A0.jpeg" alt="Health Sciences Defense - Documentation Photo 20" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_133615.jpg" alt="Health Sciences Defense - Documentation Photo 21" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_133947.jpg" alt="Health Sciences Defense - Documentation Photo 22" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_155146.jpg" alt="Health Sciences Defense - Documentation Photo 23" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160027.jpg" alt="Health Sciences Defense - Documentation Photo 24" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160654.jpg" alt="Health Sciences Defense - Documentation Photo 25" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160718.jpg" alt="Health Sciences Defense - Documentation Photo 26" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160737.jpg" alt="Health Sciences Defense - Documentation Photo 27" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160743.jpg" alt="Health Sciences Defense - Documentation Photo 28" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160749.jpg" alt="Health Sciences Defense - Documentation Photo 29" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160912.jpg" alt="Health Sciences Defense - Documentation Photo 30" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_161045.jpg" alt="Health Sciences Defense - Documentation Photo 31" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/Messenger_creation_53FB4581-7905-41A2-B9AA-07F75B475C3C.jpeg" alt="Health Sciences Defense - Documentation Photo 32" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/Messenger_creation_648A06E6-2794-49B5-B14F-C11B4B388606.jpeg" alt="Health Sciences Defense - Documentation Photo 33" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/Messenger_creation_C61ACFFE-1BCD-44FD-8ADC-D9ABC0F2ADDF.jpeg" alt="Health Sciences Defense - Documentation Photo 34" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+  </div>
+            </div>
+          </div>
+        
+          <div class="doc-item" id="uni-item-5" data-category="isap">
+            <button class="doc-title-trigger" type="button" aria-expanded="false">
+              <div class="doc-title-left">
+                <div class="doc-icon icon-isap"><i class="fa-solid fa-people-roof"></i></div>
+                <div>
+                  <h3 class="doc-title-heading">ISAP: Community Needs Assessment & Extension Fieldwork Documentation</h3>
+                  <div class="doc-title-meta">ISAP Community Extension • Field Immersion & Social Assessment</div>
+                </div>
+              </div>
+              <div class="doc-title-right">
+                <span class="doc-count-pill">13 Photos</span>
+                <span class="doc-toggle-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </div>
+            </button>
+            <div class="doc-media-body">
+              <p class="doc-desc">Field documentation of community needs assessment surveys, participatory stakeholder consultations, and community extension program planning by ISAP faculty and students.</p>
+              <div class="doc-gallery-grid">
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Presentation%20of%20Community%20needs%20asessment/825309101_2214321509426009_1910698807447403893_n.jpg" alt="ISAP Community Assessment - Documentation Photo 1" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Presentation%20of%20Community%20needs%20asessment/825309124_1813998916283732_6729407098124865664_n.jpg" alt="ISAP Community Assessment - Documentation Photo 2" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Presentation%20of%20Community%20needs%20asessment/825309125_2900975510302440_1388524613114353232_n%20(1).jpg" alt="ISAP Community Assessment - Documentation Photo 3" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Presentation%20of%20Community%20needs%20asessment/825309125_2900975510302440_1388524613114353232_n.jpg" alt="ISAP Community Assessment - Documentation Photo 4" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Presentation%20of%20Community%20needs%20asessment/825309138_4042871296022467_4422840344426651271_n.jpg" alt="ISAP Community Assessment - Documentation Photo 5" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Presentation%20of%20Community%20needs%20asessment/825309169_1065401112801149_7655181997891642812_n.jpg" alt="ISAP Community Assessment - Documentation Photo 6" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Presentation%20of%20Community%20needs%20asessment/825309941_1564415881551907_5929110956625890681_n.jpg" alt="ISAP Community Assessment - Documentation Photo 7" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Presentation%20of%20Community%20needs%20asessment/825309945_1867880997530580_7212351462089445032_n.jpg" alt="ISAP Community Assessment - Documentation Photo 8" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Presentation%20of%20Community%20needs%20asessment/825309950_4560902304179082_8853690371651885428_n.jpg" alt="ISAP Community Assessment - Documentation Photo 9" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Presentation%20of%20Community%20needs%20asessment/825309964_2166168747615592_4992906672292801597_n.jpg" alt="ISAP Community Assessment - Documentation Photo 10" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Presentation%20of%20Community%20needs%20asessment/825310005_1000661136372841_6005317020900046698_n.jpg" alt="ISAP Community Assessment - Documentation Photo 11" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Community%20Extension/CESO.jpg" alt="ISAP Community Assessment - Documentation Photo 12" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Community%20Extension/CESO1.jpg" alt="ISAP Community Assessment - Documentation Photo 13" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+  </div>
+            </div>
+          </div>
+        
+          <div class="doc-item" id="uni-item-6" data-category="mcnp">
+            <button class="doc-title-trigger" type="button" aria-expanded="false">
+              <div class="doc-title-left">
+                <div class="doc-icon icon-mcnp"><i class="fa-solid fa-handshake-angle"></i></div>
+                <div>
+                  <h3 class="doc-title-heading">MCNP: Advancing Health Research Through Multi-Sectoral Collaboration</h3>
+                  <div class="doc-title-meta">Health Research Collaborative • Regional Health Sector</div>
+                </div>
+              </div>
+              <div class="doc-title-right">
+                <span class="doc-count-pill">10 Photos</span>
+                <span class="doc-toggle-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </div>
+            </button>
+            <div class="doc-media-body">
+              <p class="doc-desc">Symposium and collaborative workshop bringing together regional healthcare partners, clinical preceptors, and institutional investigators to advance health innovation.</p>
+              <div class="doc-gallery-grid">
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Advancing%20Health%20Research%20Through%20Collaboration/IMG_20260819_181054.jpg" alt="MCNP Health Collaboration - Documentation Photo 1" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Advancing%20Health%20Research%20Through%20Collaboration/IMG_20260819_181115.jpg" alt="MCNP Health Collaboration - Documentation Photo 2" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Advancing%20Health%20Research%20Through%20Collaboration/IMG_20260819_181141.jpg" alt="MCNP Health Collaboration - Documentation Photo 3" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Advancing%20Health%20Research%20Through%20Collaboration/IMG_20260819_181207.jpg" alt="MCNP Health Collaboration - Documentation Photo 4" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Advancing%20Health%20Research%20Through%20Collaboration/IMG_20260819_181259.jpg" alt="MCNP Health Collaboration - Documentation Photo 5" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Advancing%20Health%20Research%20Through%20Collaboration/IMG_20260819_181429.jpg" alt="MCNP Health Collaboration - Documentation Photo 6" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Advancing%20Health%20Research%20Through%20Collaboration/IMG_20260819_181446.jpg" alt="MCNP Health Collaboration - Documentation Photo 7" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Advancing%20Health%20Research%20Through%20Collaboration/IMG_20260819_181515.jpg" alt="MCNP Health Collaboration - Documentation Photo 8" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Advancing%20Health%20Research%20Through%20Collaboration/IMG_20260819_181529.jpg" alt="MCNP Health Collaboration - Documentation Photo 9" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Advancing%20Health%20Research%20Through%20Collaboration/IMG_20260819_181549.jpg" alt="MCNP Health Collaboration - Documentation Photo 10" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+  </div>
+            </div>
+          </div>
+        
+          <div class="doc-item" id="uni-item-7" data-category="isap">
+            <button class="doc-title-trigger" type="button" aria-expanded="false">
+              <div class="doc-title-left">
+                <div class="doc-icon icon-isap"><i class="fa-solid fa-chart-pie"></i></div>
+                <div>
+                  <h3 class="doc-title-heading">ISAP: Turning Data into Meaningful Stories & Regional Data Festival</h3>
+                  <div class="doc-title-meta">Empirical Institutional Research • Regional Representation</div>
+                </div>
+              </div>
+              <div class="doc-title-right">
+                <span class="doc-count-pill">20 Photos</span>
+                <span class="doc-toggle-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </div>
+            </button>
+            <div class="doc-media-body">
+              <p class="doc-desc">Documentation of ISAP institutional researchers presenting empirical findings at the North Luzon Regional Data Festival, showcasing data storytelling and statistical literacy.</p>
+              <div class="doc-gallery-grid">
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Turning%20Data%20into%20Meaningful%20Stories/26ff7cc0-531c-4abd-92ea-5445b385b7ae.jpg" alt="ISAP Data Stories - Documentation Photo 1" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Turning%20Data%20into%20Meaningful%20Stories/4308c5e4-c51b-49a2-856b-772d3f797d9d.jpg" alt="ISAP Data Stories - Documentation Photo 2" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Turning%20Data%20into%20Meaningful%20Stories/50ba4077-3a36-47d5-befd-00c6ce53df50.jpg" alt="ISAP Data Stories - Documentation Photo 3" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Turning%20Data%20into%20Meaningful%20Stories/5c3abdff-5449-40ee-8a6f-3ac16f5b7c34.jpg" alt="ISAP Data Stories - Documentation Photo 4" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Turning%20Data%20into%20Meaningful%20Stories/767462fa-ae26-448d-9880-74e3fa185715.jpg" alt="ISAP Data Stories - Documentation Photo 5" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Turning%20Data%20into%20Meaningful%20Stories/818552302_2117929539095322_3867986492429854614_n.jpg" alt="ISAP Data Stories - Documentation Photo 6" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Turning%20Data%20into%20Meaningful%20Stories/819481492_1849435769372816_1288730114840678174_n.jpg" alt="ISAP Data Stories - Documentation Photo 7" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Turning%20Data%20into%20Meaningful%20Stories/819538331_3656817227808355_2999041406599491484_n.jpg" alt="ISAP Data Stories - Documentation Photo 8" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Turning%20Data%20into%20Meaningful%20Stories/819784440_1765036398101201_3362039372868378411_n.jpg" alt="ISAP Data Stories - Documentation Photo 9" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Turning%20Data%20into%20Meaningful%20Stories/819986694_1299391485921735_432814558538691717_n.jpg" alt="ISAP Data Stories - Documentation Photo 10" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Turning%20Data%20into%20Meaningful%20Stories/820220950_1115105351099866_6130657355569269332_n.jpg" alt="ISAP Data Stories - Documentation Photo 11" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Turning%20Data%20into%20Meaningful%20Stories/820238757_1073869415536163_5312279542517782795_n.jpg" alt="ISAP Data Stories - Documentation Photo 12" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Turning%20Data%20into%20Meaningful%20Stories/822725743_1440179118033527_685815649012076647_n.jpg" alt="ISAP Data Stories - Documentation Photo 13" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Turning%20Data%20into%20Meaningful%20Stories/823152692_1600845354818263_3986292056580894472_n.jpg" alt="ISAP Data Stories - Documentation Photo 14" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Turning%20Data%20into%20Meaningful%20Stories/96688136-6b35-4bbf-8003-e0eac7054bd0.jpg" alt="ISAP Data Stories - Documentation Photo 15" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Turning%20Data%20into%20Meaningful%20Stories/aaaa01c9-f1c9-4202-8b28-7af70aab229d.jpg" alt="ISAP Data Stories - Documentation Photo 16" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Ms.%20Wendy%20Mae%20G.%20Lapus%20Represents%20School%20at%20the%202024%20Regional%20Data%20Festival/Screenshot%202026-09-26%20084751.png" alt="ISAP Data Stories - Documentation Photo 17" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Ms.%20Wendy%20Mae%20G.%20Lapus%20Represents%20School%20at%20the%202024%20Regional%20Data%20Festival/Screenshot%202026-09-26%20084832.png" alt="ISAP Data Stories - Documentation Photo 18" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Ms.%20Wendy%20Mae%20G.%20Lapus%20Represents%20School%20at%20the%202024%20Regional%20Data%20Festival/Screenshot%202026-09-26%20084852.png" alt="ISAP Data Stories - Documentation Photo 19" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Ms.%20Wendy%20Mae%20G.%20Lapus%20Represents%20School%20at%20the%202024%20Regional%20Data%20Festival/Screenshot%202026-09-26%20084911.png" alt="ISAP Data Stories - Documentation Photo 20" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+  </div>
+            </div>
+          </div>
+        
+          <div class="doc-item" id="uni-item-8" data-category="mcnp">
+            <button class="doc-title-trigger" type="button" aria-expanded="false">
+              <div class="doc-title-left">
+                <div class="doc-icon icon-form"><i class="fa-solid fa-folder-open"></i></div>
+                <div>
+                  <h3 class="doc-title-heading">MCNP Official Institutional Research Forms & Guidelines (Forms 001–016)</h3>
+                  <div class="doc-title-meta">MCNP Knowledge Management • Direct File Downloads</div>
+                </div>
+              </div>
+              <div class="doc-title-right">
+                <span class="doc-count-pill">16 Forms</span>
+                <span class="doc-toggle-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </div>
+            </button>
+            <div class="doc-media-body">
+              <p class="doc-desc">Official MCNP forms for research defense application, ethics review, adviser assignment, statistical treatment, and journal submission.</p>
+              <div class="doc-forms-grid">
+        <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC Form No 002-APPLICATION FOR RESEARCH DEFENSE.docx" class="doc-form-item" download>
+          <div class="doc-form-left"><i class="fa-solid fa-file-word" style="color:#1e5ea8;"></i> <span>MCNP Form 002: Application for Defense</span></div>
+          <i class="fa-solid fa-arrow-down-to-line" style="color:#64748b;"></i>
+        </a>
+        <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC Form No 003-CAPSULE PROPOSAL FORM.docx" class="doc-form-item" download>
+          <div class="doc-form-left"><i class="fa-solid fa-file-word" style="color:#1e5ea8;"></i> <span>MCNP Form 003: Capsule Proposal</span></div>
+          <i class="fa-solid fa-arrow-down-to-line" style="color:#64748b;"></i>
+        </a>
+        <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC Form No 011-STATISTICAL TREATMENT FORM.docx" class="doc-form-item" download>
+          <div class="doc-form-left"><i class="fa-solid fa-file-word" style="color:#1e5ea8;"></i> <span>MCNP Form 011: Statistical Treatment</span></div>
+          <i class="fa-solid fa-arrow-down-to-line" style="color:#64748b;"></i>
+        </a>
+        <a href="assets/MCNP-RDC-FORM/MCNP-QMS-DCO-RDC Form No 013-PLAGIARISM PROCESSING FORM.docx" class="doc-form-item" download>
+          <div class="doc-form-left"><i class="fa-solid fa-file-word" style="color:#1e5ea8;"></i> <span>MCNP Form 013: Plagiarism Clearance</span></div>
+          <i class="fa-solid fa-arrow-down-to-line" style="color:#64748b;"></i>
+        </a>
+      </div>
+            </div>
+          </div>
+        
+          <div class="doc-item" id="uni-item-9" data-category="isap">
+            <button class="doc-title-trigger" type="button" aria-expanded="false">
+              <div class="doc-title-left">
+                <div class="doc-icon icon-form"><i class="fa-solid fa-folder-open"></i></div>
+                <div>
+                  <h3 class="doc-title-heading">ISAP Official Institutional Research Forms & Guidelines (Forms 001–016)</h3>
+                  <div class="doc-title-meta">ISAP Knowledge Management • Direct File Downloads</div>
+                </div>
+              </div>
+              <div class="doc-title-right">
+                <span class="doc-count-pill">16 Forms</span>
+                <span class="doc-toggle-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </div>
+            </button>
+            <div class="doc-media-body">
+              <p class="doc-desc">Official ISAP forms for research defense application, ethics review, adviser assignment, statistical treatment, and journal submission.</p>
+              <div class="doc-forms-grid">
+        <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC Form No 002-APPLICATION FOR RESEARCH DEFENSE.docx" class="doc-form-item" download>
+          <div class="doc-form-left"><i class="fa-solid fa-file-word" style="color:#7a1f2d;"></i> <span>ISAP Form 002: Application for Defense</span></div>
+          <i class="fa-solid fa-arrow-down-to-line" style="color:#64748b;"></i>
+        </a>
+        <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC Form No 003-CAPSULE PROPOSAL FORM.docx" class="doc-form-item" download>
+          <div class="doc-form-left"><i class="fa-solid fa-file-word" style="color:#7a1f2d;"></i> <span>ISAP Form 003: Capsule Proposal</span></div>
+          <i class="fa-solid fa-arrow-down-to-line" style="color:#64748b;"></i>
+        </a>
+        <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC Form No 011-STATISTICAL TREATMENT FORM.docx" class="doc-form-item" download>
+          <div class="doc-form-left"><i class="fa-solid fa-file-word" style="color:#7a1f2d;"></i> <span>ISAP Form 011: Statistical Treatment</span></div>
+          <i class="fa-solid fa-arrow-down-to-line" style="color:#64748b;"></i>
+        </a>
+        <a href="assets/ISAP-RDC-FORM/ISAP-QMS-DCO-RDC Form No 013-PLAGIARISM PROCESSING FORM.docx" class="doc-form-item" download>
+          <div class="doc-form-left"><i class="fa-solid fa-file-word" style="color:#7a1f2d;"></i> <span>ISAP Form 013: Plagiarism Clearance</span></div>
+          <i class="fa-solid fa-arrow-down-to-line" style="color:#64748b;"></i>
+        </a>
+      </div>
+            </div>
+          </div>
+        
       </div>
 
     </div>
   </main>
+
+  <!-- Lightbox Modal -->
+  <div class="doc-lightbox" id="docLightbox" role="dialog" aria-modal="true" aria-label="Image Preview">
+    <button class="doc-lightbox-close" id="docLightboxClose" aria-label="Close preview">&times;</button>
+    <img class="doc-lightbox-img" id="docLightboxImg" src="" alt="Enlarged documentation image">
+    <div class="doc-lightbox-caption" id="docLightboxCaption"></div>
+  </div>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -607,7 +1288,7 @@
         <div class="footer-brand">
           <h4>MCNP &amp; ISAP <span>RDC</span></h4>
           <p>
-            The official Research and Development Center serving the Medical Colleges of Northern Philippines and International School of Asia and the Pacific. Fostering innovation, scientific ethics, and community progress.
+            The official Research and Development Center serving the Medical Colleges of Northern Philippines and International School of Asia and the Pacific.
           </p>
           <div style="display: flex; gap: 0.5rem;">
             <span class="badge-pill">MCNP</span>
@@ -624,7 +1305,8 @@
             <li><a href="rdc-agenda.html">&rarr; INNOVATES Agenda</a></li>
             <li><a href="utilization.html">&rarr; Research Utilization</a></li>
             <li><a href="experience.html">&rarr; Research Experience</a></li>
-            <li><a href="resources.html">&rarr; Research Resources</a></li>
+            <li><a href="resources-mcnp.html">&rarr; MCNP Resources</a></li>
+            <li><a href="resources-isap.html">&rarr; ISAP Resources</a></li>
           </ul>
         </div>
 
@@ -637,39 +1319,86 @@
             <li><a href="journal-admin.html">&rarr; Journal in Admin</a></li>
             <li><a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer">&rarr; Direct FlipHTML5 ↗</a></li>
             <li><a href="news-events.html">&rarr; News &amp; Events</a></li>
-            <li><a href="calendar.html">&rarr; Research Schedule Calendar</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h5>Secretariat &amp; Inquiries</h5>
-          <div class="footer-contact-item">
-            <span>📍</span>
-            <span>Alimannao Hills, Peñablanca, Cagayan 3502, Philippines</span>
-          </div>
-          <div class="footer-contact-item">
-            <span>✉️</span>
-            <span><a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
-          </div>
-          <div class="footer-contact-item">
-            <span>📞</span>
-            <span>+639989847781</span>
-          </div>
-          <div class="footer-contact-item">
-            <span>🕒</span>
-            <span>Monday – Friday: 8:00 AM – 5:00 PM PST</span>
-          </div>
+          <div class="footer-contact-item"><span>📍</span> <span>Alimannao Hills, Peñablanca, Cagayan</span></div>
+          <div class="footer-contact-item"><span>✉️</span> <span>researchoffice@mcnp.edu.ph</span></div>
+          <div class="footer-contact-item"><span>📞</span> <span>+639989847781</span></div>
         </div>
       </div>
 
       <div class="footer-bottom">
         <p>&copy; 2026 Medical Colleges of Northern Philippines &amp; International School of Asia and the Pacific. All rights reserved.</p>
-        <p>Research and Development Center (RDC) &bull; Knowledge Management &amp; Publication Office</p>
       </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  
+  <script>
+    // Title Click Accordion Logic
+    document.querySelectorAll('.doc-title-trigger').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.doc-item');
+        const isOpen = item.classList.contains('open');
+        
+        // Optional: close other items
+        // document.querySelectorAll('.doc-item.open').forEach(el => el.classList.remove('open'));
+
+        if (isOpen) {
+          item.classList.remove('open');
+        } else {
+          item.classList.add('open');
+        }
+      });
+    });
+
+    // Lightbox Logic
+    const lightbox = document.getElementById('docLightbox');
+    const lightboxImg = document.getElementById('docLightboxImg');
+    const lightboxCaption = document.getElementById('docLightboxCaption');
+    const lightboxClose = document.getElementById('docLightboxClose');
+
+    if (lightbox) {
+      document.querySelectorAll('.doc-gallery-thumb').forEach(thumb => {
+        thumb.addEventListener('click', () => {
+          const img = thumb.querySelector('img');
+          if (img) {
+            lightboxImg.src = img.src;
+            lightboxCaption.textContent = img.alt || 'Institutional Research Documentation';
+            lightbox.classList.add('active');
+          }
+        });
+      });
+
+      lightboxClose?.addEventListener('click', () => lightbox.classList.remove('active'));
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) lightbox.classList.remove('active');
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') lightbox.classList.remove('active');
+      });
+    }
+
+    // Filter Logic if present
+    document.querySelectorAll('.doc-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.doc-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        document.querySelectorAll('.doc-item').forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
-
