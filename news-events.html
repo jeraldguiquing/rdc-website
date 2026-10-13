@@ -417,7 +417,7 @@
     .article-lead-box {
       padding: 1.75rem 2.5rem;
       background: #f8fafc;
-      border-left: 5px solid #1e5ea8;
+      border-left: 5px solid var(--mcnp-green, #0d5c3a);
       border-bottom: 1px solid #edf2f7;
     }
     .article-lead-text {
@@ -734,34 +734,6 @@
     @keyframes eventModalIn {
       from { opacity: 0; transform: translateY(14px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Article Modal Card */
-    .article-modal-card {
-      max-width: 960px !important;
-      width: 95%;
-      border-radius: 12px;
-      background: #ffffff;
-      display: flex;
-      flex-direction: column;
-      max-height: 92vh;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
-      overflow: hidden;
-    }
-    .article-modal-body-scroll {
-      overflow-y: auto;
-      flex: 1;
-      -webkit-overflow-scrolling: touch;
-      background: #ffffff;
-    }
-    .article-modal-body-scroll .article-content-body {
-      padding: 1.75rem 2.25rem 2.5rem;
-    }
-    .article-modal-body-scroll .article-narrative-p,
-    .article-modal-body-scroll p {
-      text-align: justify;
-      text-justify: inter-word;
-      hyphens: auto;
     }
 
     .event-modal-head {
@@ -1641,15 +1613,15 @@
         <div class="news-view-tabs-wrap">
           <div class="news-view-tabs" role="tablist" aria-label="News and Events Content Switcher">
             <button type="button" class="news-view-tab-btn active" data-view="all" id="viewTabAll" role="tab" aria-selected="true" onclick="switchContentView('all');">
-              <span>🌟 View All Content</span>
+              <span> View All Content</span>
               <span class="tab-count" id="countAllTab">31</span>
             </button>
             <button type="button" class="news-view-tab-btn" data-view="articles" id="viewTabArticles" role="tab" aria-selected="false" onclick="switchContentView('articles');">
-              <span>📰 Articles</span>
+              <span> Articles</span>
               <span class="tab-count" id="countArticlesTab">1</span>
             </button>
             <button type="button" class="news-view-tab-btn" data-view="events" id="viewTabEvents" role="tab" aria-selected="false" onclick="switchContentView('events');">
-              <span>📅 Events &amp; Highlights</span>
+              <span> Events &amp; Highlights</span>
               <span class="tab-count" id="countEventsTab">30</span>
             </button>
           </div>
@@ -1729,7 +1701,7 @@
                     <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9: Industry, Innovation and Infrastructure" class="article-sdg-icon-img" loading="lazy">
                   </a>
                   <a href="sdg-overview.html?goal=17" class="article-sdg-icon-link" title="SDG 17: Partnerships for the Goals" target="_blank" rel="noopener" onclick="event.stopPropagation();">
-                    <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.png" alt="SDG 17: Partnerships for the Goals" class="article-sdg-icon-img" loading="lazy">
+                    <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.png" alt="SDG 17" class="article-sdg-icon-img" loading="lazy">
                   </a>
                 </div>
                 <button type="button" class="btn-article-copy" onclick="event.stopPropagation(); if(window.copyArticleLink){window.copyArticleLink('article-37th-statistics-month-celebration', this);}" title="Share this article">
@@ -1738,13 +1710,10 @@
               </div>
             </div>
 
-            <!-- Executive Lead Callout Box (Verbatim Paragraphs 1 & 2) -->
+            <!-- Executive Lead Callout Box -->
             <div class="article-lead-box" style="border-radius: 0;">
-              <p class="article-lead-text" style="margin-bottom: 0.85rem;">
-                The Medical Colleges of Northern Philippines (MCNP) and the International School of Asia and the Pacific (ISAP) brought statistics beyond the classroom through a month-long celebration that combined training, creative application, competition, and inter-school engagement as part of the 37th Statistics Month Celebration.
-              </p>
               <p class="article-lead-text">
-                Led by the Research and Development Center (RDC), the series of activities engaged all 17 academic departments of MCNP–ISAP and culminated in participation in provincial-level competitions involving 17 schools across Cagayan. The initiative aimed to strengthen students’ statistical competencies, deepen their appreciation of data, and provide practical opportunities to apply analytical and interpretive skills.
+                The Medical Colleges of Northern Philippines (MCNP) and the International School of Asia and the Pacific (ISAP) brought statistics beyond the classroom through a month-long celebration that combined training, creative application, competition, and inter-school engagement as part of the 37th Statistics Month Celebration. Led by the Research and Development Center (RDC), the series of activities engaged all 17 academic departments of MCNP–ISAP and culminated in participation in provincial-level competitions involving 17 schools across Cagayan. The initiative aimed to strengthen students’ statistical competencies, deepen their appreciation of data, and provide practical opportunities to apply analytical and interpretive skills.
               </p>
             </div>
 
@@ -1753,10 +1722,10 @@
               <!-- 1. Capability Building -->
               <section class="article-narrative-section">
                 <h4 class="article-section-heading">
-                  <span>💻 Foundational Capability Building: Webinar on Infographics and Data Interpretation</span>
+                  <span>📈 Foundational Capability Building: Webinar on Infographics and Data Interpretation</span>
                 </h4>
                 <p class="article-narrative-p">
-                  The celebration opened on September 15 with a Webinar on Infographics and Data Interpretation conducted via Zoom in collaboration with the College of Information Technology and Engineering. Students enrolled in statistics classes participated in the session, which served as preparation for the development of infographics from September 19 to 22. The activity emphasized how data can be transformed into clear, meaningful, and visually engaging information.
+                  The celebration opened on <strong>September 15</strong> with a specialized <em>Webinar on Infographics and Data Interpretation</em> conducted via Zoom in collaboration with the College of Information Technology and Engineering. Students enrolled in statistics classes participated in the session, which served as preparation for the development of infographics from September 19 to 22. The activity emphasized how data can be transformed into clear, meaningful, and visually engaging information.
                 </p>
               </section>
 
@@ -1766,13 +1735,7 @@
                   <span>🏆 Institutional Competitions and Campus Champions</span>
                 </h4>
                 <p class="article-narrative-p">
-                  On September 21, students from different academic programs competed in the Institutional Quiz Bee at Amphitheatre 4. For ISAP, Fritz Geosh M. Apilado of BS Information Technology emerged as Champion, followed by Jaymart M. Gammad of BS Computer Engineering as 1st Runner-Up and Rhealyn B. Bitagon of BS Tourism Management as 2nd Runner-Up. For MCNP, Anjanet D. Tabunan of BS Nursing claimed the championship, while Marc Rodney G. San Pedro of BS Medical Laboratory Science and Chloe Rhayne M. Santos of BS Radiologic Technology placed first and second runners-up, respectively.
-                </p>
-                <p class="article-narrative-p">
-                  The celebration continued on September 23 with the Poster-Making Contest at Amphitheatre 3, where students demonstrated their ability to communicate statistical concepts through creative visual expression. Rhed Dalangin of BS Radiologic Technology won first place for MCNP, followed by Jireh Jaf Villanueva of BS Nursing and Ma. Jesusa Batacan of BS Pharmacy. For ISAP, Vince Ryan O. Obispado of BS Customs Administration took first place, with Mitz Invierno of BS Accountancy and Lyca Jeanne O. Paycao of BS Information Technology completing the top three.
-                </p>
-                <p class="article-narrative-p">
-                  Students were further challenged to interpret and communicate information during the Data Interpretation Using Infographics activity held on September 25 at the Instructional Media Center. Levi Mae Afali of BS Nursing emerged as Champion, while Mark Anthony Balbutin of BSSW and Cadiente Rolando of BSAC were named 1st and 2nd runners-up, respectively.
+                  Across three major academic and creative competitions, student delegates from different programs showcased exceptional quantitative reasoning and artistic visual communication:
                 </p>
 
                 <div class="article-competitions-cards">
@@ -1854,7 +1817,10 @@
                   <span>🏛️ Provincial-Level Competitions at Pulsar Hotel</span>
                 </h4>
                 <p class="article-narrative-p">
-                  The institutional winners later represented MCNP–ISAP in the Provincial Quiz Bee and Poster-Making activities held on October 5 at Pulsar Hotel in Buntun, Tuguegarao City. The event brought together participants from 17 schools in Cagayan and provided students with a wider venue to test their competencies and engage with peers from other institutions. The MCNP–ISAP participants were coached by institutional statisticians Ms. Tshaine Anne Labang and Ms. Mary Jane Agabin.
+                  The institutional winners later represented MCNP–ISAP in the <strong>Provincial Quiz Bee and Poster-Making activities held on October 5 at Pulsar Hotel in Buntun, Tuguegarao City</strong>. The event brought together participants from <strong>17 schools across Cagayan</strong> and provided students with a wider venue to test their competencies and engage with peers from other institutions.
+                </p>
+                <p class="article-narrative-p">
+                  The MCNP–ISAP participants were mentored and coached by institutional statisticians <strong>Ms. Tshaine Anne Labang</strong> and <strong>Ms. Mary Jane Agabin</strong>, whose dedicated guidance fostered academic confidence and rigorous quantitative application.
                 </p>
               </section>
 
@@ -1868,143 +1834,106 @@
                 </p>
               </section>
 
-              <!-- 5. UN Sustainable Development Goals (Paragraph 9) -->
+              <!-- 5. Strategic Alignments -->
               <section class="article-narrative-section">
                 <h4 class="article-section-heading">
-                  <span>🌱 Alignment with Sustainable Development Goals</span>
+                  <span>🎯 Strategic Frameworks &amp; RDC INNOVATES Agenda Alignment</span>
                 </h4>
-                <p class="article-narrative-p">
-                  The initiative directly supports Sustainable Development Goal 4 – Quality Education by strengthening students’ analytical and data literacy competencies through meaningful learning experiences. It also reflects SDG 17 – Partnerships for the Goals through the institution’s engagement with the Philippine Statistics Authority, while its emphasis on data interpretation, visualization, and applied quantitative thinking relates to SDG 9 – Industry, Innovation and Infrastructure.
-                </p>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.15rem;">
-                  <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; display: flex; align-items: flex-start; gap: 0.75rem;">
-                    <a href="sdg-overview.html?goal=4" target="_blank" rel="noopener" class="article-sdg-icon-link" style="width: 36px; height: 36px; flex-shrink: 0;" title="SDG 4: Quality Education">
-                      <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png" alt="SDG 4" class="article-sdg-icon-img" loading="lazy">
-                    </a>
-                    <div>
-                      <strong style="color: #0f172a; font-size: 0.88rem; display: block; margin-bottom: 0.2rem;">SDG 4: Quality Education</strong>
-                      <p style="margin: 0; font-size: 0.82rem; color: #475569; line-height: 1.5; text-align: justify; text-justify: inter-word;">Strengthens analytical and data literacy competencies through meaningful learning experiences.</p>
-                    </div>
+                
+                <div class="article-frameworks-grid">
+                  <div class="framework-card">
+                    <h5>🌐 UN Sustainable Development Goals</h5>
+                    <ul>
+                      <li><img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png" alt="SDG 4" style="width: 18px; height: 18px; border-radius: 3px; vertical-align: text-bottom; margin-right: 0.35rem; display: inline-block;"><strong>SDG 4 (Quality Education):</strong> Strengthens students’ analytical and data literacy competencies through meaningful learning experiences.</li>
+                      <li><img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9" style="width: 18px; height: 18px; border-radius: 3px; vertical-align: text-bottom; margin-right: 0.35rem; display: inline-block;"><strong>SDG 9 (Industry, Innovation &amp; Infrastructure):</strong> Promotes applied quantitative thinking, data visualization, and technological innovation.</li>
+                      <li><img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.png" alt="SDG 17" style="width: 18px; height: 18px; border-radius: 3px; vertical-align: text-bottom; margin-right: 0.35rem; display: inline-block;"><strong>SDG 17 (Partnerships for the Goals):</strong> Institutional engagement with the Philippine Statistics Authority (PSA) and regional consortium colleges.</li>
+                    </ul>
                   </div>
 
-                  <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; display: flex; align-items: flex-start; gap: 0.75rem;">
-                    <a href="sdg-overview.html?goal=9" target="_blank" rel="noopener" class="article-sdg-icon-link" style="width: 36px; height: 36px; flex-shrink: 0;" title="SDG 9: Industry, Innovation &amp; Infrastructure">
-                      <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9" class="article-sdg-icon-img" loading="lazy">
-                    </a>
-                    <div>
-                      <strong style="color: #0f172a; font-size: 0.88rem; display: block; margin-bottom: 0.2rem;">SDG 9: Industry, Innovation &amp; Infrastructure</strong>
-                      <p style="margin: 0; font-size: 0.82rem; color: #475569; line-height: 1.5; text-align: justify; text-justify: inter-word;">Data interpretation, visualization, and applied quantitative thinking.</p>
-                    </div>
+                  <div class="framework-card">
+                    <h5>🏅 WURI Best Practices</h5>
+                    <p>
+                      Demonstrates WURI-relevant practices by moving statistical learning from theory to direct application. Its institution-wide participation across 17 departments, practical learning activities, partnership engagement, measurable reach, and potential for annual implementation make the initiative replicable, scalable, and sustainable.
+                    </p>
                   </div>
 
-                  <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; display: flex; align-items: flex-start; gap: 0.75rem;">
-                    <a href="sdg-overview.html?goal=17" target="_blank" rel="noopener" class="article-sdg-icon-link" style="width: 36px; height: 36px; flex-shrink: 0;" title="SDG 17: Partnerships for the Goals">
-                      <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.png" alt="SDG 17" class="article-sdg-icon-img" loading="lazy">
-                    </a>
-                    <div>
-                      <strong style="color: #0f172a; font-size: 0.88rem; display: block; margin-bottom: 0.2rem;">SDG 17: Partnerships for the Goals</strong>
-                      <p style="margin: 0; font-size: 0.82rem; color: #475569; line-height: 1.5; text-align: justify; text-justify: inter-word;">Engagement with the Philippine Statistics Authority and 17 regional schools in Cagayan.</p>
+                  <div class="framework-card" style="grid-column: 1 / -1;">
+                    <h5>🚀 Alignment with the RDC INNOVATES Agenda</h5>
+                    <div class="innovates-points-grid">
+                      <!-- 1. INSPIRE -->
+                      <div class="innovates-point-card">
+                        <div class="innovates-point-header">
+                          <img src="assets/agenda/agenda-1-inspire.png" alt="INSPIRE Research Culture" class="innovates-point-thumb" loading="lazy">
+                          <div class="innovates-point-title">
+                            <span>💡 Pillar 1</span>
+                            <strong>INSPIRE Research Culture</strong>
+                          </div>
+                        </div>
+                        <p class="innovates-point-desc">
+                          Strengthens statistical literacy, analytical thinking, and foundational research competencies.
+                        </p>
+                      </div>
+
+                      <!-- 2. NAVIGATE -->
+                      <div class="innovates-point-card">
+                        <div class="innovates-point-header">
+                          <img src="assets/agenda/agenda-3-navigate.png" alt="NAVIGATE Digital Innovation" class="innovates-point-thumb" loading="lazy">
+                          <div class="innovates-point-title">
+                            <span>🌐 Pillar 3</span>
+                            <strong>NAVIGATE Digital Innovation</strong>
+                          </div>
+                        </div>
+                        <p class="innovates-point-desc">
+                          Employs infographics, data visualization, and modern digital presentation of information.
+                        </p>
+                      </div>
+
+                      <!-- 3. OPERATIONALIZE -->
+                      <div class="innovates-point-card">
+                        <div class="innovates-point-header">
+                          <img src="assets/agenda/agenda-4-operationalize.png" alt="OPERATIONALIZE Utilization" class="innovates-point-thumb" loading="lazy">
+                          <div class="innovates-point-title">
+                            <span>⚙️ Pillar 4</span>
+                            <strong>OPERATIONALIZE Utilization</strong>
+                          </div>
+                        </div>
+                        <p class="innovates-point-desc">
+                          Translates statistical knowledge into practical applications through quiz bees, poster-making, and data interpretation.
+                        </p>
+                      </div>
+
+                      <!-- 4. EXPAND -->
+                      <div class="innovates-point-card">
+                        <div class="innovates-point-header">
+                          <img src="assets/agenda/agenda-8-expand.png" alt="EXPAND Partnerships" class="innovates-point-thumb" loading="lazy">
+                          <div class="innovates-point-title">
+                            <span>🤝 Pillar 8</span>
+                            <strong>EXPAND Partnerships</strong>
+                          </div>
+                        </div>
+                        <p class="innovates-point-desc">
+                          Fosters collaboration with the Philippine Statistics Authority and 17 provincial schools in Cagayan.
+                        </p>
+                      </div>
+
+                      <!-- 5. STRENGTHEN -->
+                      <div class="innovates-point-card">
+                        <div class="innovates-point-header">
+                          <img src="assets/agenda/agenda-9-strengthen.png" alt="STRENGTHEN Performance" class="innovates-point-thumb" loading="lazy">
+                          <div class="innovates-point-title">
+                            <span>🎓 Pillar 10</span>
+                            <strong>STRENGTHEN Performance</strong>
+                          </div>
+                        </div>
+                        <p class="innovates-point-desc">
+                          Integrates experiential, competitive, and application-based learning across all 17 academic departments.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </section>
 
-              <!-- 6. WURI Best Practices (Paragraph 10) -->
-              <section class="article-narrative-section">
-                <h4 class="article-section-heading">
-                  <span>🌍 WURI-Relevant Best Practices</span>
-                </h4>
-                <p class="article-narrative-p">
-                  The celebration also demonstrates WURI-relevant practices by moving statistical learning from theory to application. Its institution-wide participation, practical learning activities, partnership engagement, measurable reach, and potential for annual implementation make the initiative replicable, scalable, and sustainable.
-                </p>
-              </section>
-
-              <!-- 7. Alignment with the RDC INNOVATES Agenda (Paragraph 11) -->
-              <section class="article-narrative-section">
-                <h4 class="article-section-heading">
-                  <span>🚀 Alignment with the RDC INNOVATES Agenda</span>
-                </h4>
-                <p class="article-narrative-p">
-                  The celebration likewise aligns with key directions of the RDC’s INNOVATES agenda. It supports INSPIRE Research Culture and Capability by strengthening students’ statistical literacy, analytical thinking, and research-related competencies; NAVIGATE Digital Innovation and Infrastructure through the use of infographics, data visualization, and digital presentation of information; OPERATIONALIZE Research Utilization and Innovation by translating statistical knowledge into practical applications through quiz bees, poster-making, infographic development, and data interpretation; EXPAND Partnerships and Global Research through collaboration with the Philippine Statistics Authority and participation in provincial-level activities involving other schools in Cagayan; and STRENGTHEN Education and Institutional Performance by integrating experiential, competitive, and application-based learning across all 17 academic departments.
-                </p>
-
-                <div class="innovates-points-grid" style="margin-top: 1.25rem;">
-                  <!-- 1. INSPIRE -->
-                  <div class="innovates-point-card">
-                    <div class="innovates-point-header">
-                      <img src="assets/agenda/agenda-1-inspire.png" alt="INSPIRE Research Culture" class="innovates-point-thumb" loading="lazy">
-                      <div class="innovates-point-title">
-                        <span>💡</span>
-                        <strong>INSPIRE Research Culture</strong>
-                      </div>
-                    </div>
-                    <p class="innovates-point-desc">
-                      Strengthens students’ statistical literacy, analytical thinking, and research-related competencies.
-                    </p>
-                  </div>
-
-                  <!-- 2. NAVIGATE -->
-                  <div class="innovates-point-card">
-                    <div class="innovates-point-header">
-                      <img src="assets/agenda/agenda-3-navigate.png" alt="NAVIGATE Digital Innovation" class="innovates-point-thumb" loading="lazy">
-                      <div class="innovates-point-title">
-                        <span>🧭</span>
-                        <strong>NAVIGATE Digital Innovation</strong>
-                      </div>
-                    </div>
-                    <p class="innovates-point-desc">
-                      Through the use of infographics, data visualization, and digital presentation of information.
-                    </p>
-                  </div>
-
-                  <!-- 3. OPERATIONALIZE -->
-                  <div class="innovates-point-card">
-                    <div class="innovates-point-header">
-                      <img src="assets/agenda/agenda-4-operationalize.png" alt="OPERATIONALIZE Innovation" class="innovates-point-thumb" loading="lazy">
-                      <div class="innovates-point-title">
-                        <span>⚙️</span>
-                        <strong>OPERATIONALIZE Innovation</strong>
-                      </div>
-                    </div>
-                    <p class="innovates-point-desc">
-                      Translates statistical knowledge into practical applications through quiz bees, poster-making, infographic development, and data interpretation.
-                    </p>
-                  </div>
-
-                  <!-- 4. EXPAND -->
-                  <div class="innovates-point-card">
-                    <div class="innovates-point-header">
-                      <img src="assets/agenda/agenda-8-expand.png" alt="EXPAND Partnerships" class="innovates-point-thumb" loading="lazy">
-                      <div class="innovates-point-title">
-                        <span>🤝</span>
-                        <strong>EXPAND Partnerships</strong>
-                      </div>
-                    </div>
-                    <p class="innovates-point-desc">
-                      Through collaboration with the Philippine Statistics Authority and participation in provincial-level activities involving other schools in Cagayan.
-                    </p>
-                  </div>
-
-                  <!-- 5. STRENGTHEN -->
-                  <div class="innovates-point-card">
-                    <div class="innovates-point-header">
-                      <img src="assets/agenda/agenda-9-strengthen.png" alt="STRENGTHEN Performance" class="innovates-point-thumb" loading="lazy">
-                      <div class="innovates-point-title">
-                        <span>🏛️</span>
-                        <strong>STRENGTHEN Performance</strong>
-                      </div>
-                    </div>
-                    <p class="innovates-point-desc">
-                      Integrating experiential, competitive, and application-based learning across all 17 academic departments.
-                    </p>
-                  </div>
-                </div>
-              </section>
-
-              <!-- 8. Institutional Culture & Conclusion (Paragraph 12) -->
-              <section class="article-narrative-section">
-                <p class="article-narrative-p" style="margin-top: 0; font-weight: 600; color: #1e293b; font-size: 1.02rem; line-height: 1.8; margin-bottom: 0;">
+                <p class="article-narrative-p" style="margin-top: 1.25rem; font-weight: 600; color: #1e293b;">
                   Through the 37th Statistics Month Celebration, MCNP–ISAP continues to foster a culture where data are not simply computed, but understood, communicated, and used meaningfully—equipping students with competencies increasingly essential in research, innovation, and informed decision-making.
                 </p>
               </section>
@@ -3452,7 +3381,8 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   </main>
 
@@ -3952,7 +3882,11 @@
       document.body.style.overflow = '';
     }
 
-    // Article Modal handlers
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) closeModal();
+    });
+
     var articleOverlay = document.getElementById('articleModalOverlay');
     var articleCloseBtn = document.getElementById('articleModalClose');
 
@@ -3962,11 +3896,8 @@
       var dest = document.getElementById('articleModalContent');
       if (src && dest && !dest.children.length) {
         dest.innerHTML = src.innerHTML;
-        // In modal view, hide the inline accordion collapse button
         var inlineFooter = dest.querySelector('.article-editorial-footer');
-        if (inlineFooter) {
-          inlineFooter.style.display = 'none';
-        }
+        if (inlineFooter) inlineFooter.style.display = 'none';
       }
       if (articleOverlay) {
         articleOverlay.classList.add('open');
@@ -3988,25 +3919,19 @@
     window.openArticleModal = openArticleModal;
     window.closeArticleModal = closeArticleModal;
 
-    if (articleCloseBtn) {
-      articleCloseBtn.addEventListener('click', closeArticleModal);
-    }
+    if (articleCloseBtn) articleCloseBtn.addEventListener('click', closeArticleModal);
     if (articleOverlay) {
       articleOverlay.addEventListener('click', function (e) {
         if (e.target === articleOverlay) closeArticleModal();
       });
     }
 
-    closeBtn.addEventListener('click', closeModal);
-    overlay.addEventListener('click', function (e) {
-      if (e.target === overlay) closeModal();
-    });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') {
         if (overlay && overlay.classList.contains('open')) closeModal();
         if (articleOverlay && articleOverlay.classList.contains('open')) closeArticleModal();
       }
-      if (overlay.classList.contains('open')) {
+      if (overlay && overlay.classList.contains('open')) {
         var curr = parseInt(overlay.dataset.currentIndex || '0', 10);
         if (e.key === 'ArrowLeft' && curr > 0) openModal(curr - 1);
         if (e.key === 'ArrowRight' && curr < events.length - 1) openModal(curr + 1);
@@ -4264,14 +4189,17 @@
       var eventParam = urlParams.get('event');
       var articleParam = urlParams.get('article');
       var hashVal = window.location.hash ? window.location.hash.substring(1) : '';
+      var isArticleTarget = (articleParam === 'article-37th-statistics-month-celebration' || hashVal === 'article-37th-statistics-month-celebration');
 
-      if (articleParam === 'article-37th-statistics-month-celebration' || hashVal === 'article-37th-statistics-month-celebration') {
+      if (isArticleTarget) {
         if (window.switchContentView) window.switchContentView('articles', false);
+        var artCard = document.getElementById('article-37th-statistics-month-celebration');
+        if (artCard) artCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
         setTimeout(function () {
           if (typeof window.openArticleModal === 'function') {
             window.openArticleModal();
           }
-        }, 350);
+        }, 300);
         return;
       }
 
@@ -4282,6 +4210,9 @@
         if (targetCard) {
           var isArt = targetCard.closest('#articlesGrid') || targetCard.dataset.contentType === 'article';
           if (window.switchContentView) window.switchContentView(isArt ? 'articles' : 'events', false);
+          if (targetCardId === 'article-37th-statistics-month-celebration' && window.toggleArticleAccordion) {
+            window.toggleArticleAccordion('article-37th-statistics-month-celebration', true);
+          }
         }
         setTimeout(function () {
           if (typeof window.openEventModalById === 'function') {
