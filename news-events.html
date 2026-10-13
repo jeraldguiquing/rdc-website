@@ -23,6 +23,121 @@
 
   <link rel="stylesheet" href="css/style.css">
   <style>
+    
+    /* ===== View Switcher (Articles vs Events vs All) ===== */
+    .news-view-tabs-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2.25rem;
+    }
+    .news-view-tabs {
+      display: inline-flex;
+      background: #e2e8f0;
+      padding: 0.35rem;
+      border-radius: 9999px;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .news-view-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: 9999px;
+      border: none;
+      background: transparent;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      text-decoration: none;
+      outline: none;
+    }
+    .news-view-tab-btn:hover {
+      color: #0f172a;
+      background: rgba(255,255,255,0.7);
+    }
+    .news-view-tab-btn.active {
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    }
+    .news-view-tab-btn.active[data-view="articles"] {
+      color: var(--mcnp-green, #0d5c3a);
+    }
+    .news-view-tab-btn.active[data-view="events"] {
+      color: var(--isap-blue, #1e5ea8);
+    }
+    .news-view-tab-btn .tab-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.15rem 0.55rem;
+      font-size: 0.74rem;
+      font-weight: 800;
+      border-radius: 9999px;
+      background: #cbd5e1;
+      color: #334155;
+    }
+    .news-view-tab-btn.active .tab-count {
+      background: #0f172a;
+      color: #ffffff;
+    }
+    .news-view-tab-btn.active[data-view="articles"] .tab-count {
+      background: var(--mcnp-green, #0d5c3a);
+      color: #ffffff;
+    }
+    .news-view-tab-btn.active[data-view="events"] .tab-count {
+      background: var(--isap-blue, #1e5ea8);
+      color: #ffffff;
+    }
+
+    /* Content Type Badges */
+    .badge-content-type {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      margin-right: 0.4rem;
+    }
+    .badge-content-type.type-article {
+      background: rgba(13, 92, 58, 0.12);
+      color: #0a4d2e;
+      border: 1px solid rgba(13, 92, 58, 0.25);
+    }
+    .badge-content-type.type-event {
+      background: rgba(30, 94, 168, 0.12);
+      color: #12427a;
+      border: 1px solid rgba(30, 94, 168, 0.25);
+    }
+
+    /* Section divider banners */
+    .news-sub-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .news-sub-header.article-header {
+      border-bottom-color: rgba(13, 92, 58, 0.35);
+    }
+    .news-sub-header.event-header {
+      border-bottom-color: rgba(30, 94, 168, 0.35);
+    }
+
     /* ===== Event Detail Modal (click-to-expand) ===== */
     .news-card { cursor: pointer; }
     .news-card .event-view-more {
@@ -953,19 +1068,35 @@
         </div>
       </div>
 
-      <section aria-labelledby="event-highlights-title">
-        <div class="section-title-wrap" style="margin-bottom: 1.75rem;">
-          <div>
-            <span class="section-tag">Updates &amp; Happenings</span>
-            <h2 id="event-highlights-title" class="section-title">News &amp; Event Highlights</h2>
-            <p class="section-desc">Dates, locations, activities, breakthroughs, and achievements from RDC, MCNP, and ISAP.</p>
+      <section aria-labelledby="event-highlights-title" id="newsEventsHighlights">
+        <div class="section-title-wrap" style="margin-bottom: 1.5rem; text-align: center;">
+          <span class="section-tag">Updates &amp; Happenings</span>
+          <h2 id="event-highlights-title" class="section-title">News, Articles &amp; Event Highlights</h2>
+          <p class="section-desc" style="max-width: 720px; margin: 0 auto;">Explore published research feature articles, proposal defenses, student competition breakthroughs, and institutional event schedules across MCNP &amp; ISAP.</p>
+        </div>
+
+        <!-- Master View Switcher: Articles vs Events vs All -->
+        <div class="news-view-tabs-wrap">
+          <div class="news-view-tabs" role="tablist" aria-label="News and Events Content Switcher">
+            <button type="button" class="news-view-tab-btn active" data-view="articles" id="viewTabArticles" role="tab" aria-selected="true" onclick="switchContentView('articles');">
+              <span>📰 Research Articles &amp; Stories</span>
+              <span class="tab-count" id="countArticlesTab">19</span>
+            </button>
+            <button type="button" class="news-view-tab-btn" data-view="events" id="viewTabEvents" role="tab" aria-selected="false" onclick="switchContentView('events');">
+              <span>📅 Events &amp; Colloquiums</span>
+              <span class="tab-count" id="countEventsTab">13</span>
+            </button>
+            <button type="button" class="news-view-tab-btn" data-view="all" id="viewTabAll" role="tab" aria-selected="false" onclick="switchContentView('all');">
+              <span>🌟 View All Combined</span>
+              <span class="tab-count" id="countAllTab">32</span>
+            </button>
           </div>
         </div>
 
         <!-- Interactive Event Filter & Search Bar -->
         <div class="event-filter-toolbar">
           <div class="event-filter-pills">
-            <button type="button" class="event-pill-btn active" data-filter="all">All News &amp; Events (<span id="eventCountTotal">27</span>)</button>
+            <button type="button" class="event-pill-btn active" data-filter="all">All in View (<span id="eventCountTotal">19</span>)</button>
             <button type="button" class="event-pill-btn" data-filter="research">Research &amp; Colloquiums</button>
             <button type="button" class="event-pill-btn" data-filter="sdg">SDG Initiatives</button>
             <button type="button" class="event-pill-btn" data-filter="training">Capability Building</button>
@@ -973,14 +1104,26 @@
           </div>
           <div class="event-search-wrap">
             <span class="event-search-icon" aria-hidden="true">&#128269;</span>
-            <input type="text" id="eventSearchInput" class="event-search-input" placeholder="Search news, events, topics, or keywords..." aria-label="Search news and events">
+            <input type="text" id="eventSearchInput" class="event-search-input" placeholder="Search news, articles, events, or keywords..." aria-label="Search news, articles, and events">
             <button type="button" id="eventSearchClear" class="event-search-clear" aria-label="Clear search">&times;</button>
           </div>
         </div>
 
-      <div class="news-grid" id="eventsGrid" style="margin-bottom: 3.5rem;" aria-label="Past event highlights">
-        <!-- Flagship Event: 37th Statistics Month Celebration (Oct 05, 2026) -->
-        <article class="news-card" id="event-37th-statistics-month-celebration">
+        <!-- ========================================================
+             SECTION 1: ARTICLES & FEATURE STORIES
+             ======================================================== -->
+        <section id="articlesSection" class="content-sub-section" style="margin-bottom: 2.5rem;" aria-label="Articles and Feature Stories">
+          <div id="articlesHeaderBanner" class="news-sub-header article-header">
+            <div>
+              <span class="section-tag" style="background: rgba(13, 92, 58, 0.1); color: var(--mcnp-green); border-color: rgba(13, 92, 58, 0.25);">📰 Published Articles</span>
+              <h3 style="font-size: 1.45rem; font-weight: 800; color: #0f172a; margin: 0.3rem 0 0.2rem;">Research Articles &amp; Feature Stories</h3>
+              <p style="color: #64748b; font-size: 0.88rem; margin: 0;">In-depth journalistic narratives, research proposal defenses, statistics month milestones, and student achievements.</p>
+            </div>
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--mcnp-green); background: rgba(13, 92, 58, 0.08); padding: 0.25rem 0.75rem; border-radius: 999px;">19 Articles Published</span>
+          </div>
+
+          <div class="news-grid" id="articlesGrid" style="margin-bottom: 2.5rem;" aria-label="Published research articles">
+<article class="news-card" data-content-type="article" id="event-37th-statistics-month-celebration">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0b2545;">
             <img src="upload/inst-quizbee/inst-quizbee-1.jpg" alt="37th Statistics Month Celebration Delegation and Winners - Oct 05, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.75) 100%); pointer-events: none;"></div>
@@ -992,6 +1135,7 @@
           </div>
           <div class="news-content">
             <div>
+              <span class="badge-content-type type-article">📰 ARTICLE</span>
               <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">📊 37th National Statistics Month</span>
               <h3 class="news-title">📊 MCNP–ISAP Advances Statistical Literacy through Month-Long 37th Statistics Month Celebration</h3>
               <p class="news-excerpt">The Medical Colleges of Northern Philippines (MCNP) and the International School of Asia and the Pacific (ISAP) brought statistics beyond the classroom through a month-long celebration that combined training, creative application, competition, and inter-school engagement as part of the 37th Statistics Month Celebration. Led by the Research and Development Center (RDC), the series of activities engaged all 17 academic departments of MCNP–ISAP and culminated in participation in provincial-level competitions involving 17 schools across Cagayan. The initiative aimed to strengthen students’ statistical competencies, deepen their appreciation of data, and provide practical opportunities to apply analytical and interpretive skills.</p>
@@ -1046,9 +1190,7 @@
           </div>
         </article>
 
-
-                <!-- Featured Event: MCNP Health Sciences Proposal Defenses (Sep 28, 2026) -->
-        <article class="news-card" id="event-mcnp-health-proposal-defenses">
+<article class="news-card" data-content-type="article" id="event-mcnp-health-proposal-defenses">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0b2545;">
             <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_228ED57B-0A7F-4B5B-880C-9110E0F1198D.jpeg" alt="MCNP Health Sciences &amp; Allied Medical Research Proposal Defenses - Sep 28, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.75) 100%); pointer-events: none;"></div>
@@ -1060,6 +1202,7 @@
           </div>
           <div class="news-content">
             <div>
+              <span class="badge-content-type type-article">📰 ARTICLE</span>
               <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">MCNP Health &amp; Allied Sciences</span>
               <h3 class="news-title">🩺 In Pursuit of Clinical Excellence: MCNP Health &amp; Allied Medical Programs Convene Oral Research Proposal Defenses</h3>
               <p class="news-excerpt">The Medical Colleges of Northern Philippines (MCNP), through the Research and Development Center (RDC) in coordination with the Institutional Ethics Review Committee (IERC), successfully conducted the culminating Oral Research Proposal Defenses across the health and allied medical disciplines. Candidate researchers presented innovative protocols tackling regional clinical challenges, indigenous pharmacology, and diagnostic healthcare advancements.</p>
@@ -1092,8 +1235,7 @@
           </div>
         </article>
 
-<!-- Event 1: Community Needs Assessment (Sep 25, 2026) -->
-        <article class="news-card" id="event-community-needs-assessment">
+<article class="news-card" data-content-type="article" id="event-community-needs-assessment">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/community-assessment-1.jpg" alt="Community Needs Assessment and Institutional Extension Services - Sep 25, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1105,6 +1247,7 @@
           </div>
           <div class="news-content">
             <div>
+              <span class="badge-content-type type-article">📰 ARTICLE</span>
               <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">RDC &amp; CESO Collaboration</span>
               <h3 class="news-title">From Community Needs to Responsive Extension Programs</h3>
               <p class="news-excerpt">The MCNP–ISAP Research and Development Center (RDC), in collaboration with the Community Extension Services Office (CESO), presented the results of the Community Needs Assessment to the different academic departments on September 25, 2026. The findings provided a clearer understanding of the community’s priority concerns and served as an evidence-based guide for developing responsive and sustainable initiatives.</p>
@@ -1130,8 +1273,7 @@
           </div>
         </article>
 
-        <!-- Event 2: Data Interpretation and Infographics Activity (Sep 25, 2026) -->
-        <article class="news-card" id="event-data-infographics">
+<article class="news-card" data-content-type="article" id="event-data-infographics">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/data-interpretation-5.jpg" alt="Statistical Month 2026: Data Interpretation and Infographics Activity Winners and Participants - Sep 25, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1143,6 +1285,7 @@
           </div>
           <div class="news-content">
             <div>
+              <span class="badge-content-type type-article">📰 ARTICLE</span>
               <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">Statistical Month 2026</span>
               <h3 class="news-title">📊 Turning Data into Meaningful Stories</h3>
               <p class="news-excerpt">The MCNP–ISAP Research and Development Center conducted the Statistical Month 2026: Data Interpretation and Infographics Activity on September 25, 2026. The activity challenged students to analyze information, draw meaningful conclusions, and communicate data through clear and creative visual presentations.</p>
@@ -1175,8 +1318,7 @@
           </div>
         </article>
 
-        <!-- Event 3: Poster Contest Winning Entries Showcase (Sep 24, 2026) -->
-        <article class="news-card" id="event-poster-art-showcase">
+<article class="news-card" data-content-type="article" id="event-poster-art-showcase">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/poster-activity-1.jpg" alt="Winning Entries Showcase: MCNP-ISAP Statistical Month Poster-Making Contest - Sep 24, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1188,6 +1330,7 @@
           </div>
           <div class="news-content">
             <div>
+              <span class="badge-content-type type-article">📰 ARTICLE</span>
               <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">Poster Art Showcase</span>
               <h3 class="news-title">🎨 When Data Finds Its Voice Through Art</h3>
               <p class="news-excerpt">These winning entries from the MCNP–ISAP Statistical Month Poster-Making Contest show that statistics is more than numbers—it is a powerful tool for understanding realities, communicating ideas, and shaping better decisions. Through color and creativity, our students transformed statistical concepts into meaningful visual stories of education, health, technology, and development.</p>
@@ -1210,8 +1353,7 @@
           </div>
         </article>
 
-        <!-- Event 4: Poster-Making Activity (Sep 23, 2026) -->
-        <article class="news-card" id="event-poster-making-activity">
+<article class="news-card" data-content-type="article" id="event-poster-making-activity">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/poster-activity-19.jpg" alt="Statistical Month 2026 Poster-Making Activity - Sep 23, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1223,6 +1365,7 @@
           </div>
           <div class="news-content">
             <div>
+              <span class="badge-content-type type-article">📰 ARTICLE</span>
               <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Institutional Competition</span>
               <h3 class="news-title">🎨📊 Where Creativity Meets Statistics</h3>
               <p class="news-excerpt">The MCNP–ISAP Research and Development Center conducted the Statistical Month 2026 Poster-Making Activity on September 23, 2026. Participants transformed statistical concepts into creative visual stories that highlighted the value of data in research and informed decision-making.</p>
@@ -1251,8 +1394,7 @@
           </div>
         </article>
 
-        <!-- Event 5: BS Tourism Management Proposal Defense (Sep 22–23, 2026) -->
-        <article class="news-card" id="event-tourism-defense">
+<article class="news-card" data-content-type="article" id="event-tourism-defense">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/tourism-defense-1.jpg" alt="BS Tourism Management Research Proposal Defense and SDG Research Snap - Sep 22–23, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1264,6 +1406,7 @@
           </div>
           <div class="news-content">
             <div>
+              <span class="badge-content-type type-article">📰 ARTICLE</span>
               <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">BS Tourism Management</span>
               <h3 class="news-title">BS Tourism Management Students Connect Research Proposals with Global Goals</h3>
               <p class="news-excerpt">BS Tourism Management students successfully presented and defended their research proposals on September 22–23, 2026, demonstrating their developing competence in research, critical inquiry, and evidence-based problem-solving. As part of the activity, the student researchers participated in the SDG Research Snap, an initiative under SDG SPOT @ RDC: Research for the Goals.</p>
@@ -1290,8 +1433,7 @@
           </div>
         </article>
 
-        <!-- Event 6: Statistical Month Institutional Quiz Bee (Sep 21, 2026) -->
-        <article class="news-card" id="event-statistical-quiz-bee">
+<article class="news-card" data-content-type="article" id="event-statistical-quiz-bee">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/quiz-bee-13.jpg" alt="MCNP-ISAP Statistical Month Institutional Quiz Bee - Sep 21, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1303,6 +1445,7 @@
           </div>
           <div class="news-content">
             <div>
+              <span class="badge-content-type type-article">📰 ARTICLE</span>
               <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Statistical Month Quiz Bee</span>
               <h3 class="news-title">📊 Numbers, Knowledge, and a Winning Spirit!</h3>
               <p class="news-excerpt">The MCNP–ISAP Statistical Month Institutional Quiz Bee brought students together on September 21, 2026, to test their knowledge of statistics and celebrate the role of data in research and decision-making. Congratulations to all participants and to our winners!</p>
@@ -1330,42 +1473,8 @@
             </div>
           </div>
         </article>
-        <article class="news-card" id="event-data-skills">
-          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
-            <img src="upload/health-research-analytics-1.jpg" alt="Training on Data Analytics and Data Presentation for Health Research - Sep 17–18, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
-            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
-            <span class="news-date-badge" style="position: relative; z-index: 2;">Sep 17–18, 2026</span>
-            <div class="news-thumb-text" style="position: relative; z-index: 2;">
-              <span class="news-thumb-pill">Professional Development</span>
-              <h4 class="news-thumb-topic">Data Analytics</h4>
-            </div>
-          </div>
-          <div class="news-content">
-            <div>
-              <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Professional Development</span>
-              <h3 class="news-title">Strengthening Data Skills for Better Health Research</h3>
-              <p class="news-excerpt">RDC staff from MCNP and ISAP participated in the Training on Data Analytics and Data Presentation for Health Research held on September 17–18, 2026, at Philippine Normal University–North Luzon. The training strengthened their skills in analyzing, interpreting, and effectively presenting health research findings.</p>
-              <details>
-                <summary>Read full story</summary>
-                <p class="news-excerpt">The activity supports SDG 3: Good Health and Well-Being through evidence-based health research, SDG 4: Quality Education through professional development, SDG 9: Industry, Innovation and Infrastructure through data-driven innovation, and SDG 17: Partnerships for the Goals through institutional collaboration.</p>
-                <p class="news-excerpt"><strong>Innovation Beyond Boundaries.</strong></p>
-              </details>
-              <div style="display: none;" aria-hidden="true">
-                <img src="upload/health-research-analytics-1.jpg" alt="MCNP and ISAP RDC staff with official backdrop at PNU North Luzon for the Training on Data Analytics and Data Presentation for Health Research">
-                <img src="upload/health-research-analytics-2.jpg" alt="Participants engaged in hands-on data analytics and data presentation exercises using tablet computers and research materials">
-                <img src="upload/health-research-analytics-3.jpg" alt="RDC delegates at the entrance landmark of Philippine Normal University North Luzon, Alicia, Isabela">
-                <img src="upload/health-research-analytics-4.jpg" alt="Plenary opening message delivered by Dr. Virginia G. Bilgera, Regional Director of DOST Region 02">
-                <img src="upload/health-research-analytics-5.jpg" alt="Resource speaker Dr. Julius T. Capili lecturing on Types of Data Gathering Tools in Health Research">
-                <img src="upload/health-research-analytics-6.jpg" alt="Lecture presentation on narrative data presentation and statistical interpretation in health studies">
-                <img src="upload/health-research-analytics-7.jpg" alt="Opening address presented by Dr. Julieta M. Paras, CESO III, Regional Director of CHED Regional Office 02">
-                <img src="upload/health-research-analytics-8.jpg" alt="Session presentation outlining criteria for publication-ready health research and institutional reporting standards">
-                <img src="upload/health-research-analytics-9.jpg" alt="RDC participants group photo at the Indigenous Peoples Education Hub portal of PNU North Luzon">
-              </div>
-            </div>
-          </div>
-        </article>
 
-        <article class="news-card" id="event-pharmacy-research">
+<article class="news-card" data-content-type="article" id="event-pharmacy-research">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/pharmacy-defense-1.jpg" alt="BS Pharmacy Research Proposal Defense and SDG Research Snap - Sep 17–18, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1377,6 +1486,7 @@
           </div>
           <div class="news-content">
             <div>
+              <span class="badge-content-type type-article">📰 ARTICLE</span>
               <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">BS Pharmacy</span>
               <h3 class="news-title">Pharmacy Research with Purpose: Every Study, a Goal and an Impact</h3>
               <p class="news-excerpt">BS Pharmacy students presented and defended their research proposals on September 17–18, 2026, at the Research Office. Beyond demonstrating their knowledge and research competence, the students identified how their proposed studies contribute to specific Sustainable Development Goals through the SDG Research Snap, one of the activities under SDG SPOT @ RDC.</p>
@@ -1399,282 +1509,13 @@
           </div>
         </article>
 
-        <article class="news-card" id="event-problems-to-purpose">
-          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
-            <img src="upload/colloquium-1.jpg" alt="General Education Department &amp; RDC: Research Colloquium &amp; Capacity Building - Dr. Ryan C. Fontanilla and Ms. Rio Frances C. Callores" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
-            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
-            <span class="news-date-badge" style="position: relative; z-index: 2;">Sep 16, 2026</span>
-            <div class="news-thumb-text" style="position: relative; z-index: 2;">
-              <span class="news-thumb-pill">General Education</span>
-              <h4 class="news-thumb-topic">Research Colloquium</h4>
-            </div>
-          </div>
-          <div class="news-content">
-            <div>
-              <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">General Education Department</span>
-              <h3 class="news-title">From Problems to Purpose: Strengthening Research Capacity</h3>
-              <p class="news-excerpt">The General Education Department, in collaboration with the MCNP–ISAP Research and Development Center, conducted a Research Colloquium and Capacity-Building Program on September 16, 2026. The activity featured Dr. Ryan C. Fontanilla, who discussed <em>A Practical Guide to Research Problem Formulation</em>, and Ms. Rio Frances C. Callores, Research Coordinator, who facilitated the Orientation on the Institutional Research Process.</p>
-              <details>
-                <summary>Read full story</summary>
-                <p class="news-excerpt">The program equipped faculty researchers with practical guidance in transforming relevant concerns into clear and researchable problems while deepening their understanding of the institutional process—from proposal preparation and evaluation to implementation and research utilization. It also provided a venue for sharing ideas, clarifying procedures, and strengthening a collaborative culture of inquiry within the department.</p>
-                <p class="news-excerpt">The activity supports SDG 4: Quality Education through faculty research development; SDG 9: Industry, Innovation and Infrastructure by encouraging evidence-based innovation; SDG 16: Peace, Justice and Strong Institutions through transparent and standardized research processes; and SDG 17: Partnerships for the Goals through collaboration between the General Education Department and the RDC.</p>
-                <p class="news-excerpt"><strong>Innovation Beyond Boundaries.</strong></p>
-              </details>
-              <div style="display: none;" aria-hidden="true">
-                <img src="upload/colloquium-1.jpg" alt="Research Colloquium &amp; Capacity Building banner slide with keynote speakers">
-                <img src="upload/colloquium-2.jpg" alt="Faculty researchers engaged in problem formulation workshop">
-                <img src="upload/colloquium-3.jpg" alt="Dr. Ryan C. Fontanilla presenting A Practical Guide to Research Problem Formulation">
-                <img src="upload/colloquium-4.jpg" alt="Ms. Rio Frances C. Callores facilitating Orientation on Institutional Research Process">
-                <img src="upload/colloquium-5.jpg" alt="General Education Department faculty participants in collaborative session">
-                <img src="upload/colloquium-6.jpg" alt="Open forum and research consultation at ISAP AVR 1">
-                <img src="upload/colloquium-7.jpg" alt="Faculty presentation and peer review discussion">
-                <img src="upload/colloquium-8.jpg" alt="Attendees reviewing research guidelines and institutional templates">
-                <img src="upload/colloquium-9.jpg" alt="Research coordinator addressing methodological questions">
-                <img src="upload/colloquium-10.jpg" alt="Research Colloquium participants group photo at ISAP AVR 1">
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card" id="event-leading-through-inquiry">
-          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
-            <img src="upload/proposal-defense-sep16-1.jpg" alt="MCNP-ISAP Academic Heads Research Proposal Defense - Sep 16, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
-            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
-            <span class="news-date-badge" style="position: relative; z-index: 2;">Sep 16, 2026</span>
-            <div class="news-thumb-text" style="position: relative; z-index: 2;">
-              <span class="news-thumb-pill">Academic Heads</span>
-              <h4 class="news-thumb-topic">Proposal Defense</h4>
-            </div>
-          </div>
-          <div class="news-content">
-            <div>
-              <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Academic Heads</span>
-              <h3 class="news-title">Leading Through Inquiry, Improving Through Evidence</h3>
-              <p class="news-excerpt">The MCNP–ISAP Research and Development Center conducted the Academic Heads Research Proposal Defense on September 16, 2026, featuring research proposals from the College of Sciences and Teacher Education and the High School Department. The presenters received constructive feedback to strengthen their research designs and ensure that their studies respond to relevant educational and institutional concerns.</p>
-              <details>
-                <summary>Read full story</summary>
-                <p class="news-excerpt">More than a presentation of proposals, the activity empowers academic leaders and faculty researchers to transform classroom experiences and institutional challenges into evidence-based solutions. It also strengthens their role in guiding research, improving academic practices, and contributing to informed decision-making.</p>
-                <p class="news-excerpt">The activity supports SDG 4: Quality Education by advancing research-informed teaching and leadership; SDG 9: Industry, Innovation and Infrastructure by encouraging innovative solutions; and SDG 17: Partnerships for the Goals by promoting collaboration among academic units, researchers, evaluators, and the RDC.</p>
-                <p class="news-excerpt"><strong>Innovation Beyond Boundaries.</strong></p>
-              </details>
-              <div style="display: none;" aria-hidden="true">
-                <img src="upload/proposal-defense-sep16-1.jpg" alt="Academic heads, research evaluators, and RDC team group photo with presentation display">
-                <img src="upload/proposal-defense-sep16-2.jpg" alt="Academic Heads Research Proposal Defense in progress with digital screen date Sep 16, 2026">
-                <img src="upload/proposal-defense-sep16-3.jpg" alt="Evaluation panel and academic leaders in conference room discussion">
-                <img src="upload/proposal-defense-sep16-4.jpg" alt="Research evaluators reviewing institutional proposal manuscripts and rubrics">
-                <img src="upload/proposal-defense-sep16-5.jpg" alt="Opening session and overview of Academic Heads Proposal Defense">
-                <img src="upload/proposal-defense-sep16-6.jpg" alt="Presentation of research proposals from College of Sciences and Teacher Education">
-                <img src="upload/proposal-defense-sep16-7.jpg" alt="High School Department academic heads presenting institutional research proposals">
-                <img src="upload/proposal-defense-sep16-8.jpg" alt="Evaluation panel offering constructive recommendations and methodology refinements">
-                <img src="upload/proposal-defense-sep16-9.jpg" alt="Academic heads and panel engaging in research defense deliberations">
-                <img src="upload/proposal-defense-sep16-10.jpg" alt="Presentation and awarding of certificate of participation">
-                <img src="upload/proposal-defense-sep16-11.jpg" alt="Academic heads and evaluators certificate presentation">
-                <img src="upload/proposal-defense-sep16-12.jpg" alt="Recognition of research presenters and defense panel members">
-                <img src="upload/proposal-defense-sep16-13.jpg" alt="Group photo documentation of research participants and evaluators">
-                <img src="upload/proposal-defense-sep16-14.jpg" alt="Post-defense consultation and SDG-aligned institutional research direction">
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card" id="event-numbers-to-narratives">
-          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
-            <img src="upload/stat-seminar-1.png" alt="Stat. Month Data Appreciation Seminar - Sep 15, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;" loading="eager">
-            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
-            <span class="news-date-badge" style="position: relative; z-index: 2;">Sep 15, 2026</span>
-            <div class="news-thumb-text" style="position: relative; z-index: 2;">
-              <span class="news-thumb-pill">Data Appreciation</span>
-              <h4 class="news-thumb-topic">Stat. Month Seminar</h4>
-            </div>
-          </div>
-          <div class="news-content">
-            <div>
-              <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">Data Appreciation</span>
-              <h3 class="news-title">From Numbers to Narratives: Making Data Meaningful</h3>
-              <p class="news-excerpt">The MCNP–ISAP Research and Development Center conducted the Stat. Month Data Appreciation Seminar via Zoom on September 15, 2026, with first-year students and faculty researchers joining the webinar. The session focused on using infographics to present, interpret, and appreciate data, equipping participants with practical skills to transform complex research findings into clear, engaging, and meaningful visual stories.</p>
-              <details>
-                <summary>Read full story</summary>
-                <p class="news-excerpt">The activity supports SDG 4: Quality Education by strengthening students' and faculty members' data literacy and communication competencies; SDG 9: Industry, Innovation and Infrastructure by promoting innovative tools for presenting research; SDG 16: Peace, Justice and Strong Institutions by encouraging transparent and evidence-based decision-making; and SDG 17: Partnerships for the Goals by bringing learners, educators, and researchers together through shared learning.</p>
-                <p class="news-excerpt">Because data should not only be collected—it must be understood, communicated, and used to inspire informed action.</p>
-                <p class="news-excerpt"><strong>Innovation Beyond Boundaries.</strong></p>
-              </details>
-              <div style="display: none;" aria-hidden="true">
-                <img src="upload/stat-seminar-1.png" alt="Stat. Month Data Appreciation Seminar official banner slide">
-                <img src="upload/stat-seminar-2.jpg" alt="First-year student participants attending Zoom webinar session">
-                <img src="upload/stat-seminar-3.jpg" alt="Faculty and student attendees in data appreciation training">
-                <img src="upload/stat-seminar-4.jpg" alt="Webinar screen documentation with student researchers">
-                <img src="upload/stat-seminar-5.jpg" alt="Data appreciation and infographics presentation session">
-                <img src="upload/stat-seminar-6.jpg" alt="Zoom video meeting session with research focal persons and students">
-                <img src="upload/stat-seminar-7.jpg" alt="Webinar open forum and discussion on making data meaningful">
-                <img src="upload/stat-seminar-8.jpg" alt="Closing documentation of Stat. Month Data Appreciation Seminar">
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card" id="event-research-leadership">
-          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
-            <img src="upload/proposal-defense-sep9-1.jpg" alt="MCNP-ISAP Academic Heads Research Proposal Defense - Sep 09, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;" loading="eager">
-            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
-            <span class="news-date-badge" style="position: relative; z-index: 2;">Sep 9, 2026</span>
-            <div class="news-thumb-text" style="position: relative; z-index: 2;">
-              <span class="news-thumb-pill">Academic Heads</span>
-              <h4 class="news-thumb-topic">Proposal Defense</h4>
-            </div>
-          </div>
-          <div class="news-content">
-            <div>
-              <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Academic Heads</span>
-              <h3 class="news-title">Research Leadership in Action</h3>
-              <p class="news-excerpt">The MCNP–ISAP Research and Development Center conducted the Academic Heads Research Proposal Defense on September 9, 2026. Academic leaders presented and defended their research proposals, received constructive feedback, and refined their studies toward generating evidence-based solutions for institutional development.</p>
-              <details>
-                <summary>Read full story</summary>
-                <p class="news-excerpt">The program provides academic heads with a structured platform to transform institutional concerns, classroom experiences, and operational challenges into researchable problems and evidence-based solutions. More than a proposal defense, it strengthens their role as research leaders who can guide faculty members, improve academic practices, and contribute to informed decision-making across MCNP and ISAP.</p>
-                <p class="news-excerpt">The activity supports SDG 4: Quality Education by advancing research-informed academic leadership, SDG 9: Industry, Innovation and Infrastructure by encouraging innovative responses to institutional needs, and SDG 17: Partnerships for the Goals by strengthening collaboration among academic heads, research evaluators, and the RDC.</p>
-                <p class="news-excerpt">Through research, leadership moves beyond managing today—it creates knowledge that shapes a better tomorrow.</p>
-                <p class="news-excerpt"><strong>Innovation Beyond Boundaries.</strong></p>
-              </details>
-              <div style="display: none;" aria-hidden="true">
-                <img src="upload/proposal-defense-sep9-1.jpg" alt="MCNP-ISAP Academic Heads Research Proposal Defense Sep 09, 2026">
-                <img src="upload/proposal-defense-sep9-2.jpg" alt="Academic heads presenting research proposals at 1:00 PM">
-                <img src="upload/proposal-defense-sep9-3.jpg" alt="Faculty research presentation session">
-                <img src="upload/proposal-defense-sep9-4.jpg" alt="Academic leaders defending proposed studies before panel">
-                <img src="upload/proposal-defense-sep9-5.jpg" alt="Research Proposal Defense session and discussion">
-                <img src="upload/proposal-defense-sep9-6.jpg" alt="Presentation of proposal on evidence-based educational interventions">
-                <img src="upload/proposal-defense-sep9-7.jpg" alt="Addressing the enrollment gap in teacher education proposal">
-                <img src="upload/proposal-defense-sep9-8.jpg" alt="Academic leadership research review panel and participants">
-                <img src="upload/proposal-defense-sep9-9.jpg" alt="Faculty researcher defending proposal with SDG commitments">
-                <img src="upload/proposal-defense-sep9-10.jpg" alt="Evaluation and technical feedback on academic proposals">
-                <img src="upload/proposal-defense-sep9-11.jpg" alt="Study presentation on graduating students work readiness and self-efficacy">
-                <img src="upload/proposal-defense-sep9-12.jpg" alt="Faculty presenter discussing methodology and research design">
-                <img src="upload/proposal-defense-sep9-13.jpg" alt="Panel inquiries and academic dean defense">
-                <img src="upload/proposal-defense-sep9-14.jpg" alt="Proposal presentation on adaptive WiFi bandwidth edge computing">
-                <img src="upload/proposal-defense-sep9-15.jpg" alt="Development of facility booking mobile application proposal">
-                <img src="upload/proposal-defense-sep9-16.jpg" alt="Academic heads defense session photo">
-                <img src="upload/proposal-defense-sep9-17.jpg" alt="Criminology research presentation on CLE passing rates and accountability">
-                <img src="upload/proposal-defense-sep9-18.jpg" alt="Proposal defense open forum and critique">
-                <img src="upload/proposal-defense-sep9-19.jpg" alt="Academic heads defense panelist review">
-                <img src="upload/proposal-defense-sep9-20.jpg" alt="Research proponent addressing panel questions">
-                <img src="upload/proposal-defense-sep9-21.jpg" alt="Academic leaders during research evaluation">
-                <img src="upload/proposal-defense-sep9-22.jpg" alt="Research Snap commitment with SDG 16 and SDG 12">
-                <img src="upload/proposal-defense-sep9-23.jpg" alt="Academic heads collective defense documentation">
-                <img src="upload/proposal-defense-sep9-24.jpg" alt="Faculty researchers sharing insights on institutional development">
-                <img src="upload/proposal-defense-sep9-25.jpg" alt="Closing remarks and summary of proposal defenses">
-                <img src="upload/proposal-defense-sep9-26.jpg" alt="Academic Heads Research Proposal Defense participants collective photo">
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card" id="event-innovation-to-opportunity">
-          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
-            <img src="upload/sti-week-1.jpg" alt="2026 Cagayan Valley Regional Science, Technology, and Innovation Week - DOST Regional STI Week" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;" loading="eager">
-            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
-            <span class="news-date-badge" style="position: relative; z-index: 2;">Sep 9–11, 2026</span>
-            <div class="news-thumb-text" style="position: relative; z-index: 2;">
-              <span class="news-thumb-pill">Cagayan Valley STI Week</span>
-              <h4 class="news-thumb-topic">Regional STI Week</h4>
-            </div>
-          </div>
-          <div class="news-content">
-            <div>
-              <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Cagayan Valley STI Week</span>
-              <h3 class="news-title">From Innovation to Opportunity: Advancing Ideas for Possible Funding</h3>
-              <p class="news-excerpt">Faculty delegates from MCNP and ISAP participated in the 2026 Cagayan Valley Regional Science, Technology, and Innovation Week, held on September 9–11, 2026, in Tuguegarao City. The event provided a valuable platform for learning, collaboration, and the exchange of science- and technology-driven solutions responsive to regional needs.</p>
-              <details>
-                <summary>Read full story</summary>
-                <p class="news-excerpt">As a significant output of their participation, the school delegates developed and presented a capsule proposal on an ICT application for health for technical review and possible funding support. This milestone demonstrates the institutions' commitment to moving research beyond ideas and toward practical, fundable, and community-responsive innovations.</p>
-                <p class="news-excerpt">The activity advances SDG 2: Zero Hunger and SDG 3: Good Health and Well-Being through science-based solutions for food, nutrition, and health; SDG 4: Quality Education through research and innovation capability-building; SDG 9: Industry, Innovation and Infrastructure by promoting technology-driven solutions; and SDG 17: Partnerships for the Goals through collaboration among academic institutions, government agencies, researchers, and other stakeholders.</p>
-                <p class="news-excerpt"><strong>Innovation Beyond Boundaries.</strong></p>
-              </details>
-              <div style="display: none;" aria-hidden="true">
-                <img src="upload/sti-week-1.jpg" alt="DOST Cagayan Valley Regional Science, Technology, and Innovation Week main stage">
-                <img src="upload/sti-week-2.jpg" alt="DOST Regional STI Week banner Tuguegarao City">
-                <img src="upload/sti-week-3.jpg" alt="DOST Regional Science, Technology, &amp; Digital Innovation Week event venue">
-                <img src="upload/sti-week-4.jpg" alt="OneDOST4U: Solutions and Opportunities for All exhibit">
-                <img src="upload/sti-week-5.jpg" alt="DOST Food and Nutrition Research Institute (FNRI) technology pavilion">
-                <img src="upload/sti-week-6.jpg" alt="FNRI science and nutrition exhibits">
-                <img src="upload/sti-week-7.jpg" alt="Smart Sustainable Communities &amp; Advanced Manufacturing forum">
-                <img src="upload/sti-week-8.jpg" alt="Isabela State University &amp; CVAARRD Innovation Portfolio exhibit">
-                <img src="upload/sti-week-9.jpg" alt="CVAARRD technological innovation and embryo transfer showcases">
-                <img src="upload/sti-week-10.jpg" alt="Regional scientific research and development exhibits">
-                <img src="upload/sti-week-11.jpg" alt="Regional agricultural and biotechnological products display">
-                <img src="upload/sti-week-12.jpg" alt="CVAARRD Innovation Handbook and protocol portfolio">
-                <img src="upload/sti-week-13.jpg" alt="Embryo transfer and agri-biotech research pavilion">
-                <img src="upload/sti-week-14.jpg" alt="All-natural regional food products and technology commercialization">
-                <img src="upload/sti-week-15.jpg" alt="Regional food technology and enterprise development booth">
-                <img src="upload/sti-week-16.jpg" alt="Quirino State University and regional value-added food products">
-                <img src="upload/sti-week-17.jpg" alt="Smarter and Sustainable Clonal Propagation innovations display">
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card" id="event-research-sees-everyone">
-          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
-            <img src="upload/gender-research-1.jpg" alt="Research That Sees Everyone: Advancing Knowledge through a Gender-Responsive Lens - CSU Andrews Campus" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;" loading="eager">
-            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
-            <span class="news-date-badge" style="position: relative; z-index: 2;">Sep 9–10, 2026</span>
-            <div class="news-thumb-text" style="position: relative; z-index: 2;">
-              <span class="news-thumb-pill">Regional Seminar-Training</span>
-              <h4 class="news-thumb-topic">Gender Research</h4>
-            </div>
-          </div>
-          <div class="news-content">
-            <div>
-              <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Regional Seminar-Training</span>
-              <h3 class="news-title">Research That Sees Everyone: Advancing Knowledge through a Gender-Responsive Lens</h3>
-              <p class="news-excerpt">MCNP–ISAP personnel participated in the Regional Seminar-Training on Gender Research, held on September 9–10, 2026, at CSU Andrews Campus, Tuguegarao City. The training strengthened their capacity to develop studies that recognize diverse experiences, examine gender-related concerns, and generate evidence for more inclusive programs, policies, and practices.</p>
-              <details>
-                <summary>Read full story</summary>
-                <p class="news-excerpt">The activity advances SDG 4: Quality Education by building researchers&rsquo; knowledge and competencies; SDG 5: Gender Equality by ensuring that different voices and experiences are represented in research; SDG 9: Industry, Innovation and Infrastructure by encouraging inclusive and evidence-based solutions; and SDG 17: Partnerships for the Goals by promoting collaboration, shared learning, and good practices among participating institutions.</p>
-                <p class="news-excerpt">Through gender-responsive research, we move beyond simply gathering data—we ensure that knowledge becomes a pathway toward fairness, inclusion, and sustainable development.</p>
-                <p class="news-excerpt"><strong>Innovation Beyond Boundaries.</strong></p>
-              </details>
-              <div style="display: none;" aria-hidden="true">
-                <img src="upload/gender-research-1.jpg" alt="Workshop 1: Developing a Research Question and a Research Working Title at CSU Andrews Campus">
-                <img src="upload/gender-research-2.jpg" alt="MCNP-ISAP participants at the Regional Seminar-Training on Gender Research">
-                <img src="upload/gender-research-3.jpg" alt="Plenary lecture and methodology discussion on gender-responsive inquiry">
-                <img src="upload/gender-research-4.jpg" alt="Delegates and participants during the Gender Research training workshop">
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card" id="event-sdg-research-snap-tourism">
+<article class="news-card" data-content-type="article" id="event-sdg-research-snap-tourism">
           <div class="news-thumbnail" style="background: linear-gradient(135deg, #0d5c3a, #1e3a8a);"><span class="news-date-badge">SDG SPOT @ RDC</span><div><h4 style="color: #fff; font-size: 1.1rem;">SDG Research Snap</h4></div></div>
-          <div class="news-content"><div><span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">BS Tourism Management</span><h3 class="news-title">Every Study. A Goal. An Impact.</h3><p class="news-excerpt">BS Tourism Management students connect their proposed studies to the Sustainable Development Goals through the SDG Research Snap, one of the activities under SDG SPOT @ RDC.</p><details><summary>Read full story</summary><p class="news-excerpt">The activity advances SDG 4: Quality Education by strengthening research competencies; SDG 9: Industry, Innovation and Infrastructure by encouraging innovative and evidence-based solutions; SDG 16: Peace, Justice and Strong Institutions by promoting ethical and responsible research; and SDG 17: Partnerships for the Goals by strengthening collaboration among students, faculty members, and the RDC.</p></details></div></div>
+          <div class="news-content"><div><span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">BS Tourism Management</span><h3 class="news-title">Every Study. A Goal. An Impact.</h3><p class="news-excerpt">BS Tourism Management students connect their proposed studies to the Sustainable Development Goals through the SDG Research Snap, one of the activities under SDG SPOT @ RDC.</p><details><summary>Read full story</summary><p class="news-excerpt">The activity advances SDG 4: Quality Education by strengthening research competencies; SDG 9: Industry, Innovation and Infrastructure by encouraging innovative and evidence-based solutions; SDG 16: Peace, Justice and Strong Institutions by promoting ethical and responsible research; and SDG 17: Partnerships for the Goals by strengthening collaboration among students, faculty members, and the RDC.</p></details></div></div>
         </article>
 
-        <article class="news-card" id="event-samples-to-statistics">
-          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
-            <img src="upload/research-summit-1.jpg" alt="ISAP High School Research Summit - Episode 2: From Samples to Statistics" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
-            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
-            <span class="news-date-badge" style="position: relative; z-index: 2;">Aug 28, 2026</span>
-            <div class="news-thumb-text" style="position: relative; z-index: 2;">
-              <span class="news-thumb-pill">Episode 2</span>
-              <h4 class="news-thumb-topic">High School Research Summit</h4>
-            </div>
-          </div>
-          <div class="news-content">
-            <div>
-              <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">Episode 2</span>
-              <h3 class="news-title">From Samples to Statistics: Turning Data into Meaningful Discoveries</h3>
-              <p class="news-excerpt">The ISAP High School Research Summit–Episode 2, held online on August 28, 2026, featured Dr. Ryan C. Fontanilla on Sampling Techniques and Research Designs and Ms. Tshaine Anne T. Labang, LPT on Data Processing and Analysis using Excel, SPSS, and jamovi.</p>
-              <details>
-                <summary>Read full story</summary>
-                <p class="news-excerpt">The activity supports SDG 4: Quality Education by strengthening students' research and data-analysis competencies; SDG 9: Industry, Innovation and Infrastructure by equipping them with digital tools for evidence-based inquiry and innovation; and SDG 17: Partnerships for the Goals by promoting collaboration among the RDC, High School Department, teachers, and student researchers.</p>
-                <p class="news-excerpt"><strong>Innovation Beyond Boundaries.</strong></p>
-              </details>
-              <div style="display: none;" aria-hidden="true">
-                <img src="upload/research-summit-1.jpg" alt="Dr. Ryan C. Fontanilla, Ph.D - Sampling Techniques and Research Designs">
-                <img src="upload/research-summit-2.jpg" alt="Ms. Tshaine Anne T. Labang, LPT - Data Processing and Analysis using Excel, SPSS, and jamovi">
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card" id="event-sdg-spot-launch">
+<article class="news-card" data-content-type="article" id="event-sdg-spot-launch">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/sdg-spot-1.jpg" alt="SDG SPOT @ RDC: Research for the Goals - Pick a Goal. Raise Your Flag. Make Your Impact." class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1686,6 +1527,7 @@
           </div>
           <div class="news-content">
             <div>
+              <span class="badge-content-type type-article">📰 ARTICLE</span>
               <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">Research for the Goals</span>
               <h3 class="news-title">Pick a Goal. Raise Your Flag. Make Your Impact.</h3>
               <p class="news-excerpt">The SDG SPOT @ RDC: Research for the Goals officially came to life through its soft opening on August 28, 2026, in front of the Research and Development Center. Students, employees, and alumni joined by choosing an SDG to support, raising its flaglet, and capturing their commitment at the SDG Corner.</p>
@@ -1729,7 +1571,571 @@
           </div>
         </article>
 
-        <article class="news-card" id="event-equipping-students">
+<article class="news-card" data-content-type="article" id="event-cbcp-ust-collab">
+          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
+            <img src="upload/1.jpg" alt="CBCP-UST Collaborative Project" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;">
+            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
+            <span class="news-date-badge" style="position: relative; z-index: 2;">Nov 17, 2024</span>
+            <div class="news-thumb-text" style="position: relative; z-index: 2;">
+              <span class="news-thumb-pill">Catholic Christianity Study</span>
+              <h4 class="news-thumb-topic">Collaborative Research</h4>
+            </div>
+          </div>
+          <div class="news-content">
+            <div>
+              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">MCNP-ISAP RDC</span>
+              <h3 class="news-title">RDC Joins CBCP-UST Collaborative Project on Catholic Christianity</h3>
+              <p class="news-excerpt">The MCNP-ISAP Research and Development Center, led by Research Director Ryan C. Fontanilla, participated in the CBCP and University of Santo Tomas project at the Archbishop's Residence in Tuguegarao City.</p>
+              <details><summary>Read full story</summary><p class="news-excerpt">The initiative assesses the current status of Catholic Christianity in the Philippines toward fostering a Synodal Church. Lay organizations across the Archdiocese of Tuguegarao answered the project survey, while respondents' privacy was protected by blurring faces in event photographs.</p><p class="news-excerpt">The collaborative study supports SDG 4: Quality Education by advancing research competencies in pastoral and community assessment, SDG 16: Peace, Justice and Strong Institutions by fostering transparent, ethical, and participatory synodal institutional processes, and SDG 17: Partnerships for the Goals through multi-institutional collaboration among CBCP, UST, and the MCNP-ISAP RDC.</p></details>
+              <div style="display: none;" aria-hidden="true">
+                <img src="upload/1.jpg" alt="CBCP-UST event photo 1">
+                <img src="upload/2.jpg" alt="CBCP-UST event photo 2">
+                <img src="upload/3.jpg" alt="CBCP-UST event photo 3">
+                <img src="upload/4.jpg" alt="CBCP-UST event photo 4">
+                <img src="upload/5.jpg" alt="CBCP-UST event photo 5">
+                <img src="upload/6.jpg" alt="CBCP-UST event photo 6">
+                <img src="upload/7.jpg" alt="CBCP-UST event photo 7">
+                <img src="upload/8.jpg" alt="CBCP-UST event photo 8">
+                <img src="upload/9.jpg" alt="CBCP-UST event photo 9">
+                <img src="upload/10.jpg" alt="CBCP-UST event photo 10">
+                <img src="upload/11.jpg" alt="CBCP-UST event photo 11">
+              </div>
+            </div>
+          </div>
+        </article>
+
+<article class="news-card" data-content-type="article" id="event-student-stats-28th">
+          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
+            <img src="upload/stats-awards-2.jpg" alt="28th Philippine Statistics Quiz Bee" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
+            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
+            <span class="news-date-badge" style="position: relative; z-index: 2;">2024</span>
+            <div class="news-thumb-text" style="position: relative; z-index: 2;">
+              <span class="news-thumb-pill">Statistics Quiz Bee</span>
+              <h4 class="news-thumb-topic">Student Achievement</h4>
+            </div>
+          </div>
+          <div class="news-content">
+            <div>
+              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">Statistics Quiz Bee</span>
+              <h3 class="news-title">MCNP and ISAP Students Excel in the 28th Philippine Statistics Quiz Bee</h3>
+              <p class="news-excerpt">Nathaniel M. Acacio of ISAP won first place in the Quiz Bee. Ma. Julianne Tabbu of MCNP placed third and Althea Balanag of ISAP placed fifth in the Digital Poster Making Contest.</p>
+              <details><summary>View participants</summary><p class="news-excerpt">Other participants included Maxine Alipio, Sharmelyn Torres, Jenieva Catawe, Jasper Catulin, and Jaylord Victorio, with support from coaches Wendy Mae G. Lapuz and Christine Kae Aragon.</p><p class="news-excerpt">The competition advances SDG 4: Quality Education by fostering quantitative reasoning, statistical literacy, and academic excellence among students, SDG 9: Industry, Innovation and Infrastructure by developing analytical capabilities critical for data-driven innovation, and SDG 17: Partnerships for the Goals through institutional collaboration with the Philippine Statistics Authority (PSA).</p></details>
+              <div style="display: none;" aria-hidden="true">
+                <img src="upload/stats-awards-2.jpg" alt="28th Philippine Statistics Quiz Bee delegation on stage">
+                <img src="upload/stats-awards-3.jpg" alt="28th Philippine Statistics Quiz Bee 1st Place - Nathaniel M. Acacio">
+                <img src="upload/stats-awards-1.jpg" alt="Digital Poster Making Contest award ceremony on stage with student winners and coaches">
+                <img src="upload/stats-awards-4.jpg" alt="Digital Poster Making Contest 3rd Place - Ma. Julianne Tabbu">
+                <img src="upload/stats-awards-5.jpg" alt="Digital Poster Making Contest 5th Place - Althea Balanag">
+                <img src="upload/stats-awards-6.jpg" alt="Statistics Quiz Bee participants with coach">
+              </div>
+            </div>
+          </div>
+        </article>
+
+<article class="news-card" data-content-type="article" id="event-inst-quiz-bee">
+          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
+            <img src="upload/inst-quizbee-1.jpg" alt="Institutional Statistics Quiz Bee Winners" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
+            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
+            <span class="news-date-badge" style="position: relative; z-index: 2;">35th NSM</span>
+            <div class="news-thumb-text" style="position: relative; z-index: 2;">
+              <span class="news-thumb-pill">Quiz Bee Winners</span>
+              <h4 class="news-thumb-topic">Institutional Competition</h4>
+            </div>
+          </div>
+          <div class="news-content">
+            <div>
+              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">Quiz Bee Winners</span>
+              <h3 class="news-title">Congratulations to the Winners of the Institutional Statistics Quiz Bee</h3>
+              <p class="news-excerpt">ISAP champion Jaylord S. Victorio was joined by Nathaniel Acacio and Jasper S. Catulin. MCNP champion Sharmelyn T. Torres was joined by Maxine Alipio and Jenieva M. Catawe.</p>
+              <details><summary>Read full story</summary><p class="news-excerpt">Held in celebration of the 35th National Statistics Month (NSM), the Institutional Statistics Quiz Bee brought together student leaders and academic departments across MCNP and ISAP to celebrate mathematical acumen and data science fundamentals.</p><p class="news-excerpt">The activity supports SDG 4: Quality Education by advancing statistical mastery and academic excellence, SDG 9: Industry, Innovation and Infrastructure by preparing students for data-oriented technological challenges, and SDG 17: Partnerships for the Goals through inter-departmental collaboration between MCNP and ISAP.</p></details>
+              <div style="display: none;" aria-hidden="true">
+                <img src="upload/inst-quizbee-1.jpg" alt="Institutional Statistics Quiz Bee participants and awardees">
+                <img src="upload/inst-quizbee-2.jpg" alt="ISAP Champion - Information Technology Department (Jaylord S. Victorio)">
+                <img src="upload/inst-quizbee-3.jpg" alt="MCNP Champion - Nursing Department (Sharmelyn T. Torres)">
+                <img src="upload/inst-quizbee-4.jpg" alt="MCNP 2nd Place - Medical Laboratory Sciences Department">
+                <img src="upload/inst-quizbee-5.jpg" alt="MCNP 2nd Place - Pharmacy Department">
+                <img src="upload/inst-quizbee-6.jpg" alt="ISAP 2nd Place - Criminology Department">
+                <img src="upload/inst-quizbee-7.jpg" alt="ISAP 2nd Place - Secondary Education Department">
+              </div>
+            </div>
+          </div>
+        </article>
+
+<article class="news-card" data-content-type="article" id="event-fontanilla-tejada-collab">
+          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
+            <img src="upload/fontanilla-tejada-1.jpg" alt="Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada Participate in Collaborative Study" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;" loading="eager">
+            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
+            <span class="news-date-badge" style="position: relative; z-index: 2;">Oct 08, 2024</span>
+            <div class="news-thumb-text" style="position: relative; z-index: 2;">
+              <span class="news-thumb-pill">Catholic Christianity Study</span>
+              <h4 class="news-thumb-topic">Dr. Fontanilla &amp; Engr. Tejada</h4>
+            </div>
+          </div>
+          <div class="news-content">
+            <div>
+              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Research Collaboration</span>
+              <h3 class="news-title">Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada Participate in Collaborative Study</h3>
+              <p class="news-excerpt"><strong>Research Director Ryan C. Fontanilla</strong> and <strong>IT Dean Engr. Myke Albert Tejada</strong> represented MCNP and ISAP at the Archdiocese of Tuguegarao meeting for the CBCP-UST initiative, "Lights and Shadows on the Present State of Catholic Christianity in the Philippines toward Becoming a Synodal Church."</p>
+              <details>
+                <summary>Read full story</summary>
+                <p class="news-excerpt">Representing Medical Colleges of Northern Philippines (MCNP) and International School of Asia and the Pacific (ISAP), Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada actively participated in the collaborative meeting with field researchers of the Archdiocese of Tuguegarao.</p>
+                <p class="news-excerpt">The study, spearheaded by the Catholic Bishops' Conference of the Philippines (CBCP) and the University of Santo Tomas (UST), entitled "Lights and Shadows on the Present State of Catholic Christianity in the Philippines toward Becoming a Synodal Church," aims to assess pastoral dynamics, community engagement, and synodal church initiatives across regional dioceses.</p>
+                <p class="news-excerpt">The collaborative undertaking supports SDG 4: Quality Education by engaging institutional academic leadership in regional research, SDG 16: Peace, Justice and Strong Institutions by enhancing participatory governance, synodal transparency, and community-level social cohesion, and SDG 17: Partnerships for the Goals through church, academe, and diocesan research coalitions.</p>
+              </details>
+              <div style="display: none;" aria-hidden="true">
+                <img src="upload/fontanilla-tejada-1.jpg" alt="Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada at the Archdiocese of Tuguegarao meeting">
+                <img src="upload/fontanilla-tejada-2.jpg" alt="Archdiocese of Tuguegarao collaborative meeting participants and field researchers">
+                <img src="upload/fontanilla-tejada-3.jpg" alt="Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada during the presentation of the Catholic Christianity Study">
+              </div>
+            </div>
+          </div>
+        </article>
+
+<article class="news-card" data-content-type="article" id="event-rdafest-champion-2024">
+          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
+            <img src="upload/rdafest-champion-1.jpg" alt="Region 2 Emerges as Overall Champion - 2024 Regional Data Festival" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
+            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
+            <span class="news-date-badge" style="position: relative; z-index: 2;">Oct 03–04, 2024</span>
+            <div class="news-thumb-text" style="position: relative; z-index: 2;">
+              <span class="news-thumb-pill">RDaFest 2024</span>
+              <h4 class="news-thumb-topic">Overall Champion</h4>
+            </div>
+          </div>
+          <div class="news-content">
+            <div>
+              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">RDaFest 2024</span>
+              <h3 class="news-title">Region 2 Emerges as Overall Champion</h3>
+              <p class="news-excerpt">Representing Cagayan Valley, delegates from USLT, MCNP, SFC, QSU Cabarroguis, and SMU secured the Overall Champion title at the 2024 Regional Data Festival for the North Luzon Cluster held at Subic Bay Travelers Hotel and Event Center in Subic, Zambales.</p>
+              <p class="news-excerpt">Source: <a href="https://www.facebook.com/share/p/PXumzzXiXpLucZdm/?mibextid=WC7FNe" target="_blank" rel="noopener noreferrer">Facebook post ↗</a></p>
+              <details><summary>Read full story</summary><p class="news-excerpt">The multi-school Cagayan Valley delegation showcased stellar performance across data appreciation, analytics, and research presentations, demonstrating regional leadership in statistical excellence and evidence-based problem solving.</p><p class="news-excerpt">This achievement advances SDG 4: Quality Education through high-impact student training and data literacy, SDG 9: Industry, Innovation and Infrastructure by promoting data science and technological problem-solving skills, and SDG 17: Partnerships for the Goals through regional consortium synergy among North Luzon higher education institutions.</p></details>
+              <div style="display: none;" aria-hidden="true">
+                <img src="upload/rdafest-champion-1.jpg" alt="Region 2 delegation awarded Overall Champion at 2024 Regional Data Festival North Luzon Cluster">
+                <img src="upload/rdafest-champion-2.jpg" alt="Philippine Data Festival Champion wooden medal with Certificate of Participation and Appreciation">
+              </div>
+            </div>
+          </div>
+        </article>
+
+<article class="news-card" data-content-type="article" id="event-student-stats-awards">
+          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
+            <img src="upload/stats-awards-1.jpg" alt="MCNP and ISAP Students Receive Statistics Month Awards" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
+            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
+            <span class="news-date-badge" style="position: relative; z-index: 2;">October 2024</span>
+            <div class="news-thumb-text" style="position: relative; z-index: 2;">
+              <span class="news-thumb-pill">Student Awards</span>
+              <h4 class="news-thumb-topic">Digital Poster Making</h4>
+            </div>
+          </div>
+          <div class="news-content">
+            <div>
+              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Student Awards</span>
+              <h3 class="news-title">MCNP and ISAP Students Receive Statistics Month Awards</h3>
+              <p class="news-excerpt">Bryan Marantan placed third, John Lloyd Angui placed second, and Peter John F. Bosi placed second in the Digital Poster Making Contest held at People's Gymnasium, Tuguegarao City.</p>
+              <details><summary>Read full story</summary><p class="news-excerpt">Student awardees were commended for their creative interpretations of data concepts into compelling visual artwork during the province-wide 35th National Statistics Month festivities.</p><p class="news-excerpt">The activity supports SDG 4: Quality Education by advancing creative and statistical communication skills, SDG 9: Industry, Innovation and Infrastructure through digital art and design innovation, and SDG 17: Partnerships for the Goals by partnering with local government units and statistical agencies.</p></details>
+              <div style="display: none;" aria-hidden="true">
+                <img src="upload/stats-awards-1.jpg" alt="Digital Poster Making Contest awarding ceremony on stage with student winners and coaches">
+                <img src="upload/stats-awards-4.jpg" alt="Digital Poster Making Contest 3rd Place - Ma. Julianne Tabbu">
+                <img src="upload/stats-awards-5.jpg" alt="Digital Poster Making Contest 5th Place - Althea Balanag">
+                <img src="upload/stats-awards-2.jpg" alt="28th Philippine Statistics Quiz Bee delegation on stage">
+                <img src="upload/stats-awards-3.jpg" alt="28th Philippine Statistics Quiz Bee 1st Place - Nathaniel M. Acacio">
+                <img src="upload/stats-awards-6.jpg" alt="Statistics Quiz Bee participants with coach">
+              </div>
+            </div>
+          </div>
+        </article>
+
+<article class="news-card" data-content-type="article" id="event-lapus-rdafest-2024">
+          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
+            <img src="upload/lapus-rdafest-1.jpg" alt="Wendy Mae G. Lapus Represents ISAP at Regional Data Festival" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;" loading="eager">
+            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
+            <span class="news-date-badge" style="position: relative; z-index: 2;">Oct 03–04, 2024</span>
+            <div class="news-thumb-text" style="position: relative; z-index: 2;">
+              <span class="news-thumb-pill">RDaFest 2024</span>
+              <h4 class="news-thumb-topic">Research Presentation</h4>
+            </div>
+          </div>
+          <div class="news-content">
+            <div>
+              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">RDaFest 2024</span>
+              <h3 class="news-title">Wendy Mae G. Lapus Represents ISAP at Regional Data Festival</h3>
+              <p class="news-excerpt">Ms. Lapus presented "A Relationship Study between Job Demands, Resources, and Personnel Motivation in HEIs: The Case of the International School of Asia and the Pacific" at the North Luzon Regional Data Festival held at Subic Bay Travelers Hotel and Event Center, Subic Bay Freeport Zone.</p>
+              <details><summary>Read full story</summary><p class="news-excerpt">The research presentation examined key organizational drivers of personnel motivation, institutional support mechanisms, and workplace well-being in higher education institutions.</p><p class="news-excerpt">The study advances SDG 4: Quality Education through empirical institutional research, SDG 8: Decent Work and Economic Growth by promoting favorable workplace conditions and personnel motivation, SDG 9: Industry, Innovation and Infrastructure by applying organizational research to improve institutional management, and SDG 17: Partnerships for the Goals through scholarly exchange across the North Luzon cluster.</p></details>
+              <div style="display: none;" aria-hidden="true">
+                <img src="upload/lapus-rdafest-1.jpg" alt="Ms. Wendy Mae G. Lapus presenting research paper at 2024 Regional Data Festival">
+                <img src="upload/lapus-rdafest-2.jpg" alt="Awarding of Certificate of Appreciation to Ms. Wendy Mae G. Lapus on stage">
+                <img src="upload/lapus-rdafest-3.jpg" alt="Certificate of Appreciation - 2024 Regional Data Festival North Luzon Cluster">
+                <img src="upload/lapus-rdafest-4.jpg" alt="2024 Regional Data Festival North Luzon Cluster Program Guide">
+              </div>
+            </div>
+          </div>
+        </article>
+
+<article class="news-card" data-content-type="article" id="event-infographics-contest">
+          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
+            <img src="upload/infographics-4.jpg" alt="MCNP and ISAP Digital Infographics Making Contest" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
+            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
+            <span class="news-date-badge" style="position: relative; z-index: 2;">September 2024</span>
+            <div class="news-thumb-text" style="position: relative; z-index: 2;">
+              <span class="news-thumb-pill">Infographics Contest</span>
+              <h4 class="news-thumb-topic">Digital Infographics Making Contest</h4>
+            </div>
+          </div>
+          <div class="news-content">
+            <div>
+              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">Infographics Contest</span>
+              <h3 class="news-title">MCNP and ISAP Conduct Digital Infographics Making Contest</h3>
+              <p class="news-excerpt">During the 35th Statistics Month Celebration, John Lloyd Angui was named champion, Mark Lester Sandoval placed second, and Ma. Julianne Tabbu placed third at Computer Laboratory B in Peñablanca, Cagayan.</p>
+              <p class="news-excerpt">The awardees were recognized by Research Director Ryan C. Fontanilla.</p>
+              <details><summary>Read full story</summary><p class="news-excerpt">The contest empowered student designers to turn statistical indicators into engaging, accessible, and informative visual narratives, reinforcing the role of data in modern problem solving.</p><p class="news-excerpt">The event advances SDG 4: Quality Education by boosting digital literacy and data communication, SDG 9: Industry, Innovation and Infrastructure through innovative visual design methodologies, and SDG 17: Partnerships for the Goals by aligning campus initiatives with national statistical month celebrations.</p></details>
+              <div style="display: none;" aria-hidden="true">
+                <img src="upload/infographics-4.jpg" alt="Digital Infographics Making Contest award ceremony with Research Director Ryan C. Fontanilla, coaches, and winners">
+                <img src="upload/infographics-5.jpg" alt="Digital Infographics Making Contest student winners on stage">
+                <img src="upload/infographics-1.jpg" alt="Winning Infographic entry - Peter John F. Bosi">
+                <img src="upload/infographics-2.jpg" alt="Winning Infographic entry - MC Brian Marantan">
+                <img src="upload/infographics-3.jpg" alt="Winning Infographic entry - Jaylord D. Angui">
+              </div>
+            </div>
+          </div>
+        </article>
+          </div>
+        </section>
+
+        <!-- ========================================================
+             SECTION 2: EVENTS & COLLOQUIUMS
+             ======================================================== -->
+        <section id="eventsSection" class="content-sub-section" style="margin-bottom: 3.5rem; display: none;" aria-label="Events and Workshops">
+          <div id="eventsHeaderBanner" class="news-sub-header event-header">
+            <div>
+              <span class="section-tag" style="background: rgba(30, 94, 168, 0.1); color: var(--isap-blue); border-color: rgba(30, 94, 168, 0.25);">📅 Campus Calendar</span>
+              <h3 style="font-size: 1.45rem; font-weight: 800; color: #0f172a; margin: 0.3rem 0 0.2rem;">Events, Workshops &amp; Colloquiums</h3>
+              <p style="color: #64748b; font-size: 0.88rem; margin: 0;">Scheduled research conferences, capability-building seminars, faculty workshops, and institutional assemblies.</p>
+            </div>
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--isap-blue); background: rgba(30, 94, 168, 0.08); padding: 0.25rem 0.75rem; border-radius: 999px;">13 Events Documented</span>
+          </div>
+
+          <div class="news-grid" id="eventsGrid" style="margin-bottom: 2.5rem;" aria-label="Events and workshops">
+<article class="news-card" data-content-type="event" id="event-data-skills">
+          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
+            <img src="upload/health-research-analytics-1.jpg" alt="Training on Data Analytics and Data Presentation for Health Research - Sep 17–18, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
+            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
+            <span class="news-date-badge" style="position: relative; z-index: 2;">Sep 17–18, 2026</span>
+            <div class="news-thumb-text" style="position: relative; z-index: 2;">
+              <span class="news-thumb-pill">Professional Development</span>
+              <h4 class="news-thumb-topic">Data Analytics</h4>
+            </div>
+          </div>
+          <div class="news-content">
+            <div>
+              <span class="badge-content-type type-event">📅 EVENT</span>
+              <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Professional Development</span>
+              <h3 class="news-title">Strengthening Data Skills for Better Health Research</h3>
+              <p class="news-excerpt">RDC staff from MCNP and ISAP participated in the Training on Data Analytics and Data Presentation for Health Research held on September 17–18, 2026, at Philippine Normal University–North Luzon. The training strengthened their skills in analyzing, interpreting, and effectively presenting health research findings.</p>
+              <details>
+                <summary>Read full story</summary>
+                <p class="news-excerpt">The activity supports SDG 3: Good Health and Well-Being through evidence-based health research, SDG 4: Quality Education through professional development, SDG 9: Industry, Innovation and Infrastructure through data-driven innovation, and SDG 17: Partnerships for the Goals through institutional collaboration.</p>
+                <p class="news-excerpt"><strong>Innovation Beyond Boundaries.</strong></p>
+              </details>
+              <div style="display: none;" aria-hidden="true">
+                <img src="upload/health-research-analytics-1.jpg" alt="MCNP and ISAP RDC staff with official backdrop at PNU North Luzon for the Training on Data Analytics and Data Presentation for Health Research">
+                <img src="upload/health-research-analytics-2.jpg" alt="Participants engaged in hands-on data analytics and data presentation exercises using tablet computers and research materials">
+                <img src="upload/health-research-analytics-3.jpg" alt="RDC delegates at the entrance landmark of Philippine Normal University North Luzon, Alicia, Isabela">
+                <img src="upload/health-research-analytics-4.jpg" alt="Plenary opening message delivered by Dr. Virginia G. Bilgera, Regional Director of DOST Region 02">
+                <img src="upload/health-research-analytics-5.jpg" alt="Resource speaker Dr. Julius T. Capili lecturing on Types of Data Gathering Tools in Health Research">
+                <img src="upload/health-research-analytics-6.jpg" alt="Lecture presentation on narrative data presentation and statistical interpretation in health studies">
+                <img src="upload/health-research-analytics-7.jpg" alt="Opening address presented by Dr. Julieta M. Paras, CESO III, Regional Director of CHED Regional Office 02">
+                <img src="upload/health-research-analytics-8.jpg" alt="Session presentation outlining criteria for publication-ready health research and institutional reporting standards">
+                <img src="upload/health-research-analytics-9.jpg" alt="RDC participants group photo at the Indigenous Peoples Education Hub portal of PNU North Luzon">
+              </div>
+            </div>
+          </div>
+        </article>
+
+<article class="news-card" data-content-type="event" id="event-problems-to-purpose">
+          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
+            <img src="upload/colloquium-1.jpg" alt="General Education Department &amp; RDC: Research Colloquium &amp; Capacity Building - Dr. Ryan C. Fontanilla and Ms. Rio Frances C. Callores" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
+            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
+            <span class="news-date-badge" style="position: relative; z-index: 2;">Sep 16, 2026</span>
+            <div class="news-thumb-text" style="position: relative; z-index: 2;">
+              <span class="news-thumb-pill">General Education</span>
+              <h4 class="news-thumb-topic">Research Colloquium</h4>
+            </div>
+          </div>
+          <div class="news-content">
+            <div>
+              <span class="badge-content-type type-event">📅 EVENT</span>
+              <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">General Education Department</span>
+              <h3 class="news-title">From Problems to Purpose: Strengthening Research Capacity</h3>
+              <p class="news-excerpt">The General Education Department, in collaboration with the MCNP–ISAP Research and Development Center, conducted a Research Colloquium and Capacity-Building Program on September 16, 2026. The activity featured Dr. Ryan C. Fontanilla, who discussed <em>A Practical Guide to Research Problem Formulation</em>, and Ms. Rio Frances C. Callores, Research Coordinator, who facilitated the Orientation on the Institutional Research Process.</p>
+              <details>
+                <summary>Read full story</summary>
+                <p class="news-excerpt">The program equipped faculty researchers with practical guidance in transforming relevant concerns into clear and researchable problems while deepening their understanding of the institutional process—from proposal preparation and evaluation to implementation and research utilization. It also provided a venue for sharing ideas, clarifying procedures, and strengthening a collaborative culture of inquiry within the department.</p>
+                <p class="news-excerpt">The activity supports SDG 4: Quality Education through faculty research development; SDG 9: Industry, Innovation and Infrastructure by encouraging evidence-based innovation; SDG 16: Peace, Justice and Strong Institutions through transparent and standardized research processes; and SDG 17: Partnerships for the Goals through collaboration between the General Education Department and the RDC.</p>
+                <p class="news-excerpt"><strong>Innovation Beyond Boundaries.</strong></p>
+              </details>
+              <div style="display: none;" aria-hidden="true">
+                <img src="upload/colloquium-1.jpg" alt="Research Colloquium &amp; Capacity Building banner slide with keynote speakers">
+                <img src="upload/colloquium-2.jpg" alt="Faculty researchers engaged in problem formulation workshop">
+                <img src="upload/colloquium-3.jpg" alt="Dr. Ryan C. Fontanilla presenting A Practical Guide to Research Problem Formulation">
+                <img src="upload/colloquium-4.jpg" alt="Ms. Rio Frances C. Callores facilitating Orientation on Institutional Research Process">
+                <img src="upload/colloquium-5.jpg" alt="General Education Department faculty participants in collaborative session">
+                <img src="upload/colloquium-6.jpg" alt="Open forum and research consultation at ISAP AVR 1">
+                <img src="upload/colloquium-7.jpg" alt="Faculty presentation and peer review discussion">
+                <img src="upload/colloquium-8.jpg" alt="Attendees reviewing research guidelines and institutional templates">
+                <img src="upload/colloquium-9.jpg" alt="Research coordinator addressing methodological questions">
+                <img src="upload/colloquium-10.jpg" alt="Research Colloquium participants group photo at ISAP AVR 1">
+              </div>
+            </div>
+          </div>
+        </article>
+
+<article class="news-card" data-content-type="event" id="event-leading-through-inquiry">
+          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
+            <img src="upload/proposal-defense-sep16-1.jpg" alt="MCNP-ISAP Academic Heads Research Proposal Defense - Sep 16, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
+            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
+            <span class="news-date-badge" style="position: relative; z-index: 2;">Sep 16, 2026</span>
+            <div class="news-thumb-text" style="position: relative; z-index: 2;">
+              <span class="news-thumb-pill">Academic Heads</span>
+              <h4 class="news-thumb-topic">Proposal Defense</h4>
+            </div>
+          </div>
+          <div class="news-content">
+            <div>
+              <span class="badge-content-type type-event">📅 EVENT</span>
+              <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Academic Heads</span>
+              <h3 class="news-title">Leading Through Inquiry, Improving Through Evidence</h3>
+              <p class="news-excerpt">The MCNP–ISAP Research and Development Center conducted the Academic Heads Research Proposal Defense on September 16, 2026, featuring research proposals from the College of Sciences and Teacher Education and the High School Department. The presenters received constructive feedback to strengthen their research designs and ensure that their studies respond to relevant educational and institutional concerns.</p>
+              <details>
+                <summary>Read full story</summary>
+                <p class="news-excerpt">More than a presentation of proposals, the activity empowers academic leaders and faculty researchers to transform classroom experiences and institutional challenges into evidence-based solutions. It also strengthens their role in guiding research, improving academic practices, and contributing to informed decision-making.</p>
+                <p class="news-excerpt">The activity supports SDG 4: Quality Education by advancing research-informed teaching and leadership; SDG 9: Industry, Innovation and Infrastructure by encouraging innovative solutions; and SDG 17: Partnerships for the Goals by promoting collaboration among academic units, researchers, evaluators, and the RDC.</p>
+                <p class="news-excerpt"><strong>Innovation Beyond Boundaries.</strong></p>
+              </details>
+              <div style="display: none;" aria-hidden="true">
+                <img src="upload/proposal-defense-sep16-1.jpg" alt="Academic heads, research evaluators, and RDC team group photo with presentation display">
+                <img src="upload/proposal-defense-sep16-2.jpg" alt="Academic Heads Research Proposal Defense in progress with digital screen date Sep 16, 2026">
+                <img src="upload/proposal-defense-sep16-3.jpg" alt="Evaluation panel and academic leaders in conference room discussion">
+                <img src="upload/proposal-defense-sep16-4.jpg" alt="Research evaluators reviewing institutional proposal manuscripts and rubrics">
+                <img src="upload/proposal-defense-sep16-5.jpg" alt="Opening session and overview of Academic Heads Proposal Defense">
+                <img src="upload/proposal-defense-sep16-6.jpg" alt="Presentation of research proposals from College of Sciences and Teacher Education">
+                <img src="upload/proposal-defense-sep16-7.jpg" alt="High School Department academic heads presenting institutional research proposals">
+                <img src="upload/proposal-defense-sep16-8.jpg" alt="Evaluation panel offering constructive recommendations and methodology refinements">
+                <img src="upload/proposal-defense-sep16-9.jpg" alt="Academic heads and panel engaging in research defense deliberations">
+                <img src="upload/proposal-defense-sep16-10.jpg" alt="Presentation and awarding of certificate of participation">
+                <img src="upload/proposal-defense-sep16-11.jpg" alt="Academic heads and evaluators certificate presentation">
+                <img src="upload/proposal-defense-sep16-12.jpg" alt="Recognition of research presenters and defense panel members">
+                <img src="upload/proposal-defense-sep16-13.jpg" alt="Group photo documentation of research participants and evaluators">
+                <img src="upload/proposal-defense-sep16-14.jpg" alt="Post-defense consultation and SDG-aligned institutional research direction">
+              </div>
+            </div>
+          </div>
+        </article>
+
+<article class="news-card" data-content-type="event" id="event-numbers-to-narratives">
+          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
+            <img src="upload/stat-seminar-1.png" alt="Stat. Month Data Appreciation Seminar - Sep 15, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;" loading="eager">
+            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
+            <span class="news-date-badge" style="position: relative; z-index: 2;">Sep 15, 2026</span>
+            <div class="news-thumb-text" style="position: relative; z-index: 2;">
+              <span class="news-thumb-pill">Data Appreciation</span>
+              <h4 class="news-thumb-topic">Stat. Month Seminar</h4>
+            </div>
+          </div>
+          <div class="news-content">
+            <div>
+              <span class="badge-content-type type-event">📅 EVENT</span>
+              <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">Data Appreciation</span>
+              <h3 class="news-title">From Numbers to Narratives: Making Data Meaningful</h3>
+              <p class="news-excerpt">The MCNP–ISAP Research and Development Center conducted the Stat. Month Data Appreciation Seminar via Zoom on September 15, 2026, with first-year students and faculty researchers joining the webinar. The session focused on using infographics to present, interpret, and appreciate data, equipping participants with practical skills to transform complex research findings into clear, engaging, and meaningful visual stories.</p>
+              <details>
+                <summary>Read full story</summary>
+                <p class="news-excerpt">The activity supports SDG 4: Quality Education by strengthening students' and faculty members' data literacy and communication competencies; SDG 9: Industry, Innovation and Infrastructure by promoting innovative tools for presenting research; SDG 16: Peace, Justice and Strong Institutions by encouraging transparent and evidence-based decision-making; and SDG 17: Partnerships for the Goals by bringing learners, educators, and researchers together through shared learning.</p>
+                <p class="news-excerpt">Because data should not only be collected—it must be understood, communicated, and used to inspire informed action.</p>
+                <p class="news-excerpt"><strong>Innovation Beyond Boundaries.</strong></p>
+              </details>
+              <div style="display: none;" aria-hidden="true">
+                <img src="upload/stat-seminar-1.png" alt="Stat. Month Data Appreciation Seminar official banner slide">
+                <img src="upload/stat-seminar-2.jpg" alt="First-year student participants attending Zoom webinar session">
+                <img src="upload/stat-seminar-3.jpg" alt="Faculty and student attendees in data appreciation training">
+                <img src="upload/stat-seminar-4.jpg" alt="Webinar screen documentation with student researchers">
+                <img src="upload/stat-seminar-5.jpg" alt="Data appreciation and infographics presentation session">
+                <img src="upload/stat-seminar-6.jpg" alt="Zoom video meeting session with research focal persons and students">
+                <img src="upload/stat-seminar-7.jpg" alt="Webinar open forum and discussion on making data meaningful">
+                <img src="upload/stat-seminar-8.jpg" alt="Closing documentation of Stat. Month Data Appreciation Seminar">
+              </div>
+            </div>
+          </div>
+        </article>
+
+<article class="news-card" data-content-type="event" id="event-research-leadership">
+          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
+            <img src="upload/proposal-defense-sep9-1.jpg" alt="MCNP-ISAP Academic Heads Research Proposal Defense - Sep 09, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;" loading="eager">
+            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
+            <span class="news-date-badge" style="position: relative; z-index: 2;">Sep 9, 2026</span>
+            <div class="news-thumb-text" style="position: relative; z-index: 2;">
+              <span class="news-thumb-pill">Academic Heads</span>
+              <h4 class="news-thumb-topic">Proposal Defense</h4>
+            </div>
+          </div>
+          <div class="news-content">
+            <div>
+              <span class="badge-content-type type-event">📅 EVENT</span>
+              <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Academic Heads</span>
+              <h3 class="news-title">Research Leadership in Action</h3>
+              <p class="news-excerpt">The MCNP–ISAP Research and Development Center conducted the Academic Heads Research Proposal Defense on September 9, 2026. Academic leaders presented and defended their research proposals, received constructive feedback, and refined their studies toward generating evidence-based solutions for institutional development.</p>
+              <details>
+                <summary>Read full story</summary>
+                <p class="news-excerpt">The program provides academic heads with a structured platform to transform institutional concerns, classroom experiences, and operational challenges into researchable problems and evidence-based solutions. More than a proposal defense, it strengthens their role as research leaders who can guide faculty members, improve academic practices, and contribute to informed decision-making across MCNP and ISAP.</p>
+                <p class="news-excerpt">The activity supports SDG 4: Quality Education by advancing research-informed academic leadership, SDG 9: Industry, Innovation and Infrastructure by encouraging innovative responses to institutional needs, and SDG 17: Partnerships for the Goals by strengthening collaboration among academic heads, research evaluators, and the RDC.</p>
+                <p class="news-excerpt">Through research, leadership moves beyond managing today—it creates knowledge that shapes a better tomorrow.</p>
+                <p class="news-excerpt"><strong>Innovation Beyond Boundaries.</strong></p>
+              </details>
+              <div style="display: none;" aria-hidden="true">
+                <img src="upload/proposal-defense-sep9-1.jpg" alt="MCNP-ISAP Academic Heads Research Proposal Defense Sep 09, 2026">
+                <img src="upload/proposal-defense-sep9-2.jpg" alt="Academic heads presenting research proposals at 1:00 PM">
+                <img src="upload/proposal-defense-sep9-3.jpg" alt="Faculty research presentation session">
+                <img src="upload/proposal-defense-sep9-4.jpg" alt="Academic leaders defending proposed studies before panel">
+                <img src="upload/proposal-defense-sep9-5.jpg" alt="Research Proposal Defense session and discussion">
+                <img src="upload/proposal-defense-sep9-6.jpg" alt="Presentation of proposal on evidence-based educational interventions">
+                <img src="upload/proposal-defense-sep9-7.jpg" alt="Addressing the enrollment gap in teacher education proposal">
+                <img src="upload/proposal-defense-sep9-8.jpg" alt="Academic leadership research review panel and participants">
+                <img src="upload/proposal-defense-sep9-9.jpg" alt="Faculty researcher defending proposal with SDG commitments">
+                <img src="upload/proposal-defense-sep9-10.jpg" alt="Evaluation and technical feedback on academic proposals">
+                <img src="upload/proposal-defense-sep9-11.jpg" alt="Study presentation on graduating students work readiness and self-efficacy">
+                <img src="upload/proposal-defense-sep9-12.jpg" alt="Faculty presenter discussing methodology and research design">
+                <img src="upload/proposal-defense-sep9-13.jpg" alt="Panel inquiries and academic dean defense">
+                <img src="upload/proposal-defense-sep9-14.jpg" alt="Proposal presentation on adaptive WiFi bandwidth edge computing">
+                <img src="upload/proposal-defense-sep9-15.jpg" alt="Development of facility booking mobile application proposal">
+                <img src="upload/proposal-defense-sep9-16.jpg" alt="Academic heads defense session photo">
+                <img src="upload/proposal-defense-sep9-17.jpg" alt="Criminology research presentation on CLE passing rates and accountability">
+                <img src="upload/proposal-defense-sep9-18.jpg" alt="Proposal defense open forum and critique">
+                <img src="upload/proposal-defense-sep9-19.jpg" alt="Academic heads defense panelist review">
+                <img src="upload/proposal-defense-sep9-20.jpg" alt="Research proponent addressing panel questions">
+                <img src="upload/proposal-defense-sep9-21.jpg" alt="Academic leaders during research evaluation">
+                <img src="upload/proposal-defense-sep9-22.jpg" alt="Research Snap commitment with SDG 16 and SDG 12">
+                <img src="upload/proposal-defense-sep9-23.jpg" alt="Academic heads collective defense documentation">
+                <img src="upload/proposal-defense-sep9-24.jpg" alt="Faculty researchers sharing insights on institutional development">
+                <img src="upload/proposal-defense-sep9-25.jpg" alt="Closing remarks and summary of proposal defenses">
+                <img src="upload/proposal-defense-sep9-26.jpg" alt="Academic Heads Research Proposal Defense participants collective photo">
+              </div>
+            </div>
+          </div>
+        </article>
+
+<article class="news-card" data-content-type="event" id="event-innovation-to-opportunity">
+          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
+            <img src="upload/sti-week-1.jpg" alt="2026 Cagayan Valley Regional Science, Technology, and Innovation Week - DOST Regional STI Week" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;" loading="eager">
+            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
+            <span class="news-date-badge" style="position: relative; z-index: 2;">Sep 9–11, 2026</span>
+            <div class="news-thumb-text" style="position: relative; z-index: 2;">
+              <span class="news-thumb-pill">Cagayan Valley STI Week</span>
+              <h4 class="news-thumb-topic">Regional STI Week</h4>
+            </div>
+          </div>
+          <div class="news-content">
+            <div>
+              <span class="badge-content-type type-event">📅 EVENT</span>
+              <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Cagayan Valley STI Week</span>
+              <h3 class="news-title">From Innovation to Opportunity: Advancing Ideas for Possible Funding</h3>
+              <p class="news-excerpt">Faculty delegates from MCNP and ISAP participated in the 2026 Cagayan Valley Regional Science, Technology, and Innovation Week, held on September 9–11, 2026, in Tuguegarao City. The event provided a valuable platform for learning, collaboration, and the exchange of science- and technology-driven solutions responsive to regional needs.</p>
+              <details>
+                <summary>Read full story</summary>
+                <p class="news-excerpt">As a significant output of their participation, the school delegates developed and presented a capsule proposal on an ICT application for health for technical review and possible funding support. This milestone demonstrates the institutions' commitment to moving research beyond ideas and toward practical, fundable, and community-responsive innovations.</p>
+                <p class="news-excerpt">The activity advances SDG 2: Zero Hunger and SDG 3: Good Health and Well-Being through science-based solutions for food, nutrition, and health; SDG 4: Quality Education through research and innovation capability-building; SDG 9: Industry, Innovation and Infrastructure by promoting technology-driven solutions; and SDG 17: Partnerships for the Goals through collaboration among academic institutions, government agencies, researchers, and other stakeholders.</p>
+                <p class="news-excerpt"><strong>Innovation Beyond Boundaries.</strong></p>
+              </details>
+              <div style="display: none;" aria-hidden="true">
+                <img src="upload/sti-week-1.jpg" alt="DOST Cagayan Valley Regional Science, Technology, and Innovation Week main stage">
+                <img src="upload/sti-week-2.jpg" alt="DOST Regional STI Week banner Tuguegarao City">
+                <img src="upload/sti-week-3.jpg" alt="DOST Regional Science, Technology, &amp; Digital Innovation Week event venue">
+                <img src="upload/sti-week-4.jpg" alt="OneDOST4U: Solutions and Opportunities for All exhibit">
+                <img src="upload/sti-week-5.jpg" alt="DOST Food and Nutrition Research Institute (FNRI) technology pavilion">
+                <img src="upload/sti-week-6.jpg" alt="FNRI science and nutrition exhibits">
+                <img src="upload/sti-week-7.jpg" alt="Smart Sustainable Communities &amp; Advanced Manufacturing forum">
+                <img src="upload/sti-week-8.jpg" alt="Isabela State University &amp; CVAARRD Innovation Portfolio exhibit">
+                <img src="upload/sti-week-9.jpg" alt="CVAARRD technological innovation and embryo transfer showcases">
+                <img src="upload/sti-week-10.jpg" alt="Regional scientific research and development exhibits">
+                <img src="upload/sti-week-11.jpg" alt="Regional agricultural and biotechnological products display">
+                <img src="upload/sti-week-12.jpg" alt="CVAARRD Innovation Handbook and protocol portfolio">
+                <img src="upload/sti-week-13.jpg" alt="Embryo transfer and agri-biotech research pavilion">
+                <img src="upload/sti-week-14.jpg" alt="All-natural regional food products and technology commercialization">
+                <img src="upload/sti-week-15.jpg" alt="Regional food technology and enterprise development booth">
+                <img src="upload/sti-week-16.jpg" alt="Quirino State University and regional value-added food products">
+                <img src="upload/sti-week-17.jpg" alt="Smarter and Sustainable Clonal Propagation innovations display">
+              </div>
+            </div>
+          </div>
+        </article>
+
+<article class="news-card" data-content-type="event" id="event-research-sees-everyone">
+          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
+            <img src="upload/gender-research-1.jpg" alt="Research That Sees Everyone: Advancing Knowledge through a Gender-Responsive Lens - CSU Andrews Campus" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;" loading="eager">
+            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
+            <span class="news-date-badge" style="position: relative; z-index: 2;">Sep 9–10, 2026</span>
+            <div class="news-thumb-text" style="position: relative; z-index: 2;">
+              <span class="news-thumb-pill">Regional Seminar-Training</span>
+              <h4 class="news-thumb-topic">Gender Research</h4>
+            </div>
+          </div>
+          <div class="news-content">
+            <div>
+              <span class="badge-content-type type-event">📅 EVENT</span>
+              <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Regional Seminar-Training</span>
+              <h3 class="news-title">Research That Sees Everyone: Advancing Knowledge through a Gender-Responsive Lens</h3>
+              <p class="news-excerpt">MCNP–ISAP personnel participated in the Regional Seminar-Training on Gender Research, held on September 9–10, 2026, at CSU Andrews Campus, Tuguegarao City. The training strengthened their capacity to develop studies that recognize diverse experiences, examine gender-related concerns, and generate evidence for more inclusive programs, policies, and practices.</p>
+              <details>
+                <summary>Read full story</summary>
+                <p class="news-excerpt">The activity advances SDG 4: Quality Education by building researchers&rsquo; knowledge and competencies; SDG 5: Gender Equality by ensuring that different voices and experiences are represented in research; SDG 9: Industry, Innovation and Infrastructure by encouraging inclusive and evidence-based solutions; and SDG 17: Partnerships for the Goals by promoting collaboration, shared learning, and good practices among participating institutions.</p>
+                <p class="news-excerpt">Through gender-responsive research, we move beyond simply gathering data—we ensure that knowledge becomes a pathway toward fairness, inclusion, and sustainable development.</p>
+                <p class="news-excerpt"><strong>Innovation Beyond Boundaries.</strong></p>
+              </details>
+              <div style="display: none;" aria-hidden="true">
+                <img src="upload/gender-research-1.jpg" alt="Workshop 1: Developing a Research Question and a Research Working Title at CSU Andrews Campus">
+                <img src="upload/gender-research-2.jpg" alt="MCNP-ISAP participants at the Regional Seminar-Training on Gender Research">
+                <img src="upload/gender-research-3.jpg" alt="Plenary lecture and methodology discussion on gender-responsive inquiry">
+                <img src="upload/gender-research-4.jpg" alt="Delegates and participants during the Gender Research training workshop">
+              </div>
+            </div>
+          </div>
+        </article>
+
+<article class="news-card" data-content-type="event" id="event-samples-to-statistics">
+          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
+            <img src="upload/research-summit-1.jpg" alt="ISAP High School Research Summit - Episode 2: From Samples to Statistics" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
+            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
+            <span class="news-date-badge" style="position: relative; z-index: 2;">Aug 28, 2026</span>
+            <div class="news-thumb-text" style="position: relative; z-index: 2;">
+              <span class="news-thumb-pill">Episode 2</span>
+              <h4 class="news-thumb-topic">High School Research Summit</h4>
+            </div>
+          </div>
+          <div class="news-content">
+            <div>
+              <span class="badge-content-type type-event">📅 EVENT</span>
+              <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">Episode 2</span>
+              <h3 class="news-title">From Samples to Statistics: Turning Data into Meaningful Discoveries</h3>
+              <p class="news-excerpt">The ISAP High School Research Summit–Episode 2, held online on August 28, 2026, featured Dr. Ryan C. Fontanilla on Sampling Techniques and Research Designs and Ms. Tshaine Anne T. Labang, LPT on Data Processing and Analysis using Excel, SPSS, and jamovi.</p>
+              <details>
+                <summary>Read full story</summary>
+                <p class="news-excerpt">The activity supports SDG 4: Quality Education by strengthening students' research and data-analysis competencies; SDG 9: Industry, Innovation and Infrastructure by equipping them with digital tools for evidence-based inquiry and innovation; and SDG 17: Partnerships for the Goals by promoting collaboration among the RDC, High School Department, teachers, and student researchers.</p>
+                <p class="news-excerpt"><strong>Innovation Beyond Boundaries.</strong></p>
+              </details>
+              <div style="display: none;" aria-hidden="true">
+                <img src="upload/research-summit-1.jpg" alt="Dr. Ryan C. Fontanilla, Ph.D - Sampling Techniques and Research Designs">
+                <img src="upload/research-summit-2.jpg" alt="Ms. Tshaine Anne T. Labang, LPT - Data Processing and Analysis using Excel, SPSS, and jamovi">
+              </div>
+            </div>
+          </div>
+        </article>
+
+<article class="news-card" data-content-type="event" id="event-equipping-students">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/community-ext-1.jpg" alt="Listening to the Community: Qualitative Data Gathering for Community Needs Analysis - Dr. Ryan C. Fontanilla" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1741,6 +2147,7 @@
           </div>
           <div class="news-content">
             <div>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">Community Extension Services</span>
               <h3 class="news-title">Equipping Students for Meaningful Community Engagement</h3>
               <p class="news-excerpt">The MCNP–ISAP Community Extension Services Office conducted the seminar and field orientation titled &ldquo;Listening to the Community: Qualitative Data Gathering for Community Needs Analysis: A Practical Approach&rdquo; on August 24 at Amphitheater 3.</p>
@@ -1760,7 +2167,7 @@
           </div>
         </article>
 
-        <article class="news-card" id="event-general-assembly">
+<article class="news-card" data-content-type="event" id="event-general-assembly">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/assembly-1.jpg" alt="Strengthening Research Through Shared Direction - MCNP-ISAP RDC General Assembly 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1772,6 +2179,7 @@
           </div>
           <div class="news-content">
             <div>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">MCNP–ISAP RDC</span>
               <h3 class="news-title">Strengthening Research Through Shared Direction</h3>
               <p class="news-excerpt">The MCNP–ISAP Research and Development Center convened its General Assembly 2026 on August 24, bringing together RDC personnel and research focal persons to revisit research processes and discuss the Institutional Research Agenda, RDC Strategic Plan 2026–2030, and Operational Plan for Academic Year 2026–2027.</p>
@@ -1799,7 +2207,7 @@
           </div>
         </article>
 
-        <article class="news-card" id="event-health-research-collaboration">
+<article class="news-card" data-content-type="event" id="event-health-research-collaboration">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/health-research-1.jpg" alt="Advancing Health Research Through Collaboration - DOST CVHRDC RRF Technical Review" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1811,6 +2219,7 @@
           </div>
           <div class="news-content">
             <div>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">RRF Technical Review</span>
               <h3 class="news-title">Advancing Health Research Through Collaboration</h3>
               <p class="news-excerpt">MCNP and ISAP proudly co-hosted the Regional Research Fund (RRF) Technical Review Board Evaluation on August 19–20, 2026, in partnership with DOST–<a href="https://web.facebook.com/rcvhrdc?__cft__[0]=AZjGj3v75us_d9ktVK56GBoPl865Z1fRKENAheHZ4-4dnV1XuUEoQWpH3t7MA_yjxNFvuEpa7bmfsPdeovVuU3NqGZ9Z6TrsHofa1tTCNjHOTiE-sG9tkqdtNWzc8ffUv6tTMnWsx8Fag2JIdLoYysdtyfAUasqhovFEYOsMbPWMhe78msFCRw6V-x98jG0&amp;__tn__=-K-R" target="_blank" rel="noopener noreferrer">Cagayan Valley Health Research and Development Consortium (CVHRDC)</a>.</p>
@@ -1831,7 +2240,7 @@
           </div>
         </article>
 
-        <article class="news-card" id="event-icir-2026">
+<article class="news-card" data-content-type="event" id="event-icir-2026">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/icir-1.jpg" alt="1st ISAP-K Conference on Interdisciplinary Research (ICIR 2026) - Keynote Speaker Dr. Ryan C. Fontanilla" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1843,6 +2252,7 @@
           </div>
           <div class="news-content">
             <div>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">ISAP-K Conference</span>
               <h3 class="news-title">Research for Sustainable Impact</h3>
               <p class="news-excerpt">The 1st ISAP-K Conference on Interdisciplinary Research (ICIR 2026), themed "Unifying Perspectives: Empowering Student Investigators Across Disciplines to Advance the Sustainable Development Goals through Community-Driven Research," was held on August 7, 2026, at the ISAP-Kalinga Gymnasium. Research Director Ryan C. Fontanilla delivered the keynote address on leveraging student inquiry for lasting community transformation.</p>
@@ -1864,152 +2274,7 @@
           </div>
         </article>
 
-        <article class="news-card" id="event-cbcp-ust-collab">
-          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
-            <img src="upload/1.jpg" alt="CBCP-UST Collaborative Project" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;">
-            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
-            <span class="news-date-badge" style="position: relative; z-index: 2;">Nov 17, 2024</span>
-            <div class="news-thumb-text" style="position: relative; z-index: 2;">
-              <span class="news-thumb-pill">Catholic Christianity Study</span>
-              <h4 class="news-thumb-topic">Collaborative Research</h4>
-            </div>
-          </div>
-          <div class="news-content">
-            <div>
-              <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">MCNP-ISAP RDC</span>
-              <h3 class="news-title">RDC Joins CBCP-UST Collaborative Project on Catholic Christianity</h3>
-              <p class="news-excerpt">The MCNP-ISAP Research and Development Center, led by Research Director Ryan C. Fontanilla, participated in the CBCP and University of Santo Tomas project at the Archbishop's Residence in Tuguegarao City.</p>
-              <details><summary>Read full story</summary><p class="news-excerpt">The initiative assesses the current status of Catholic Christianity in the Philippines toward fostering a Synodal Church. Lay organizations across the Archdiocese of Tuguegarao answered the project survey, while respondents' privacy was protected by blurring faces in event photographs.</p><p class="news-excerpt">The collaborative study supports SDG 4: Quality Education by advancing research competencies in pastoral and community assessment, SDG 16: Peace, Justice and Strong Institutions by fostering transparent, ethical, and participatory synodal institutional processes, and SDG 17: Partnerships for the Goals through multi-institutional collaboration among CBCP, UST, and the MCNP-ISAP RDC.</p></details>
-              <div style="display: none;" aria-hidden="true">
-                <img src="upload/1.jpg" alt="CBCP-UST event photo 1">
-                <img src="upload/2.jpg" alt="CBCP-UST event photo 2">
-                <img src="upload/3.jpg" alt="CBCP-UST event photo 3">
-                <img src="upload/4.jpg" alt="CBCP-UST event photo 4">
-                <img src="upload/5.jpg" alt="CBCP-UST event photo 5">
-                <img src="upload/6.jpg" alt="CBCP-UST event photo 6">
-                <img src="upload/7.jpg" alt="CBCP-UST event photo 7">
-                <img src="upload/8.jpg" alt="CBCP-UST event photo 8">
-                <img src="upload/9.jpg" alt="CBCP-UST event photo 9">
-                <img src="upload/10.jpg" alt="CBCP-UST event photo 10">
-                <img src="upload/11.jpg" alt="CBCP-UST event photo 11">
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card" id="event-student-stats-28th">
-          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
-            <img src="upload/stats-awards-2.jpg" alt="28th Philippine Statistics Quiz Bee" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
-            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
-            <span class="news-date-badge" style="position: relative; z-index: 2;">2024</span>
-            <div class="news-thumb-text" style="position: relative; z-index: 2;">
-              <span class="news-thumb-pill">Statistics Quiz Bee</span>
-              <h4 class="news-thumb-topic">Student Achievement</h4>
-            </div>
-          </div>
-          <div class="news-content">
-            <div>
-              <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">Statistics Quiz Bee</span>
-              <h3 class="news-title">MCNP and ISAP Students Excel in the 28th Philippine Statistics Quiz Bee</h3>
-              <p class="news-excerpt">Nathaniel M. Acacio of ISAP won first place in the Quiz Bee. Ma. Julianne Tabbu of MCNP placed third and Althea Balanag of ISAP placed fifth in the Digital Poster Making Contest.</p>
-              <details><summary>View participants</summary><p class="news-excerpt">Other participants included Maxine Alipio, Sharmelyn Torres, Jenieva Catawe, Jasper Catulin, and Jaylord Victorio, with support from coaches Wendy Mae G. Lapuz and Christine Kae Aragon.</p><p class="news-excerpt">The competition advances SDG 4: Quality Education by fostering quantitative reasoning, statistical literacy, and academic excellence among students, SDG 9: Industry, Innovation and Infrastructure by developing analytical capabilities critical for data-driven innovation, and SDG 17: Partnerships for the Goals through institutional collaboration with the Philippine Statistics Authority (PSA).</p></details>
-              <div style="display: none;" aria-hidden="true">
-                <img src="upload/stats-awards-2.jpg" alt="28th Philippine Statistics Quiz Bee delegation on stage">
-                <img src="upload/stats-awards-3.jpg" alt="28th Philippine Statistics Quiz Bee 1st Place - Nathaniel M. Acacio">
-                <img src="upload/stats-awards-1.jpg" alt="Digital Poster Making Contest award ceremony on stage with student winners and coaches">
-                <img src="upload/stats-awards-4.jpg" alt="Digital Poster Making Contest 3rd Place - Ma. Julianne Tabbu">
-                <img src="upload/stats-awards-5.jpg" alt="Digital Poster Making Contest 5th Place - Althea Balanag">
-                <img src="upload/stats-awards-6.jpg" alt="Statistics Quiz Bee participants with coach">
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card" id="event-inst-quiz-bee">
-          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
-            <img src="upload/inst-quizbee-1.jpg" alt="Institutional Statistics Quiz Bee Winners" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
-            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
-            <span class="news-date-badge" style="position: relative; z-index: 2;">35th NSM</span>
-            <div class="news-thumb-text" style="position: relative; z-index: 2;">
-              <span class="news-thumb-pill">Quiz Bee Winners</span>
-              <h4 class="news-thumb-topic">Institutional Competition</h4>
-            </div>
-          </div>
-          <div class="news-content">
-            <div>
-              <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">Quiz Bee Winners</span>
-              <h3 class="news-title">Congratulations to the Winners of the Institutional Statistics Quiz Bee</h3>
-              <p class="news-excerpt">ISAP champion Jaylord S. Victorio was joined by Nathaniel Acacio and Jasper S. Catulin. MCNP champion Sharmelyn T. Torres was joined by Maxine Alipio and Jenieva M. Catawe.</p>
-              <details><summary>Read full story</summary><p class="news-excerpt">Held in celebration of the 35th National Statistics Month (NSM), the Institutional Statistics Quiz Bee brought together student leaders and academic departments across MCNP and ISAP to celebrate mathematical acumen and data science fundamentals.</p><p class="news-excerpt">The activity supports SDG 4: Quality Education by advancing statistical mastery and academic excellence, SDG 9: Industry, Innovation and Infrastructure by preparing students for data-oriented technological challenges, and SDG 17: Partnerships for the Goals through inter-departmental collaboration between MCNP and ISAP.</p></details>
-              <div style="display: none;" aria-hidden="true">
-                <img src="upload/inst-quizbee-1.jpg" alt="Institutional Statistics Quiz Bee participants and awardees">
-                <img src="upload/inst-quizbee-2.jpg" alt="ISAP Champion - Information Technology Department (Jaylord S. Victorio)">
-                <img src="upload/inst-quizbee-3.jpg" alt="MCNP Champion - Nursing Department (Sharmelyn T. Torres)">
-                <img src="upload/inst-quizbee-4.jpg" alt="MCNP 2nd Place - Medical Laboratory Sciences Department">
-                <img src="upload/inst-quizbee-5.jpg" alt="MCNP 2nd Place - Pharmacy Department">
-                <img src="upload/inst-quizbee-6.jpg" alt="ISAP 2nd Place - Criminology Department">
-                <img src="upload/inst-quizbee-7.jpg" alt="ISAP 2nd Place - Secondary Education Department">
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card" id="event-fontanilla-tejada-collab">
-          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
-            <img src="upload/fontanilla-tejada-1.jpg" alt="Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada Participate in Collaborative Study" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;" loading="eager">
-            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
-            <span class="news-date-badge" style="position: relative; z-index: 2;">Oct 08, 2024</span>
-            <div class="news-thumb-text" style="position: relative; z-index: 2;">
-              <span class="news-thumb-pill">Catholic Christianity Study</span>
-              <h4 class="news-thumb-topic">Dr. Fontanilla &amp; Engr. Tejada</h4>
-            </div>
-          </div>
-          <div class="news-content">
-            <div>
-              <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Research Collaboration</span>
-              <h3 class="news-title">Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada Participate in Collaborative Study</h3>
-              <p class="news-excerpt"><strong>Research Director Ryan C. Fontanilla</strong> and <strong>IT Dean Engr. Myke Albert Tejada</strong> represented MCNP and ISAP at the Archdiocese of Tuguegarao meeting for the CBCP-UST initiative, "Lights and Shadows on the Present State of Catholic Christianity in the Philippines toward Becoming a Synodal Church."</p>
-              <details>
-                <summary>Read full story</summary>
-                <p class="news-excerpt">Representing Medical Colleges of Northern Philippines (MCNP) and International School of Asia and the Pacific (ISAP), Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada actively participated in the collaborative meeting with field researchers of the Archdiocese of Tuguegarao.</p>
-                <p class="news-excerpt">The study, spearheaded by the Catholic Bishops' Conference of the Philippines (CBCP) and the University of Santo Tomas (UST), entitled "Lights and Shadows on the Present State of Catholic Christianity in the Philippines toward Becoming a Synodal Church," aims to assess pastoral dynamics, community engagement, and synodal church initiatives across regional dioceses.</p>
-                <p class="news-excerpt">The collaborative undertaking supports SDG 4: Quality Education by engaging institutional academic leadership in regional research, SDG 16: Peace, Justice and Strong Institutions by enhancing participatory governance, synodal transparency, and community-level social cohesion, and SDG 17: Partnerships for the Goals through church, academe, and diocesan research coalitions.</p>
-              </details>
-              <div style="display: none;" aria-hidden="true">
-                <img src="upload/fontanilla-tejada-1.jpg" alt="Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada at the Archdiocese of Tuguegarao meeting">
-                <img src="upload/fontanilla-tejada-2.jpg" alt="Archdiocese of Tuguegarao collaborative meeting participants and field researchers">
-                <img src="upload/fontanilla-tejada-3.jpg" alt="Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada during the presentation of the Catholic Christianity Study">
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card" id="event-rdafest-champion-2024">
-          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
-            <img src="upload/rdafest-champion-1.jpg" alt="Region 2 Emerges as Overall Champion - 2024 Regional Data Festival" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
-            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
-            <span class="news-date-badge" style="position: relative; z-index: 2;">Oct 03–04, 2024</span>
-            <div class="news-thumb-text" style="position: relative; z-index: 2;">
-              <span class="news-thumb-pill">RDaFest 2024</span>
-              <h4 class="news-thumb-topic">Overall Champion</h4>
-            </div>
-          </div>
-          <div class="news-content">
-            <div>
-              <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">RDaFest 2024</span>
-              <h3 class="news-title">Region 2 Emerges as Overall Champion</h3>
-              <p class="news-excerpt">Representing Cagayan Valley, delegates from USLT, MCNP, SFC, QSU Cabarroguis, and SMU secured the Overall Champion title at the 2024 Regional Data Festival for the North Luzon Cluster held at Subic Bay Travelers Hotel and Event Center in Subic, Zambales.</p>
-              <p class="news-excerpt">Source: <a href="https://www.facebook.com/share/p/PXumzzXiXpLucZdm/?mibextid=WC7FNe" target="_blank" rel="noopener noreferrer">Facebook post ↗</a></p>
-              <details><summary>Read full story</summary><p class="news-excerpt">The multi-school Cagayan Valley delegation showcased stellar performance across data appreciation, analytics, and research presentations, demonstrating regional leadership in statistical excellence and evidence-based problem solving.</p><p class="news-excerpt">This achievement advances SDG 4: Quality Education through high-impact student training and data literacy, SDG 9: Industry, Innovation and Infrastructure by promoting data science and technological problem-solving skills, and SDG 17: Partnerships for the Goals through regional consortium synergy among North Luzon higher education institutions.</p></details>
-              <div style="display: none;" aria-hidden="true">
-                <img src="upload/rdafest-champion-1.jpg" alt="Region 2 delegation awarded Overall Champion at 2024 Regional Data Festival North Luzon Cluster">
-                <img src="upload/rdafest-champion-2.jpg" alt="Philippine Data Festival Champion wooden medal with Certificate of Participation and Appreciation">
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card" id="event-stats-color-fun-run">
+<article class="news-card" data-content-type="event" id="event-stats-color-fun-run">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/stats-colorrun-1.jpg" alt="School Statisticians Join the 35th National Statistics Month Color Fun Run" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -2021,6 +2286,7 @@
           </div>
           <div class="news-content">
             <div>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">Color Fun Run</span>
               <h3 class="news-title">School Statisticians Join the 35th National Statistics Month Color Fun Run</h3>
               <p class="news-excerpt">Ms. Cristine Kae Aragon and Ms. Guadalupe Agabin represented their institution in the Philippine Statistics Authority event in Tuguegarao City, promoting awareness and appreciation of statistics.</p>
@@ -2036,89 +2302,9 @@
             </div>
           </div>
         </article>
+          </div>
+        </section>
 
-        <article class="news-card" id="event-student-stats-awards">
-          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
-            <img src="upload/stats-awards-1.jpg" alt="MCNP and ISAP Students Receive Statistics Month Awards" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
-            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
-            <span class="news-date-badge" style="position: relative; z-index: 2;">October 2024</span>
-            <div class="news-thumb-text" style="position: relative; z-index: 2;">
-              <span class="news-thumb-pill">Student Awards</span>
-              <h4 class="news-thumb-topic">Digital Poster Making</h4>
-            </div>
-          </div>
-          <div class="news-content">
-            <div>
-              <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Student Awards</span>
-              <h3 class="news-title">MCNP and ISAP Students Receive Statistics Month Awards</h3>
-              <p class="news-excerpt">Bryan Marantan placed third, John Lloyd Angui placed second, and Peter John F. Bosi placed second in the Digital Poster Making Contest held at People's Gymnasium, Tuguegarao City.</p>
-              <details><summary>Read full story</summary><p class="news-excerpt">Student awardees were commended for their creative interpretations of data concepts into compelling visual artwork during the province-wide 35th National Statistics Month festivities.</p><p class="news-excerpt">The activity supports SDG 4: Quality Education by advancing creative and statistical communication skills, SDG 9: Industry, Innovation and Infrastructure through digital art and design innovation, and SDG 17: Partnerships for the Goals by partnering with local government units and statistical agencies.</p></details>
-              <div style="display: none;" aria-hidden="true">
-                <img src="upload/stats-awards-1.jpg" alt="Digital Poster Making Contest awarding ceremony on stage with student winners and coaches">
-                <img src="upload/stats-awards-4.jpg" alt="Digital Poster Making Contest 3rd Place - Ma. Julianne Tabbu">
-                <img src="upload/stats-awards-5.jpg" alt="Digital Poster Making Contest 5th Place - Althea Balanag">
-                <img src="upload/stats-awards-2.jpg" alt="28th Philippine Statistics Quiz Bee delegation on stage">
-                <img src="upload/stats-awards-3.jpg" alt="28th Philippine Statistics Quiz Bee 1st Place - Nathaniel M. Acacio">
-                <img src="upload/stats-awards-6.jpg" alt="Statistics Quiz Bee participants with coach">
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card" id="event-lapus-rdafest-2024">
-          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
-            <img src="upload/lapus-rdafest-1.jpg" alt="Wendy Mae G. Lapus Represents ISAP at Regional Data Festival" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;" loading="eager">
-            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
-            <span class="news-date-badge" style="position: relative; z-index: 2;">Oct 03–04, 2024</span>
-            <div class="news-thumb-text" style="position: relative; z-index: 2;">
-              <span class="news-thumb-pill">RDaFest 2024</span>
-              <h4 class="news-thumb-topic">Research Presentation</h4>
-            </div>
-          </div>
-          <div class="news-content">
-            <div>
-              <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">RDaFest 2024</span>
-              <h3 class="news-title">Wendy Mae G. Lapus Represents ISAP at Regional Data Festival</h3>
-              <p class="news-excerpt">Ms. Lapus presented "A Relationship Study between Job Demands, Resources, and Personnel Motivation in HEIs: The Case of the International School of Asia and the Pacific" at the North Luzon Regional Data Festival held at Subic Bay Travelers Hotel and Event Center, Subic Bay Freeport Zone.</p>
-              <details><summary>Read full story</summary><p class="news-excerpt">The research presentation examined key organizational drivers of personnel motivation, institutional support mechanisms, and workplace well-being in higher education institutions.</p><p class="news-excerpt">The study advances SDG 4: Quality Education through empirical institutional research, SDG 8: Decent Work and Economic Growth by promoting favorable workplace conditions and personnel motivation, SDG 9: Industry, Innovation and Infrastructure by applying organizational research to improve institutional management, and SDG 17: Partnerships for the Goals through scholarly exchange across the North Luzon cluster.</p></details>
-              <div style="display: none;" aria-hidden="true">
-                <img src="upload/lapus-rdafest-1.jpg" alt="Ms. Wendy Mae G. Lapus presenting research paper at 2024 Regional Data Festival">
-                <img src="upload/lapus-rdafest-2.jpg" alt="Awarding of Certificate of Appreciation to Ms. Wendy Mae G. Lapus on stage">
-                <img src="upload/lapus-rdafest-3.jpg" alt="Certificate of Appreciation - 2024 Regional Data Festival North Luzon Cluster">
-                <img src="upload/lapus-rdafest-4.jpg" alt="2024 Regional Data Festival North Luzon Cluster Program Guide">
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card" id="event-infographics-contest">
-          <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
-            <img src="upload/infographics-4.jpg" alt="MCNP and ISAP Digital Infographics Making Contest" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
-            <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
-            <span class="news-date-badge" style="position: relative; z-index: 2;">September 2024</span>
-            <div class="news-thumb-text" style="position: relative; z-index: 2;">
-              <span class="news-thumb-pill">Infographics Contest</span>
-              <h4 class="news-thumb-topic">Digital Infographics Making Contest</h4>
-            </div>
-          </div>
-          <div class="news-content">
-            <div>
-              <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">Infographics Contest</span>
-              <h3 class="news-title">MCNP and ISAP Conduct Digital Infographics Making Contest</h3>
-              <p class="news-excerpt">During the 35th Statistics Month Celebration, John Lloyd Angui was named champion, Mark Lester Sandoval placed second, and Ma. Julianne Tabbu placed third at Computer Laboratory B in Peñablanca, Cagayan.</p>
-              <p class="news-excerpt">The awardees were recognized by Research Director Ryan C. Fontanilla.</p>
-              <details><summary>Read full story</summary><p class="news-excerpt">The contest empowered student designers to turn statistical indicators into engaging, accessible, and informative visual narratives, reinforcing the role of data in modern problem solving.</p><p class="news-excerpt">The event advances SDG 4: Quality Education by boosting digital literacy and data communication, SDG 9: Industry, Innovation and Infrastructure through innovative visual design methodologies, and SDG 17: Partnerships for the Goals by aligning campus initiatives with national statistical month celebrations.</p></details>
-              <div style="display: none;" aria-hidden="true">
-                <img src="upload/infographics-4.jpg" alt="Digital Infographics Making Contest award ceremony with Research Director Ryan C. Fontanilla, coaches, and winners">
-                <img src="upload/infographics-5.jpg" alt="Digital Infographics Making Contest student winners on stage">
-                <img src="upload/infographics-1.jpg" alt="Winning Infographic entry - Peter John F. Bosi">
-                <img src="upload/infographics-2.jpg" alt="Winning Infographic entry - MC Brian Marantan">
-                <img src="upload/infographics-3.jpg" alt="Winning Infographic entry - Jaylord D. Angui">
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
       </section>
     </div>
   
@@ -2618,7 +2804,7 @@
       };
     }
 
-    var cards = Array.prototype.slice.call(document.querySelectorAll('#eventsGrid .news-card, .news-grid .news-card'));
+    var cards = Array.prototype.slice.call(document.querySelectorAll('#articlesGrid .news-card, #eventsGrid .news-card, .news-grid .news-card'));
     var events = cards.map(parseEvent);
 
     // Category icons mapping
@@ -2981,11 +3167,55 @@
     var activeCategory = 'all';
     var searchQuery = '';
 
+    
+    window.currentContentView = 'articles'; // default view: articles
+
+    window.switchContentView = function(view, smoothScroll) {
+      window.currentContentView = view;
+      var articlesSec = document.getElementById('articlesSection');
+      var eventsSec = document.getElementById('eventsSection');
+      var tabBtns = document.querySelectorAll('.news-view-tab-btn');
+
+      tabBtns.forEach(function(b) {
+        var isThis = (b.dataset.view === view);
+        b.classList.toggle('active', isThis);
+        b.setAttribute('aria-selected', isThis ? 'true' : 'false');
+      });
+
+      if (view === 'articles') {
+        if (articlesSec) articlesSec.style.display = 'block';
+        if (eventsSec) eventsSec.style.display = 'none';
+      } else if (view === 'events') {
+        if (articlesSec) articlesSec.style.display = 'none';
+        if (eventsSec) eventsSec.style.display = 'block';
+      } else {
+        if (articlesSec) articlesSec.style.display = 'block';
+        if (eventsSec) eventsSec.style.display = 'block';
+      }
+
+      applyFilterAndSearch();
+
+      if (smoothScroll) {
+        var scrollTarget = (view === 'events') ? eventsSec : articlesSec;
+        if (scrollTarget) {
+          scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    };
+
     function applyFilterAndSearch() {
       var visibleCount = 0;
-      var noResultsEl = eventsGrid ? eventsGrid.querySelector('.event-no-results') : null;
+      var currentView = window.currentContentView || 'articles';
 
       cards.forEach(function (card) {
+        var isArt = card.closest('#articlesGrid') || card.dataset.contentType === 'article';
+        var inView = (currentView === 'all') || (currentView === 'articles' && isArt) || (currentView === 'events' && !isArt);
+
+        if (!inView) {
+          card.classList.add('event-card-hidden');
+          return;
+        }
+
         var cardCats = (card.dataset.categories || '').split(' ');
         var matchesCategory = activeCategory === 'all' || cardCats.indexOf(activeCategory) > -1;
         var matchesSearch = !searchQuery || (card.dataset.searchText || '').indexOf(searchQuery) > -1;
@@ -3000,17 +3230,7 @@
 
       var countEl = document.getElementById('eventCountTotal');
       if (countEl) countEl.textContent = visibleCount;
-
-      if (visibleCount === 0) {
-        if (!noResultsEl && eventsGrid) {
-          noResultsEl = document.createElement('div');
-          noResultsEl.className = 'event-no-results';
-          noResultsEl.innerHTML = '<h4>No matching news or events found</h4><p>Try clearing your search keyword or selecting "All News &amp; Events".</p>';
-          eventsGrid.appendChild(noResultsEl);
-        }
-      } else if (noResultsEl) {
-        noResultsEl.remove();
-      }
+    }
     }
 
     filterBtns.forEach(function (btn) {
@@ -3050,32 +3270,56 @@
       });
     });
 
-    // Deep-link hash scrolling, highlighting, and auto modal opening
-    var urlParams = new URLSearchParams(window.location.search);
-    var eventParam = urlParams.get('event');
-    var hashVal = window.location.hash ? window.location.hash.substring(1) : '';
-    var targetCardId = eventParam || (hashVal && hashVal.startsWith('event-') ? hashVal : null);
+    // Deep-link hash scrolling, highlighting, and view switching
+    function handleInitialHash() {
+      var urlParams = new URLSearchParams(window.location.search);
+      var eventParam = urlParams.get('event');
+      var hashVal = window.location.hash ? window.location.hash.substring(1) : '';
+      var targetCardId = eventParam || (hashVal && hashVal.startsWith('event-') ? hashVal : null);
 
-    if (targetCardId) {
-      setTimeout(function () {
-        if (typeof window.openEventModalById === 'function') {
-          window.openEventModalById(targetCardId);
+      if (targetCardId) {
+        var targetCard = document.getElementById(targetCardId);
+        if (targetCard) {
+          var isArt = targetCard.closest('#articlesGrid') || targetCard.dataset.contentType === 'article';
+          if (window.switchContentView) window.switchContentView(isArt ? 'articles' : 'events', false);
         }
-      }, 350);
-    } else if (window.location.hash) {
-      var target = document.querySelector(window.location.hash);
-      if (target) {
         setTimeout(function () {
-          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          target.style.outline = '3px solid var(--mcnp-green, #0d5c3a)';
-          target.style.boxShadow = '0 0 25px rgba(13, 92, 58, 0.35)';
-          setTimeout(function () {
-            target.style.outline = '';
-            target.style.boxShadow = '';
-          }, 3200);
+          if (typeof window.openEventModalById === 'function') {
+            window.openEventModalById(targetCardId);
+          }
         }, 350);
+      } else if (window.location.hash) {
+        var h = window.location.hash.toLowerCase();
+        if (h === '#articles' || h === '#articlessection') {
+          if (window.switchContentView) window.switchContentView('articles', true);
+        } else if (h === '#events' || h === '#eventssection') {
+          if (window.switchContentView) window.switchContentView('events', true);
+        } else if (h === '#all') {
+          if (window.switchContentView) window.switchContentView('all', true);
+        } else {
+          var target = document.querySelector(window.location.hash);
+          if (target) {
+            var isArt = target.closest('#articlesGrid') || target.dataset.contentType === 'article';
+            if (window.switchContentView) window.switchContentView(isArt ? 'articles' : 'events', false);
+            setTimeout(function () {
+              target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              target.style.outline = '3px solid var(--mcnp-green, #0d5c3a)';
+              target.style.boxShadow = '0 0 25px rgba(13, 92, 58, 0.35)';
+              setTimeout(function () {
+                target.style.outline = '';
+                target.style.boxShadow = '';
+              }, 3200);
+            }, 350);
+          }
+        }
+      } else {
+        // Default to articles view
+        if (window.switchContentView) window.switchContentView('articles', false);
       }
     }
+
+    handleInitialHash();
+    window.addEventListener('hashchange', handleInitialHash);
   })();
   </script>
 
