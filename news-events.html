@@ -402,6 +402,9 @@
       color: #1e293b;
       margin: 0;
       font-weight: 500;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
     }
     .article-content-body {
       padding: 2.25rem 2.5rem;
@@ -419,12 +422,17 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      text-align: left;
     }
-    .article-narrative-p {
+    .article-narrative-p,
+    .article-content-body p {
       font-size: 0.96rem;
       line-height: 1.75;
       color: #334155;
       margin: 0 0 1rem;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
     }
     .article-competitions-cards {
       display: grid;
@@ -485,6 +493,11 @@
       color: #64748b;
       font-size: 0.8rem;
     }
+    .article-sub-card p {
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
     .article-frameworks-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -510,12 +523,20 @@
       color: #334155;
       line-height: 1.55;
     }
-    .framework-card ul li { margin-bottom: 0.4rem; }
+    .framework-card ul li {
+      margin-bottom: 0.4rem;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
     .framework-card p {
       margin: 0;
       font-size: 0.86rem;
       color: #334155;
       line-height: 1.6;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
     }
     .innovates-points-grid {
       display: grid;
@@ -530,6 +551,9 @@
       padding: 0.6rem 0.8rem;
       border-radius: 6px;
       border: 1px solid #e2e8f0;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
     }
     .article-links-strip {
       display: flex;
