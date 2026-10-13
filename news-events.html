@@ -394,11 +394,27 @@
       text-decoration: none;
       vertical-align: middle;
     }
-    .article-sdg-icon-link:hover {
+    .article-sdg-icon-link:hover,
+    .article-agenda-icon-link:hover {
       transform: translateY(-2px) scale(1.14);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
-    .article-sdg-icon-img {
+    .article-agenda-icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      background: #f1f5f9;
+      text-decoration: none;
+      vertical-align: middle;
+    }
+    .article-sdg-icon-img,
+    .article-agenda-icon-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -1695,10 +1711,22 @@
                 </div>
 
                 <!-- RDC Agenda Alignment -->
-                <div class="article-agenda-strip" style="display: flex; align-items: center; gap: 0.4rem;">
+                <div class="article-agenda-strip" style="display: flex; align-items: center; gap: 0.35rem;">
                   <span style="font-size: 0.72rem; font-weight: 700; color: #64748b; text-transform: uppercase;">RDC Agenda:</span>
-                  <a href="rdc-agenda.html" class="article-agenda-badge" title="Aligned with RDC INNOVATES Agenda (INSPIRE, NAVIGATE, OPERATIONALIZE, EXPAND, STRENGTHEN)" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="display: inline-flex; align-items: center; gap: 0.35rem; background: rgba(13, 92, 58, 0.08); color: #0d5c3a; padding: 0.22rem 0.65rem; border-radius: 999px; font-size: 0.74rem; font-weight: 700; text-decoration: none; border: 1px solid rgba(13, 92, 58, 0.25);">
-                    <span>🚀 INNOVATES Agenda</span>
+                  <a href="rdc-agenda.html#pillar-inspire" class="article-agenda-icon-link" title="INSPIRE: Research Culture and Capability" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="width: 24px; height: 24px; display: inline-block;">
+                    <img src="assets/agenda/agenda-1-inspire.png" alt="INSPIRE" class="article-agenda-icon-img" loading="lazy">
+                  </a>
+                  <a href="rdc-agenda.html#pillar-navigate" class="article-agenda-icon-link" title="NAVIGATE: Digital Innovation and Infrastructure" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="width: 24px; height: 24px; display: inline-block;">
+                    <img src="assets/agenda/agenda-3-navigate.png" alt="NAVIGATE" class="article-agenda-icon-img" loading="lazy">
+                  </a>
+                  <a href="rdc-agenda.html#pillar-operationalize" class="article-agenda-icon-link" title="OPERATIONALIZE: Research Utilization and Innovation" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="width: 24px; height: 24px; display: inline-block;">
+                    <img src="assets/agenda/agenda-4-operationalize.png" alt="OPERATIONALIZE" class="article-agenda-icon-img" loading="lazy">
+                  </a>
+                  <a href="rdc-agenda.html#pillar-expand" class="article-agenda-icon-link" title="EXPAND: Partnerships and Global Research" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="width: 24px; height: 24px; display: inline-block;">
+                    <img src="assets/agenda/agenda-8-expand.png" alt="EXPAND" class="article-agenda-icon-img" loading="lazy">
+                  </a>
+                  <a href="rdc-agenda.html#pillar-strengthen" class="article-agenda-icon-link" title="STRENGTHEN: Education and Institutional Performance" target="_blank" rel="noopener" onclick="event.stopPropagation();" style="width: 24px; height: 24px; display: inline-block;">
+                    <img src="assets/agenda/agenda-9-strengthen.png" alt="STRENGTHEN" class="article-agenda-icon-img" loading="lazy">
                   </a>
                 </div>
 
@@ -3487,10 +3515,22 @@
               <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.png" alt="SDG 17: Partnerships for the Goals" class="article-sdg-icon-img" loading="lazy" style="width: 100%; height: 100%; border-radius: 3px; display: block;">
             </a>
           </div>
-          <div style="display: flex; align-items: center; gap: 0.4rem;">
+          <div style="display: flex; align-items: center; gap: 0.35rem;">
             <span style="font-size: 0.74rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.03em;">RDC Agenda:</span>
-            <a href="rdc-agenda.html" target="_blank" rel="noopener" title="Aligned with RDC INNOVATES Agenda" style="display: inline-flex; align-items: center; gap: 0.35rem; background: rgba(13, 92, 58, 0.08); color: #0d5c3a; padding: 0.22rem 0.65rem; border-radius: 999px; font-size: 0.74rem; font-weight: 700; text-decoration: none; border: 1px solid rgba(13, 92, 58, 0.25);">
-              <span>🚀 INNOVATES Agenda</span>
+            <a href="rdc-agenda.html#pillar-inspire" target="_blank" rel="noopener" title="INSPIRE: Research Culture and Capability" class="article-agenda-icon-link" style="width: 26px; height: 26px; display: inline-block;">
+              <img src="assets/agenda/agenda-1-inspire.png" alt="INSPIRE" class="article-agenda-icon-img" loading="lazy">
+            </a>
+            <a href="rdc-agenda.html#pillar-navigate" target="_blank" rel="noopener" title="NAVIGATE: Digital Innovation and Infrastructure" class="article-agenda-icon-link" style="width: 26px; height: 26px; display: inline-block;">
+              <img src="assets/agenda/agenda-3-navigate.png" alt="NAVIGATE" class="article-agenda-icon-img" loading="lazy">
+            </a>
+            <a href="rdc-agenda.html#pillar-operationalize" target="_blank" rel="noopener" title="OPERATIONALIZE: Research Utilization and Innovation" class="article-agenda-icon-link" style="width: 26px; height: 26px; display: inline-block;">
+              <img src="assets/agenda/agenda-4-operationalize.png" alt="OPERATIONALIZE" class="article-agenda-icon-img" loading="lazy">
+            </a>
+            <a href="rdc-agenda.html#pillar-expand" target="_blank" rel="noopener" title="EXPAND: Partnerships and Global Research" class="article-agenda-icon-link" style="width: 26px; height: 26px; display: inline-block;">
+              <img src="assets/agenda/agenda-8-expand.png" alt="EXPAND" class="article-agenda-icon-img" loading="lazy">
+            </a>
+            <a href="rdc-agenda.html#pillar-strengthen" target="_blank" rel="noopener" title="STRENGTHEN: Education and Institutional Performance" class="article-agenda-icon-link" style="width: 26px; height: 26px; display: inline-block;">
+              <img src="assets/agenda/agenda-9-strengthen.png" alt="STRENGTHEN" class="article-agenda-icon-img" loading="lazy">
             </a>
           </div>
         </div>
