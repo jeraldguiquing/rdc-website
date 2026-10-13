@@ -540,17 +540,63 @@
     }
     .innovates-points-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 0.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.9rem;
       font-size: 0.84rem;
       color: #334155;
       line-height: 1.5;
+      margin-top: 0.75rem;
     }
-    .innovates-points-grid div {
+    .innovates-point-card {
       background: #ffffff;
-      padding: 0.6rem 0.8rem;
+      padding: 0.9rem 1.05rem;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+    }
+    .innovates-point-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      transform: translateY(-2px);
+    }
+    .innovates-point-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #f1f5f9;
+      text-align: left;
+    }
+    .innovates-point-thumb {
+      width: 44px;
+      height: 38px;
+      object-fit: contain;
       border-radius: 6px;
       border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      padding: 2px;
+      flex-shrink: 0;
+    }
+    .innovates-point-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.3;
+      margin: 0;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .innovates-point-desc {
+      margin: 0;
+      font-size: 0.84rem;
+      color: #475569;
+      line-height: 1.6;
       text-align: justify;
       text-justify: inter-word;
       hyphens: auto;
@@ -1749,9 +1795,9 @@
                   <div class="framework-card">
                     <h5>🌱 UN Sustainable Development Goals</h5>
                     <ul>
-                      <li><strong>SDG 4 (Quality Education):</strong> Strengthens students’ analytical and data literacy competencies through meaningful learning experiences.</li>
-                      <li><strong>SDG 9 (Industry, Innovation &amp; Infrastructure):</strong> Promotes applied quantitative thinking, data visualization, and technological innovation.</li>
-                      <li><strong>SDG 17 (Partnerships for the Goals):</strong> Institutional engagement with the Philippine Statistics Authority (PSA) and regional consortium colleges.</li>
+                      <li><img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png" alt="SDG 4" style="width: 18px; height: 18px; border-radius: 3px; vertical-align: text-bottom; margin-right: 0.35rem; display: inline-block;"><strong>SDG 4 (Quality Education):</strong> Strengthens students’ analytical and data literacy competencies through meaningful learning experiences.</li>
+                      <li><img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9" style="width: 18px; height: 18px; border-radius: 3px; vertical-align: text-bottom; margin-right: 0.35rem; display: inline-block;"><strong>SDG 9 (Industry, Innovation &amp; Infrastructure):</strong> Promotes applied quantitative thinking, data visualization, and technological innovation.</li>
+                      <li><img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.png" alt="SDG 17" style="width: 18px; height: 18px; border-radius: 3px; vertical-align: text-bottom; margin-right: 0.35rem; display: inline-block;"><strong>SDG 17 (Partnerships for the Goals):</strong> Institutional engagement with the Philippine Statistics Authority (PSA) and regional consortium colleges.</li>
                     </ul>
                   </div>
 
@@ -1765,11 +1811,75 @@
                   <div class="framework-card" style="grid-column: 1 / -1;">
                     <h5>🚀 Alignment with the RDC INNOVATES Agenda</h5>
                     <div class="innovates-points-grid">
-                      <div><strong>INSPIRE Research Culture:</strong> Strengthens statistical literacy, analytical thinking, and foundational research competencies.</div>
-                      <div><strong>NAVIGATE Digital Innovation:</strong> Employs infographics, data visualization, and modern digital presentation of information.</div>
-                      <div><strong>OPERATIONALIZE Utilization:</strong> Translates statistical knowledge into practical applications through quiz bees, poster-making, and data interpretation.</div>
-                      <div><strong>EXPAND Partnerships:</strong> Fosters collaboration with the Philippine Statistics Authority and 17 provincial schools in Cagayan.</div>
-                      <div><strong>STRENGTHEN Performance:</strong> Integrates experiential, competitive, and application-based learning across all 17 academic departments.</div>
+                      <!-- 1. INSPIRE -->
+                      <div class="innovates-point-card">
+                        <div class="innovates-point-header">
+                          <img src="assets/agenda/agenda-1-inspire.png" alt="INSPIRE Research Culture" class="innovates-point-thumb" loading="lazy">
+                          <div class="innovates-point-title">
+                            <span>💡</span>
+                            <strong>INSPIRE Research Culture</strong>
+                          </div>
+                        </div>
+                        <p class="innovates-point-desc">
+                          Strengthens statistical literacy, analytical thinking, and foundational research competencies.
+                        </p>
+                      </div>
+
+                      <!-- 2. NAVIGATE -->
+                      <div class="innovates-point-card">
+                        <div class="innovates-point-header">
+                          <img src="assets/agenda/agenda-3-navigate.png" alt="NAVIGATE Digital Innovation" class="innovates-point-thumb" loading="lazy">
+                          <div class="innovates-point-title">
+                            <span>🧭</span>
+                            <strong>NAVIGATE Digital Innovation</strong>
+                          </div>
+                        </div>
+                        <p class="innovates-point-desc">
+                          Employs infographics, data visualization, and modern digital presentation of information.
+                        </p>
+                      </div>
+
+                      <!-- 3. OPERATIONALIZE -->
+                      <div class="innovates-point-card">
+                        <div class="innovates-point-header">
+                          <img src="assets/agenda/agenda-4-operationalize.png" alt="OPERATIONALIZE Utilization" class="innovates-point-thumb" loading="lazy">
+                          <div class="innovates-point-title">
+                            <span>⚙️</span>
+                            <strong>OPERATIONALIZE Utilization</strong>
+                          </div>
+                        </div>
+                        <p class="innovates-point-desc">
+                          Translates statistical knowledge into practical applications through quiz bees, poster-making, and data interpretation.
+                        </p>
+                      </div>
+
+                      <!-- 4. EXPAND -->
+                      <div class="innovates-point-card">
+                        <div class="innovates-point-header">
+                          <img src="assets/agenda/agenda-8-expand.png" alt="EXPAND Partnerships" class="innovates-point-thumb" loading="lazy">
+                          <div class="innovates-point-title">
+                            <span>🤝</span>
+                            <strong>EXPAND Partnerships</strong>
+                          </div>
+                        </div>
+                        <p class="innovates-point-desc">
+                          Fosters collaboration with the Philippine Statistics Authority and 17 provincial schools in Cagayan.
+                        </p>
+                      </div>
+
+                      <!-- 5. STRENGTHEN -->
+                      <div class="innovates-point-card">
+                        <div class="innovates-point-header">
+                          <img src="assets/agenda/agenda-9-strengthen.png" alt="STRENGTHEN Performance" class="innovates-point-thumb" loading="lazy">
+                          <div class="innovates-point-title">
+                            <span>🏛️</span>
+                            <strong>STRENGTHEN Performance</strong>
+                          </div>
+                        </div>
+                        <p class="innovates-point-desc">
+                          Integrates experiential, competitive, and application-based learning across all 17 academic departments.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
