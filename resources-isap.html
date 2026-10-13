@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ISAP Research Resources &amp; Documentation | MCNP &amp; ISAP RDC</title>
-  <meta name="description" content="Click any title to view official ISAP multidisciplinary research documentation photos, video accomplishment reports, and downloadable institutional forms.">
+  <meta name="description" content="Filter ISAP research documentation per course (Criminology, IT, Tourism, Education, Business) and click any title to view photo galleries and video documentaries.">
   <link rel="icon" type="image/png" href="assets/rdc-logo.png">
   <link rel="apple-touch-icon" href="assets/rdc-logo.png">
 
@@ -45,12 +45,89 @@
       margin: 0;
     }
     
+    /* Filter Per Course Container */
+    .course-filter-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+      margin: 0 auto 2.25rem;
+      max-width: 1040px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+    .course-filter-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.15rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .course-filter-label {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #1e293b;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .course-filter-label i {
+      color: var(--accent-theme, #1e5ea8);
+      font-size: 1.1rem;
+    }
+    .course-filter-count {
+      font-size: 0.82rem;
+      color: #475569;
+      font-weight: 600;
+      background: #f1f5f9;
+      padding: 0.3rem 0.85rem;
+      border-radius: 20px;
+    }
+
+    .course-pills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+    .course-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.5rem 1rem;
+      border-radius: 24px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #334155;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+      font-family: inherit;
+    }
+    .course-pill:hover {
+      border-color: var(--accent-theme, #1e5ea8);
+      color: var(--accent-theme, #1e5ea8);
+      background: #f8fafc;
+      transform: translateY(-1px);
+    }
+    .course-pill.active {
+      background: var(--accent-theme, #1e5ea8);
+      color: #ffffff;
+      border-color: var(--accent-theme, #1e5ea8);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.14);
+    }
+
     /* Documentation Title Accordion Styles */
     .doc-filter-bar {
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       justify-content: center;
     }
     .doc-filter-btn {
@@ -63,6 +140,7 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
+      font-family: inherit;
     }
     .doc-filter-btn:hover, .doc-filter-btn.active {
       background: #0f172a;
@@ -120,20 +198,21 @@
 
     .doc-title-left {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 0.85rem;
       flex-grow: 1;
       min-width: 0;
     }
     .doc-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
+      width: 42px;
+      height: 42px;
+      border-radius: 9px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.15rem;
       flex-shrink: 0;
+      margin-top: 2px;
     }
     .icon-mcnp { background: rgba(30, 94, 168, 0.12); color: #1e5ea8; }
     .icon-isap { background: rgba(122, 31, 45, 0.12); color: #7a1f2d; }
@@ -154,6 +233,31 @@
       color: #64748b;
       margin-top: 0.15rem;
       font-weight: 500;
+    }
+
+    /* Course Badges inside Title Trigger */
+    .doc-course-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.45rem;
+    }
+    .doc-course-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.16rem 0.5rem;
+      border-radius: 6px;
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+      transition: all 0.2s ease;
+    }
+    .doc-item.open .doc-course-badge {
+      background: #ffffff;
+      border-color: #cbd5e1;
     }
 
     .doc-title-right {
@@ -541,7 +645,7 @@
           <span class="section-tag" style="background: rgba(255,255,255,0.12); color: #ffdf70; border-color: rgba(255,223,112,0.3);">ISAP DOCUMENTATION ARCHIVE</span>
           <h1>ISAP Research Resources</h1>
           <p>
-            Official documentation archives of ISAP multidisciplinary research presentations, community extension field immersions, and institutional video documentaries. Click any title to open the documentation.
+            Official documentation archives of ISAP multidisciplinary research presentations, community extension field immersions, and institutional video documentaries. Filter per course and click any title to view media.
           </p>
         </div>
       </div>
@@ -552,26 +656,92 @@
   <main class="section">
     <div class="container">
 
-      <div style="text-align: center; max-width: 680px; margin: 0 auto 2.5rem;">
+      <!-- FILTER PER COURSE CARD -->
+      <div class="course-filter-card">
+        <div class="course-filter-header">
+          <span class="course-filter-label"><i class="fa-solid fa-graduation-cap"></i> Filter Per Course</span>
+          <span class="course-filter-count" id="visibleDocCount">Loading topics...</span>
+        </div>
+        <div class="course-pills-wrap" role="toolbar" aria-label="Course Filter Options">
+          
+            <button class="course-pill active" data-course="all" type="button">
+              <i class="fa-solid fa-graduation-cap"></i> <span>All ISAP Courses</span>
+            </button>
+          
+            <button class="course-pill " data-course="criminology" type="button">
+              <i class="fa-solid fa-scale-balanced"></i> <span>BS Criminology</span>
+            </button>
+          
+            <button class="course-pill " data-course="it" type="button">
+              <i class="fa-solid fa-laptop-code"></i> <span>BS Information Technology</span>
+            </button>
+          
+            <button class="course-pill " data-course="computer-eng" type="button">
+              <i class="fa-solid fa-microchip"></i> <span>BS Computer Engineering</span>
+            </button>
+          
+            <button class="course-pill " data-course="tourism" type="button">
+              <i class="fa-solid fa-plane-departure"></i> <span>BS Tourism Management</span>
+            </button>
+          
+            <button class="course-pill " data-course="hospitality" type="button">
+              <i class="fa-solid fa-utensils"></i> <span>BS Hospitality Management</span>
+            </button>
+          
+            <button class="course-pill " data-course="social-work" type="button">
+              <i class="fa-solid fa-hand-holding-heart"></i> <span>BS Social Work</span>
+            </button>
+          
+            <button class="course-pill " data-course="psychology" type="button">
+              <i class="fa-solid fa-brain"></i> <span>BS Psychology</span>
+            </button>
+          
+            <button class="course-pill " data-course="bsed" type="button">
+              <i class="fa-solid fa-book-open"></i> <span>Secondary Education (BSED)</span>
+            </button>
+          
+            <button class="course-pill " data-course="bped" type="button">
+              <i class="fa-solid fa-medal"></i> <span>Physical Education (BPED)</span>
+            </button>
+          
+            <button class="course-pill " data-course="accountancy" type="button">
+              <i class="fa-solid fa-calculator"></i> <span>BS Accountancy</span>
+            </button>
+          
+            <button class="course-pill " data-course="customs" type="button">
+              <i class="fa-solid fa-ship"></i> <span>Customs Administration</span>
+            </button>
+          
+            <button class="course-pill " data-course="business" type="button">
+              <i class="fa-solid fa-briefcase"></i> <span>Business Administration</span>
+            </button>
+          
+        </div>
+      </div>
+
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 2rem;">
         <span class="section-tag" style="background:rgba(122,31,45,0.1); color:#7a1f2d; border-color:rgba(122,31,45,0.25);">Interactive Media Archive</span>
-        <h2 style="font-family:'Oswald',sans-serif; font-size:2rem; color:#0f172a; margin:0.4rem 0 0.6rem;">
+        <h2 style="font-family:'Oswald',sans-serif; font-size:2rem; color:#0f172a; margin:0.4rem 0 0.4rem;">
           ISAP Documentation Topics
         </h2>
-        <p style="color:#64748b; font-size:0.95rem;">
-          Click on any topic title below to expand and view the full photographic documentation, video presentations, and official documents.
+        <p style="color:#64748b; font-size:0.95rem; margin:0;">
+          Only titles are shown initially. Click any title below to reveal the full photographic documentation, video presentations, and official documents.
         </p>
       </div>
 
       <!-- ACCORDION LIST: ONLY TITLES VISIBLE INITIALLY -->
-      <div class="doc-accordion-container">
+      <div class="doc-accordion-container" id="docAccordionContainer">
         
-          <div class="doc-item" id="isap-item-1">
+          <div class="doc-item" id="isap-item-1" data-courses="tourism hospitality">
             <button class="doc-title-trigger" type="button" aria-expanded="false">
               <div class="doc-title-left">
-                <div class="doc-icon icon-isap"><i class="fa-solid fa-umbrella-beach"></i></div>
+                <div class="doc-icon icon-isap"><i class="fa-solid fa-plane-departure"></i></div>
                 <div>
                   <h3 class="doc-title-heading">BS Tourism Management & Hospitality Research Presentations</h3>
                   <div class="doc-title-meta">ISAP College of Hospitality & Tourism • Undergraduate Research Defense</div>
+                  <div class="doc-course-badges">
+                    <span class="doc-course-badge"><i class="fa-solid fa-plane-departure"></i> BS Tourism Management</span><span class="doc-course-badge"><i class="fa-solid fa-utensils"></i> BS Hospitality Management</span>
+                  </div>
                 </div>
               </div>
               <div class="doc-title-right">
@@ -627,13 +797,201 @@
             </div>
           </div>
         
-          <div class="doc-item" id="isap-item-2">
+          <div class="doc-item" id="isap-item-2" data-courses="it computer-eng bsed">
+            <button class="doc-title-trigger" type="button" aria-expanded="false">
+              <div class="doc-title-left">
+                <div class="doc-icon icon-isap"><i class="fa-solid fa-laptop-code"></i></div>
+                <div>
+                  <h3 class="doc-title-heading">Digital Infographics & IT Media Inventions Research Exhibition</h3>
+                  <div class="doc-title-meta">ISAP College of Information Technology & Computing • Creative Tech Exhibition</div>
+                  <div class="doc-course-badges">
+                    <span class="doc-course-badge"><i class="fa-solid fa-laptop-code"></i> BS Information Technology</span><span class="doc-course-badge"><i class="fa-solid fa-microchip"></i> BS Computer Engineering</span><span class="doc-course-badge"><i class="fa-solid fa-book-open"></i> Secondary Education (BSED)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="doc-title-right">
+                <span class="doc-count-pill">13 Photos</span>
+                <span class="doc-toggle-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </div>
+            </button>
+            <div class="doc-media-body">
+              <p class="doc-desc">Documentation of digital infographics software design, student data visualization capstone exhibits, and computing multimedia competitions.</p>
+              <div class="doc-gallery-grid">
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/MCNP%20and%20ISAP%20Conduct%20Digital%20Infographics%20Making%20Contest/486103788_657095370612044_6088638000313365693_n%20(1).jpg" alt="ISAP IT & Infographics Exhibition - Documentation Photo 1" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/MCNP%20and%20ISAP%20Conduct%20Digital%20Infographics%20Making%20Contest/486103788_657095370612044_6088638000313365693_n.jpg" alt="ISAP IT & Infographics Exhibition - Documentation Photo 2" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/MCNP%20and%20ISAP%20Conduct%20Digital%20Infographics%20Making%20Contest/486470811_657095360612045_8249140110000333417_n%20(1).jpg" alt="ISAP IT & Infographics Exhibition - Documentation Photo 3" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/MCNP%20and%20ISAP%20Conduct%20Digital%20Infographics%20Making%20Contest/486470811_657095360612045_8249140110000333417_n.jpg" alt="ISAP IT & Infographics Exhibition - Documentation Photo 4" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/MCNP%20and%20ISAP%20Conduct%20Digital%20Infographics%20Making%20Contest/486618566_657095417278706_5562934427436624307_n%20(1).jpg" alt="ISAP IT & Infographics Exhibition - Documentation Photo 5" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/MCNP%20and%20ISAP%20Conduct%20Digital%20Infographics%20Making%20Contest/486618566_657095417278706_5562934427436624307_n.jpg" alt="ISAP IT & Infographics Exhibition - Documentation Photo 6" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/MCNP%20and%20ISAP%20Conduct%20Digital%20Infographics%20Making%20Contest/486639464_657095377278710_6617838568177245615_n.jpg" alt="ISAP IT & Infographics Exhibition - Documentation Photo 7" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/MCNP%20and%20ISAP%20Conduct%20Digital%20Infographics%20Making%20Contest/486665018_657095227278725_2580732217964216849_n.jpg" alt="ISAP IT & Infographics Exhibition - Documentation Photo 8" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/infographics/infographics-1.jpg" alt="ISAP IT & Infographics Exhibition - Documentation Photo 9" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/infographics/infographics-2.jpg" alt="ISAP IT & Infographics Exhibition - Documentation Photo 10" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/infographics/infographics-3.jpg" alt="ISAP IT & Infographics Exhibition - Documentation Photo 11" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/infographics/infographics-4.jpg" alt="ISAP IT & Infographics Exhibition - Documentation Photo 12" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/infographics/infographics-5.jpg" alt="ISAP IT & Infographics Exhibition - Documentation Photo 13" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+  </div>
+            </div>
+          </div>
+        
+          <div class="doc-item" id="isap-item-3" data-courses="criminology accountancy business customs">
+            <button class="doc-title-trigger" type="button" aria-expanded="false">
+              <div class="doc-title-left">
+                <div class="doc-icon icon-isap"><i class="fa-solid fa-scale-balanced"></i></div>
+                <div>
+                  <h3 class="doc-title-heading">Institutional Statistics & Criminal Justice Analytics Awards</h3>
+                  <div class="doc-title-meta">College of Criminology & School of Business • Statistics Month Honors</div>
+                  <div class="doc-course-badges">
+                    <span class="doc-course-badge"><i class="fa-solid fa-scale-balanced"></i> BS Criminology</span><span class="doc-course-badge"><i class="fa-solid fa-calculator"></i> BS Accountancy</span><span class="doc-course-badge"><i class="fa-solid fa-briefcase"></i> Business Administration</span><span class="doc-course-badge"><i class="fa-solid fa-ship"></i> Customs Admin</span>
+                  </div>
+                </div>
+              </div>
+              <div class="doc-title-right">
+                <span class="doc-count-pill">16 Photos</span>
+                <span class="doc-toggle-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </div>
+            </button>
+            <div class="doc-media-body">
+              <p class="doc-desc">Honors and photographic proceedings of ISAP Criminology and Business students winning competitive institutional quiz bees and forensic statistics recognitions.</p>
+              <div class="doc-gallery-grid">
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/MCNP%20and%20ISAP%20Students%20Receive%20Statistics%20Month%20Awards/486386080_657485440573037_3992626467095587199_n.jpg" alt="ISAP Statistics & Criminology Awards - Documentation Photo 1" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/MCNP%20and%20ISAP%20Students%20Receive%20Statistics%20Month%20Awards/486402250_657485437239704_4112608223162028979_n.jpg" alt="ISAP Statistics & Criminology Awards - Documentation Photo 2" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/MCNP%20and%20ISAP%20Students%20Receive%20Statistics%20Month%20Awards/486447006_657485433906371_467792158140957081_n.jpg" alt="ISAP Statistics & Criminology Awards - Documentation Photo 3" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/MCNP%20and%20ISAP%20Students%20Receive%20Statistics%20Month%20Awards/486623243_657485467239701_8835999990641143266_n.jpg" alt="ISAP Statistics & Criminology Awards - Documentation Photo 4" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/MCNP%20and%20ISAP%20Students%20Receive%20Statistics%20Month%20Awards/486649070_657485460573035_9063128331177107212_n.jpg" alt="ISAP Statistics & Criminology Awards - Documentation Photo 5" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/MCNP%20and%20ISAP%20Students%20Receive%20Statistics%20Month%20Awards/486793807_657485443906370_901994191855056374_n.jpg" alt="ISAP Statistics & Criminology Awards - Documentation Photo 6" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Congratulations%20to%20the%20Winners%20of%20the%20Institutional%20Statistics%20Quiz%20Bee/486433333_657468040574777_7307086415509015989_n.jpg" alt="ISAP Statistics & Criminology Awards - Documentation Photo 7" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Congratulations%20to%20the%20Winners%20of%20the%20Institutional%20Statistics%20Quiz%20Bee/486465203_657468037241444_5886876894024245747_n.jpg" alt="ISAP Statistics & Criminology Awards - Documentation Photo 8" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Congratulations%20to%20the%20Winners%20of%20the%20Institutional%20Statistics%20Quiz%20Bee/486487811_657468073908107_7728045918419132196_n%20(1).jpg" alt="ISAP Statistics & Criminology Awards - Documentation Photo 9" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Congratulations%20to%20the%20Winners%20of%20the%20Institutional%20Statistics%20Quiz%20Bee/486487811_657468073908107_7728045918419132196_n.jpg" alt="ISAP Statistics & Criminology Awards - Documentation Photo 10" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Congratulations%20to%20the%20Winners%20of%20the%20Institutional%20Statistics%20Quiz%20Bee/486528565_657468070574774_6562589132794209357_n.jpg" alt="ISAP Statistics & Criminology Awards - Documentation Photo 11" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Congratulations%20to%20the%20Winners%20of%20the%20Institutional%20Statistics%20Quiz%20Bee/486565617_657468047241443_4229081475509165067_n.jpg" alt="ISAP Statistics & Criminology Awards - Documentation Photo 12" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Congratulations%20to%20the%20Winners%20of%20the%20Institutional%20Statistics%20Quiz%20Bee/486734696_657468050574776_2712240165949795358_n.jpg" alt="ISAP Statistics & Criminology Awards - Documentation Photo 13" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Congratulations%20to%20the%20Winners%20of%20the%20Institutional%20Statistics%20Quiz%20Bee/486801469_657468003908114_5901617456970655491_n.jpg" alt="ISAP Statistics & Criminology Awards - Documentation Photo 14" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+  </div>
+            </div>
+          </div>
+        
+          <div class="doc-item" id="isap-item-4" data-courses="social-work psychology bsed bped">
             <button class="doc-title-trigger" type="button" aria-expanded="false">
               <div class="doc-title-left">
                 <div class="doc-icon icon-isap"><i class="fa-solid fa-people-roof"></i></div>
                 <div>
                   <h3 class="doc-title-heading">Presentation of Community Needs Assessment & Extension Fieldwork</h3>
                   <div class="doc-title-meta">ISAP Community Extension • Field Immersion & Social Assessment</div>
+                  <div class="doc-course-badges">
+                    <span class="doc-course-badge"><i class="fa-solid fa-hand-holding-heart"></i> BS Social Work</span><span class="doc-course-badge"><i class="fa-solid fa-brain"></i> BS Psychology</span><span class="doc-course-badge"><i class="fa-solid fa-book-open"></i> BSED</span><span class="doc-course-badge"><i class="fa-solid fa-medal"></i> BPED</span>
+                  </div>
                 </div>
               </div>
               <div class="doc-title-right">
@@ -714,13 +1072,16 @@
             </div>
           </div>
         
-          <div class="doc-item" id="isap-item-3">
+          <div class="doc-item" id="isap-item-5" data-courses="criminology it computer-eng business accountancy customs">
             <button class="doc-title-trigger" type="button" aria-expanded="false">
               <div class="doc-title-left">
                 <div class="doc-icon icon-isap"><i class="fa-solid fa-chart-pie"></i></div>
                 <div>
                   <h3 class="doc-title-heading">Turning Data into Meaningful Stories & Regional Data Festival</h3>
                   <div class="doc-title-meta">Empirical Institutional Research • Regional Representation</div>
+                  <div class="doc-course-badges">
+                    <span class="doc-course-badge"><i class="fa-solid fa-scale-balanced"></i> BS Criminology</span><span class="doc-course-badge"><i class="fa-solid fa-laptop-code"></i> BS IT</span><span class="doc-course-badge"><i class="fa-solid fa-calculator"></i> BS Accountancy</span><span class="doc-course-badge"><i class="fa-solid fa-briefcase"></i> Business Administration</span>
+                  </div>
                 </div>
               </div>
               <div class="doc-title-right">
@@ -836,13 +1197,16 @@
             </div>
           </div>
         
-          <div class="doc-item" id="isap-item-4">
+          <div class="doc-item" id="isap-item-6" data-courses="social-work psychology criminology bsed bped business">
             <button class="doc-title-trigger" type="button" aria-expanded="false">
               <div class="doc-title-left">
                 <div class="doc-icon icon-isap"><i class="fa-solid fa-venus-mars"></i></div>
                 <div>
                   <h3 class="doc-title-heading">Gender-Responsive Research & Social Science Methodology Training</h3>
                   <div class="doc-title-meta">Gender and Development (GAD) • Social Science Research Ethics</div>
+                  <div class="doc-course-badges">
+                    <span class="doc-course-badge"><i class="fa-solid fa-hand-holding-heart"></i> Social Work</span><span class="doc-course-badge"><i class="fa-solid fa-brain"></i> Psychology</span><span class="doc-course-badge"><i class="fa-solid fa-scale-balanced"></i> Criminology</span><span class="doc-course-badge"><i class="fa-solid fa-book-open"></i> Education</span>
+                  </div>
                 </div>
               </div>
               <div class="doc-title-right">
@@ -878,13 +1242,91 @@
             </div>
           </div>
         
-          <div class="doc-item" id="isap-item-5">
+          <div class="doc-item" id="isap-item-7" data-courses="criminology it computer-eng tourism hospitality social-work psychology bsed bped accountancy customs business">
+            <button class="doc-title-trigger" type="button" aria-expanded="false">
+              <div class="doc-title-left">
+                <div class="doc-icon icon-isap"><i class="fa-solid fa-users-rays"></i></div>
+                <div>
+                  <h3 class="doc-title-heading">ISAP Multidisciplinary Research Colloquium Proceedings</h3>
+                  <div class="doc-title-meta">RDC Institutional Colloquium • Cross-Disciplinary Research Forum</div>
+                  <div class="doc-course-badges">
+                    <span class="doc-course-badge"><i class="fa-solid fa-layer-group"></i> All Multidisciplinary Programs</span>
+                  </div>
+                </div>
+              </div>
+              <div class="doc-title-right">
+                <span class="doc-count-pill">10 Photos</span>
+                <span class="doc-toggle-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </div>
+            </button>
+            <div class="doc-media-body">
+              <p class="doc-desc">Comprehensive photographic record of the institutional research colloquium bringing together Criminology, Computing, Education, Social Work, and Business departments.</p>
+              <div class="doc-gallery-grid">
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Research%20Colloquium/806128326_1560889365784080_6060856057531194849_n.jpg" alt="ISAP Research Colloquium - Documentation Photo 1" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Research%20Colloquium/808218467_1422048506687944_7141463612482049345_n.jpg" alt="ISAP Research Colloquium - Documentation Photo 2" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Research%20Colloquium/808450311_955387263598982_1418546319549456012_n.jpg" alt="ISAP Research Colloquium - Documentation Photo 3" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Research%20Colloquium/808728975_1618948042976730_3230429024426695283_n.jpg" alt="ISAP Research Colloquium - Documentation Photo 4" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Research%20Colloquium/808822917_1994757097879878_1827837798488785611_n.jpg" alt="ISAP Research Colloquium - Documentation Photo 5" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Research%20Colloquium/809360813_1812841906399771_3060953024559513029_n.jpg" alt="ISAP Research Colloquium - Documentation Photo 6" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Research%20Colloquium/809543008_1058089143516118_4390729629734879746_n.jpg" alt="ISAP Research Colloquium - Documentation Photo 7" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Research%20Colloquium/810622863_1878907456864374_5363371373280145834_n.jpg" alt="ISAP Research Colloquium - Documentation Photo 8" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Research%20Colloquium/810699194_1080113341091762_444792450454516172_n.jpg" alt="ISAP Research Colloquium - Documentation Photo 9" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Research%20Colloquium/812064201_28448276328136833_420461301255805944_n.jpg" alt="ISAP Research Colloquium - Documentation Photo 10" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+  </div>
+            </div>
+          </div>
+        
+          <div class="doc-item" id="isap-item-8" data-courses="all">
             <button class="doc-title-trigger" type="button" aria-expanded="false">
               <div class="doc-title-left">
                 <div class="doc-icon icon-video"><i class="fa-solid fa-video"></i></div>
                 <div>
                   <h3 class="doc-title-heading">ISAP Institutional Research Accomplishment Video Documentary</h3>
                   <div class="doc-title-meta">Official RDC Video Production • Multidisciplinary Milestones</div>
+                  <div class="doc-course-badges">
+                    <span class="doc-course-badge"><i class="fa-solid fa-video"></i> All ISAP Courses</span>
+                  </div>
                 </div>
               </div>
               <div class="doc-title-right">
@@ -903,13 +1345,16 @@
             </div>
           </div>
         
-          <div class="doc-item" id="isap-item-6">
+          <div class="doc-item" id="isap-item-9" data-courses="all">
             <button class="doc-title-trigger" type="button" aria-expanded="false">
               <div class="doc-title-left">
                 <div class="doc-icon icon-form"><i class="fa-solid fa-folder-open"></i></div>
                 <div>
                   <h3 class="doc-title-heading">ISAP Official Downloadable Research Forms & Ethics Packets (Forms 001–016)</h3>
                   <div class="doc-title-meta">Knowledge Management & Publication Office • Official Form Downloads</div>
+                  <div class="doc-course-badges">
+                    <span class="doc-course-badge"><i class="fa-solid fa-folder-open"></i> All ISAP Courses</span>
+                  </div>
                 </div>
               </div>
               <div class="doc-title-right">
@@ -957,6 +1402,14 @@
           </div>
         
       </div>
+
+      <!-- Empty State if filter yields 0 matches -->
+      <div class="doc-empty-state" id="docEmptyState" style="display:none; text-align:center; padding:3rem 1.5rem; background:#ffffff; border-radius:14px; border:1px dashed #cbd5e1; margin:2rem auto; max-width:620px;">
+    <i class="fa-solid fa-graduation-cap" style="font-size:2.8rem; color:#94a3b8; margin-bottom:1rem; display:block;"></i>
+    <h3 style="font-family:'Oswald',sans-serif; color:#1e293b; margin:0 0 0.5rem; font-size:1.4rem;">No Documentation Found for Selected Course</h3>
+    <p style="color:#64748b; font-size:0.92rem; margin-bottom:1.25rem; line-height:1.6;">There are currently no uploaded media archives matching this specific course filter. You can reset to view all available courses.</p>
+    <button type="button" class="btn btn-outline" onclick="resetDocFilters()" style="padding:0.5rem 1.25rem; font-size:0.85rem; font-weight:600; cursor:pointer;">Reset Filter to All Courses</button>
+  </div>
 
       <!-- Quick Switch Banner -->
       <div style="background: rgba(30, 94, 168, 0.06); border: 1px solid rgba(30, 94, 168, 0.2); border-radius: 14px; padding: 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 2rem;">
@@ -1043,16 +1496,91 @@
         const item = btn.closest('.doc-item');
         const isOpen = item.classList.contains('open');
         
-        // Optional: close other items
-        // document.querySelectorAll('.doc-item.open').forEach(el => el.classList.remove('open'));
-
         if (isOpen) {
           item.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
         } else {
           item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
         }
       });
     });
+
+    // Course & Category Filtering Logic
+    let currentCourseFilter = 'all';
+    let currentCategoryFilter = 'all';
+
+    function applyResourceFilters() {
+      const items = document.querySelectorAll('.doc-item');
+      let visibleCount = 0;
+
+      items.forEach(item => {
+        const rawCourses = item.getAttribute('data-courses') || '';
+        const courseList = rawCourses.trim().split(/\s+/);
+        const itemCat = item.getAttribute('data-category') || 'all';
+
+        const matchesCourse = (currentCourseFilter === 'all') || 
+                              courseList.includes(currentCourseFilter) || 
+                              courseList.includes('all');
+        const matchesCat = (currentCategoryFilter === 'all') || 
+                           (itemCat === currentCategoryFilter);
+
+        if (matchesCourse && matchesCat) {
+          item.style.display = 'block';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+          item.classList.remove('open');
+          const trigger = item.querySelector('.doc-title-trigger');
+          if (trigger) trigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      const countEl = document.getElementById('visibleDocCount');
+      if (countEl) {
+        countEl.textContent = visibleCount + ' topic' + (visibleCount === 1 ? '' : 's') + ' available';
+      }
+
+      const emptyMsg = document.getElementById('docEmptyState');
+      if (emptyMsg) {
+        emptyMsg.style.display = (visibleCount === 0) ? 'block' : 'none';
+      }
+    }
+
+    // Course Filter Pills
+    document.querySelectorAll('.course-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.course-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        currentCourseFilter = pill.getAttribute('data-course');
+        applyResourceFilters();
+      });
+    });
+
+    // Institutional / Category Filter Buttons (Unified Portal)
+    document.querySelectorAll('.doc-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.doc-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCategoryFilter = btn.getAttribute('data-filter');
+        applyResourceFilters();
+      });
+    });
+
+    // Global Reset Filter function
+    window.resetDocFilters = function() {
+      currentCourseFilter = 'all';
+      currentCategoryFilter = 'all';
+      document.querySelectorAll('.course-pill').forEach(p => {
+        if (p.getAttribute('data-course') === 'all') p.classList.add('active');
+        else p.classList.remove('active');
+      });
+      document.querySelectorAll('.doc-filter-btn').forEach(b => {
+        if (b.getAttribute('data-filter') === 'all') b.classList.add('active');
+        else b.classList.remove('active');
+      });
+      applyResourceFilters();
+    };
 
     // Lightbox Logic
     const lightbox = document.getElementById('docLightbox');
@@ -1062,7 +1590,8 @@
 
     if (lightbox) {
       document.querySelectorAll('.doc-gallery-thumb').forEach(thumb => {
-        thumb.addEventListener('click', () => {
+        thumb.addEventListener('click', (e) => {
+          e.stopPropagation();
           const img = thumb.querySelector('img');
           if (img) {
             lightboxImg.src = img.src;
@@ -1081,21 +1610,8 @@
       });
     }
 
-    // Filter Logic if present
-    document.querySelectorAll('.doc-filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.doc-filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.getAttribute('data-filter');
-        document.querySelectorAll('.doc-item').forEach(item => {
-          if (filter === 'all' || item.getAttribute('data-category') === filter) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
+    // Run initial filter count
+    applyResourceFilters();
   </script>
 
 </body>

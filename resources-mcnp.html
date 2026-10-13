@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MCNP Research Resources &amp; Documentation | MCNP &amp; ISAP RDC</title>
-  <meta name="description" content="Click any title to view official MCNP research documentation photos, video accomplishment reports, and downloadable institutional forms.">
+  <meta name="description" content="Filter MCNP research documentation per course (Pharmacy, Nursing, MedTech, RadTech, PT) and click any title to view photo galleries and video documentaries.">
   <link rel="icon" type="image/png" href="assets/rdc-logo.png">
   <link rel="apple-touch-icon" href="assets/rdc-logo.png">
 
@@ -45,12 +45,89 @@
       margin: 0;
     }
     
+    /* Filter Per Course Container */
+    .course-filter-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+      margin: 0 auto 2.25rem;
+      max-width: 1040px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+    .course-filter-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.15rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .course-filter-label {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #1e293b;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .course-filter-label i {
+      color: var(--accent-theme, #1e5ea8);
+      font-size: 1.1rem;
+    }
+    .course-filter-count {
+      font-size: 0.82rem;
+      color: #475569;
+      font-weight: 600;
+      background: #f1f5f9;
+      padding: 0.3rem 0.85rem;
+      border-radius: 20px;
+    }
+
+    .course-pills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+    .course-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.5rem 1rem;
+      border-radius: 24px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #334155;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+      font-family: inherit;
+    }
+    .course-pill:hover {
+      border-color: var(--accent-theme, #1e5ea8);
+      color: var(--accent-theme, #1e5ea8);
+      background: #f8fafc;
+      transform: translateY(-1px);
+    }
+    .course-pill.active {
+      background: var(--accent-theme, #1e5ea8);
+      color: #ffffff;
+      border-color: var(--accent-theme, #1e5ea8);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.14);
+    }
+
     /* Documentation Title Accordion Styles */
     .doc-filter-bar {
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       justify-content: center;
     }
     .doc-filter-btn {
@@ -63,6 +140,7 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
+      font-family: inherit;
     }
     .doc-filter-btn:hover, .doc-filter-btn.active {
       background: #0f172a;
@@ -120,20 +198,21 @@
 
     .doc-title-left {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 0.85rem;
       flex-grow: 1;
       min-width: 0;
     }
     .doc-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
+      width: 42px;
+      height: 42px;
+      border-radius: 9px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.15rem;
       flex-shrink: 0;
+      margin-top: 2px;
     }
     .icon-mcnp { background: rgba(30, 94, 168, 0.12); color: #1e5ea8; }
     .icon-isap { background: rgba(122, 31, 45, 0.12); color: #7a1f2d; }
@@ -154,6 +233,31 @@
       color: #64748b;
       margin-top: 0.15rem;
       font-weight: 500;
+    }
+
+    /* Course Badges inside Title Trigger */
+    .doc-course-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.45rem;
+    }
+    .doc-course-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.16rem 0.5rem;
+      border-radius: 6px;
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+      transition: all 0.2s ease;
+    }
+    .doc-item.open .doc-course-badge {
+      background: #ffffff;
+      border-color: #cbd5e1;
     }
 
     .doc-title-right {
@@ -541,7 +645,7 @@
           <span class="section-tag" style="background: rgba(255,255,255,0.12); color: #ffdf70; border-color: rgba(255,223,112,0.3);">MCNP DOCUMENTATION ARCHIVE</span>
           <h1>MCNP Research Resources</h1>
           <p>
-            Official documentation archives of MCNP proposal defenses, collaborative health research forums, clinical biostatistics workshops, and institutional video documentaries. Click any title to open the documentation.
+            Official documentation archives of MCNP proposal defenses, collaborative health research forums, clinical biostatistics workshops, and institutional video documentaries. Filter per course and click any title to view media.
           </p>
         </div>
       </div>
@@ -552,26 +656,64 @@
   <main class="section">
     <div class="container">
 
-      <div style="text-align: center; max-width: 680px; margin: 0 auto 2.5rem;">
+      <!-- FILTER PER COURSE CARD -->
+      <div class="course-filter-card">
+        <div class="course-filter-header">
+          <span class="course-filter-label"><i class="fa-solid fa-graduation-cap"></i> Filter Per Course</span>
+          <span class="course-filter-count" id="visibleDocCount">Loading topics...</span>
+        </div>
+        <div class="course-pills-wrap" role="toolbar" aria-label="Course Filter Options">
+          
+            <button class="course-pill active" data-course="all" type="button">
+              <i class="fa-solid fa-graduation-cap"></i> <span>All MCNP Courses</span>
+            </button>
+          
+            <button class="course-pill " data-course="pharmacy" type="button">
+              <i class="fa-solid fa-pills"></i> <span>BS Pharmacy</span>
+            </button>
+          
+            <button class="course-pill " data-course="nursing" type="button">
+              <i class="fa-solid fa-stethoscope"></i> <span>BS Nursing</span>
+            </button>
+          
+            <button class="course-pill " data-course="mls" type="button">
+              <i class="fa-solid fa-flask-vial"></i> <span>BS Medical Laboratory Science</span>
+            </button>
+          
+            <button class="course-pill " data-course="radtech" type="button">
+              <i class="fa-solid fa-x-ray"></i> <span>BS Radiologic Technology</span>
+            </button>
+          
+            <button class="course-pill " data-course="pt" type="button">
+              <i class="fa-solid fa-person-walking"></i> <span>BS Physical Therapy</span>
+            </button>
+          
+        </div>
+      </div>
+
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 2rem;">
         <span class="section-tag">Interactive Media Archive</span>
-        <h2 style="font-family:'Oswald',sans-serif; font-size:2rem; color:#0f172a; margin:0.4rem 0 0.6rem;">
+        <h2 style="font-family:'Oswald',sans-serif; font-size:2rem; color:#0f172a; margin:0.4rem 0 0.4rem;">
           MCNP Documentation Topics
         </h2>
-        <p style="color:#64748b; font-size:0.95rem;">
-          Click on any topic title below to expand and view the full photographic documentation, video presentations, and official documents.
+        <p style="color:#64748b; font-size:0.95rem; margin:0;">
+          Only titles are shown initially. Click any title below to reveal the full photographic documentation, video presentations, and official documents.
         </p>
       </div>
 
       <!-- ACCORDION LIST: ONLY TITLES VISIBLE INITIALLY -->
-      <div class="doc-accordion-container">
+      <div class="doc-accordion-container" id="docAccordionContainer">
         
-          <div class="doc-item" id="mcnp-item-1">
+          <div class="doc-item" id="mcnp-item-1" data-courses="pharmacy">
             <button class="doc-title-trigger" type="button" aria-expanded="false">
               <div class="doc-title-left">
                 <div class="doc-icon icon-mcnp"><i class="fa-solid fa-pills"></i></div>
                 <div>
                   <h3 class="doc-title-heading">Pharmacy Research Proposal Defense Documentation</h3>
                   <div class="doc-title-meta">MCNP Department of Pharmacy • Clinical & Experimental Inquiries</div>
+                  <div class="doc-course-badges">
+                    <span class="doc-course-badge"><i class="fa-solid fa-pills"></i> BS Pharmacy</span>
+                  </div>
                 </div>
               </div>
               <div class="doc-title-right">
@@ -642,191 +784,154 @@
             </div>
           </div>
         
-          <div class="doc-item" id="mcnp-item-2">
+          <div class="doc-item" id="mcnp-item-2" data-courses="nursing mls">
             <button class="doc-title-trigger" type="button" aria-expanded="false">
               <div class="doc-title-left">
                 <div class="doc-icon icon-mcnp"><i class="fa-solid fa-stethoscope"></i></div>
                 <div>
-                  <h3 class="doc-title-heading">Health Sciences Research Proposal Defenses – September 2026 Cohort</h3>
-                  <div class="doc-title-meta">MCNP Allied Health • Nursing & Medical Laboratory Science</div>
+                  <h3 class="doc-title-heading">Health Sciences Oral Proposal Defenses – Nursing & Medical Lab Science</h3>
+                  <div class="doc-title-meta">MCNP Allied Health • Nursing & Medical Laboratory Science Cohort</div>
+                  <div class="doc-course-badges">
+                    <span class="doc-course-badge"><i class="fa-solid fa-stethoscope"></i> BS Nursing</span><span class="doc-course-badge"><i class="fa-solid fa-flask-vial"></i> BS Medical Laboratory Science</span>
+                  </div>
                 </div>
               </div>
               <div class="doc-title-right">
-                <span class="doc-count-pill">40 Photos</span>
+                <span class="doc-count-pill">26 Photos</span>
                 <span class="doc-toggle-arrow"><i class="fa-solid fa-chevron-down"></i></span>
               </div>
             </button>
             <div class="doc-media-body">
-              <p class="doc-desc">Documentation of health sciences defense proceedings covering epidemiology, clinical microbiology, community health interventions, and diagnostic technology validations.</p>
+              <p class="doc-desc">Documentation of health sciences defense proceedings covering clinical nursing interventions, epidemiological studies, hematology metrics, and diagnostic laboratory validations.</p>
               <div class="doc-gallery-grid">
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_228ED57B-0A7F-4B5B-880C-9110E0F1198D.jpeg" alt="Health Sciences Defense - Documentation Photo 1" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_228ED57B-0A7F-4B5B-880C-9110E0F1198D.jpeg" alt="Nursing & MLS Defense - Documentation Photo 1" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_30F1B6EB-06C0-415A-A889-3580CB650EBE.jpeg" alt="Health Sciences Defense - Documentation Photo 2" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_30F1B6EB-06C0-415A-A889-3580CB650EBE.jpeg" alt="Nursing & MLS Defense - Documentation Photo 2" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_3AE66D31-9426-4BB5-AE9F-CF826B9B622C.jpeg" alt="Health Sciences Defense - Documentation Photo 3" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_3AE66D31-9426-4BB5-AE9F-CF826B9B622C.jpeg" alt="Nursing & MLS Defense - Documentation Photo 3" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_3CD9C6BD-90D5-4E62-9BFF-27E4981A5D69.jpeg" alt="Health Sciences Defense - Documentation Photo 4" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_3CD9C6BD-90D5-4E62-9BFF-27E4981A5D69.jpeg" alt="Nursing & MLS Defense - Documentation Photo 4" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_400E7B52-4ECB-4EBC-A54F-AD039D683CBD.jpeg" alt="Health Sciences Defense - Documentation Photo 5" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_400E7B52-4ECB-4EBC-A54F-AD039D683CBD.jpeg" alt="Nursing & MLS Defense - Documentation Photo 5" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_4251F15B-3AE6-41CC-9472-890168FFB622.jpeg" alt="Health Sciences Defense - Documentation Photo 6" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_4251F15B-3AE6-41CC-9472-890168FFB622.jpeg" alt="Nursing & MLS Defense - Documentation Photo 6" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_45997E29-A61E-47C3-8A60-25AEF1946AAD.jpeg" alt="Health Sciences Defense - Documentation Photo 7" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_45997E29-A61E-47C3-8A60-25AEF1946AAD.jpeg" alt="Nursing & MLS Defense - Documentation Photo 7" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_46B74755-5437-4DAC-BCCA-84F97AA69028.jpeg" alt="Health Sciences Defense - Documentation Photo 8" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_46B74755-5437-4DAC-BCCA-84F97AA69028.jpeg" alt="Nursing & MLS Defense - Documentation Photo 8" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_51F579D1-82DB-4269-BBCE-5A58BEAB8949.jpeg" alt="Health Sciences Defense - Documentation Photo 9" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_51F579D1-82DB-4269-BBCE-5A58BEAB8949.jpeg" alt="Nursing & MLS Defense - Documentation Photo 9" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_5E51BFD8-9DF7-49B8-A78F-0F5DFFAB5DC7.jpeg" alt="Health Sciences Defense - Documentation Photo 10" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_5E51BFD8-9DF7-49B8-A78F-0F5DFFAB5DC7.jpeg" alt="Nursing & MLS Defense - Documentation Photo 10" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_6B45AB29-8C50-46FF-BF5E-2BDC9257CAD5.jpeg" alt="Health Sciences Defense - Documentation Photo 11" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_6B45AB29-8C50-46FF-BF5E-2BDC9257CAD5.jpeg" alt="Nursing & MLS Defense - Documentation Photo 11" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_7065D6E4-719A-451E-B740-5B21F344BD19.jpeg" alt="Health Sciences Defense - Documentation Photo 12" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_7065D6E4-719A-451E-B740-5B21F344BD19.jpeg" alt="Nursing & MLS Defense - Documentation Photo 12" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_73FD30AB-B182-44D5-AF04-7C5CAB5482B9.jpeg" alt="Health Sciences Defense - Documentation Photo 13" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_73FD30AB-B182-44D5-AF04-7C5CAB5482B9.jpeg" alt="Nursing & MLS Defense - Documentation Photo 13" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_783879E2-FDA7-48CE-96D8-900B5018FB4B.jpeg" alt="Health Sciences Defense - Documentation Photo 14" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_783879E2-FDA7-48CE-96D8-900B5018FB4B.jpeg" alt="Nursing & MLS Defense - Documentation Photo 14" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_805E6F4D-B109-4F8E-944B-4C4DD4082EE6.jpeg" alt="Health Sciences Defense - Documentation Photo 15" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_805E6F4D-B109-4F8E-944B-4C4DD4082EE6.jpeg" alt="Nursing & MLS Defense - Documentation Photo 15" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_8937B14B-FC13-42CF-B3A2-616760275605.jpeg" alt="Health Sciences Defense - Documentation Photo 16" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_8937B14B-FC13-42CF-B3A2-616760275605.jpeg" alt="Nursing & MLS Defense - Documentation Photo 16" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_957EC81E-E13D-4348-B995-6454760FC395.jpeg" alt="Health Sciences Defense - Documentation Photo 17" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_957EC81E-E13D-4348-B995-6454760FC395.jpeg" alt="Nursing & MLS Defense - Documentation Photo 17" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_9A3BF9CA-DD32-4748-9039-D637F31FBEE8.jpeg" alt="Health Sciences Defense - Documentation Photo 18" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_9A3BF9CA-DD32-4748-9039-D637F31FBEE8.jpeg" alt="Nursing & MLS Defense - Documentation Photo 18" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_A06C8126-DB19-4B5C-A8CE-135412AB16E3.jpeg" alt="Health Sciences Defense - Documentation Photo 19" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_A06C8126-DB19-4B5C-A8CE-135412AB16E3.jpeg" alt="Nursing & MLS Defense - Documentation Photo 19" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_A5049D32-09E3-4079-9C90-976A03A7C5A0.jpeg" alt="Health Sciences Defense - Documentation Photo 20" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_A5049D32-09E3-4079-9C90-976A03A7C5A0.jpeg" alt="Nursing & MLS Defense - Documentation Photo 20" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_133615.jpg" alt="Health Sciences Defense - Documentation Photo 21" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_D4BE753F-1268-41A9-A6E3-B014B3EDFC34.jpeg" alt="Nursing & MLS Defense - Documentation Photo 21" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_133947.jpg" alt="Health Sciences Defense - Documentation Photo 22" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_D60A7F0B-303B-497B-A289-B46E9C0B1F48.jpeg" alt="Nursing & MLS Defense - Documentation Photo 22" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_155146.jpg" alt="Health Sciences Defense - Documentation Photo 23" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_D686C6D3-DB0A-4E17-8700-9DFC52ECA0AA.jpeg" alt="Nursing & MLS Defense - Documentation Photo 23" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160027.jpg" alt="Health Sciences Defense - Documentation Photo 24" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_F464B96C-16AB-4144-9239-9C39F926D267.jpeg" alt="Nursing & MLS Defense - Documentation Photo 24" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160654.jpg" alt="Health Sciences Defense - Documentation Photo 25" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_F7302A7B-3CDF-4B34-BA79-AFE0F6373596.jpeg" alt="Nursing & MLS Defense - Documentation Photo 25" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
       <div class="doc-gallery-thumb">
-        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160718.jpg" alt="Health Sciences Defense - Documentation Photo 26" loading="lazy">
-        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-      </div>
-    
-      <div class="doc-gallery-thumb">
-        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160737.jpg" alt="Health Sciences Defense - Documentation Photo 27" loading="lazy">
-        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-      </div>
-    
-      <div class="doc-gallery-thumb">
-        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160743.jpg" alt="Health Sciences Defense - Documentation Photo 28" loading="lazy">
-        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-      </div>
-    
-      <div class="doc-gallery-thumb">
-        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160749.jpg" alt="Health Sciences Defense - Documentation Photo 29" loading="lazy">
-        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-      </div>
-    
-      <div class="doc-gallery-thumb">
-        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160912.jpg" alt="Health Sciences Defense - Documentation Photo 30" loading="lazy">
-        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-      </div>
-    
-      <div class="doc-gallery-thumb">
-        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_161045.jpg" alt="Health Sciences Defense - Documentation Photo 31" loading="lazy">
-        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-      </div>
-    
-      <div class="doc-gallery-thumb">
-        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/Messenger_creation_53FB4581-7905-41A2-B9AA-07F75B475C3C.jpeg" alt="Health Sciences Defense - Documentation Photo 32" loading="lazy">
-        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-      </div>
-    
-      <div class="doc-gallery-thumb">
-        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/Messenger_creation_648A06E6-2794-49B5-B14F-C11B4B388606.jpeg" alt="Health Sciences Defense - Documentation Photo 33" loading="lazy">
-        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-      </div>
-    
-      <div class="doc-gallery-thumb">
-        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/Messenger_creation_C61ACFFE-1BCD-44FD-8ADC-D9ABC0F2ADDF.jpeg" alt="Health Sciences Defense - Documentation Photo 34" loading="lazy">
+        <img src="upload/Sep%209%2C%202026%20Research%20Proposal%20Defense/Messenger_creation_FE7454CD-1C46-40F8-AB7F-723C4C9269F5.jpeg" alt="Nursing & MLS Defense - Documentation Photo 26" loading="lazy">
         <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
       </div>
     
@@ -834,13 +939,201 @@
             </div>
           </div>
         
-          <div class="doc-item" id="mcnp-item-3">
+          <div class="doc-item" id="mcnp-item-3" data-courses="radtech pt">
+            <button class="doc-title-trigger" type="button" aria-expanded="false">
+              <div class="doc-title-left">
+                <div class="doc-icon icon-mcnp"><i class="fa-solid fa-x-ray"></i></div>
+                <div>
+                  <h3 class="doc-title-heading">Radiologic Technology & Physical Therapy Defense Proceedings</h3>
+                  <div class="doc-title-meta">MCNP Allied Health • Diagnostic Imaging & Musculoskeletal Rehabilitation</div>
+                  <div class="doc-course-badges">
+                    <span class="doc-course-badge"><i class="fa-solid fa-x-ray"></i> BS Radiologic Technology</span><span class="doc-course-badge"><i class="fa-solid fa-person-walking"></i> BS Physical Therapy</span>
+                  </div>
+                </div>
+              </div>
+              <div class="doc-title-right">
+                <span class="doc-count-pill">14 Photos</span>
+                <span class="doc-toggle-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </div>
+            </button>
+            <div class="doc-media-body">
+              <p class="doc-desc">Official documentation of oral defenses under BS Radiologic Technology and BS Physical Therapy, investigating digital radiation protocols, diagnostic ultrasound calibrations, and functional rehabilitation paradigms.</p>
+              <div class="doc-gallery-grid">
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_133615.jpg" alt="RadTech & PT Defense - Documentation Photo 1" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_133947.jpg" alt="RadTech & PT Defense - Documentation Photo 2" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_155146.jpg" alt="RadTech & PT Defense - Documentation Photo 3" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160027.jpg" alt="RadTech & PT Defense - Documentation Photo 4" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160654.jpg" alt="RadTech & PT Defense - Documentation Photo 5" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160718.jpg" alt="RadTech & PT Defense - Documentation Photo 6" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160737.jpg" alt="RadTech & PT Defense - Documentation Photo 7" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160743.jpg" alt="RadTech & PT Defense - Documentation Photo 8" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160749.jpg" alt="RadTech & PT Defense - Documentation Photo 9" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_160912.jpg" alt="RadTech & PT Defense - Documentation Photo 10" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/IMG_20260916_161045.jpg" alt="RadTech & PT Defense - Documentation Photo 11" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/Messenger_creation_53FB4581-7905-41A2-B9AA-07F75B475C3C.jpeg" alt="RadTech & PT Defense - Documentation Photo 12" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/Messenger_creation_648A06E6-2794-49B5-B14F-C11B4B388606.jpeg" alt="RadTech & PT Defense - Documentation Photo 13" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Sep%2016%2C2026%20Research%20Proposal%20Defense/Messenger_creation_C61ACFFE-1BCD-44FD-8ADC-D9ABC0F2ADDF.jpeg" alt="RadTech & PT Defense - Documentation Photo 14" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+  </div>
+            </div>
+          </div>
+        
+          <div class="doc-item" id="mcnp-item-4" data-courses="pt radtech mls">
+            <button class="doc-title-trigger" type="button" aria-expanded="false">
+              <div class="doc-title-left">
+                <div class="doc-icon icon-mcnp"><i class="fa-solid fa-handshake-angle"></i></div>
+                <div>
+                  <h3 class="doc-title-heading">Allied Health Collaborative Study: Biomechanics & Clinical Diagnostics</h3>
+                  <div class="doc-title-meta">Faculty & Student Research Collaboration • Multidisciplinary Allied Health</div>
+                  <div class="doc-course-badges">
+                    <span class="doc-course-badge"><i class="fa-solid fa-person-walking"></i> BS Physical Therapy</span><span class="doc-course-badge"><i class="fa-solid fa-x-ray"></i> BS Radiologic Technology</span><span class="doc-course-badge"><i class="fa-solid fa-flask-vial"></i> BS MLS</span>
+                  </div>
+                </div>
+              </div>
+              <div class="doc-title-right">
+                <span class="doc-count-pill">13 Photos</span>
+                <span class="doc-toggle-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </div>
+            </button>
+            <div class="doc-media-body">
+              <p class="doc-desc">Collaborative allied health investigative initiatives engaging faculty researchers in rehabilitation mechanics, diagnostic imaging safety, and laboratory pathology evaluations.</p>
+              <div class="doc-gallery-grid">
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Fontanilla%20and%20Tejada%20Participate%20in%20Collaborative%20Study/Screenshot%202026-09-26%20100629.png" alt="Allied Health Collaborative Study - Documentation Photo 1" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Fontanilla%20and%20Tejada%20Participate%20in%20Collaborative%20Study/Screenshot%202026-09-26%20100704.png" alt="Allied Health Collaborative Study - Documentation Photo 2" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Fontanilla%20and%20Tejada%20Participate%20in%20Collaborative%20Study/Screenshot%202026-09-26%20100733.png" alt="Allied Health Collaborative Study - Documentation Photo 3" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/health-research/health-research-1.jpg" alt="Allied Health Collaborative Study - Documentation Photo 4" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/health-research/health-research-10.jpg" alt="Allied Health Collaborative Study - Documentation Photo 5" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/health-research/health-research-2.jpg" alt="Allied Health Collaborative Study - Documentation Photo 6" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/health-research/health-research-3.jpg" alt="Allied Health Collaborative Study - Documentation Photo 7" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/health-research/health-research-4.jpg" alt="Allied Health Collaborative Study - Documentation Photo 8" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/health-research/health-research-5.jpg" alt="Allied Health Collaborative Study - Documentation Photo 9" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/health-research/health-research-6.jpg" alt="Allied Health Collaborative Study - Documentation Photo 10" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/health-research/health-research-7.jpg" alt="Allied Health Collaborative Study - Documentation Photo 11" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/health-research/health-research-8.jpg" alt="Allied Health Collaborative Study - Documentation Photo 12" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/health-research/health-research-9.jpg" alt="Allied Health Collaborative Study - Documentation Photo 13" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+  </div>
+            </div>
+          </div>
+        
+          <div class="doc-item" id="mcnp-item-5" data-courses="nursing mls pharmacy radtech pt">
             <button class="doc-title-trigger" type="button" aria-expanded="false">
               <div class="doc-title-left">
                 <div class="doc-icon icon-mcnp"><i class="fa-solid fa-handshake-angle"></i></div>
                 <div>
                   <h3 class="doc-title-heading">Advancing Health Research Through Multi-Sectoral Collaboration</h3>
-                  <div class="doc-title-meta">Health Research Collaborative • Regional Health Sector</div>
+                  <div class="doc-title-meta">Health Research Collaborative • Regional Health Sector & Clinical Partners</div>
+                  <div class="doc-course-badges">
+                    <span class="doc-course-badge"><i class="fa-solid fa-stethoscope"></i> BS Nursing</span><span class="doc-course-badge"><i class="fa-solid fa-pills"></i> BS Pharmacy</span><span class="doc-course-badge"><i class="fa-solid fa-flask-vial"></i> BS MLS</span><span class="doc-course-badge"><i class="fa-solid fa-x-ray"></i> BS RadTech</span><span class="doc-course-badge"><i class="fa-solid fa-person-walking"></i> BS PT</span>
+                  </div>
                 </div>
               </div>
               <div class="doc-title-right">
@@ -849,7 +1142,7 @@
               </div>
             </button>
             <div class="doc-media-body">
-              <p class="doc-desc">Symposium and collaborative workshop bringing together regional healthcare partners, clinical preceptors, and institutional investigators to advance health innovation.</p>
+              <p class="doc-desc">Symposium and collaborative workshop bringing together regional healthcare partners, clinical preceptors, hospital directors, and institutional investigators to advance health innovation.</p>
               <div class="doc-gallery-grid">
     
       <div class="doc-gallery-thumb">
@@ -906,13 +1199,16 @@
             </div>
           </div>
         
-          <div class="doc-item" id="mcnp-item-4">
+          <div class="doc-item" id="mcnp-item-6" data-courses="nursing mls pharmacy radtech pt">
             <button class="doc-title-trigger" type="button" aria-expanded="false">
               <div class="doc-title-left">
                 <div class="doc-icon icon-mcnp"><i class="fa-solid fa-chart-line"></i></div>
                 <div>
                   <h3 class="doc-title-heading">Health Research Data Analysis & Clinical Biostatistics Workshop</h3>
                   <div class="doc-title-meta">RDC Statistical Clinic • Jamovi & SPSS Health Modeling</div>
+                  <div class="doc-course-badges">
+                    <span class="doc-course-badge"><i class="fa-solid fa-chart-line"></i> Clinical Biostatistics</span><span class="doc-course-badge"><i class="fa-solid fa-notes-medical"></i> All Health Sciences</span>
+                  </div>
                 </div>
               </div>
               <div class="doc-title-right">
@@ -973,13 +1269,126 @@
             </div>
           </div>
         
-          <div class="doc-item" id="mcnp-item-5">
+          <div class="doc-item" id="mcnp-item-7" data-courses="radtech mls pharmacy">
+            <button class="doc-title-trigger" type="button" aria-expanded="false">
+              <div class="doc-title-left">
+                <div class="doc-icon icon-mcnp"><i class="fa-solid fa-microscope"></i></div>
+                <div>
+                  <h3 class="doc-title-heading">Regional Science, Technology & Innovation (STI) Health Inventions</h3>
+                  <div class="doc-title-meta">DOST Regional STI Week • Health Inventions & Diagnostics Exhibition</div>
+                  <div class="doc-course-badges">
+                    <span class="doc-course-badge"><i class="fa-solid fa-x-ray"></i> BS RadTech</span><span class="doc-course-badge"><i class="fa-solid fa-flask-vial"></i> BS MLS</span><span class="doc-course-badge"><i class="fa-solid fa-pills"></i> BS Pharmacy</span>
+                  </div>
+                </div>
+              </div>
+              <div class="doc-title-right">
+                <span class="doc-count-pill">17 Photos</span>
+                <span class="doc-toggle-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </div>
+            </button>
+            <div class="doc-media-body">
+              <p class="doc-desc">Documentation of MCNP health researchers participating in the DOST Regional Science, Technology, and Innovation Week showcasing clinical innovations and medical technology exhibits.</p>
+              <div class="doc-gallery-grid">
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Regional%20STI%20week/dost1.jpg" alt="MCNP Regional STI Week - Documentation Photo 1" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Regional%20STI%20week/dost2.jpg" alt="MCNP Regional STI Week - Documentation Photo 2" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Regional%20STI%20week/IMG_20260909_090525.jpg" alt="MCNP Regional STI Week - Documentation Photo 3" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Regional%20STI%20week/IMG_20260909_090529.jpg" alt="MCNP Regional STI Week - Documentation Photo 4" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Regional%20STI%20week/IMG_20260909_093305.jpg" alt="MCNP Regional STI Week - Documentation Photo 5" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Regional%20STI%20week/IMG_20260909_093358.jpg" alt="MCNP Regional STI Week - Documentation Photo 6" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Regional%20STI%20week/IMG_20260909_094258.jpg" alt="MCNP Regional STI Week - Documentation Photo 7" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Regional%20STI%20week/IMG_20260909_094550.jpg" alt="MCNP Regional STI Week - Documentation Photo 8" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Regional%20STI%20week/IMG_20260909_094553.jpg" alt="MCNP Regional STI Week - Documentation Photo 9" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Regional%20STI%20week/IMG_20260909_094558.jpg" alt="MCNP Regional STI Week - Documentation Photo 10" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Regional%20STI%20week/IMG_20260909_094601.jpg" alt="MCNP Regional STI Week - Documentation Photo 11" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Regional%20STI%20week/IMG_20260909_094610.jpg" alt="MCNP Regional STI Week - Documentation Photo 12" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Regional%20STI%20week/IMG_20260909_095108.jpg" alt="MCNP Regional STI Week - Documentation Photo 13" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Regional%20STI%20week/IMG_20260909_095211.jpg" alt="MCNP Regional STI Week - Documentation Photo 14" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Regional%20STI%20week/IMG_20260909_095216.jpg" alt="MCNP Regional STI Week - Documentation Photo 15" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Regional%20STI%20week/IMG_20260909_095223.jpg" alt="MCNP Regional STI Week - Documentation Photo 16" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+      <div class="doc-gallery-thumb">
+        <img src="upload/Regional%20STI%20week/IMG_20260909_095230.jpg" alt="MCNP Regional STI Week - Documentation Photo 17" loading="lazy">
+        <div class="thumb-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+    
+  </div>
+            </div>
+          </div>
+        
+          <div class="doc-item" id="mcnp-item-8" data-courses="all">
             <button class="doc-title-trigger" type="button" aria-expanded="false">
               <div class="doc-title-left">
                 <div class="doc-icon icon-video"><i class="fa-solid fa-video"></i></div>
                 <div>
                   <h3 class="doc-title-heading">MCNP Institutional Research Accomplishment Video Documentary</h3>
                   <div class="doc-title-meta">Official RDC Video Production • Health Science Milestones</div>
+                  <div class="doc-course-badges">
+                    <span class="doc-course-badge"><i class="fa-solid fa-video"></i> All MCNP Health Courses</span>
+                  </div>
                 </div>
               </div>
               <div class="doc-title-right">
@@ -998,13 +1407,16 @@
             </div>
           </div>
         
-          <div class="doc-item" id="mcnp-item-6">
+          <div class="doc-item" id="mcnp-item-9" data-courses="all">
             <button class="doc-title-trigger" type="button" aria-expanded="false">
               <div class="doc-title-left">
                 <div class="doc-icon icon-form"><i class="fa-solid fa-folder-open"></i></div>
                 <div>
                   <h3 class="doc-title-heading">MCNP Official Downloadable Research Forms & Ethics Packets (Forms 001–016)</h3>
                   <div class="doc-title-meta">Knowledge Management & Publication Office • Official Form Downloads</div>
+                  <div class="doc-course-badges">
+                    <span class="doc-course-badge"><i class="fa-solid fa-folder-open"></i> All MCNP Health Courses</span>
+                  </div>
                 </div>
               </div>
               <div class="doc-title-right">
@@ -1053,12 +1465,20 @@
         
       </div>
 
+      <!-- Empty State if filter yields 0 matches -->
+      <div class="doc-empty-state" id="docEmptyState" style="display:none; text-align:center; padding:3rem 1.5rem; background:#ffffff; border-radius:14px; border:1px dashed #cbd5e1; margin:2rem auto; max-width:620px;">
+    <i class="fa-solid fa-graduation-cap" style="font-size:2.8rem; color:#94a3b8; margin-bottom:1rem; display:block;"></i>
+    <h3 style="font-family:'Oswald',sans-serif; color:#1e293b; margin:0 0 0.5rem; font-size:1.4rem;">No Documentation Found for Selected Course</h3>
+    <p style="color:#64748b; font-size:0.92rem; margin-bottom:1.25rem; line-height:1.6;">There are currently no uploaded media archives matching this specific course filter. You can reset to view all available courses.</p>
+    <button type="button" class="btn btn-outline" onclick="resetDocFilters()" style="padding:0.5rem 1.25rem; font-size:0.85rem; font-weight:600; cursor:pointer;">Reset Filter to All Courses</button>
+  </div>
+
       <!-- Quick Switch Banner -->
       <div style="background: rgba(122, 31, 45, 0.06); border: 1px solid rgba(122, 31, 45, 0.2); border-radius: 14px; padding: 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 2rem;">
         <div>
           <h3 style="margin: 0 0 0.35rem; color: #7a1f2d; font-size: 1.25rem;">Looking for ISAP Multidisciplinary Documentation?</h3>
           <p style="margin: 0; color: #64748b; font-size: 0.95rem;">
-            Access Criminology, Information Technology, Business, and Teacher Education documentation archives and video coverage.
+            Access Criminology, Information Technology, Tourism, Business, and Teacher Education documentation archives and video coverage.
           </p>
         </div>
         <a href="resources-isap.html" class="btn btn-primary" style="background: #7a1f2d; border-color: #7a1f2d;">Switch to ISAP Resources &rarr;</a>
@@ -1138,16 +1558,91 @@
         const item = btn.closest('.doc-item');
         const isOpen = item.classList.contains('open');
         
-        // Optional: close other items
-        // document.querySelectorAll('.doc-item.open').forEach(el => el.classList.remove('open'));
-
         if (isOpen) {
           item.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
         } else {
           item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
         }
       });
     });
+
+    // Course & Category Filtering Logic
+    let currentCourseFilter = 'all';
+    let currentCategoryFilter = 'all';
+
+    function applyResourceFilters() {
+      const items = document.querySelectorAll('.doc-item');
+      let visibleCount = 0;
+
+      items.forEach(item => {
+        const rawCourses = item.getAttribute('data-courses') || '';
+        const courseList = rawCourses.trim().split(/\s+/);
+        const itemCat = item.getAttribute('data-category') || 'all';
+
+        const matchesCourse = (currentCourseFilter === 'all') || 
+                              courseList.includes(currentCourseFilter) || 
+                              courseList.includes('all');
+        const matchesCat = (currentCategoryFilter === 'all') || 
+                           (itemCat === currentCategoryFilter);
+
+        if (matchesCourse && matchesCat) {
+          item.style.display = 'block';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+          item.classList.remove('open');
+          const trigger = item.querySelector('.doc-title-trigger');
+          if (trigger) trigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      const countEl = document.getElementById('visibleDocCount');
+      if (countEl) {
+        countEl.textContent = visibleCount + ' topic' + (visibleCount === 1 ? '' : 's') + ' available';
+      }
+
+      const emptyMsg = document.getElementById('docEmptyState');
+      if (emptyMsg) {
+        emptyMsg.style.display = (visibleCount === 0) ? 'block' : 'none';
+      }
+    }
+
+    // Course Filter Pills
+    document.querySelectorAll('.course-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.course-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        currentCourseFilter = pill.getAttribute('data-course');
+        applyResourceFilters();
+      });
+    });
+
+    // Institutional / Category Filter Buttons (Unified Portal)
+    document.querySelectorAll('.doc-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.doc-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCategoryFilter = btn.getAttribute('data-filter');
+        applyResourceFilters();
+      });
+    });
+
+    // Global Reset Filter function
+    window.resetDocFilters = function() {
+      currentCourseFilter = 'all';
+      currentCategoryFilter = 'all';
+      document.querySelectorAll('.course-pill').forEach(p => {
+        if (p.getAttribute('data-course') === 'all') p.classList.add('active');
+        else p.classList.remove('active');
+      });
+      document.querySelectorAll('.doc-filter-btn').forEach(b => {
+        if (b.getAttribute('data-filter') === 'all') b.classList.add('active');
+        else b.classList.remove('active');
+      });
+      applyResourceFilters();
+    };
 
     // Lightbox Logic
     const lightbox = document.getElementById('docLightbox');
@@ -1157,7 +1652,8 @@
 
     if (lightbox) {
       document.querySelectorAll('.doc-gallery-thumb').forEach(thumb => {
-        thumb.addEventListener('click', () => {
+        thumb.addEventListener('click', (e) => {
+          e.stopPropagation();
           const img = thumb.querySelector('img');
           if (img) {
             lightboxImg.src = img.src;
@@ -1176,21 +1672,8 @@
       });
     }
 
-    // Filter Logic if present
-    document.querySelectorAll('.doc-filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.doc-filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.getAttribute('data-filter');
-        document.querySelectorAll('.doc-item').forEach(item => {
-          if (filter === 'all' || item.getAttribute('data-category') === filter) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
+    // Run initial filter count
+    applyResourceFilters();
   </script>
 
 </body>
