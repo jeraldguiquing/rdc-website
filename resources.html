@@ -246,8 +246,27 @@
               <a href="experience.html" class="nav-link">EXPERIENCE</a>
             </li>
 
-            <li class="nav-item">
-              <a href="resources.html" class="nav-link active">RESOURCES</a>
+            <!-- Dropdown: RESOURCES -->
+            <li class="nav-item dropdown">
+              <a href="resources-mcnp.html" class="nav-link active">
+                RESOURCES <span class="arrow">&#9662;</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="resources-mcnp.html" class="dropdown-link">
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;">
+                    <span>Medical Colleges of Northern Philippines</span>
+                  </div>
+                  <span class="dropdown-badge badge-mcnp">MCNP</span>
+                </a>
+                <a href="resources-isap.html" class="dropdown-link">
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;">
+                    <span>International School of Asia and the Pacific</span>
+                  </div>
+                  <span class="dropdown-badge badge-isap">ISAP</span>
+                </a>
+              </div>
             </li>
 
             <li class="nav-item dropdown">
@@ -302,6 +321,45 @@
   <!-- Main Content -->
   <main class="section">
     <div class="container">
+
+      <!-- Institutional Portals Selector -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3.5rem;">
+        <div style="background: linear-gradient(135deg, rgba(30, 94, 168, 0.08) 0%, rgba(30, 94, 168, 0.02) 100%); border: 2px solid rgba(30, 94, 168, 0.25); border-radius: 14px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem;">
+              <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 48px; height: 48px; object-fit: contain;">
+              <div>
+                <span class="dropdown-badge badge-mcnp">MCNP HEALTH SCIENCES</span>
+                <h3 style="margin: 0.2rem 0 0; color: #0f172a; font-size: 1.3rem;">MCNP Resources</h3>
+              </div>
+            </div>
+            <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+              Clinical protocols, hospital affiliation clearances, lab equipment booking, biosafety review forms, and DOST-CVHRDC health grant packets.
+            </p>
+          </div>
+          <a href="resources-mcnp.html" class="btn btn-primary" style="background: #1e5ea8; border-color: #1e5ea8; justify-content: center; font-weight: 700;">
+            <span>Explore MCNP Toolkits &rarr;</span>
+          </a>
+        </div>
+
+        <div style="background: linear-gradient(135deg, rgba(122, 31, 45, 0.08) 0%, rgba(122, 31, 45, 0.02) 100%); border: 2px solid rgba(122, 31, 45, 0.25); border-radius: 14px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1rem;">
+              <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 48px; height: 48px; object-fit: contain;">
+              <div>
+                <span class="dropdown-badge badge-isap">ISAP MULTIDISCIPLINARY</span>
+                <h3 style="margin: 0.2rem 0 0; color: #0f172a; font-size: 1.3rem;">ISAP Resources</h3>
+              </div>
+            </div>
+            <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+              Criminology field investigation clearances, IT computing capstone specifications, social ethics protocols, and business grant toolkits.
+            </p>
+          </div>
+          <a href="resources-isap.html" class="btn btn-primary" style="background: #7a1f2d; border-color: #7a1f2d; justify-content: center; font-weight: 700;">
+            <span>Explore ISAP Toolkits &rarr;</span>
+          </a>
+        </div>
+      </div>
       
       <!-- Section: Research Manuals & Institutional Policies -->
       <div style="margin-bottom: 3rem;">
@@ -614,3 +672,4 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+

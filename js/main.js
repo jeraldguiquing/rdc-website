@@ -160,7 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
       href &&
       (href === currentPath ||
         (currentPath === '' && href === 'index.html') ||
-        (currentPath === 'news.html' && href === 'news-events.html'))
+        (currentPath === 'news.html' && href === 'news-events.html') ||
+        (currentPath === 'resources.html' && href === 'resources-mcnp.html'))
     ) {
       link.classList.add('active');
       // If it's a dropdown link, highlight the parent nav-link too
