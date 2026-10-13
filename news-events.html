@@ -1022,6 +1022,301 @@
       .event-modal-head, .event-modal-body, .event-modal-related, .event-modal-tabs, .event-modal-sdgs { padding-left: 1.25rem; padding-right: 1.25rem; }
       .event-modal-title { font-size: 1.25rem; max-width: 100%; }
     }
+
+    /* ===== PUBLICATION & MEDIA PRINT STYLES ===== */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 14mm 16mm 14mm 16mm;
+      }
+
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      html, body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        font-size: 11pt !important;
+        line-height: 1.6 !important;
+        overflow: visible !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      /* Hide web interactive chromes */
+      .topbar,
+      .main-header,
+      nav,
+      .news-view-tabs-wrap,
+      .search-filter-section,
+      .category-pills,
+      .btn,
+      button,
+      .event-modal-close,
+      .btn-article-copy,
+      .article-expand-toggle,
+      .back-to-top,
+      .site-footer,
+      .calendar-filters,
+      .calendar-search-box,
+      .calendar-callout-btns,
+      .announcement-banner {
+        display: none !important;
+      }
+
+      /* Default overlay behavior when not active */
+      .event-modal-overlay:not(.open) {
+        display: none !important;
+      }
+
+      /* ===== ARTICLE PRINT MODE ===== */
+      body.print-article-mode {
+        background: #ffffff !important;
+      }
+
+      body.print-article-mode > *:not(#articleModalOverlay),
+      body:has(#articleModalOverlay.open) > *:not(#articleModalOverlay) {
+        display: none !important;
+      }
+
+      body.print-article-mode #articleModalOverlay,
+      #articleModalOverlay.open {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        overflow: visible !important;
+        background: #ffffff !important;
+        backdrop-filter: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        z-index: auto !important;
+      }
+
+      body.print-article-mode .event-modal-container,
+      #articleModalOverlay.open .event-modal-container {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+        background: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      body.print-article-mode .event-modal-header,
+      #articleModalOverlay.open .event-modal-header {
+        background: #0d5c3a !important;
+        color: #ffffff !important;
+        padding: 1.25rem 1.5rem !important;
+        border-radius: 4px !important;
+        margin-bottom: 0.75rem !important;
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+      }
+
+      body.print-article-mode .event-modal-header .event-modal-breadcrumb,
+      #articleModalOverlay.open .event-modal-header .event-modal-breadcrumb {
+        color: #ffdf70 !important;
+        font-size: 0.8rem !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        margin-bottom: 0.35rem !important;
+      }
+
+      body.print-article-mode .event-modal-title,
+      #articleModalOverlay.open .event-modal-title {
+        color: #ffffff !important;
+        font-size: 1.35rem !important;
+        line-height: 1.35 !important;
+        font-weight: 800 !important;
+      }
+
+      body.print-article-mode .event-modal-close,
+      #articleModalOverlay.open .event-modal-close {
+        display: none !important;
+      }
+
+      /* Quick Action Bar (Alignments) */
+      body.print-article-mode .event-modal-container > div:nth-child(2),
+      #articleModalOverlay.open .event-modal-container > div:nth-child(2) {
+        background: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 4px !important;
+        padding: 0.5rem 1rem !important;
+        margin-bottom: 1.25rem !important;
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+      }
+
+      body.print-article-mode .event-modal-container > div:nth-child(2) button,
+      #articleModalOverlay.open .event-modal-container > div:nth-child(2) button,
+      body.print-article-mode .event-modal-container > div:nth-child(2) .btn,
+      #articleModalOverlay.open .event-modal-container > div:nth-child(2) .btn {
+        display: none !important;
+      }
+
+      body.print-article-mode .article-sdg-icon-link,
+      body.print-article-mode .article-agenda-icon-link,
+      #articleModalOverlay.open .article-sdg-icon-link,
+      #articleModalOverlay.open .article-agenda-icon-link {
+        box-shadow: none !important;
+      }
+
+      /* Article content unchained for full pagination */
+      body.print-article-mode .article-modal-body-scroll,
+      #articleModalOverlay.open .article-modal-body-scroll {
+        overflow: visible !important;
+        max-height: none !important;
+        height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      body.print-article-mode #articleModalContent,
+      #articleModalOverlay.open #articleModalContent {
+        overflow: visible !important;
+        height: auto !important;
+      }
+
+      body.print-article-mode .article-content-body,
+      #articleModalOverlay.open .article-content-body {
+        padding: 0.5rem 0 0 0 !important;
+      }
+
+      body.print-article-mode .article-narrative-p,
+      #articleModalOverlay.open .article-narrative-p {
+        font-size: 10.5pt !important;
+        line-height: 1.65 !important;
+        color: #1e293b !important;
+        text-align: justify !important;
+        text-justify: inter-word !important;
+        hyphens: auto !important;
+        margin-bottom: 0.9rem !important;
+        orphans: 3 !important;
+        widows: 3 !important;
+      }
+
+      body.print-article-mode .article-narrative-section,
+      #articleModalOverlay.open .article-narrative-section {
+        page-break-inside: auto !important;
+        break-inside: auto !important;
+        margin-bottom: 1.25rem !important;
+        padding-bottom: 1rem !important;
+      }
+
+      body.print-article-mode .article-section-heading,
+      #articleModalOverlay.open .article-section-heading {
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+        font-size: 1.1rem !important;
+        margin-top: 1.5rem !important;
+        margin-bottom: 0.75rem !important;
+        color: #0d5c3a !important;
+      }
+
+      body.print-article-mode .competition-card,
+      body.print-article-mode .framework-card,
+      body.print-article-mode .innovates-point-card,
+      #articleModalOverlay.open .competition-card,
+      #articleModalOverlay.open .framework-card,
+      #articleModalOverlay.open .innovates-point-card {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        border: 1px solid #cbd5e1 !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
+        margin-bottom: 0.75rem !important;
+      }
+
+      body.print-article-mode .article-frameworks-grid,
+      body.print-article-mode .innovates-points-grid,
+      #articleModalOverlay.open .article-frameworks-grid,
+      #articleModalOverlay.open .innovates-points-grid {
+        display: block !important;
+      }
+
+      body.print-article-mode .article-links-strip,
+      #articleModalOverlay.open .article-links-strip {
+        display: none !important;
+      }
+
+      body.print-article-mode .event-modal-actions-bar,
+      #articleModalOverlay.open .event-modal-actions-bar {
+        background: #f8fafc !important;
+        border-top: 1px solid #cbd5e1 !important;
+        padding: 0.75rem 1rem !important;
+        margin-top: 2rem !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      body.print-article-mode .event-modal-actions-bar button,
+      #articleModalOverlay.open .event-modal-actions-bar button {
+        display: none !important;
+      }
+
+      /* ===== EVENT MODAL PRINT MODE ===== */
+      body.print-event-mode > *:not(#eventModalOverlay) {
+        display: none !important;
+      }
+
+      body.print-event-mode #eventModalOverlay {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+        background: #ffffff !important;
+        backdrop-filter: none !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+      }
+
+      body.print-event-mode .event-modal-container {
+        display: block !important;
+        position: static !important;
+        max-width: 100% !important;
+        max-height: none !important;
+        overflow: visible !important;
+        box-shadow: none !important;
+        border: none !important;
+        background: #ffffff !important;
+      }
+
+      body.print-event-mode .event-modal-tabs,
+      body.print-event-mode .event-modal-related,
+      body.print-event-mode .event-modal-actions-bar,
+      body.print-event-mode .event-modal-nav-arrow,
+      body.print-event-mode .event-modal-close {
+        display: none !important;
+      }
+
+      /* ===== SCHEDULE PRINT MODE ===== */
+      body.print-schedule-mode > *:not(#schedule-calendar) {
+        display: none !important;
+      }
+      body.print-schedule-mode #schedule-calendar {
+        display: block !important;
+        overflow: visible !important;
+        padding: 0 !important;
+      }
+      body.print-schedule-mode .calendar-table-wrap {
+        overflow: visible !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1926,7 +2221,7 @@
                 Published by the <strong>Research and Development Center (RDC)</strong> &bull; Medical Colleges of Northern Philippines &amp; International School of Asia and the Pacific
               </div>
               <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <button type="button" onclick="window.print()" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; color: #334155; border-color: #cbd5e1;">
+                <button type="button" onclick="window.printArticle ? window.printArticle() : window.print()" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; color: #334155; border-color: #cbd5e1;">
                    Print Article
                 </button>
                 <button type="button" onclick="toggleArticleAccordion('article-37th-statistics-month-celebration', false)" class="btn btn-sm btn-gold" style="font-size: 0.78rem; font-weight: 700;">
@@ -3330,7 +3625,7 @@
            <strong>Specialized Training Request:</strong> Need a customized departmental training session, plagiarism briefing, or thesis adviser workshop? Contact the Secretariat at <a href="mailto:researchoffice@mcnp.edu.ph" style="color:var(--mcnp-green);font-weight:600;">researchoffice@mcnp.edu.ph</a>.
         </div>
         <div class="calendar-callout-btns" style="display: flex; gap: 0.75rem;">
-          <button type="button" onclick="window.print()" class="btn btn-sm btn-outline-white" style="color: var(--dark-text); border-color: #cbd5e1; font-size: 0.78rem;">🖨️ Print Schedule</button>
+          <button type="button" onclick="window.printSchedule ? window.printSchedule() : window.print()" class="btn btn-sm btn-outline-white" style="color: var(--dark-text); border-color: #cbd5e1; font-size: 0.78rem;">🖨️ Print Schedule</button>
           <a href="contact.html?inquiry=training" class="btn btn-sm btn-gold" style="font-size: 0.78rem;">Contact Secretariat &rarr;</a>
         </div>
       </div>
@@ -3490,7 +3785,7 @@
           <button type="button" class="btn btn-sm btn-outline-white" onclick="if(window.copyArticleLink){window.copyArticleLink('article-37th-statistics-month-celebration', this);}" style="font-size: 0.78rem; padding: 0.25rem 0.65rem; color: #334155; border-color: #cbd5e1; background: #fff;" title="Copy shareable link">
              Copy Link
           </button>
-          <button type="button" onclick="window.print()" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; padding: 0.25rem 0.65rem; color: #334155; border-color: #cbd5e1; background: #fff;" title="Print this article">
+          <button type="button" onclick="window.printArticle ? window.printArticle() : window.print()" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; padding: 0.25rem 0.65rem; color: #334155; border-color: #cbd5e1; background: #fff;" title="Print this article">
              Print
           </button>
         </div>
@@ -3892,6 +4187,43 @@
 
     window.openArticleModal = openArticleModal;
     window.closeArticleModal = closeArticleModal;
+
+    function printArticle() {
+      if (!articleOverlay) articleOverlay = document.getElementById('articleModalOverlay');
+      var src = document.getElementById('body-article-37th-statistics-month-celebration');
+      var dest = document.getElementById('articleModalContent');
+      if (src && dest && (!dest.innerHTML || dest.innerHTML.trim() === '')) {
+        dest.innerHTML = src.innerHTML;
+        var inlineFooter = dest.querySelector('.article-editorial-footer');
+        if (inlineFooter) inlineFooter.style.display = 'none';
+      }
+      document.body.classList.add('print-article-mode');
+      setTimeout(function () {
+        window.print();
+      }, 50);
+    }
+
+    function printSchedule() {
+      document.body.classList.add('print-schedule-mode');
+      setTimeout(function () {
+        window.print();
+      }, 50);
+    }
+
+    window.printArticle = printArticle;
+    window.printSchedule = printSchedule;
+
+    window.addEventListener('beforeprint', function () {
+      if (articleOverlay && articleOverlay.classList.contains('open')) {
+        document.body.classList.add('print-article-mode');
+      } else if (overlay && overlay.classList.contains('open')) {
+        document.body.classList.add('print-event-mode');
+      }
+    });
+
+    window.addEventListener('afterprint', function () {
+      document.body.classList.remove('print-article-mode', 'print-event-mode', 'print-schedule-mode');
+    });
 
     if (articleCloseBtn) articleCloseBtn.addEventListener('click', closeArticleModal);
     if (articleOverlay) {
