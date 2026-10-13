@@ -1071,59 +1071,43 @@
       <section aria-labelledby="event-highlights-title" id="newsEventsHighlights">
         <div class="section-title-wrap" style="margin-bottom: 1.5rem; text-align: center;">
           <span class="section-tag">Updates &amp; Happenings</span>
-          <h2 id="event-highlights-title" class="section-title">News, Articles &amp; Event Highlights</h2>
-          <p class="section-desc" style="max-width: 720px; margin: 0 auto;">Explore published research feature articles, proposal defenses, student competition breakthroughs, and institutional event schedules across MCNP &amp; ISAP.</p>
+          <h2 id="event-highlights-title" class="section-title">Articles &amp; Event Highlights</h2>
+          <p class="section-desc" style="max-width: 720px; margin: 0 auto;">Browse published research articles, proposal defenses, student competition breakthroughs, and institutional event schedules across MCNP &amp; ISAP.</p>
         </div>
 
-        <!-- Master View Switcher: Articles vs Events vs All -->
+        <!-- Master View Switcher: All vs Articles vs Events -->
         <div class="news-view-tabs-wrap">
           <div class="news-view-tabs" role="tablist" aria-label="News and Events Content Switcher">
-            <button type="button" class="news-view-tab-btn active" data-view="articles" id="viewTabArticles" role="tab" aria-selected="true" onclick="switchContentView('articles');">
-              <span>📰 Research Articles &amp; Stories</span>
-              <span class="tab-count" id="countArticlesTab">18</span>
-            </button>
-            <button type="button" class="news-view-tab-btn" data-view="events" id="viewTabEvents" role="tab" aria-selected="false" onclick="switchContentView('events');">
-              <span>📅 Events &amp; Colloquiums</span>
-              <span class="tab-count" id="countEventsTab">13</span>
-            </button>
-            <button type="button" class="news-view-tab-btn" data-view="all" id="viewTabAll" role="tab" aria-selected="false" onclick="switchContentView('all');">
-              <span>🌟 View All Combined</span>
+            <button type="button" class="news-view-tab-btn active" data-view="all" id="viewTabAll" role="tab" aria-selected="true" onclick="switchContentView('all');">
+              <span>🌟 View All Content</span>
               <span class="tab-count" id="countAllTab">31</span>
             </button>
-          </div>
-        </div>
-
-        <!-- Interactive Event Filter & Search Bar -->
-        <div class="event-filter-toolbar">
-          <div class="event-filter-pills">
-            <button type="button" class="event-pill-btn active" data-filter="all">All in View (<span id="eventCountTotal">18</span>)</button>
-            <button type="button" class="event-pill-btn" data-filter="research">Research &amp; Colloquiums</button>
-            <button type="button" class="event-pill-btn" data-filter="sdg">SDG Initiatives</button>
-            <button type="button" class="event-pill-btn" data-filter="training">Capability Building</button>
-            <button type="button" class="event-pill-btn" data-filter="student">Student Competitions</button>
-          </div>
-          <div class="event-search-wrap">
-            <span class="event-search-icon" aria-hidden="true">&#128269;</span>
-            <input type="text" id="eventSearchInput" class="event-search-input" placeholder="Search news, articles, events, or keywords..." aria-label="Search news, articles, and events">
-            <button type="button" id="eventSearchClear" class="event-search-clear" aria-label="Clear search">&times;</button>
+            <button type="button" class="news-view-tab-btn" data-view="articles" id="viewTabArticles" role="tab" aria-selected="false" onclick="switchContentView('articles');">
+              <span>📰 Articles</span>
+              <span class="tab-count" id="countArticlesTab">1</span>
+            </button>
+            <button type="button" class="news-view-tab-btn" data-view="events" id="viewTabEvents" role="tab" aria-selected="false" onclick="switchContentView('events');">
+              <span>📅 Events &amp; Highlights</span>
+              <span class="tab-count" id="countEventsTab">30</span>
+            </button>
           </div>
         </div>
 
         <!-- ========================================================
              SECTION 1: ARTICLES & FEATURE STORIES
              ======================================================== -->
-        <section id="articlesSection" class="content-sub-section" style="margin-bottom: 2.5rem;" aria-label="Articles and Feature Stories">
+        <section id="articlesSection" class="content-sub-section" style="margin-bottom: 3.5rem;" aria-label="Articles and Feature Stories">
           <div id="articlesHeaderBanner" class="news-sub-header article-header">
             <div>
               <span class="section-tag" style="background: rgba(13, 92, 58, 0.1); color: var(--mcnp-green); border-color: rgba(13, 92, 58, 0.25);">📰 Published Articles</span>
-              <h3 style="font-size: 1.45rem; font-weight: 800; color: #0f172a; margin: 0.3rem 0 0.2rem;">Research Articles &amp; Feature Stories</h3>
-              <p style="color: #64748b; font-size: 0.88rem; margin: 0;">In-depth journalistic narratives, research proposal defenses, statistics month milestones, and student achievements.</p>
+              <h3 style="font-size: 1.55rem; font-weight: 800; color: #0f172a; margin: 0.35rem 0 0.25rem;">Research Articles &amp; Feature Stories</h3>
+              <p style="color: #64748b; font-size: 0.9rem; margin: 0;">In-depth journalistic narratives, research milestone stories, and institutional coverage across MCNP &amp; ISAP.</p>
             </div>
-            <span style="font-size: 0.8rem; font-weight: 700; color: var(--mcnp-green); background: rgba(13, 92, 58, 0.08); padding: 0.25rem 0.75rem; border-radius: 999px;">18 Articles Published</span>
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--mcnp-green); background: rgba(13, 92, 58, 0.08); padding: 0.25rem 0.8rem; border-radius: 999px;">1 Published Article</span>
           </div>
 
           <div class="news-grid" id="articlesGrid" style="margin-bottom: 2.5rem;" aria-label="Published research articles">
-<article class="news-card" data-content-type="article" id="event-37th-statistics-month-celebration">
+            <article class="news-card" data-content-type="article" id="event-37th-statistics-month-celebration">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0b2545;">
             <img src="upload/inst-quizbee/inst-quizbee-1.jpg" alt="37th Statistics Month Celebration Delegation and Winners - Oct 05, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.75) 100%); pointer-events: none;"></div>
@@ -1189,8 +1173,40 @@
             </div>
           </div>
         </article>
+          </div>
+        </section>
 
-<article class="news-card" data-content-type="article" id="event-community-needs-assessment">
+        <!-- ========================================================
+             SECTION 2: EVENTS & COLLOQUIUMS
+             ======================================================== -->
+        <section id="eventsSection" class="content-sub-section" style="margin-bottom: 3.5rem;" aria-label="Events and Workshops">
+          <div id="eventsHeaderBanner" class="news-sub-header event-header">
+            <div>
+              <span class="section-tag" style="background: rgba(30, 94, 168, 0.1); color: var(--isap-blue); border-color: rgba(30, 94, 168, 0.25);">📅 Campus Calendar &amp; Activities</span>
+              <h3 style="font-size: 1.55rem; font-weight: 800; color: #0f172a; margin: 0.35rem 0 0.25rem;">News &amp; Event Highlights</h3>
+              <p style="color: #64748b; font-size: 0.9rem; margin: 0;">Scheduled research conferences, capability-building seminars, faculty workshops, and institutional assemblies.</p>
+            </div>
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--isap-blue); background: rgba(30, 94, 168, 0.08); padding: 0.25rem 0.8rem; border-radius: 999px;">30 Events Documented</span>
+          </div>
+
+          <!-- Interactive Event Filter & Search Bar -->
+          <div class="event-filter-toolbar" style="margin-bottom: 2rem;">
+            <div class="event-filter-pills">
+              <button type="button" class="event-pill-btn active" data-filter="all">All Events (<span id="eventCountTotal">30</span>)</button>
+              <button type="button" class="event-pill-btn" data-filter="research">Research &amp; Colloquiums</button>
+              <button type="button" class="event-pill-btn" data-filter="sdg">SDG Initiatives</button>
+              <button type="button" class="event-pill-btn" data-filter="training">Capability Building</button>
+              <button type="button" class="event-pill-btn" data-filter="student">Student Competitions</button>
+            </div>
+            <div class="event-search-wrap">
+              <span class="event-search-icon" aria-hidden="true">&#128269;</span>
+              <input type="text" id="eventSearchInput" class="event-search-input" placeholder="Search events, topics, or keywords..." aria-label="Search events and highlights">
+              <button type="button" id="eventSearchClear" class="event-search-clear" aria-label="Clear search">&times;</button>
+            </div>
+          </div>
+
+          <div class="news-grid" id="eventsGrid" style="margin-bottom: 2.5rem;" aria-label="Events and workshops">
+<article class="news-card" data-content-type="event" id="event-community-needs-assessment">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/community-assessment-1.jpg" alt="Community Needs Assessment and Institutional Extension Services - Sep 25, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1202,7 +1218,7 @@
           </div>
           <div class="news-content">
             <div>
-              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">RDC &amp; CESO Collaboration</span>
               <h3 class="news-title">From Community Needs to Responsive Extension Programs</h3>
               <p class="news-excerpt">The MCNP–ISAP Research and Development Center (RDC), in collaboration with the Community Extension Services Office (CESO), presented the results of the Community Needs Assessment to the different academic departments on September 25, 2026. The findings provided a clearer understanding of the community’s priority concerns and served as an evidence-based guide for developing responsive and sustainable initiatives.</p>
@@ -1228,7 +1244,7 @@
           </div>
         </article>
 
-<article class="news-card" data-content-type="article" id="event-data-infographics">
+<article class="news-card" data-content-type="event" id="event-data-infographics">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/data-interpretation-5.jpg" alt="Statistical Month 2026: Data Interpretation and Infographics Activity Winners and Participants - Sep 25, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1240,7 +1256,7 @@
           </div>
           <div class="news-content">
             <div>
-              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">Statistical Month 2026</span>
               <h3 class="news-title">📊 Turning Data into Meaningful Stories</h3>
               <p class="news-excerpt">The MCNP–ISAP Research and Development Center conducted the Statistical Month 2026: Data Interpretation and Infographics Activity on September 25, 2026. The activity challenged students to analyze information, draw meaningful conclusions, and communicate data through clear and creative visual presentations.</p>
@@ -1273,7 +1289,7 @@
           </div>
         </article>
 
-<article class="news-card" data-content-type="article" id="event-poster-art-showcase">
+<article class="news-card" data-content-type="event" id="event-poster-art-showcase">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/poster-activity-1.jpg" alt="Winning Entries Showcase: MCNP-ISAP Statistical Month Poster-Making Contest - Sep 24, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1285,7 +1301,7 @@
           </div>
           <div class="news-content">
             <div>
-              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">Poster Art Showcase</span>
               <h3 class="news-title">🎨 When Data Finds Its Voice Through Art</h3>
               <p class="news-excerpt">These winning entries from the MCNP–ISAP Statistical Month Poster-Making Contest show that statistics is more than numbers—it is a powerful tool for understanding realities, communicating ideas, and shaping better decisions. Through color and creativity, our students transformed statistical concepts into meaningful visual stories of education, health, technology, and development.</p>
@@ -1308,7 +1324,7 @@
           </div>
         </article>
 
-<article class="news-card" data-content-type="article" id="event-poster-making-activity">
+<article class="news-card" data-content-type="event" id="event-poster-making-activity">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/poster-activity-19.jpg" alt="Statistical Month 2026 Poster-Making Activity - Sep 23, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1320,7 +1336,7 @@
           </div>
           <div class="news-content">
             <div>
-              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Institutional Competition</span>
               <h3 class="news-title">🎨📊 Where Creativity Meets Statistics</h3>
               <p class="news-excerpt">The MCNP–ISAP Research and Development Center conducted the Statistical Month 2026 Poster-Making Activity on September 23, 2026. Participants transformed statistical concepts into creative visual stories that highlighted the value of data in research and informed decision-making.</p>
@@ -1349,7 +1365,7 @@
           </div>
         </article>
 
-<article class="news-card" data-content-type="article" id="event-tourism-defense">
+<article class="news-card" data-content-type="event" id="event-tourism-defense">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/tourism-defense-1.jpg" alt="BS Tourism Management Research Proposal Defense and SDG Research Snap - Sep 22–23, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1361,7 +1377,7 @@
           </div>
           <div class="news-content">
             <div>
-              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">BS Tourism Management</span>
               <h3 class="news-title">BS Tourism Management Students Connect Research Proposals with Global Goals</h3>
               <p class="news-excerpt">BS Tourism Management students successfully presented and defended their research proposals on September 22–23, 2026, demonstrating their developing competence in research, critical inquiry, and evidence-based problem-solving. As part of the activity, the student researchers participated in the SDG Research Snap, an initiative under SDG SPOT @ RDC: Research for the Goals.</p>
@@ -1388,7 +1404,7 @@
           </div>
         </article>
 
-<article class="news-card" data-content-type="article" id="event-statistical-quiz-bee">
+<article class="news-card" data-content-type="event" id="event-statistical-quiz-bee">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/quiz-bee-13.jpg" alt="MCNP-ISAP Statistical Month Institutional Quiz Bee - Sep 21, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1400,7 +1416,7 @@
           </div>
           <div class="news-content">
             <div>
-              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Statistical Month Quiz Bee</span>
               <h3 class="news-title">📊 Numbers, Knowledge, and a Winning Spirit!</h3>
               <p class="news-excerpt">The MCNP–ISAP Statistical Month Institutional Quiz Bee brought students together on September 21, 2026, to test their knowledge of statistics and celebrate the role of data in research and decision-making. Congratulations to all participants and to our winners!</p>
@@ -1429,7 +1445,7 @@
           </div>
         </article>
 
-<article class="news-card" data-content-type="article" id="event-pharmacy-research">
+<article class="news-card" data-content-type="event" id="event-pharmacy-research">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/pharmacy-defense-1.jpg" alt="BS Pharmacy Research Proposal Defense and SDG Research Snap - Sep 17–18, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1441,7 +1457,7 @@
           </div>
           <div class="news-content">
             <div>
-              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">BS Pharmacy</span>
               <h3 class="news-title">Pharmacy Research with Purpose: Every Study, a Goal and an Impact</h3>
               <p class="news-excerpt">BS Pharmacy students presented and defended their research proposals on September 17–18, 2026, at the Research Office. Beyond demonstrating their knowledge and research competence, the students identified how their proposed studies contribute to specific Sustainable Development Goals through the SDG Research Snap, one of the activities under SDG SPOT @ RDC.</p>
@@ -1464,13 +1480,13 @@
           </div>
         </article>
 
-<article class="news-card" data-content-type="article" id="event-sdg-research-snap-tourism">
+<article class="news-card" data-content-type="event" id="event-sdg-research-snap-tourism">
           <div class="news-thumbnail" style="background: linear-gradient(135deg, #0d5c3a, #1e3a8a);"><span class="news-date-badge">SDG SPOT @ RDC</span><div><h4 style="color: #fff; font-size: 1.1rem;">SDG Research Snap</h4></div></div>
-          <div class="news-content"><div><span class="badge-content-type type-article">📰 ARTICLE</span>
+          <div class="news-content"><div><span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">BS Tourism Management</span><h3 class="news-title">Every Study. A Goal. An Impact.</h3><p class="news-excerpt">BS Tourism Management students connect their proposed studies to the Sustainable Development Goals through the SDG Research Snap, one of the activities under SDG SPOT @ RDC.</p><details><summary>Read full story</summary><p class="news-excerpt">The activity advances SDG 4: Quality Education by strengthening research competencies; SDG 9: Industry, Innovation and Infrastructure by encouraging innovative and evidence-based solutions; SDG 16: Peace, Justice and Strong Institutions by promoting ethical and responsible research; and SDG 17: Partnerships for the Goals by strengthening collaboration among students, faculty members, and the RDC.</p></details></div></div>
         </article>
 
-<article class="news-card" data-content-type="article" id="event-sdg-spot-launch">
+<article class="news-card" data-content-type="event" id="event-sdg-spot-launch">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/sdg-spot-1.jpg" alt="SDG SPOT @ RDC: Research for the Goals - Pick a Goal. Raise Your Flag. Make Your Impact." class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1482,7 +1498,7 @@
           </div>
           <div class="news-content">
             <div>
-              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">Research for the Goals</span>
               <h3 class="news-title">Pick a Goal. Raise Your Flag. Make Your Impact.</h3>
               <p class="news-excerpt">The SDG SPOT @ RDC: Research for the Goals officially came to life through its soft opening on August 28, 2026, in front of the Research and Development Center. Students, employees, and alumni joined by choosing an SDG to support, raising its flaglet, and capturing their commitment at the SDG Corner.</p>
@@ -1526,7 +1542,7 @@
           </div>
         </article>
 
-<article class="news-card" data-content-type="article" id="event-cbcp-ust-collab">
+<article class="news-card" data-content-type="event" id="event-cbcp-ust-collab">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/1.jpg" alt="CBCP-UST Collaborative Project" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1538,7 +1554,7 @@
           </div>
           <div class="news-content">
             <div>
-              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">MCNP-ISAP RDC</span>
               <h3 class="news-title">RDC Joins CBCP-UST Collaborative Project on Catholic Christianity</h3>
               <p class="news-excerpt">The MCNP-ISAP Research and Development Center, led by Research Director Ryan C. Fontanilla, participated in the CBCP and University of Santo Tomas project at the Archbishop's Residence in Tuguegarao City.</p>
@@ -1560,7 +1576,7 @@
           </div>
         </article>
 
-<article class="news-card" data-content-type="article" id="event-student-stats-28th">
+<article class="news-card" data-content-type="event" id="event-student-stats-28th">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/stats-awards-2.jpg" alt="28th Philippine Statistics Quiz Bee" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1572,7 +1588,7 @@
           </div>
           <div class="news-content">
             <div>
-              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">Statistics Quiz Bee</span>
               <h3 class="news-title">MCNP and ISAP Students Excel in the 28th Philippine Statistics Quiz Bee</h3>
               <p class="news-excerpt">Nathaniel M. Acacio of ISAP won first place in the Quiz Bee. Ma. Julianne Tabbu of MCNP placed third and Althea Balanag of ISAP placed fifth in the Digital Poster Making Contest.</p>
@@ -1589,7 +1605,7 @@
           </div>
         </article>
 
-<article class="news-card" data-content-type="article" id="event-inst-quiz-bee">
+<article class="news-card" data-content-type="event" id="event-inst-quiz-bee">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/inst-quizbee-1.jpg" alt="Institutional Statistics Quiz Bee Winners" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1601,7 +1617,7 @@
           </div>
           <div class="news-content">
             <div>
-              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">Quiz Bee Winners</span>
               <h3 class="news-title">Congratulations to the Winners of the Institutional Statistics Quiz Bee</h3>
               <p class="news-excerpt">ISAP champion Jaylord S. Victorio was joined by Nathaniel Acacio and Jasper S. Catulin. MCNP champion Sharmelyn T. Torres was joined by Maxine Alipio and Jenieva M. Catawe.</p>
@@ -1619,7 +1635,7 @@
           </div>
         </article>
 
-<article class="news-card" data-content-type="article" id="event-fontanilla-tejada-collab">
+<article class="news-card" data-content-type="event" id="event-fontanilla-tejada-collab">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/fontanilla-tejada-1.jpg" alt="Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada Participate in Collaborative Study" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1631,7 +1647,7 @@
           </div>
           <div class="news-content">
             <div>
-              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Research Collaboration</span>
               <h3 class="news-title">Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada Participate in Collaborative Study</h3>
               <p class="news-excerpt"><strong>Research Director Ryan C. Fontanilla</strong> and <strong>IT Dean Engr. Myke Albert Tejada</strong> represented MCNP and ISAP at the Archdiocese of Tuguegarao meeting for the CBCP-UST initiative, "Lights and Shadows on the Present State of Catholic Christianity in the Philippines toward Becoming a Synodal Church."</p>
@@ -1650,7 +1666,7 @@
           </div>
         </article>
 
-<article class="news-card" data-content-type="article" id="event-rdafest-champion-2024">
+<article class="news-card" data-content-type="event" id="event-rdafest-champion-2024">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/rdafest-champion-1.jpg" alt="Region 2 Emerges as Overall Champion - 2024 Regional Data Festival" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1662,7 +1678,7 @@
           </div>
           <div class="news-content">
             <div>
-              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">RDaFest 2024</span>
               <h3 class="news-title">Region 2 Emerges as Overall Champion</h3>
               <p class="news-excerpt">Representing Cagayan Valley, delegates from USLT, MCNP, SFC, QSU Cabarroguis, and SMU secured the Overall Champion title at the 2024 Regional Data Festival for the North Luzon Cluster held at Subic Bay Travelers Hotel and Event Center in Subic, Zambales.</p>
@@ -1676,7 +1692,7 @@
           </div>
         </article>
 
-<article class="news-card" data-content-type="article" id="event-student-stats-awards">
+<article class="news-card" data-content-type="event" id="event-student-stats-awards">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/stats-awards-1.jpg" alt="MCNP and ISAP Students Receive Statistics Month Awards" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1688,7 +1704,7 @@
           </div>
           <div class="news-content">
             <div>
-              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-admin" style="margin-bottom: 0.5rem; display: inline-block;">Student Awards</span>
               <h3 class="news-title">MCNP and ISAP Students Receive Statistics Month Awards</h3>
               <p class="news-excerpt">Bryan Marantan placed third, John Lloyd Angui placed second, and Peter John F. Bosi placed second in the Digital Poster Making Contest held at People's Gymnasium, Tuguegarao City.</p>
@@ -1705,7 +1721,7 @@
           </div>
         </article>
 
-<article class="news-card" data-content-type="article" id="event-lapus-rdafest-2024">
+<article class="news-card" data-content-type="event" id="event-lapus-rdafest-2024">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/lapus-rdafest-1.jpg" alt="Wendy Mae G. Lapus Represents ISAP at Regional Data Festival" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1717,7 +1733,7 @@
           </div>
           <div class="news-content">
             <div>
-              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-isap" style="margin-bottom: 0.5rem; display: inline-block;">RDaFest 2024</span>
               <h3 class="news-title">Wendy Mae G. Lapus Represents ISAP at Regional Data Festival</h3>
               <p class="news-excerpt">Ms. Lapus presented "A Relationship Study between Job Demands, Resources, and Personnel Motivation in HEIs: The Case of the International School of Asia and the Pacific" at the North Luzon Regional Data Festival held at Subic Bay Travelers Hotel and Event Center, Subic Bay Freeport Zone.</p>
@@ -1732,7 +1748,7 @@
           </div>
         </article>
 
-<article class="news-card" data-content-type="article" id="event-infographics-contest">
+<article class="news-card" data-content-type="event" id="event-infographics-contest">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/infographics-4.jpg" alt="MCNP and ISAP Digital Infographics Making Contest" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
             <div class="news-thumb-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); pointer-events: none;"></div>
@@ -1744,7 +1760,7 @@
           </div>
           <div class="news-content">
             <div>
-              <span class="badge-content-type type-article">📰 ARTICLE</span>
+              <span class="badge-content-type type-event">📅 EVENT</span>
               <span class="dropdown-badge badge-mcnp" style="margin-bottom: 0.5rem; display: inline-block;">Infographics Contest</span>
               <h3 class="news-title">MCNP and ISAP Conduct Digital Infographics Making Contest</h3>
               <p class="news-excerpt">During the 35th Statistics Month Celebration, John Lloyd Angui was named champion, Mark Lester Sandoval placed second, and Ma. Julianne Tabbu placed third at Computer Laboratory B in Peñablanca, Cagayan.</p>
@@ -1760,23 +1776,7 @@
             </div>
           </div>
         </article>
-          </div>
-        </section>
 
-        <!-- ========================================================
-             SECTION 2: EVENTS & COLLOQUIUMS
-             ======================================================== -->
-        <section id="eventsSection" class="content-sub-section" style="margin-bottom: 3.5rem; display: none;" aria-label="Events and Workshops">
-          <div id="eventsHeaderBanner" class="news-sub-header event-header">
-            <div>
-              <span class="section-tag" style="background: rgba(30, 94, 168, 0.1); color: var(--isap-blue); border-color: rgba(30, 94, 168, 0.25);">📅 Campus Calendar</span>
-              <h3 style="font-size: 1.45rem; font-weight: 800; color: #0f172a; margin: 0.3rem 0 0.2rem;">Events, Workshops &amp; Colloquiums</h3>
-              <p style="color: #64748b; font-size: 0.88rem; margin: 0;">Scheduled research conferences, capability-building seminars, faculty workshops, and institutional assemblies.</p>
-            </div>
-            <span style="font-size: 0.8rem; font-weight: 700; color: var(--isap-blue); background: rgba(30, 94, 168, 0.08); padding: 0.25rem 0.75rem; border-radius: 999px;">13 Events Documented</span>
-          </div>
-
-          <div class="news-grid" id="eventsGrid" style="margin-bottom: 2.5rem;" aria-label="Events and workshops">
 <article class="news-card" data-content-type="event" id="event-data-skills">
           <div class="news-thumbnail news-thumb-photo" style="position: relative; height: 210px; overflow: hidden; background: #0f172a;">
             <img src="upload/health-research-analytics-1.jpg" alt="Training on Data Analytics and Data Presentation for Health Research - Sep 17–18, 2026" class="news-thumb-bg" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block;" loading="eager">
@@ -3123,7 +3123,7 @@
     var searchQuery = '';
 
     
-    window.currentContentView = 'articles'; // default view: articles
+    window.currentContentView = 'all'; // default view: articles
 
     window.switchContentView = function(view, smoothScroll) {
       window.currentContentView = view;
@@ -3185,7 +3185,6 @@
 
       var countEl = document.getElementById('eventCountTotal');
       if (countEl) countEl.textContent = visibleCount;
-    }
     }
 
     filterBtns.forEach(function (btn) {
@@ -3269,7 +3268,7 @@
         }
       } else {
         // Default to articles view
-        if (window.switchContentView) window.switchContentView('articles', false);
+        if (window.switchContentView) window.switchContentView('all', false);
       }
     }
 
