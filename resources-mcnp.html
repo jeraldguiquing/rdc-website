@@ -428,6 +428,41 @@
   <!-- Top Institutional Bar -->
   <header class="topbar">
     <div class="container">
+      <!-- FILTER PER COURSE CARD -->
+      <div class="course-filter-card">
+        <div class="course-filter-header">
+          <span class="course-filter-label"><i class="fa-solid fa-graduation-cap"></i> Filter Per Course</span>
+          <span class="course-filter-count" id="visibleDocCount">All 5 allied health programs in curation</span>
+        </div>
+        <div class="course-pills-wrap" role="toolbar" aria-label="Course Filter Options">
+          
+            <button class="course-pill active" data-course="all" type="button">
+              <i class="fa-solid fa-graduation-cap"></i> <span>All MCNP Health Courses</span>
+            </button>
+          
+            <button class="course-pill" data-course="pharmacy" type="button">
+              <i class="fa-solid fa-pills"></i> <span>BS Pharmacy</span>
+            </button>
+          
+            <button class="course-pill" data-course="nursing" type="button">
+              <i class="fa-solid fa-stethoscope"></i> <span>BS Nursing</span>
+            </button>
+          
+            <button class="course-pill" data-course="mls" type="button">
+              <i class="fa-solid fa-flask-vial"></i> <span>BS MedTech / MLS</span>
+            </button>
+          
+            <button class="course-pill" data-course="radtech" type="button">
+              <i class="fa-solid fa-x-ray"></i> <span>BS RadTech</span>
+            </button>
+          
+            <button class="course-pill" data-course="pt" type="button">
+              <i class="fa-solid fa-person-walking"></i> <span>BS Physical Therapy</span>
+            </button>
+          
+        </div>
+      </div>
+
       <div class="topbar-info">
         <span>📍 Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
         <span>✉️ <a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
@@ -655,7 +690,7 @@
           Content Coming Soon
         </h3>
         <p style="color: #64748b; font-size: 1.05rem; line-height: 1.75; max-width: 620px; margin: 0 auto 2rem;">
-          The official research documentation, symposium media, and laboratory defense photo archives for the <strong>Medical Colleges of Northern Philippines (MCNP)</strong> Allied Health programs (Nursing, Radiologic Technology, Medical Laboratory Science, Pharmacy, and Physical Therapy) are currently being curated and will be published here soon.
+          The official research documentation, symposium media, and laboratory defense photo archives for <strong id="soonMcnpCourseTarget">the Medical Colleges of Northern Philippines (MCNP) Allied Health programs (Nursing, RadTech, MLS, Pharmacy, and Physical Therapy)</strong> are currently being curated and will be published here soon.
         </p>
         <div style="display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap;">
           <a href="resources-isap.html" class="btn btn-sm btn-primary" style="background: #7a1f2d; border-color: #7a1f2d; color: #fff; font-weight: 700; padding: 0.5rem 1.25rem;">
@@ -770,39 +805,32 @@
     let currentCategoryFilter = 'all';
 
     function applyResourceFilters() {
-      const items = document.querySelectorAll('.doc-item');
-      let visibleCount = 0;
+      const courseNames = {
+        'all': 'the Medical Colleges of Northern Philippines (MCNP) Allied Health programs (Nursing, RadTech, MLS, Pharmacy, and Physical Therapy)',
+        'pharmacy': 'BS Pharmacy',
+        'nursing': 'BS Nursing',
+        'mls': 'BS Medical Laboratory Science (MedTech)',
+        'radtech': 'BS Radiologic Technology',
+        'pt': 'BS Physical Therapy'
+      };
 
-      items.forEach(item => {
-        const rawCourses = item.getAttribute('data-courses') || '';
-        const courseList = rawCourses.trim().split(/\s+/);
-        const itemCat = item.getAttribute('data-category') || 'all';
-
-        const matchesCourse = (currentCourseFilter === 'all') || 
-                              courseList.includes(currentCourseFilter) || 
-                              courseList.includes('all');
-        const matchesCat = (currentCategoryFilter === 'all') || 
-                           (itemCat === currentCategoryFilter);
-
-        if (matchesCourse && matchesCat) {
-          item.style.display = 'block';
-          visibleCount++;
-        } else {
-          item.style.display = 'none';
-          item.classList.remove('open');
-          const trigger = item.querySelector('.doc-title-trigger');
-          if (trigger) trigger.setAttribute('aria-expanded', 'false');
-        }
-      });
+      const courseLabels = {
+        'all': 'All 5 allied health programs in curation',
+        'pharmacy': 'BS Pharmacy archives in curation',
+        'nursing': 'BS Nursing archives in curation',
+        'mls': 'BS MedTech / MLS archives in curation',
+        'radtech': 'BS RadTech archives in curation',
+        'pt': 'BS Physical Therapy archives in curation'
+      };
 
       const countEl = document.getElementById('visibleDocCount');
       if (countEl) {
-        countEl.textContent = visibleCount + ' topic' + (visibleCount === 1 ? '' : 's') + ' available';
+        countEl.textContent = courseLabels[currentCourseFilter] || 'Selected health program in curation';
       }
 
-      const emptyMsg = document.getElementById('docEmptyState');
-      if (emptyMsg) {
-        emptyMsg.style.display = (visibleCount === 0) ? 'block' : 'none';
+      const targetEl = document.getElementById('soonMcnpCourseTarget');
+      if (targetEl) {
+        targetEl.textContent = courseNames[currentCourseFilter] || currentCourseFilter.toUpperCase();
       }
     }
 

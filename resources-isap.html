@@ -428,6 +428,69 @@
   <!-- Top Institutional Bar -->
   <header class="topbar">
     <div class="container">
+      <!-- FILTER PER COURSE CARD -->
+      <div class="course-filter-card">
+        <div class="course-filter-header">
+          <span class="course-filter-label"><i class="fa-solid fa-graduation-cap"></i> Filter Per Course</span>
+          <span class="course-filter-count" id="visibleDocCount">All 12 multidisciplinary programs in curation</span>
+        </div>
+        <div class="course-pills-wrap" role="toolbar" aria-label="Course Filter Options">
+          
+            <button class="course-pill active" data-course="all" type="button">
+              <i class="fa-solid fa-graduation-cap"></i> <span>All ISAP Courses</span>
+            </button>
+          
+            <button class="course-pill" data-course="criminology" type="button">
+              <i class="fa-solid fa-scale-balanced"></i> <span>BS Criminology</span>
+            </button>
+          
+            <button class="course-pill" data-course="it" type="button">
+              <i class="fa-solid fa-laptop-code"></i> <span>BS Information Technology</span>
+            </button>
+          
+            <button class="course-pill" data-course="computer-eng" type="button">
+              <i class="fa-solid fa-microchip"></i> <span>BS Computer Engineering</span>
+            </button>
+          
+            <button class="course-pill" data-course="tourism" type="button">
+              <i class="fa-solid fa-plane-departure"></i> <span>BS Tourism Management</span>
+            </button>
+          
+            <button class="course-pill" data-course="hospitality" type="button">
+              <i class="fa-solid fa-utensils"></i> <span>BS Hospitality Management</span>
+            </button>
+          
+            <button class="course-pill" data-course="social-work" type="button">
+              <i class="fa-solid fa-hand-holding-heart"></i> <span>BS Social Work</span>
+            </button>
+          
+            <button class="course-pill" data-course="psychology" type="button">
+              <i class="fa-solid fa-brain"></i> <span>BS Psychology</span>
+            </button>
+          
+            <button class="course-pill" data-course="bsed" type="button">
+              <i class="fa-solid fa-book-open"></i> <span>Secondary Education (BSED)</span>
+            </button>
+          
+            <button class="course-pill" data-course="bped" type="button">
+              <i class="fa-solid fa-medal"></i> <span>Physical Education (BPED)</span>
+            </button>
+          
+            <button class="course-pill" data-course="accountancy" type="button">
+              <i class="fa-solid fa-calculator"></i> <span>BS Accountancy</span>
+            </button>
+          
+            <button class="course-pill" data-course="customs" type="button">
+              <i class="fa-solid fa-ship"></i> <span>Customs Administration</span>
+            </button>
+          
+            <button class="course-pill" data-course="business" type="button">
+              <i class="fa-solid fa-briefcase"></i> <span>Business Administration</span>
+            </button>
+          
+        </div>
+      </div>
+
       <div class="topbar-info">
         <span>📍 Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
         <span>✉️ <a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
@@ -655,7 +718,7 @@
           Content Coming Soon
         </h3>
         <p style="color: #64748b; font-size: 1.05rem; line-height: 1.75; max-width: 620px; margin: 0 auto 2rem;">
-          The official research documentation, symposium media, and department defense photo archives for the <strong>International School of Asia and the Pacific (ISAP)</strong> multidisciplinary programs (Criminology, Information Technology, Computer Engineering, Tourism &amp; Hospitality, Social Work, Psychology, Education, Accountancy, Customs Administration, and Business) are currently being curated and will be published here soon.
+          The official research documentation, symposium media, and department defense photo archives for <strong id="soonCourseTarget">the International School of Asia and the Pacific (ISAP) multidisciplinary programs (Criminology, IT, Tourism, Education, Business, Customs, and Social Work)</strong> are currently being curated and will be published here soon.
         </p>
         <div style="display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap;">
           <a href="resources-mcnp.html" class="btn btn-sm btn-primary" style="background: #1e5ea8; border-color: #1e5ea8; color: #fff; font-weight: 700; padding: 0.5rem 1.25rem;">
@@ -770,39 +833,46 @@
     let currentCategoryFilter = 'all';
 
     function applyResourceFilters() {
-      const items = document.querySelectorAll('.doc-item');
-      let visibleCount = 0;
+      const courseNames = {
+        'all': 'the International School of Asia and the Pacific (ISAP) multidisciplinary programs (Criminology, IT, Engineering, Tourism, Hospitality, Education, Business, Customs, and Social Work)',
+        'criminology': 'BS Criminology',
+        'it': 'BS Information Technology',
+        'computer-eng': 'BS Computer Engineering',
+        'tourism': 'BS Tourism Management',
+        'hospitality': 'BS Hospitality Management',
+        'social-work': 'BS Social Work',
+        'psychology': 'BS Psychology',
+        'bsed': 'Secondary Education (BSED)',
+        'bped': 'Physical Education (BPED)',
+        'accountancy': 'BS Accountancy',
+        'customs': 'Customs Administration',
+        'business': 'Business Administration'
+      };
 
-      items.forEach(item => {
-        const rawCourses = item.getAttribute('data-courses') || '';
-        const courseList = rawCourses.trim().split(/\s+/);
-        const itemCat = item.getAttribute('data-category') || 'all';
-
-        const matchesCourse = (currentCourseFilter === 'all') || 
-                              courseList.includes(currentCourseFilter) || 
-                              courseList.includes('all');
-        const matchesCat = (currentCategoryFilter === 'all') || 
-                           (itemCat === currentCategoryFilter);
-
-        if (matchesCourse && matchesCat) {
-          item.style.display = 'block';
-          visibleCount++;
-        } else {
-          item.style.display = 'none';
-          item.classList.remove('open');
-          const trigger = item.querySelector('.doc-title-trigger');
-          if (trigger) trigger.setAttribute('aria-expanded', 'false');
-        }
-      });
+      const courseLabels = {
+        'all': 'All 12 multidisciplinary programs in curation',
+        'criminology': 'BS Criminology archives in curation',
+        'it': 'BS Information Technology archives in curation',
+        'computer-eng': 'BS Computer Engineering archives in curation',
+        'tourism': 'BS Tourism Management archives in curation',
+        'hospitality': 'BS Hospitality Management archives in curation',
+        'social-work': 'BS Social Work archives in curation',
+        'psychology': 'BS Psychology archives in curation',
+        'bsed': 'Secondary Education (BSED) archives in curation',
+        'bped': 'Physical Education (BPED) archives in curation',
+        'accountancy': 'BS Accountancy archives in curation',
+        'customs': 'Customs Administration archives in curation',
+        'business': 'Business Administration archives in curation'
+      };
 
       const countEl = document.getElementById('visibleDocCount');
       if (countEl) {
-        countEl.textContent = visibleCount + ' topic' + (visibleCount === 1 ? '' : 's') + ' available';
+        countEl.textContent = courseLabels[currentCourseFilter] || 'Selected course in curation';
       }
 
-      const emptyMsg = document.getElementById('docEmptyState');
-      if (emptyMsg) {
-        emptyMsg.style.display = (visibleCount === 0) ? 'block' : 'none';
+      const targetEl = document.getElementById('soonCourseTarget');
+      if (targetEl) {
+        targetEl.textContent = courseNames[currentCourseFilter] || currentCourseFilter.toUpperCase();
       }
     }
 
