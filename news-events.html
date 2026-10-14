@@ -1952,7 +1952,12 @@
           </div>
 
           <div id="articlesGrid" style="margin-bottom: 2.5rem;" aria-label="Published research articles">
-                    <article class="article-accordion-card" id="article-rdc-digital-platform">
+          <article class="article-accordion-card" id="article-rdc-digital-platform">
+            <!-- Article Preview Banner Image -->
+            <div style="width: 100%; max-height: 240px; overflow: hidden; background: #0b1f33; border-bottom: 1px solid #e2e8f0; cursor: pointer;" onclick="openArticleModal('article-rdc-digital-platform');" title="Click to read full article">
+              <img src="upload/rdc-website-platform.png" alt="MCNP–ISAP RDC Digital Platform" style="width: 100%; height: 240px; object-fit: cover; object-position: top center; display: block; transition: transform 0.35s ease;" loading="lazy" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+
             <!-- Clickable Header: CARD PREVIEW (Click to open full article modal or expand inline) -->
             <div class="article-accordion-header" onclick="openArticleModal('article-rdc-digital-platform');" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openArticleModal('article-rdc-digital-platform');}" aria-expanded="false" id="header-article-rdc-digital-platform" style="cursor: pointer;">
               <div class="article-title-wrap">
@@ -1979,11 +1984,20 @@
               </div>
             </div>
 
-            <!-- The Whole Article (Expands on Click, Zero Images) -->
+            <!-- The Whole Article (Expands on Click) -->
             <div class="article-accordion-body" id="body-article-rdc-digital-platform">
 
               <!-- Complete Article Body (Clean, Justified Editorial Prose) -->
               <div class="article-content-body" style="padding: 2rem 2.25rem 1.5rem;">
+                <!-- Featured Article Hero Image -->
+                <figure class="article-featured-hero" style="margin: 0 0 2rem 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 16px rgba(0,0,0,0.06); background: #0b1f33;">
+                  <img src="upload/rdc-website-platform.png" alt="MCNP–ISAP Research and Development Center Digital Platform" style="width: 100%; height: auto; max-height: 520px; object-fit: cover; object-position: top center; display: block;" loading="lazy">
+                  <figcaption style="padding: 0.75rem 1.25rem; font-size: 0.84rem; color: #475569; background: #f8fafc; border-top: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+                    <span>🌐 <strong>Digital Platform Launch:</strong> Official institutional website of the MCNP–ISAP Research and Development Center (RDC)</span>
+                    <a href="https://jeraldguiquing.github.io/rdc-website/" target="_blank" rel="noopener noreferrer" style="font-weight: 700; color: var(--mcnp-green, #0d5c3a); text-decoration: none; font-size: 0.8rem;">Visit Website ↗</a>
+                  </figcaption>
+                </figure>
+
                 <p class="article-narrative-p">The Research and Development Center (RDC) of the Medical Colleges of Northern Philippines (MCNP) and the International School of Asia and the Pacific (ISAP) has developed an institutional website to centralize research-related information, publications, resources, announcements, and institutional activities in one accessible online platform.</p>
 
                 <p class="article-narrative-p">The initiative represents a step toward digital innovation in the presentation and dissemination of institutional research information. Through the website, students, faculty members, and other stakeholders can access information about the RDC's research initiatives, research resources, publications, news, events, and research opportunities.</p>
