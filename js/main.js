@@ -2949,20 +2949,7 @@ window.trainingCalendarEvents = [
     venue: '📍 MCNP Nursing Amphitheater / AVR 1',
     lead: 'College of Nursing & RDC Defense Committee',
     category: 'mcnp ethics'
-  },
-  {
-    id: 1,
-    dates: ['2026-10-23', '2026-10-24'],
-    displayDate: 'October 23–24, 2026',
-    pillText: 'MCNP Health Sciences',
-    pillClass: 'cal-pill-mcnp',
-    shortTag: 'Biostatistics',
-    title: 'Advanced Biostatistics & Quantitative Modeling with SPSS and Jamovi',
-    desc: 'Hands-on statistical workshop on multivariate regression, survival curve analysis, parametric vs. non-parametric hypothesis testing, and statistical clearance preparation (Form 011).',
-    participants: 'Faculty Researchers & Clinical Advisers (Nursing, Pharmacy, Radiologic Technology, Medical Laboratory Science)',
-    venue: '📍 MCNP Computer Lab B & Hybrid Zoom',
-    lead: 'Institutional Biostatistics Unit & Guest Data Scientist',
-    category: 'mcnp stats'
+
   },
   {
     id: 112,
