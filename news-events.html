@@ -1925,11 +1925,11 @@
           <div class="news-view-tabs" role="tablist" aria-label="News and Events Content Switcher">
             <button type="button" class="news-view-tab-btn active" data-view="all" id="viewTabAll" role="tab" aria-selected="true" onclick="switchContentView('all');">
               <span> View All Content</span>
-              <span class="tab-count" id="countAllTab">31</span>
+              <span class="tab-count" id="countAllTab">32</span>
             </button>
             <button type="button" class="news-view-tab-btn" data-view="articles" id="viewTabArticles" role="tab" aria-selected="false" onclick="switchContentView('articles');">
               <span> Articles</span>
-              <span class="tab-count" id="countArticlesTab">1</span>
+              <span class="tab-count" id="countArticlesTab">2</span>
             </button>
             <button type="button" class="news-view-tab-btn" data-view="events" id="viewTabEvents" role="tab" aria-selected="false" onclick="switchContentView('events');">
               <span> Events &amp; Highlights</span>
@@ -1948,13 +1948,188 @@
               <h3 style="font-size: 1.55rem; font-weight: 800; color: #0f172a; margin: 0.35rem 0 0.25rem;">Research Articles &amp; Feature Stories</h3>
               <p style="color: #64748b; font-size: 0.9rem; margin: 0;">In-depth journalistic narratives, research milestone stories, and institutional coverage across MCNP &amp; ISAP.</p>
             </div>
-            <span style="font-size: 0.8rem; font-weight: 700; color: var(--mcnp-green); background: rgba(13, 92, 58, 0.08); padding: 0.25rem 0.8rem; border-radius: 999px;">1 Published Article</span>
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--mcnp-green); background: rgba(13, 92, 58, 0.08); padding: 0.25rem 0.8rem; border-radius: 999px;">2 Published Articles</span>
           </div>
 
           <div id="articlesGrid" style="margin-bottom: 2.5rem;" aria-label="Published research articles">
-          <article class="article-accordion-card" id="article-37th-statistics-month-celebration">
+                    <article class="article-accordion-card" id="article-rdc-digital-platform">
+            <!-- Clickable Header: CARD PREVIEW (Click to open full article modal or expand inline) -->
+            <div class="article-accordion-header" onclick="openArticleModal('article-rdc-digital-platform');" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openArticleModal('article-rdc-digital-platform');}" aria-expanded="false" id="header-article-rdc-digital-platform" style="cursor: pointer;">
+              <div class="article-title-wrap">
+                <div class="article-accordion-meta">
+                  <span class="badge-editorial-type">OFFICIAL ARTICLE</span>
+                  <span class="badge-editorial-topic">Digital Innovation &amp; Infrastructure</span>
+                  <span class="article-meta-date" style="font-size: 0.8rem; color: #64748b; font-weight: 600;">📅 October 14, 2026</span>
+                  <span style="font-size: 0.8rem; color: #64748b; font-weight: 600;">&bull; ⏱️ 3 min read</span>
+                </div>
+                <h3 class="article-accordion-title">
+                  MCNP–ISAP Research and Development Center Develops Digital Platform to Improve Access to Research Information
+                </h3>
+                <p style="font-size: 0.88rem; color: #475569; margin: 0.5rem 0 0.45rem; line-height: 1.55; text-align: justify; text-justify: inter-word;">
+                  The Research and Development Center (RDC) of the Medical Colleges of Northern Philippines (MCNP) and the International School of Asia and the Pacific (ISAP) has developed an institutional website to centralize research-related information, publications, resources, announcements, and institutional activities in one accessible online platform.
+                </p>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 0.45rem; align-items: flex-end; flex-shrink: 0;">
+                <button type="button" class="article-expand-toggle" onclick="event.stopPropagation(); openArticleModal('article-rdc-digital-platform');" style="cursor: pointer; border: none;" title="Open article card modal">
+                  <span class="toggle-text">📖 Read Full Article Card ↗</span>
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-white" onclick="event.stopPropagation(); toggleArticleAccordion('article-rdc-digital-platform');" style="font-size: 0.74rem; padding: 0.25rem 0.65rem; color: #475569; border-color: #cbd5e1;" title="Expand article inline on page">
+                  <span>▾ Expand on Page</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- The Whole Article (Expands on Click, Zero Images) -->
+            <div class="article-accordion-body" id="body-article-rdc-digital-platform">
+
+              <!-- Complete Article Body (Clean, Justified Editorial Prose) -->
+              <div class="article-content-body" style="padding: 2rem 2.25rem 1.5rem;">
+                <p class="article-narrative-p">The Research and Development Center (RDC) of the Medical Colleges of Northern Philippines (MCNP) and the International School of Asia and the Pacific (ISAP) has developed an institutional website to centralize research-related information, publications, resources, announcements, and institutional activities in one accessible online platform.</p>
+
+                <p class="article-narrative-p">The initiative represents a step toward digital innovation in the presentation and dissemination of institutional research information. Through the website, students, faculty members, and other stakeholders can access information about the RDC's research initiatives, research resources, publications, news, events, and research opportunities.</p>
+
+                <p class="article-narrative-p">By bringing these resources together in a centralized digital platform, the website aims to make research information more accessible and visible while supporting the RDC's institutional functions. It also provides a foundation for the continued development of online research information.</p>
+
+                <p class="article-narrative-p">The development of the RDC website demonstrates an effort to use digital technology to improve the organization and accessibility of institutional information. Its potential benefits include more convenient access to research-related resources, improved online visibility of research activities, and opportunities to expand digital services as institutional needs evolve.</p>
+
+                <p class="article-narrative-p">The initiative is primarily aligned with Sustainable Development Goal (SDG) 9: Industry, Innovation and Infrastructure, through its use of digital infrastructure to support institutional research services. It may also contribute to SDG 16: Peace, Justice and Strong Institutions by supporting the public accessibility of institutional information.</p>
+
+                <p class="article-narrative-p">In relation to the World University Rankings for Innovation (WURI), the website may be relevant to innovation in institutional practice and the potential scalability of digital services. Further documentation of implementation, actual utilization, and measurable outcomes would strengthen an assessment of its WURI relevance.</p>
+
+                <p class="article-narrative-p">The RDC website can serve as a continuing digital resource for presenting research-related information and institutional activities. Regular updates, the addition of research outputs, and the gradual improvement of its features can help sustain its usefulness to the academic community and other stakeholders.</p>
+
+                <p class="article-narrative-p">As the platform develops, monitoring website usage, gathering user feedback, and documenting the number of resources published may help the institution evaluate its effectiveness and identify opportunities for improvement.</p>
+
+                <p class="article-narrative-p">The development of the website reflects MCNP–ISAP RDC's initiative to strengthen its digital presence and provide a centralized point of access to institutional research information.</p>
+
+                <!-- Strategic Frameworks & Alignments -->
+                <section class="article-narrative-section">
+                  <h4 class="article-section-heading">
+                    <span>🏛️ RDC Strategic &amp; Global Framework Alignment</span>
+                  </h4>
+                  
+                  <div class="article-frameworks-grid">
+                    <div class="framework-card">
+                      <h5>🌐 UN Sustainable Development Goals</h5>
+                      <ul>
+                        <li><img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9" style="width: 18px; height: 18px; border-radius: 3px; vertical-align: text-bottom; margin-right: 0.35rem; display: inline-block;"><strong>SDG 9 (Industry, Innovation &amp; Infrastructure):</strong> Leverages digital infrastructure to modernize institutional research services, digital repositories, and technical information management.</li>
+                        <li><img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-16.png" alt="SDG 16" style="width: 18px; height: 18px; border-radius: 3px; vertical-align: text-bottom; margin-right: 0.35rem; display: inline-block;"><strong>SDG 16 (Peace, Justice &amp; Strong Institutions):</strong> Strengthens institutional transparency, open dissemination of scholarly work, and public accessibility of institutional information.</li>
+                        <li><img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png" alt="SDG 4" style="width: 18px; height: 18px; border-radius: 3px; vertical-align: text-bottom; margin-right: 0.35rem; display: inline-block;"><strong>SDG 4 (Quality Education):</strong> Delivers comprehensive access to research agendas, student research opportunities, journal publication repositories, and academic development resources.</li>
+                      </ul>
+                    </div>
+
+                    <div class="framework-card">
+                      <h5>💡 WURI Best Practices &amp; Scalability</h5>
+                      <p>
+                        In relation to the World University Rankings for Innovation (WURI), the platform addresses innovation in institutional practice and the potential scalability of digital services. Further documentation of implementation, actual utilization, and measurable outcomes will continue to strengthen institutional assessment and evidence-based reporting.
+                      </p>
+                    </div>
+
+                    <div class="framework-card" style="grid-column: 1 / -1;">
+                      <h5>🎯 RDC INNOVATES Agenda Alignment</h5>
+                      <div class="innovates-points-grid">
+                        <!-- NAVIGATE -->
+                        <div class="innovates-point-card">
+                          <div class="innovates-point-header">
+                            <img src="assets/agenda/agenda-3-navigate.png" alt="NAVIGATE Digital Innovation" class="innovates-point-thumb" loading="lazy">
+                            <div class="innovates-point-title">
+                              <span>Pillar 3</span>
+                              <strong>NAVIGATE Digital Innovation</strong>
+                            </div>
+                          </div>
+                          <p class="innovates-point-desc">
+                            Serves as the primary digital infrastructure centralizing institutional publications, interactive research calendars, and resource downloads.
+                          </p>
+                        </div>
+
+                        <!-- INSPIRE -->
+                        <div class="innovates-point-card">
+                          <div class="innovates-point-header">
+                            <img src="assets/agenda/agenda-1-inspire.png" alt="INSPIRE Research Culture" class="innovates-point-thumb" loading="lazy">
+                            <div class="innovates-point-title">
+                              <span>Pillar 1</span>
+                              <strong>INSPIRE Research Culture</strong>
+                            </div>
+                          </div>
+                          <p class="innovates-point-desc">
+                            Promotes research visibility, inspiring students and faculty members to engage actively in research initiatives and academic writing.
+                          </p>
+                        </div>
+
+                        <!-- OPERATIONALIZE -->
+                        <div class="innovates-point-card">
+                          <div class="innovates-point-header">
+                            <img src="assets/agenda/agenda-4-operationalize.png" alt="OPERATIONALIZE Utilization" class="innovates-point-thumb" loading="lazy">
+                            <div class="innovates-point-title">
+                              <span>Pillar 4</span>
+                              <strong>OPERATIONALIZE Utilization</strong>
+                            </div>
+                          </div>
+                          <p class="innovates-point-desc">
+                            Enhances research utilization by providing a frictionless gateway for students, faculty, and industry partners to access research outputs.
+                          </p>
+                        </div>
+
+                        <!-- STRENGTHEN -->
+                        <div class="innovates-point-card">
+                          <div class="innovates-point-header">
+                            <img src="assets/agenda/agenda-9-strengthen.png" alt="STRENGTHEN Performance" class="innovates-point-thumb" loading="lazy">
+                            <div class="innovates-point-title">
+                              <span>Pillar 10</span>
+                              <strong>STRENGTHEN Performance</strong>
+                            </div>
+                          </div>
+                          <p class="innovates-point-desc">
+                            Strengthens institutional performance monitoring through transparent tracking of research metrics, announcements, and milestones.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- Explore Platform & Institutional Note Section -->
+                <section class="article-narrative-section" style="border-top: 1px solid #e2e8f0; margin-top: 1.75rem; padding-top: 1.25rem; border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+                  <h4 class="article-section-heading">
+                    <span>🌐 Explore the Digital Platform</span>
+                  </h4>
+                  <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 0.85rem;">
+                    Explore the official MCNP–ISAP Research and Development Center website to access centralized publications, institutional agendas, research announcements, and digital resources:
+                  </p>
+                  <div class="article-links-strip" style="margin-bottom: 1.25rem;">
+                    <a href="https://jeraldguiquing.github.io/rdc-website/" target="_blank" rel="noopener noreferrer" class="article-source-btn" style="background: #0d5c3a; color: #ffffff; border-color: #0d5c3a;">
+                      <span>🌐 https://jeraldguiquing.github.io/rdc-website/ ↗</span>
+                    </a>
+                  </div>
+
+                  <!-- Institutional Note Callout Box -->
+                  <div style="background: #f8fafc; border-left: 4px solid #0d5c3a; padding: 0.95rem 1.2rem; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: #334155; line-height: 1.6;">
+                    <strong style="color: #0f172a; display: block; margin-bottom: 0.25rem;">📌 Institutional Note:</strong>
+                    The website's development and public availability are identifiable project outputs. Quantitative impact, user adoption, and long-term outcomes remain to be documented.
+                  </div>
+                </section>
+              </div>
+
+              <!-- Article Footer with Collapse Button -->
+              <footer class="article-editorial-footer">
+                <div style="font-size: 0.85rem; color: #64748b;">
+                  Published by the <strong>Research and Development Center (RDC)</strong> &bull; Medical Colleges of Northern Philippines &amp; International School of Asia and the Pacific
+                </div>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  <button type="button" onclick="window.printArticle ? window.printArticle('article-rdc-digital-platform') : window.print()" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; color: #334155; border-color: #cbd5e1;">
+                    🖨️ Print Article
+                  </button>
+                  <button type="button" onclick="toggleArticleAccordion('article-rdc-digital-platform', false)" class="btn btn-sm btn-gold" style="font-size: 0.78rem; font-weight: 700;">
+                    ▲ Collapse Article
+                  </button>
+                </div>
+              </footer>
+            </div>
+          </article>
+
+<article class="article-accordion-card" id="article-37th-statistics-month-celebration">
           <!-- Clickable Header: CARD PREVIEW (Click to open full article modal or expand inline) -->
-          <div class="article-accordion-header" onclick="openArticleModal();" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openArticleModal();}" aria-expanded="false" id="header-article-37th-statistics-month-celebration" style="cursor: pointer;">
+          <div class="article-accordion-header" onclick="openArticleModal('article-37th-statistics-month-celebration');" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openArticleModal('article-37th-statistics-month-celebration');}" aria-expanded="false" id="header-article-37th-statistics-month-celebration" style="cursor: pointer;">
             <div class="article-title-wrap">
               <div class="article-accordion-meta">
                 <span class="badge-editorial-type">OFFICIAL ARTICLE</span>
@@ -1970,7 +2145,7 @@
               </p>
             </div>
             <div style="display: flex; flex-direction: column; gap: 0.45rem; align-items: flex-end; flex-shrink: 0;">
-              <button type="button" class="article-expand-toggle" onclick="event.stopPropagation(); openArticleModal();" style="cursor: pointer; border: none;" title="Open article card modal">
+              <button type="button" class="article-expand-toggle" onclick="event.stopPropagation(); openArticleModal('article-37th-statistics-month-celebration');" style="cursor: pointer; border: none;" title="Open article card modal">
                 <span class="toggle-text"> Read Full Article Card ↗</span>
               </button>
               <button type="button" class="btn btn-sm btn-outline-white" onclick="event.stopPropagation(); toggleArticleAccordion('article-37th-statistics-month-celebration');" style="font-size: 0.74rem; padding: 0.25rem 0.65rem; color: #475569; border-color: #cbd5e1;" title="Expand article inline on page">
@@ -3674,16 +3849,16 @@
     <div class="event-modal article-modal-card">
       <div class="event-modal-head" style="background: linear-gradient(135deg, #0d5c3a 0%, #0b3c5d 100%); padding: 1.75rem 2rem 1.5rem; flex-shrink: 0;">
         <button class="event-modal-close" id="articleModalClose" aria-label="Close article modal">&times;</button>
-        <div class="event-modal-breadcrumb" style="color: rgba(255,255,255,0.8); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem;">
-          News &amp; Events &gt; Articles &amp; Editorials &gt; 37th Statistics Month
+        <div class="event-modal-breadcrumb" id="articleModalBreadcrumb" style="color: rgba(255,255,255,0.8); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem;">
+          News &amp; Events &gt; Articles &amp; Editorials &gt; RDC Digital Platform
         </div>
-        <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.6rem; flex-wrap: wrap;">
+        <div id="articleModalMeta" style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.6rem; flex-wrap: wrap;">
           <span style="background: #ffdf70; color: #1e3a2f; font-weight: 800; font-size: 0.72rem; padding: 0.22rem 0.65rem; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.03em;">📰 OFFICIAL ARTICLE</span>
-          <span style="color: rgba(255,255,255,0.92); font-size: 0.82rem; font-weight: 600;"> October 05, 2026</span>
-          <span style="color: rgba(255,255,255,0.75); font-size: 0.82rem;">&bull; ⏱️ 4 min read</span>
+          <span style="color: rgba(255,255,255,0.92); font-size: 0.82rem; font-weight: 600;">📅 October 14, 2026</span>
+          <span style="color: rgba(255,255,255,0.75); font-size: 0.82rem;">&bull; ⏱️ 3 min read</span>
         </div>
         <h2 class="event-modal-title" id="articleModalTitle" style="color: #ffffff; font-size: 1.35rem; line-height: 1.4; margin: 0; font-weight: 800;">
-           MCNP–ISAP Advances Statistical Literacy through Month-Long 37th Statistics Month Celebration
+          MCNP–ISAP Research and Development Center Develops Digital Platform to Improve Access to Research Information
         </h2>
       </div>
 
@@ -3692,37 +3867,38 @@
         <div style="display: flex; align-items: center; gap: 0.85rem; flex-wrap: wrap;">
           <div style="display: flex; align-items: center; gap: 0.4rem;">
             <span style="font-size: 0.74rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.03em;">SDG Alignment:</span>
-            <a href="sdg-overview.html?goal=4" target="_blank" rel="noopener" title="SDG 4: Quality Education" class="article-sdg-icon-link" style="width: 26px; height: 26px; display: inline-block;">
-              <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png" alt="SDG 4: Quality Education" class="article-sdg-icon-img" loading="lazy" style="width: 100%; height: 100%; border-radius: 3px; display: block;">
-            </a>
-            <a href="sdg-overview.html?goal=9" target="_blank" rel="noopener" title="SDG 9: Industry, Innovation and Infrastructure" class="article-sdg-icon-link" style="width: 26px; height: 26px; display: inline-block;">
-              <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9: Industry, Innovation and Infrastructure" class="article-sdg-icon-img" loading="lazy" style="width: 100%; height: 100%; border-radius: 3px; display: block;">
-            </a>
-            <a href="sdg-overview.html?goal=17" target="_blank" rel="noopener" title="SDG 17: Partnerships for the Goals" class="article-sdg-icon-link" style="width: 26px; height: 26px; display: inline-block;">
-              <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.png" alt="SDG 17: Partnerships for the Goals" class="article-sdg-icon-img" loading="lazy" style="width: 100%; height: 100%; border-radius: 3px; display: block;">
-            </a>
+            <div id="articleModalSdgs" style="display: inline-flex; align-items: center; gap: 0.4rem;">
+              <a href="sdg-overview.html?goal=9" target="_blank" rel="noopener" title="SDG 9: Industry, Innovation and Infrastructure" class="article-sdg-icon-link" style="width: 26px; height: 26px; display: inline-block;">
+                <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9: Industry, Innovation and Infrastructure" class="article-sdg-icon-img" loading="lazy" style="width: 100%; height: 100%; border-radius: 3px; display: block;">
+              </a>
+              <a href="sdg-overview.html?goal=16" target="_blank" rel="noopener" title="SDG 16: Peace, Justice and Strong Institutions" class="article-sdg-icon-link" style="width: 26px; height: 26px; display: inline-block;">
+                <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-16.png" alt="SDG 16: Peace, Justice and Strong Institutions" class="article-sdg-icon-img" loading="lazy" style="width: 100%; height: 100%; border-radius: 3px; display: block;">
+              </a>
+              <a href="sdg-overview.html?goal=4" target="_blank" rel="noopener" title="SDG 4: Quality Education" class="article-sdg-icon-link" style="width: 26px; height: 26px; display: inline-block;">
+                <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png" alt="SDG 4: Quality Education" class="article-sdg-icon-img" loading="lazy" style="width: 100%; height: 100%; border-radius: 3px; display: block;">
+              </a>
+            </div>
           </div>
           <div style="display: flex; align-items: center; gap: 0.35rem;">
             <span style="font-size: 0.74rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.03em;">RDC Agenda:</span>
-            <a href="rdc-agenda.html#pillar-inspire" target="_blank" rel="noopener" title="INSPIRE: Research Culture and Capability" class="article-agenda-icon-link" style="width: 26px; height: 26px; display: inline-block;">
-              <img src="assets/agenda/agenda-1-inspire.png" alt="INSPIRE" class="article-agenda-icon-img" loading="lazy">
-            </a>
-            <a href="rdc-agenda.html#pillar-navigate" target="_blank" rel="noopener" title="NAVIGATE: Digital Innovation and Infrastructure" class="article-agenda-icon-link" style="width: 26px; height: 26px; display: inline-block;">
-              <img src="assets/agenda/agenda-3-navigate.png" alt="NAVIGATE" class="article-agenda-icon-img" loading="lazy">
-            </a>
-            <a href="rdc-agenda.html#pillar-operationalize" target="_blank" rel="noopener" title="OPERATIONALIZE: Research Utilization and Innovation" class="article-agenda-icon-link" style="width: 26px; height: 26px; display: inline-block;">
-              <img src="assets/agenda/agenda-4-operationalize.png" alt="OPERATIONALIZE" class="article-agenda-icon-img" loading="lazy">
-            </a>
-            <a href="rdc-agenda.html#pillar-expand" target="_blank" rel="noopener" title="EXPAND: Partnerships and Global Research" class="article-agenda-icon-link" style="width: 26px; height: 26px; display: inline-block;">
-              <img src="assets/agenda/agenda-8-expand.png" alt="EXPAND" class="article-agenda-icon-img" loading="lazy">
-            </a>
-            <a href="rdc-agenda.html#pillar-strengthen" target="_blank" rel="noopener" title="STRENGTHEN: Education and Institutional Performance" class="article-agenda-icon-link" style="width: 26px; height: 26px; display: inline-block;">
-              <img src="assets/agenda/agenda-9-strengthen.png" alt="STRENGTHEN" class="article-agenda-icon-img" loading="lazy">
-            </a>
+            <div id="articleModalAgendas" style="display: inline-flex; align-items: center; gap: 0.35rem;">
+              <a href="rdc-agenda.html#pillar-navigate" target="_blank" rel="noopener" title="NAVIGATE: Digital Innovation and Infrastructure" class="article-agenda-icon-link" style="width: 26px; height: 26px; display: inline-block;">
+                <img src="assets/agenda/agenda-3-navigate.png" alt="NAVIGATE" class="article-agenda-icon-img" loading="lazy">
+              </a>
+              <a href="rdc-agenda.html#pillar-inspire" target="_blank" rel="noopener" title="INSPIRE: Research Culture and Capability" class="article-agenda-icon-link" style="width: 26px; height: 26px; display: inline-block;">
+                <img src="assets/agenda/agenda-1-inspire.png" alt="INSPIRE" class="article-agenda-icon-img" loading="lazy">
+              </a>
+              <a href="rdc-agenda.html#pillar-operationalize" target="_blank" rel="noopener" title="OPERATIONALIZE: Research Utilization and Innovation" class="article-agenda-icon-link" style="width: 26px; height: 26px; display: inline-block;">
+                <img src="assets/agenda/agenda-4-operationalize.png" alt="OPERATIONALIZE" class="article-agenda-icon-img" loading="lazy">
+              </a>
+              <a href="rdc-agenda.html#pillar-strengthen" target="_blank" rel="noopener" title="STRENGTHEN: Education and Institutional Performance" class="article-agenda-icon-link" style="width: 26px; height: 26px; display: inline-block;">
+                <img src="assets/agenda/agenda-9-strengthen.png" alt="STRENGTHEN" class="article-agenda-icon-img" loading="lazy">
+              </a>
+            </div>
           </div>
         </div>
         <div style="display: flex; gap: 0.5rem; align-items: center;">
-          <button type="button" class="btn btn-sm btn-outline-white" onclick="if(window.copyArticleLink){window.copyArticleLink('article-37th-statistics-month-celebration', this);}" style="font-size: 0.78rem; padding: 0.25rem 0.65rem; color: #334155; border-color: #cbd5e1; background: #fff;" title="Copy shareable link">
+          <button type="button" id="articleModalCopyBtn" class="btn btn-sm btn-outline-white" onclick="if(window.copyArticleLink){window.copyArticleLink('article-rdc-digital-platform', this);}" style="font-size: 0.78rem; padding: 0.25rem 0.65rem; color: #334155; border-color: #cbd5e1; background: #fff;" title="Copy shareable link">
              Copy Link
           </button>
           <button type="button" onclick="window.printArticle ? window.printArticle() : window.print()" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; padding: 0.25rem 0.65rem; color: #334155; border-color: #cbd5e1; background: #fff;" title="Print this article">
@@ -4098,16 +4274,99 @@
 
     var articleOverlay = document.getElementById('articleModalOverlay');
     var articleCloseBtn = document.getElementById('articleModalClose');
+    var currentActiveArticleId = 'article-rdc-digital-platform';
 
-    function openArticleModal() {
+    var ARTICLES_METADATA = {
+      'article-rdc-digital-platform': {
+        breadcrumb: 'News &amp; Events &gt; Articles &amp; Editorials &gt; RDC Digital Platform',
+        badge: '📰 OFFICIAL ARTICLE',
+        date: '📅 October 14, 2026',
+        readTime: '3 min read',
+        title: 'MCNP–ISAP Research and Development Center Develops Digital Platform to Improve Access to Research Information',
+        bodyId: 'body-article-rdc-digital-platform',
+        sdgs: [
+          { goal: '9', title: 'SDG 9: Industry, Innovation and Infrastructure', icon: 'assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png' },
+          { goal: '16', title: 'SDG 16: Peace, Justice and Strong Institutions', icon: 'assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-16.png' },
+          { goal: '4', title: 'SDG 4: Quality Education', icon: 'assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png' }
+        ],
+        agendas: [
+          { pillar: 'navigate', title: 'NAVIGATE: Digital Innovation and Infrastructure', icon: 'assets/agenda/agenda-3-navigate.png' },
+          { pillar: 'inspire', title: 'INSPIRE: Research Culture and Capability', icon: 'assets/agenda/agenda-1-inspire.png' },
+          { pillar: 'operationalize', title: 'OPERATIONALIZE: Research Utilization and Innovation', icon: 'assets/agenda/agenda-4-operationalize.png' },
+          { pillar: 'strengthen', title: 'STRENGTHEN: Education and Institutional Performance', icon: 'assets/agenda/agenda-9-strengthen.png' }
+        ]
+      },
+      'article-37th-statistics-month-celebration': {
+        breadcrumb: 'News &amp; Events &gt; Articles &amp; Editorials &gt; 37th Statistics Month',
+        badge: '📰 OFFICIAL ARTICLE',
+        date: '📅 October 05, 2026',
+        readTime: '4 min read',
+        title: 'MCNP–ISAP Advances Statistical Literacy through Month-Long 37th Statistics Month Celebration',
+        bodyId: 'body-article-37th-statistics-month-celebration',
+        sdgs: [
+          { goal: '4', title: 'SDG 4: Quality Education', icon: 'assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png' },
+          { goal: '9', title: 'SDG 9: Industry, Innovation and Infrastructure', icon: 'assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png' },
+          { goal: '17', title: 'SDG 17: Partnerships for the Goals', icon: 'assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.png' }
+        ],
+        agendas: [
+          { pillar: 'inspire', title: 'INSPIRE: Research Culture and Capability', icon: 'assets/agenda/agenda-1-inspire.png' },
+          { pillar: 'navigate', title: 'NAVIGATE: Digital Innovation and Infrastructure', icon: 'assets/agenda/agenda-3-navigate.png' },
+          { pillar: 'operationalize', title: 'OPERATIONALIZE: Research Utilization and Innovation', icon: 'assets/agenda/agenda-4-operationalize.png' },
+          { pillar: 'expand', title: 'EXPAND: Partnerships and Global Research', icon: 'assets/agenda/agenda-8-expand.png' },
+          { pillar: 'strengthen', title: 'STRENGTHEN: Education and Institutional Performance', icon: 'assets/agenda/agenda-9-strengthen.png' }
+        ]
+      }
+    };
+
+    function openArticleModal(articleId) {
       if (!articleOverlay) articleOverlay = document.getElementById('articleModalOverlay');
-      var src = document.getElementById('body-article-37th-statistics-month-celebration');
+      var id = articleId || 'article-rdc-digital-platform';
+      currentActiveArticleId = id;
+      var data = ARTICLES_METADATA[id] || ARTICLES_METADATA['article-rdc-digital-platform'];
+      if (!data) return;
+
+      var breadcrumbEl = document.getElementById('articleModalBreadcrumb');
+      if (breadcrumbEl && data.breadcrumb) breadcrumbEl.innerHTML = data.breadcrumb;
+
+      var titleEl = document.getElementById('articleModalTitle');
+      if (titleEl && data.title) titleEl.textContent = data.title;
+
+      var metaEl = document.getElementById('articleModalMeta');
+      if (metaEl) {
+        metaEl.innerHTML = '<span style="background: #ffdf70; color: #1e3a2f; font-weight: 800; font-size: 0.72rem; padding: 0.22rem 0.65rem; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.03em;">' + data.badge + '</span>' +
+          '<span style="color: rgba(255,255,255,0.92); font-size: 0.82rem; font-weight: 600;">' + data.date + '</span>' +
+          '<span style="color: rgba(255,255,255,0.75); font-size: 0.82rem;">&bull; ⏱️ ' + data.readTime + '</span>';
+      }
+
+      var sdgContainer = document.getElementById('articleModalSdgs');
+      if (sdgContainer && data.sdgs) {
+        sdgContainer.innerHTML = data.sdgs.map(function(s) {
+          return '<a href="sdg-overview.html?goal=' + s.goal + '" target="_blank" rel="noopener" title="' + s.title + '" class="article-sdg-icon-link" style="width: 26px; height: 26px; display: inline-block;">' +
+            '<img src="' + s.icon + '" alt="' + s.title + '" class="article-sdg-icon-img" loading="lazy" style="width: 100%; height: 100%; border-radius: 3px; display: block;"></a>';
+        }).join('');
+      }
+
+      var agendaContainer = document.getElementById('articleModalAgendas');
+      if (agendaContainer && data.agendas) {
+        agendaContainer.innerHTML = data.agendas.map(function(a) {
+          return '<a href="rdc-agenda.html#pillar-' + a.pillar + '" target="_blank" rel="noopener" title="' + a.title + '" class="article-agenda-icon-link" style="width: 26px; height: 26px; display: inline-block;">' +
+            '<img src="' + a.icon + '" alt="' + a.title + '" class="article-agenda-icon-img" loading="lazy"></a>';
+        }).join('');
+      }
+
+      var copyBtn = document.getElementById('articleModalCopyBtn');
+      if (copyBtn) {
+        copyBtn.setAttribute('onclick', "if(window.copyArticleLink){window.copyArticleLink('" + id + "', this);}");
+      }
+
+      var src = document.getElementById(data.bodyId);
       var dest = document.getElementById('articleModalContent');
       if (src && dest) {
         dest.innerHTML = src.innerHTML;
         var inlineFooter = dest.querySelector('.article-editorial-footer');
         if (inlineFooter) inlineFooter.style.display = 'none';
       }
+
       if (articleOverlay) {
         articleOverlay.classList.add('open');
         document.body.style.overflow = 'hidden';
@@ -4128,15 +4387,9 @@
     window.openArticleModal = openArticleModal;
     window.closeArticleModal = closeArticleModal;
 
-    function printArticle() {
-      if (!articleOverlay) articleOverlay = document.getElementById('articleModalOverlay');
-      var src = document.getElementById('body-article-37th-statistics-month-celebration');
-      var dest = document.getElementById('articleModalContent');
-      if (src && dest && (!dest.innerHTML || dest.innerHTML.trim() === '')) {
-        dest.innerHTML = src.innerHTML;
-        var inlineFooter = dest.querySelector('.article-editorial-footer');
-        if (inlineFooter) inlineFooter.style.display = 'none';
-      }
+    function printArticle(articleId) {
+      var id = articleId || currentActiveArticleId || 'article-rdc-digital-platform';
+      openArticleModal(id);
       document.body.classList.add('print-article-mode');
       setTimeout(function () {
         window.print();
@@ -4435,15 +4688,18 @@
       var eventParam = urlParams.get('event');
       var articleParam = urlParams.get('article');
       var hashVal = window.location.hash ? window.location.hash.substring(1) : '';
-      var isArticleTarget = (articleParam === 'article-37th-statistics-month-celebration' || hashVal === 'article-37th-statistics-month-celebration');
+      var isArticleTarget = (articleParam === 'article-rdc-digital-platform' || hashVal === 'article-rdc-digital-platform' ||
+                             articleParam === 'article-37th-statistics-month-celebration' || hashVal === 'article-37th-statistics-month-celebration');
+      var targetArticleId = (articleParam === 'article-rdc-digital-platform' || hashVal === 'article-rdc-digital-platform') ?
+                            'article-rdc-digital-platform' : 'article-37th-statistics-month-celebration';
 
       if (isArticleTarget) {
         if (window.switchContentView) window.switchContentView('articles', false);
-        var artCard = document.getElementById('article-37th-statistics-month-celebration');
+        var artCard = document.getElementById(targetArticleId);
         if (artCard) artCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
         setTimeout(function () {
           if (typeof window.openArticleModal === 'function') {
-            window.openArticleModal();
+            window.openArticleModal(targetArticleId);
           }
         }, 300);
         return;
