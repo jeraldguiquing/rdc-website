@@ -5905,39 +5905,12 @@ textarea.form-control {
   text-justify: inter-word;
 }
 
-/* Article Card Polish & Abstract Toggle */
+/* Article Card Polish & Full Abstract */
 .article-abstract-content {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  transition: all 0.3s ease;
+  display: block;
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
-}
-
-.article-abstract-content.expanded {
-  display: block;
-  -webkit-line-clamp: unset;
-}
-
-.article-abstract-btn {
-  background: none;
-  border: none;
-  color: var(--mcnp-green);
-  font-size: 0.78rem;
-  font-weight: 700;
-  cursor: pointer;
-  padding: 0.2rem 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  margin-top: 0.25rem;
-}
-
-.article-abstract-btn:hover {
-  text-decoration: underline;
 }
 
 .article-metrics-bar {
