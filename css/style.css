@@ -7998,3 +7998,85 @@ textarea.form-control {
     margin-left: 0;
   }
 }
+
+/* ==============================================================================
+   SPEED, MOBILE RESPONSIVENESS & TOUCH TARGET OPTIMIZATIONS
+   ============================================================================== */
+
+/* 1. Global Viewport & Rendering Guardrails */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* 2. Form Inputs on Mobile (Prevent iOS Auto-Zoom on Focus) */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="password"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* 3. Touch Target Sizing for Mobile & Touch Devices */
+@media (pointer: coarse) {
+  .nav-link,
+  .mobile-toggle,
+  .btn,
+  .filter-btn,
+  .news-view-tab-btn,
+  .article-expand-toggle,
+  .dropdown-item {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .nav-item.dropdown .dropdown-toggle {
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+  }
+
+  .filter-btn,
+  .course-filter-btn {
+    padding: 0.55rem 0.95rem;
+  }
+}
+
+/* 4. Smooth Momentum Scrolling for Wide Tables and Filter Bars */
+.table-responsive,
+.filter-tags,
+.event-filter-bar,
+.course-filters-wrapper {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+/* 5. Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

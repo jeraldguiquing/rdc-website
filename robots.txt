@@ -1,0 +1,11 @@
+# ==============================================================================
+# Robots.txt for MCNP–ISAP Research & Development Center (RDC)
+# Official Website: https://jeraldguiquing.github.io/rdc-website/
+# ==============================================================================
+
+User-agent: *
+Allow: /
+
+# Host & Primary Sitemap
+Host: https://jeraldguiquing.github.io
+Sitemap: https://jeraldguiquing.github.io/rdc-website/sitemap.xml
