@@ -7850,7 +7850,6 @@ textarea.form-control {
   display: block;
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-left: 6px solid var(--mcnp-green, #0d5c3a);
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
