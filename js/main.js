@@ -3,7 +3,7 @@
  * JavaScript Core Interactivity
  */
 
-const MOBILE_NAV_BREAKPOINT = 1100;
+const MOBILE_NAV_BREAKPOINT = 1150;
 
 // Keep inline toast actions available on pages that use onclick handlers.
 window.showToast = function (message, type = 'success') {
