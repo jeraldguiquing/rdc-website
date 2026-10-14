@@ -3861,19 +3861,22 @@
   <!-- Article Detail Modal Card (Displays the whole article upon clicking) -->
   <div class="event-modal-overlay" id="articleModalOverlay" role="dialog" aria-modal="true" aria-labelledby="articleModalTitle">
     <div class="event-modal article-modal-card">
-      <div class="event-modal-head" style="background: linear-gradient(135deg, #0d5c3a 0%, #0b3c5d 100%); padding: 1.75rem 2rem 1.5rem; flex-shrink: 0;">
+      <div class="event-modal-head" style="flex-shrink: 0;">
         <button class="event-modal-close" id="articleModalClose" aria-label="Close article modal">&times;</button>
-        <div class="event-modal-breadcrumb" id="articleModalBreadcrumb" style="color: rgba(255,255,255,0.8); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem;">
+        <div class="event-modal-breadcrumb" id="articleModalBreadcrumb">
           News &amp; Events &gt; Articles &amp; Editorials &gt; RDC Digital Platform
         </div>
-        <div id="articleModalMeta" style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.6rem; flex-wrap: wrap;">
-          <span style="background: #ffdf70; color: #1e3a2f; font-weight: 800; font-size: 0.72rem; padding: 0.22rem 0.65rem; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.03em;">📰 OFFICIAL ARTICLE</span>
-          <span style="color: rgba(255,255,255,0.92); font-size: 0.82rem; font-weight: 600;">📅 October 14, 2026</span>
-          <span style="color: rgba(255,255,255,0.75); font-size: 0.82rem;">&bull; ⏱️ 3 min read</span>
-        </div>
-        <h2 class="event-modal-title" id="articleModalTitle" style="color: #ffffff; font-size: 1.35rem; line-height: 1.4; margin: 0; font-weight: 800;">
+        <h2 class="event-modal-title" id="articleModalTitle">
           MCNP–ISAP Research and Development Center Develops Digital Platform to Improve Access to Research Information
         </h2>
+        <div class="event-modal-meta" id="articleModalMeta">
+          <span>📅 October 14, 2026</span>
+          <span>&bull; ⏱️ 3 min read</span>
+        </div>
+        <div class="event-modal-share" id="articleModalShare" style="margin-top: 1rem; display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+          <span class="badge-pill" id="articleModalBadge">📰 OFFICIAL ARTICLE</span>
+          <span class="badge-pill" id="articleModalTopic" style="background: rgba(30, 94, 168, 0.35); border: 1px solid rgba(255, 255, 255, 0.2);">Digital Innovation &amp; Infrastructure</span>
+        </div>
       </div>
 
       <!-- Quick Action Bar inside Modal -->
@@ -4294,6 +4297,7 @@
       'article-rdc-digital-platform': {
         breadcrumb: 'News &amp; Events &gt; Articles &amp; Editorials &gt; RDC Digital Platform',
         badge: '📰 OFFICIAL ARTICLE',
+        topic: 'Digital Innovation & Infrastructure',
         date: '📅 October 14, 2026',
         readTime: '3 min read',
         title: 'MCNP–ISAP Research and Development Center Develops Digital Platform to Improve Access to Research Information',
@@ -4313,6 +4317,7 @@
       'article-37th-statistics-month-celebration': {
         breadcrumb: 'News &amp; Events &gt; Articles &amp; Editorials &gt; 37th Statistics Month',
         badge: '📰 OFFICIAL ARTICLE',
+        topic: '37th National Statistics Month',
         date: '📅 October 05, 2026',
         readTime: '4 min read',
         title: 'MCNP–ISAP Advances Statistical Literacy through Month-Long 37th Statistics Month Celebration',
@@ -4347,9 +4352,19 @@
 
       var metaEl = document.getElementById('articleModalMeta');
       if (metaEl) {
-        metaEl.innerHTML = '<span style="background: #ffdf70; color: #1e3a2f; font-weight: 800; font-size: 0.72rem; padding: 0.22rem 0.65rem; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.03em;">' + data.badge + '</span>' +
-          '<span style="color: rgba(255,255,255,0.92); font-size: 0.82rem; font-weight: 600;">' + data.date + '</span>' +
-          '<span style="color: rgba(255,255,255,0.75); font-size: 0.82rem;">&bull; ⏱️ ' + data.readTime + '</span>';
+        metaEl.innerHTML = '<span>' + data.date + '</span>' +
+          '<span>&bull; ⏱️ ' + data.readTime + '</span>';
+      }
+
+      var badgeEl = document.getElementById('articleModalBadge');
+      if (badgeEl) badgeEl.textContent = data.badge;
+
+      var topicEl = document.getElementById('articleModalTopic');
+      if (topicEl && data.topic) {
+        topicEl.textContent = data.topic;
+        topicEl.style.display = 'inline-block';
+      } else if (topicEl) {
+        topicEl.style.display = 'none';
       }
 
       var sdgContainer = document.getElementById('articleModalSdgs');
