@@ -1953,14 +1953,14 @@
 
           <div id="articlesGrid" style="margin-bottom: 2.5rem;" aria-label="Published research articles">
           <article class="article-accordion-card" id="article-rdc-digital-platform">
-            <!-- Article Preview Banner Image -->
-            <div style="width: 100%; max-height: 240px; overflow: hidden; background: #0b1f33; border-bottom: 1px solid #e2e8f0; cursor: pointer;" onclick="openArticleModal('article-rdc-digital-platform');" title="Click to read full article">
-              <img src="upload/rdc-website-platform.png" alt="MCNP–ISAP RDC Digital Platform" style="width: 100%; height: 240px; object-fit: cover; object-position: top center; display: block; transition: transform 0.35s ease;" loading="lazy" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-            </div>
-
             <!-- Clickable Header: CARD PREVIEW (Click to open full article modal or expand inline) -->
-            <div class="article-accordion-header" onclick="openArticleModal('article-rdc-digital-platform');" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openArticleModal('article-rdc-digital-platform');}" aria-expanded="false" id="header-article-rdc-digital-platform" style="cursor: pointer;">
-              <div class="article-title-wrap">
+            <div class="article-accordion-header" onclick="openArticleModal('article-rdc-digital-platform');" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openArticleModal('article-rdc-digital-platform');}" aria-expanded="false" id="header-article-rdc-digital-platform" style="cursor: pointer; display: flex; gap: 1.5rem; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+              <!-- Side Thumbnail (Before the title) -->
+              <div class="article-card-thumb-wrap" style="flex-shrink: 0; width: 230px; height: 135px; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 2px 8px rgba(0,0,0,0.06); background: #0b1f33;">
+                <img src="upload/rdc-website-platform.png" alt="MCNP–ISAP RDC Digital Platform Website" style="width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;" loading="lazy">
+              </div>
+
+              <div class="article-title-wrap" style="flex: 1; min-width: 280px;">
                 <div class="article-accordion-meta">
                   <span class="badge-editorial-type">OFFICIAL ARTICLE</span>
                   <span class="badge-editorial-topic">Digital Innovation &amp; Infrastructure</span>
@@ -1974,6 +1974,8 @@
                   The Research and Development Center (RDC) of the Medical Colleges of Northern Philippines (MCNP) and the International School of Asia and the Pacific (ISAP) has developed an institutional website to centralize research-related information, publications, resources, announcements, and institutional activities in one accessible online platform.
                 </p>
               </div>
+
+              <!-- Action Buttons -->
               <div style="display: flex; flex-direction: column; gap: 0.45rem; align-items: flex-end; flex-shrink: 0;">
                 <button type="button" class="article-expand-toggle" onclick="event.stopPropagation(); openArticleModal('article-rdc-digital-platform');" style="cursor: pointer; border: none;" title="Open article card modal">
                   <span class="toggle-text">📖 Read Full Article Card ↗</span>
