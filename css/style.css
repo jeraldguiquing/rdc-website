@@ -2839,6 +2839,7 @@ body.nav-open::after {
   margin-bottom: 1.25rem;
   text-align: justify;
   text-justify: inter-word;
+  text-align-last: left;
   hyphens: auto;
 }
 
@@ -5942,6 +5943,8 @@ textarea.form-control {
   margin-bottom: 1.25rem;
   text-align: justify;
   text-justify: inter-word;
+  text-align-last: left;
+  hyphens: auto;
 }
 
 /* Article Card Polish & Full Abstract */
@@ -5949,7 +5952,19 @@ textarea.form-control {
   display: block;
   text-align: justify;
   text-justify: inter-word;
+  text-align-last: left;
   hyphens: auto;
+}
+
+/* Departmental Journals and Thesis Cards Justification */
+.mcnp-journal-item p,
+.isap-journal-item p,
+.thesis-card p:not(.dropdown-badge),
+.journal-directory-grid p,
+.journal-hub-card p {
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
 }
 
 .article-metrics-bar {
