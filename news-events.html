@@ -2601,6 +2601,15 @@
   <!-- Event Detail Modal -->
   <div class="event-modal-overlay" id="eventModalOverlay">
     <div class="event-modal" role="dialog" aria-modal="true" aria-labelledby="eventModalTitle">
+      <!-- Sticky Mobile Reader Top Bar -->
+      <div class="event-modal-sticky-bar">
+        <button type="button" class="btn-modal-back" onclick="if(window.closeModal){window.closeModal();}else if(window.closeEventModal){window.closeEventModal();}" aria-label="Return to Events">
+          ← Back to Events
+        </button>
+        <span class="modal-sticky-label">Event Details</span>
+        <button type="button" class="btn-modal-close-icon" onclick="if(window.closeModal){window.closeModal();}else if(window.closeEventModal){window.closeEventModal();}" aria-label="Close modal">✕</button>
+      </div>
+
       <div class="event-modal-head">
         <button class="event-modal-close" id="eventModalClose" aria-label="Close">&times;</button>
         <div class="event-modal-breadcrumb">News &amp; Events &gt; <span id="eventModalCrumb"></span></div>
@@ -2648,6 +2657,15 @@
   <!-- Article Detail Modal Card (Displays the whole article upon clicking) -->
   <div class="event-modal-overlay" id="articleModalOverlay" role="dialog" aria-modal="true" aria-labelledby="articleModalTitle">
     <div class="event-modal article-modal-card">
+      <!-- Sticky Mobile Reader Top Bar -->
+      <div class="article-modal-sticky-bar">
+        <button type="button" class="btn-modal-back" onclick="if(window.closeArticleModal){window.closeArticleModal();}" aria-label="Return to Articles">
+          ← Back to Articles
+        </button>
+        <span class="modal-sticky-label">Article Reader</span>
+        <button type="button" class="btn-modal-close-icon" onclick="if(window.closeArticleModal){window.closeArticleModal();}" aria-label="Close modal">✕</button>
+      </div>
+
       <div class="event-modal-head" style="flex-shrink: 0;">
         <button class="event-modal-close" id="articleModalClose" aria-label="Close article modal">&times;</button>
         <div class="event-modal-breadcrumb" id="articleModalBreadcrumb">
@@ -3064,12 +3082,24 @@
       overlay.dataset.currentIndex = index;
       document.body.style.overflow = 'hidden';
       overlay.scrollTop = 0;
+      requestAnimationFrame(function () {
+        if (overlay) overlay.scrollTop = 0;
+      });
+      setTimeout(function () {
+        if (overlay) overlay.scrollTop = 0;
+      }, 30);
     }
 
     function closeModal() {
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
+      if (!overlay) overlay = document.getElementById('eventModalOverlay');
+      if (overlay) {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
     }
+
+    window.closeModal = closeModal;
+    window.closeEventModal = closeModal;
 
     closeBtn.addEventListener('click', closeModal);
     overlay.addEventListener('click', function (e) {
@@ -3189,6 +3219,14 @@
         articleOverlay.scrollTop = 0;
         var scrollBody = document.getElementById('articleModalScrollBody');
         if (scrollBody) scrollBody.scrollTop = 0;
+        requestAnimationFrame(function () {
+          if (articleOverlay) articleOverlay.scrollTop = 0;
+          if (scrollBody) scrollBody.scrollTop = 0;
+        });
+        setTimeout(function () {
+          if (articleOverlay) articleOverlay.scrollTop = 0;
+          if (scrollBody) scrollBody.scrollTop = 0;
+        }, 30);
       }
     }
 
