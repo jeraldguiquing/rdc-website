@@ -39,7 +39,7 @@
   <meta name="twitter:image" content="assets/rdc-logo.png">
 
   <link rel="stylesheet" href="css/style.min.css">
-  <link rel="stylesheet" href="css/news-events.min.css">
+  <link rel="stylesheet" href="css/news-events.min.css?v=20261015e">
   <!-- Structured Data: NewsArticles -->
   <script type="application/ld+json">
   {
@@ -3078,16 +3078,34 @@
       renderRelated(index);
       updateModalNav(index);
 
+      if (document.activeElement && typeof document.activeElement.blur === 'function') {
+        document.activeElement.blur();
+      }
+
       overlay.classList.add('open');
       overlay.dataset.currentIndex = index;
       document.body.style.overflow = 'hidden';
-      overlay.scrollTop = 0;
-      requestAnimationFrame(function () {
-        if (overlay) overlay.scrollTop = 0;
-      });
-      setTimeout(function () {
-        if (overlay) overlay.scrollTop = 0;
-      }, 30);
+
+      var resetEventScroll = function () {
+        if (!overlay) return;
+        overlay.scrollTop = 0;
+        if (overlay.scrollTo) overlay.scrollTo(0, 0);
+        var modalEl = overlay.querySelector('.event-modal');
+        if (modalEl) {
+          modalEl.scrollTop = 0;
+          if (modalEl.scrollTo) modalEl.scrollTo(0, 0);
+        }
+        var topTarget = overlay.querySelector('.event-modal-sticky-bar') ||
+                        overlay.querySelector('.event-modal-head');
+        if (topTarget && typeof topTarget.scrollIntoView === 'function') {
+          topTarget.scrollIntoView({ block: 'start', inline: 'nearest' });
+        }
+      };
+
+      resetEventScroll();
+      requestAnimationFrame(resetEventScroll);
+      setTimeout(resetEventScroll, 40);
+      setTimeout(resetEventScroll, 120);
     }
 
     function closeModal() {
@@ -3095,6 +3113,9 @@
       if (overlay) {
         overlay.classList.remove('open');
         document.body.style.overflow = '';
+        overlay.scrollTop = 0;
+        var modalEl = overlay.querySelector('.event-modal');
+        if (modalEl) modalEl.scrollTop = 0;
       }
     }
 
@@ -3213,20 +3234,42 @@
         if (inlineFooter) inlineFooter.style.display = 'none';
       }
 
+      if (document.activeElement && typeof document.activeElement.blur === 'function') {
+        document.activeElement.blur();
+      }
+
       if (articleOverlay) {
         articleOverlay.classList.add('open');
         document.body.style.overflow = 'hidden';
-        articleOverlay.scrollTop = 0;
-        var scrollBody = document.getElementById('articleModalScrollBody');
-        if (scrollBody) scrollBody.scrollTop = 0;
-        requestAnimationFrame(function () {
-          if (articleOverlay) articleOverlay.scrollTop = 0;
-          if (scrollBody) scrollBody.scrollTop = 0;
-        });
-        setTimeout(function () {
-          if (articleOverlay) articleOverlay.scrollTop = 0;
-          if (scrollBody) scrollBody.scrollTop = 0;
-        }, 30);
+
+        var resetArticleScroll = function () {
+          if (!articleOverlay) return;
+          articleOverlay.scrollTop = 0;
+          if (articleOverlay.scrollTo) articleOverlay.scrollTo(0, 0);
+
+          var modalEl = articleOverlay.querySelector('.event-modal');
+          if (modalEl) {
+            modalEl.scrollTop = 0;
+            if (modalEl.scrollTo) modalEl.scrollTo(0, 0);
+          }
+
+          var scrollBody = document.getElementById('articleModalScrollBody');
+          if (scrollBody) {
+            scrollBody.scrollTop = 0;
+            if (scrollBody.scrollTo) scrollBody.scrollTo(0, 0);
+          }
+
+          var topTarget = articleOverlay.querySelector('.article-modal-sticky-bar') ||
+                          articleOverlay.querySelector('.event-modal-head');
+          if (topTarget && typeof topTarget.scrollIntoView === 'function') {
+            topTarget.scrollIntoView({ block: 'start', inline: 'nearest' });
+          }
+        };
+
+        resetArticleScroll();
+        requestAnimationFrame(resetArticleScroll);
+        setTimeout(resetArticleScroll, 40);
+        setTimeout(resetArticleScroll, 120);
       }
     }
 
@@ -3235,6 +3278,11 @@
       if (articleOverlay) {
         articleOverlay.classList.remove('open');
         document.body.style.overflow = '';
+        articleOverlay.scrollTop = 0;
+        var modalEl = articleOverlay.querySelector('.event-modal');
+        if (modalEl) modalEl.scrollTop = 0;
+        var scrollBody = document.getElementById('articleModalScrollBody');
+        if (scrollBody) scrollBody.scrollTop = 0;
       }
     }
 
@@ -3383,10 +3431,12 @@
       }
 
       if (isOpen) {
-        var rect = card.getBoundingClientRect();
-        if (rect.top < 80) {
-          card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        requestAnimationFrame(function () {
+          var navOffset = 85;
+          var cardRect = card.getBoundingClientRect();
+          var targetY = window.pageYOffset + cardRect.top - navOffset;
+          window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+        });
       } else if (forceState === false) {
         card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }

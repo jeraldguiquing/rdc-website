@@ -1354,6 +1354,7 @@
         overflow-x: hidden !important;
         margin: 0 !important;
         box-shadow: none !important;
+        animation: none !important;
       }
       .article-modal-card {
         width: 100% !important;
@@ -1363,6 +1364,7 @@
         border-radius: 0 !important;
         margin: 0 !important;
         overflow-x: hidden !important;
+        animation: none !important;
       }
       .event-modal-sticky-bar,
       .article-modal-sticky-bar {
