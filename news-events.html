@@ -39,7 +39,7 @@
   <meta name="twitter:image" content="assets/rdc-logo.png">
 
   <link rel="stylesheet" href="css/style.min.css">
-  <link rel="stylesheet" href="css/news-events.min.css?v=20261015e">
+  <link rel="stylesheet" href="css/news-events.min.css?v=20261015f">
   <!-- Structured Data: NewsArticles -->
   <script type="application/ld+json">
   {
@@ -3599,13 +3599,9 @@
 
       if (isArticleTarget) {
         if (window.switchContentView) window.switchContentView('articles', false);
-        var artCard = document.getElementById(targetArticleId);
-        if (artCard) artCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        setTimeout(function () {
-          if (typeof window.openArticleModal === 'function') {
-            window.openArticleModal(targetArticleId);
-          }
-        }, 300);
+        if (typeof window.openArticleModal === 'function') {
+          window.openArticleModal(targetArticleId);
+        }
         return;
       }
 

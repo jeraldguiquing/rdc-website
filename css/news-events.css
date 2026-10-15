@@ -1353,6 +1353,7 @@
         overflow: visible !important;
         overflow-x: hidden !important;
         margin: 0 !important;
+        padding-top: 50px !important;
         box-shadow: none !important;
         animation: none !important;
       }
@@ -1363,6 +1364,7 @@
         min-height: 100vh !important;
         border-radius: 0 !important;
         margin: 0 !important;
+        padding-top: 50px !important;
         overflow-x: hidden !important;
         animation: none !important;
       }
@@ -1371,7 +1373,7 @@
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
-        position: sticky !important;
+        position: fixed !important;
         top: 0 !important;
         left: 0 !important;
         right: 0 !important;
