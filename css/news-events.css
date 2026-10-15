@@ -1331,16 +1331,24 @@
 
       /* Event & Article Modals: Full Seamless Mobile Reader */
       .event-modal-overlay {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
         padding: 0 !important;
-        background: rgba(9, 20, 22, 0.9) !important;
+        margin: 0 !important;
+        background: rgba(9, 20, 22, 0.92) !important;
         overflow-y: auto !important;
         overflow-x: hidden !important;
         -webkit-overflow-scrolling: touch !important;
         overscroll-behavior: contain !important;
         align-items: flex-start !important;
         justify-content: flex-start !important;
-        width: 100% !important;
         max-width: 100vw !important;
+        z-index: 2500 !important;
       }
       .event-modal {
         width: 100% !important;
@@ -1353,9 +1361,10 @@
         overflow: visible !important;
         overflow-x: hidden !important;
         margin: 0 !important;
-        padding-top: 50px !important;
+        padding-top: 0 !important;
         box-shadow: none !important;
         animation: none !important;
+        background: #ffffff !important;
       }
       .article-modal-card {
         width: 100% !important;
@@ -1364,16 +1373,17 @@
         min-height: 100vh !important;
         border-radius: 0 !important;
         margin: 0 !important;
-        padding-top: 50px !important;
+        padding-top: 0 !important;
         overflow-x: hidden !important;
         animation: none !important;
+        background: #ffffff !important;
       }
       .event-modal-sticky-bar,
       .article-modal-sticky-bar {
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
-        position: fixed !important;
+        position: sticky !important;
         top: 0 !important;
         left: 0 !important;
         right: 0 !important;
