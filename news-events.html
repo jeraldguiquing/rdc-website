@@ -2667,11 +2667,11 @@
       </div>
 
       <!-- Quick Action Bar inside Modal -->
-      <div class="article-modal-quick-actions" style="background: #f1f5f9; padding: 0.75rem 2rem; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; flex-shrink: 0;">
-        <div style="display: flex; align-items: center; gap: 0.85rem; flex-wrap: wrap;">
-          <div style="display: flex; align-items: center; gap: 0.4rem;">
-            <span style="font-size: 0.74rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.03em;">SDG Alignment:</span>
-            <div id="articleModalSdgs" style="display: inline-flex; align-items: center; gap: 0.4rem;">
+      <div class="article-modal-quick-actions">
+        <div class="article-modal-alignments">
+          <div class="article-modal-align-item">
+            <span class="article-modal-align-label">SDG Alignment:</span>
+            <div id="articleModalSdgs" class="article-modal-align-icons">
               <a href="sdg-overview.html?goal=9" target="_blank" rel="noopener" title="SDG 9: Industry, Innovation and Infrastructure" class="article-sdg-icon-link" style="width: 26px; height: 26px; display: inline-block;">
                 <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9: Industry, Innovation and Infrastructure" class="article-sdg-icon-img" loading="lazy" style="width: 100%; height: 100%; border-radius: 3px; display: block;" decoding="async">
               </a>
@@ -2683,9 +2683,9 @@
               </a>
             </div>
           </div>
-          <div style="display: flex; align-items: center; gap: 0.35rem;">
-            <span style="font-size: 0.74rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.03em;">RDC Agenda:</span>
-            <div id="articleModalAgendas" style="display: inline-flex; align-items: center; gap: 0.35rem;">
+          <div class="article-modal-align-item">
+            <span class="article-modal-align-label">RDC Agenda:</span>
+            <div id="articleModalAgendas" class="article-modal-align-icons">
               <a href="rdc-agenda.html#pillar-navigate" target="_blank" rel="noopener" title="NAVIGATE: Digital Innovation and Infrastructure" class="article-agenda-icon-link" style="width: 26px; height: 26px; display: inline-block;">
                 <img src="assets/agenda/agenda-3-navigate.png" alt="NAVIGATE" class="article-agenda-icon-img" loading="lazy" decoding="async">
               </a>
@@ -2701,12 +2701,12 @@
             </div>
           </div>
         </div>
-        <div style="display: flex; gap: 0.5rem; align-items: center;">
-          <button type="button" id="articleModalCopyBtn" class="btn btn-sm btn-outline-white" onclick="if(window.copyArticleLink){window.copyArticleLink('article-rdc-digital-platform', this);}" style="font-size: 0.78rem; padding: 0.25rem 0.65rem; color: #334155; border-color: #cbd5e1; background: #fff;" title="Copy shareable link">
-             Copy Link
+        <div class="article-modal-actions-btns">
+          <button type="button" id="articleModalCopyBtn" class="btn btn-sm btn-outline-white" onclick="if(window.copyArticleLink){window.copyArticleLink('article-rdc-digital-platform', this);}" title="Copy shareable link">
+            📋 Copy Link
           </button>
-          <button type="button" onclick="window.printArticle ? window.printArticle() : window.print()" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; padding: 0.25rem 0.65rem; color: #334155; border-color: #cbd5e1; background: #fff;" title="Print this article">
-             Print
+          <button type="button" onclick="window.printArticle ? window.printArticle() : window.print()" class="btn btn-sm btn-outline-white" title="Print this article">
+            🖨️ Print
           </button>
         </div>
       </div>

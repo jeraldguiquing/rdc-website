@@ -1031,6 +1031,89 @@
     .calendar-table th.col-participants { width: 240px; }
     .calendar-table th.col-venue { width: 260px; }
 
+    /* Modal Navigation & Action Bar Base */
+    .event-modal-actions-bar {
+      border-top: 1px solid #e2e8f0;
+      background: #f8fafc;
+      padding: 0.85rem 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .event-modal-nav-group {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .event-modal-nav-btn,
+    .event-modal-copy-btn {
+      padding: 0.45rem 0.95rem;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #334155;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .event-modal-nav-btn:hover,
+    .event-modal-copy-btn:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+
+    /* Article Modal Quick Actions Bar Base */
+    .article-modal-quick-actions {
+      background: #f1f5f9;
+      padding: 0.75rem 2rem;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .article-modal-alignments {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .article-modal-align-item {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+    .article-modal-align-label {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .article-modal-align-icons {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .article-modal-actions-btns {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .article-modal-body-scroll {
+      padding: 0;
+      margin: 0;
+      background: #ffffff;
+    }
+
     /* ===== MOBILE RESPONSIVENESS & TOUCH OPTIMIZATION ===== */
     @media (max-width: 768px) {
       /* View Switcher Strip */
@@ -1161,7 +1244,14 @@
         border-radius: 8px !important;
       }
       .article-featured-hero img {
-        max-height: 280px !important;
+        width: 100% !important;
+        max-height: 220px !important;
+        object-fit: cover !important;
+      }
+      .article-featured-hero figcaption {
+        padding: 0.65rem 0.85rem !important;
+        font-size: 0.78rem !important;
+        line-height: 1.45 !important;
       }
       .article-main-title {
         font-size: 1.22rem !important;
@@ -1197,20 +1287,34 @@
         overflow-wrap: break-word;
       }
 
-      /* Event & Article Modals */
+      /* Event & Article Modals: Full Natural Scrolling without Cut-offs */
       .event-modal-overlay {
-        padding: 0.5rem;
+        padding: 0.75rem 0.5rem 3.5rem !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        overscroll-behavior: contain !important;
+        align-items: flex-start !important;
+        justify-content: center !important;
       }
       .event-modal {
-        max-height: 94dvh;
-        border-radius: 12px;
+        max-height: none !important;
+        height: auto !important;
+        border-radius: 14px !important;
+        overflow: hidden !important;
+        margin-bottom: 2.5rem !important;
+      }
+      .article-modal-body-scroll,
+      #articleModalContent {
+        overflow: visible !important;
+        max-height: none !important;
+        height: auto !important;
       }
       .event-modal-head {
         padding: 1.25rem 1rem 1rem !important;
       }
       .event-modal-title {
         font-size: 1.15rem !important;
-        max-width: 85%;
+        max-width: 82% !important;
         line-height: 1.35;
       }
       .event-modal-head,
@@ -1222,44 +1326,91 @@
         padding-right: 1rem !important;
       }
       .event-modal-close {
-        width: 38px;
-        height: 38px;
-        font-size: 1.35rem;
-        top: 0.65rem;
-        right: 0.65rem;
+        position: fixed !important;
+        top: 0.85rem !important;
+        right: 0.85rem !important;
+        z-index: 2200 !important;
+        width: 38px !important;
+        height: 38px !important;
+        border-radius: 50% !important;
+        background: rgba(15, 23, 42, 0.85) !important;
+        color: #ffffff !important;
+        border: 1.5px solid rgba(255, 255, 255, 0.4) !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+        backdrop-filter: blur(8px) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 1.4rem !important;
+        line-height: 1 !important;
+        cursor: pointer !important;
       }
-      .event-modal-actions-bar {
+      .article-modal-quick-actions {
         padding: 0.75rem 1rem !important;
         flex-direction: column !important;
         align-items: stretch !important;
+        gap: 0.65rem !important;
+        background: #f8fafc !important;
+      }
+      .article-modal-alignments {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
         gap: 0.5rem !important;
+        width: 100% !important;
+      }
+      .article-modal-align-item {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+      }
+      .article-modal-align-label {
+        font-size: 0.72rem !important;
+        font-weight: 800 !important;
+        color: #475569 !important;
+      }
+      .article-modal-actions-btns {
+        display: flex !important;
+        gap: 0.5rem !important;
+        width: 100% !important;
+      }
+      .article-modal-actions-btns .btn,
+      .article-modal-actions-btns button {
+        flex: 1 1 0 !important;
+        text-align: center !important;
+        justify-content: center !important;
+        font-size: 0.78rem !important;
+        padding: 0.45rem 0.65rem !important;
+      }
+      .event-modal-actions-bar {
+        padding: 0.85rem 1rem !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.65rem !important;
+      }
+      .event-modal-actions-bar button,
+      .event-modal-actions-bar .btn {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
       }
       .event-modal-nav-group {
         width: 100% !important;
-        display: flex;
+        display: flex !important;
         gap: 0.5rem;
       }
       .event-modal-nav-btn {
-        flex: 1 1 0;
-        text-align: center;
-        justify-content: center;
-        font-size: 0.8rem;
+        flex: 1 1 0 !important;
+        text-align: center !important;
+        justify-content: center !important;
+        font-size: 0.8rem !important;
       }
       .event-modal-copy-btn {
         width: 100% !important;
-        text-align: center;
-        justify-content: center;
-        font-size: 0.8rem;
-      }
-      .article-modal-quick-actions {
-        padding: 0.65rem 1rem !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 0.5rem !important;
-      }
-      .article-modal-quick-actions > div {
-        width: 100%;
-        justify-content: space-between;
+        text-align: center !important;
+        justify-content: center !important;
+        font-size: 0.8rem !important;
       }
     }
 
