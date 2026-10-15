@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <style>
     /* Specific styles for Calendar Landing Page */
@@ -126,6 +126,7 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Top Institutional Bar -->
   <header class="topbar">
@@ -153,7 +154,7 @@
             <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.png" alt="MCNP and ISAP" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific" loading="lazy" decoding="async">
           </div>
           <div class="brand-text">
-            <h1>MCNP <span>&amp; ISAP</span> RDC</h1>
+            <span class="brand-title">MCNP <span>&amp; ISAP</span> RDC</span>
             <p>Research &amp; Development Center</p>
           </div>
         </a>
@@ -366,7 +367,7 @@
   </section>
 
   <!-- Main Content Container -->
-  <main class="section" style="padding-top: 3rem;">
+  <main id="main-content" class="section" style="padding-top: 3rem;">
     <div class="container">
 
       <!-- ==========================================================================
@@ -1125,7 +1126,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/main.js" defer></script>
+  <script src="js/main.min.js" defer></script>
   <script>
     // Link handler for clicking articles/news from inspector on this standalone landing page
     window.openEventModalById = function(cardId) {

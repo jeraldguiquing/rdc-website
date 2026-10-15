@@ -320,16 +320,38 @@ img {
   background: linear-gradient(135deg, var(--isap-blue), #2378b3);
 }
 
-.brand-text h1 {
+/* Accessibility Skip Link */
+.skip-link {
+  position: absolute;
+  top: -999px;
+  left: 1rem;
+  z-index: 100000;
+  padding: 0.75rem 1.25rem;
+  background: #0d5c3a;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+.brand-text h1,
+.brand-text .brand-title {
   font-size: 1.05rem;
   font-weight: 800;
   color: #fff;
   letter-spacing: -0.01em;
   line-height: 1.15;
   white-space: nowrap;
+  display: block;
 }
 
-.brand-text h1 span {
+.brand-text h1 span,
+.brand-text .brand-title span {
   color: #fff;
 }
 
@@ -763,7 +785,7 @@ body.nav-open::after {
 }
 
 .hero-content h2 {
-  font-size: 2.75rem;
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
   font-weight: 800;
   line-height: 1.15;
   margin-bottom: 1.25rem;
@@ -775,7 +797,7 @@ body.nav-open::after {
 }
 
 .hero-lead {
-  font-size: 1.12rem;
+  font-size: clamp(0.95rem, 2.2vw, 1.12rem);
   line-height: 1.7;
   color: #e2e8f0;
   margin-bottom: 2rem;
@@ -4829,7 +4851,7 @@ body.nav-open::after {
 }
 
 .page-hero h1 {
-  font-size: 2.3rem;
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 0.5rem;
@@ -4837,7 +4859,7 @@ body.nav-open::after {
 
 .page-hero p {
   color: #e2e8f0;
-  font-size: 1.05rem;
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
   max-width: 750px;
 }
 
@@ -5310,10 +5332,12 @@ textarea.form-control {
   
   .metrics-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
   }
   
   .institutions-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
   }
   
   .advocacy-inner {
@@ -5322,12 +5346,24 @@ textarea.form-control {
   }
   
   .news-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .institutions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 }
 
@@ -7754,6 +7790,46 @@ textarea.form-control {
 
   .innovates-showcase-tag {
     font-size: 0.68rem;
+  }
+
+  .brand-wrapper {
+    gap: 0.5rem;
+  }
+  .brand-header-image {
+    width: 38px;
+    height: 38px;
+  }
+  .brand-text h1,
+  .brand-text .brand-title {
+    font-size: 0.92rem;
+    line-height: 1.12;
+  }
+  .brand-text p {
+    font-size: 0.62rem;
+    letter-spacing: 0.02em;
+  }
+  .mobile-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand-wrapper {
+    gap: 0.35rem;
+  }
+  .brand-header-image {
+    width: 32px;
+    height: 32px;
+  }
+  .brand-text h1,
+  .brand-text .brand-title {
+    font-size: 0.8rem;
+  }
+  .brand-text p {
+    font-size: 0.54rem;
+    letter-spacing: 0;
   }
 }
 

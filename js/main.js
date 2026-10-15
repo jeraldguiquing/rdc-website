@@ -419,6 +419,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Mobile Touch Swipe Gesture for Lightbox
+  let lbTouchStartX = 0;
+  let lbTouchStartY = 0;
+  lightboxEl?.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      lbTouchStartX = e.touches[0].clientX;
+      lbTouchStartY = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  lightboxEl?.addEventListener('touchend', (e) => {
+    if (e.changedTouches.length === 1 && lightboxImages.length > 1) {
+      const diffX = e.changedTouches[0].clientX - lbTouchStartX;
+      const diffY = e.changedTouches[0].clientY - lbTouchStartY;
+      if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX < 0) {
+          lightboxIndex = (lightboxIndex + 1) % lightboxImages.length;
+          updateLightbox();
+        } else {
+          lightboxIndex = (lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+          updateLightbox();
+        }
+      }
+    }
+  }, { passive: true });
+
   // ===== Interactive Photo Gallery Sliders =====
   document.querySelectorAll('[data-gallery-slider]').forEach((slider) => {
     const slides = Array.from(slider.querySelectorAll('.event-gallery-slide'));
