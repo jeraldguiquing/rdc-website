@@ -6245,6 +6245,303 @@ textarea.form-control {
 }
 
 /* ==========================================================================
+   JOURNAL PORTAL MOBILE RESPONSIVENESS & ADAPTIVE LAYOUTS
+   ========================================================================== */
+
+/* Main 2-column Journal Layout Grid */
+.journal-layout-grid {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 991px) {
+  .journal-layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* Institutional Admin 2-column Directory Grid */
+.admin-journals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+}
+
+@media (max-width: 768px) {
+  .admin-journals-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+    margin-bottom: 2rem !important;
+  }
+}
+
+/* Sub-disciplinary Departmental Grids */
+.journal-sub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .journal-sub-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
+/* Standards & Guidelines Grids */
+.journal-standards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.journal-guidelines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .journal-standards-grid,
+  .journal-guidelines-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
+/* Articles and Theses Grid narrow screen guard */
+@media (max-width: 640px) {
+  .articles-grid,
+  .theses-grid,
+  .mcnp-journal-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+}
+
+/* Journal Hero Quick Jumps on Mobile */
+@media (max-width: 768px) {
+  .journal-quick-jumps {
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+    padding-top: 1rem;
+    gap: 0.5rem !important;
+  }
+  .journal-quick-jumps::-webkit-scrollbar {
+    display: none;
+  }
+  .journal-quick-jump-link {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 0.76rem !important;
+    padding: 0.35rem 0.75rem !important;
+  }
+}
+
+/* Journal Tabs & Navigation on Mobile */
+.journal-nav-tabs {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+@media (max-width: 640px) {
+  .journal-nav-tabs {
+    gap: 0.35rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+  .journal-nav-tab {
+    padding: 0.55rem 0.85rem !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+/* FlipBook Issue Selector Tabs Mobile Polish */
+.flipbook-tabs {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .flipbook-tabs {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    padding-bottom: 0.5rem;
+    gap: 0.5rem !important;
+  }
+  .flipbook-tab-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 0.6rem 0.95rem !important;
+    font-size: 0.82rem !important;
+  }
+}
+
+/* Journal Banner, Showcase Box, & Issue Cards */
+@media (max-width: 768px) {
+  .journal-banner-card {
+    padding: 1.5rem 1.25rem !important;
+    border-radius: 12px !important;
+    margin-bottom: 2rem !important;
+  }
+  .journal-banner-card .btn,
+  .journal-banner-card a.btn {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+  .journal-issue-card {
+    padding: 1.25rem 1rem !important;
+    border-radius: 12px !important;
+    margin-bottom: 1.75rem !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1rem !important;
+  }
+  .journal-issue-card .btn,
+  .journal-issue-card a.btn {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+  .journal-showcase-box {
+    padding: 1.25rem 1rem !important;
+    border-radius: 12px !important;
+    margin-bottom: 2rem !important;
+  }
+  .flipbook-showcase-card {
+    padding: 1.25rem 1rem !important;
+    border-radius: 12px !important;
+    margin-bottom: 2rem !important;
+  }
+}
+
+/* Embedded FlipBook Iframe Responsive Height */
+@media (max-width: 768px) {
+  .flipbook-iframe-wrap {
+    padding-top: max(75%, 380px) !important;
+    border-radius: 8px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .flipbook-iframe-wrap {
+    padding-top: max(85%, 320px) !important;
+  }
+}
+
+/* Journal Filter Toolbar on Mobile */
+@media (max-width: 768px) {
+  .journal-filter-toolbar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+    padding: 1rem !important;
+  }
+  .journal-filter-toolbar > div {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  .journal-filter-toolbar input,
+  .journal-filter-toolbar select {
+    width: 100% !important;
+    font-size: 16px !important;
+  }
+}
+
+/* Departmental Journal Items on Mobile */
+@media (max-width: 540px) {
+  .mcnp-journal-item,
+  .isap-journal-item {
+    gap: 0.75rem !important;
+    padding: 0.85rem !important;
+  }
+  .mcnp-journal-cover-wrap,
+  .isap-journal-cover-wrap {
+    width: 60px !important;
+    height: 82px !important;
+  }
+  .mcnp-journal-item h4,
+  .isap-journal-item h4 {
+    font-size: 0.95rem !important;
+  }
+  .mcnp-journal-item p,
+  .isap-journal-item p {
+    font-size: 0.8rem !important;
+    line-height: 1.45 !important;
+  }
+}
+
+/* Article Cards & Actions on Mobile */
+@media (max-width: 640px) {
+  .article-card {
+    padding: 1.25rem 1rem !important;
+  }
+  .article-title {
+    font-size: 1rem !important;
+  }
+  .article-abstract {
+    font-size: 0.84rem !important;
+  }
+  .article-actions-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.65rem !important;
+  }
+  .article-action-btns {
+    width: 100% !important;
+    display: flex !important;
+    gap: 0.5rem !important;
+  }
+  .article-action-btns .btn,
+  .article-actions-row .btn {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 0.6rem 0.8rem !important;
+  }
+}
+
+/* Modals Mobile Polish */
+@media (max-width: 768px) {
+  .citation-modal-overlay,
+  .flipbook-modal-overlay {
+    padding: 0.5rem !important;
+  }
+  .citation-modal {
+    max-height: 94vh !important;
+    overflow-y: auto !important;
+    border-radius: 12px !important;
+  }
+  .citation-modal-head {
+    padding: 1rem 1.25rem !important;
+  }
+  .citation-modal-body {
+    padding: 1.25rem 1rem !important;
+  }
+  .flipbook-modal {
+    height: 92vh !important;
+    border-radius: 12px !important;
+  }
+  .flipbook-modal-head {
+    padding: 0.75rem 1rem !important;
+  }
+}
+
+/* ==========================================================================
    Unified About RDC Portal Styles
    ========================================================================== */
 .about-layout-grid {
