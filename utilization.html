@@ -316,8 +316,308 @@
         text-align: center !important;
         justify-content: center !important;
       }
+    /* ==========================================================================
+       UTILIZATION ARTICLE DETAIL MODAL CARD (Matches News & Events Article Reader)
+       ========================================================================== */
+    .event-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(9, 20, 22, 0.72);
+      backdrop-filter: blur(3px);
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      overflow-y: auto;
+      z-index: 2500;
+      padding: 2.5rem 1rem;
+      box-sizing: border-box;
+    }
+    .event-modal-overlay.open {
+      display: flex !important;
     }
 
+    .article-modal-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 920px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+      animation: utilModalIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      margin: 1.5rem auto;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    @keyframes utilModalIn {
+      from { opacity: 0; transform: translateY(18px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .article-modal-sticky-bar {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2600;
+      background: linear-gradient(135deg, #09261a, #0b3c5d);
+      color: #ffffff;
+      padding: 0.65rem 0.9rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .btn-modal-back {
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      line-height: 1.2;
+      transition: background 0.2s ease;
+    }
+    .btn-modal-back:hover,
+    .btn-modal-back:active {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .modal-sticky-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .btn-modal-close-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      font-size: 1.15rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      transition: background 0.2s ease;
+    }
+    .btn-modal-close-icon:hover,
+    .btn-modal-close-icon:active {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .event-modal-head {
+      position: relative;
+      background: linear-gradient(135deg, #0b3c5d 0%, #0d5c3a 100%);
+      color: #ffffff;
+      padding: 2.25rem 2.5rem 1.75rem;
+      box-sizing: border-box;
+    }
+
+    .event-modal-head .event-modal-breadcrumb {
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .event-modal-head .event-modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.18s ease;
+    }
+    .event-modal-head .event-modal-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .event-modal-head .event-modal-title {
+      font-size: 1.45rem;
+      line-height: 1.35;
+      margin: 0 0 0.85rem;
+      font-weight: 800;
+      color: #ffffff;
+      max-width: 90%;
+    }
+
+    .event-modal-head .event-modal-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .article-modal-quick-actions {
+      background: #f1f5f9;
+      padding: 0.75rem 2rem;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      box-sizing: border-box;
+    }
+
+    .article-modal-alignments {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .article-modal-align-item {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+
+    .article-modal-align-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .article-modal-align-icons {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .article-modal-actions-btns {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .article-modal-body-scroll {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      flex: 1 1 auto;
+      max-height: calc(88vh - 200px);
+      padding: 2rem 2.5rem;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
+
+    .article-modal-card .event-modal-actions-bar {
+      border-top: 1px solid #e2e8f0;
+      background: #f8fafc;
+      padding: 0.85rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      .event-modal-overlay {
+        padding: 0 !important;
+        align-items: stretch !important;
+      }
+      .article-modal-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 100% !important;
+        min-height: 100vh !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        padding-top: 0 !important;
+        overflow: visible !important;
+        animation: none !important;
+        box-shadow: none !important;
+      }
+      .article-modal-sticky-bar {
+        display: flex !important;
+      }
+      .event-modal-head {
+        padding: 1.25rem 1rem 1rem !important;
+      }
+      .event-modal-head .event-modal-close {
+        display: none !important;
+      }
+      .event-modal-head .event-modal-title {
+        font-size: 1.2rem !important;
+        max-width: 100% !important;
+      }
+      .article-modal-quick-actions {
+        padding: 0.75rem 1rem !important;
+      }
+      .article-modal-body-scroll {
+        overflow: visible !important;
+        max-height: none !important;
+        height: auto !important;
+        padding: 1.25rem 1rem 3rem !important;
+      }
+      .article-modal-card .event-modal-actions-bar {
+        padding: 1.25rem 1rem 4rem !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+      }
+    }
+
+    @media print {
+      body.print-util-article-mode * {
+        visibility: hidden;
+      }
+      body.print-util-article-mode #utilArticleModalOverlay,
+      body.print-util-article-mode #utilArticleModalOverlay * {
+        visibility: visible;
+      }
+      body.print-util-article-mode #utilArticleModalOverlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        display: block !important;
+        background: transparent !important;
+        padding: 0 !important;
+      }
+      body.print-util-article-mode .article-modal-sticky-bar,
+      body.print-util-article-mode .article-modal-actions-btns,
+      body.print-util-article-mode .event-modal-close,
+      body.print-util-article-mode .event-modal-actions-bar {
+        display: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -645,6 +945,87 @@
       </div>
     </div>
   </footer>
+
+  
+  <!-- ==========================================================================
+       UTILIZATION ARTICLE DETAIL MODAL CARD (Matches News & Events Article Reader)
+       ========================================================================== -->
+  <div class="event-modal-overlay" id="utilArticleModalOverlay" role="dialog" aria-modal="true" aria-labelledby="utilArticleModalTitle">
+    <div class="event-modal article-modal-card">
+      <!-- Sticky Mobile Reader Top Bar -->
+      <div class="article-modal-sticky-bar">
+        <button type="button" class="btn-modal-back" onclick="closeUtilArticleModal();" aria-label="Return to Articles">
+          &larr; Back to Articles
+        </button>
+        <span class="modal-sticky-label">Utilization Article Reader</span>
+        <button type="button" class="btn-modal-close-icon" onclick="closeUtilArticleModal();" aria-label="Close modal">&times;</button>
+      </div>
+
+      <!-- Modal Head -->
+      <div class="event-modal-head" style="flex-shrink: 0;">
+        <button type="button" class="event-modal-close" onclick="closeUtilArticleModal();" aria-label="Close article modal">&times;</button>
+        <div class="event-modal-breadcrumb" id="utilArticleModalBreadcrumb">
+          Research Utilization &gt; Article Reader
+        </div>
+        <h2 class="event-modal-title" id="utilArticleModalTitle">
+          Utilization Article Title
+        </h2>
+        <div class="event-modal-meta" id="utilArticleModalMeta">
+          <span>🏛️ Proponent Department</span>
+          <span>&bull; 🤝 Adopting Partner</span>
+        </div>
+        <div class="event-modal-share" id="utilArticleModalShare" style="margin-top: 1rem; display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+          <span class="badge-pill" id="utilArticleModalBadge" style="background: rgba(255, 255, 255, 0.2); font-weight: 800; font-size: 0.74rem;">📰 UTILIZATION ARTICLE</span>
+          <span class="badge-pill" id="utilArticleModalWingBadge" style="background: rgba(255, 255, 255, 0.15); font-size: 0.74rem;">MCNP Health Sciences</span>
+          <span class="badge-pill" id="utilArticleModalCourseBadge" style="background: rgba(184, 151, 38, 0.35); border: 1px solid rgba(255, 255, 255, 0.3); font-weight: 700; font-size: 0.74rem;">BS Nursing</span>
+          <span class="badge-pill" id="utilArticleModalStatusBadge" style="background: #dcfce7; color: #166534; font-weight: 800; border: 1px solid #bbf7d0; font-size: 0.74rem;">#UTIL-2025-001</span>
+        </div>
+      </div>
+
+      <!-- Quick Action Bar inside Modal -->
+      <div class="article-modal-quick-actions">
+        <div class="article-modal-alignments">
+          <div class="article-modal-align-item">
+            <span class="article-modal-align-label">INNOVATES Focus:</span>
+            <div id="utilArticleModalPillarWrap" class="article-modal-align-icons">
+              <!-- Pillar emblem and title -->
+            </div>
+          </div>
+          <div class="article-modal-align-item">
+            <span class="article-modal-align-label">Pathway:</span>
+            <div id="utilArticleModalPathwayWrap">
+              <!-- Pathway badge -->
+            </div>
+          </div>
+        </div>
+        <div class="article-modal-actions-btns">
+          <button type="button" id="utilArticleModalCopyBtn" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; font-weight: 700;" title="Copy Registry ID">
+            📋 Copy ID
+          </button>
+          <button type="button" onclick="printUtilArticle();" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; font-weight: 700;" title="Print this protocol">
+            🖨️ Print
+          </button>
+        </div>
+      </div>
+
+      <!-- Scrollable Modal Body (Contains the whole article card) -->
+      <div class="article-modal-body-scroll" id="utilArticleModalScrollBody">
+        <div id="utilArticleModalContent">
+          <!-- Populated dynamically with the complete article content -->
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="event-modal-actions-bar">
+        <div style="font-size: 0.82rem; color: #64748b; line-height: 1.5;">
+          Published by <strong>Research &amp; Development Center (RDC)</strong> &bull; Medical Colleges of Northern Philippines &amp; International School of Asia and the Pacific
+        </div>
+        <button type="button" class="btn btn-sm btn-gold" onclick="closeUtilArticleModal();" style="font-size: 0.82rem; font-weight: 700; padding: 0.45rem 1.25rem;">
+          Close Article &times;
+        </button>
+      </div>
+    </div>
+  </div>
 
   <script src="js/main.min.js" defer></script>
   <script>
@@ -2723,8 +3104,8 @@
 
         return `
           <article class="article-accordion-card ${a.wing === 'isap' ? 'wing-isap' : 'wing-mcnp'}" id="${cardId}">
-            <!-- Clickable Header: CARD PREVIEW (Formatted identically to News & Events) -->
-            <div class="article-accordion-header" onclick="toggleArticleAccordion('${cardId}');" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleArticleAccordion('${cardId}');}" aria-expanded="false" id="header-${cardId}">
+            <!-- Clickable Header: CARD PREVIEW (Click to open full article modal card or expand inline) -->
+            <div class="article-accordion-header" onclick="openUtilArticleModal('${a.status}');" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openUtilArticleModal('${a.status}');}" aria-expanded="false" id="header-${cardId}" title="Click to open full article reader card">
               <!-- Side Thumbnail -->
               <div class="article-card-thumb-wrap">
                 <img src="${thumbCover}" alt="${cInfo.name} Research Publication" loading="lazy" decoding="async">
@@ -2774,8 +3155,8 @@
 
               <!-- Action Buttons -->
               <div class="article-header-actions">
-                <button type="button" class="article-expand-toggle" onclick="event.stopPropagation(); openUtilizationModal('${a.pillarKey}', 'pathway', '${a.course}');" title="Open full protocol & framework modal">
-                  <span class="toggle-text">📖 Read Full Protocol ↗</span>
+                <button type="button" class="article-expand-toggle" onclick="event.stopPropagation(); openUtilArticleModal('${a.status}');" title="Open complete full article reader card">
+                  <span class="toggle-text">📖 Read Full Article Card ↗</span>
                 </button>
                 <button type="button" class="btn btn-sm btn-outline-white" id="toggleBtn-${cardId}" onclick="event.stopPropagation(); toggleArticleAccordion('${cardId}');" style="font-size: 0.75rem; padding: 0.35rem 0.8rem; color: #475569; border-color: #cbd5e1; white-space: nowrap;" title="Expand article inline on page">
                   <span class="toggle-text">▾ Expand on Page</span>
@@ -2850,6 +3231,306 @@
         }
       }
     }
+
+    
+    var currentActiveUtilArticle = null;
+
+    function lockBodyScroll() {
+      if (document.body.dataset.isScrollLocked === 'true') return;
+      var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      document.body.dataset.scrollY = scrollY;
+      document.body.dataset.isScrollLocked = 'true';
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-' + scrollY + 'px';
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function unlockBodyScroll() {
+      var artOpen = document.getElementById('utilArticleModalOverlay') && document.getElementById('utilArticleModalOverlay').classList.contains('open');
+      var utilOpen = document.getElementById('utilizationModal') && document.getElementById('utilizationModal').classList.contains('active');
+      if (artOpen || utilOpen) return;
+
+      if (document.body.dataset.isScrollLocked !== 'true') return;
+      var scrollY = parseInt(document.body.dataset.scrollY || '0', 10);
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      delete document.body.dataset.isScrollLocked;
+      delete document.body.dataset.scrollY;
+      window.scrollTo(0, scrollY);
+    }
+
+    window.openUtilArticleModal = function(statusOrId) {
+      if (!statusOrId) return;
+      var all = getAllUtilizationArticles();
+      var cleanTarget = String(statusOrId).trim().toLowerCase();
+      var cleanTargetNorm = cleanTarget.replace(/[^a-z0-9]/g, '');
+
+      var a = all.find(function(item) {
+        if (item.status && item.status.toLowerCase() === cleanTarget) return true;
+        if (item.status && item.status.toLowerCase().replace(/[^a-z0-9]/g, '') === cleanTargetNorm) return true;
+        if (item.title && item.title.toLowerCase() === cleanTarget) return true;
+        return false;
+      });
+
+      if (!a && all.length > 0) {
+        a = all[0];
+      }
+      if (!a) return;
+
+      currentActiveUtilArticle = a;
+      var overlay = document.getElementById('utilArticleModalOverlay');
+      if (!overlay) return;
+
+      var cInfo = coursesMap[a.course] || { name: 'Allied Program', icon: '🎓', color: '#0b3c5d' };
+      var wingColor = (a.wing === 'mcnp') ? 'var(--mcnp-green)' : 'var(--isap-blue)';
+      var wingBg = (a.wing === 'mcnp') ? 'rgba(0, 106, 60, 0.1)' : 'rgba(11, 60, 93, 0.1)';
+      var wingText = (a.wing === 'mcnp') ? 'MCNP Health Sciences' : 'ISAP Multidisciplinary';
+      var thumbCover = courseJournalCovers[a.course] || ((a.wing === 'mcnp') ? 'assets/Mcnp_Logo.png' : 'assets/ISAP_LOGO_NO_BG (1).png');
+      var pData = utilizationPillarsData[a.pillarKey] || {};
+      var pillarEmblem = pData.emblem || 'assets/agenda/agenda-4-operationalize.png';
+
+      // Breadcrumb
+      var breadcrumb = document.getElementById('utilArticleModalBreadcrumb');
+      if (breadcrumb) {
+        breadcrumb.innerHTML = 'Research Utilization &gt; ' + (a.wing === 'mcnp' ? 'MCNP' : 'ISAP') + ' &gt; ' + cInfo.name + ' &gt; <span style="color:#ffdf70;">' + a.status + '</span>';
+      }
+
+      // Title
+      var titleEl = document.getElementById('utilArticleModalTitle');
+      if (titleEl) {
+        titleEl.textContent = a.title;
+      }
+
+      // Meta
+      var metaEl = document.getElementById('utilArticleModalMeta');
+      if (metaEl) {
+        metaEl.innerHTML = '<span>🏛️ <strong>Proponent:</strong> ' + a.dept + '</span>' +
+          '<span>&bull; 🤝 <strong>Partner:</strong> <strong style="color: #ffdf70;">' + a.partner + '</strong></span>' +
+          '<span>&bull; 📅 October 2026</span>' +
+          '<span>&bull; ⏱️ 3 min read</span>';
+      }
+
+      // Badges
+      var wingBadge = document.getElementById('utilArticleModalWingBadge');
+      if (wingBadge) {
+        wingBadge.textContent = wingText;
+      }
+
+      var courseBadge = document.getElementById('utilArticleModalCourseBadge');
+      if (courseBadge) {
+        courseBadge.innerHTML = cInfo.icon + ' ' + cInfo.name;
+        courseBadge.style.background = cInfo.color + '40';
+      }
+
+      var statusBadge = document.getElementById('utilArticleModalStatusBadge');
+      if (statusBadge) {
+        statusBadge.textContent = a.status;
+      }
+
+      // INNOVATES Focus in quick actions
+      var pillarWrap = document.getElementById('utilArticleModalPillarWrap');
+      if (pillarWrap) {
+        pillarWrap.innerHTML = '<a href="rdc-agenda.html#pillar-' + a.pillarKey + '" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.4rem; text-decoration:none; color:#0f172a; font-weight:700; font-size:0.82rem;" title="Explore ' + a.pillarFullName + ' in RDC Agenda">' +
+          '<img src="' + pillarEmblem + '" alt="' + a.pillarName + '" style="width:24px; height:24px; border-radius:4px; object-fit:contain;" />' +
+          '<span>' + a.pillarName + ' (' + a.pillarFullName + ')</span>' +
+          '</a>';
+      }
+
+      // Pathway badge in quick actions
+      var pathwayWrap = document.getElementById('utilArticleModalPathwayWrap');
+      if (pathwayWrap) {
+        pathwayWrap.innerHTML = '<span style="display:inline-flex; align-items:center; gap:0.35rem; font-size:0.75rem; font-weight:700; color:#0b3c5d; background:rgba(11,60,93,0.08); padding:0.25rem 0.65rem; border-radius:12px;">' +
+          '<span>🎯</span> ' + a.pathwayBadge +
+          '</span>';
+      }
+
+      // Copy Button
+      var copyBtn = document.getElementById('utilArticleModalCopyBtn');
+      if (copyBtn) {
+        copyBtn.setAttribute('onclick', "copyUtilProtocolId('" + a.status + "', this);");
+      }
+
+      // Mechanisms list HTML
+      var mechanismsHtml = '';
+      if (pData.pathway && pData.pathway.mechanisms && pData.pathway.mechanisms.length > 0) {
+        mechanismsHtml = '<div style="margin: 0.85rem 0 0.5rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.85rem 1rem;">' +
+          '<div style="font-size: 0.72rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.45rem;">Core Pathway Mechanisms:</div>' +
+          '<ul style="margin: 0; padding-left: 1.25rem; font-size: 0.82rem; color: #334155; line-height: 1.6;">' +
+          pData.pathway.mechanisms.map(function(m) { return '<li style="margin-bottom: 0.25rem;">' + m + '</li>'; }).join('') +
+          '</ul></div>';
+      }
+
+      // Scrollable Content
+      var contentEl = document.getElementById('utilArticleModalContent');
+      if (contentEl) {
+        contentEl.innerHTML = `
+          <!-- Journal Cover Hero Card -->
+          <div style="position: relative; border-radius: 12px; overflow: hidden; margin-bottom: 1.75rem; background: linear-gradient(135deg, #09261a, #0b3c5d); box-shadow: 0 6px 20px rgba(0,0,0,0.08);">
+            <div style="display: flex; flex-direction: row; align-items: center; flex-wrap: wrap;">
+              <div style="flex: 0 0 190px; max-width: 190px; height: 210px; overflow: hidden; background: #0f172a;">
+                <img src="${thumbCover}" alt="${cInfo.name} Official Journal Publication" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+              </div>
+              <div style="flex: 1 1 280px; padding: 1.35rem 1.65rem; color: #ffffff;">
+                <div style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: #ffdf70; margin-bottom: 0.35rem;">
+                  Official Academic Publication &bull; Departmental Research Journal
+                </div>
+                <h3 style="font-size: 1.15rem; font-weight: 800; color: #ffffff; margin: 0 0 0.45rem; line-height: 1.4;">
+                  ${cInfo.name} Applied Research Portfolio
+                </h3>
+                <p style="font-size: 0.85rem; color: rgba(255,255,255,0.85); line-height: 1.6; margin: 0 0 0.75rem;">
+                  Peer-reviewed thesis capstone and clinical action research registered under the institutional research utilization framework of MCNP &amp; ISAP.
+                </p>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; font-size: 0.75rem;">
+                  <span style="background: rgba(255,255,255,0.18); padding: 0.2rem 0.6rem; border-radius: 6px; font-weight: 700;">Registry: ${a.status}</span>
+                  <span style="background: rgba(184,151,38,0.25); border: 1px solid rgba(184,151,38,0.5); padding: 0.2rem 0.6rem; border-radius: 6px; font-weight: 700; color: #ffdf70;">Verified Field Adoption</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Executive Study Abstract / Summary Narrative -->
+          <div style="margin-bottom: 1.75rem;">
+            <h4 style="font-size: 1.1rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+              <span>📄</span> Executive Study Summary &amp; Protocol Overview
+            </h4>
+            <div style="background: #f8fafc; border-left: 4px solid ${(a.wing === 'mcnp') ? '#0d5c3a' : '#0b3c5d'}; padding: 1.25rem 1.4rem; border-radius: 0 10px 10px 0; margin-bottom: 1rem; font-size: 0.94rem; color: #334155; line-height: 1.75; text-align: justify; text-justify: inter-word;">
+              ${a.summary}
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0.85rem; font-size: 0.85rem; color: #475569;">
+              <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.85rem 1rem;">
+                <strong style="color: #0f172a; display: block; margin-bottom: 0.2rem;">🏛️ Proponent Department:</strong>
+                <span>${a.dept}</span>
+              </div>
+              <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.85rem 1rem;">
+                <strong style="color: #0f172a; display: block; margin-bottom: 0.2rem;">🤝 Regional Adopting Partner:</strong>
+                <span style="color: ${(a.wing === 'mcnp') ? '#0d5c3a' : '#0b3c5d'}; font-weight: 700;">${a.partner}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Measurable Impact & Evidence -->
+          <div style="background: linear-gradient(135deg, rgba(240, 253, 244, 0.9), rgba(254, 252, 232, 0.9)); border: 1.5px solid #86efac; border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1.75rem; box-shadow: 0 3px 10px rgba(0,0,0,0.02);">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem;">
+              <span style="font-size: 1.35rem;">📈</span>
+              <span style="font-size: 0.82rem; font-weight: 800; color: #166534; text-transform: uppercase; letter-spacing: 0.04em;">Measurable Impact &amp; Field Outcomes</span>
+            </div>
+            <p style="font-size: 0.95rem; font-weight: 600; color: #14532d; line-height: 1.65; margin: 0;">
+              ${a.impact}
+            </p>
+          </div>
+
+          <!-- Standard Institutional Procedure (Stages 01–04) -->
+          <div style="margin-bottom: 1.75rem;">
+            <h4 style="font-size: 1.1rem; font-weight: 800; color: #0f172a; margin: 0 0 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
+              <span>📋</span> Standard Institutional Procedure &amp; Implementation Stages
+            </h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.85rem;">
+              <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1rem; border-top: 3.5px solid #0d5c3a;">
+                <div style="font-size: 0.68rem; font-weight: 800; color: #0d5c3a; text-transform: uppercase; margin-bottom: 0.25rem;">Stage 01: Manuscript</div>
+                <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0;">${a.procedure ? a.procedure.stage1 : 'Proponents submit defense-approved manuscripts and ethics clearances to the RDC Repository.'}</p>
+              </div>
+              <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1rem; border-top: 3.5px solid #0b3c5d;">
+                <div style="font-size: 0.68rem; font-weight: 800; color: #0b3c5d; text-transform: uppercase; margin-bottom: 0.25rem;">Stage 02: Toolkit</div>
+                <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0;">${a.procedure ? a.procedure.stage2 : 'Action research is synthesized into modular teaching guides, clinical packets, and operational matrices.'}</p>
+              </div>
+              <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1rem; border-top: 3.5px solid #b89726;">
+                <div style="font-size: 0.68rem; font-weight: 800; color: #b89726; text-transform: uppercase; margin-bottom: 0.25rem;">Stage 03: Handover</div>
+                <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0;">${a.procedure ? a.procedure.stage3 : 'Formal turnover to regional partners and community stakeholders via institutional Memorandum of Agreement (MoA).'}</p>
+              </div>
+              <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1rem; border-top: 3.5px solid #7b1113;">
+                <div style="font-size: 0.68rem; font-weight: 800; color: #7b1113; text-transform: uppercase; margin-bottom: 0.25rem;">Stage 04: Certification</div>
+                <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0;">${a.procedure ? a.procedure.stage4 : 'Field adoption verified by stakeholders; RDC issues the official Certificate of Research Utilization.'}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Institutional Pathway Translation -->
+          <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 1.25rem 1.4rem; margin-bottom: 1.5rem;">
+            <div style="font-size: 0.75rem; font-weight: 800; color: #0b3c5d; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem;">
+              <span>🎯</span> Institutional Pathway Translation
+            </div>
+            <p style="font-size: 0.88rem; color: #334155; line-height: 1.65; margin: 0 0 0.85rem;">
+              ${a.pathwayDesc || 'Translating empirical educational, behavioral, and clinical research into institutional practice and community extension.'}
+            </p>
+            ${mechanismsHtml}
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; border-top: 1px solid #f1f5f9; padding-top: 0.75rem; font-size: 0.82rem; color: #64748b;">
+              <div><strong>Key Adopters:</strong> <span style="color: #1e293b; font-weight: 600;">${a.beneficiaries || a.partner}</span></div>
+              <div><strong>Delivery Formats:</strong> <span style="color: #1e293b; font-weight: 600;">${a.coreFormats || 'Manuals, SOPs, Clinical Protocols'}</span></div>
+            </div>
+          </div>
+
+          <!-- Bottom Action Controls -->
+          <div style="display: flex; justify-content: flex-end; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+            <button type="button" class="btn btn-sm btn-outline-white" onclick="closeUtilArticleModal();" style="font-weight: 700; font-size: 0.82rem; padding: 0.45rem 1rem;">
+              ✕ Close Reader
+            </button>
+            <button type="button" class="btn btn-sm ${(a.wing === 'mcnp') ? 'btn-mcnp' : 'btn-gold'}" onclick="closeUtilArticleModal(); setTimeout(function(){ openUtilizationModal('${a.pillarKey}', 'pathway', '${a.course}'); }, 150);" style="font-weight: 700; font-size: 0.82rem; padding: 0.45rem 1.15rem;">
+              Explore Aligned ${a.pillarName} Pillar Framework &rarr;
+            </button>
+          </div>
+        `;
+      }
+
+      if (document.activeElement && typeof document.activeElement.blur === 'function') {
+        document.activeElement.blur();
+      }
+
+      lockBodyScroll();
+      overlay.classList.add('open');
+
+      var resetArticleScroll = function () {
+        if (!overlay) return;
+        overlay.scrollTop = 0;
+        if (overlay.scrollTo) overlay.scrollTo(0, 0);
+
+        var modalEl = overlay.querySelector('.article-modal-card');
+        if (modalEl) {
+          modalEl.scrollTop = 0;
+          if (modalEl.scrollTo) modalEl.scrollTo(0, 0);
+        }
+
+        var scrollBody = document.getElementById('utilArticleModalScrollBody');
+        if (scrollBody) {
+          scrollBody.scrollTop = 0;
+          if (scrollBody.scrollTo) scrollBody.scrollTo(0, 0);
+        }
+      };
+
+      resetArticleScroll();
+      requestAnimationFrame(resetArticleScroll);
+      setTimeout(resetArticleScroll, 40);
+      setTimeout(resetArticleScroll, 120);
+    };
+
+    window.closeUtilArticleModal = function() {
+      var overlay = document.getElementById('utilArticleModalOverlay');
+      if (overlay) {
+        overlay.classList.remove('open');
+        overlay.scrollTop = 0;
+        var modalEl = overlay.querySelector('.article-modal-card');
+        if (modalEl) modalEl.scrollTop = 0;
+        var scrollBody = document.getElementById('utilArticleModalScrollBody');
+        if (scrollBody) scrollBody.scrollTop = 0;
+      }
+      unlockBodyScroll();
+    };
+
+    window.printUtilArticle = function() {
+      document.body.classList.add('print-util-article-mode');
+      setTimeout(function() {
+        window.print();
+        setTimeout(function() {
+          document.body.classList.remove('print-util-article-mode');
+        }, 1000);
+      }, 50);
+    };
 
     window.toggleArticleAccordion = function(cardId, forceState) {
       var card = document.getElementById(cardId);
@@ -3219,8 +3900,13 @@
             <p style="font-size: 0.9rem; color: #475569; line-height: 1.7; margin-bottom: 0.95rem;">
               ${u.summary}
             </p>
-            <div style="background: #f8fafc; border-left: 3.5px solid #7b1113; padding: 0.75rem 1rem; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: #1e293b;">
+            <div style="background: #f8fafc; border-left: 3.5px solid #7b1113; padding: 0.75rem 1rem; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: #1e293b; margin-bottom: 0.75rem;">
               <strong style="color: #7b1113;">Measurable Impact:</strong> ${u.impact}
+            </div>
+            <div style="display: flex; justify-content: flex-end;">
+              <button type="button" class="btn btn-sm ${(u.wing === 'mcnp') ? 'btn-mcnp' : 'btn-gold'}" onclick="openUtilArticleModal('${u.status}');" style="font-size: 0.76rem; font-weight: 700; padding: 0.35rem 0.85rem;">
+                📖 Read Full Article Card ↗
+              </button>
             </div>
           </div>
         `;
@@ -3487,7 +4173,7 @@
       switchUtilizationTab(tabName);
 
       modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      lockBodyScroll();
     };
 
     window.closeUtilizationModal = function() {
@@ -3495,7 +4181,7 @@
       if (modal) {
         modal.classList.remove('active');
       }
-      document.body.style.overflow = '';
+      unlockBodyScroll();
     };
 
     window.switchUtilizationTab = function(tabName) {
@@ -3553,11 +4239,24 @@
 
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
+        var artOverlay = document.getElementById('utilArticleModalOverlay');
+        if (artOverlay && artOverlay.classList.contains('open')) {
+          closeUtilArticleModal();
+          return;
+        }
         closeUtilizationModal();
       }
     });
 
     window.addEventListener('DOMContentLoaded', function() {
+      var artOverlay = document.getElementById('utilArticleModalOverlay');
+      if (artOverlay) {
+        artOverlay.addEventListener('click', function(e) {
+          if (e.target === artOverlay) {
+            closeUtilArticleModal();
+          }
+        });
+      }
       var hash = window.location.hash.toLowerCase();
       if (hash.indexOf('isap') !== -1) {
         filterUtilizationWing('isap', document.getElementById('btn-tab-isap'));
