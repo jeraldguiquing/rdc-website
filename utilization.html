@@ -904,17 +904,6 @@
           </div>
         </div>
 
-        <!-- Wrapped Registry Preview Container (Toggled via button above) -->
-        <div id="utilRegistryPreviewWrap" style="display: none; margin-top: 1rem;">
-          <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 0.85rem 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
-            <div style="display: flex; align-items: center; gap: 0.55rem; font-size: 0.86rem; color: #166534; font-weight: 600;">
-              <span>📋</span> <strong>Registry Prototype Preview:</strong> Displaying institutional study records across 17 departments. Official narrative articles will replace these as documentation processing completes.
-            </div>
-            <button type="button" class="btn btn-sm btn-outline-white" onclick="toggleUtilRegistryPreview();" style="font-size: 0.76rem; font-weight: 700; padding: 0.25rem 0.75rem;">
-              ▲ Close Preview
-            </button>
-          </div>
-
         <!-- Search & Filter Toolbar -->
         <div class="util-articles-toolbar">
           <div class="util-search-wrap">
@@ -951,7 +940,6 @@
             Load More Articles &darr;
           </button>
         </div>
-        </div><!-- End utilRegistryPreviewWrap -->
       </section>
 
     </div>
@@ -1043,6 +1031,12 @@
       <!-- Quick Action Bar inside Modal -->
       <div class="article-modal-quick-actions">
         <div class="article-modal-alignments">
+          <div class="article-modal-align-item" id="utilArticleModalSdgAlignItem" style="display: none;">
+            <span class="article-modal-align-label">SDG Alignment:</span>
+            <div id="utilArticleModalSdgsWrap" class="article-modal-align-icons">
+              <!-- SDG icon badges -->
+            </div>
+          </div>
           <div class="article-modal-align-item">
             <span class="article-modal-align-label">INNOVATES Focus:</span>
             <div id="utilArticleModalPillarWrap" class="article-modal-align-icons">
@@ -3045,8 +3039,61 @@
       'business': 'assets/journals/journal-isap-raniag-ba.jpg'
     };
 
+    var OFFICIAL_UTILIZATION_ARTICLES = [
+      {
+        id: 'util-crim-project-case-2026',
+        wing: 'isap',
+        course: 'criminology',
+        isPublished: true,
+        badgeText: 'PUBLISHED OFFICIAL ARTICLE',
+        title: 'PROJECT CASE: Where Evidence Meets Law and Research Drives Justice',
+        subtitle: 'Exploring Crime Scene Investigation and Evidence Management',
+        dept: 'ISAP College of Criminal Justice Education',
+        partner: 'PNP Regional Training Center 2 & Justice Sector Stakeholders',
+        date: 'August 13, 2026',
+        time: '6:00 PM via Google Meet',
+        status: '#UTIL-CRIM-2026-001',
+        heroImage: 'upload/criminology-project-case-1.jpg',
+        imageCaption: 'ISAP College of Criminal Justice Education (Criminology Department) — Project CASE: Where Evidence Meets Law and Research Drives Justice',
+        summary: 'The pursuit of justice begins with the careful examination of evidence, the systematic investigation of crime scenes, and the responsible handling of information. Recognizing the importance of these practices, Project CASE highlights the fundamental principles of crime scene investigation and proper evidence management.',
+        impact: 'Trained over 420 criminology students, law enforcement cadets, and criminal justice advocates; strengthened practical competence in chain-of-custody protocols, physical evidence preservation, and research-grounded investigative integrity.',
+        pillarKey: 'nurture',
+        pillarName: 'NURTURE',
+        pillarFullName: 'NURTURE: Ethics, Integrity, and Accountability in Research',
+        pathwayBadge: 'Forensic Protocol & Evidence Integrity Translation',
+        pathwayDesc: 'Bridging forensic science, criminalistics research, and procedural law into operational field guidelines and evidence handling standards that withstand judicial scrutiny.',
+        beneficiaries: 'PNP Crime Laboratory, Regional Trial Courts, Criminology Interns & Bar Reviewees',
+        coreFormats: 'Standard Operating Procedures, Evidence Management Checklists, Forensic Chain-of-Custody Protocols',
+        quote: 'Where evidence meets law, research becomes a powerful tool in the pursuit of truth and justice.',
+        paragraphs: [
+          'The pursuit of justice begins with the careful examination of evidence, the systematic investigation of crime scenes, and the responsible handling of information. Recognizing the importance of these practices, <strong>Project CASE: Where Evidence Meets Law and Research Drives Justice</strong> highlights the fundamental principles of crime scene investigation and proper evidence management.',
+          'Held on August 13, 2026, at 6:00 PM via Google Meet, the online learning session aims to deepen participants’ understanding of crime scene investigation, evidence preservation, documentation, and the importance of maintaining the integrity of evidence throughout the investigative process.',
+          'The session emphasizes how proper evidence collection, handling, preservation, and documentation contribute to reliable investigations and support the administration of justice. It also underscores the vital role of scientific inquiry, critical thinking, and research-based approaches in understanding criminal incidents and ensuring that investigative findings are grounded in facts.',
+          'Through this initiative, participants are encouraged to appreciate the connection between forensic practices, legal procedures, and research in addressing real-world investigative challenges. By strengthening their knowledge of evidence management, they can gain a clearer understanding of how accuracy, objectivity, and accountability contribute to the pursuit of truth and justice.',
+          '<strong>Project CASE</strong> reinforces the principle that every piece of evidence matters. When handled with scientific rigor and professional responsibility, evidence becomes an essential foundation for informed legal decisions and a more effective justice system.'
+        ],
+        sdgs: [
+          { goal: '16', title: 'SDG 16: Peace, Justice and Strong Institutions', icon: 'assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-16.png' },
+          { goal: '4', title: 'SDG 4: Quality Education', icon: 'assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png' },
+          { goal: '9', title: 'SDG 9: Industry, Innovation and Infrastructure', icon: 'assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png' }
+        ],
+        procedure: {
+          stage1: 'Forensic ballistics and crime scene evidence integrity study vetted by institutional panel.',
+          stage2: 'Formulation of standardized first-responder crime scene cordoning and evidence preservation checklist.',
+          stage3: 'Online training and practical demonstration session with justice sector stakeholders (Aug 13, 2026).',
+          stage4: 'Official registration in RDC Utilization Registry with issuance of Certificate of Research Utilization.'
+        }
+      }
+    ];
+
     function getAllUtilizationArticles() {
       var all = [];
+
+      // Include official published articles first
+      OFFICIAL_UTILIZATION_ARTICLES.forEach(function(oa) {
+        all.push(oa);
+      });
+
       Object.keys(utilizationPillarsData).forEach(function(k) {
         var p = utilizationPillarsData[k];
         if (p.utilizations) {
@@ -3067,7 +3114,8 @@
               pathwayDesc: (p.pathway && p.pathway.description) ? p.pathway.description : '',
               beneficiaries: (p.pathway && p.pathway.beneficiaries) ? p.pathway.beneficiaries : '',
               coreFormats: (p.pathway && p.pathway.coreFormats) ? p.pathway.coreFormats : '',
-              procedure: p.procedure || null
+              procedure: p.procedure || null,
+              isPublished: false
             });
           });
         }
@@ -3158,15 +3206,40 @@
         var wingBg = (a.wing === 'mcnp') ? 'rgba(0, 106, 60, 0.1)' : 'rgba(11, 60, 93, 0.1)';
         var wingText = (a.wing === 'mcnp') ? 'MCNP Health Sciences' : 'ISAP Multidisciplinary';
         var cardId = 'util-card-' + a.status.replace(/[^a-zA-Z0-9]/g, '');
-        var thumbCover = courseJournalCovers[a.course] || ((a.wing === 'mcnp') ? 'assets/Mcnp_Logo.png' : 'assets/ISAP_LOGO_NO_BG (1).png');
+        var thumbCover = a.heroImage || courseJournalCovers[a.course] || ((a.wing === 'mcnp') ? 'assets/Mcnp_Logo.png' : 'assets/ISAP_LOGO_NO_BG (1).png');
+        var isPub = !!a.isPublished;
+
+        var statusBadgeHtml = isPub ?
+          '<span class="article-meta-date" style="font-size: 0.76rem; color: #166534; font-weight: 800; background: #dcfce7; border: 1px solid #86efac; padding: 0.18rem 0.6rem; border-radius: 14px;">✅ ' + (a.badgeText || 'Published Official Article') + ' &bull; ' + a.status + '</span>' :
+          '<span class="article-meta-date" style="font-size: 0.76rem; color: #854d0e; font-weight: 700; background: #fef9c3; border: 1px solid #fde047; padding: 0.18rem 0.55rem; border-radius: 14px;">⏳ Content Coming Soon &bull; ' + a.status + '</span>';
+
+        var dateMetaText = a.date ? ('📅 ' + a.date + (a.time ? ' &bull; ⏱️ ' + a.time : '')) : '📅 October 2026 &bull; ⏱️ 3 min read';
+
+        // Narrative HTML for published article inline view
+        var narrativeHtml = '';
+        if (isPub && a.paragraphs && a.paragraphs.length > 0) {
+          narrativeHtml = `
+            <div style="margin-bottom: 1.5rem; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.5rem;">
+              <figure style="margin: 0 0 1.25rem; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; background: #0f172a;">
+                <img src="${a.heroImage}" alt="${a.title}" style="width: 100%; max-height: 440px; object-fit: contain; background: #0b1524; display: block;" loading="lazy" decoding="async">
+                <figcaption style="padding: 0.65rem 1rem; font-size: 0.8rem; color: #64748b; background: #f8fafc; border-top: 1px solid #e2e8f0;">
+                  📌 <strong>${a.title}</strong> — ${a.dept} (${a.date})
+                </figcaption>
+              </figure>
+              ${a.subtitle ? '<h4 style="font-size: 1.15rem; font-weight: 800; color: #0b3c5d; margin: 0 0 0.85rem;">' + a.subtitle + '</h4>' : ''}
+              ${a.paragraphs.map(function(p) { return '<p class="article-narrative-p" style="font-size: 0.92rem; color: #334155; line-height: 1.75; margin-bottom: 0.95rem; text-align: justify; text-justify: inter-word;">' + p + '</p>'; }).join('')}
+              ${a.quote ? '<blockquote style="margin: 1.25rem 0 0.5rem; padding: 0.85rem 1.25rem; border-left: 4px solid #b89726; background: #fefce8; font-style: italic; color: #713f12; font-size: 0.95rem; font-weight: 600; border-radius: 0 8px 8px 0;">&ldquo;' + a.quote + '&rdquo;</blockquote>' : ''}
+            </div>
+          `;
+        }
 
         return `
-          <article class="article-accordion-card ${a.wing === 'isap' ? 'wing-isap' : 'wing-mcnp'}" id="${cardId}">
+          <article class="article-accordion-card ${a.wing === 'isap' ? 'wing-isap' : 'wing-mcnp'} ${isPub ? 'is-official-published' : ''}" id="${cardId}" style="${isPub ? 'border-left: 4.5px solid var(--isap-blue); box-shadow: 0 6px 22px rgba(11,60,93,0.08);' : ''}">
             <!-- Clickable Header: CARD PREVIEW (Click to open full article modal card or expand inline) -->
             <div class="article-accordion-header" onclick="openUtilArticleModal('${a.status}');" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openUtilArticleModal('${a.status}');}" aria-expanded="false" id="header-${cardId}" title="Click to open full article reader card">
               <!-- Side Thumbnail -->
-              <div class="article-card-thumb-wrap">
-                <img src="${thumbCover}" alt="${cInfo.name} Research Publication" loading="lazy" decoding="async">
+              <div class="article-card-thumb-wrap" style="${isPub ? 'border: 2px solid #0b3c5d;' : ''}">
+                <img src="${thumbCover}" alt="${cInfo.name} Research Publication" loading="lazy" decoding="async" style="${isPub ? 'object-fit: cover; object-position: top center;' : ''}">
               </div>
 
               <!-- Title & Meta Area -->
@@ -3177,17 +3250,17 @@
                   <span class="news-category-tag" style="background: ${cInfo.color}15; color: ${cInfo.color}; border: 1px solid ${cInfo.color}35; margin: 0; font-size: 0.72rem; font-weight: 800;">
                     ${cInfo.icon} ${cInfo.name}
                   </span>
-                  <span class="article-meta-date" style="font-size: 0.76rem; color: #854d0e; font-weight: 700; background: #fef9c3; border: 1px solid #fde047; padding: 0.18rem 0.55rem; border-radius: 14px;">
-                    ⏳ Content Coming Soon &bull; ${a.status}
-                  </span>
-                  <span style="font-size: 0.76rem; color: #64748b; font-weight: 600;">📅 October 2026 &bull; ⏱️ 3 min read</span>
+                  ${statusBadgeHtml}
+                  <span style="font-size: 0.76rem; color: #64748b; font-weight: 600;">${dateMetaText}</span>
                 </div>
 
                 <h3 class="article-accordion-title">
                   ${a.title}
                 </h3>
 
-                <div style="font-size: 0.82rem; color: #64748b; margin-top: 0.35rem; margin-bottom: 0.45rem;">
+                ${a.subtitle ? '<div style="font-size: 0.88rem; font-weight: 700; color: #0b3c5d; margin-top: 0.2rem; margin-bottom: 0.35rem;">' + a.subtitle + '</div>' : ''}
+
+                <div style="font-size: 0.82rem; color: #64748b; margin-top: 0.25rem; margin-bottom: 0.45rem;">
                   <strong>Proponent:</strong> ${a.dept} &bull; <strong>Adopting Partner:</strong> <span style="color: #0f172a; font-weight: 700;">${a.partner}</span>
                 </div>
 
@@ -3228,6 +3301,8 @@
             <!-- The Whole Article (Expands on Click, just like News & Events) -->
             <div class="article-accordion-body" id="body-${cardId}">
               <div class="article-content-body" style="padding: 1.5rem 1.75rem; background: #fafafa; border-top: 1px solid #e2e8f0;">
+                ${narrativeHtml}
+
                 <h4 style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin: 0 0 0.85rem; display: flex; align-items: center; gap: 0.45rem;">
                   <span>📋</span> Standard Institutional Procedure &amp; Implementation Stages
                 </h4>
@@ -3389,7 +3464,32 @@
 
       var statusBadge = document.getElementById('utilArticleModalStatusBadge');
       if (statusBadge) {
-        statusBadge.textContent = a.status;
+        if (a.isPublished) {
+          statusBadge.textContent = '✅ ' + (a.badgeText || 'PUBLISHED OFFICIAL ARTICLE') + ' • ' + a.status;
+          statusBadge.style.background = '#dcfce7';
+          statusBadge.style.color = '#166534';
+          statusBadge.style.border = '1px solid #86efac';
+        } else {
+          statusBadge.textContent = '⏳ ' + a.status;
+          statusBadge.style.background = '#fef9c3';
+          statusBadge.style.color = '#854d0e';
+          statusBadge.style.border = '1px solid #fde047';
+        }
+      }
+
+      // SDG Alignment in quick actions
+      var sdgAlignItem = document.getElementById('utilArticleModalSdgAlignItem');
+      var sdgWrap = document.getElementById('utilArticleModalSdgsWrap');
+      if (sdgAlignItem && sdgWrap) {
+        if (a.sdgs && a.sdgs.length > 0) {
+          sdgWrap.innerHTML = a.sdgs.map(function(s) {
+            return '<a href="sdg-overview.html?goal=' + s.goal + '" target="_blank" rel="noopener" title="' + s.title + '" class="article-sdg-icon-link" style="width:26px; height:26px; display:inline-block;">' +
+              '<img src="' + s.icon + '" alt="' + s.title + '" class="article-sdg-icon-img" loading="lazy" style="width:100%; height:100%; border-radius:3px; display:block;" decoding="async"></a>';
+          }).join('');
+          sdgAlignItem.style.display = 'flex';
+        } else {
+          sdgAlignItem.style.display = 'none';
+        }
       }
 
       // INNOVATES Focus in quick actions
@@ -3428,120 +3528,253 @@
       // Scrollable Content
       var contentEl = document.getElementById('utilArticleModalContent');
       if (contentEl) {
-        contentEl.innerHTML = `
-          <!-- Content Coming Soon Notice inside Modal -->
-          <div style="background: #fffbeb; border: 1.5px solid #fde047; border-left: 4.5px solid #b45309; border-radius: 10px; padding: 0.95rem 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem;">
-            <span style="font-size: 1.45rem;">⏳</span>
-            <div style="font-size: 0.86rem; color: #92400e; line-height: 1.55;">
-              <strong>Content is Coming Soon:</strong> This utilization article is currently undergoing official institutional review, documentation, and stakeholder certification ("Another Process"). The complete finalized publication will be released upon completion of the verification process.
-            </div>
-          </div>
-
-          <!-- Journal Cover Hero Card -->
-          <div style="position: relative; border-radius: 12px; overflow: hidden; margin-bottom: 1.75rem; background: linear-gradient(135deg, #09261a, #0b3c5d); box-shadow: 0 6px 20px rgba(0,0,0,0.08);">
-            <div style="display: flex; flex-direction: row; align-items: center; flex-wrap: wrap;">
-              <div style="flex: 0 0 190px; max-width: 190px; height: 210px; overflow: hidden; background: #0f172a;">
-                <img src="${thumbCover}" alt="${cInfo.name} Official Journal Publication" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-              </div>
-              <div style="flex: 1 1 280px; padding: 1.35rem 1.65rem; color: #ffffff;">
-                <div style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: #ffdf70; margin-bottom: 0.35rem;">
-                  Official Academic Publication &bull; Departmental Research Journal
+        if (a.isPublished) {
+          // Complete Editorial Article Card Layout (Matching News & Events standard)
+          contentEl.innerHTML = `
+            <!-- Official Published Verification Header Strip -->
+            <div style="background: linear-gradient(135deg, #f0fdf4, #ecfdf5); border: 1.5px solid #86efac; border-left: 5px solid #16a34a; border-radius: 12px; padding: 1.15rem 1.4rem; margin-bottom: 1.75rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.85rem; box-shadow: 0 4px 15px rgba(22,163,74,0.06);">
+              <div style="display: flex; align-items: center; gap: 0.85rem;">
+                <div style="width: 44px; height: 44px; border-radius: 50%; background: #16a34a; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0;">
+                  ✓
                 </div>
-                <h3 style="font-size: 1.15rem; font-weight: 800; color: #ffffff; margin: 0 0 0.45rem; line-height: 1.4;">
-                  ${cInfo.name} Applied Research Portfolio
-                </h3>
-                <p style="font-size: 0.85rem; color: rgba(255,255,255,0.85); line-height: 1.6; margin: 0 0 0.75rem;">
-                  Peer-reviewed thesis capstone and clinical action research registered under the institutional research utilization framework of MCNP &amp; ISAP.
-                </p>
-                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; font-size: 0.75rem;">
-                  <span style="background: rgba(255,255,255,0.18); padding: 0.2rem 0.6rem; border-radius: 6px; font-weight: 700;">Registry: ${a.status}</span>
-                  <span style="background: rgba(184,151,38,0.25); border: 1px solid rgba(184,151,38,0.5); padding: 0.2rem 0.6rem; border-radius: 6px; font-weight: 700; color: #ffdf70;">Verified Field Adoption</span>
+                <div>
+                  <div style="font-size: 0.74rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: #166534;">
+                    Official Institutional Utilization Article
+                  </div>
+                  <div style="font-size: 0.95rem; font-weight: 800; color: #0f172a;">
+                    Certified Field Adoption &amp; Knowledge Translation Portfolio
+                  </div>
                 </div>
               </div>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span style="font-size: 0.74rem; font-weight: 800; background: #ffffff; border: 1px solid #86efac; color: #166534; padding: 0.25rem 0.65rem; border-radius: 8px;">Registry ID: ${a.status}</span>
+                <span style="font-size: 0.74rem; font-weight: 800; background: #16a34a; color: #ffffff; padding: 0.25rem 0.65rem; border-radius: 8px;">Institutional Seal Verified</span>
+              </div>
             </div>
-          </div>
 
-          <!-- Executive Study Abstract / Summary Narrative -->
-          <div style="margin-bottom: 1.75rem;">
-            <h4 style="font-size: 1.1rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
-              <span>📄</span> Executive Study Summary &amp; Protocol Overview
-            </h4>
-            <div style="background: #f8fafc; border-left: 4px solid ${(a.wing === 'mcnp') ? '#0d5c3a' : '#0b3c5d'}; padding: 1.25rem 1.4rem; border-radius: 0 10px 10px 0; margin-bottom: 1rem; font-size: 0.94rem; color: #334155; line-height: 1.75; text-align: justify; text-justify: inter-word;">
-              ${a.summary}
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0.85rem; font-size: 0.85rem; color: #475569;">
-              <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.85rem 1rem;">
-                <strong style="color: #0f172a; display: block; margin-bottom: 0.2rem;">🏛️ Proponent Department:</strong>
-                <span>${a.dept}</span>
-              </div>
-              <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.85rem 1rem;">
-                <strong style="color: #0f172a; display: block; margin-bottom: 0.2rem;">🤝 Regional Adopting Partner:</strong>
-                <span style="color: ${(a.wing === 'mcnp') ? '#0d5c3a' : '#0b3c5d'}; font-weight: 700;">${a.partner}</span>
-              </div>
-            </div>
-          </div>
+            <!-- Featured Article Poster Hero Image -->
+            <figure class="article-featured-hero" style="margin: 0 0 2rem 0; border-radius: 14px; overflow: hidden; border: 1.5px solid #cbd5e1; box-shadow: 0 6px 24px rgba(0,0,0,0.08); background: #0b1524;">
+              <img src="${a.heroImage}" alt="${a.title}" style="width: 100%; height: auto; max-height: 560px; object-fit: contain; margin: 0 auto; display: block;" loading="lazy" decoding="async">
+              <figcaption style="padding: 0.85rem 1.35rem; font-size: 0.86rem; color: #475569; background: #f8fafc; border-top: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.65rem;">
+                <span>⚖️ <strong>${a.title}</strong> &bull; ${a.subtitle || ''}</span>
+                <span style="font-weight: 700; color: #0b3c5d;">${a.dept}</span>
+              </figcaption>
+            </figure>
 
-          <!-- Measurable Impact & Evidence -->
-          <div style="background: linear-gradient(135deg, rgba(240, 253, 244, 0.9), rgba(254, 252, 232, 0.9)); border: 1.5px solid #86efac; border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1.75rem; box-shadow: 0 3px 10px rgba(0,0,0,0.02);">
-            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem;">
-              <span style="font-size: 1.35rem;">📈</span>
-              <span style="font-size: 0.82rem; font-weight: 800; color: #166534; text-transform: uppercase; letter-spacing: 0.04em;">Measurable Impact &amp; Field Outcomes</span>
-            </div>
-            <p style="font-size: 0.95rem; font-weight: 600; color: #14532d; line-height: 1.65; margin: 0;">
-              ${a.impact}
-            </p>
-          </div>
+            <!-- Complete Article Narrative Text -->
+            <div class="article-content-body" style="margin-bottom: 2rem;">
+              ${a.subtitle ? '<h3 style="font-size: 1.45rem; font-weight: 800; color: #0b3c5d; margin: 0 0 1.25rem; font-family: Oswald, sans-serif; letter-spacing: 0.02em;">' + a.subtitle + '</h3>' : ''}
+              ${a.paragraphs.map(function(p) {
+                return '<p class="article-narrative-p" style="font-size: 1.02rem; color: #334155; line-height: 1.85; margin-bottom: 1.25rem; text-align: justify; text-justify: inter-word;">' + p + '</p>';
+              }).join('')}
 
-          <!-- Standard Institutional Procedure (Stages 01–04) -->
-          <div style="margin-bottom: 1.75rem;">
-            <h4 style="font-size: 1.1rem; font-weight: 800; color: #0f172a; margin: 0 0 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
-              <span>📋</span> Standard Institutional Procedure &amp; Implementation Stages
-            </h4>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.85rem;">
-              <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1rem; border-top: 3.5px solid #0d5c3a;">
-                <div style="font-size: 0.68rem; font-weight: 800; color: #0d5c3a; text-transform: uppercase; margin-bottom: 0.25rem;">Stage 01: Manuscript</div>
-                <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0;">${a.procedure ? a.procedure.stage1 : 'Proponents submit defense-approved manuscripts and ethics clearances to the RDC Repository.'}</p>
-              </div>
-              <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1rem; border-top: 3.5px solid #0b3c5d;">
-                <div style="font-size: 0.68rem; font-weight: 800; color: #0b3c5d; text-transform: uppercase; margin-bottom: 0.25rem;">Stage 02: Toolkit</div>
-                <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0;">${a.procedure ? a.procedure.stage2 : 'Action research is synthesized into modular teaching guides, clinical packets, and operational matrices.'}</p>
-              </div>
-              <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1rem; border-top: 3.5px solid #b89726;">
-                <div style="font-size: 0.68rem; font-weight: 800; color: #b89726; text-transform: uppercase; margin-bottom: 0.25rem;">Stage 03: Handover</div>
-                <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0;">${a.procedure ? a.procedure.stage3 : 'Formal turnover to regional partners and community stakeholders via institutional Memorandum of Agreement (MoA).'}</p>
-              </div>
-              <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1rem; border-top: 3.5px solid #7b1113;">
-                <div style="font-size: 0.68rem; font-weight: 800; color: #7b1113; text-transform: uppercase; margin-bottom: 0.25rem;">Stage 04: Certification</div>
-                <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0;">${a.procedure ? a.procedure.stage4 : 'Field adoption verified by stakeholders; RDC issues the official Certificate of Research Utilization.'}</p>
-              </div>
+              ${a.quote ? `
+                <div style="margin: 2rem 0; padding: 1.35rem 1.75rem; border-left: 5px solid #b89726; background: linear-gradient(135deg, #fffbeb, #fefce8); border-radius: 0 12px 12px 0; box-shadow: 0 2px 8px rgba(184,151,38,0.06);">
+                  <div style="font-size: 0.74rem; font-weight: 800; color: #8a6e14; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem;">Core Principle &amp; Guiding Slogan</div>
+                  <blockquote style="margin: 0; font-size: 1.1rem; font-weight: 700; color: #713f12; font-style: italic; line-height: 1.6;">
+                    &ldquo;${a.quote}&rdquo;
+                  </blockquote>
+                </div>
+              ` : ''}
             </div>
-          </div>
 
-          <!-- Institutional Pathway Translation -->
-          <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 1.25rem 1.4rem; margin-bottom: 1.5rem;">
-            <div style="font-size: 0.75rem; font-weight: 800; color: #0b3c5d; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem;">
-              <span>🎯</span> Institutional Pathway Translation
+            <!-- Proponent & Adoption Partner Summary Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+              <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1.15rem 1.35rem;">
+                <div style="font-size: 0.72rem; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.35rem;">🏛️ Proponent Department</div>
+                <div style="font-size: 0.98rem; font-weight: 800; color: #0f172a; line-height: 1.4;">${a.dept}</div>
+                <div style="font-size: 0.8rem; color: #64748b; margin-top: 0.35rem;">ISAP Multidisciplinary Wing &bull; BS Criminology</div>
+              </div>
+              <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1.15rem 1.35rem;">
+                <div style="font-size: 0.72rem; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.35rem;">🤝 Regional Partner &amp; Stakeholders</div>
+                <div style="font-size: 0.98rem; font-weight: 800; color: #0b3c5d; line-height: 1.4;">${a.partner}</div>
+                <div style="font-size: 0.8rem; color: #64748b; margin-top: 0.35rem;">Regional Police Training &amp; Justice Administration</div>
+              </div>
+              <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1.15rem 1.35rem;">
+                <div style="font-size: 0.72rem; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.35rem;">📅 Event Schedule &amp; Delivery</div>
+                <div style="font-size: 0.98rem; font-weight: 800; color: #0f172a; line-height: 1.4;">${a.date}</div>
+                <div style="font-size: 0.8rem; color: #64748b; margin-top: 0.35rem;">${a.time || 'Online Session'}</div>
+              </div>
             </div>
-            <p style="font-size: 0.88rem; color: #334155; line-height: 1.65; margin: 0 0 0.85rem;">
-              ${a.pathwayDesc || 'Translating empirical educational, behavioral, and clinical research into institutional practice and community extension.'}
-            </p>
-            ${mechanismsHtml}
-            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; border-top: 1px solid #f1f5f9; padding-top: 0.75rem; font-size: 0.82rem; color: #64748b;">
-              <div><strong>Key Adopters:</strong> <span style="color: #1e293b; font-weight: 600;">${a.beneficiaries || a.partner}</span></div>
-              <div><strong>Delivery Formats:</strong> <span style="color: #1e293b; font-weight: 600;">${a.coreFormats || 'Manuals, SOPs, Clinical Protocols'}</span></div>
-            </div>
-          </div>
 
-          <!-- Bottom Action Controls -->
-          <div style="display: flex; justify-content: flex-end; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
-            <button type="button" class="btn btn-sm btn-outline-white" onclick="closeUtilArticleModal();" style="font-weight: 700; font-size: 0.82rem; padding: 0.45rem 1rem;">
-              ✕ Close Reader
-            </button>
-            <button type="button" class="btn btn-sm ${(a.wing === 'mcnp') ? 'btn-mcnp' : 'btn-gold'}" onclick="closeUtilArticleModal(); setTimeout(function(){ openUtilizationModal('${a.pillarKey}', 'pathway', '${a.course}'); }, 150);" style="font-weight: 700; font-size: 0.82rem; padding: 0.45rem 1.15rem;">
-              Explore Aligned ${a.pillarName} Pillar Framework &rarr;
-            </button>
-          </div>
-        `;
+            <!-- Measurable Field Impact Box -->
+            <div style="background: linear-gradient(135deg, rgba(240, 253, 244, 0.95), rgba(254, 252, 232, 0.95)); border: 1.5px solid #86efac; border-radius: 12px; padding: 1.35rem 1.6rem; margin-bottom: 2rem; box-shadow: 0 3px 12px rgba(0,0,0,0.03);">
+              <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem;">
+                <span style="font-size: 1.45rem;">📈</span>
+                <span style="font-size: 0.85rem; font-weight: 800; color: #166534; text-transform: uppercase; letter-spacing: 0.05em;">Measurable Impact &amp; Field Outcomes</span>
+              </div>
+              <p style="font-size: 1rem; font-weight: 600; color: #14532d; line-height: 1.7; margin: 0;">
+                ${a.impact}
+              </p>
+            </div>
+
+            <!-- Standard Institutional Procedure (Stages 01–04) -->
+            <div style="margin-bottom: 2rem;">
+              <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span>📋</span> Standard Institutional Procedure &amp; Implementation Stages
+              </h4>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.95rem;">
+                <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1.15rem; border-top: 3.5px solid #0d5c3a;">
+                  <div style="font-size: 0.7rem; font-weight: 800; color: #0d5c3a; text-transform: uppercase; margin-bottom: 0.3rem;">Stage 01: Manuscript</div>
+                  <p style="font-size: 0.85rem; color: #475569; line-height: 1.6; margin: 0;">${a.procedure ? a.procedure.stage1 : 'Proponents submit defense-approved manuscripts and ethics clearances to the RDC Repository.'}</p>
+                </div>
+                <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1.15rem; border-top: 3.5px solid #0b3c5d;">
+                  <div style="font-size: 0.7rem; font-weight: 800; color: #0b3c5d; text-transform: uppercase; margin-bottom: 0.3rem;">Stage 02: Toolkit</div>
+                  <p style="font-size: 0.85rem; color: #475569; line-height: 1.6; margin: 0;">${a.procedure ? a.procedure.stage2 : 'Action research is synthesized into modular teaching guides, clinical packets, and operational matrices.'}</p>
+                </div>
+                <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1.15rem; border-top: 3.5px solid #b89726;">
+                  <div style="font-size: 0.7rem; font-weight: 800; color: #b89726; text-transform: uppercase; margin-bottom: 0.3rem;">Stage 03: Handover</div>
+                  <p style="font-size: 0.85rem; color: #475569; line-height: 1.6; margin: 0;">${a.procedure ? a.procedure.stage3 : 'Formal turnover to regional partners and community stakeholders via institutional Memorandum of Agreement (MoA).'}</p>
+                </div>
+                <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1.15rem; border-top: 3.5px solid #7b1113;">
+                  <div style="font-size: 0.7rem; font-weight: 800; color: #7b1113; text-transform: uppercase; margin-bottom: 0.3rem;">Stage 04: Certification</div>
+                  <p style="font-size: 0.85rem; color: #475569; line-height: 1.6; margin: 0;">${a.procedure ? a.procedure.stage4 : 'Field adoption verified by stakeholders; RDC issues the official Certificate of Research Utilization.'}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Institutional Pathway Translation -->
+            <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 1.35rem 1.5rem; margin-bottom: 1.75rem;">
+              <div style="font-size: 0.78rem; font-weight: 800; color: #0b3c5d; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.45rem; display: flex; align-items: center; gap: 0.45rem;">
+                <span>🎯</span> Institutional Pathway Translation
+              </div>
+              <p style="font-size: 0.92rem; color: #334155; line-height: 1.7; margin: 0 0 0.95rem;">
+                ${a.pathwayDesc || 'Translating empirical educational, behavioral, and clinical research into institutional practice and community extension.'}
+              </p>
+              ${mechanismsHtml}
+              <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; border-top: 1px solid #f1f5f9; padding-top: 0.85rem; font-size: 0.85rem; color: #64748b;">
+                <div><strong>Key Adopters:</strong> <span style="color: #1e293b; font-weight: 600;">${a.beneficiaries || a.partner}</span></div>
+                <div><strong>Delivery Formats:</strong> <span style="color: #1e293b; font-weight: 600;">${a.coreFormats || 'Manuals, SOPs, Clinical Protocols'}</span></div>
+              </div>
+            </div>
+
+            <!-- Bottom Action Controls -->
+            <div style="display: flex; justify-content: flex-end; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+              <button type="button" class="btn btn-sm btn-outline-white" onclick="closeUtilArticleModal();" style="font-weight: 700; font-size: 0.84rem; padding: 0.5rem 1.15rem;">
+                ✕ Close Reader
+              </button>
+              <button type="button" class="btn btn-sm btn-gold" onclick="closeUtilArticleModal(); setTimeout(function(){ openUtilizationModal('${a.pillarKey}', 'pathway', '${a.course}'); }, 150);" style="font-weight: 700; font-size: 0.84rem; padding: 0.5rem 1.25rem;">
+                Explore Aligned ${a.pillarName} Pillar Framework &rarr;
+              </button>
+            </div>
+          `;
+        } else {
+          // In-process prototype card view with Coming Soon notice
+          contentEl.innerHTML = `
+            <!-- Content Coming Soon Notice inside Modal -->
+            <div style="background: #fffbeb; border: 1.5px solid #fde047; border-left: 4.5px solid #b45309; border-radius: 10px; padding: 0.95rem 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem;">
+              <span style="font-size: 1.45rem;">⏳</span>
+              <div style="font-size: 0.86rem; color: #92400e; line-height: 1.55;">
+                <strong>Content is Coming Soon:</strong> This utilization article is currently undergoing official institutional review, documentation, and stakeholder certification ("Another Process"). The complete finalized publication will be released upon completion of the verification process.
+              </div>
+            </div>
+
+            <!-- Journal Cover Hero Card -->
+            <div style="position: relative; border-radius: 12px; overflow: hidden; margin-bottom: 1.75rem; background: linear-gradient(135deg, #09261a, #0b3c5d); box-shadow: 0 6px 20px rgba(0,0,0,0.08);">
+              <div style="display: flex; flex-direction: row; align-items: center; flex-wrap: wrap;">
+                <div style="flex: 0 0 190px; max-width: 190px; height: 210px; overflow: hidden; background: #0f172a;">
+                  <img src="${thumbCover}" alt="${cInfo.name} Official Journal Publication" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                </div>
+                <div style="flex: 1 1 280px; padding: 1.35rem 1.65rem; color: #ffffff;">
+                  <div style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: #ffdf70; margin-bottom: 0.35rem;">
+                    Official Academic Publication &bull; Departmental Research Journal
+                  </div>
+                  <h3 style="font-size: 1.15rem; font-weight: 800; color: #ffffff; margin: 0 0 0.45rem; line-height: 1.4;">
+                    ${cInfo.name} Applied Research Portfolio
+                  </h3>
+                  <p style="font-size: 0.85rem; color: rgba(255,255,255,0.85); line-height: 1.6; margin: 0 0 0.75rem;">
+                    Peer-reviewed thesis capstone and clinical action research registered under the institutional research utilization framework of MCNP &amp; ISAP.
+                  </p>
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; font-size: 0.75rem;">
+                    <span style="background: rgba(255,255,255,0.18); padding: 0.2rem 0.6rem; border-radius: 6px; font-weight: 700;">Registry: ${a.status}</span>
+                    <span style="background: rgba(184,151,38,0.25); border: 1px solid rgba(184,151,38,0.5); padding: 0.2rem 0.6rem; border-radius: 6px; font-weight: 700; color: #ffdf70;">Verified Field Adoption</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Executive Study Abstract / Summary Narrative -->
+            <div style="margin-bottom: 1.75rem;">
+              <h4 style="font-size: 1.1rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span>📄</span> Executive Study Summary &amp; Protocol Overview
+              </h4>
+              <div style="background: #f8fafc; border-left: 4px solid ${(a.wing === 'mcnp') ? '#0d5c3a' : '#0b3c5d'}; padding: 1.25rem 1.4rem; border-radius: 0 10px 10px 0; margin-bottom: 1rem; font-size: 0.94rem; color: #334155; line-height: 1.75; text-align: justify; text-justify: inter-word;">
+                ${a.summary}
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0.85rem; font-size: 0.85rem; color: #475569;">
+                <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.85rem 1rem;">
+                  <strong style="color: #0f172a; display: block; margin-bottom: 0.2rem;">🏛️ Proponent Department:</strong>
+                  <span>${a.dept}</span>
+                </div>
+                <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.85rem 1rem;">
+                  <strong style="color: #0f172a; display: block; margin-bottom: 0.2rem;">🤝 Regional Adopting Partner:</strong>
+                  <span style="color: ${(a.wing === 'mcnp') ? '#0d5c3a' : '#0b3c5d'}; font-weight: 700;">${a.partner}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Measurable Impact & Evidence -->
+            <div style="background: linear-gradient(135deg, rgba(240, 253, 244, 0.9), rgba(254, 252, 232, 0.9)); border: 1.5px solid #86efac; border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1.75rem; box-shadow: 0 3px 10px rgba(0,0,0,0.02);">
+              <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem;">
+                <span style="font-size: 1.35rem;">📈</span>
+                <span style="font-size: 0.82rem; font-weight: 800; color: #166534; text-transform: uppercase; letter-spacing: 0.04em;">Measurable Impact &amp; Field Outcomes</span>
+              </div>
+              <p style="font-size: 0.95rem; font-weight: 600; color: #14532d; line-height: 1.65; margin: 0;">
+                ${a.impact}
+              </p>
+            </div>
+
+            <!-- Standard Institutional Procedure (Stages 01–04) -->
+            <div style="margin-bottom: 1.75rem;">
+              <h4 style="font-size: 1.1rem; font-weight: 800; color: #0f172a; margin: 0 0 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span>📋</span> Standard Institutional Procedure &amp; Implementation Stages
+              </h4>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.85rem;">
+                <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1rem; border-top: 3.5px solid #0d5c3a;">
+                  <div style="font-size: 0.68rem; font-weight: 800; color: #0d5c3a; text-transform: uppercase; margin-bottom: 0.25rem;">Stage 01: Manuscript</div>
+                  <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0;">${a.procedure ? a.procedure.stage1 : 'Proponents submit defense-approved manuscripts and ethics clearances to the RDC Repository.'}</p>
+                </div>
+                <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1rem; border-top: 3.5px solid #0b3c5d;">
+                  <div style="font-size: 0.68rem; font-weight: 800; color: #0b3c5d; text-transform: uppercase; margin-bottom: 0.25rem;">Stage 02: Toolkit</div>
+                  <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0;">${a.procedure ? a.procedure.stage2 : 'Action research is synthesized into modular teaching guides, clinical packets, and operational matrices.'}</p>
+                </div>
+                <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1rem; border-top: 3.5px solid #b89726;">
+                  <div style="font-size: 0.68rem; font-weight: 800; color: #b89726; text-transform: uppercase; margin-bottom: 0.25rem;">Stage 03: Handover</div>
+                  <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0;">${a.procedure ? a.procedure.stage3 : 'Formal turnover to regional partners and community stakeholders via institutional Memorandum of Agreement (MoA).'}</p>
+                </div>
+                <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1rem; border-top: 3.5px solid #7b1113;">
+                  <div style="font-size: 0.68rem; font-weight: 800; color: #7b1113; text-transform: uppercase; margin-bottom: 0.25rem;">Stage 04: Certification</div>
+                  <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0;">${a.procedure ? a.procedure.stage4 : 'Field adoption verified by stakeholders; RDC issues the official Certificate of Research Utilization.'}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Institutional Pathway Translation -->
+            <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 1.25rem 1.4rem; margin-bottom: 1.5rem;">
+              <div style="font-size: 0.75rem; font-weight: 800; color: #0b3c5d; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem;">
+                <span>🎯</span> Institutional Pathway Translation
+              </div>
+              <p style="font-size: 0.88rem; color: #334155; line-height: 1.65; margin: 0 0 0.85rem;">
+                ${a.pathwayDesc || 'Translating empirical educational, behavioral, and clinical research into institutional practice and community extension.'}
+              </p>
+              ${mechanismsHtml}
+              <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; border-top: 1px solid #f1f5f9; padding-top: 0.75rem; font-size: 0.82rem; color: #64748b;">
+                <div><strong>Key Adopters:</strong> <span style="color: #1e293b; font-weight: 600;">${a.beneficiaries || a.partner}</span></div>
+                <div><strong>Delivery Formats:</strong> <span style="color: #1e293b; font-weight: 600;">${a.coreFormats || 'Manuals, SOPs, Clinical Protocols'}</span></div>
+              </div>
+            </div>
+
+            <!-- Bottom Action Controls -->
+            <div style="display: flex; justify-content: flex-end; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+              <button type="button" class="btn btn-sm btn-outline-white" onclick="closeUtilArticleModal();" style="font-weight: 700; font-size: 0.82rem; padding: 0.45rem 1rem;">
+                ✕ Close Reader
+              </button>
+              <button type="button" class="btn btn-sm ${(a.wing === 'mcnp') ? 'btn-mcnp' : 'btn-gold'}" onclick="closeUtilArticleModal(); setTimeout(function(){ openUtilizationModal('${a.pillarKey}', 'pathway', '${a.course}'); }, 150);" style="font-weight: 700; font-size: 0.82rem; padding: 0.45rem 1.15rem;">
+                Explore Aligned ${a.pillarName} Pillar Framework &rarr;
+              </button>
+            </div>
+          `;
+        }
       }
 
       if (document.activeElement && typeof document.activeElement.blur === 'function') {
@@ -3725,7 +3958,7 @@
         if (title) title.textContent = 'ISAP Multidisciplinary Research Utilization Articles';
         if (desc) desc.innerHTML = 'Explore certified research utilization articles and applied protocols across all 12 ISAP programs: Criminology, IT, Computer Engineering, Education (BSED & BPED), Social Work, Psychology, Tourism, Hospitality, Accountancy, Customs, and Business Administration.';
         var csDesc = document.getElementById('utilComingSoonDesc');
-        if (csDesc) csDesc.innerHTML = 'The official <strong>Research Utilization Articles and Field Adoption Portfolios</strong> for the 12 ISAP Multidisciplinary programs (Criminology, IT, Engineering, Education, Social Work, Psychology, Tourism, Hospitality, Accountancy, Customs, Business) are currently undergoing institutional review and documentation processing. Certified articles will be published here upon completion of the verification process.';
+        if (csDesc) csDesc.innerHTML = 'The first official research utilization article for <strong>BS Criminology (Project CASE: Where Evidence Meets Law and Research Drives Justice)</strong> is published below. Utilization articles and field adoption portfolios for the remaining ISAP multidisciplinary programs (IT, Engineering, Education, Social Work, Psychology, Tourism, Hospitality, Accountancy, Customs, Business) are currently undergoing institutional review and documentation processing ("Another Process").';
         try { history.replaceState(null, null, '#isap'); } catch(e){}
       } else {
         if (btnMcnp) btnMcnp.classList.add('active-mcnp');
@@ -3737,7 +3970,7 @@
         if (title) title.textContent = 'MCNP Health Sciences Research Utilization Articles';
         if (desc) desc.innerHTML = 'Explore certified research utilization articles and clinical protocols across Nursing, Radiologic Technology, Medical Laboratory Science, Pharmacy, and Physical Therapy.';
         var csDesc = document.getElementById('utilComingSoonDesc');
-        if (csDesc) csDesc.innerHTML = 'The official <strong>Research Utilization Articles and Clinical Adoption Portfolios</strong> for the 5 MCNP Health Sciences programs (Nursing, Radiologic Technology, Medical Laboratory Science, Pharmacy, Physical Therapy) are currently undergoing institutional review and clinical verification. Certified articles will be published here upon completion of the verification process.';
+        if (csDesc) csDesc.innerHTML = 'The official <strong>Research Utilization Articles and Clinical Adoption Portfolios</strong> for the 5 MCNP Health Sciences programs (Nursing, Radiologic Technology, Medical Laboratory Science, Pharmacy, Physical Therapy) are currently undergoing institutional review and clinical verification ("Another Process"). Certified articles will be published here upon completion of the verification process.';
         try { history.replaceState(null, null, '#mcnp'); } catch(e){}
       }
 
