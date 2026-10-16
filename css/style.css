@@ -8570,3 +8570,173 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+
+    /* Research Utilization Articles Section */
+    .util-articles-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.85rem 1.25rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+      box-sizing: border-box;
+      max-width: 100%;
+    }
+    .util-search-wrap {
+      position: relative;
+      flex: 1 1 240px;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .util-search-input {
+      width: 100%;
+      max-width: 100%;
+      padding: 0.65rem 1rem 0.65rem 2.4rem;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-family: inherit;
+      color: #1e293b;
+      background: #ffffff;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+    }
+    .util-search-input:focus {
+      outline: none;
+      border-color: #0d5c3a;
+      box-shadow: 0 0 0 3px rgba(13, 92, 58, 0.12);
+    }
+    .util-search-icon {
+      position: absolute;
+      left: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      font-size: 0.95rem;
+      pointer-events: none;
+    }
+    .util-toolbar-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .util-articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      box-sizing: border-box;
+      max-width: 100%;
+    }
+    .util-article-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      position: relative;
+      box-sizing: border-box;
+      max-width: 100%;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    .util-article-card:hover {
+      transform: translateY(-3px);
+      border-color: #cbd5e1;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.07);
+    }
+    .util-article-card-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-bottom: 0.95rem;
+    }
+    .util-article-badges-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .util-article-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.4;
+      margin: 0.2rem 0 0.45rem;
+    }
+    .util-article-meta {
+      font-size: 0.82rem;
+      color: #64748b;
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+    }
+    .util-article-summary {
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+    .util-impact-box {
+      background: #f8fafc;
+      border-left: 3.5px solid #7b1113;
+      padding: 0.75rem 1rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.84rem;
+      color: #1e293b;
+      line-height: 1.55;
+      margin-bottom: 1.15rem;
+    }
+    .util-article-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      padding-top: 0.85rem;
+      border-top: 1px solid #f1f5f9;
+    }
+    @media (max-width: 640px) {
+      .util-articles-grid {
+        grid-template-columns: 1fr;
+        gap: 1.15rem;
+      }
+      .util-article-card {
+        padding: 1.15rem;
+      }
+      .util-articles-toolbar {
+        padding: 0.85rem;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .util-search-wrap {
+        width: 100%;
+        min-width: 0;
+      }
+      .util-toolbar-controls {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.55rem;
+      }
+      .util-toolbar-controls select {
+        width: 100%;
+      }
+    }
+
