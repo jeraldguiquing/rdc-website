@@ -5896,14 +5896,18 @@ textarea.form-control {
 /* Journal Directory Hub Cards */
 .journal-directory-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
   margin-bottom: 3rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 960px) {
   .journal-directory-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
   }
 }
 
@@ -5917,6 +5921,11 @@ textarea.form-control {
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .journal-hub-card:hover {
@@ -5926,6 +5935,10 @@ textarea.form-control {
 
 .journal-hub-header {
   margin-bottom: 1rem;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .journal-hub-title {
@@ -5934,6 +5947,8 @@ textarea.form-control {
   color: #0f172a;
   margin: 0.4rem 0;
   line-height: 1.35;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .journal-hub-desc {
@@ -5945,6 +5960,64 @@ textarea.form-control {
   text-justify: inter-word;
   text-align-last: left;
   hyphens: auto;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Maiden Departmental Journals Horizontal Scrollable Strip */
+.journal-maiden-scroll {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 6px;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+}
+
+.journal-maiden-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.journal-maiden-scroll::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.journal-maiden-scroll::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.journal-maiden-scroll::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.journal-maiden-thumb {
+  flex-shrink: 0;
+  width: 48px;
+  height: 66px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.journal-maiden-thumb:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+}
+
+.journal-maiden-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Article Card Polish & Full Abstract */
@@ -6426,6 +6499,19 @@ textarea.form-control {
     border-radius: 12px !important;
     margin-bottom: 2rem !important;
   }
+  .journal-hub-card {
+    padding: 1.4rem 1.15rem !important;
+    border-radius: 12px !important;
+  }
+  .journal-hub-title {
+    font-size: 1.15rem !important;
+  }
+  .journal-hub-card .btn,
+  .journal-hub-card a.btn {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
 }
 
 /* Embedded FlipBook Iframe Responsive Height */
@@ -6437,6 +6523,21 @@ textarea.form-control {
 }
 
 @media (max-width: 480px) {
+  .journal-hub-card {
+    padding: 1.2rem 0.95rem !important;
+  }
+  .journal-hub-title {
+    font-size: 1.05rem !important;
+  }
+  .journal-maiden-thumb {
+    width: 42px !important;
+    height: 58px !important;
+  }
+  .journal-hero-stats {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+    padding: 0.85rem !important;
+  }
   .flipbook-iframe-wrap {
     padding-top: max(85%, 320px) !important;
   }
