@@ -2994,42 +2994,9 @@
     ];
 
     function getAllUtilizationArticles() {
-      var all = [];
-
-      // Include official published articles first
-      OFFICIAL_UTILIZATION_ARTICLES.forEach(function(oa) {
-        all.push(oa);
-      });
-
-      Object.keys(utilizationPillarsData).forEach(function(k) {
-        var p = utilizationPillarsData[k];
-        if (p.utilizations) {
-          p.utilizations.forEach(function(u) {
-            // For Criminology, only the official published article (Project CASE) is shown
-            if (u.course === 'criminology') return;
-            all.push({
-              wing: u.wing,
-              course: u.course,
-              title: u.title || (u.summary.length > 70 ? u.summary.substring(0, 67) + '...' : u.summary),
-              dept: u.dept,
-              partner: u.partner,
-              summary: u.summary,
-              impact: u.impact,
-              status: u.status,
-              pillarKey: k,
-              pillarName: p.name,
-              pillarFullName: p.fullName,
-              pathwayBadge: (p.pathway && p.pathway.badge) ? p.pathway.badge : 'Research Utilization',
-              pathwayDesc: (p.pathway && p.pathway.description) ? p.pathway.description : '',
-              beneficiaries: (p.pathway && p.pathway.beneficiaries) ? p.pathway.beneficiaries : '',
-              coreFormats: (p.pathway && p.pathway.coreFormats) ? p.pathway.coreFormats : '',
-              procedure: p.procedure || null,
-              isPublished: false
-            });
-          });
-        }
-      });
-      return all;
+      // Only officially published utilization articles are returned;
+      // other courses are currently empty while undergoing documentation processing ("Another Process")
+      return OFFICIAL_UTILIZATION_ARTICLES.slice();
     }
 
     function getFilteredUtilizationArticles() {
@@ -3089,16 +3056,50 @@
       }
 
       if (total === 0) {
+        var cInfo = (currentSelectedCourse !== 'all' && coursesMap[currentSelectedCourse]) ? coursesMap[currentSelectedCourse] : null;
+        var isSearch = (currentSearchQuery && currentSearchQuery.trim().length > 0);
+
+        var emptyHeading = '';
+        var emptyMessage = '';
+
+        if (isSearch) {
+          emptyHeading = 'No Utilization Articles Matching Search';
+          emptyMessage = 'No research utilization articles match "' + currentSearchQuery + '". Try searching with different keywords or clearing your search.';
+        } else if (cInfo) {
+          emptyHeading = 'No Published Utilization Articles for ' + cInfo.name + ' Yet';
+          emptyMessage = 'The official research utilization articles and field adoption portfolios for <strong>' + cInfo.name + '</strong> are currently undergoing institutional review, documentation, and stakeholder certification ("Another Process"). Certified articles will appear here once officially verified.';
+        } else if (currentSelectedWing === 'mcnp') {
+          emptyHeading = 'MCNP Health Sciences Utilization Articles In-Process';
+          emptyMessage = 'Official research utilization articles and clinical adoption portfolios across all 5 MCNP Health Sciences programs (Nursing, Radiologic Technology, Medical Laboratory Science, Pharmacy, Physical Therapy) are currently undergoing institutional review and clinical verification ("Another Process").';
+        } else {
+          emptyHeading = 'No Utilization Articles Found';
+          emptyMessage = 'No research utilization articles are currently available under the selected filter criteria.';
+        }
+
         grid.innerHTML = `
-          <div style="background: #ffffff; border: 1.5px dashed #cbd5e1; border-radius: 14px; padding: 3rem 1.5rem; text-align: center; width: 100%; box-sizing: border-box;">
-            <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🔍</div>
-            <h4 style="font-size: 1.25rem; color: #0f172a; margin: 0 0 0.5rem; font-weight: 800;">No Utilization Articles Found</h4>
-            <p style="font-size: 0.92rem; color: #64748b; max-width: 480px; margin: 0 auto 1.25rem; line-height: 1.6;">
-              No research utilization articles match your search or filter criteria. Try clearing filters or searching for another keyword.
+          <div style="background: #ffffff; border: 1.5px dashed #cbd5e1; border-radius: 16px; padding: 3.5rem 2rem; text-align: center; width: 100%; box-sizing: border-box; margin: 1rem 0; box-shadow: 0 4px 18px rgba(0,0,0,0.02);">
+            <div style="width: 70px; height: 70px; margin: 0 auto 1.25rem; border-radius: 50%; background: #fefce8; border: 1.5px solid #fde047; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #b45309; box-shadow: 0 4px 12px rgba(180,83,9,0.08);">
+              ${isSearch ? '🔍' : '📂'}
+            </div>
+            <div style="display: inline-block; background: #fffbeb; color: #92400e; border: 1px solid #fde047; padding: 0.3rem 0.95rem; border-radius: 20px; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.85rem;">
+              ⏳ Documentation In-Process
+            </div>
+            <h4 style="font-size: 1.35rem; color: #0f172a; margin: 0 0 0.65rem; font-weight: 800; font-family: 'Oswald', sans-serif; letter-spacing: 0.02em;">
+              ${emptyHeading}
+            </h4>
+            <p style="font-size: 0.96rem; color: #64748b; max-width: 560px; margin: 0 auto 1.65rem; line-height: 1.7;">
+              ${emptyMessage}
             </p>
-            <button type="button" class="btn btn-sm btn-gold" onclick="resetUtilFilters()" style="font-weight: 700; padding: 0.5rem 1.25rem;">
-              Reset All Filters
-            </button>
+            <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; align-items: center;">
+              ${(currentSelectedCourse !== 'criminology') ? `
+                <button type="button" class="btn btn-sm btn-gold" onclick="setMainCourseFilter('criminology')" style="font-weight: 700; padding: 0.55rem 1.35rem;">
+                  ⚖️ View Published BS Criminology Article (Project CASE) &rarr;
+                </button>
+              ` : ''}
+              <button type="button" class="btn btn-sm btn-outline-white" onclick="resetUtilFilters()" style="font-weight: 700; padding: 0.55rem 1.25rem; color: #475569; border-color: #cbd5e1;">
+                View All Available Articles
+              </button>
+            </div>
           </div>
         `;
         if (loadMoreWrap) loadMoreWrap.style.display = 'none';
