@@ -120,171 +120,201 @@
       line-height: 1.25;
     }
   
-    /* Research Utilization Articles Section */
-    .util-articles-toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem;
-      align-items: center;
-      justify-content: space-between;
+    /* ===== ARTICLE ACCORDION FORMAT (Like News & Events) ===== */
+    .article-accordion-card {
       background: #ffffff;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 0.85rem 1.25rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
-      box-sizing: border-box;
-      max-width: 100%;
-    }
-    .util-search-wrap {
-      position: relative;
-      flex: 1 1 240px;
-      min-width: 0;
-      max-width: 100%;
-      box-sizing: border-box;
-    }
-    .util-search-input {
-      width: 100%;
-      max-width: 100%;
-      padding: 0.65rem 1rem 0.65rem 2.4rem;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 8px;
-      font-size: 0.88rem;
-      font-family: inherit;
-      color: #1e293b;
-      background: #ffffff;
-      transition: all 0.2s ease;
-      box-sizing: border-box;
-    }
-    .util-search-input:focus {
-      outline: none;
-      border-color: #0d5c3a;
-      box-shadow: 0 0 0 3px rgba(13, 92, 58, 0.12);
-    }
-    .util-search-icon {
-      position: absolute;
-      left: 0.8rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #94a3b8;
-      font-size: 0.95rem;
-      pointer-events: none;
-    }
-    .util-toolbar-controls {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      max-width: 100%;
-      box-sizing: border-box;
-    }
-    .util-articles-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      box-sizing: border-box;
-      max-width: 100%;
-    }
-    .util-article-card {
-      background: #ffffff;
-      border: 1.5px solid #e2e8f0;
+      border: 1px solid #e2e8f0;
       border-radius: 14px;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
-      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-      position: relative;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+      margin-bottom: 1.5rem;
+      transition: all 0.25s ease;
+      overflow: hidden;
       box-sizing: border-box;
-      max-width: 100%;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
+      width: 100%;
     }
-    .util-article-card:hover {
-      transform: translateY(-3px);
+    .article-accordion-card:hover {
       border-color: #cbd5e1;
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.07);
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.08);
     }
-    .util-article-card-header {
+    .article-accordion-header {
+      padding: 1.4rem 1.75rem;
+      cursor: pointer;
+      user-select: none;
       display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      margin-bottom: 0.95rem;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+      background: #ffffff;
+      transition: background 0.2s ease;
+      box-sizing: border-box;
+      width: 100%;
     }
-    .util-article-badges-row {
+    .article-accordion-header:hover {
+      background: #f8fafc;
+    }
+    .article-accordion-card.open .article-accordion-header {
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .article-card-thumb-wrap {
+      flex-shrink: 0;
+      width: 220px;
+      height: 140px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      background: #0b1f33;
+      position: relative;
+    }
+    .article-card-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .article-accordion-header:hover .article-card-thumb-wrap img {
+      transform: scale(1.04);
+    }
+    .article-title-wrap {
+      flex: 1;
+      min-width: 0;
+    }
+    .article-accordion-meta {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
       gap: 0.45rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.45rem;
     }
-    .util-article-title {
-      font-size: 1.15rem;
+    .badge-editorial-type {
+      background: #0d5c3a;
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .badge-editorial-topic {
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .article-accordion-title {
+      font-size: 1.25rem;
       font-weight: 800;
       color: #0f172a;
-      line-height: 1.4;
-      margin: 0.2rem 0 0.45rem;
+      line-height: 1.38;
+      margin: 0.25rem 0 0.4rem;
+      letter-spacing: -0.01em;
+      transition: color 0.18s ease;
     }
-    .util-article-meta {
-      font-size: 0.82rem;
-      color: #64748b;
-      line-height: 1.5;
-      margin-bottom: 0.75rem;
+    .article-accordion-header:hover .article-accordion-title {
+      color: var(--mcnp-green, #0d5c3a);
     }
-    .util-article-summary {
-      font-size: 0.9rem;
+    .article-accordion-card.wing-isap .article-accordion-header:hover .article-accordion-title {
+      color: var(--isap-blue, #0b3c5d);
+    }
+    .article-accordion-snippet {
+      font-size: 0.88rem;
       color: #475569;
-      line-height: 1.65;
-      margin-bottom: 1rem;
-      flex-grow: 1;
+      margin: 0.35rem 0 0.5rem;
+      line-height: 1.6;
+      text-align: justify;
+      text-justify: inter-word;
     }
-    .util-impact-box {
-      background: #f8fafc;
-      border-left: 3.5px solid #7b1113;
-      padding: 0.75rem 1rem;
-      border-radius: 0 8px 8px 0;
-      font-size: 0.84rem;
-      color: #1e293b;
-      line-height: 1.55;
-      margin-bottom: 1.15rem;
-    }
-    .util-article-footer {
+    .article-header-actions {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      padding-top: 0.85rem;
-      border-top: 1px solid #f1f5f9;
+      flex-direction: column;
+      gap: 0.45rem;
+      align-items: flex-end;
+      flex-shrink: 0;
     }
-    @media (max-width: 640px) {
-      .util-articles-grid {
-        grid-template-columns: 1fr;
-        gap: 1.15rem;
+    .article-expand-toggle {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 0.95rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--mcnp-green, #0d5c3a);
+      background: rgba(13, 92, 58, 0.08);
+      border: 1px solid rgba(13, 92, 58, 0.2);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .article-accordion-header:hover .article-expand-toggle {
+      background: var(--mcnp-green, #0d5c3a);
+      color: #ffffff;
+    }
+    .article-accordion-card.wing-isap .article-expand-toggle {
+      color: var(--isap-blue, #0b3c5d);
+      background: rgba(11, 60, 93, 0.08);
+      border-color: rgba(11, 60, 93, 0.2);
+    }
+    .article-accordion-card.wing-isap .article-accordion-header:hover .article-expand-toggle {
+      background: var(--isap-blue, #0b3c5d);
+      color: #ffffff;
+    }
+    .article-accordion-card.open .article-expand-toggle {
+      background: #e2e8f0;
+      color: #334155;
+      border-color: #cbd5e1;
+    }
+    .article-accordion-body {
+      display: none;
+      animation: utilArticleSlideDown 0.22s ease-out;
+    }
+    .article-accordion-card.open .article-accordion-body {
+      display: block;
+    }
+    @keyframes utilArticleSlideDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Stack list instead of multiple small columns */
+    .util-articles-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      .article-accordion-header {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 1rem !important;
+        padding: 1.15rem !important;
       }
-      .util-article-card {
-        padding: 1.15rem;
+      .article-card-thumb-wrap {
+        width: 100% !important;
+        height: 175px !important;
       }
-      .util-articles-toolbar {
-        padding: 0.85rem;
-        flex-direction: column;
-        align-items: stretch;
+      .article-header-actions {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        flex-wrap: wrap !important;
       }
-      .util-search-wrap {
-        width: 100%;
-        min-width: 0;
-      }
-      .util-toolbar-controls {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.55rem;
-      }
-      .util-toolbar-controls select {
-        width: 100%;
+      .article-expand-toggle,
+      .article-header-actions .btn {
+        flex: 1 1 auto !important;
+        text-align: center !important;
+        justify-content: center !important;
       }
     }
 
@@ -554,7 +584,7 @@
         </div>
 
         <!-- Active Articles Grid -->
-        <div id="utilizationArticlesGrid" class="util-articles-grid" aria-label="Research Utilization Articles">
+        <div id="utilizationArticlesGrid" class="util-articles-stack" aria-label="Research Utilization Articles">
           <!-- Dynamically populated by renderUtilizationArticlesGrid() -->
         </div>
 
@@ -2553,8 +2583,28 @@
 
     var currentSearchQuery = '';
     var currentPillarFilter = 'all';
-    var articlesPerPage = 12;
+    var articlesPerPage = 8;
     var currentArticlePage = 1;
+
+    var courseJournalCovers = {
+      'nursing': 'assets/journals/journal-mcnp-tignay-nursing.jpg',
+      'radtech': 'assets/journals/journal-mcnp-dagilap-radtech.jpg',
+      'mls': 'assets/journals/journal-mcnp-born-rmt-medtech.jpg',
+      'pharmacy': 'assets/journals/journal-mcnp-chartulae-pharmacy.jpg',
+      'pt': 'assets/journals/journal-mcnp-primum-movens-pt.jpg',
+      'criminology': 'assets/journals/journal-isap-police-crim.jpg',
+      'it': 'assets/journals/journal-isap-technologia-informatica-bsit.jpg',
+      'computer-eng': 'assets/journals/journal-isap-damili-coe.jpg',
+      'bsed': 'assets/journals/journal-isap-pluma-bsed.jpg',
+      'bped': 'assets/journals/journal-isap-pluma-bsed.jpg',
+      'social-work': 'assets/journals/journal-isap-servicio-socialwork.webp',
+      'psychology': 'assets/journals/journal-isap-sibol-psych.jpg',
+      'tourism': 'assets/journals/journal-isap-ampayag-tm.jpg',
+      'hospitality': 'assets/journals/journal-isap-hospitality-uncorked-hm.jpg',
+      'accountancy': 'assets/journals/journal-isap-tagatuos-bsac.jpg',
+      'customs': 'assets/journals/journal-isap-the-borderless-ca.jpg',
+      'business': 'assets/journals/journal-isap-raniag-ba.jpg'
+    };
 
     function getAllUtilizationArticles() {
       var all = [];
@@ -2574,7 +2624,11 @@
               pillarKey: k,
               pillarName: p.name,
               pillarFullName: p.fullName,
-              pathwayBadge: (p.pathway && p.pathway.badge) ? p.pathway.badge : 'Research Utilization'
+              pathwayBadge: (p.pathway && p.pathway.badge) ? p.pathway.badge : 'Research Utilization',
+              pathwayDesc: (p.pathway && p.pathway.description) ? p.pathway.description : '',
+              beneficiaries: (p.pathway && p.pathway.beneficiaries) ? p.pathway.beneficiaries : '',
+              coreFormats: (p.pathway && p.pathway.coreFormats) ? p.pathway.coreFormats : '',
+              procedure: p.procedure || null
             });
           });
         }
@@ -2640,7 +2694,7 @@
 
       if (total === 0) {
         grid.innerHTML = `
-          <div style="grid-column: 1 / -1; background: #ffffff; border: 1.5px dashed #cbd5e1; border-radius: 14px; padding: 3rem 1.5rem; text-align: center;">
+          <div style="background: #ffffff; border: 1.5px dashed #cbd5e1; border-radius: 14px; padding: 3rem 1.5rem; text-align: center; width: 100%; box-sizing: border-box;">
             <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🔍</div>
             <h4 style="font-size: 1.25rem; color: #0f172a; margin: 0 0 0.5rem; font-weight: 800;">No Utilization Articles Found</h4>
             <p style="font-size: 0.92rem; color: #64748b; max-width: 480px; margin: 0 auto 1.25rem; line-height: 1.6;">
@@ -2664,47 +2718,119 @@
         var wingColor = (a.wing === 'mcnp') ? 'var(--mcnp-green)' : 'var(--isap-blue)';
         var wingBg = (a.wing === 'mcnp') ? 'rgba(0, 106, 60, 0.1)' : 'rgba(11, 60, 93, 0.1)';
         var wingText = (a.wing === 'mcnp') ? 'MCNP Health Sciences' : 'ISAP Multidisciplinary';
+        var cardId = 'util-card-' + a.status.replace(/[^a-zA-Z0-9]/g, '');
+        var thumbCover = courseJournalCovers[a.course] || ((a.wing === 'mcnp') ? 'assets/Mcnp_Logo.png' : 'assets/ISAP_LOGO_NO_BG (1).png');
 
         return `
-          <article class="util-article-card" id="card-${a.status.replace(/[^a-zA-Z0-9]/g, '')}">
-            <div class="util-article-card-header">
-              <div class="util-article-badges-row">
-                <div style="display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap;">
-                  <span style="font-size: 0.7rem; font-weight: 800; color: ${wingColor}; background: ${wingBg}; border: 1px solid ${wingColor}35; padding: 0.2rem 0.55rem; border-radius: 12px;">
-                    ${wingText}
-                  </span>
-                  <span style="display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.72rem; font-weight: 800; color: ${cInfo.color}; background: ${cInfo.color}15; border: 1px solid ${cInfo.color}35; padding: 0.2rem 0.55rem; border-radius: 16px;">
+          <article class="article-accordion-card ${a.wing === 'isap' ? 'wing-isap' : 'wing-mcnp'}" id="${cardId}">
+            <!-- Clickable Header: CARD PREVIEW (Formatted identically to News & Events) -->
+            <div class="article-accordion-header" onclick="toggleArticleAccordion('${cardId}');" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleArticleAccordion('${cardId}');}" aria-expanded="false" id="header-${cardId}">
+              <!-- Side Thumbnail -->
+              <div class="article-card-thumb-wrap">
+                <img src="${thumbCover}" alt="${cInfo.name} Research Publication" loading="lazy" decoding="async">
+              </div>
+
+              <!-- Title & Meta Area -->
+              <div class="article-title-wrap">
+                <div class="article-accordion-meta">
+                  <span class="badge-editorial-type" style="background: ${wingColor};">RESEARCH UTILIZATION</span>
+                  <span class="badge-editorial-topic" style="background: ${wingBg}; color: ${wingColor};">${wingText}</span>
+                  <span class="news-category-tag" style="background: ${cInfo.color}15; color: ${cInfo.color}; border: 1px solid ${cInfo.color}35; margin: 0; font-size: 0.72rem; font-weight: 800;">
                     ${cInfo.icon} ${cInfo.name}
                   </span>
+                  <span class="article-meta-date" style="font-size: 0.76rem; color: #166534; font-weight: 700; background: #dcfce7; border: 1px solid #bbf7d0; padding: 0.18rem 0.55rem; border-radius: 14px;">
+                    ${a.status}
+                  </span>
+                  <span style="font-size: 0.76rem; color: #64748b; font-weight: 600;">📅 October 2026 &bull; ⏱️ 3 min read</span>
                 </div>
-                <span style="font-size: 0.7rem; font-weight: 700; color: #166534; background: #dcfce7; border: 1px solid #bbf7d0; padding: 0.18rem 0.55rem; border-radius: 14px;">
-                  ${a.status}
-                </span>
+
+                <h3 class="article-accordion-title">
+                  ${a.title}
+                </h3>
+
+                <div style="font-size: 0.82rem; color: #64748b; margin-top: 0.35rem; margin-bottom: 0.45rem;">
+                  <strong>Proponent:</strong> ${a.dept} &bull; <strong>Adopting Partner:</strong> <span style="color: #0f172a; font-weight: 700;">${a.partner}</span>
+                </div>
+
+                <p class="article-accordion-snippet">
+                  ${a.summary}
+                </p>
+
+                <div class="util-impact-box" style="margin-top: 0.55rem; margin-bottom: 0.65rem;">
+                  <strong>📈 Measurable Impact:</strong> ${a.impact}
+                </div>
+
+                <!-- Aligned Framework & INNOVATES Strip -->
+                <div class="featured-article-alignments" style="margin-top: 0.55rem; margin-bottom: 0.25rem; padding: 0.5rem 0; border-top: 1px dashed #e2e8f0; border-bottom: 1px dashed #e2e8f0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+                  <div style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 700; color: #475569;">
+                    <span style="color: #7b1113; font-weight: 800;">🏛️ INNOVATES Focus:</span>
+                    <span style="color: #0f172a; font-weight: 700;">${a.pillarName} (${a.pillarFullName})</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.75rem; font-weight: 700; color: #0b3c5d; background: rgba(11, 60, 93, 0.08); padding: 0.2rem 0.6rem; border-radius: 12px;">
+                    <span>🎯</span> ${a.pathwayBadge}
+                  </div>
+                </div>
               </div>
-              <h3 class="util-article-title">${a.title}</h3>
-              <div class="util-article-meta">
-                <div><strong>Proponent:</strong> ${a.dept}</div>
-                <div><strong>Adopting Partner:</strong> <span style="color: #0f172a; font-weight: 700;">${a.partner}</span></div>
-              </div>
-            </div>
 
-            <p class="util-article-summary">${a.summary}</p>
-
-            <div class="util-impact-box">
-              <strong>📈 Measurable Impact:</strong> ${a.impact}
-            </div>
-
-            <div class="util-article-footer">
-              <span style="font-size: 0.74rem; font-weight: 700; color: #64748b; display: inline-flex; align-items: center; gap: 0.3rem;">
-                <span style="color: #7b1113; font-weight: 800;">${a.pillarName}</span> &bull; ${a.pathwayBadge}
-              </span>
-              <div style="display: flex; gap: 0.4rem; align-items: center;">
-                <button type="button" class="btn btn-sm btn-outline-white" onclick="copyUtilProtocolId('${a.status}', this)" style="padding: 0.25rem 0.55rem; font-size: 0.72rem; font-weight: 700; color: #475569; border-color: #cbd5e1;" title="Copy Protocol Code">
+              <!-- Action Buttons -->
+              <div class="article-header-actions">
+                <button type="button" class="article-expand-toggle" onclick="event.stopPropagation(); openUtilizationModal('${a.pillarKey}', 'pathway', '${a.course}');" title="Open full protocol & framework modal">
+                  <span class="toggle-text">📖 Read Full Protocol ↗</span>
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-white" id="toggleBtn-${cardId}" onclick="event.stopPropagation(); toggleArticleAccordion('${cardId}');" style="font-size: 0.75rem; padding: 0.35rem 0.8rem; color: #475569; border-color: #cbd5e1; white-space: nowrap;" title="Expand article inline on page">
+                  <span class="toggle-text">▾ Expand on Page</span>
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-white" onclick="event.stopPropagation(); copyUtilProtocolId('${a.status}', this);" style="font-size: 0.72rem; padding: 0.25rem 0.65rem; color: #64748b; border-color: #e2e8f0; white-space: nowrap;" title="Copy Protocol Registry ID">
                   📋 Copy ID
                 </button>
-                <button type="button" class="btn btn-sm ${(a.wing === 'mcnp') ? 'btn-mcnp' : 'btn-gold'}" onclick="openUtilizationModal('${a.pillarKey}', 'pathway', '${a.course}')" style="padding: 0.28rem 0.75rem; font-size: 0.75rem; font-weight: 700;">
-                  Framework &rarr;
-                </button>
+              </div>
+            </div>
+
+            <!-- The Whole Article (Expands on Click, just like News & Events) -->
+            <div class="article-accordion-body" id="body-${cardId}">
+              <div class="article-content-body" style="padding: 1.5rem 1.75rem; background: #fafafa; border-top: 1px solid #e2e8f0;">
+                <h4 style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin: 0 0 0.85rem; display: flex; align-items: center; gap: 0.45rem;">
+                  <span>📋</span> Standard Institutional Procedure &amp; Implementation Stages
+                </h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0.85rem; margin-bottom: 1.35rem;">
+                  <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1rem; border-top: 3.5px solid #0d5c3a;">
+                    <div style="font-size: 0.68rem; font-weight: 800; color: #0d5c3a; text-transform: uppercase; margin-bottom: 0.25rem;">Stage 01: Manuscript</div>
+                    <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0;">${a.procedure ? a.procedure.stage1 : 'Proponents submit defense-approved manuscripts and ethics clearances to the RDC Repository.'}</p>
+                  </div>
+                  <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1rem; border-top: 3.5px solid #0b3c5d;">
+                    <div style="font-size: 0.68rem; font-weight: 800; color: #0b3c5d; text-transform: uppercase; margin-bottom: 0.25rem;">Stage 02: Toolkit</div>
+                    <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0;">${a.procedure ? a.procedure.stage2 : 'Action research is synthesized into modular teaching guides, clinical packets, and operational matrices.'}</p>
+                  </div>
+                  <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1rem; border-top: 3.5px solid #b89726;">
+                    <div style="font-size: 0.68rem; font-weight: 800; color: #b89726; text-transform: uppercase; margin-bottom: 0.25rem;">Stage 03: Handover</div>
+                    <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0;">${a.procedure ? a.procedure.stage3 : 'Formal turnover to regional partners and community stakeholders via institutional Memorandum of Agreement (MoA).'}</p>
+                  </div>
+                  <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1rem; border-top: 3.5px solid #7b1113;">
+                    <div style="font-size: 0.68rem; font-weight: 800; color: #7b1113; text-transform: uppercase; margin-bottom: 0.25rem;">Stage 04: Certification</div>
+                    <p style="font-size: 0.82rem; color: #475569; line-height: 1.55; margin: 0;">${a.procedure ? a.procedure.stage4 : 'Field adoption verified by stakeholders; RDC issues the official Certificate of Research Utilization.'}</p>
+                  </div>
+                </div>
+
+                <!-- Pathway & Translation Mechanisms -->
+                <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 1.15rem; margin-bottom: 1.15rem;">
+                  <div style="font-size: 0.72rem; font-weight: 800; color: #0b3c5d; text-transform: uppercase; margin-bottom: 0.35rem;">Institutional Pathway Translation:</div>
+                  <p style="font-size: 0.85rem; color: #334155; line-height: 1.6; margin-bottom: 0.5rem;">
+                    ${a.pathwayDesc || 'Translating empirical educational, behavioral, and clinical research into institutional practice and community extension.'}
+                  </p>
+                  <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; border-top: 1px solid #f1f5f9; padding-top: 0.65rem; font-size: 0.8rem; color: #64748b;">
+                    <div><strong>Key Adopters:</strong> <span style="color: #1e293b; font-weight: 600;">${a.beneficiaries || a.partner}</span></div>
+                    <div><strong>Delivery Formats:</strong> <span style="color: #1e293b; font-weight: 600;">${a.coreFormats || 'Manuals, SOPs, Clinical Protocols'}</span></div>
+                  </div>
+                </div>
+
+                <div style="display: flex; justify-content: flex-end; gap: 0.65rem; align-items: center; flex-wrap: wrap;">
+                  <button type="button" class="btn btn-sm btn-outline-white" onclick="toggleArticleAccordion('${cardId}', false)" style="font-size: 0.78rem; font-weight: 700;">
+                    ▲ Collapse Article
+                  </button>
+                  <button type="button" class="btn btn-sm ${(a.wing === 'mcnp') ? 'btn-mcnp' : 'btn-gold'}" onclick="openUtilizationModal('${a.pillarKey}', 'pathway', '${a.course}')" style="font-size: 0.78rem; font-weight: 700;">
+                    Open Institutional Framework &rarr;
+                  </button>
+                </div>
               </div>
             </div>
           </article>
@@ -2724,6 +2850,35 @@
         }
       }
     }
+
+    window.toggleArticleAccordion = function(cardId, forceState) {
+      var card = document.getElementById(cardId);
+      if (!card) return;
+      var isOpen = (typeof forceState === 'boolean') ? forceState : !card.classList.contains('open');
+      if (isOpen) {
+        card.classList.add('open');
+      } else {
+        card.classList.remove('open');
+      }
+
+      var hdr = card.querySelector('.article-accordion-header');
+      if (hdr) hdr.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+      var toggleBtn = document.getElementById('toggleBtn-' + cardId);
+      if (toggleBtn) {
+        var txt = toggleBtn.querySelector('.toggle-text');
+        if (txt) txt.textContent = isOpen ? '▲ Collapse' : '▾ Expand on Page';
+      }
+
+      if (isOpen) {
+        requestAnimationFrame(function () {
+          var navOffset = 85;
+          var cardRect = card.getBoundingClientRect();
+          var targetY = window.pageYOffset + cardRect.top - navOffset;
+          window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+        });
+      }
+    };
 
     function handleUtilSearch(val) {
       currentSearchQuery = val ? val.trim() : '';
