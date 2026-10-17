@@ -3687,12 +3687,14 @@
     };
 
     function handleUtilSearch(val) {
-      currentSearchQuery = val ? val.trim() : '';
+      var str = (typeof val === 'string') ? val : (val && val.target ? val.target.value : (val != null ? String(val) : ''));
+      currentSearchQuery = str.trim();
       renderUtilizationArticlesGrid(true);
     }
 
     function handleUtilPillarFilter(val) {
-      currentPillarFilter = val || 'all';
+      var str = (typeof val === 'string') ? val : (val && val.target ? val.target.value : (val != null ? String(val) : 'all'));
+      currentPillarFilter = str || 'all';
       renderUtilizationArticlesGrid(true);
     }
 
@@ -4132,7 +4134,8 @@
           num: 3,
           icon: '💡',
           title: 'Technology Transfer & Commercialization',
-          color: '#8a6d0b',\1bg: 'rgba(184, 151, 38, 0.08)',
+          color: '#8a6d0b',
+          bg: 'rgba(184, 151, 38, 0.08)',
           desc: 'Facilitating patent applications, utility models, and software copyright registration through the Intellectual Property Office of the Philippines (IPOPHL), alongside commercial incubation with regional industries.',
           outputs: [
             'Bioactive botanical extracts, ointments & herbal formulations',
