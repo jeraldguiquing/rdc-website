@@ -283,6 +283,54 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    @keyframes pulseUtilCard {
+      0% {
+        box-shadow: 0 0 0 0 rgba(11, 60, 93, 0.6);
+        outline: 3px solid #0b3c5d;
+      }
+      30% {
+        box-shadow: 0 0 28px rgba(180, 83, 9, 0.55);
+        outline: 3px solid #b45309;
+      }
+      70% {
+        box-shadow: 0 0 16px rgba(11, 60, 93, 0.35);
+        outline: 3px solid #0b3c5d;
+      }
+      100% {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        outline: 3px solid transparent;
+      }
+    }
+    .article-accordion-card.highlight-article-card {
+      animation: pulseUtilCard 2.8s ease-out forwards;
+      border-color: #0b3c5d !important;
+    }
+    .card-anchor-target {
+      scroll-margin-top: 100px;
+    }
+
+    /* Global & Component Text Justification for Utilization */
+    .article-narrative-p,
+    .article-accordion-snippet,
+    .article-content-body p,
+    .article-accordion-body p,
+    .article-sub-card p,
+    .framework-card p,
+    .innovates-point-desc,
+    .winner-list li,
+    .article-procedure-list li,
+    .article-narrative-section p,
+    .util-narrative-block p,
+    .article-frameworks-grid p,
+    figure figcaption,
+    .sub-card-content p,
+    .article-featured-hero figcaption span,
+    .util-card-summary,
+    .empty-filter-box p {
+      text-align: justify !important;
+      text-justify: inter-word !important;
+    }
+
     /* Stack list instead of multiple small columns */
     .util-articles-stack {
       display: flex;
@@ -1013,8 +1061,8 @@
           </div>
         </div>
         <div class="article-modal-actions-btns">
-          <button type="button" id="utilArticleModalCopyBtn" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; font-weight: 700;" title="Copy Registry ID">
-            📋 Copy ID
+          <button type="button" id="utilArticleModalCopyBtn" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; font-weight: 700;" title="Copy Article Direct Link">
+            🔗 Copy Link
           </button>
           <button type="button" onclick="printUtilArticle();" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; font-weight: 700;" title="Print this protocol">
             🖨️ Print
@@ -3124,8 +3172,8 @@
         dept: 'ISAP College of Criminal Justice Education (CoCJE)',
         partner: 'Office of Guidance Services & RDC Mental Health Utilization Taskforce',
         facilitator: 'Ms. Jeline Flor T. Eugenio, RPm',
-        date: 'October 3, 2026',
-        time: 'ISAP AVR 101',
+        date: 'September 12, 2026',
+        time: '8:00 AM – 11:00 AM &bull; ISAP AVR 1',
         readTime: '4 min read',
         status: '#UTIL-CRIM-2026-002',
         facebookUrl: 'https://www.facebook.com/share/p/16JyU6MBAdZ/?mibextid=wwXIfr',
@@ -3133,12 +3181,8 @@
         imageCaption: 'ISAP College of Criminal Justice Education (CoCJE) — Project RELIEF: Let It Out, Lift It Up! (Session 1: Awarding of Certificate of Appreciation to Resource Speaker Ms. Jeline Flor T. Eugenio, RPm at ISAP AVR 101)',
         gallery: [
           {
-            src: 'upload/project-relief-session1-feeling-mapping.jpg',
-            caption: 'Resource Speaker Ms. Jeline Flor T. Eugenio, RPm guiding Level 3 & 4 criminology students through the 4-step “Feeling Mapping” interactive matrix.'
-          },
-          {
-            src: 'upload/project-relief-session1-express-feelings.jpg',
-            caption: 'Interactive presentation on constructive ways to express feelings, emotional regulation, journaling, and seeking professional guidance.'
+            src: 'upload/project-relief-session1-opening-table.jpg',
+            caption: 'Registration and welcome desk for Level 3 and Level 4 BS Criminology participants and faculty at ISAP AVR 1.'
           },
           {
             src: 'upload/project-relief-session1-fontanilla-remarks.jpg',
@@ -3146,15 +3190,35 @@
           },
           {
             src: 'upload/project-relief-session1-benedicta-remarks.jpg',
-            caption: 'Office of Guidance Services Head Mr. Jhony C. Benedicta, MAGC orienting participants on intentional coping and mental health.'
-          },
-          {
-            src: 'upload/project-relief-session1-student-sharing.jpg',
-            caption: 'Level 3 and Level 4 BS Criminology intern actively sharing reflections and discussing emotional literacy during the open forum.'
+            caption: 'Office of Guidance Services Head Mr. Jhony C. Benedicta, MAGC orienting participants on intentional coping and mental wellness.'
           },
           {
             src: 'upload/project-relief-session1-emotions-lecture.jpg',
-            caption: 'ISAP AVR 101 participants engaging in discussions on emotional literacy, active listening, and mutual peer support.'
+            caption: 'Plenary lecture on emotional literacy, active listening, and constructive avenues for emotional expression.'
+          },
+          {
+            src: 'upload/project-relief-session1-feeling-mapping.jpg',
+            caption: 'Resource Speaker Ms. Jeline Flor T. Eugenio, RPm guiding criminology students through the 4-step “Feeling Mapping” interactive matrix.'
+          },
+          {
+            src: 'upload/project-relief-session1-express-feelings.jpg',
+            caption: 'Interactive presentation on constructive ways to express feelings, emotional regulation, and seeking professional guidance.'
+          },
+          {
+            src: 'upload/project-relief-session1-student-discussion.jpg',
+            caption: 'Level 3 & 4 criminology students and interns engaging in small group peer reflection and empathy sharing.'
+          },
+          {
+            src: 'upload/project-relief-session1-peer-interaction.jpg',
+            caption: 'Student participants collaborating during peer circle discussions on navigating academic and personal pressures.'
+          },
+          {
+            src: 'upload/project-relief-session1-student-sharing.jpg',
+            caption: 'BS Criminology intern actively sharing personal reflections and takeaways at the podium during the open forum.'
+          },
+          {
+            src: 'upload/project-relief-session1-awarding.jpg',
+            caption: 'Awarding of Certificate of Appreciation to Resource Speaker Ms. Jeline Flor T. Eugenio, RPm by CoCJE and RDC officials.'
           }
         ],
         summary: 'The College of Criminal Justice Education (CoCJE) launched the first session of Project RELIEF: Let It Out, Lift It Up! at ISAP AVR 101, bringing together Level 3 and Level 4 students for an activity focused on recognizing emotions, expressing feelings, and strengthening peer support.',
@@ -3180,7 +3244,7 @@
         highlights: [
           {
             title: 'Session 1: Emotional Awareness & Expression',
-            date: 'Oct 3, 2026 &bull; ISAP AVR 101',
+            date: 'September 12, 2026',
             items: [
               'Facilitated by Ms. Jeline Flor T. Eugenio, RPm (Office of Guidance Services)',
               'Structured reflective space to express feelings without judgment or stigma',
@@ -3190,7 +3254,7 @@
           },
           {
             title: 'The 6-Action RELIEF Framework',
-            date: 'Experiential Well-Being Pathway',
+            date: 'September 12, 2026',
             items: [
               '<strong>R</strong>ecognize Emotions &bull; <strong>E</strong>xpress Feelings',
               '<strong>L</strong>et Go of Stress &bull; <strong>I</strong>mprove Mindset',
@@ -3200,7 +3264,7 @@
           },
           {
             title: 'Documented Evaluation & Impact',
-            date: '56 Beneficiaries &bull; Survey Metrics',
+            date: 'September 12, 2026',
             items: [
               '🏆 <strong>Overall Evaluation:</strong> 3.82 / 4.00 (Outstanding Agreement)',
               '📈 <strong>Long-Term Commitment:</strong> 3.911 / 4.00 Peak Score',
@@ -3291,13 +3355,123 @@
         dept: 'ISAP College of Criminal Justice Education (CoCJE)',
         partner: 'Office of Guidance Services & RDC Mental Health Utilization Taskforce',
         facilitator: 'Jhony C. Benedicta, MAGC',
-        date: 'October 10, 2026',
-        time: 'ISAP AVR 101',
+        date: 'September 26, 2026',
+        time: '8:00 AM – 11:00 AM &bull; ISAP AVR 1',
         readTime: '4 min read',
         status: '#UTIL-CRIM-2026-003',
         facebookUrl: 'https://www.facebook.com/share/p/18K4Hmty4M/?mibextid=wwXIfr',
-        heroImage: 'upload/journal-isap-police-crim.jpg',
-        imageCaption: 'ISAP College of Criminal Justice Education (CoCJE) — Project RELIEF: Let It Out, Lift It Up! (Session 2: Let Go of Stress, Improve Mindset — Pause. Reframe. Reset. Move Forward)',
+        heroImage: 'upload/project-relief-session2-group-photo.jpg',
+        imageCaption: 'ISAP College of Criminal Justice Education (CoCJE) — Project RELIEF: Let It Out, Lift It Up! (Session 2: Group photo with CoCJE Dean Dr. Rizza C. Concha, Guidance Head Mr. Jhony C. Benedicta, Research Focal Person Ms. Pia Nathattia A. Cuaresma, student leaders, and Level 3 & 4 BS Criminology participants at ISAP AVR 1)',
+        gallery: [
+          {
+            src: 'upload/project-relief-session2-01.jpg',
+            caption: 'Opening Remarks delivered by Ms. Pia Nathattia A. Cuaresma, Research Focal Person, emphasizing student emotional resilience in criminology formation.'
+          },
+          {
+            src: 'upload/project-relief-session2-02.jpg',
+            caption: 'Student officer and session moderator opening the program proceedings at ISAP AVR 1.'
+          },
+          {
+            src: 'upload/project-relief-session2-03.jpg',
+            caption: 'Closing remarks delivered by Dr. Rizza C. Concha, Ph.D.Crim., Dean of CoCJE, commending participants and underscoring lifelong wellness.'
+          },
+          {
+            src: 'upload/project-relief-session2-04.jpg',
+            caption: 'Level 3 and Level 4 BS Criminology students actively engaged in breakout circle discussions.'
+          },
+          {
+            src: 'upload/project-relief-session2-05.jpg',
+            caption: 'Resource speaker Mr. Jhony C. Benedicta conducting the interactive “Energy Check” finger mood pulse-check.'
+          },
+          {
+            src: 'upload/project-relief-session2-06.jpg',
+            caption: 'Student representative sharing personal takeaways and group insights at the podium.'
+          },
+          {
+            src: 'upload/project-relief-session2-07.jpg',
+            caption: 'Interactive cognitive reframing challenge: Transforming “I can’t handle all these problems” into resilient action.'
+          },
+          {
+            src: 'upload/project-relief-session2-08.jpg',
+            caption: 'Student leaders presenting the Project RELIEF Session 2 banner and session overview.'
+          },
+          {
+            src: 'upload/project-relief-session2-09.jpg',
+            caption: 'Participants listening attentively to the plenary lecture on stress mechanisms and coping responses.'
+          },
+          {
+            src: 'upload/project-relief-session2-10.jpg',
+            caption: 'Group portrait of Dean Dr. Rizza C. Concha, speaker Mr. Jhony C. Benedicta, Ms. Pia Nathattia A. Cuaresma, and student officers.'
+          },
+          {
+            src: 'upload/project-relief-session2-11.jpg',
+            caption: 'Student presenter discussing the 5 core “Stress Detective” inquiry questions.'
+          },
+          {
+            src: 'upload/project-relief-session2-12.jpg',
+            caption: 'BS Criminology students and criminology interns seated during the plenary lecture at ISAP AVR 1.'
+          },
+          {
+            src: 'upload/project-relief-session2-13.jpg',
+            caption: 'Student group representative reading their compiled Stress Detective Report at the podium.'
+          },
+          {
+            src: 'upload/project-relief-session2-14.jpg',
+            caption: 'Participant presenting team findings on coping mechanisms and peer support requirements.'
+          },
+          {
+            src: 'upload/project-relief-session2-15.jpg',
+            caption: 'Student huddle collaborating during breakout exercise assisted by faculty facilitator.'
+          },
+          {
+            src: 'upload/project-relief-session2-16.jpg',
+            caption: 'Wide plenary view of participating criminology students reflecting on daily academic stressors.'
+          },
+          {
+            src: 'upload/project-relief-session2-17.jpg',
+            caption: 'Student leader presenting 30-second rapid group summary of stress indicators and responses.'
+          },
+          {
+            src: 'upload/project-relief-session2-18.jpg',
+            caption: 'Student moderator guiding the transition between lecture modules and group reporting.'
+          },
+          {
+            src: 'upload/project-relief-session2-19.jpg',
+            caption: 'Interactive cognitive reframing challenge: Reframing “Everyone is better than me” into personal growth.'
+          },
+          {
+            src: 'upload/project-relief-session2-20.jpg',
+            caption: 'Mr. Jhony C. Benedicta breaking down student life stressors: requirements, examinations, lack of sleep, and future uncertainty.'
+          },
+          {
+            src: 'upload/project-relief-session2-21.jpg',
+            caption: 'Official Session 2 Group Photo with Dean Concha, speaker Mr. Benedicta, faculty, and BS Criminology participants.'
+          },
+          {
+            src: 'upload/project-relief-session2-22.jpg',
+            caption: 'Registration and attendance desk welcoming BS Criminology participants at ISAP AVR 1.'
+          },
+          {
+            src: 'upload/project-relief-session2-23.jpg',
+            caption: 'Cognitive reframing challenge: Dismantling “I’m going to fail everything!” through positive reframing.'
+          },
+          {
+            src: 'upload/project-relief-session2-24.jpg',
+            caption: 'BS Criminology interns practicing guided relaxation and mindful breathing techniques.'
+          },
+          {
+            src: 'upload/project-relief-session2-25.jpg',
+            caption: 'Student participant engaging in interactive dialogue during the open forum with faculty and guests.'
+          },
+          {
+            src: 'upload/project-relief-session2-26.jpg',
+            caption: 'Mr. Jhony C. Benedicta emphasizing intentional coping and emotional self-management.'
+          },
+          {
+            src: 'upload/project-relief-session2-27.jpg',
+            caption: 'Plenary presentation of the core mantra: “Pause. Reframe. Reset. Move Forward.”'
+          }
+        ],
         summary: 'The College of Criminal Justice Education (CoCJE) continued its student well-being initiative through Session 2 of Project RELIEF: Let It Out, Lift It Up!, focusing on stress management, cognitive reframing, and the development of healthier coping strategies.',
         impact: 'Equipped Level 3 and Level 4 BS Criminology students with practical 4-step cognitive reframing techniques (Pause, Reframe, Reset, Move Forward) and emotional self-management protocols; reinforced proactive stress mitigation, emotional regulation, and academic resilience.',
         pillarKey: 'value',
@@ -3322,7 +3496,7 @@
         highlights: [
           {
             title: 'Session 2: Stress Management & Cognitive Reframing',
-            date: 'Oct 10, 2026 &bull; ISAP AVR 101',
+            date: 'September 26, 2026',
             items: [
               'Enriched by resource speaker Jhony C. Benedicta, MAGC',
               'Interactive activities, guided reflection, and relaxation exercises',
@@ -3332,7 +3506,7 @@
           },
           {
             title: 'The 4-Step Constructive Response Protocol',
-            date: 'Experiential Mindset Framework',
+            date: 'September 26, 2026',
             items: [
               '<strong>Pause:</strong> Take time to breathe and identify emotional pressure points',
               '<strong>Reframe:</strong> View challenges and stressors from a constructive angle',
@@ -3342,7 +3516,7 @@
           },
           {
             title: 'Emotional Literacy & Mindset Scaling',
-            date: 'Project RELIEF Continuum &bull; CoCJE Cohort',
+            date: 'September 26, 2026',
             items: [
               '🏆 <strong>Holistic Continuum:</strong> Bridges Session 1 (Awareness) with Session 2 (Mindset)',
               '🧠 <strong>Core Competencies:</strong> Self-awareness, intentional responses, and psychological resilience',
@@ -3433,13 +3607,111 @@
         dept: 'ISAP College of Criminal Justice Education (CoCJE)',
         partner: 'Office of Guidance Services & RDC Mental Health Utilization Taskforce',
         facilitator: 'Jhony C. Benedicta, MAGC',
-        date: 'October 17, 2026',
-        time: 'ISAP AVR 101',
+        date: 'October 3, 2026',
+        time: '8:00 AM – 11:00 AM &bull; ISAP AVR 1',
         readTime: '4 min read',
         status: '#UTIL-CRIM-2026-004',
         facebookUrl: 'https://www.facebook.com/share/p/1FEGthukcU/?mibextid=wwXlfrSession',
-        heroImage: 'upload/journal-isap-police-crim.jpg',
-        imageCaption: 'ISAP College of Criminal Justice Education (CoCJE) — Project RELIEF: Let It Out, Lift It Up! (Culminating Session 3: Engage in Self-Care, Find Inner Peace at ISAP AVR 101)',
+        heroImage: 'upload/project-relief-session3-group-photo.jpg',
+        imageCaption: 'ISAP College of Criminal Justice Education (CoCJE) — Project RELIEF: Let It Out, Lift It Up! (Culminating Session 3: Group photo with Dean Dr. Rizza C. Concha, Guidance Head Mr. Jhony C. Benedicta, Research Focal Person Ms. Pia Nathattia A. Cuaresma, student leaders, and Level 3 & 4 BS Criminology participants at ISAP AVR 1)',
+        gallery: [
+          {
+            src: 'upload/project-relief-session3-01.jpg',
+            caption: 'Registration and attendance desk for Level 3 and Level 4 BS Criminology students at ISAP AVR 1.'
+          },
+          {
+            src: 'upload/project-relief-session3-02.jpg',
+            caption: 'Opening Remarks delivered by Ms. Pia Nathattia A. Cuaresma, Research Focal Person, inaugurating the culminating session.'
+          },
+          {
+            src: 'upload/project-relief-session3-03.jpg',
+            caption: 'Awarding of Certificate of Appreciation to Resource Speaker Mr. Jhony C. Benedicta, MAGC by Dean Dr. Rizza C. Concha, Ms. Pia Cuaresma, and faculty.'
+          },
+          {
+            src: 'upload/project-relief-session3-04.jpg',
+            caption: 'Opening prayer and national anthem led by student leaders and participants at ISAP AVR 1.'
+          },
+          {
+            src: 'upload/project-relief-session3-05.jpg',
+            caption: 'Level 3 and Level 4 BS Criminology interns in blue uniform with Research Focal Person Ms. Pia Nathattia A. Cuaresma.'
+          },
+          {
+            src: 'upload/project-relief-session3-06.jpg',
+            caption: 'Interactive partner affirmation and self-care mirror exercise fostering peer empathy and bonding.'
+          },
+          {
+            src: 'upload/project-relief-session3-07.jpg',
+            caption: 'Student participants engaging in interactive reflective activities during the culminating session.'
+          },
+          {
+            src: 'upload/project-relief-session3-08.jpg',
+            caption: 'Student representative sharing personal Self-Care Wheel ratings at the podium assisted by Mr. Benedicta.'
+          },
+          {
+            src: 'upload/project-relief-session3-09.jpg',
+            caption: 'Interactive activity “Self-Care Charades: Each group picks a self-care action - Act it out!”'
+          },
+          {
+            src: 'upload/project-relief-session3-10.jpg',
+            caption: 'Cohort somatic relaxation and mindful rhythm exercise guided by the resource speaker.'
+          },
+          {
+            src: 'upload/project-relief-session3-11.jpg',
+            caption: 'BS Criminology students seated in uniform actively following the self-care presentation.'
+          },
+          {
+            src: 'upload/project-relief-session3-12.jpg',
+            caption: 'Full cohort physical stretching and tension-release exercise with arms raised in unison.'
+          },
+          {
+            src: 'upload/project-relief-session3-13.jpg',
+            caption: 'Participants completing individual self-assessment worksheets on mental and physical well-being.'
+          },
+          {
+            src: 'upload/project-relief-session3-14.jpg',
+            caption: 'Resource speaker Mr. Jhony C. Benedicta presenting the culminating Session 3 agenda on October 3, 2026.'
+          },
+          {
+            src: 'upload/project-relief-session3-15.jpg',
+            caption: 'Small group collaboration on completing the 5-Domain Self-Care Wheel worksheets.'
+          },
+          {
+            src: 'upload/project-relief-session3-16.jpg',
+            caption: 'Student officer leading the invocation and solemn opening reflection at the podium.'
+          },
+          {
+            src: 'upload/project-relief-session3-17.jpg',
+            caption: 'Official Culminating Session 3 Group Photo of all BS Criminology students, faculty, and guidance leaders at ISAP AVR 1.'
+          },
+          {
+            src: 'upload/project-relief-session3-18.jpg',
+            caption: 'Interactive team dynamics and peer sharing on personal boundaries and emotional health.'
+          },
+          {
+            src: 'upload/project-relief-session3-19.jpg',
+            caption: 'Student intern presenting their shaded Self-Care Wheel across the five well-being dimensions.'
+          },
+          {
+            src: 'upload/project-relief-session3-20.jpg',
+            caption: 'Students performing during the “Self-Care Charades” non-verbal communication challenge.'
+          },
+          {
+            src: 'upload/project-relief-session3-21.jpg',
+            caption: 'BS Criminology peer circle examining practical boundary-setting strategies for student interns.'
+          },
+          {
+            src: 'upload/project-relief-session3-22.jpg',
+            caption: 'Plenary presentation of the guiding principle: “Take care of yourself, not because you are selfish, but because you matter.”'
+          },
+          {
+            src: 'upload/project-relief-session3-23.jpg',
+            caption: 'Student presenter detailing the five sectors of the Self-Care Wheel: Mental, Emotional, Physical, Social, and Spiritual.'
+          },
+          {
+            src: 'upload/project-relief-session3-24.jpg',
+            caption: 'Group discussion huddle formulating sustainable daily wellness commitments.'
+          }
+        ],
         summary: 'The College of Criminal Justice Education (CoCJE) concluded the three-session Project RELIEF: Let It Out, Lift It Up! with a final session focused on self-care, resilience, and emotional well-being among Level 3 and Level 4 BS Criminology students.',
         impact: 'Culminated the 3-session Project RELIEF program for Level 3 and Level 4 BS Criminology students; institutionalized the 5-Domain Self-Care Toolkit (Mental, Emotional, Physical, Social, Personal/Spiritual) and established daily personal balance and boundary-setting protocols across the student cohort.',
         pillarKey: 'value',
@@ -3451,20 +3723,18 @@
         coreFormats: '5-Domain Self-Care Toolkits, Boundary-Setting Exercises, Guided Reflection Worksheets & Daily Resilience Protocols',
         quote: 'Care for Yourself. Find Your Balance. Protect Your Peace.',
         paragraphs: [
-          'The College of Criminal Justice Education (CoCJE) concluded the three-session <strong>Project RELIEF: Let It Out, Lift It Up!</strong> with a final session focused on self-care, resilience, and emotional well-being among Level 3 and Level 4 BS Criminology students.',
-          'Titled <em>“Engage in Self-Care, Find Inner Peace”</em> and anchored on the message <em>“Care for Yourself. Find Your Balance. Protect Your Peace,”</em> the session emphasized the importance of self-care as an essential part of maintaining personal balance, strengthening resilience, and supporting overall well-being.',
-          'Through the <strong>Self-Care Toolkit</strong>, participants explored five key areas of self-care: mental, emotional, physical, social, and personal or spiritual. The session encouraged students to pause and recharge mentally, acknowledge emotions with self-compassion, care for their physical health, build meaningful relationships while setting healthy boundaries, and reflect on personal values, spirituality, and sense of purpose.',
-          'The activity was enriched by <strong>Jhony C. Benedicta, MAGC</strong>, who served as the resource speaker and shared practical insights on the value of self-care in managing stress, protecting emotional well-being, and maintaining a healthier sense of balance. His discussion reinforced the idea that self-care is not a form of selfishness, but a necessary practice for sustaining personal growth and resilience.',
-          'As the culminating session of <strong>Project RELIEF</strong>, the activity also brought together the key lessons from the program’s three-part journey. Students were reminded to recognize and express their emotions, respond to stress through healthier thinking and coping strategies, and make self-care a regular part of their daily lives.',
-          'The initiative supports <strong>Sustainable Development Goal 3 – Good Health and Well-Being</strong> by promoting mental and emotional wellness, while also advancing <strong>SDG 4 – Quality Education</strong> through a supportive learning environment that recognizes student well-being as an important component of meaningful education and personal development.',
-          'The activity also aligns with key directions of the RDC’s <strong>INNOVATES Research Agenda 2026–2030</strong>. It supports <strong>VALUE – Health, Safety, and Well-Being</strong> by promoting holistic self-care and emotional resilience; <strong>INSPIRE – Culture, Capability, and Engagement</strong> by encouraging reflection, self-awareness, and active participation in personal well-being; <strong>STRENGTHEN – Education and Institutional Performance</strong> by reinforcing a student-centered environment where well-being supports learning and development; and <strong>TRANSFORM – Community Engagement and Social Impact</strong> by helping cultivate a culture of empathy, care, and mutual support within the student community.',
-          'Although the three-session program has concluded, the lessons of <strong>Project RELIEF</strong> extend beyond the activities themselves. By encouraging emotional awareness, stress management, self-care, and help-seeking, the initiative contributes to a learning environment where students are supported not only in their academic responsibilities but also in their personal and emotional growth.',
-          '<strong>Project RELIEF</strong> closes with a simple but enduring message: caring for one’s well-being is an ongoing responsibility. For students navigating academic demands and personal challenges, taking time to pause, reflect, regain balance, and protect one’s peace remains an important part of moving forward.'
+          'The College of Criminal Justice Education (CoCJE), in collaboration with the Research and Development Center (RDC), concluded the three-session <strong>Project RELIEF: Let It Out, Lift It Up!</strong> with its culminating milestone on October 3, 2026, at the ISAP AVR 1.',
+          'The session opened with an inspiring message from <strong>Ms. Pia Nathattia A. Cuaresma</strong>, Research Focal Person, who commended the Level 3 and Level 4 BS Criminology students and interns for their sustained commitment throughout the three-part wellness journey. She reiterated that personal well-being, mindfulness, and healthy boundaries are essential pillars for sustainable professional excellence in law enforcement.',
+          'Anchored on the theme <em>“Engage in Self-Care, Find Inner Peace”</em> and the guiding principle <em>“Take care of yourself, not because you are selfish, but because you matter,”</em> the workshop was facilitated by <strong>Mr. Jhony C. Benedicta, MAGC</strong>, Head of the Office of the Guidance Services. The session translated mental health concepts into tangible practices through the <strong>5-Domain Self-Care Wheel</strong>—spanning mental, emotional, physical, social, and personal/spiritual dimensions.',
+          'Participants engaged in experiential activities including full-cohort somatic stretching exercises, the lively <strong>“Self-Care Charades”</strong> team acting challenge, and partner affirmation exercises that reinforced empathy and mutual support. Students mapped their personal wellness ratings on their individual Self-Care Wheels and presented their reflections at the podium.',
+          'The culmination concluded with the formal awarding of the Certificate of Appreciation to <strong>Mr. Jhony C. Benedicta, MAGC</strong>, joined by <strong>Dr. Rizza C. Concha, Ph.D.Crim.</strong>, Dean of CoCJE, <strong>Ms. Pia Nathattia A. Cuaresma</strong>, and student leaders.',
+          'Across all three sessions, Project RELIEF demonstrated exceptional impact, achieving an overall evaluation score of <strong>3.82 out of 4.00</strong>, with the highest rating of <strong>3.911</strong> recorded for participants’ commitment to continuously apply emotional self-care and resilience practices in their daily academic and professional lives.',
+          '<strong>Project RELIEF</strong> successfully advances <strong>Sustainable Development Goal 3 – Good Health and Well-Being</strong> and <strong>SDG 4 – Quality Education</strong>, while demonstrating high-impact research utilization aligned with <strong>WURI (World University Rankings for Innovation)</strong> and the RDC’s <strong>INNOVATES Research Agenda 2026–2030</strong> under VALUE, OPERATIONALIZE, INSPIRE, TRANSFORM, and STRENGTHEN.'
         ],
         highlights: [
           {
             title: 'Culminating Session: Self-Care, Balance & Inner Peace',
-            date: 'Oct 17, 2026 &bull; ISAP AVR 101',
+            date: 'October 3, 2026',
             items: [
               'Enriched by resource speaker Jhony C. Benedicta, MAGC',
               'Culminating milestone for Level 3 and Level 4 BS Criminology students',
@@ -3474,7 +3744,7 @@
           },
           {
             title: 'The 5-Domain Self-Care Toolkit',
-            date: 'Holistic Well-Being Architecture',
+            date: 'October 3, 2026',
             items: [
               '<strong>Mental & Emotional:</strong> Mental pauses, stress unloading, and self-compassion',
               '<strong>Physical Health:</strong> Proper sleep hygiene, physical hydration, and vitality',
@@ -3484,7 +3754,7 @@
           },
           {
             title: 'The 3-Part Project RELIEF Continuum',
-            date: 'Institutional Knowledge Translation &bull; CoCJE',
+            date: 'October 3, 2026',
             items: [
               '1️⃣ <strong>Session 1:</strong> Recognize Emotions, Express Feelings (Awareness & Peer Support)',
               '2️⃣ <strong>Session 2:</strong> Let Go of Stress, Improve Mindset (Pause, Reframe, Reset)',
@@ -3706,6 +3976,61 @@
       return OFFICIAL_UTILIZATION_ARTICLES.slice();
     }
 
+    function findUtilizationArticle(statusOrId) {
+      if (!statusOrId) return null;
+      var cleanTarget = String(statusOrId).trim().toLowerCase();
+      var cleanTargetNorm = cleanTarget.replace(/[^a-z0-9]/g, '');
+      var all = getAllUtilizationArticles();
+
+      // 1. Exact ID match (highest precedence!)
+      var a = all.find(function(item) {
+        return item.id && item.id.toLowerCase() === cleanTarget;
+      });
+
+      // 2. Exact status match (e.g. #UTIL-CRIM-2026-003 or UTIL-CRIM-2026-003)
+      if (!a) {
+        a = all.find(function(item) {
+          return item.status && item.status.toLowerCase().replace(/^#/, '') === cleanTarget.replace(/^#/, '');
+        });
+      }
+
+      // 3. Exact altIds match
+      if (!a) {
+        a = all.find(function(item) {
+          return item.altIds && item.altIds.some(function(alt) {
+            return alt.toLowerCase() === cleanTarget;
+          });
+        });
+      }
+
+      // 4. Normalized exact ID / status / altIds match (without punctuation)
+      if (!a) {
+        a = all.find(function(item) {
+          if (item.id && item.id.toLowerCase().replace(/[^a-z0-9]/g, '') === cleanTargetNorm) return true;
+          if (item.status && item.status.toLowerCase().replace(/[^a-z0-9]/g, '') === cleanTargetNorm) return true;
+          if (item.altIds && item.altIds.some(function(alt) { return alt.toLowerCase().replace(/[^a-z0-9]/g, '') === cleanTargetNorm; })) return true;
+          return false;
+        });
+      }
+
+      // 5. Specific session pattern match (Session 3, Session 2, Session 1, Flagship, Case)
+      if (!a) {
+        if (cleanTarget.indexOf('session3') !== -1 || cleanTarget.indexOf('session-3') !== -1 || cleanTarget.indexOf('relief3') !== -1 || cleanTarget.indexOf('004') !== -1) {
+          a = all.find(function(item) { return item.id && item.id.indexOf('session3') !== -1; });
+        } else if (cleanTarget.indexOf('session2') !== -1 || cleanTarget.indexOf('session-2') !== -1 || cleanTarget.indexOf('relief2') !== -1 || cleanTarget.indexOf('003') !== -1) {
+          a = all.find(function(item) { return item.id && item.id.indexOf('session2') !== -1; });
+        } else if (cleanTarget.indexOf('session1') !== -1 || cleanTarget.indexOf('session-1') !== -1 || cleanTarget.indexOf('relief1') !== -1 || cleanTarget.indexOf('002') !== -1) {
+          a = all.find(function(item) { return item.id && item.id.indexOf('session1') !== -1; });
+        } else if (cleanTarget.indexOf('flagship') !== -1 || cleanTarget.indexOf('comprehensive') !== -1) {
+          a = all.find(function(item) { return item.id && item.id.indexOf('flagship') !== -1; });
+        } else if (cleanTarget.indexOf('case') !== -1) {
+          a = all.find(function(item) { return item.id && item.id.indexOf('case') !== -1; });
+        }
+      }
+
+      return a || null;
+    }
+
     function escapeUtilHtml(str) {
       return String(str).replace(/[&<>"']/g, function(ch) {
         return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
@@ -3832,7 +4157,7 @@
               '<div style="width: 100%; height: 210px; overflow: hidden; background: #0f172a;">' +
                 '<img src="' + g.src + '" alt="' + g.caption.replace(/"/g, '&quot;') + '" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;" loading="lazy" decoding="async">' +
               '</div>' +
-              '<figcaption style="padding: 0.75rem 0.95rem; font-size: 0.8rem; color: #475569; background: #f8fafc; border-top: 1px solid #e2e8f0; line-height: 1.5; flex: 1;">' +
+              '<figcaption style="padding: 0.75rem 0.95rem; font-size: 0.8rem; color: #475569; background: #f8fafc; border-top: 1px solid #e2e8f0; line-height: 1.5; flex: 1; text-align: justify; text-justify: inter-word;">' +
                 g.caption +
               '</figcaption>' +
             '</figure>';
@@ -3995,9 +4320,12 @@
           '<span class="article-meta-date" style="font-size: 0.76rem; color: #854d0e; font-weight: 700; background: #fef9c3; border: 1px solid #fde047; padding: 0.18rem 0.55rem; border-radius: 14px;">⏳ In-Process &bull; ' + a.status + '</span>';
 
         var dateMetaText = a.date ? ('📅 ' + a.date + (a.time ? ' &bull; ⏱️ ' + a.time : '')) : '📅 Date to be announced';
+        var cleanStatus = (a.status || '').replace(/^#/, '');
 
         return `
-          <article class="article-accordion-card ${a.wing === 'isap' ? 'wing-isap' : 'wing-mcnp'} ${isPub ? 'is-official-published' : ''}" id="${cardId}">
+          <article class="article-accordion-card ${a.wing === 'isap' ? 'wing-isap' : 'wing-mcnp'} ${isPub ? 'is-official-published' : ''}" id="${cardId}" data-card-id="${cardId}" data-article-id="${a.id}" data-status="${a.status}" data-clean-status="${cleanStatus}" style="position: relative; scroll-margin-top: 100px;">
+            <span id="${a.id}" class="card-anchor-target" style="position: absolute; top: -100px; left: 0; display: block; visibility: hidden; pointer-events: none;"></span>
+            <span id="${cleanStatus}" class="card-anchor-target" style="position: absolute; top: -100px; left: 0; display: block; visibility: hidden; pointer-events: none;"></span>
             <!-- Clickable Header: CARD PREVIEW (Click to open full article modal card or expand inline) -->
             <div class="article-accordion-header" onclick="openUtilArticleModal('${a.id}');" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openUtilArticleModal('${a.id}');}" id="header-${cardId}" title="Click to open full article reader card">
               <!-- Side Thumbnail -->
@@ -4075,8 +4403,8 @@
                 <button type="button" class="btn btn-sm btn-outline-white" id="toggleBtn-${cardId}" aria-expanded="false" onclick="event.stopPropagation(); toggleArticleAccordion('${cardId}');" style="font-size: 0.75rem; padding: 0.35rem 0.8rem; color: #475569; border-color: #cbd5e1; white-space: nowrap;" title="Expand article inline on page">
                   <span class="toggle-text">▾ Expand on Page</span>
                 </button>
-                <button type="button" class="btn btn-sm btn-outline-white" onclick="event.stopPropagation(); copyUtilProtocolId('${a.status}', this);" style="font-size: 0.72rem; padding: 0.25rem 0.65rem; color: #64748b; border-color: #e2e8f0; white-space: nowrap;" title="Copy Protocol Registry ID">
-                  📋 Copy ID
+                <button type="button" class="btn btn-sm btn-outline-white" onclick="event.stopPropagation(); copyUtilArticleLink('${a.id || a.status}', this);" style="font-size: 0.72rem; padding: 0.25rem 0.65rem; color: #64748b; border-color: #e2e8f0; white-space: nowrap;" title="Copy Direct Article Link">
+                  🔗 Copy Link
                 </button>
               </div>
             </div>
@@ -4138,38 +4466,7 @@
 
     window.openUtilArticleModal = function(statusOrId) {
       if (!statusOrId) return;
-      var all = getAllUtilizationArticles();
-      var cleanTarget = String(statusOrId).trim().toLowerCase();
-      var cleanTargetNorm = cleanTarget.replace(/[^a-z0-9]/g, '');
-
-      var a = all.find(function(item) {
-        if (item.id && item.id.toLowerCase() === cleanTarget) return true;
-        if (item.id && item.id.toLowerCase().replace(/[^a-z0-9]/g, '') === cleanTargetNorm) return true;
-        if (item.status && item.status.toLowerCase() === cleanTarget) return true;
-        if (item.status && item.status.toLowerCase().replace(/[^a-z0-9]/g, '') === cleanTargetNorm) return true;
-        if (item.altIds && item.altIds.some(function(alt) { return alt.toLowerCase() === cleanTarget || alt.replace(/[^a-z0-9]/g, '') === cleanTargetNorm; })) return true;
-        if (item.title && item.title.toLowerCase() === cleanTarget) return true;
-        if (cleanTarget.indexOf('flagship') !== -1 || cleanTarget.indexOf('comprehensive') !== -1 || cleanTarget.indexOf('program') !== -1) {
-          if (item.id.indexOf('flagship') !== -1) return true;
-        }
-        if (cleanTarget.indexOf('relief3') !== -1 || cleanTarget.indexOf('session3') !== -1 || cleanTarget.indexOf('session-3') !== -1 || cleanTarget.indexOf('004') !== -1) {
-          if (item.id.indexOf('session3') !== -1) return true;
-        }
-        if (cleanTarget.indexOf('relief2') !== -1 || cleanTarget.indexOf('session2') !== -1 || cleanTarget.indexOf('session-2') !== -1 || cleanTarget.indexOf('003') !== -1) {
-          if (item.id.indexOf('session2') !== -1) return true;
-        }
-        if (cleanTarget.indexOf('session1') !== -1 || cleanTarget.indexOf('session-1') !== -1) {
-          if (item.id.indexOf('session1') !== -1) return true;
-        }
-        if (cleanTarget.indexOf('37th-statistics-month-celebration') !== -1 || cleanTarget.indexOf('relief') !== -1) {
-          if (item.id.indexOf('flagship') !== -1) return true;
-        }
-        if (cleanTarget.indexOf('case') !== -1) {
-          if (item.id.indexOf('case') !== -1) return true;
-        }
-        return false;
-      });
-
+      var a = findUtilizationArticle(statusOrId);
       if (!a) return;
 
       currentActiveUtilArticle = a;
@@ -4268,7 +4565,7 @@
 
       var copyBtn = document.getElementById('utilArticleModalCopyBtn');
       if (copyBtn) {
-        copyBtn.setAttribute('onclick', "copyUtilProtocolId('" + a.status + "', this);");
+        copyBtn.setAttribute('onclick', "copyUtilArticleLink('" + (a.id || a.status) + "', this);");
       }
 
       // Content Injection: Official Header Strip + Full Editorial Body
@@ -4385,9 +4682,20 @@
       }
     };
 
-    window.toggleArticleAccordion = function(cardId, forceState) {
-      var card = document.getElementById(cardId);
+    window.toggleArticleAccordion = function(cardOrArticleId, forceState) {
+      if (!cardOrArticleId) return;
+      var clean = String(cardOrArticleId).replace(/^#/, '').trim();
+      var card = document.getElementById(clean) ||
+                 document.getElementById('util-card-' + clean.replace(/[^a-zA-Z0-9]/g, '')) ||
+                 document.querySelector('[data-card-id="' + clean + '"]') ||
+                 document.querySelector('[data-article-id="' + clean + '"]') ||
+                 document.querySelector('[data-clean-status="' + clean + '"]');
+      if (!card && typeof cardOrArticleId === 'object' && cardOrArticleId.closest) {
+        card = cardOrArticleId.closest('.article-accordion-card');
+      }
       if (!card) return;
+
+      var actualCardId = card.getAttribute('data-card-id') || card.id;
       var isOpen = (typeof forceState === 'boolean') ? forceState : !card.classList.contains('open');
       if (isOpen) {
         card.classList.add('open');
@@ -4396,9 +4704,9 @@
       }
 
       var hdr = card.querySelector('.article-accordion-header');
-      
+      if (hdr) hdr.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 
-      var toggleBtn = document.getElementById('toggleBtn-' + cardId);
+      var toggleBtn = document.getElementById('toggleBtn-' + actualCardId) || card.querySelector('[id^="toggleBtn-"]');
       if (toggleBtn) {
         toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         var txt = toggleBtn.querySelector('.toggle-text');
@@ -4407,11 +4715,54 @@
 
       if (isOpen) {
         requestAnimationFrame(function () {
-          var navOffset = 85;
+          var navOffset = 95;
           var cardRect = card.getBoundingClientRect();
           var targetY = window.pageYOffset + cardRect.top - navOffset;
           window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
         });
+      }
+    };
+
+    window.scrollToArticleCard = function(targetId, shouldExpand) {
+      if (!targetId) return;
+      var clean = String(targetId).replace(/^#/, '').trim();
+      var found = findUtilizationArticle(clean);
+      var card = null;
+
+      if (found) {
+        card = document.querySelector('[data-article-id="' + found.id + '"]') ||
+               document.getElementById(found.id) ||
+               document.getElementById('util-card-' + found.status.replace(/[^a-zA-Z0-9]/g, ''));
+      }
+      if (!card) {
+        card = document.getElementById(clean) ||
+               document.getElementById('util-card-' + clean.replace(/[^a-zA-Z0-9]/g, '')) ||
+               document.querySelector('[data-card-id="' + clean + '"]') ||
+               document.querySelector('[data-article-id="' + clean + '"]') ||
+               document.querySelector('[data-clean-status="' + clean + '"]');
+      }
+
+      if (card) {
+        var actualCardId = card.getAttribute('data-card-id') || card.id;
+        if (shouldExpand && window.toggleArticleAccordion) {
+          window.toggleArticleAccordion(actualCardId, true);
+        }
+
+        var performScroll = function() {
+          var navOffset = 95;
+          var cardRect = card.getBoundingClientRect();
+          var targetY = window.pageYOffset + cardRect.top - navOffset;
+          window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+
+          card.classList.add('highlight-article-card');
+          setTimeout(function() {
+            card.classList.remove('highlight-article-card');
+          }, 3200);
+        };
+
+        requestAnimationFrame(performScroll);
+        setTimeout(performScroll, 120);
+        setTimeout(performScroll, 350);
       }
     };
 
@@ -4451,29 +4802,52 @@
       renderUtilizationArticlesGrid(true);
     }
 
-    function copyUtilProtocolId(id, btn) {
+    function copyUtilArticleLink(targetId, btn) {
+      var cleanTarget = (targetId || '').replace(/^#/, '');
+      var url = window.location.origin + window.location.pathname + '#' + cleanTarget;
       if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(id).then(function() {
-          showCopyFeedback(btn);
+        navigator.clipboard.writeText(url).then(function() {
+          showCopyFeedback(btn, '✓ Link Copied!');
         }).catch(function() {
-          showCopyFeedback(btn);
+          fallbackCopyUtilText(url, btn);
         });
       } else {
-        showCopyFeedback(btn);
+        fallbackCopyUtilText(url, btn);
       }
     }
 
-    function showCopyFeedback(btn) {
+    function fallbackCopyUtilText(text, btn) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showCopyFeedback(btn, '✓ Link Copied!');
+      } catch (e) {
+        showCopyFeedback(btn, '✓ Copied!');
+      }
+      document.body.removeChild(ta);
+    }
+
+    function copyUtilProtocolId(id, btn) {
+      copyUtilArticleLink(id, btn);
+    }
+
+    function showCopyFeedback(btn, text) {
       if (!btn) return;
       var orig = btn.innerHTML;
-      btn.innerHTML = '✓ Copied!';
+      btn.innerHTML = text || '✓ Link Copied!';
       btn.style.color = '#16a34a';
       btn.style.borderColor = '#16a34a';
       setTimeout(function() {
         btn.innerHTML = orig;
         btn.style.color = '';
         btn.style.borderColor = '';
-      }, 1500);
+      }, 1600);
     }
 
     function setMainCourseFilter(courseId) {
@@ -4509,7 +4883,10 @@
         }
         if (title) title.textContent = 'ISAP Multidisciplinary Research Utilization Articles';
         if (desc) desc.innerHTML = 'Explore certified research utilization articles and applied protocols across all 12 ISAP programs: Criminology, IT, Computer Engineering, Education (BSED & BPED), Social Work, Psychology, Tourism, Hospitality, Accountancy, Customs, and Business Administration.';
-        try { history.replaceState(null, null, '#isap'); } catch(e){}
+        var currH = (window.location.hash || '').toLowerCase();
+        if (!currH || currH === '#isap' || currH === '#mcnp') {
+          try { history.replaceState(null, null, '#isap'); } catch(e){}
+        }
       } else {
         if (btnMcnp) btnMcnp.classList.add('active-mcnp');
         if (badge) {
@@ -4519,7 +4896,10 @@
         }
         if (title) title.textContent = 'MCNP Health Sciences Research Utilization Articles';
         if (desc) desc.innerHTML = 'Explore certified research utilization articles and clinical protocols across Nursing, Radiologic Technology, Medical Laboratory Science, Pharmacy, and Physical Therapy.';
-        try { history.replaceState(null, null, '#mcnp'); } catch(e){}
+        var currHM = (window.location.hash || '').toLowerCase();
+        if (!currHM || currHM === '#isap' || currHM === '#mcnp') {
+          try { history.replaceState(null, null, '#mcnp'); } catch(e){}
+        }
       }
 
       renderMainCoursePills();
@@ -5121,33 +5501,7 @@
       var cleanTarget = target.toLowerCase().trim();
       if (cleanTarget === 'isap' || cleanTarget === 'mcnp' || cleanTarget === 'all') return;
 
-      var all = getAllUtilizationArticles();
-      var found = all.find(function(a) {
-        if (a.id && a.id.toLowerCase() === cleanTarget) return true;
-        if (a.id && a.id.toLowerCase().replace(/[^a-z0-9]/g, '') === cleanTarget.replace(/[^a-z0-9]/g, '')) return true;
-        if (a.status && a.status.toLowerCase() === cleanTarget) return true;
-        if (a.status && a.status.toLowerCase().replace(/[^a-z0-9]/g, '') === cleanTarget.replace(/[^a-z0-9]/g, '')) return true;
-        if (a.altIds && a.altIds.some(function(alt) { return alt.toLowerCase() === cleanTarget || alt.replace(/[^a-z0-9]/g, '') === cleanTarget.replace(/[^a-z0-9]/g, ''); })) return true;
-        if (cleanTarget.indexOf('flagship') !== -1 || cleanTarget.indexOf('comprehensive') !== -1 || cleanTarget.indexOf('program') !== -1) {
-          if (a.id.indexOf('flagship') !== -1) return true;
-        }
-        if (cleanTarget.indexOf('relief3') !== -1 || cleanTarget.indexOf('session3') !== -1 || cleanTarget.indexOf('session-3') !== -1 || cleanTarget.indexOf('004') !== -1) {
-          if (a.id.indexOf('session3') !== -1) return true;
-        }
-        if (cleanTarget.indexOf('relief2') !== -1 || cleanTarget.indexOf('session2') !== -1 || cleanTarget.indexOf('session-2') !== -1 || cleanTarget.indexOf('003') !== -1) {
-          if (a.id.indexOf('session2') !== -1) return true;
-        }
-        if (cleanTarget.indexOf('session1') !== -1 || cleanTarget.indexOf('session-1') !== -1) {
-          if (a.id.indexOf('session1') !== -1) return true;
-        }
-        if (cleanTarget.indexOf('37th-statistics-month-celebration') !== -1 || cleanTarget.indexOf('relief') !== -1) {
-          if (a.id.indexOf('flagship') !== -1) return true;
-        }
-        if (cleanTarget.indexOf('case') !== -1) {
-          if (a.id.indexOf('case') !== -1) return true;
-        }
-        return false;
-      });
+      var found = findUtilizationArticle(cleanTarget);
 
       if (found) {
         if (found.wing !== currentSelectedWing) {
@@ -5156,17 +5510,32 @@
         if (found.course) {
           currentSelectedCourse = found.course;
           renderMainCoursePills();
-          renderUtilizationArticlesGrid(true);
         }
-        var cardId = 'util-card-' + found.status.replace(/[^a-zA-Z0-9]/g, '');
-        if (window.toggleArticleAccordion) {
-          window.toggleArticleAccordion(cardId, true);
-        }
-        setTimeout(function() {
-          if (typeof window.openUtilArticleModal === 'function') {
-            window.openUtilArticleModal(found.id || found.status);
+
+        var filtered = getFilteredUtilizationArticles();
+        var idx = filtered.findIndex(function(a) { return a.id === found.id; });
+        if (idx !== -1) {
+          var neededPage = Math.floor(idx / articlesPerPage) + 1;
+          if (neededPage > currentArticlePage) {
+            currentArticlePage = neededPage;
           }
-        }, 300);
+        }
+        renderUtilizationArticlesGrid(false);
+
+        // User preference: go directly to article card on page!
+        if (params.get('modal') === 'true' || params.get('modal') === '1') {
+          setTimeout(function() {
+            if (typeof window.openUtilArticleModal === 'function') {
+              window.openUtilArticleModal(found.id);
+            }
+          }, 300);
+        } else {
+          setTimeout(function() {
+            if (typeof window.scrollToArticleCard === 'function') {
+              window.scrollToArticleCard(found.id, true);
+            }
+          }, 120);
+        }
       }
     }
 
@@ -5179,31 +5548,44 @@
           }
         });
       }
-      var hash = window.location.hash.toLowerCase();
-      if (hash.indexOf('isap') !== -1) {
-        filterUtilizationWing('isap', document.getElementById('btn-tab-isap'));
-      } else if (hash.indexOf('mcnp') !== -1) {
-        filterUtilizationWing('mcnp', document.getElementById('btn-tab-mcnp'));
-      } else {
-        var firstArt = getAllUtilizationArticles()[0];
-        var defWing = (firstArt && firstArt.wing === 'isap') ? 'isap' : 'mcnp';
-        filterUtilizationWing(defWing, document.getElementById('btn-tab-' + defWing));
-      }
 
-      var pillarMatch = hash.match(/pillar-([a-z]+)/);
-      if (pillarMatch && utilizationPillarsData[pillarMatch[1]]) {
-        setTimeout(function() {
-          openUtilizationModal(pillarMatch[1], 'pathway');
-        }, 200);
+      var params = new URLSearchParams(window.location.search);
+      var articleParam = params.get('article');
+      var rawHash = window.location.hash ? window.location.hash.substring(1) : '';
+      var cleanTarget = (articleParam || rawHash).toLowerCase().trim();
+
+      var targetArticle = cleanTarget ? findUtilizationArticle(cleanTarget) : null;
+
+      if (targetArticle) {
+        filterUtilizationWing(targetArticle.wing, document.getElementById('btn-tab-' + targetArticle.wing));
+        checkUrlHashAndOpenArticle();
+      } else {
+        var hash = window.location.hash.toLowerCase();
+        if (hash.indexOf('isap') !== -1) {
+          filterUtilizationWing('isap', document.getElementById('btn-tab-isap'));
+        } else if (hash.indexOf('mcnp') !== -1) {
+          filterUtilizationWing('mcnp', document.getElementById('btn-tab-mcnp'));
+        } else {
+          var firstArt = allArticles[0];
+          var defWing = (firstArt && firstArt.wing === 'isap') ? 'isap' : 'mcnp';
+          filterUtilizationWing(defWing, document.getElementById('btn-tab-' + defWing));
+        }
+
+        var pillarMatch = hash.match(/pillar-([a-z]+)/);
+        if (pillarMatch && utilizationPillarsData[pillarMatch[1]]) {
+          setTimeout(function() {
+            openUtilizationModal(pillarMatch[1], 'pathway');
+          }, 200);
+        }
+        checkUrlHashAndOpenArticle();
       }
-      checkUrlHashAndOpenArticle();
     });
 
     window.addEventListener('hashchange', function() {
       var hash = window.location.hash.toLowerCase();
-      if (hash.indexOf('isap') !== -1) {
+      if (hash.indexOf('#isap') === 0) {
         filterUtilizationWing('isap', document.getElementById('btn-tab-isap'));
-      } else if (hash.indexOf('mcnp') !== -1) {
+      } else if (hash.indexOf('#mcnp') === 0) {
         filterUtilizationWing('mcnp', document.getElementById('btn-tab-mcnp'));
       }
 
