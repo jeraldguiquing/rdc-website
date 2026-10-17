@@ -29,14 +29,14 @@
   <meta property="og:locale" content="en_PH">
   <meta property="og:title" content="Research Utilization &amp; Impact | MCNP &amp; ISAP RDC">
   <meta property="og:description" content="Translating scientific research, clinical breakthroughs, and multidisciplinary innovation into community action and public policy.">
-  <meta property="og:image" content="assets/rdc-logo.png">
+  <meta property="og:image" content="https://jeraldguiquing.github.io/rdc-website/assets/rdc-logo.png">
   <meta property="og:site_name" content="MCNP &amp; ISAP RDC">
 
   <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Research Utilization &amp; Impact | MCNP &amp; ISAP RDC">
   <meta name="twitter:description" content="Translating scientific research, clinical breakthroughs, and multidisciplinary innovation into community action and public policy.">
-  <meta name="twitter:image" content="assets/rdc-logo.png">
+  <meta name="twitter:image" content="https://jeraldguiquing.github.io/rdc-website/assets/rdc-logo.png">
 
   <link rel="stylesheet" href="css/style.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -316,6 +316,8 @@
         text-align: center !important;
         justify-content: center !important;
       }
+    }
+
     /* ==========================================================================
        UTILIZATION ARTICLE DETAIL MODAL CARD (Matches News & Events Article Reader)
        ========================================================================== */
@@ -558,6 +560,7 @@
         max-width: 100% !important;
         min-width: 100% !important;
         min-height: 100vh !important;
+        min-height: 100dvh !important;
         border-radius: 0 !important;
         margin: 0 !important;
         padding-top: 0 !important;
@@ -611,6 +614,10 @@
         background: transparent !important;
         padding: 0 !important;
       }
+      body.print-util-article-mode .article-modal-body-scroll {
+        max-height: none !important;
+        overflow: visible !important;
+      }
       body.print-util-article-mode .article-modal-sticky-bar,
       body.print-util-article-mode .article-modal-actions-btns,
       body.print-util-article-mode .event-modal-close,
@@ -624,7 +631,7 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Top Institutional Bar -->
-  <header class="topbar">
+  <div class="topbar">
     <div class="container">
       <div class="topbar-info">
         <span>📍 Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
@@ -639,7 +646,7 @@
         <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
       </div>
     </div>
-  </header>
+  </div>
 
   <!-- Main Navigation Header -->
   <header class="main-header">
@@ -731,7 +738,7 @@
                   <span>Journal of Admin (Faculty Research)</span>
                   <span class="dropdown-badge badge-admin">ADMIN</span>
                 </a>
-                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link" style="border-top: 1px dashed var(--border-color); color: #b89726; font-size: 0.82rem;">
+                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link" style="border-top: 1px dashed var(--border-color); color: #8a6d0b; font-size: 0.82rem;">
                   <span>Direct Online FlipBook ↗</span>
                   <span class="dropdown-badge badge-admin">FlipHTML5</span>
                 </a>
@@ -862,10 +869,10 @@
         <div class="util-articles-toolbar">
           <div class="util-search-wrap">
             <span class="util-search-icon">🔍</span>
-            <input type="text" id="utilSearchInput" class="util-search-input" placeholder="Search utilization articles by title, proponent, adopting partner, or keywords..." oninput="handleUtilSearch(this.value)">
+            <input type="text" id="utilSearchInput" aria-label="Search utilization articles" class="util-search-input" placeholder="Search utilization articles by title, proponent, adopting partner, or keywords..." oninput="handleUtilSearch(this.value)">
           </div>
           <div class="util-toolbar-controls">
-            <select id="utilPillarFilterSelect" onchange="handleUtilPillarFilter(this.value)" style="padding: 0.55rem 0.85rem; border-radius: 8px; border: 1.5px solid #cbd5e1; font-size: 0.84rem; font-weight: 700; color: #334155; background: #fff; cursor: pointer;">
+            <select id="utilPillarFilterSelect" aria-label="Filter by INNOVATES agenda" onchange="handleUtilPillarFilter(this.value)" style="padding: 0.55rem 0.85rem; border-radius: 8px; border: 1.5px solid #cbd5e1; font-size: 0.84rem; font-weight: 700; color: #334155; background: #fff; cursor: pointer;">
               <option value="all">All INNOVATES Agendas (9)</option>
               <option value="inspire">INSPIRE (Culture &amp; Capability)</option>
               <option value="nurture">NURTURE (Ethics &amp; Accountability)</option>
@@ -2862,7 +2869,7 @@
         var activeBg = (currentSelectedWing === 'isap') ? 'var(--isap-blue)' : 'var(--mcnp-green)';
         var activeBorder = (currentSelectedWing === 'isap') ? 'var(--isap-blue)' : 'var(--mcnp-green)';
 
-        return '<button type="button" class="main-course-pill ' + (isActive ? 'active' : '') + '" onclick="setMainCourseFilter(\'' + c.id + '\')" ' +
+        return '<button type="button" class="main-course-pill ' + (isActive ? 'active' : '') + '" aria-pressed="' + (isActive ? 'true' : 'false') + '" onclick="setMainCourseFilter(\'' + c.id + '\')" ' +
           'style="padding:0.42rem 0.95rem; border-radius:24px; font-size:0.82rem; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:0.4rem; transition:all 0.2s ease; ' +
           (isActive ? 'background:' + activeBg + '; color:#ffffff; border:1.5px solid ' + activeBorder + '; box-shadow:0 3px 10px rgba(0,0,0,0.15);' : 'background:#ffffff; color:#475569; border:1.5px solid #cbd5e1;') + '">' +
           '<span>' + c.icon + '</span> <span>' + c.label + countBadge + '</span>' +
@@ -2953,6 +2960,16 @@
       return OFFICIAL_UTILIZATION_ARTICLES.slice();
     }
 
+    function escapeUtilHtml(str) {
+      return String(str).replace(/[&<>"']/g, function(ch) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+      });
+    }
+
+    function hasFullUtilArticle(status) {
+      return getAllUtilizationArticles().some(function(a) { return a.status === status; });
+    }
+
     function getFilteredUtilizationArticles() {
       var list = getAllUtilizationArticles();
 
@@ -3018,7 +3035,7 @@
 
         if (isSearch) {
           emptyHeading = 'No Utilization Articles Matching Search';
-          emptyMessage = 'No research utilization articles match "' + currentSearchQuery + '". Try searching with different keywords or clearing your search.';
+          emptyMessage = 'No research utilization articles match "' + escapeUtilHtml(currentSearchQuery) + '". Try searching with different keywords or clearing your search.';
         } else if (cInfo) {
           emptyHeading = 'No Published Utilization Articles for ' + cInfo.name + ' Yet';
           emptyMessage = 'The official research utilization articles and field adoption portfolios for <strong>' + cInfo.name + '</strong> are currently undergoing institutional review, documentation, and stakeholder certification ("Another Process"). Certified articles will appear here once officially verified.';
@@ -3077,7 +3094,7 @@
           '<span class="article-meta-date" style="font-size: 0.76rem; color: #166534; font-weight: 800; background: #dcfce7; border: 1px solid #86efac; padding: 0.18rem 0.6rem; border-radius: 14px;">✅ ' + (a.badgeText || 'Published Official Article') + ' &bull; ' + a.status + '</span>' :
           '<span class="article-meta-date" style="font-size: 0.76rem; color: #854d0e; font-weight: 700; background: #fef9c3; border: 1px solid #fde047; padding: 0.18rem 0.55rem; border-radius: 14px;">⏳ In-Process &bull; ' + a.status + '</span>';
 
-        var dateMetaText = a.date ? ('📅 ' + a.date + (a.time ? ' &bull; ⏱️ ' + a.time : '')) : '📅 October 2026 &bull; ⏱️ 3 min read';
+        var dateMetaText = a.date ? ('📅 ' + a.date + (a.time ? ' &bull; ⏱️ ' + a.time : '')) : '📅 Date to be announced';
 
         // Narrative HTML for published article inline view
         var narrativeHtml = '';
@@ -3100,7 +3117,7 @@
         return `
           <article class="article-accordion-card ${a.wing === 'isap' ? 'wing-isap' : 'wing-mcnp'} ${isPub ? 'is-official-published' : ''}" id="${cardId}" style="${isPub ? 'border-left: 4.5px solid var(--isap-blue); box-shadow: 0 6px 22px rgba(11,60,93,0.08);' : ''}">
             <!-- Clickable Header: CARD PREVIEW (Click to open full article modal card or expand inline) -->
-            <div class="article-accordion-header" onclick="openUtilArticleModal('${a.status}');" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openUtilArticleModal('${a.status}');}" aria-expanded="false" id="header-${cardId}" title="Click to open full article reader card">
+            <div class="article-accordion-header" onclick="openUtilArticleModal('${a.status}');" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openUtilArticleModal('${a.status}');}" id="header-${cardId}" title="Click to open full article reader card">
               <!-- Side Thumbnail -->
               <div class="article-card-thumb-wrap" style="${isPub ? 'border: 2px solid #0b3c5d;' : ''}">
                 <img src="${thumbCover}" alt="${cInfo.name} Research Publication" loading="lazy" decoding="async" style="${isPub ? 'object-fit: cover; object-position: top center;' : ''}">
@@ -3153,7 +3170,7 @@
                 <button type="button" class="article-expand-toggle" onclick="event.stopPropagation(); openUtilArticleModal('${a.status}');" title="Open complete full article reader card">
                   <span class="toggle-text">📖 Read Full Article Card ↗</span>
                 </button>
-                <button type="button" class="btn btn-sm btn-outline-white" id="toggleBtn-${cardId}" onclick="event.stopPropagation(); toggleArticleAccordion('${cardId}');" style="font-size: 0.75rem; padding: 0.35rem 0.8rem; color: #475569; border-color: #cbd5e1; white-space: nowrap;" title="Expand article inline on page">
+                <button type="button" class="btn btn-sm btn-outline-white" id="toggleBtn-${cardId}" aria-expanded="false" onclick="event.stopPropagation(); toggleArticleAccordion('${cardId}');" style="font-size: 0.75rem; padding: 0.35rem 0.8rem; color: #475569; border-color: #cbd5e1; white-space: nowrap;" title="Expand article inline on page">
                   <span class="toggle-text">▾ Expand on Page</span>
                 </button>
                 <button type="button" class="btn btn-sm btn-outline-white" onclick="event.stopPropagation(); copyUtilProtocolId('${a.status}', this);" style="font-size: 0.72rem; padding: 0.25rem 0.65rem; color: #64748b; border-color: #e2e8f0; white-space: nowrap;" title="Copy Protocol Registry ID">
@@ -3254,9 +3271,7 @@
         return false;
       });
 
-      if (!a && all.length > 0) {
-        a = all[0];
-      }
+      
       if (!a) return;
 
       currentActiveUtilArticle = a;
@@ -3288,8 +3303,7 @@
       if (metaEl) {
         metaEl.innerHTML = '<span>🏛️ <strong>Proponent:</strong> ' + a.dept + '</span>' +
           '<span>&bull; 🤝 <strong>Partner:</strong> <strong style="color: #ffdf70;">' + a.partner + '</strong></span>' +
-          '<span>&bull; 📅 October 2026</span>' +
-          '<span>&bull; ⏱️ 3 min read</span>';
+          '<span>&bull; 📅 ' + (a.date || 'Date to be announced') + '</span>';
       }
 
       // Badges
@@ -3561,12 +3575,18 @@
         }
       }
 
+      window.__utilArtReturnFocus = document.activeElement;
       if (document.activeElement && typeof document.activeElement.blur === 'function') {
         document.activeElement.blur();
       }
 
       lockBodyScroll();
       overlay.classList.add('open');
+      var focusCard = overlay.querySelector('.article-modal-card');
+      if (focusCard) {
+        focusCard.setAttribute('tabindex', '-1');
+        focusCard.focus({ preventScroll: true });
+      }
 
       var resetArticleScroll = function () {
         if (!overlay) return;
@@ -3603,6 +3623,11 @@
         if (scrollBody) scrollBody.scrollTop = 0;
       }
       unlockBodyScroll();
+      var returnTo = window.__utilArtReturnFocus;
+      if (returnTo && typeof returnTo.focus === 'function') {
+        try { returnTo.focus({ preventScroll: true }); } catch (e) {}
+      }
+      window.__utilArtReturnFocus = null;
     };
 
     window.printUtilArticle = function() {
@@ -3642,10 +3667,11 @@
       }
 
       var hdr = card.querySelector('.article-accordion-header');
-      if (hdr) hdr.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      
 
       var toggleBtn = document.getElementById('toggleBtn-' + cardId);
       if (toggleBtn) {
+        toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         var txt = toggleBtn.querySelector('.toggle-text');
         if (txt) txt.textContent = isOpen ? '▲ Collapse' : '▾ Expand on Page';
       }
@@ -3683,6 +3709,13 @@
       if (sInput) sInput.value = '';
       var pSelect = document.getElementById('utilPillarFilterSelect');
       if (pSelect) pSelect.value = 'all';
+      if (getFilteredUtilizationArticles().length === 0) {
+        var first = getAllUtilizationArticles()[0];
+        if (first && first.wing !== currentSelectedWing) {
+          filterUtilizationWing(first.wing, document.getElementById('btn-tab-' + first.wing));
+          return;
+        }
+      }
       renderMainCoursePills();
       renderUtilizationArticlesGrid(true);
     }
@@ -3713,6 +3746,10 @@
     }
 
     function setMainCourseFilter(courseId) {
+      var info = coursesMap[courseId];
+      if (info && info.wing !== currentSelectedWing) {
+        filterUtilizationWing(info.wing, document.getElementById('btn-tab-' + info.wing));
+      }
       currentSelectedCourse = courseId;
       renderMainCoursePills();
       renderUtilizationArticlesGrid(true);
@@ -4002,11 +4039,7 @@
             <div style="background: #f8fafc; border-left: 3.5px solid #7b1113; padding: 0.75rem 1rem; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: #1e293b; margin-bottom: 0.75rem;">
               <strong style="color: #7b1113;">Measurable Impact:</strong> ${u.impact}
             </div>
-            <div style="display: flex; justify-content: flex-end;">
-              <button type="button" class="btn btn-sm ${(u.wing === 'mcnp') ? 'btn-mcnp' : 'btn-gold'}" onclick="openUtilArticleModal('${u.status}');" style="font-size: 0.76rem; font-weight: 700; padding: 0.35rem 0.85rem;">
-                📖 Read Full Article Card ↗
-              </button>
-            </div>
+            ${hasFullUtilArticle(u.status) ? `<div style="display: flex; justify-content: flex-end;"><button type="button" class="btn btn-sm ${(u.wing === 'mcnp') ? 'btn-mcnp' : 'btn-gold'}" onclick="openUtilArticleModal('${u.status}');" style="font-size: 0.76rem; font-weight: 700; padding: 0.35rem 0.85rem;">📖 Read Full Article Card ↗</button></div>` : ''}
           </div>
         `;
       }).join('');
@@ -4099,8 +4132,7 @@
           num: 3,
           icon: '💡',
           title: 'Technology Transfer & Commercialization',
-          color: '#b89726',
-          bg: 'rgba(184, 151, 38, 0.08)',
+          color: '#8a6d0b',\1bg: 'rgba(184, 151, 38, 0.08)',
           desc: 'Facilitating patent applications, utility models, and software copyright registration through the Intellectual Property Office of the Philippines (IPOPHL), alongside commercial incubation with regional industries.',
           outputs: [
             'Bioactive botanical extracts, ointments & herbal formulations',
@@ -4230,7 +4262,7 @@
           </div>
 
           <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 1.25rem; border-top: 4px solid #b89726;">
-            <div style="font-size: 0.72rem; font-weight: 800; color: #b89726; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem;">Stage 03</div>
+            <div style="font-size: 0.72rem; font-weight: 800; color: #8a6d0b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem;">Stage 03</div>
             <h5 style="font-size: 0.98rem; color: #0f172a; margin: 0 0 0.5rem; font-weight: 700;">Stakeholder Handover</h5>
             <p style="font-size: 0.84rem; color: #64748b; line-height: 1.65; margin: 0;">${data.procedure.stage3}</p>
           </div>
@@ -4359,8 +4391,12 @@
       var hash = window.location.hash.toLowerCase();
       if (hash.indexOf('isap') !== -1) {
         filterUtilizationWing('isap', document.getElementById('btn-tab-isap'));
-      } else {
+      } else if (hash.indexOf('mcnp') !== -1) {
         filterUtilizationWing('mcnp', document.getElementById('btn-tab-mcnp'));
+      } else {
+        var firstArt = getAllUtilizationArticles()[0];
+        var defWing = (firstArt && firstArt.wing === 'isap') ? 'isap' : 'mcnp';
+        filterUtilizationWing(defWing, document.getElementById('btn-tab-' + defWing));
       }
 
       var pillarMatch = hash.match(/pillar-([a-z]+)/);
