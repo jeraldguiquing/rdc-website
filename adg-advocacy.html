@@ -200,7 +200,7 @@
       text-transform: uppercase;
       color: #0d3b73;
       background: rgba(13, 59, 115, 0.08);
-      border: 1px solid rgba(13, 59, 115, 0.2);
+      border: 1px solid #e2e8f0;
       padding: 0.35rem 0.95rem;
       border-radius: 999px;
       margin-bottom: 1rem;
@@ -234,7 +234,7 @@
       background: #f8fafc;
       padding: 1.5rem 1.85rem;
       border-radius: 12px;
-      border-left: 4px solid #b89726;
+      border: 1px solid #e2e8f0;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
     }
     
@@ -264,23 +264,6 @@
       transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
       overflow: hidden;
-    }
-    .sdg-triad-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 5px;
-    }
-    .sdg-triad-card.card-ascend::before {
-      background: linear-gradient(90deg, #0d3b73, #1e5ea8);
-    }
-    .sdg-triad-card.card-innovates::before {
-      background: linear-gradient(90deg, #7a1f2d, #b89726);
-    }
-    .sdg-triad-card.card-sdgs::before {
-      background: linear-gradient(90deg, #e5243b, #4c9f38, #0a97d9);
     }
     .sdg-triad-card:hover {
       transform: translateY(-6px);
@@ -322,17 +305,17 @@
     .card-ascend .sdg-triad-role-badge {
       background: #eff6ff;
       color: #1d4ed8;
-      border: 1px solid #bfdbfe;
+      border: none;
     }
     .card-innovates .sdg-triad-role-badge {
       background: #fdf2f2;
       color: #991b1b;
-      border: 1px solid #fecaca;
+      border: none;
     }
     .card-sdgs .sdg-triad-role-badge {
       background: #f0fdf4;
       color: #166534;
-      border: 1px solid #bbf7d0;
+      border: none;
     }
     .sdg-triad-title {
       font-family: 'Oswald', sans-serif;
@@ -419,7 +402,7 @@
       letter-spacing: 0.1em;
       color: #ffdf70;
       background: rgba(212, 175, 55, 0.2);
-      border: 1px solid rgba(212, 175, 55, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 0.25rem 0.85rem;
       border-radius: 999px;
       display: inline-block;
@@ -538,7 +521,7 @@
     .sdg-force-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
-      border-color: #b89726;
+      border-color: #cbd5e1;
     }
     .sdg-force-icon {
       font-size: 1.8rem;
@@ -566,7 +549,7 @@
       padding: 3.25rem 2.25rem;
       max-width: 1200px;
       margin: 0 auto 3rem;
-      border: 2px solid rgba(212, 175, 55, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       box-shadow: 0 16px 36px rgba(11, 19, 41, 0.35);
       position: relative;
       overflow: hidden;
@@ -611,7 +594,7 @@
     .sdg-creed-divider {
       width: 80px;
       height: 2px;
-      background: #d4af37;
+      background: rgba(255, 255, 255, 0.25);
       margin: 2rem auto;
       opacity: 0.8;
     }
@@ -965,7 +948,7 @@
         <!-- Active Force in Action Section -->
         <div class="sdg-active-force-section">
           <div class="sdg-active-force-header">
-            <span class="badge-pill" style="margin-bottom: 0.65rem;">Active Institutional Force</span>
+            <span class="sdg-manifesto-tag" style="margin-bottom: 0.65rem; border: 1px solid #e2e8f0; background: #f1f5f9; color: #475569;">Active Institutional Force</span>
             <h3>Making Research an Active Force in Achieving the SDGs</h3>
             <p>
               Our commitment is not simply to align research with the Sustainable Development Goals, but to make research an active force in achieving them. We envision an academic community where every investigation yields tangible transformation:
