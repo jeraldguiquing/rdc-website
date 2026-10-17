@@ -2957,8 +2957,26 @@
         readTime: '5 min read',
         status: '#UTIL-CRIM-2026-RELIEF',
         facebookUrl: 'https://www.facebook.com/share/p/16JyU6MBAdZ/?mibextid=wwXIfr',
-        heroImage: 'upload/journal-isap-police-crim.jpg',
+        heroImage: 'upload/project-relief-session1-awarding.jpg',
         imageCaption: 'MCNP–ISAP RDC & College of Criminal Justice Education (CoCJE) — Project RELIEF: Let It Out, Lift It Up! Flagship Research Utilization Program',
+        gallery: [
+          {
+            src: 'upload/project-relief-session1-fontanilla-remarks.jpg',
+            caption: 'RDC Research Director Dr. Ryan C. Fontanilla, Ph.D.-EM launching the Project RELIEF mental wellness research translation initiative.'
+          },
+          {
+            src: 'upload/project-relief-session1-feeling-mapping.jpg',
+            caption: 'Ms. Jeline Flor T. Eugenio, RPm facilitating experiential “Feeling Mapping” exercises for BS Criminology students.'
+          },
+          {
+            src: 'upload/project-relief-session1-student-sharing.jpg',
+            caption: 'BS Criminology interns engaging in reflective dialogue and peer empathy building at ISAP AVR 101.'
+          },
+          {
+            src: 'upload/project-relief-session1-awarding.jpg',
+            caption: 'Awarding of Certificate of Appreciation to resource facilitation partners from the Office of Guidance Services.'
+          }
+        ],
         summary: 'The College of Criminal Justice Education (CoCJE), in collaboration with the Research and Development Center (RDC), concluded Project RELIEF: Let It Out, Lift It Up!, a three-session research-utilization initiative that transformed student wellness concerns into a structured program for emotional awareness, stress management, self-care, and psychological resilience.',
         impact: 'Engaged approximately 56 Level 3 and Level 4 BS Criminology students across a 3-part progression; achieved an overall evaluation score of 3.82 out of 4.00, peaking at 3.911 for long-term behavioral commitment to emotional self-care and resilience.',
         pillarKey: 'value',
@@ -3111,8 +3129,34 @@
         readTime: '4 min read',
         status: '#UTIL-CRIM-2026-002',
         facebookUrl: 'https://www.facebook.com/share/p/16JyU6MBAdZ/?mibextid=wwXIfr',
-        heroImage: 'upload/journal-isap-police-crim.jpg',
-        imageCaption: 'ISAP College of Criminal Justice Education (CoCJE) — Project RELIEF: Let It Out, Lift It Up! (Session 1: Recognize Emotions, Express Feelings at ISAP AVR 101)',
+        heroImage: 'upload/project-relief-session1-awarding.jpg',
+        imageCaption: 'ISAP College of Criminal Justice Education (CoCJE) — Project RELIEF: Let It Out, Lift It Up! (Session 1: Awarding of Certificate of Appreciation to Resource Speaker Ms. Jeline Flor T. Eugenio, RPm at ISAP AVR 101)',
+        gallery: [
+          {
+            src: 'upload/project-relief-session1-feeling-mapping.jpg',
+            caption: 'Resource Speaker Ms. Jeline Flor T. Eugenio, RPm guiding Level 3 & 4 criminology students through the 4-step “Feeling Mapping” interactive matrix.'
+          },
+          {
+            src: 'upload/project-relief-session1-express-feelings.jpg',
+            caption: 'Interactive presentation on constructive ways to express feelings, emotional regulation, journaling, and seeking professional guidance.'
+          },
+          {
+            src: 'upload/project-relief-session1-fontanilla-remarks.jpg',
+            caption: 'RDC Research Director Dr. Ryan C. Fontanilla, Ph.D.-EM delivering opening remarks on research utilization and student wellness.'
+          },
+          {
+            src: 'upload/project-relief-session1-benedicta-remarks.jpg',
+            caption: 'Office of Guidance Services Head Mr. Jhony C. Benedicta, MAGC orienting participants on intentional coping and mental health.'
+          },
+          {
+            src: 'upload/project-relief-session1-student-sharing.jpg',
+            caption: 'Level 3 and Level 4 BS Criminology intern actively sharing reflections and discussing emotional literacy during the open forum.'
+          },
+          {
+            src: 'upload/project-relief-session1-emotions-lecture.jpg',
+            caption: 'ISAP AVR 101 participants engaging in discussions on emotional literacy, active listening, and mutual peer support.'
+          }
+        ],
         summary: 'The College of Criminal Justice Education (CoCJE) launched the first session of Project RELIEF: Let It Out, Lift It Up! at ISAP AVR 101, bringing together Level 3 and Level 4 students for an activity focused on recognizing emotions, expressing feelings, and strengthening peer support.',
         impact: 'Engaged Level 3 and Level 4 BS Criminology students in structured emotional literacy and peer support; achieved an outstanding evaluation score of 3.82 out of 4.00, peaking at 3.911 for long-term behavioral commitment to daily self-care and resilience.',
         pillarKey: 'value',
@@ -3775,6 +3819,28 @@
         '</section>';
       }
 
+      var galleryHtml = '';
+      if (a.gallery && a.gallery.length > 0) {
+        galleryHtml = '<section class="article-narrative-section" style="margin-top: 2rem;">' +
+          '<h4 class="article-section-heading"><span>📸 Official Session Photo Documentation</span></h4>' +
+          '<p style="font-size: 0.88rem; color: #64748b; margin-bottom: 1.15rem;">' +
+            'Official photographic documentation of the workshop activities, speaker presentations, and student interaction at ISAP AVR 101:' +
+          '</p>' +
+          '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">' +
+          a.gallery.map(function(g) {
+            return '<figure style="margin: 0; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: flex; flex-direction: column;">' +
+              '<div style="width: 100%; height: 210px; overflow: hidden; background: #0f172a;">' +
+                '<img src="' + g.src + '" alt="' + g.caption.replace(/"/g, '&quot;') + '" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;" loading="lazy" decoding="async">' +
+              '</div>' +
+              '<figcaption style="padding: 0.75rem 0.95rem; font-size: 0.8rem; color: #475569; background: #f8fafc; border-top: 1px solid #e2e8f0; line-height: 1.5; flex: 1;">' +
+                g.caption +
+              '</figcaption>' +
+            '</figure>';
+          }).join('') +
+          '</div>' +
+        '</section>';
+      }
+
       return '<div class="article-content-body">' +
         '<figure class="article-featured-hero" style="margin: 0 0 2rem 0; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 16px rgba(0,0,0,0.06); background: #0f172a;">' +
           '<img src="' + a.heroImage + '" alt="' + a.title + '" style="width: 100%; height: auto; max-height: 560px; object-fit: contain; margin: 0 auto; display: block;" loading="lazy" decoding="async">' +
@@ -3800,6 +3866,8 @@
         ) : '') +
 
         highlightsHtml +
+
+        galleryHtml +
 
         '<section class="article-narrative-section" style="margin-top: 1.75rem;">' +
           '<h4 class="article-section-heading"><span> RDC SDG &amp; Institutional Agenda Alignment</span></h4>' +
