@@ -309,7 +309,7 @@
       scroll-margin-top: 100px;
     }
 
-    /* Global & Component Text Justification for Utilization */
+    /* Keep utilization article text spacing consistent across line widths */
     .article-narrative-p,
     .article-accordion-snippet,
     .article-content-body p,
@@ -327,8 +327,7 @@
     .article-featured-hero figcaption span,
     .util-card-summary,
     .empty-filter-box p {
-      text-align: justify !important;
-      text-justify: inter-word !important;
+      text-align: left !important;
     }
 
     /* Stack list instead of multiple small columns */
@@ -672,6 +671,21 @@
       body.print-util-article-mode .event-modal-close,
       body.print-util-article-mode .event-modal-actions-bar {
         display: none !important;
+      }
+    }
+    @media (max-width: 768px) {
+      .article-narrative-p,
+      .article-accordion-snippet,
+      .article-content-body p,
+      .article-accordion-body p,
+      .article-sub-card p,
+      .framework-card p,
+      .innovates-point-desc,
+      .winner-list li,
+      .sub-card-content p,
+      figure figcaption,
+      .util-card-summary {
+        text-align: left !important;
       }
     }
   </style>
@@ -2125,7 +2139,7 @@
         "dept": "ISAP College of Criminal Justice Education (CoCJE)",
         "partner": "Office of Guidance Services & RDC Mental Health Utilization Taskforce",
         "summary": "Project RELIEF: Let It Out, Lift It Up! (Session 1: Recognize Emotions, Express Feelings) engaging Level 3 and Level 4 criminology students in structured emotional awareness, healthy expression, and peer support.",
-        "impact": "Engaged 56 Level 3 and Level 4 criminology students; achieved 3.82/4.00 evaluation with 3.911 commitment to emotional self-care and resilience.",
+        "impact": "Opened the 3-part program for 56 Level 3 and Level 4 criminology students; program-wide evaluation was 3.82/4.00.",
         "title": "PROJECT RELIEF: Student Emotional Awareness & Mental Wellness Utilization",
         "status": "#UTIL-CRIM-2026-002"
       },
@@ -3000,11 +3014,11 @@
         dept: 'ISAP College of Criminal Justice Education (CoCJE)',
         partner: 'Research and Development Center (RDC) & Office of Guidance Services',
         facilitator: 'Ms. Jeline Flor T. Eugenio, RPm & Mr. Jhony C. Benedicta, MAGC',
-        date: 'September 12, 26 & October 3, 2026',
-        time: 'ISAP AVR 1',
+        date: 'September 12 and 26, and October 3, 2026',
+        time: '8:00 AM – 11:00 AM',
         readTime: '5 min read',
         status: '#UTIL-CRIM-2026-RELIEF',
-        facebookUrl: 'https://www.facebook.com/share/p/16JyU6MBAdZ/?mibextid=wwXIfr',
+        facebookUrl: 'https://www.facebook.com/share/p/1FEGthukcU/',
         heroImage: 'upload/project-relief-session1-awarding.jpg',
         imageCaption: 'MCNP–ISAP RDC & College of Criminal Justice Education (CoCJE) — Project RELIEF: Let It Out, Lift It Up! Flagship Research Utilization Program',
         gallery: [
@@ -3018,7 +3032,7 @@
           },
           {
             src: 'upload/project-relief-session1-student-sharing.jpg',
-            caption: 'BS Criminology interns engaging in reflective dialogue and peer empathy building at ISAP AVR 101.'
+            caption: 'BS Criminology interns engaging in reflective dialogue and peer empathy building at ISAP AVR 1.'
           },
           {
             src: 'upload/project-relief-session1-awarding.jpg',
@@ -3137,7 +3151,7 @@
         links: [
           {
             label: 'Project RELIEF: Full Program Coverage & Official Documentation ↗',
-            url: 'https://www.facebook.com/share/p/16JyU6MBAdZ/?mibextid=wwXIfr'
+            url: 'https://www.facebook.com/share/p/1FEGthukcU/'
           },
           {
             label: 'Session 1: Recognize Emotions, Express Feelings ↗',
@@ -3149,7 +3163,7 @@
           },
           {
             label: 'Session 3: Engage in Self-Care, Find Inner Peace ↗',
-            url: 'https://www.facebook.com/share/p/1FEGthukcU/?mibextid=wwXlfrSession'
+            url: 'https://www.facebook.com/share/p/1FEGthukcU/'
           }
         ],
         procedure: {
@@ -3161,7 +3175,7 @@
       },
       {
         id: 'article-project-relief-session1-2026',
-        altIds: ['article-project-relief', 'util-crim-2026-002', 'relief'],
+        altIds: ['util-crim-2026-002'],
         wing: 'isap',
         course: 'criminology',
         isPublished: true,
@@ -3178,7 +3192,7 @@
         status: '#UTIL-CRIM-2026-002',
         facebookUrl: 'https://www.facebook.com/share/p/16JyU6MBAdZ/?mibextid=wwXIfr',
         heroImage: 'upload/project-relief-session1-awarding.jpg',
-        imageCaption: 'ISAP College of Criminal Justice Education (CoCJE) — Project RELIEF: Let It Out, Lift It Up! (Session 1: Awarding of Certificate of Appreciation to Resource Speaker Ms. Jeline Flor T. Eugenio, RPm at ISAP AVR 101)',
+        imageCaption: 'ISAP College of Criminal Justice Education (CoCJE) — Project RELIEF: Let It Out, Lift It Up! (Session 1: Awarding of Certificate of Appreciation to Resource Speaker Ms. Jeline Flor T. Eugenio, RPm at ISAP AVR 1)',
         gallery: [
           {
             src: 'upload/project-relief-session1-opening-table.jpg',
@@ -3221,8 +3235,8 @@
             caption: 'Awarding of Certificate of Appreciation to Resource Speaker Ms. Jeline Flor T. Eugenio, RPm by CoCJE and RDC officials.'
           }
         ],
-        summary: 'The College of Criminal Justice Education (CoCJE) launched the first session of Project RELIEF: Let It Out, Lift It Up! at ISAP AVR 101, bringing together Level 3 and Level 4 students for an activity focused on recognizing emotions, expressing feelings, and strengthening peer support.',
-        impact: 'Engaged Level 3 and Level 4 BS Criminology students in structured emotional literacy and peer support; achieved an outstanding evaluation score of 3.82 out of 4.00, peaking at 3.911 for long-term behavioral commitment to daily self-care and resilience.',
+        summary: 'The College of Criminal Justice Education (CoCJE) launched the first session of Project RELIEF: Let It Out, Lift It Up! at ISAP AVR 1, bringing together Level 3 and Level 4 students for an activity focused on recognizing emotions, expressing feelings, and strengthening peer support.',
+        impact: 'Opened the three-session Project RELIEF program for Level 3 and Level 4 BS Criminology students with structured emotional literacy and peer support activities; the program\'s overall evaluation across all three sessions was 3.82 out of 4.00.',
         pillarKey: 'value',
         pillarName: 'VALUE',
         pillarFullName: 'VALUE: Health, Safety, and Well-Being',
@@ -3232,7 +3246,7 @@
         coreFormats: 'Reflective Dialogue Modules, Emotional Literacy Toolkits, Peer Support Protocols & Self-Care Action Guides',
         quote: 'Caring for one’s well-being is an ongoing responsibility. Emotional wellness is not separate from education—it is part of the journey.',
         paragraphs: [
-          'The College of Criminal Justice Education (CoCJE) launched the first session of <strong>Project RELIEF: Let It Out, Lift It Up!</strong> at ISAP AVR 101, bringing together Level 3 and Level 4 students for an activity focused on recognizing emotions, expressing feelings, and strengthening peer support.',
+          'The College of Criminal Justice Education (CoCJE) launched the first session of <strong>Project RELIEF: Let It Out, Lift It Up!</strong> at ISAP AVR 1, bringing together Level 3 and Level 4 students for an activity focused on recognizing emotions, expressing feelings, and strengthening peer support.',
           'The opening session, themed <em>“Recognize Emotions, Express Feelings,”</em> provided students with a structured and supportive space to reflect on their emotional experiences, communicate their feelings, and listen to others without judgment. The activity also emphasized the importance of seeking support and recognizing that personal struggles do not have to be faced in isolation.',
           'The session was facilitated by <strong>Ms. Jeline Flor T. Eugenio, RPm</strong>, who guided participants through discussions on emotional awareness, healthy expression, and the value of reaching out for help when needed. Her facilitation helped reinforce the role of emotional literacy in promoting personal well-being and creating a more supportive learning environment.',
           'Beyond individual reflection, the activity encouraged students to practice empathy, openness, and mutual support—qualities that are especially important in building a school community where learners feel safe to speak, be heard, and seek assistance.',
@@ -3266,8 +3280,8 @@
             title: 'Documented Evaluation & Impact',
             date: 'September 12, 2026',
             items: [
-              '🏆 <strong>Overall Evaluation:</strong> 3.82 / 4.00 (Outstanding Agreement)',
-              '📈 <strong>Long-Term Commitment:</strong> 3.911 / 4.00 Peak Score',
+              '🏆 <strong>Overall Evaluation (all 3 sessions):</strong> 3.82 / 4.00 (Outstanding Agreement)',
+              '📈 <strong>Program-Wide Long-Term Commitment:</strong> 3.911 / 4.00 Peak Score',
               '👥 <strong>Target Cohort:</strong> Level 3 & Level 4 Criminology Students'
             ],
             desc: 'Evaluation revealed that participants experienced not merely a one-time activity, but formed tangible behavioral intentions to apply daily emotional self-care.'
@@ -3287,7 +3301,7 @@
             desc: 'Fosters an inclusive learning environment recognizing emotional readiness as essential for academic achievement.'
           }
         ],
-        wuri: 'Demonstrates WURI-relevant innovation by moving student wellness from theoretical discussion to structured experiential action. Its three-session design, expert guidance, verified evaluation metrics (3.82/4.00, 3.911 commitment score), and documented behavioral application provide a replicable model that can be scaled across all academic departments.',
+        wuri: 'Demonstrates WURI-relevant innovation by moving student wellness from theoretical discussion to structured experiential action. Its three-session design, expert guidance, verified program-wide evaluation metrics (3.82/4.00, 3.911 commitment score), and documented behavioral application provide a replicable model that can be scaled across all academic departments.',
         innovates: [
           {
             pillar: 'value',
@@ -3338,7 +3352,7 @@
         procedure: {
           stage1: 'Student mental health and well-being needs assessment conducted with CoCJE student researchers.',
           stage2: 'Formulation of the six-action Project RELIEF framework: Recognize Emotions, Express Feelings, Let Go of Stress, Improve Mindset, Engage in Self-Care, and Find Inner Peace.',
-          stage3: 'Interactive workshop rollout at ISAP AVR 101 facilitated by Ms. Jeline Flor T. Eugenio, RPm, with peer empathy circles.',
+          stage3: 'Interactive workshop rollout at ISAP AVR 1 facilitated by Ms. Jeline Flor T. Eugenio, RPm, with peer empathy circles.',
           stage4: 'Official registration in RDC Utilization Registry under #UTIL-CRIM-2026-002 with documented impact on student emotional resilience.'
         }
       },
@@ -3590,7 +3604,7 @@
         procedure: {
           stage1: 'Needs assessment on academic and personal stress burdens among Level 3 and Level 4 BS Criminology students.',
           stage2: 'Curricular module development of the 4-step stress response: Pause, Reframe, Reset, and Move Forward.',
-          stage3: 'Interactive workshop session at ISAP AVR 101 facilitated by Jhony C. Benedicta, MAGC, with guided relaxation exercises.',
+          stage3: 'Interactive workshop session at ISAP AVR 1 facilitated by Jhony C. Benedicta, MAGC, with guided relaxation exercises.',
           stage4: 'Official registration in RDC Utilization Registry under #UTIL-CRIM-2026-003 with documented impact on student emotional self-management.'
         }
       },
@@ -3611,7 +3625,7 @@
         time: '8:00 AM – 11:00 AM &bull; ISAP AVR 1',
         readTime: '4 min read',
         status: '#UTIL-CRIM-2026-004',
-        facebookUrl: 'https://www.facebook.com/share/p/1FEGthukcU/?mibextid=wwXlfrSession',
+        facebookUrl: 'https://www.facebook.com/share/p/1FEGthukcU/',
         heroImage: 'upload/project-relief-session3-group-photo.jpg',
         imageCaption: 'ISAP College of Criminal Justice Education (CoCJE) — Project RELIEF: Let It Out, Lift It Up! (Culminating Session 3: Group photo with Dean Dr. Rizza C. Concha, Guidance Head Mr. Jhony C. Benedicta, Research Focal Person Ms. Pia Nathattia A. Cuaresma, student leaders, and Level 3 & 4 BS Criminology participants at ISAP AVR 1)',
         gallery: [
@@ -3818,7 +3832,7 @@
         links: [
           {
             label: 'Project RELIEF: Session 3 — Engage in Self-Care, Find Inner Peace ↗',
-            url: 'https://www.facebook.com/share/p/1FEGthukcU/?mibextid=wwXlfrSession'
+            url: 'https://www.facebook.com/share/p/1FEGthukcU/'
           },
           {
             label: 'Project RELIEF: Session 2 — Let Go of Stress, Improve Mindset ↗',
@@ -3832,7 +3846,7 @@
         procedure: {
           stage1: 'Holistic wellness assessment on personal balance, emotional exhaustion, and self-care boundaries among criminology students.',
           stage2: 'Formulation of the 5-domain Self-Care Toolkit: Mental, Emotional, Physical, Social, and Personal/Spiritual.',
-          stage3: 'Culminating interactive session at ISAP AVR 101 with Jhony C. Benedicta, MAGC, integrating guided reflection and commitment pledge.',
+          stage3: 'Culminating interactive session at ISAP AVR 1 with Jhony C. Benedicta, MAGC, integrating guided reflection and commitment pledge.',
           stage4: 'Official registration in RDC Utilization Registry under #UTIL-CRIM-2026-004 completing the 3-part Project RELIEF continuum.'
         }
       },
@@ -3852,7 +3866,6 @@
         time: '6:00 PM via Google Meet',
         readTime: '4 min read',
         status: '#UTIL-CRIM-2026-001',
-        facebookUrl: 'https://www.facebook.com/share/p/16JyU6MBAdZ/?mibextid=wwXIfr',
         heroImage: 'upload/criminology-project-case-1.jpg',
         imageCaption: 'ISAP College of Criminal Justice Education (Criminology Department) — Project CASE: Where Evidence Meets Law and Research Drives Justice',
         summary: 'The pursuit of justice begins with the careful examination of evidence, the systematic investigation of crime scenes, and the responsible handling of information. Recognizing the importance of these practices, Project CASE highlights the fundamental principles of crime scene investigation and proper evidence management.',
@@ -3955,12 +3968,7 @@
             desc: 'Strengthens criminal justice education by bridging academic forensic theories with regional judicial realities.'
           }
         ],
-        links: [
-          {
-            label: 'Project CASE: Where Evidence Meets Law and Research Drives Justice ↗',
-            url: 'https://www.facebook.com/share/p/16JyU6MBAdZ/?mibextid=wwXIfr'
-          }
-        ],
+        links: [],
         procedure: {
           stage1: 'Forensic ballistics and crime scene evidence integrity study vetted by institutional panel.',
           stage2: 'Formulation of standardized first-responder crime scene cordoning and evidence preservation checklist.',
@@ -4013,21 +4021,6 @@
         });
       }
 
-      // 5. Specific session pattern match (Session 3, Session 2, Session 1, Flagship, Case)
-      if (!a) {
-        if (cleanTarget.indexOf('session3') !== -1 || cleanTarget.indexOf('session-3') !== -1 || cleanTarget.indexOf('relief3') !== -1 || cleanTarget.indexOf('004') !== -1) {
-          a = all.find(function(item) { return item.id && item.id.indexOf('session3') !== -1; });
-        } else if (cleanTarget.indexOf('session2') !== -1 || cleanTarget.indexOf('session-2') !== -1 || cleanTarget.indexOf('relief2') !== -1 || cleanTarget.indexOf('003') !== -1) {
-          a = all.find(function(item) { return item.id && item.id.indexOf('session2') !== -1; });
-        } else if (cleanTarget.indexOf('session1') !== -1 || cleanTarget.indexOf('session-1') !== -1 || cleanTarget.indexOf('relief1') !== -1 || cleanTarget.indexOf('002') !== -1) {
-          a = all.find(function(item) { return item.id && item.id.indexOf('session1') !== -1; });
-        } else if (cleanTarget.indexOf('flagship') !== -1 || cleanTarget.indexOf('comprehensive') !== -1) {
-          a = all.find(function(item) { return item.id && item.id.indexOf('flagship') !== -1; });
-        } else if (cleanTarget.indexOf('case') !== -1) {
-          a = all.find(function(item) { return item.id && item.id.indexOf('case') !== -1; });
-        }
-      }
-
       return a || null;
     }
 
@@ -4058,7 +4051,10 @@
 
       // Pillar filter
       if (currentPillarFilter && currentPillarFilter !== 'all') {
-        list = list.filter(function(a) { return a.pillarKey === currentPillarFilter; });
+        list = list.filter(function(a) {
+  return a.pillarKey === currentPillarFilter ||
+    (a.innovates || []).some(function(i) { return i.pillar === currentPillarFilter; });
+});
       }
 
       // Search query
@@ -4078,7 +4074,7 @@
       return list;
     }
 
-    function generateEditorialBodyHtml(a, cardId) {
+    function generateEditorialBodyHtml(a, cardId, inModal) {
       var highlightsHtml = '';
       if (a.highlights && a.highlights.length > 0) {
         highlightsHtml = '<section class="article-narrative-section" style="margin-top: 1.75rem;">' +
@@ -4149,7 +4145,7 @@
         galleryHtml = '<section class="article-narrative-section" style="margin-top: 2rem;">' +
           '<h4 class="article-section-heading"><span>📸 Official Session Photo Documentation</span></h4>' +
           '<p style="font-size: 0.88rem; color: #64748b; margin-bottom: 1.15rem;">' +
-            'Official photographic documentation of the workshop activities, speaker presentations, and student interaction at ISAP AVR 101:' +
+            'Official photographic documentation of the workshop activities, speaker presentations, and student interaction at ISAP AVR 1:' +
           '</p>' +
           '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">' +
           a.gallery.map(function(g) {
@@ -4222,12 +4218,12 @@
           'Published by the <strong>Research and Development Center (RDC)</strong> &bull; Medical Colleges of Northern Philippines &amp; International School of Asia and the Pacific' +
         '</div>' +
         '<div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">' +
-          '<button type="button" onclick="printUtilArticle()" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; color: #334155; border-color: #cbd5e1;">' +
+          '<button type="button" onclick="printUtilArticle(\'' + a.id + '\')" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; color: #334155; border-color: #cbd5e1;">' +
             '🖨️ Print Protocol' +
           '</button>' +
-          '<button type="button" onclick="toggleArticleAccordion(\'' + cardId + '\', false)" class="btn btn-sm btn-gold" style="font-size: 0.78rem; font-weight: 700;">' +
-            '▲ Collapse Article' +
-          '</button>' +
+          (inModal
+  ? '<button type="button" onclick="closeUtilArticleModal()" class="btn btn-sm btn-gold" style="font-size: 0.78rem; font-weight: 700;">✕ Close Article</button>'
+  : '<button type="button" onclick="toggleArticleAccordion(\'' + cardId + '\', false)" class="btn btn-sm btn-gold" style="font-size: 0.78rem; font-weight: 700;">▲ Collapse Article</button>') +
         '</div>' +
       '</footer>';
     }
@@ -4411,7 +4407,7 @@
 
             <!-- The Whole Article (Expands on Click, just like News & Events) -->
             <div class="article-accordion-body" id="body-${cardId}">
-              ${generateEditorialBodyHtml(a, cardId)}
+              ${generateEditorialBodyHtml(a, cardId, false)}
             </div>
           </article>
         `;
@@ -4594,7 +4590,7 @@
             </div>
           </div>
 
-          ${generateEditorialBodyHtml(a, cardId)}
+          ${generateEditorialBodyHtml(a, cardId, true)}
         `;
       }
 
@@ -4656,15 +4652,18 @@
       window.__utilArtReturnFocus = null;
     };
 
-    window.printUtilArticle = function() {
-      document.body.classList.add('print-util-article-mode');
-      setTimeout(function() {
-        window.print();
-        setTimeout(function() {
-          document.body.classList.remove('print-util-article-mode');
-        }, 1000);
-      }, 50);
-    };
+    window.printUtilArticle = function(id) {
+  var overlay = document.getElementById('utilArticleModalOverlay');
+  var needsOpen = id && overlay && !overlay.classList.contains('open');
+  if (needsOpen) openUtilArticleModal(id);
+  setTimeout(function() {
+    document.body.classList.add('print-util-article-mode');
+    window.print();
+    setTimeout(function() {
+      document.body.classList.remove('print-util-article-mode');
+    }, 1000);
+  }, needsOpen ? 400 : 50);
+};
 
     
     window.toggleUtilRegistryPreview = function() {
@@ -5159,6 +5158,7 @@
     }
 
     window.openUtilizationModal = function(pillarKey, tabName, initialCourse) {
+      return; // Disabled: legacy sample data is unverified. Remove this line to re-enable.
       if (!pillarKey) pillarKey = 'inspire';
       var cleanKey = String(pillarKey).toLowerCase().replace(/^pillar-?/, '').trim();
       var validKey = utilizationPillarsData[cleanKey] ? cleanKey : 'inspire';
@@ -5566,7 +5566,7 @@
         } else if (hash.indexOf('mcnp') !== -1) {
           filterUtilizationWing('mcnp', document.getElementById('btn-tab-mcnp'));
         } else {
-          var firstArt = allArticles[0];
+          var firstArt = getAllUtilizationArticles()[0];
           var defWing = (firstArt && firstArt.wing === 'isap') ? 'isap' : 'mcnp';
           filterUtilizationWing(defWing, document.getElementById('btn-tab-' + defWing));
         }
