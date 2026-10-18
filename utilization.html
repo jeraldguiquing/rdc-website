@@ -1062,7 +1062,7 @@
             </div>
           </div>
           <div class="article-modal-align-item">
-            <span class="article-modal-align-label">INNOVATES Focus:</span>
+            <span class="article-modal-align-label">INNOVATES RDC Alignment:</span>
             <div id="utilArticleModalPillarWrap" class="article-modal-align-icons">
               <!-- Pillar emblem and title -->
             </div>
@@ -4114,7 +4114,6 @@
             '<div class="innovates-point-header">' +
               '<img src="' + inv.thumb + '" alt="' + inv.name + '" class="innovates-point-thumb" loading="lazy" decoding="async">' +
               '<div class="innovates-point-title">' +
-                '<span>Pillar ' + inv.pillarNum + '</span>' +
                 '<strong>' + inv.name + '</strong>' +
               '</div>' +
             '</div>' +
@@ -4363,7 +4362,7 @@
                 <!-- Aligned UN SDGs and INNOVATES Focus (Matching news-events.html) -->
                 <div class="featured-article-alignments" style="margin-top: 0.55rem; margin-bottom: 0.25rem; padding: 0.5rem 0; border-top: 1px dashed #e2e8f0; border-bottom: 1px dashed #e2e8f0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.65rem;">
                   <div class="featured-align-group" style="display: flex; align-items: center; gap: 0.45rem;">
-                    <span class="featured-align-label" style="font-size: 0.76rem; font-weight: 800; color: #0b3c5d;">UN SDGs:</span>
+                    <span class="featured-align-label" style="font-size: 0.76rem; font-weight: 800; color: #0b3c5d;">SDG Alignment:</span>
                     <div class="featured-align-icons" style="display: flex; gap: 0.35rem; align-items: center;">
                       ${(a.sdgs || []).map(function(s) {
                         return `<a href="sdg-overview.html?goal=${s.goal}" target="_blank" rel="noopener" title="${s.title}" onclick="event.stopPropagation();" style="width: 24px; height: 24px; display: inline-block;">
@@ -4374,7 +4373,7 @@
                   </div>
 
                   <div class="featured-align-group" style="display: flex; align-items: center; gap: 0.45rem;">
-                    <span class="featured-align-label" style="font-size: 0.76rem; font-weight: 800; color: #7b1113;">INNOVATES:</span>
+                    <span class="featured-align-label" style="font-size: 0.76rem; font-weight: 800; color: #7b1113;">INNOVATES RDC Alignment:</span>
                     <div class="featured-align-icons" style="display: flex; gap: 0.35rem; align-items: center;">
                       ${(a.innovates || []).map(function(inv) {
                         return `<a href="rdc-agenda.html#pillar-${inv.pillar}" target="_blank" rel="noopener" title="${inv.name}" onclick="event.stopPropagation();" style="width: 24px; height: 24px; display: inline-block;">
