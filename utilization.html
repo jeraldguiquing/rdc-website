@@ -1078,9 +1078,6 @@
           <button type="button" id="utilArticleModalCopyBtn" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; font-weight: 700;" title="Copy Article Direct Link">
             🔗 Copy Link
           </button>
-          <button type="button" onclick="printUtilArticle();" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; font-weight: 700;" title="Print this protocol">
-            🖨️ Print
-          </button>
         </div>
       </div>
 
@@ -4217,9 +4214,6 @@
           'Published by the <strong>Research and Development Center (RDC)</strong> &bull; Medical Colleges of Northern Philippines &amp; International School of Asia and the Pacific' +
         '</div>' +
         '<div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">' +
-          '<button type="button" onclick="printUtilArticle(\'' + a.id + '\')" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; color: #334155; border-color: #cbd5e1;">' +
-            '🖨️ Print Protocol' +
-          '</button>' +
           (inModal
   ? '<button type="button" onclick="closeUtilArticleModal()" class="btn btn-sm btn-gold" style="font-size: 0.78rem; font-weight: 700;">✕ Close Article</button>'
   : '<button type="button" onclick="toggleArticleAccordion(\'' + cardId + '\', false)" class="btn btn-sm btn-gold" style="font-size: 0.78rem; font-weight: 700;">▲ Collapse Article</button>') +
@@ -4651,20 +4645,6 @@
       window.__utilArtReturnFocus = null;
     };
 
-    window.printUtilArticle = function(id) {
-  var overlay = document.getElementById('utilArticleModalOverlay');
-  var needsOpen = id && overlay && !overlay.classList.contains('open');
-  if (needsOpen) openUtilArticleModal(id);
-  setTimeout(function() {
-    document.body.classList.add('print-util-article-mode');
-    window.print();
-    setTimeout(function() {
-      document.body.classList.remove('print-util-article-mode');
-    }, 1000);
-  }, needsOpen ? 400 : 50);
-};
-
-    
     window.toggleUtilRegistryPreview = function() {
       var wrap = document.getElementById('utilRegistryPreviewWrap');
       var btn = document.getElementById('btnToggleUtilRegistry');
