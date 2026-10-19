@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.remove('nav-open');
       mobileToggle.setAttribute('aria-expanded', 'false');
       mobileToggle.setAttribute('aria-label', 'Open navigation');
-      mobileToggle.innerHTML = '&#9776;';
+      mobileToggle.innerHTML = '';
       navMenu.querySelectorAll('.nav-item.dropdown.open').forEach((item) => {
         item.classList.remove('open');
         item.querySelector('.nav-link')?.setAttribute('aria-expanded', 'false');
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.toggle('nav-open', isExpanded);
       mobileToggle.setAttribute('aria-expanded', isExpanded);
       mobileToggle.setAttribute('aria-label', isExpanded ? 'Close navigation' : 'Open navigation');
-      mobileToggle.innerHTML = isExpanded ? '&#10005;' : '&#9776;';
+      mobileToggle.innerHTML = isExpanded ? '' : '';
     });
 
     navMenu.querySelectorAll('a').forEach((link) => {
@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
       gap: 10px;
       border-left: 4px solid #d4af37;
     `;
-    toast.innerHTML = `<span>&#10003;</span> <div>${message}</div>`;
+    toast.innerHTML = `<span></span> <div>${message}</div>`;
     toastContainer.appendChild(toast);
 
     requestAnimationFrame(() => {
@@ -342,13 +342,13 @@ document.addEventListener('DOMContentLoaded', () => {
     lightboxEl.innerHTML = `
       <div class="rdc-lightbox-header">
         <span class="rdc-lightbox-counter" id="rdcLightboxCounter">1 / 1 Photos</span>
-        <button class="rdc-lightbox-close" id="rdcLightboxClose" type="button" aria-label="Close image preview">&times;</button>
+        <button class="rdc-lightbox-close" id="rdcLightboxClose" type="button" aria-label="Close image preview">Close</button>
       </div>
-      <button class="rdc-lightbox-nav prev" id="rdcLightboxPrev" type="button" aria-label="Previous image">&#10094;</button>
+      <button class="rdc-lightbox-nav prev" id="rdcLightboxPrev" type="button" aria-label="Previous image">Previous</button>
       <div class="rdc-lightbox-content">
         <img src="" alt="" class="rdc-lightbox-img" id="rdcLightboxImg">
       </div>
-      <button class="rdc-lightbox-nav next" id="rdcLightboxNext" type="button" aria-label="Next image">&#10095;</button>
+      <button class="rdc-lightbox-nav next" id="rdcLightboxNext" type="button" aria-label="Next image">Next</button>
     `;
     document.body.appendChild(lightboxEl);
   }
@@ -642,8 +642,8 @@ document.addEventListener('DOMContentLoaded', () => {
             `).join('')}
           </div>
           ${currentImages.length > 1 ? `
-            <button class="sdg-slider-arrow sdg-slider-prev" type="button" aria-label="Previous image">&#10094;</button>
-            <button class="sdg-slider-arrow sdg-slider-next" type="button" aria-label="Next image">&#10095;</button>
+            <button class="sdg-slider-arrow sdg-slider-prev" type="button" aria-label="Previous image">Previous</button>
+            <button class="sdg-slider-arrow sdg-slider-next" type="button" aria-label="Next image">Next</button>
             <div class="sdg-slider-dots">
               ${currentImages.map((_, index) => `
                 <button class="sdg-slider-dot ${index === 0 ? 'active' : ''}" type="button" data-sdg-dot-index="${index}" aria-label="Go to image ${index + 1}"></button>
@@ -916,25 +916,25 @@ window.agendaData = {
       {
         "title": "Annual Faculty Pedagogical Development & Syllabus OBE Alignment Workshop",
         "cadence": "Semestral Cycle",
-        "icon": "👨‍🏫",
+
         "desc": "Intensive capacity-building for MCNP and ISAP educators on authentic assessment rubrics, outcome-based syllabus design, and hybrid simulation integration."
       },
       {
         "title": "Medical & Criminology Simulation Lab Stress-Testing & Calibration Sessions",
         "cadence": "Bi-Monthly",
-        "icon": "🏥",
+
         "desc": "Calibration of high-fidelity clinical manikins, simulated forensic crime scene drills, and OSCE standard rubric benchmarking."
       },
       {
         "title": "Cagayan Valley Teacher Education Colloquium & Paper Presentation",
         "cadence": "Annual Assembly",
-        "icon": "🎓",
+
         "desc": "Regional academic forum convening pre-service and in-service educators to present empirical research on classroom technology, literacy, and equity."
       },
       {
         "title": "Student Education Innovators Showcase & Instructional Exhibit",
         "cadence": "Annual Festival",
-        "icon": "💡",
+
         "desc": "Public exhibition of student-created gamified learning aids, flash modules, and educational technologies evaluated by faculty panels."
       }
     ]
@@ -1093,25 +1093,25 @@ window.agendaData = {
       {
         "title": "Criminology Thesis & Capstone Proposal Defense Colloquium",
         "cadence": "Quarterly Cycle",
-        "icon": "⚖️",
+
         "desc": "Formal peer and panel defense of graduate and undergraduate research proposals on crime detection, police tactics, and criminalistics."
       },
       {
         "title": "Forensic Ballistics & Questioned Document Technical Workshop",
         "cadence": "Bi-Annual Bootcamp",
-        "icon": "🔬",
+
         "desc": "Hands-on laboratory training using the comparison microscope, optical luminescence, and digital photographic forensics."
       },
       {
         "title": "IERB Research Ethics Vetting & Good Clinical Practice (GCP) Sessions",
         "cadence": "Monthly Sessions",
-        "icon": "🛡️",
+
         "desc": "Rigorous ethical evaluation of submitted investigative protocols involving human participants, patient records, or detainees."
       },
       {
         "title": "Barangay Peace and Order Council (BPOC) Legal Aid & Crime Caravan",
         "cadence": "Quarterly Outreach",
-        "icon": "🚓",
+
         "desc": "Community outreach providing crime prevention seminars, anti-drug awareness, and paralegal counseling in partner barangays."
       }
     ]
@@ -1286,25 +1286,25 @@ window.agendaData = {
       {
         "title": "RDC Data Science & Research Analytics Masterclass (Python, Jamovi, SPSS)",
         "cadence": "Quarterly Sessions",
-        "icon": "📊",
+
         "desc": "Hands-on statistical computing workshops for faculty researchers and graduate students covering inferential statistics and ML."
       },
       {
         "title": "MCNP-ISAP Smart Campus Hackathon & Codefest",
         "cadence": "Annual Sprint",
-        "icon": "💻",
+
         "desc": "Competitive 48-hour software sprint challenging student developers to build solutions for campus workflows, health, and disaster resilience."
       },
       {
         "title": "Cybersecurity Threat Defense & Digital Evidence Forensics Clinic",
         "cadence": "Bi-Annual Workshop",
-        "icon": "🔐",
+
         "desc": "Technical workshop with DICT specialists covering cyber incident response, malware containment, and chain-of-custody verification."
       },
       {
         "title": "Automated Evaluation Instrument Standardization & Pilot Testing",
         "cadence": "Semestral Calibration",
-        "icon": "⚙️",
+
         "desc": "Collaborative testing sessions calibrating digital rubrics and institutional assessment metrics for academic and research departments."
       }
     ]
@@ -1470,25 +1470,25 @@ window.agendaData = {
       {
         "title": "IPOPHL Patent & Utility Model Drafting Workshop",
         "cadence": "Annual Workshop",
-        "icon": "📜",
+
         "desc": "Intensive mentoring by intellectual property attorneys guiding faculty and students through claims drafting and formal patent submissions."
       },
       {
         "title": "RDC Pitching Summit: From Research Capsule to Commercial Prototype",
         "cadence": "Annual Summit",
-        "icon": "🚀",
+
         "desc": "Venture pitch competition where student-faculty research teams showcase prototypes before DOST evaluators and industry investors."
       },
       {
         "title": "DOST Regional Science, Technology, and Innovation Week (RSTW) Technology Demo",
         "cadence": "Annual Demo",
-        "icon": "🔬",
+
         "desc": "Public exhibition presenting fabricated ergonomic devices, formulated pharmaceutical products, and software tools to the public."
       },
       {
         "title": "Clinical Laboratory Biosafety & Ergonomic Safety Facility Audits",
         "cadence": "Semestral Audits",
-        "icon": "🛠️",
+
         "desc": "Walkthrough inspections evaluating technician workstation postures, chemical fume hood efficiency, and waste stream controls."
       }
     ]
@@ -1665,25 +1665,25 @@ window.agendaData = {
       {
         "title": "Pharmacy & Health Sciences Research Proposal Defenses (September & February Cycles)",
         "cadence": "Semestral Sessions",
-        "icon": "💊",
+
         "desc": "Rigorous defense panels evaluating clinical methodologies, ethical approvals, sample sizes, and pharmacologic assays."
       },
       {
         "title": "Health Research Data Analysis & Biostatistics Masterclass",
         "cadence": "Quarterly Workshop",
-        "icon": "📈",
+
         "desc": "Specialized training on survival analysis, logistic regression, Jamovi/SPSS statistical tests, and epidemiological data visualization."
       },
       {
         "title": "CVHRDC Regional Health Research Conference (RHRDC) Scientific Sessions",
         "cadence": "Annual Congress",
-        "icon": "🏆",
+
         "desc": "Regional congress where MCNP faculty and students compete in oral paper and poster presentations across health research categories."
       },
       {
         "title": "Community Diagnostic Health & Vital Signs Surveillance Missions",
         "cadence": "Quarterly Outreach",
-        "icon": "🩺",
+
         "desc": "Mobile diagnostic outreach conducting free capillary blood glucose testing, urinalysis, blood pressure screening, and health education."
       }
     ]
@@ -1850,25 +1850,25 @@ window.agendaData = {
       {
         "title": "Cagayan River Basin Water Quality & Coliform Testing Field Campaign",
         "cadence": "Quarterly Expedition",
-        "icon": "💧",
+
         "desc": "Faculty-student field testing expeditions collecting water samples along critical river junctions to monitor dissolved oxygen and bacterial load."
       },
       {
         "title": "Disaster First Responders Triage Simulation & Boat Rescue Exercise",
         "cadence": "Annual Drill",
-        "icon": "🚤",
+
         "desc": "Joint realistic emergency drill with MDRRMO Peñablanca and PCG testing mass casualty triage protocols in simulated flood conditions."
       },
       {
         "title": "SDG SPOT Tree Planting & Sierra Madre Reforestation Missions",
         "cadence": "Bi-Annual Missions",
-        "icon": "🌱",
+
         "desc": "Active institutional tree-growing caravans planting thousands of native species in designated watershed restoration zones."
       },
       {
         "title": "Climate Resilience & Community Disaster Preparedness Barangay Clinics",
         "cadence": "Quarterly Clinics",
-        "icon": "📢",
+
         "desc": "Interactive public education workshops on water disinfection, family disaster kits, and typhoon shelter hygiene."
       }
     ]
@@ -2031,25 +2031,25 @@ window.agendaData = {
       {
         "title": "Annual Gender and Development (GAD) Research Integration Workshop",
         "cadence": "Annual Workshop",
-        "icon": "⚖️",
+
         "desc": "Institutional capacity-building for faculty on embedding sex-disaggregated data and gender analysis tools into academic research."
       },
       {
         "title": "Agta Indigenous Community Cultural Dialogue & Health Extension Outreach",
         "cadence": "Bi-Annual Missions",
-        "icon": "🤝",
+
         "desc": "Community-immersion missions providing free pediatric wellness checks, hygiene kits, and culturally consultative discussions."
       },
       {
         "title": "Participatory Rural Appraisal (PRA) & Community Needs Assessment Clinics",
         "cadence": "Semestral Clinics",
-        "icon": "📋",
+
         "desc": "Field exercises training researchers in community participatory mapping, seasonal calendars, and grassroots focus group facilitation."
       },
       {
         "title": "Youth Mental Health Campus Caravan & Peer-Counseling Bootcamps",
         "cadence": "Bi-Annual Caravan",
-        "icon": "🧠",
+
         "desc": "Campus-wide awareness campaign offering psychological first aid workshops, stress management clinics, and anti-stigma dialogues."
       }
     ]
@@ -2210,25 +2210,25 @@ window.agendaData = {
       {
         "title": "Annual Institutional Research General Assembly & Research Incentive Awards",
         "cadence": "Annual Assembly",
-        "icon": "🏅",
+
         "desc": "Grand institutional gathering recognizing outstanding faculty and student researchers, publication authors, and patent awardees."
       },
       {
         "title": "Regional & International Academic Memorandum of Agreement (MOA) Signing Ceremonies",
         "cadence": "Quarterly Signing",
-        "icon": "🖋️",
+
         "desc": "Formal bilateral partnership ceremonies formalizing faculty exchange, shared laboratory access, and joint research projects."
       },
       {
         "title": "Grand Alumni Research Tracer Survey & Homecoming Summit",
         "cadence": "Annual Summit",
-        "icon": "🌐",
+
         "desc": "Systematic multi-channel survey campaign gathering employment feedback, graduate competencies, and alumni mentor nominations."
       },
       {
         "title": "CVHRDC & DOST Consortium Technical Review and Priority Setting Sessions",
         "cadence": "Bi-Annual Sessions",
-        "icon": "📑",
+
         "desc": "Strategic inter-agency meetings aligning institutional research proposals with regional and national grant funding calls."
       }
     ]
@@ -2430,25 +2430,25 @@ window.agendaData = {
       {
         "title": "Annual Customs and Logistics Student Research Summit & Paper Competition",
         "cadence": "Annual Summit",
-        "icon": "🚢",
+
         "desc": "Flagship symposium where customs administration scholars present empirical studies to Bureau of Customs officials and licensed brokers."
       },
       {
         "title": "Strategic Institutional Planning & QMS Quality Policy Review (2026–2030)",
         "cadence": "Annual Retreat",
-        "icon": "🏛️",
+
         "desc": "Senior administration retreat reviewing operational KPIs, academic quality metrics, and alignment with CHED center of development standards."
       },
       {
         "title": "Research & Development Academic Festival (RDaFest) Oral & Poster Sessions",
         "cadence": "Annual Festival",
-        "icon": "🎉",
+
         "desc": "Campus-wide multi-day research celebration featuring oral presentations, panel defenses, exhibits, and institutional awards."
       },
       {
         "title": "MSME Financial Literacy & Supply Chain Mentoring Clinic in Partnership with DTI",
         "cadence": "Quarterly Clinic",
-        "icon": "💼",
+
         "desc": "Business faculty and student extension teams providing bookkeeping, cost accounting, and digital marketing clinics to local micro-entrepreneurs."
       }
     ]
@@ -2480,20 +2480,20 @@ function ensureAgendaModalExists() {
           <h3 class="agenda-modal-title" id="agendaModalTitle"></h3>
           <p class="agenda-modal-sub" id="agendaModalSub"></p>
         </div>
-        <button type="button" class="agenda-modal-close" onclick="closeAgendaModal()" aria-label="Close dialog">&times;</button>
+        <button type="button" class="agenda-modal-close" onclick="closeAgendaModal()" aria-label="Close dialog">Close</button>
       </div>
 
       <div class="agenda-modal-nav-tabs" role="tablist">
         <button type="button" class="agenda-tab-btn active" id="agendaTabBtnFocus" onclick="switchAgendaTab('focus')" role="tab" aria-selected="true">
-          <span>🎯 Focus &amp; Outcomes</span>
+          <span> Focus &amp; Outcomes</span>
           <span class="agenda-tab-badge" id="agendaBadgeOutcomesCount">4</span>
         </button>
         <button type="button" class="agenda-tab-btn" id="agendaTabBtnSubtopics" onclick="switchAgendaTab('subtopics')" role="tab" aria-selected="false">
-          <span>📋 Priority Subtopics</span>
+          <span> Priority Subtopics</span>
           <span class="agenda-tab-badge" id="agendaBadgeSubtopicsCount">0</span>
         </button>
         <button type="button" class="agenda-tab-btn" id="agendaTabBtnStudies" onclick="switchAgendaTab('studies')" role="tab" aria-selected="false">
-          <span>🔬 Studies &amp; Activities</span>
+          <span> Studies &amp; Activities</span>
           <span class="agenda-tab-badge" id="agendaBadgeStudiesCount">0</span>
         </button>
       </div>
@@ -2564,7 +2564,7 @@ window.openAgendaModal = function (pillarKey, tabName = 'focus') {
     </div>
 
     <div class="agenda-focus-box">
-      <div class="agenda-focus-icon">🎯</div>
+
       <div class="agenda-focus-content">
         <div class="agenda-focus-label">Strategic Focus</div>
         <p class="agenda-focus-p">${data.focus}</p>
@@ -2572,7 +2572,7 @@ window.openAgendaModal = function (pillarKey, tabName = 'focus') {
     </div>
 
     <div class="agenda-outcomes-wrap">
-      <h4 class="agenda-subpane-title">🌟 Expected Institutional Outcomes</h4>
+      <h4 class="agenda-subpane-title"> Expected Institutional Outcomes</h4>
       <div class="agenda-outcomes-grid">
         ${data.expectedOutcomes.map((outcome, idx) => `
           <div class="agenda-outcome-card">
@@ -2589,7 +2589,7 @@ window.openAgendaModal = function (pillarKey, tabName = 'focus') {
   paneSubtopics.innerHTML = `
     <div class="agenda-subtopics-header">
       <div>
-        <h4 class="agenda-subpane-title" style="margin-bottom:0.25rem;">📋 Priority Research Subtopics</h4>
+        <h4 class="agenda-subpane-title" style="margin-bottom:0.25rem;"> Priority Research Subtopics</h4>
         <p style="margin:0; font-size:0.88rem; color:#64748b;">
           Granular thematic inquiry lines and capstone research clusters aligned with ${data.name}.
         </p>
@@ -2621,7 +2621,7 @@ window.openAgendaModal = function (pillarKey, tabName = 'focus') {
   paneStudies.innerHTML = `
     <div class="agenda-studies-subpane">
       <div style="background:#f0fdf4; border-left:4px solid #16a34a; padding:0.9rem 1.15rem; border-radius:0 8px 8px 0; margin-bottom:1.25rem; font-size:0.9rem; color:#14532d;">
-        <strong>🔬 Recommended &amp; Ongoing Studies:</strong> Formal research proposals, active investigations, and thesis capstone tracks aligned with ${data.name}.
+        <strong> Recommended &amp; Ongoing Studies:</strong> Formal research proposals, active investigations, and thesis capstone tracks aligned with ${data.name}.
       </div>
       <div class="agenda-study-list">
         ${data.studies.map(study => `
@@ -2639,12 +2639,11 @@ window.openAgendaModal = function (pillarKey, tabName = 'focus') {
 
     <div class="agenda-activities-subpane" style="margin-top: 2rem;">
       <div style="background:#fffbeb; border-left:4px solid #d97706; padding:0.9rem 1.15rem; border-radius:0 8px 8px 0; margin-bottom:1.25rem; font-size:0.9rem; color:#78350f;">
-        <strong>📅 R&amp;D Programs, Workshops &amp; Colloquiums:</strong> Regular institutional activities, proposal defense cycles, technical clinics, and symposiums driving this agenda.
+        <strong> R&amp;D Programs, Workshops &amp; Colloquiums:</strong> Regular institutional activities, proposal defense cycles, technical clinics, and symposiums driving this agenda.
       </div>
       <div class="agenda-activity-list">
         ${data.activities.map(act => `
           <div class="agenda-activity-item">
-            <div class="agenda-activity-icon">${act.icon}</div>
             <div class="agenda-activity-info">
               <div class="agenda-activity-header">
                 <h4 class="agenda-activity-title">${act.title}</h4>
@@ -2832,7 +2831,7 @@ window.trainingCalendarEvents = [
     title: '34th Philippine Statistics Quiz (PSQ) Institutional Coordination & Coaching',
     desc: 'Institutional orientation, candidate selection, and preliminary elimination coaching for MCNP and ISAP student contenders and faculty statistical advisers competing in the annual Philippine Statistics Quiz (PSQ) provincial and regional competitions.',
     participants: 'Student Statistics Quiz Contestants, Mathematics/Statistics Faculty & Department Coaches',
-    venue: '📍 RDC Secretariat Conference Room & Online Consultation',
+    venue: ' RDC Secretariat Conference Room & Online Consultation',
     lead: 'Ms. Sharon & Ms. Jane (Institutional Statistical Coordinators)',
     category: 'stats mcnp isap'
   },
@@ -2846,7 +2845,7 @@ window.trainingCalendarEvents = [
     title: 'Bachelor of Science in Medical Laboratory Science (BSMLS) Final Thesis Defense (Days 1–2)',
     desc: 'Comprehensive final oral thesis defense examinations, statistical verification, and oral deliberations for graduating BSMLS research candidate groups presenting completed laboratory and clinical diagnostic studies.',
     participants: 'Graduating BSMLS Student Proponents, Laboratory Advisers & Technical Defense Panel',
-    venue: '📍 MCNP Health Sciences Defense Amphitheater / AVR',
+    venue: ' MCNP Health Sciences Defense Amphitheater / AVR',
     lead: 'Department of Medical Laboratory Science & RDC Defense Committee',
     category: 'mcnp'
   },
@@ -2860,7 +2859,7 @@ window.trainingCalendarEvents = [
     title: 'BS Tourism Management (BSTM Level 3) Research Proposal Defense',
     desc: 'Formal title and methodology proposal defense colloquium for 3rd-Year BS Tourism Management research groups presenting regional tourism potential, heritage preservation, and hospitality management investigations.',
     participants: 'BSTM 3rd-Year Research Proponents, Thesis Advisers & Interdisciplinary Evaluation Panel',
-    venue: '📍 ISAP Hospitality Center / Case Room 2',
+    venue: ' ISAP Hospitality Center / Case Room 2',
     lead: 'College of Hospitality & Tourism Management & RDC Research Panel',
     category: 'isap'
   },
@@ -2874,7 +2873,7 @@ window.trainingCalendarEvents = [
     title: 'Bachelor of Science in Nursing (BSN Level 3, Section B) Research Proposal Defense',
     desc: 'Institutional proposal hearings and methodology evaluations for BSN 3B student investigator groups presenting epidemiological, clinical bedside, and community health interventions for ethical and protocol clearance.',
     participants: 'BSN Level 3 Section B Proponents, Clinical Instructors & Nursing Research Panel',
-    venue: '📍 MCNP Nursing Amphitheater / AVR 1',
+    venue: ' MCNP Nursing Amphitheater / AVR 1',
     lead: 'College of Nursing & RDC Defense Committee',
     category: 'mcnp ethics'
   },
@@ -2888,7 +2887,7 @@ window.trainingCalendarEvents = [
     title: 'Student & Graduate Research Presentation Colloquium',
     desc: 'Institutional oral research dissemination session and peer review presentations showcasing notable student capstones, clinical theses, and graduate academic projects.',
     participants: 'Selected Undergraduate & Graduate Student Presenters, Faculty Research Mentors, Peer Reviewers',
-    venue: '📍 MCNP-ISAP Audio-Visual Center (AVC) & Livestream',
+    venue: ' MCNP-ISAP Audio-Visual Center (AVC) & Livestream',
     lead: 'RDC Secretariat & Academic Research Coordinators',
     category: 'mcnp isap'
   },
@@ -2902,7 +2901,7 @@ window.trainingCalendarEvents = [
     title: 'DOST Cagayan Valley Health Research and Development Consortium (CVHRDC) 3rd Quarter Meeting',
     desc: 'Official regional consortium quarterly assembly with DOST Region 02 CVHRDC executive council, evaluating regional health research priorities, collaborative grants, and multi-institutional project allocations.',
     participants: 'Institutional Consortium Representatives, RDC Director, Lead Health Researchers & DOST Delegates',
-    venue: '📍 DOST Regional Office 02 / CVHRDC Boardroom & Virtual Bridge',
+    venue: ' DOST Regional Office 02 / CVHRDC Boardroom & Virtual Bridge',
     lead: 'Sir Ryan (RDC Secretariat / CVHRDC Institutional Liaison)',
     category: 'grants mcnp isap'
   },
@@ -2916,7 +2915,7 @@ window.trainingCalendarEvents = [
     title: 'Bachelor of Science in Medical Laboratory Science (BSMLS) Final Thesis Defense (Day 3)',
     desc: 'Continuation of final oral defense deliberations and manuscript validations for remaining BSMLS graduating candidate groups before submission for binding and journal packaging.',
     participants: 'BSMLS Candidate Groups & Board of Evaluators',
-    venue: '📍 MCNP Health Sciences Defense Amphitheater',
+    venue: ' MCNP Health Sciences Defense Amphitheater',
     lead: 'Department of Medical Laboratory Science & Research Panel',
     category: 'mcnp'
   },
@@ -2930,7 +2929,7 @@ window.trainingCalendarEvents = [
     title: 'Bachelor of Science in Medical Laboratory Science (BSMLS) Final Thesis Defense (Concluding Clusters)',
     desc: 'Final round of oral examinations, statistical model defense, and rubric scoring for the concluding batches of BSMLS thesis proponents.',
     participants: 'BSMLS Finalists, Department Advisers & Panel Chairs',
-    venue: '📍 MCNP Health Sciences Defense Amphitheater',
+    venue: ' MCNP Health Sciences Defense Amphitheater',
     lead: 'Department of Medical Laboratory Science & RDC Panel',
     category: 'mcnp'
   },
@@ -2944,7 +2943,7 @@ window.trainingCalendarEvents = [
     title: 'Commission on Population and Development (CPD / POPCOM) Institutional Partnership Meeting',
     desc: 'Inter-agency consultative session and demographic research alignment meeting with the Commission on Population and Development (CPD Region II / POPCOM) at 1:30 PM, focusing on adolescent health data, family planning, and population dynamics research.',
     participants: 'RDC Directorate, Health & Social Sciences Researchers, CPD Regional Officers',
-    venue: '📍 RDC Executive Conference Room & Hybrid Zoom',
+    venue: ' RDC Executive Conference Room & Hybrid Zoom',
     lead: 'Sir Ryan (RDC Secretariat)',
     category: 'grants isap mcnp'
   },
@@ -2958,7 +2957,7 @@ window.trainingCalendarEvents = [
     title: 'Institutional Block Rosary & October Marian Devotion',
     desc: 'Traditional October Marian Month institutional block rosary prayer gathering hosted by the Research and Development Center community, fostering institutional unity, reflection, and spiritual solidarity across twin campuses.',
     participants: 'RDC Staff, Faculty Researchers, Student Proponents, Campus Community',
-    venue: '📍 RDC Secretariat Prayer Alcove & Campus Chapel',
+    venue: ' RDC Secretariat Prayer Alcove & Campus Chapel',
     lead: 'Institutional Campus Ministry & RDC Community',
     category: 'mcnp isap'
   },
@@ -2972,7 +2971,7 @@ window.trainingCalendarEvents = [
     title: 'Bachelor of Science in Nursing (BSN Level 3, Section A) Research Proposal Defense',
     desc: 'Proposal defense hearings and clinical methodology vetting for BSN Level 3 Section A researcher cohorts, addressing specialized maternal-child health, patient safety, and geriatric nursing care.',
     participants: 'BSN Level 3 Section A Proponents, Clinical Preceptors & Defense Panelists',
-    venue: '📍 MCNP Nursing Amphitheater / AVR 1',
+    venue: ' MCNP Nursing Amphitheater / AVR 1',
     lead: 'College of Nursing & RDC Defense Committee',
     category: 'mcnp ethics'
 
@@ -2987,7 +2986,7 @@ window.trainingCalendarEvents = [
     title: 'Bachelor of Science in Nursing (BSN Level 3, Section N) Research Proposal Defense',
     desc: 'Title and methodology defense colloquium for BSN Level 3 Section N research groups presenting acute care protocols, disaster risk management in healthcare, and community health nursing inquiries.',
     participants: 'BSN Level 3 Section N Proponents, Academic Advisers & Examining Panel',
-    venue: '📍 MCNP Nursing Amphitheater / AVR 1',
+    venue: ' MCNP Nursing Amphitheater / AVR 1',
     lead: 'College of Nursing & RDC Defense Committee',
     category: 'mcnp ethics'
   },
@@ -3001,93 +3000,9 @@ window.trainingCalendarEvents = [
     title: 'Bachelor of Science in Nursing (BSN Level 3, Section D) Research Proposal Defense',
     desc: 'Concluding cohort research proposal defense for BSN Level 3 Section D student researchers, focusing on instrument validation, ethics compliance, and data collection frameworks.',
     participants: 'BSN Level 3 Section D Proponents, Thesis Committee & Nursing Faculty',
-    venue: '📍 MCNP Nursing Amphitheater / AVR 1',
+    venue: ' MCNP Nursing Amphitheater / AVR 1',
     lead: 'College of Nursing & RDC Defense Committee',
     category: 'mcnp ethics'
-  },
-  {
-    id: 2,
-    dates: ['2026-11-12', '2026-11-13'],
-    displayDate: 'November 12–13, 2026',
-    pillText: 'Institutional Unified',
-    pillClass: 'cal-pill-unified',
-    shortTag: 'Ethics Review',
-    title: 'National Research Ethics Protocol Review & PHREB Compliance Seminar',
-    desc: 'Standards of the Philippine Health Research Ethics Board (PHREB Level 1), protocol vulnerability assessments, participant informed consent pledges, and expeditious review routing.',
-    participants: 'IERC Members, Faculty & Thesis Proponents (All Health & Multidisciplinary Academic Programs)',
-    venue: '📍 Audio-Visual Center (AVC) & Livestream',
-    lead: 'Institutional Ethics Review Committee (IERC)',
-    category: 'ethics mcnp isap'
-  },
-  {
-    id: 3,
-    dates: ['2026-12-04'],
-    displayDate: 'December 04, 2026',
-    pillText: 'Institutional Unified',
-    pillClass: 'cal-pill-unified',
-    shortTag: 'Turnitin & Publishing',
-    title: 'Turnitin Screening & IMRAD Manuscript Structuring for High-Impact Indexing',
-    desc: 'Navigating similarity index thresholds (≤15%), avoiding mosaic plagiarism, structured abstracts, ORCID registration, and preparing manuscripts for OJS and Scopus/WoS submission.',
-    participants: 'Publishing Faculty, Authors & Coordinators (MCNP & ISAP Faculty Authors, Journal Editors)',
-    venue: '📍 ISAP Computer Laboratory 1',
-    lead: 'RDC Editorial Secretariat & Plagiarism Officer',
-    category: 'isap mcnp grants'
-  },
-  {
-    id: 4,
-    dates: ['2027-01-15', '2027-01-16'],
-    displayDate: 'January 15–16, 2027',
-    pillText: 'ISAP Multidisciplinary',
-    pillClass: 'cal-pill-isap',
-    shortTag: 'NVivo / Qualitative',
-    title: 'Qualitative Inquiry, Thematic Analysis & Computer-Assisted Coding (NVivo / MAXQDA)',
-    desc: 'Phenomenological methods, narrative inquiries, codebook development, inter-coder reliability, and thematic clustering in social science and criminal justice studies.',
-    participants: 'Criminology, Business & Education Faculty (ISAP College of Criminal Justice, CBA, CICT, CTE)',
-    venue: '📍 ISAP Amphitheater & Media Studio',
-    lead: 'Senior Qualitative Research Fellows',
-    category: 'isap'
-  },
-  {
-    id: 5,
-    dates: ['2027-02-19'],
-    displayDate: 'February 19, 2027',
-    pillText: 'Institutional Unified',
-    pillClass: 'cal-pill-unified',
-    shortTag: 'Policy Briefs',
-    title: 'Translating Academic Findings into Policy Briefs & Community Utilization Interventions',
-    desc: 'The 4 pathways of utilization: transforming clinical and empirical findings into hospital care manuals, municipal ordinances, technology transfer assets, and instructional modules.',
-    participants: 'Department Chairs & Community Extension Officers (All Academic Deans, Research Directors, LGU Liaisons)',
-    venue: '📍 RDC Boardroom, Administration Building',
-    lead: 'Research Director Dr. Ryan C. Fontanilla',
-    category: 'isap mcnp'
-  },
-  {
-    id: 6,
-    dates: ['2027-03-11', '2027-03-12'],
-    displayDate: 'March 11–12, 2027',
-    pillText: 'Grants & Funding',
-    pillClass: 'cal-pill-unified',
-    shortTag: 'Grants Packaging',
-    title: 'CHED, DOST, & PCHRD External Grants Proposal Packaging Colloquium',
-    desc: 'Comprehensive grant proposal writing masterclass: line-item budgeting (LIB), gender responsiveness (GAD checklist), milestone deliverable formulation, and external funding compliance.',
-    participants: 'Tenured Faculty Researchers & Interdisciplinary Clusters (MCNP & ISAP Research Leads)',
-    venue: '📍 MCNP-ISAP Multi-Purpose Hall',
-    lead: 'RDC Grants Unit with DOST Region 02 Experts',
-    category: 'grants mcnp isap'
-  },
-  {
-    id: 7,
-    dates: ['2027-04-22', '2027-04-23'],
-    displayDate: 'April 22–23, 2027',
-    pillText: 'Institutional Culmination',
-    pillClass: 'cal-pill-unified',
-    shortTag: 'Research Congress',
-    title: '2027 MCNP & ISAP Annual Institutional Student & Faculty Research Congress',
-    desc: 'Twin-campus oral defense symposium, best undergraduate capstone awards, digital scientific poster competition, and presentation of institutional innovation projects.',
-    participants: 'All Students, Faculty Authors & External Reviewers (University-wide Participation)',
-    venue: '📍 MCNP-ISAP Gymnasium & Breakout Rooms',
-    lead: 'MCNP & ISAP Research Council & Academic Deans',
-    category: 'mcnp isap'
   }
 ];
 
@@ -3106,7 +3021,7 @@ window.pastCalendarEvents = [
     "title": "From Community Needs to Responsive Extension Programs",
     "desc": "The MCNP–ISAP Research and Development Center (RDC), in collaboration with the Community Extension Services Office (CESO), presented the results of the Communit...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/community-assessment-1.jpg"
@@ -3122,10 +3037,10 @@ window.pastCalendarEvents = [
     "pillText": "Statistical Month 2026",
     "pillClass": "cal-pill-past",
     "shortTag": "Data Infographics",
-    "title": "📊 Turning Data into Meaningful Stories",
+    "title": " Turning Data into Meaningful Stories",
     "desc": "The MCNP–ISAP Research and Development Center conducted the Statistical Month 2026: Data Interpretation and Infographics Activity on September 25, 2026. The act...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/data-interpretation-5.jpg"
@@ -3141,10 +3056,10 @@ window.pastCalendarEvents = [
     "pillText": "Poster Art Showcase",
     "pillClass": "cal-pill-past",
     "shortTag": "Data Art Showcase",
-    "title": "🎨 When Data Finds Its Voice Through Art",
-    "desc": "These winning entries from the MCNP–ISAP Statistical Month Poster-Making Contest show that statistics is more than numbers—it is a powerful tool for understandi...",
+    "title": " When Data Finds Its Voice Through Art",
+    "desc": "The Sep 24 showcase featured winning entries from the Sep 23 MCNP–ISAP Statistical Month Poster-Making Contest, highlighting how creativity can turn statistical concepts into visual stories.",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/poster-activity-1.jpg"
@@ -3160,10 +3075,10 @@ window.pastCalendarEvents = [
     "pillText": "Institutional Competition",
     "pillClass": "cal-pill-past",
     "shortTag": "Poster Making",
-    "title": "🎨📊 Where Creativity Meets Statistics",
+    "title": " Where Creativity Meets Statistics",
     "desc": "The MCNP–ISAP Research and Development Center conducted the Statistical Month 2026 Poster-Making Activity on September 23, 2026. Participants transformed statis...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/poster-activity-19.jpg"
@@ -3183,7 +3098,7 @@ window.pastCalendarEvents = [
     "title": "BS Tourism Management Students Connect Research Proposals with Global Goals",
     "desc": "BS Tourism Management students successfully presented and defended their research proposals on September 22–23, 2026, demonstrating their developing competence ...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/tourism-defense-1.jpg"
@@ -3199,10 +3114,10 @@ window.pastCalendarEvents = [
     "pillText": "Statistical Month Quiz Bee",
     "pillClass": "cal-pill-past",
     "shortTag": "Stats Quiz Bee",
-    "title": "📊 Numbers, Knowledge, and a Winning Spirit!",
+    "title": " Numbers, Knowledge, and a Winning Spirit!",
     "desc": "The MCNP–ISAP Statistical Month Institutional Quiz Bee brought students together on September 21, 2026, to test their knowledge of statistics and celebrate the ...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/quiz-bee-13.jpg"
@@ -3222,7 +3137,7 @@ window.pastCalendarEvents = [
     "title": "Strengthening Data Skills for Better Health Research",
     "desc": "RDC staff from MCNP and ISAP participated in the Training on Data Analytics and Data Presentation for Health Research held on September 17–18, 2026, at Philippi...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/health-research-analytics-1.jpg"
@@ -3242,7 +3157,7 @@ window.pastCalendarEvents = [
     "title": "Pharmacy Research with Purpose: Every Study, a Goal and an Impact",
     "desc": "BS Pharmacy students presented and defended their research proposals on September 17–18, 2026, at the Research Office. Beyond demonstrating their knowledge and ...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/pharmacy-defense-1.jpg"
@@ -3261,7 +3176,7 @@ window.pastCalendarEvents = [
     "title": "From Problems to Purpose: Strengthening Research Capacity",
     "desc": "The General Education Department, in collaboration with the MCNP–ISAP Research and Development Center, conducted a Research Colloquium and Capacity-Building Pro...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/colloquium-1.jpg"
@@ -3280,7 +3195,7 @@ window.pastCalendarEvents = [
     "title": "Leading Through Inquiry, Improving Through Evidence",
     "desc": "The MCNP–ISAP Research and Development Center conducted the Academic Heads Research Proposal Defense on September 16, 2026, featuring research proposals from th...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/proposal-defense-sep16-1.jpg"
@@ -3299,7 +3214,7 @@ window.pastCalendarEvents = [
     "title": "From Numbers to Narratives: Making Data Meaningful",
     "desc": "The MCNP–ISAP Research and Development Center conducted the Stat. Month Data Appreciation Seminar via Zoom on September 15, 2026, with first-year students and f...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/stat-seminar-1.png"
@@ -3318,7 +3233,7 @@ window.pastCalendarEvents = [
     "title": "Research Leadership in Action",
     "desc": "The MCNP–ISAP Research and Development Center conducted the Academic Heads Research Proposal Defense on September 9, 2026. Academic leaders presented and defend...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/proposal-defense-sep9-1.jpg"
@@ -3339,7 +3254,7 @@ window.pastCalendarEvents = [
     "title": "From Innovation to Opportunity: Advancing Ideas for Possible Funding",
     "desc": "Faculty delegates from MCNP and ISAP participated in the 2026 Cagayan Valley Regional Science, Technology, and Innovation Week, held on September 9–11, 2026, in...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/sti-week-1.jpg"
@@ -3359,7 +3274,7 @@ window.pastCalendarEvents = [
     "title": "Research That Sees Everyone: Advancing Knowledge through a Gender-Responsive Lens",
     "desc": "MCNP–ISAP personnel participated in the Regional Seminar-Training on Gender Research, held on September 9–10, 2026, at CSU Andrews Campus, Tuguegarao City. The ...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/gender-research-1.jpg"
@@ -3378,7 +3293,7 @@ window.pastCalendarEvents = [
     "title": "From Samples to Statistics: Turning Data into Meaningful Discoveries",
     "desc": "The ISAP High School Research Summit–Episode 2, held online on August 28, 2026, featured Dr. Ryan C. Fontanilla on Sampling Techniques and Research Designs and ...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/research-summit-1.jpg"
@@ -3397,7 +3312,7 @@ window.pastCalendarEvents = [
     "title": "Pick a Goal. Raise Your Flag. Make Your Impact.",
     "desc": "The SDG SPOT @ RDC: Research for the Goals officially came to life through its soft opening on August 28, 2026, in front of the Research and Development Center....",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/sdg-spot-1.jpg"
@@ -3416,7 +3331,7 @@ window.pastCalendarEvents = [
     "title": "Equipping Students for Meaningful Community Engagement",
     "desc": "The MCNP–ISAP Community Extension Services Office conducted the seminar and field orientation titled &ldquo;Listening to the Community: Qualitative Data Gatheri...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/community-ext-1.jpg"
@@ -3435,7 +3350,7 @@ window.pastCalendarEvents = [
     "title": "Strengthening Research Through Shared Direction",
     "desc": "The MCNP–ISAP Research and Development Center convened its General Assembly 2026 on August 24, bringing together RDC personnel and research focal persons to rev...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/assembly-1.jpg"
@@ -3455,7 +3370,7 @@ window.pastCalendarEvents = [
     "title": "Advancing Health Research Through Collaboration",
     "desc": "MCNP and ISAP proudly co-hosted the Regional Research Fund (RRF) Technical Review Board Evaluation on August 19–20, 2026, in partnership with DOST–Cagayan Valle...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/health-research-1.jpg"
@@ -3474,7 +3389,7 @@ window.pastCalendarEvents = [
     "title": "Research for Sustainable Impact",
     "desc": "The 1st ISAP-K Conference on Interdisciplinary Research (ICIR 2026), themed \"Unifying Perspectives: Empowering Student Investigators Across Disciplines to Advan...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/icir-1.jpg"
@@ -3493,7 +3408,7 @@ window.pastCalendarEvents = [
     "title": "RDC Joins CBCP-UST Collaborative Project on Catholic Christianity",
     "desc": "The MCNP-ISAP Research and Development Center, led by Research Director Ryan C. Fontanilla, participated in the CBCP and University of Santo Tomas project at th...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/1.jpg"
@@ -3512,7 +3427,7 @@ window.pastCalendarEvents = [
     "title": "Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada Participate in Collaborative Study",
     "desc": "Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada represented MCNP and ISAP at the Archdiocese of Tuguegarao meeting for the CBCP-UST in...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/fontanilla-tejada-1.jpg"
@@ -3532,7 +3447,7 @@ window.pastCalendarEvents = [
     "title": "Region 2 Emerges as Overall Champion",
     "desc": "Representing Cagayan Valley, delegates from USLT, MCNP, SFC, QSU Cabarroguis, and SMU secured the Overall Champion title at the 2024 Regional Data Festival for ...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/rdafest-champion-1.jpg"
@@ -3551,7 +3466,7 @@ window.pastCalendarEvents = [
     "title": "School Statisticians Join the 35th National Statistics Month Color Fun Run",
     "desc": "Ms. Cristine Kae Aragon and Ms. Guadalupe Agabin represented their institution in the Philippine Statistics Authority event in Tuguegarao City, promoting awaren...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/stats-colorrun-1.jpg"
@@ -3571,7 +3486,7 @@ window.pastCalendarEvents = [
     "title": "Wendy Mae G. Lapus Represents ISAP at Regional Data Festival",
     "desc": "Ms. Lapus presented \"A Relationship Study between Job Demands, Resources, and Personnel Motivation in HEIs: The Case of the International School of Asia and the...",
     "participants": "MCNP & ISAP Faculty, Students & Researchers",
-    "venue": "📍 MCNP & ISAP Campus",
+    "venue": " MCNP & ISAP Campus",
     "lead": "RDC & Partner Academic Departments",
     "category": "past",
     "img": "upload/lapus-rdafest-1.jpg"
@@ -3734,10 +3649,10 @@ window.selectCalendarDate = function(dateStr, directMatchingEvents) {
       actionsHTML = `
         <div class="inspector-actions">
           <button type="button" class="btn btn-sm btn-primary" onclick="window.openEventModalById('${event.cardId}')" style="font-size: 0.82rem; padding: 0.45rem 1rem;">
-            📖 Read Full Story &amp; Photos
+             Read Full Story &amp; Photos
           </button>
           <button type="button" class="btn btn-sm btn-outline" onclick="window.scrollToArticleCard('${event.cardId}')" style="font-size: 0.82rem; padding: 0.45rem 1rem;">
-            🔍 View in Highlights Grid
+             View in Highlights Grid
           </button>
         </div>
       `;
@@ -3745,10 +3660,10 @@ window.selectCalendarDate = function(dateStr, directMatchingEvents) {
       actionsHTML = `
         <div class="inspector-actions">
           <button type="button" class="btn btn-sm btn-primary" onclick="window.scrollToTableEvent(${event.id})" style="font-size: 0.82rem; padding: 0.45rem 1rem;">
-            📋 Highlight in Schedule Table
+             Highlight in Schedule Table
           </button>
           <a href="contact.html?inquiry=training" class="btn btn-sm btn-outline" style="font-size: 0.82rem; padding: 0.45rem 1rem;">
-            💬 Inquire About Workshop
+             Inquire About Workshop
           </a>
         </div>
       `;
@@ -3758,18 +3673,18 @@ window.selectCalendarDate = function(dateStr, directMatchingEvents) {
       ${event.img ? `<img src="${event.img}" class="inspector-event-thumb" alt="${event.title}" loading="lazy">` : ''}
       <h4 class="inspector-event-title">${event.title}</h4>
       <div class="inspector-meta-item">
-        <strong>📅 Schedule:</strong>
+        <strong> Schedule:</strong>
         <span style="font-weight: 700; color: #1e5ea8;">${event.displayDate}</span>
       </div>
       <div class="inspector-event-desc">
         ${event.desc}
       </div>
       <div class="inspector-meta-item">
-        <strong>👥 Target:</strong>
+        <strong> Target:</strong>
         <span>${event.participants || 'MCNP & ISAP Academic Community'}</span>
       </div>
       <div class="inspector-meta-item">
-        <strong>📍 Venue &amp; Lead:</strong>
+        <strong> Venue &amp; Lead:</strong>
         <div>
           <div>${event.venue || 'MCNP & ISAP Campus'}</div>
           <div style="font-size: 0.8rem; color: #64748b; margin-top: 0.2rem;">${event.lead || 'RDC Secretariat'}</div>
@@ -3796,14 +3711,14 @@ window.selectCalendarDate = function(dateStr, directMatchingEvents) {
           <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
             ${ev.cardId ? `
               <button type="button" class="btn btn-sm btn-primary" onclick="window.openEventModalById('${ev.cardId}')" style="font-size: 0.78rem; padding: 0.35rem 0.85rem;">
-                📖 Read Story &amp; Photos
+                 Read Story &amp; Photos
               </button>
               <button type="button" class="btn btn-sm btn-outline" onclick="window.scrollToArticleCard('${ev.cardId}')" style="font-size: 0.78rem; padding: 0.35rem 0.85rem;">
-                🔍 View in Grid
+                 View in Grid
               </button>
             ` : `
               <button type="button" class="btn btn-sm btn-primary" onclick="window.scrollToTableEvent(${ev.id})" style="font-size: 0.78rem; padding: 0.35rem 0.85rem;">
-                📋 Highlight in Table
+                 Highlight in Table
               </button>
             `}
           </div>
@@ -3820,14 +3735,14 @@ window.selectCalendarDate = function(dateStr, directMatchingEvents) {
 
     contentWrap.innerHTML = `
       <div class="inspector-empty">
-        <div class="inspector-empty-icon">📅</div>
+
         <div class="inspector-empty-title">No Workshop or Event on This Date</div>
         <div class="inspector-empty-desc">
           There are no research trainings or events recorded for <strong>${formattedDateTitle}</strong>. You can browse other scheduled dates on the calendar or jump to the next session.
         </div>
         <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem;">
           <button type="button" class="btn btn-sm btn-primary" onclick="window.jumpToNextEvent('${dateStr}')" style="font-size: 0.82rem; padding: 0.45rem 0.95rem;">
-            Jump to Next Event &rarr;
+            Jump to Next Event
           </button>
           <a href="contact.html?inquiry=training" class="btn btn-sm btn-outline" style="font-size: 0.82rem; padding: 0.45rem 0.95rem;">
             Request Training

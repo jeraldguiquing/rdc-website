@@ -441,6 +441,19 @@ img {
   display: none;
 }
 
+.nav-item.dropdown > .nav-link::after {
+  display: inline-block;
+  content: "\25BE";
+  margin-left: 0.35rem;
+  font-size: 0.7em;
+}
+
+.dropdown-link[target="_blank"]::after,
+.article-source-btn[target="_blank"]::after {
+  content: " \2197";
+  font-size: 0.8em;
+}
+
 .nav-link:focus-visible,
 .dropdown-link:focus-visible,
 .mobile-toggle:focus-visible {
@@ -7964,7 +7977,7 @@ textarea.form-control {
   }
 
   .cal-participants-cell::before {
-    content: "👥 Target Participants";
+    content: " Target Participants";
     display: block;
     font-size: 0.72rem;
     font-weight: 700;
@@ -7982,7 +7995,7 @@ textarea.form-control {
   }
 
   .cal-venue-cell::before {
-    content: "🏛️ Venue & Resource Lead";
+    content: " Venue & Resource Lead";
     display: block;
     font-size: 0.72rem;
     font-weight: 700;
@@ -9054,6 +9067,7 @@ body {
   body.print-util-article-mode * {
     visibility: hidden;
   }
+
   body.print-util-article-mode #utilArticleModalOverlay,
   body.print-util-article-mode #utilArticleModalOverlay * {
     visibility: visible;
@@ -9073,4 +9087,38 @@ body {
   body.print-util-article-mode .event-modal-actions-bar {
     display: none !important;
   }
+}
+
+.agenda-modal-close,
+.citation-modal-close,
+.event-modal-head .event-modal-close,
+.btn-modal-close-icon,
+.doc-lightbox-close,
+.rdc-lightbox-close {
+  width: auto !important;
+  min-width: 3rem;
+  height: auto !important;
+  min-height: 2rem;
+  padding: 0.35rem 0.55rem !important;
+  border-radius: 6px !important;
+  font-size: 0.7rem !important;
+  line-height: 1.2 !important;
+  white-space: nowrap;
+}
+
+.rdc-lightbox-nav,
+.sdg-slider-arrow {
+  width: auto !important;
+  min-width: 4.5rem;
+  height: auto !important;
+  min-height: 2.1rem;
+  padding: 0.35rem 0.5rem !important;
+  border-radius: 6px !important;
+  font-size: 0.65rem !important;
+  white-space: nowrap;
+}
+
+.event-search-clear {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.4rem;
 }
