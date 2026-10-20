@@ -66,31 +66,36 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileToggle.setAttribute('aria-expanded', 'false');
     mobileToggle.setAttribute('aria-label', 'Open navigation');
 
-    const HAMBURGER_ICON = 'Menu';
-    const CLOSE_ICON = 'Close';
+    const labelEl = mobileToggle.querySelector('.mobile-toggle-label');
 
-    // Ensure initial button content is set to Menu
-    mobileToggle.textContent = HAMBURGER_ICON;
+    const setMobileNavState = (isOpen) => {
+      updateMobileNavPosition();
+      navMenu.classList.toggle('active', isOpen);
+      document.body.classList.toggle('nav-open', isOpen);
+      mobileToggle.classList.toggle('active', isOpen);
+      mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      mobileToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
 
-    const closeMobileNav = () => {
-      navMenu.classList.remove('active');
-      document.body.classList.remove('nav-open');
-      mobileToggle.setAttribute('aria-expanded', 'false');
-      mobileToggle.setAttribute('aria-label', 'Open navigation');
-      mobileToggle.textContent = HAMBURGER_ICON;
-      navMenu.querySelectorAll('.nav-item.dropdown.open').forEach((item) => {
-        item.classList.remove('open');
-        item.querySelector('.nav-link')?.setAttribute('aria-expanded', 'false');
-      });
+      if (labelEl) {
+        labelEl.textContent = isOpen ? 'Close' : 'Menu';
+      } else {
+        mobileToggle.textContent = isOpen ? 'Close' : 'Menu';
+      }
+
+      if (!isOpen) {
+        navMenu.querySelectorAll('.nav-item.dropdown.open').forEach((item) => {
+          item.classList.remove('open');
+          item.querySelector('.nav-link')?.setAttribute('aria-expanded', 'false');
+        });
+      }
     };
 
-    mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      const isExpanded = navMenu.classList.contains('active');
-      document.body.classList.toggle('nav-open', isExpanded);
-      mobileToggle.setAttribute('aria-expanded', isExpanded);
-      mobileToggle.setAttribute('aria-label', isExpanded ? 'Close navigation' : 'Open navigation');
-      mobileToggle.textContent = isExpanded ? CLOSE_ICON : HAMBURGER_ICON;
+    const closeMobileNav = () => setMobileNavState(false);
+
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = !navMenu.classList.contains('active');
+      setMobileNavState(isOpen);
     });
 
     navMenu.querySelectorAll('a').forEach((link) => {
@@ -104,8 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Close mobile nav when clicking outside on backdrop or document
-    document.addEventListener('click', (event) => {
+    // Close mobile nav when clicking or tapping outside on backdrop or document
+    const handleOutsideInteraction = (event) => {
       if (
         navMenu.classList.contains('active') &&
         !navMenu.contains(event.target) &&
@@ -113,7 +118,18 @@ document.addEventListener('DOMContentLoaded', () => {
       ) {
         closeMobileNav();
       }
-    });
+    };
+
+    document.addEventListener('click', handleOutsideInteraction);
+    document.addEventListener('touchend', (event) => {
+      if (
+        navMenu.classList.contains('active') &&
+        !navMenu.contains(event.target) &&
+        !mobileToggle.contains(event.target)
+      ) {
+        closeMobileNav();
+      }
+    }, { passive: true });
 
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && navMenu.classList.contains('active')) {

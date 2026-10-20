@@ -38,7 +38,7 @@
   <meta name="twitter:description" content="Explore the unified Research &amp; Development Center uniting MCNP and ISAP under ethical scholarship and community innovation.">
   <meta name="twitter:image" content="assets/rdc-logo.png">
 
-  <link rel="stylesheet" href="css/style.min.css?v=0b2db07b">
+  <link rel="stylesheet" href="css/style.min.css?v=804c28a8">
 
 
   <link rel="stylesheet" href="css/pages/about-rdc.min.css?v=ae0ceb40">
@@ -241,7 +241,14 @@
           </ul>
         </nav>
 
-        <button class="mobile-toggle" aria-label="Open navigation">Menu</button>
+        <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation">
+          <span class="mobile-toggle-bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="mobile-toggle-label">Menu</span>
+        </button>
       </div>
     </div>
   </header>
@@ -2539,7 +2546,7 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js?v=862da0bf" defer></script>
+  <script src="js/main.min.js?v=b10a842a" defer></script>
 
   <!-- Lightbox Modal for Personnel Calling Card -->
   <div id="aboutCardLightboxModal" class="sr-modal-overlay" onclick="closeAboutCardModal(event)">

@@ -778,10 +778,11 @@ img {
   height: 40px;
   align-items: center;
   justify-content: center;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.65);
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.55);
   border-radius: 6px;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -789,16 +790,61 @@ img {
   color: #fff;
   cursor: pointer;
   padding: 0 0.75rem;
-  transition: var(--transition);
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   user-select: none;
+  white-space: nowrap;
   -webkit-tap-highlight-color: transparent;
 }
 
 .mobile-toggle:hover,
-.mobile-toggle:focus {
+.mobile-toggle:focus-visible,
+.mobile-toggle.active {
   color: #fff;
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+/* Animated 3-bar hamburger icon */
+.mobile-toggle-bars {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 18px;
+  height: 14px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.mobile-toggle-bars span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+  transform-origin: center;
+}
+
+/* Morph bars into X when active */
+.mobile-toggle.active .mobile-toggle-bars span:nth-child(1),
+body.nav-open .mobile-toggle .mobile-toggle-bars span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.mobile-toggle.active .mobile-toggle-bars span:nth-child(2),
+body.nav-open .mobile-toggle .mobile-toggle-bars span:nth-child(2) {
+  opacity: 0;
+  transform: scale(0.2);
+}
+
+.mobile-toggle.active .mobile-toggle-bars span:nth-child(3),
+body.nav-open .mobile-toggle .mobile-toggle-bars span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.mobile-toggle-label {
+  display: inline-block;
+  line-height: 1;
 }
 
 .mobile-toggle-icon {
@@ -824,6 +870,7 @@ body.nav-open::after {
   backdrop-filter: blur(2px);
   z-index: 998;
   pointer-events: auto;
+  cursor: pointer;
 }
 
 /* ==========================================================================
@@ -5333,6 +5380,7 @@ textarea.form-control {
     height: calc(100dvh - var(--main-header-height, 56px));
     background: var(--white);
     flex-direction: column;
+    justify-content: flex-start;
     align-items: stretch;
     padding: 1.25rem 1rem calc(2.5rem + env(safe-area-inset-bottom, 0px));
     box-shadow: 14px 0 32px rgba(15, 23, 42, 0.22);
@@ -8305,12 +8353,26 @@ textarea.form-control {
     letter-spacing: 0.02em;
   }
   .mobile-toggle {
-    width: 40px;
-    height: 40px;
-    font-size: 1.25rem;
+    height: 38px;
+    min-width: 44px;
+    padding: 0 0.6rem;
+    font-size: 0.74rem;
+    gap: 0.35rem;
+  }
+  .mobile-toggle-bars {
+    width: 16px;
+    height: 13px;
+  }
+  .mobile-toggle.active .mobile-toggle-bars span:nth-child(1),
+  body.nav-open .mobile-toggle .mobile-toggle-bars span:nth-child(1) {
+    transform: translateY(5.5px) rotate(45deg);
+  }
+  .mobile-toggle.active .mobile-toggle-bars span:nth-child(3),
+  body.nav-open .mobile-toggle .mobile-toggle-bars span:nth-child(3) {
+    transform: translateY(-5.5px) rotate(-45deg);
   }
   .mobile-toggle-icon {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
   }
 }
 

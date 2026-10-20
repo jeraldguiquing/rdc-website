@@ -35,7 +35,7 @@
 
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css?v=0b2db07b">
+  <link rel="stylesheet" href="css/style.min.css?v=804c28a8">
 
   <link rel="stylesheet" href="css/pages/calendar.min.css?v=6db8b4c5">
 </head>
@@ -237,7 +237,14 @@
           </ul>
         </nav>
 
-        <button class="mobile-toggle" aria-label="Open navigation">Menu</button>
+        <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation">
+          <span class="mobile-toggle-bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="mobile-toggle-label">Menu</span>
+        </button>
       </div>
     </div>
   </header>
@@ -799,7 +806,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/main.min.js?v=862da0bf" defer></script>
+  <script src="js/main.min.js?v=b10a842a" defer></script>
   <script src="js/calendar-counts.js" defer></script>
   <script>
     // Link handler for clicking articles/news from inspector on this standalone landing page

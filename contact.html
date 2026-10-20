@@ -31,7 +31,7 @@
   <meta property="og:description" content="Connect with the RDC Secretariat, submit online inquiries for statistical consultations, ethics clearance (IERC), Turnitin checks, and research partnerships.">
   <meta property="og:image" content="assets/rdc-logo.png">
 
-  <link rel="stylesheet" href="css/style.min.css?v=0b2db07b">
+  <link rel="stylesheet" href="css/style.min.css?v=804c28a8">
 
 
   <link rel="stylesheet" href="css/pages/contact.min.css?v=0dfa23fa">
@@ -234,7 +234,14 @@
           </ul>
         </nav>
 
-        <button class="mobile-toggle" aria-label="Open navigation">Menu</button>
+        <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation">
+          <span class="mobile-toggle-bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="mobile-toggle-label">Menu</span>
+        </button>
       </div>
     </div>
   </header>
@@ -808,7 +815,7 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js?v=862da0bf" defer></script>
+  <script src="js/main.min.js?v=b10a842a" defer></script>
   <script src="js/pages/contact.min.js?v=56841f7a"></script>
   <!-- Lightbox Modal for Personnel Calling Card -->
   <div id="cardLightboxModal" class="sr-modal-overlay" onclick="closeCardModal(event)">

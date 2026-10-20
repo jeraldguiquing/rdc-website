@@ -35,7 +35,7 @@
   <meta name="twitter:description" content="Explore official peer-reviewed scholarly journals of MCNP and ISAP across health, multidisciplinary sciences, and administration.">
   <meta name="twitter:image" content="assets/rdc-logo.png">
   
-  <link rel="stylesheet" href="css/style.min.css?v=0b2db07b">
+  <link rel="stylesheet" href="css/style.min.css?v=804c28a8">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -239,7 +239,14 @@
           </ul>
         </nav>
 
-        <button class="mobile-toggle" aria-label="Open navigation">Menu</button>
+        <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation">
+          <span class="mobile-toggle-bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="mobile-toggle-label">Menu</span>
+        </button>
       </div>
     </div>
   </header>
@@ -833,7 +840,7 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js?v=862da0bf" defer></script>
+  <script src="js/main.min.js?v=b10a842a" defer></script>
 
   <!-- Inline Script for Journal Search, Filtering & Citation Generator -->
   <script src="js/pages/journal.min.js?v=e09d80a6"></script>
