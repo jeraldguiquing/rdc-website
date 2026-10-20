@@ -66,12 +66,18 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileToggle.setAttribute('aria-expanded', 'false');
     mobileToggle.setAttribute('aria-label', 'Open navigation');
 
+    const HAMBURGER_ICON = '<span class="mobile-toggle-icon" aria-hidden="true">&#9776;</span>';
+    const CLOSE_ICON = '<span class="mobile-toggle-icon" aria-hidden="true">&times;</span>';
+
+    // Ensure initial button content is set to hamburger
+    mobileToggle.innerHTML = HAMBURGER_ICON;
+
     const closeMobileNav = () => {
       navMenu.classList.remove('active');
       document.body.classList.remove('nav-open');
       mobileToggle.setAttribute('aria-expanded', 'false');
       mobileToggle.setAttribute('aria-label', 'Open navigation');
-      mobileToggle.innerHTML = '';
+      mobileToggle.innerHTML = HAMBURGER_ICON;
       navMenu.querySelectorAll('.nav-item.dropdown.open').forEach((item) => {
         item.classList.remove('open');
         item.querySelector('.nav-link')?.setAttribute('aria-expanded', 'false');
@@ -84,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.toggle('nav-open', isExpanded);
       mobileToggle.setAttribute('aria-expanded', isExpanded);
       mobileToggle.setAttribute('aria-label', isExpanded ? 'Close navigation' : 'Open navigation');
-      mobileToggle.innerHTML = isExpanded ? '' : '';
+      mobileToggle.innerHTML = isExpanded ? CLOSE_ICON : HAMBURGER_ICON;
     });
 
     navMenu.querySelectorAll('a').forEach((link) => {

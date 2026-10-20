@@ -749,18 +749,31 @@ img {
   align-items: center;
   justify-content: center;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 2px;
-  font-size: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 6px;
+  font-size: 1.4rem;
+  line-height: 1;
   color: #fff;
   cursor: pointer;
   padding: 0;
   transition: var(--transition);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.mobile-toggle:hover {
+.mobile-toggle:hover,
+.mobile-toggle:focus {
   color: #fff;
-  background: #333;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.mobile-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-size: 1.4rem;
 }
 
 body.nav-open {
@@ -5282,16 +5295,18 @@ textarea.form-control {
     top: var(--main-header-height, 56px);
     left: -100%;
     width: 85%;
-    max-width: 360px;
+    max-width: 340px;
     height: calc(100vh - var(--main-header-height, 56px));
     height: calc(100dvh - var(--main-header-height, 56px));
     background: var(--white);
     flex-direction: column;
     align-items: stretch;
-    padding: 1.5rem;
-    box-shadow: 14px 0 32px rgba(15, 23, 42, 0.18);
-    transition: left 0.28s ease;
+    padding: 1.25rem 1rem calc(2.5rem + env(safe-area-inset-bottom, 0px));
+    box-shadow: 14px 0 32px rgba(15, 23, 42, 0.22);
+    transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
     z-index: 999;
   }
   
@@ -5311,7 +5326,7 @@ textarea.form-control {
     color: #2c3e50;
     border-right: 0;
     border-radius: 6px;
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     white-space: normal;
   }
 
@@ -5326,8 +5341,10 @@ textarea.form-control {
     box-shadow: none;
     border: none;
     background: #f8fafc;
-    border-radius: 6px;
-    padding: 0.5rem 0 0.5rem 1rem;
+    border-radius: 8px;
+    padding: 0.4rem 0.5rem;
+    margin: 0.25rem 0 0.5rem 0.5rem;
+    border-left: 3px solid var(--gold);
     display: none;
     transform: none;
     opacity: 1;
@@ -5341,8 +5358,25 @@ textarea.form-control {
   .nav-item.open .dropdown-menu {
     display: block;
   }
+
+  .dropdown-link {
+    white-space: normal;
+    padding: 0.65rem 0.75rem;
+    font-size: 0.84rem;
+    line-height: 1.35;
+    gap: 0.5rem;
+    border-bottom: 1px solid #edf2f7;
+  }
+
+  .dropdown-link:last-child {
+    border-bottom: none;
+  }
   
-  .nav-item.open > .nav-link .arrow {
+  .nav-item.dropdown > .nav-link::after {
+    transition: transform 0.25s ease;
+  }
+
+  .nav-item.dropdown.open > .nav-link::after {
     transform: rotate(180deg);
   }
   
@@ -8240,6 +8274,9 @@ textarea.form-control {
   .mobile-toggle {
     width: 40px;
     height: 40px;
+    font-size: 1.25rem;
+  }
+  .mobile-toggle-icon {
     font-size: 1.25rem;
   }
 }
