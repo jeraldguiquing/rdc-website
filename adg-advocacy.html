@@ -47,653 +47,31 @@
   <meta name="twitter:description" content="One Research Community, 17 Global Goals, Sustainable Impact. Discover how ASCEND 2030 and INNOVATES 2026–2030 establish a unified pathway for advancing the UN SDGs.">
   <meta name="twitter:image" content="https://jeraldguiquing.github.io/rdc-website/assets/rdc-logo.png">
 
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/style.min.css?v=0b2db07b">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Roboto:wght@400;500&display=swap">
-  <style>
-    /* =========================================================
-       17 SDG ICONS GRID
-       ========================================================= */
-    .sdg-grid-clean {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 1.35rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    @media (max-width: 1100px) {
-      .sdg-grid-clean {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1.1rem;
-      }
-    }
-    @media (max-width: 768px) {
-      .sdg-grid-clean {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.95rem;
-      }
-    }
-    @media (max-width: 480px) {
-      .sdg-grid-clean {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.85rem;
-      }
-    }
-    .sdg-pure-card {
-      position: relative;
-      display: block;
-      border-radius: 16px;
-      overflow: hidden;
-      aspect-ratio: 1 / 1;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
-      border: 2px solid transparent;
-      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease, border-color 0.25s ease;
-      cursor: pointer;
-      background: #ffffff;
-      padding: 0;
-      text-decoration: none;
-    }
-    .sdg-pure-card:focus-visible {
-      outline: 3px solid #0d3b73;
-      outline-offset: 3px;
-    }
-    .sdg-pure-card img {
-      width: 100%;
-      height: 100%;
-      /* contain keeps the official SDG tile uncropped */
-      object-fit: contain;
-      display: block;
-      transition: transform 0.25s ease;
-    }
-    .sdg-pure-card:hover {
-      transform: translateY(-8px) scale(1.04);
-      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.22);
-      border-color: rgba(15, 23, 42, 0.15);
-    }
-    .sdg-pure-card:hover img {
-      transform: scale(1.05);
-    }
-    .sdg-count-badge {
-      position: absolute;
-      bottom: 8px;
-      right: 8px;
-      z-index: 3;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.32rem;
-      padding: 0.24rem 0.58rem;
-      border-radius: 999px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: 0.01em;
-      color: #ffffff;
-      background: rgba(15, 23, 42, 0.88);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-      pointer-events: none;
-      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .sdg-count-badge .badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 5px #22c55e;
-      flex-shrink: 0;
-    }
-    .sdg-count-badge.has-events {
-      background: rgba(15, 23, 42, 0.9);
-      color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-    .sdg-count-badge.highlight {
-      background: #ffffff;
-      color: #0f172a;
-      font-weight: 800;
-      border-color: #ffffff;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
-    }
-    .sdg-count-badge.highlight .badge-dot {
-      background: #e11d48;
-      box-shadow: 0 0 6px #e11d48;
-    }
-    .sdg-count-badge.zero {
-      background: rgba(0, 0, 0, 0.62);
-      color: rgba(255, 255, 255, 0.88);
-      border-color: rgba(255, 255, 255, 0.15);
-      font-weight: 600;
-    }
-    .sdg-count-badge.zero .badge-dot {
-      background: rgba(255, 255, 255, 0.4);
-      box-shadow: none;
-      width: 5px;
-      height: 5px;
-    }
-    .sdg-pure-card:hover .sdg-count-badge {
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
-    }
-    .sdg-pure-card:hover .sdg-count-badge.highlight {
-      background: #fef08a;
-      color: #854d0e;
-      border-color: #fef08a;
-    }
-    @media (max-width: 480px) {
-      .sdg-count-badge {
-        bottom: 6px;
-        right: 6px;
-        padding: 0.18rem 0.48rem;
-        font-size: 0.66rem;
-        gap: 0.25rem;
-      }
-      .sdg-count-badge .badge-dot {
-        width: 5px;
-        height: 5px;
-      }
-    }
-    .sdg-total-note {
-      text-align: center;
-      font-size: 0.95rem;
-      color: #475569;
-      margin: 1.75rem auto 0;
-    }
-    .sdg-total-note strong {
-      color: #0f172a;
-    }
-
-    /* =========================================================
-       INNOVATION BEYOND BOUNDARIES: SDG ADVOCACIES MANIFESTO
-       ========================================================= */
-    .sdg-manifesto-wrap {
-      background: #ffffff;
-      padding: 3.5rem 0 2.5rem;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    .sdg-manifesto-intro {
-      padding-bottom: 2.75rem;
-    }
-    .sdg-manifesto-lower {
-      padding-top: 3.25rem;
-      border-bottom: none;
-    }
-    .sdg-manifesto-header {
-      text-align: center;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    .sdg-manifesto-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #0d3b73;
-      background: rgba(13, 59, 115, 0.08);
-      border: 1px solid #e2e8f0;
-      padding: 0.35rem 0.95rem;
-      border-radius: 999px;
-      margin-bottom: 1rem;
-    }
-    .sdg-manifesto-title {
-      font-family: 'Oswald', 'Arial Narrow', sans-serif;
-      font-size: clamp(2rem, 4vw, 2.85rem);
-      font-weight: 700;
-      color: #0f172a;
-      line-height: 1.2;
-      letter-spacing: -0.01em;
-      margin: 0 0 0.65rem;
-      text-transform: uppercase;
-    }
-    .sdg-manifesto-subtitle {
-      font-family: 'Oswald', 'Arial Narrow', sans-serif;
-      font-size: clamp(1.1rem, 2.2vw, 1.45rem);
-      font-weight: 600;
-      color: #8a6d0b;
-      margin: 0 0 1.5rem;
-      letter-spacing: 0.02em;
-    }
-    .sdg-manifesto-lead {
-      font-size: 1.06rem;
-      line-height: 1.8;
-      color: #334155;
-      text-align: justify;
-      text-justify: inter-word;
-      max-width: 920px;
-      margin: 0 auto;
-      background: #f8fafc;
-      padding: 1.5rem 1.85rem;
-      border-radius: 12px;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-    }
-
-    /* Strategic Triad Grid */
-    .sdg-triad-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin: 0 auto 2.5rem;
-      max-width: 1200px;
-    }
-    @media (max-width: 992px) {
-      .sdg-triad-grid {
-        grid-template-columns: 1fr;
-        gap: 1.35rem;
-      }
-    }
-    .sdg-triad-card {
-      background: #ffffff;
-      border-radius: 16px;
-      border: 1px solid #e2e8f0;
-      padding: 2rem 1.65rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.06);
-      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-      overflow: hidden;
-    }
-    .sdg-triad-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
-      border-color: #cbd5e1;
-    }
-    .sdg-triad-icon-wrap {
-      width: 52px;
-      height: 52px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      margin-bottom: 1.15rem;
-    }
-    .card-ascend .sdg-triad-icon-wrap {
-      background: rgba(13, 59, 115, 0.1);
-      color: #0d3b73;
-    }
-    .card-innovates .sdg-triad-icon-wrap {
-      background: rgba(122, 31, 45, 0.1);
-      color: #7a1f2d;
-    }
-    .card-sdgs .sdg-triad-icon-wrap {
-      background: rgba(229, 36, 59, 0.1);
-      color: #e5243b;
-    }
-    .sdg-triad-role-badge {
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.2rem 0.55rem;
-      border-radius: 6px;
-      display: inline-block;
-      margin-bottom: 0.5rem;
-    }
-    .card-ascend .sdg-triad-role-badge {
-      background: #eff6ff;
-      color: #1d4ed8;
-      border: none;
-    }
-    .card-innovates .sdg-triad-role-badge {
-      background: #fdf2f2;
-      color: #991b1b;
-      border: none;
-    }
-    .card-sdgs .sdg-triad-role-badge {
-      background: #f0fdf4;
-      color: #166534;
-      border: none;
-    }
-    .sdg-triad-title {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.55rem;
-      font-weight: 700;
-      color: #0f172a;
-      line-height: 1.25;
-      margin: 0 0 0.35rem;
-    }
-    .sdg-triad-caption {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: #64748b;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-bottom: 1rem;
-    }
-    .sdg-triad-body {
-      font-size: 0.93rem;
-      line-height: 1.68;
-      color: #475569;
-      text-align: justify;
-      text-justify: inter-word;
-      margin-bottom: 1.35rem;
-      flex-grow: 1;
-    }
-    .sdg-pill-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-    }
-    .sdg-mini-pill {
-      font-size: 0.72rem;
-      font-weight: 700;
-      background: #f1f5f9;
-      color: #334155;
-      padding: 0.2rem 0.5rem;
-      border-radius: 6px;
-      border: 1px solid #e2e8f0;
-    }
-
-    /* Pathway Convergence Banner */
-    .sdg-pathway-banner {
-      background: linear-gradient(135deg, #0b2545 0%, #0d3b73 45%, #4b0d1b 100%);
-      color: #ffffff;
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto 3rem;
-      box-shadow: 0 12px 30px rgba(11, 37, 69, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      text-align: center;
-    }
-    .sdg-pathway-tag {
-      font-size: 0.76rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #ffdf70;
-      background: rgba(212, 175, 55, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 0.25rem 0.85rem;
-      border-radius: 999px;
-      display: inline-block;
-      margin-bottom: 0.85rem;
-    }
-    .sdg-pathway-title {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-      font-weight: 700;
-      color: #ffffff;
-      margin: 0 0 1rem;
-      letter-spacing: 0.01em;
-    }
-    .sdg-pathway-desc {
-      font-size: 1.02rem;
-      line-height: 1.75;
-      color: #e2e8f0;
-      max-width: 900px;
-      margin: 0 auto 1.85rem;
-      text-align: justify;
-      text-justify: inter-word;
-      text-align-last: center;
-    }
-    .sdg-pathway-triad-ribbon {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    @media (max-width: 768px) {
-      .sdg-pathway-triad-ribbon {
-        grid-template-columns: 1fr;
-        gap: 0.75rem;
-      }
-    }
-    .sdg-ribbon-item {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 12px;
-      padding: 1rem 0.85rem;
-      backdrop-filter: blur(6px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.35rem;
-    }
-    .sdg-ribbon-item strong {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.15rem;
-      color: #ffdf70;
-      letter-spacing: 0.02em;
-    }
-    .sdg-ribbon-item span {
-      font-size: 0.86rem;
-      color: #f1f5f9;
-      font-weight: 500;
-    }
-
-    /* Active Force Grid */
-    .sdg-active-force-section {
-      max-width: 1200px;
-      margin: 0 auto 3.5rem;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 2.75rem 2rem;
-    }
-    .sdg-active-force-header {
-      text-align: center;
-      max-width: 860px;
-      margin: 0 auto 2.25rem;
-    }
-    .sdg-active-force-header h3 {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(1.5rem, 2.5vw, 2rem);
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 0.75rem;
-    }
-    .sdg-active-force-header p {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #475569;
-      text-align: justify;
-      text-justify: inter-word;
-      text-align-last: center;
-      margin: 0;
-    }
-    .sdg-force-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.25rem;
-    }
-    @media (max-width: 992px) {
-      .sdg-force-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 540px) {
-      .sdg-force-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    .sdg-force-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 1.5rem 1.25rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      transition: all 0.25s ease;
-    }
-    .sdg-force-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
-      border-color: #8a6d0b;
-    }
-    .sdg-force-icon {
-      font-size: 1.8rem;
-      line-height: 1;
-    }
-    .sdg-force-card h4 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin: 0;
-      line-height: 1.3;
-    }
-    .sdg-force-card p {
-      font-size: 0.88rem;
-      line-height: 1.55;
-      color: #64748b;
-      margin: 0;
-    }
-
-    /* Purposeful Impact & Institutional Creed Box */
-    .sdg-creed-box {
-      background: radial-gradient(circle at top right, #1e3a8a, #0b1329);
-      color: #ffffff;
-      border-radius: 18px;
-      padding: 3.25rem 2.25rem;
-      max-width: 1200px;
-      margin: 0 auto 3rem;
-      border: 2px solid rgba(212, 175, 55, 0.35);
-      box-shadow: 0 16px 36px rgba(11, 19, 41, 0.35);
-      position: relative;
-      overflow: hidden;
-    }
-    .sdg-creed-box::after {
-      content: "";
-      position: absolute;
-      bottom: -60px;
-      right: -60px;
-      width: 240px;
-      height: 240px;
-      background: radial-gradient(circle, rgba(212, 175, 55, 0.15), transparent 70%);
-      pointer-events: none;
-    }
-    .sdg-creed-content {
-      position: relative;
-      z-index: 2;
-      max-width: 980px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .sdg-creed-quote {
-      font-size: clamp(1.05rem, 2vw, 1.25rem);
-      line-height: 1.85;
-      color: #f1f5f9;
-      font-style: italic;
-      margin: 0 0 1.5rem;
-      text-align: justify;
-      text-justify: inter-word;
-      text-align-last: center;
-    }
-    .sdg-creed-statement {
-      font-size: clamp(1.08rem, 2vw, 1.28rem);
-      line-height: 1.85;
-      color: #ffdf70;
-      font-weight: 600;
-      margin: 0 0 2rem;
-      text-align: justify;
-      text-justify: inter-word;
-      text-align-last: center;
-    }
-    .sdg-creed-divider {
-      width: 80px;
-      height: 2px;
-      background: #d4af37;
-      margin: 2rem auto;
-      opacity: 0.8;
-    }
-    .sdg-creed-slogan {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-      font-weight: 700;
-      color: #ffffff;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      line-height: 1.35;
-      margin: 0 0 1rem;
-    }
-    .sdg-creed-signature {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.35rem;
-      padding-top: 1rem;
-    }
-    .sdg-creed-center {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #ffdf70;
-      letter-spacing: 0.08em;
-    }
-    .sdg-creed-motto {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: #cbd5e1;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    /* Justified text creates uneven gaps on narrow screens: use natural alignment on mobile */
-    @media (max-width: 768px) {
-      .sdg-manifesto-lead,
-      .sdg-triad-body,
-      .sdg-pathway-desc,
-      .sdg-active-force-header p,
-      .sdg-creed-quote,
-      .sdg-creed-statement {
-        text-align: left;
-        text-align-last: auto;
-      }
-      .sdg-manifesto-lead {
-        padding: 1.25rem 1.1rem;
-      }
-    }
-
-    /* Respect reduced-motion preferences */
-    @media (prefers-reduced-motion: reduce) {
-      .sdg-pure-card,
-      .sdg-pure-card img,
-      .sdg-count-badge,
-      .sdg-triad-card,
-      .sdg-force-card {
-        transition: none;
-      }
-      .sdg-pure-card:hover,
-      .sdg-pure-card:hover img,
-      .sdg-pure-card:hover .sdg-count-badge,
-      .sdg-triad-card:hover,
-      .sdg-force-card:hover {
-        transform: none;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/pages/adg-advocacy.min.css?v=f62c7d41">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- BEGIN:SITE-HEADER -->
   <!-- Top Institutional Bar -->
-  <div class="topbar">
+  <header class="topbar">
     <div class="container">
       <div class="topbar-info">
-        <span> Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
-        <span> <a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
-        <span> +639989847781</span>
+        <span>Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
+        <span><a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
+        <span><a href="tel:+639989847781" style="color:inherit">(+63) 998 984 7781</a></span>
       </div>
       <div class="topbar-right">
-        <a href="call-for-proposals.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 700; font-size: 0.78rem;"> Calls for Proposals (Open)</a>
-        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;"> FAQs</a>
-        <a href="calendar.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;"> Schedule Calendar</a>
-
+        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;">FAQs</a>
+        <a href="calendar.html" style="color: #ffffff; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">Schedule Calendar</a>
         <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
       </div>
     </div>
-  </div>
+  </header>
 
   <!-- Main Navigation Header -->
   <header class="main-header">
@@ -701,7 +79,7 @@
       <div class="header-inner">
         <a href="index.html" class="brand-wrapper">
           <div class="brand-logos">
-            <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.png" alt="MCNP and ISAP" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific" loading="lazy" decoding="async">
+            <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.webp" alt="MCNP and ISAP Official Seals" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific" width="44" height="44" loading="lazy" decoding="async">
           </div>
           <div class="brand-text">
             <span class="brand-title">MCNP <span>&amp; ISAP</span> RDC</span>
@@ -715,21 +93,22 @@
               <a href="index.html" class="nav-link">HOME</a>
             </li>
 
+            <!-- Dropdown: ABOUT INSTITUTION -->
             <li class="nav-item dropdown">
-              <a href="about-mcnp.html" class="nav-link">
+              <a href="about-mcnp.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 ABOUT INSTITUTION
               </a>
               <div class="dropdown-menu">
                 <a href="about-mcnp.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>Medical Colleges of Northern Philippines</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
                 <a href="about-isap.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>International School of Asia and the Pacific</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -739,7 +118,7 @@
 
             <!-- Dropdown: ABOUT RDC -->
             <li class="nav-item dropdown">
-              <a href="about-rdc.html" class="nav-link">
+              <a href="about-rdc.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 ABOUT RDC
               </a>
               <div class="dropdown-menu">
@@ -762,8 +141,9 @@
               <a href="rdc-agenda.html" class="nav-link">RDC AGENDA</a>
             </li>
 
+            <!-- Dropdown: JOURNAL -->
             <li class="nav-item dropdown">
-              <a href="journal.html" class="nav-link">
+              <a href="journal.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 JOURNALS
               </a>
               <div class="dropdown-menu">
@@ -783,8 +163,8 @@
                   <span>Journal of Admin (Faculty Research)</span>
                   <span class="dropdown-badge badge-admin">ADMIN</span>
                 </a>
-                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link" style="border-top: 1px dashed var(--border-color); color: #8a6d0b; font-size: 0.82rem;">
-                  <span>Direct Online FlipBook </span>
+                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link dropdown-link-flip">
+                  <span>Direct Online FlipBook</span>
                   <span class="dropdown-badge badge-admin">FlipHTML5</span>
                 </a>
               </div>
@@ -792,20 +172,20 @@
 
             <!-- Dropdown: UTILIZATION -->
             <li class="nav-item dropdown">
-              <a href="utilization.html" class="nav-link">
+              <a href="utilization.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 UTILIZATION
               </a>
               <div class="dropdown-menu">
-                <a href="utilization.html#mcnp" class="dropdown-link">
+                <a href="utilization.html#mcnp" id="nav-util-mcnp" class="dropdown-link" onclick="if(window.filterUtilizationWing){filterUtilizationWing('mcnp');}">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>MCNP Health Sciences Wing</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
-                <a href="utilization.html#isap" class="dropdown-link">
+                <a href="utilization.html#isap" id="nav-util-isap" class="dropdown-link" onclick="if(window.filterUtilizationWing){filterUtilizationWing('isap');}">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>ISAP Multidisciplinary Wing</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -819,20 +199,20 @@
 
             <!-- Dropdown: RESOURCES -->
             <li class="nav-item dropdown">
-              <a href="resources-mcnp.html" class="nav-link">
+              <a href="resources-mcnp.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 RESOURCES
               </a>
               <div class="dropdown-menu">
                 <a href="resources-mcnp.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>Medical Colleges of Northern Philippines</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
                 <a href="resources-isap.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>International School of Asia and the Pacific</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -840,17 +220,18 @@
               </div>
             </li>
 
+            <!-- Dropdown: NEWS & EVENTS -->
             <li class="nav-item dropdown">
-              <a href="news-events.html" class="nav-link">
+              <a href="news-events.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 NEWS &amp; EVENTS
               </a>
               <div class="dropdown-menu">
                 <a href="news-events.html#articles" class="dropdown-link">
-                  <span> Research Articles &amp; Stories</span>
+                  <span>Research Articles &amp; Stories</span>
                   <span class="dropdown-badge badge-mcnp">ARTICLES</span>
                 </a>
                 <a href="news-events.html#events" class="dropdown-link">
-                  <span> Events &amp; Colloquiums</span>
+                  <span>Events &amp; Colloquiums</span>
                   <span class="dropdown-badge badge-isap">EVENTS</span>
                 </a>
                 <a href="calendar.html" class="dropdown-link">
@@ -870,10 +251,11 @@
           </ul>
         </nav>
 
-        <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span class="mobile-toggle-icon" aria-hidden="true">&#9776;</span></button>
+        <button class="mobile-toggle" aria-label="Open navigation">Menu</button>
       </div>
     </div>
   </header>
+  <!-- END:SITE-HEADER -->
 
   <!-- Page Hero -->
   <section class="page-hero">
@@ -916,103 +298,103 @@
         <div class="sdg-grid-clean" id="sdg-grid" aria-label="Sustainable Development Goals">
           <!-- Goal 1 -->
           <a href="sdg-overview.html?goal=1" class="sdg-pure-card" title="SDG 1: No Poverty (0 Documented Events)" aria-label="SDG 1: No Poverty, no documented events yet">
-            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-01.png" alt="SDG 1: No Poverty" width="200" height="200" loading="lazy" decoding="async">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-01.webp" alt="SDG 1: No Poverty" width="200" height="200" loading="lazy" decoding="async">
             <span class="sdg-count-badge zero" aria-hidden="true"><span class="badge-dot"></span>No events yet</span>
           </a>
 
           <!-- Goal 2 -->
           <a href="sdg-overview.html?goal=2" class="sdg-pure-card" title="SDG 2: Zero Hunger (1 Documented Event)" aria-label="SDG 2: Zero Hunger, 1 documented event">
-            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-02.png" alt="SDG 2: Zero Hunger" width="200" height="200" loading="lazy" decoding="async">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-02.webp" alt="SDG 2: Zero Hunger" width="200" height="200" loading="lazy" decoding="async">
             <span class="sdg-count-badge has-events" aria-hidden="true"><span class="badge-dot"></span>1 Event</span>
           </a>
 
           <!-- Goal 3 -->
           <a href="sdg-overview.html?goal=3" class="sdg-pure-card" title="SDG 3: Good Health and Well-Being (3 Documented Events)" aria-label="SDG 3: Good Health and Well-Being, 3 documented events">
-            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-03.png" alt="SDG 3: Good Health and Well-Being" width="200" height="200" loading="lazy" decoding="async">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-03.webp" alt="SDG 3: Good Health and Well-Being" width="200" height="200" loading="lazy" decoding="async">
             <span class="sdg-count-badge has-events" aria-hidden="true"><span class="badge-dot"></span>3 Events</span>
           </a>
 
           <!-- Goal 4 -->
           <a href="sdg-overview.html?goal=4" class="sdg-pure-card" title="SDG 4: Quality Education (24 Documented Events)" aria-label="SDG 4: Quality Education, 24 documented events">
-            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png" alt="SDG 4: Quality Education" width="200" height="200" loading="lazy" decoding="async">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.webp" alt="SDG 4: Quality Education" width="200" height="200" loading="lazy" decoding="async">
             <span class="sdg-count-badge highlight" aria-hidden="true"><span class="badge-dot"></span> 24 Events</span>
           </a>
 
           <!-- Goal 5 -->
           <a href="sdg-overview.html?goal=5" class="sdg-pure-card" title="SDG 5: Gender Equality (1 Documented Event)" aria-label="SDG 5: Gender Equality, 1 documented event">
-            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-05.png" alt="SDG 5: Gender Equality" width="200" height="200" loading="lazy" decoding="async">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-05.webp" alt="SDG 5: Gender Equality" width="200" height="200" loading="lazy" decoding="async">
             <span class="sdg-count-badge has-events" aria-hidden="true"><span class="badge-dot"></span>1 Event</span>
           </a>
 
           <!-- Goal 6 -->
           <a href="sdg-overview.html?goal=6" class="sdg-pure-card" title="SDG 6: Clean Water and Sanitation (0 Documented Events)" aria-label="SDG 6: Clean Water and Sanitation, no documented events yet">
-            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-06.png" alt="SDG 6: Clean Water and Sanitation" width="200" height="200" loading="lazy" decoding="async">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-06.webp" alt="SDG 6: Clean Water and Sanitation" width="200" height="200" loading="lazy" decoding="async">
             <span class="sdg-count-badge zero" aria-hidden="true"><span class="badge-dot"></span>No events yet</span>
           </a>
 
           <!-- Goal 7 -->
           <a href="sdg-overview.html?goal=7" class="sdg-pure-card" title="SDG 7: Affordable and Clean Energy (0 Documented Events)" aria-label="SDG 7: Affordable and Clean Energy, no documented events yet">
-            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-07.png" alt="SDG 7: Affordable and Clean Energy" width="200" height="200" loading="lazy" decoding="async">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-07.webp" alt="SDG 7: Affordable and Clean Energy" width="200" height="200" loading="lazy" decoding="async">
             <span class="sdg-count-badge zero" aria-hidden="true"><span class="badge-dot"></span>No events yet</span>
           </a>
 
           <!-- Goal 8 -->
           <a href="sdg-overview.html?goal=8" class="sdg-pure-card" title="SDG 8: Decent Work and Economic Growth (1 Documented Event)" aria-label="SDG 8: Decent Work and Economic Growth, 1 documented event">
-            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-08.png" alt="SDG 8: Decent Work and Economic Growth" width="200" height="200" loading="lazy" decoding="async">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-08.webp" alt="SDG 8: Decent Work and Economic Growth" width="200" height="200" loading="lazy" decoding="async">
             <span class="sdg-count-badge has-events" aria-hidden="true"><span class="badge-dot"></span>1 Event</span>
           </a>
 
           <!-- Goal 9 -->
           <a href="sdg-overview.html?goal=9" class="sdg-pure-card" title="SDG 9: Industry, Innovation and Infrastructure (19 Documented Events)" aria-label="SDG 9: Industry, Innovation and Infrastructure, 19 documented events">
-            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9: Industry, Innovation and Infrastructure" width="200" height="200" loading="lazy" decoding="async">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.webp" alt="SDG 9: Industry, Innovation and Infrastructure" width="200" height="200" loading="lazy" decoding="async">
             <span class="sdg-count-badge highlight" aria-hidden="true"><span class="badge-dot"></span> 19 Events</span>
           </a>
 
           <!-- Goal 10 -->
           <a href="sdg-overview.html?goal=10" class="sdg-pure-card" title="SDG 10: Reduced Inequalities (0 Documented Events)" aria-label="SDG 10: Reduced Inequalities, no documented events yet">
-            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-10.png" alt="SDG 10: Reduced Inequalities" width="200" height="200" loading="lazy" decoding="async">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-10.webp" alt="SDG 10: Reduced Inequalities" width="200" height="200" loading="lazy" decoding="async">
             <span class="sdg-count-badge zero" aria-hidden="true"><span class="badge-dot"></span>No events yet</span>
           </a>
 
           <!-- Goal 11 -->
           <a href="sdg-overview.html?goal=11" class="sdg-pure-card" title="SDG 11: Sustainable Cities and Communities (1 Documented Event)" aria-label="SDG 11: Sustainable Cities and Communities, 1 documented event">
-            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-11.png" alt="SDG 11: Sustainable Cities and Communities" width="200" height="200" loading="lazy" decoding="async">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-11.webp" alt="SDG 11: Sustainable Cities and Communities" width="200" height="200" loading="lazy" decoding="async">
             <span class="sdg-count-badge has-events" aria-hidden="true"><span class="badge-dot"></span>1 Event</span>
           </a>
 
           <!-- Goal 12 -->
           <a href="sdg-overview.html?goal=12" class="sdg-pure-card" title="SDG 12: Responsible Consumption and Production (0 Documented Events)" aria-label="SDG 12: Responsible Consumption and Production, no documented events yet">
-            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-12.png" alt="SDG 12: Responsible Consumption and Production" width="200" height="200" loading="lazy" decoding="async">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-12.webp" alt="SDG 12: Responsible Consumption and Production" width="200" height="200" loading="lazy" decoding="async">
             <span class="sdg-count-badge zero" aria-hidden="true"><span class="badge-dot"></span>No events yet</span>
           </a>
 
           <!-- Goal 13 -->
           <a href="sdg-overview.html?goal=13" class="sdg-pure-card" title="SDG 13: Climate Action (0 Documented Events)" aria-label="SDG 13: Climate Action, no documented events yet">
-            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-13.png" alt="SDG 13: Climate Action" width="200" height="200" loading="lazy" decoding="async">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-13.webp" alt="SDG 13: Climate Action" width="200" height="200" loading="lazy" decoding="async">
             <span class="sdg-count-badge zero" aria-hidden="true"><span class="badge-dot"></span>No events yet</span>
           </a>
 
           <!-- Goal 14 -->
           <a href="sdg-overview.html?goal=14" class="sdg-pure-card" title="SDG 14: Life Below Water (0 Documented Events)" aria-label="SDG 14: Life Below Water, no documented events yet">
-            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-14.png" alt="SDG 14: Life Below Water" width="200" height="200" loading="lazy" decoding="async">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-14.webp" alt="SDG 14: Life Below Water" width="200" height="200" loading="lazy" decoding="async">
             <span class="sdg-count-badge zero" aria-hidden="true"><span class="badge-dot"></span>No events yet</span>
           </a>
 
           <!-- Goal 15 -->
           <a href="sdg-overview.html?goal=15" class="sdg-pure-card" title="SDG 15: Life on Land (0 Documented Events)" aria-label="SDG 15: Life on Land, no documented events yet">
-            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-15.png" alt="SDG 15: Life on Land" width="200" height="200" loading="lazy" decoding="async">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-15.webp" alt="SDG 15: Life on Land" width="200" height="200" loading="lazy" decoding="async">
             <span class="sdg-count-badge zero" aria-hidden="true"><span class="badge-dot"></span>No events yet</span>
           </a>
 
           <!-- Goal 16 -->
           <a href="sdg-overview.html?goal=16" class="sdg-pure-card" title="SDG 16: Peace, Justice and Strong Institutions (9 Documented Events)" aria-label="SDG 16: Peace, Justice and Strong Institutions, 9 documented events">
-            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-16.png" alt="SDG 16: Peace, Justice and Strong Institutions" width="200" height="200" loading="lazy" decoding="async">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-16.webp" alt="SDG 16: Peace, Justice and Strong Institutions" width="200" height="200" loading="lazy" decoding="async">
             <span class="sdg-count-badge has-events" aria-hidden="true"><span class="badge-dot"></span>9 Events</span>
           </a>
 
           <!-- Goal 17 -->
           <a href="sdg-overview.html?goal=17" class="sdg-pure-card" title="SDG 17: Partnerships for the Goals (24 Documented Events)" aria-label="SDG 17: Partnerships for the Goals, 24 documented events">
-            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.png" alt="SDG 17: Partnerships for the Goals" width="200" height="200" loading="lazy" decoding="async">
+            <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.webp" alt="SDG 17: Partnerships for the Goals" width="200" height="200" loading="lazy" decoding="async">
             <span class="sdg-count-badge highlight" aria-hidden="true"><span class="badge-dot"></span> 24 Events</span>
           </a>
         </div>
@@ -1151,6 +533,6 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js" defer></script>
+  <script src="js/main.min.js?v=862da0bf" defer></script>
 </body>
 </html>

@@ -38,607 +38,26 @@
   <meta name="twitter:description" content="Explore the unified Research &amp; Development Center uniting MCNP and ISAP under ethical scholarship and community innovation.">
   <meta name="twitter:image" content="assets/rdc-logo.png">
 
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/style.min.css?v=0b2db07b">
 
 
-  <style>
-    /* Item 3 & 4 Styles: Organizational Chart and Personnel Gallery */
-    .org-chart-wrapper {
-      background: #f8fafc;
-      border: 1px solid var(--border-color, #e2e8f0);
-      border-radius: 16px;
-      padding: clamp(1.5rem, 3vw, 2.5rem);
-      margin-bottom: 3.5rem;
-      position: relative;
-    }
-    .org-level {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-    }
-    .org-connector-vertical {
-      width: 2px;
-      height: 28px;
-      background: #cbd5e1;
-      margin: 0 auto;
-    }
-    .org-node {
-      background: #ffffff;
-      border: 1px solid var(--border-color, #e2e8f0);
-      border-radius: 12px;
-      padding: 1.25rem 1.75rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-      text-align: center;
-      transition: all 0.25s ease;
-    }
-    .org-node:hover {
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      border-color: #94a3b8;
-    }
-    .node-board {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: #ffffff;
-      max-width: 650px;
-      width: 100%;
-      border: none;
-    }
-    .node-board .node-title {
-      color: #ffffff;
-      font-size: 1.25rem;
-      font-weight: 800;
-      margin: 0.35rem 0;
-    }
-    .node-board .node-sub {
-      color: #cbd5e1;
-      font-size: 0.85rem;
-    }
-    .node-board .node-badge {
-      background: rgba(212, 175, 55, 0.25);
-      color: #ffdf70;
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 0.25rem 0.65rem;
-      border-radius: 20px;
-      display: inline-block;
-    }
-
-    .org-director-container {
-      display: grid;
-      grid-template-columns: 1fr 1.3fr 1fr;
-      gap: 1.5rem;
-      width: 100%;
-      max-width: 980px;
-      align-items: center;
-    }
-    @media (max-width: 820px) {
-      .org-director-container {
-        grid-template-columns: 1fr;
-      }
-    }
-    .org-flank-node {
-      background: #f1f5f9;
-      border: 1px dashed #94a3b8;
-      border-radius: 12px;
-      padding: 1.25rem;
-      text-align: center;
-    }
-    .org-flank-node .node-badge {
-      font-size: 0.7rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      display: inline-block;
-      margin-bottom: 0.4rem;
-    }
-    .badge-advisory { background: #e0f2fe; color: #0369a1; }
-    .badge-ierc { background: #dcfce7; color: #15803d; }
-    .org-flank-node .node-title {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 0.25rem;
-    }
-    .org-flank-node .node-sub {
-      font-size: 0.8rem;
-      color: #64748b;
-    }
-
-    .node-director {
-      border: 1px solid var(--border-color, #e2e8f0);
-      background: #ffffff;
-      padding: 1.75rem;
-    }
-    .node-director .node-title {
-      font-size: 1.28rem;
-      font-weight: 800;
-      color: #0f172a;
-      margin: 0.5rem 0 0.2rem;
-    }
-    .node-director .node-role {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #b45309;
-      margin-bottom: 0.75rem;
-    }
-    .node-contact-pill {
-      display: flex;
-      gap: 0.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 0.75rem;
-    }
-    .node-contact-pill a {
-      background: #f8fafc;
-      border: 1px solid #cbd5e1;
-      padding: 0.3rem 0.65rem;
-      border-radius: 20px;
-      font-size: 0.76rem;
-      color: #334155;
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-    .node-contact-pill a:hover {
-      background: #1e5ea8;
-      color: #fff;
-      border-color: #1e5ea8;
-    }
-
-    .coordinators-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      width: 100%;
-      max-width: 900px;
-    }
-    @media (max-width: 700px) {
-      .coordinators-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    .mcnp-coord {
-      border: 1px solid var(--border-color, #e2e8f0);
-    }
-    .isap-coord {
-      border: 1px solid var(--border-color, #e2e8f0);
-    }
-    .node-coord .node-title {
-      font-size: 1.12rem;
-      font-weight: 800;
-      color: #0f172a;
-      margin: 0.4rem 0 0.2rem;
-    }
-    .node-coord .node-role {
-      font-size: 0.88rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .mcnp-coord .node-role { color: var(--mcnp-green, #1e5ea8); }
-    .isap-coord .node-role { color: var(--isap-blue, #7a1f2d); }
-    .node-scope {
-      font-size: 0.8rem;
-      color: #64748b;
-      margin-bottom: 0.75rem;
-      line-height: 1.5;
-    }
-
-    .units-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      width: 100%;
-    }
-    .org-unit-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color, #e2e8f0);
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-    }
-    .unit-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      background: #f1f5f9;
-      color: var(--mcnp-green, #1e5ea8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
-    }
-    .unit-title {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: #0f172a;
-      margin-bottom: 0.75rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid #f1f5f9;
-    }
-    .staff-row {
-      margin-bottom: 0.6rem;
-      font-size: 0.84rem;
-    }
-    .staff-row strong {
-      display: block;
-      color: #0f172a;
-      font-weight: 700;
-    }
-    .staff-row span {
-      display: block;
-      color: #64748b;
-      font-size: 0.8rem;
-    }
-    .staff-row small a {
-      color: var(--mcnp-green, #1e5ea8);
-      text-decoration: none;
-      font-size: 0.78rem;
-    }
-    .staff-row small a:hover {
-      text-decoration: underline;
-    }
-    .unit-sub {
-      font-size: 0.78rem;
-      color: #64748b;
-      margin-top: 0.75rem;
-      padding-top: 0.5rem;
-      border-top: 1px dashed #e2e8f0;
-      line-height: 1.5;
-    }
-
-    /* Personnel Gallery Grid */
-    .personnel-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.75rem;
-      margin-bottom: 3.5rem;
-    }
-    .personnel-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color, #e2e8f0);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
-      transition: all 0.28s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .personnel-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.09);
-      border-color: var(--gold, #d4af37);
-    }
-    .card-image-wrap {
-      position: relative;
-      background: #0f172a;
-      overflow: hidden;
-      cursor: pointer;
-      aspect-ratio: 1050 / 600;
-    }
-    .personnel-calling-card-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.35s ease;
-    }
-    .card-image-wrap:hover .personnel-calling-card-img {
-      transform: scale(1.03);
-    }
-    .card-zoom-hint {
-      position: absolute;
-      bottom: 8px;
-      right: 8px;
-      background: rgba(15, 23, 42, 0.82);
-      color: #ffffff;
-      font-size: 0.72rem;
-      font-weight: 600;
-      padding: 0.25rem 0.65rem;
-      border-radius: 20px;
-      backdrop-filter: blur(4px);
-      opacity: 0;
-      transition: opacity 0.2s ease;
-      pointer-events: none;
-    }
-    .card-image-wrap:hover .card-zoom-hint {
-      opacity: 1;
-    }
-    .personnel-card-body {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    .personnel-badge {
-      display: inline-block;
-      align-self: flex-start;
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 0.25rem 0.65rem;
-      border-radius: 6px;
-      margin-bottom: 0.6rem;
-    }
-    .badge-exec { background: rgba(212, 175, 55, 0.15); color: #92400e; border: 1px solid rgba(212, 175, 55, 0.4); }
-    .badge-mcnp-unit { background: rgba(30, 94, 168, 0.1); color: #1e5ea8; border: 1px solid rgba(30, 94, 168, 0.25); }
-    .badge-isap-unit { background: rgba(122, 31, 45, 0.1); color: #7a1f2d; border: 1px solid rgba(122, 31, 45, 0.25); }
-    .badge-tech-unit { background: rgba(16, 185, 129, 0.1); color: #047857; border: 1px solid rgba(16, 185, 129, 0.25); }
-    
-    .personnel-name {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: #0f172a;
-      margin: 0 0 0.25rem;
-      line-height: 1.35;
-    }
-    .personnel-role {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--mcnp-green, #1e5ea8);
-      margin-bottom: 0.75rem;
-    }
-    .personnel-desc {
-      font-size: 0.85rem;
-      color: #64748b;
-      line-height: 1.55;
-      margin-bottom: 1.1rem;
-      flex-grow: 1;
-    }
-    .personnel-meta {
-      background: #f8fafc;
-      border-radius: 8px;
-      padding: 0.75rem 0.9rem;
-      margin-bottom: 1.15rem;
-      font-size: 0.82rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-    .personnel-meta-item {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      color: #334155;
-      word-break: break-all;
-    }
-    .personnel-meta-item i {
-      color: var(--muted-text, #64748b);
-      width: 15px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-    .personnel-meta-item a {
-      color: inherit;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .personnel-meta-item a:hover {
-      color: var(--mcnp-green, #1e5ea8);
-      text-decoration: underline;
-    }
-    .personnel-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1.2fr;
-      gap: 0.5rem;
-    }
-    .p-act-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 0.5rem 0.6rem;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-    .p-act-btn.call-btn {
-      background: #f1f5f9;
-      color: #0f172a;
-      border: 1px solid #cbd5e1;
-    }
-    .p-act-btn.call-btn:hover {
-      background: #e2e8f0;
-      color: #0f172a;
-    }
-    .p-act-btn.mail-btn {
-      background: #f1f5f9;
-      color: #0f172a;
-      border: 1px solid #cbd5e1;
-    }
-    .p-act-btn.mail-btn:hover {
-      background: #e2e8f0;
-      color: #0f172a;
-    }
-    .p-act-btn.req-btn {
-      background: linear-gradient(135deg, #1e5ea8 0%, #16467d 100%);
-      color: #ffffff;
-      border: 1px solid #1e5ea8;
-    }
-    .p-act-btn.req-btn:hover {
-      background: #16467d;
-      color: #ffffff;
-    }
-
-    /* Personnel Filter Tabs */
-    .personnel-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-    }
-    .p-tab-btn {
-      padding: 0.5rem 1.1rem;
-      border-radius: 20px;
-      font-size: 0.84rem;
-      font-weight: 600;
-      border: 1px solid #cbd5e1;
-      background: #ffffff;
-      color: #475569;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .p-tab-btn.active, .p-tab-btn:hover {
-      background: #1e5ea8;
-      color: #ffffff;
-      border-color: #1e5ea8;
-    }
-
-    /* Lightbox Modal */
-    .sr-modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(4px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 3000;
-      padding: 1.5rem;
-    }
-    .sr-modal-overlay.open { display: flex; }
-    .sr-modal {
-      background: #ffffff;
-      max-width: 580px;
-      width: 100%;
-      border-radius: 14px;
-      padding: 2.5rem;
-      text-align: center;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
-      animation: modalSlideUp 0.22s ease-out;
-    }
-    @keyframes modalSlideUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-  
-    /* QMS Forms Center & SOP Download Links */
-    .qms-tab-btn {
-      padding: 0.35rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-    .qms-tab-btn {
-      padding: 0.4rem 0.85rem;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      background: #ffffff !important;
-      color: #475569 !important;
-      border: 1px solid #cbd5e1 !important;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .qms-tab-btn:hover {
-      background: #f8fafc !important;
-      color: #0f172a !important;
-      border-color: #94a3b8 !important;
-    }
-    .qms-tab-btn.active {
-      background: #0f172a !important;
-      color: #ffffff !important;
-      border-color: #0f172a !important;
-    }
-    .qms-dl-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.32rem 0.65rem;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-decoration: none;
-      background: #ffffff;
-      color: #334155;
-      border: 1px solid #cbd5e1;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-      transition: all 0.2s ease;
-    }
-    .qms-dl-btn i {
-      color: #64748b;
-      transition: color 0.2s ease;
-    }
-    .qms-dl-btn:hover {
-      background: #0f172a;
-      color: #ffffff;
-      border-color: #0f172a;
-    }
-    .qms-dl-btn:hover i {
-      color: #ffffff;
-    }
-    .qms-row {
-      transition: background 0.15s ease;
-    }
-    .qms-row:hover {
-      background: #f8fafc;
-    }
-    .sop-form-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.3rem 0.6rem;
-      border-radius: 6px;
-      font-size: 0.74rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-    .sop-form-link.mcnp-link {
-      background: #ffffff;
-      color: var(--mcnp-green, #1e5ea8);
-      border: 1px solid rgba(30, 94, 168, 0.25);
-    }
-    .sop-form-link.mcnp-link:hover {
-      background: var(--mcnp-green, #1e5ea8);
-      color: #ffffff;
-    }
-    .sop-form-link.isap-link {
-      background: #ffffff;
-      color: var(--isap-blue, #7a1f2d);
-      border: 1px solid rgba(122, 31, 45, 0.25);
-    }
-    .sop-form-link.isap-link:hover {
-      background: var(--isap-blue, #7a1f2d);
-      color: #ffffff;
-    }
-    .sop-form-link.pdf-link {
-      color: #dc2626;
-      border-color: rgba(220, 38, 38, 0.3);
-    }
-    .sop-form-link.pdf-link:hover {
-      background: #dc2626;
-      color: #ffffff;
-    }
-</style>
+  <link rel="stylesheet" href="css/pages/about-rdc.min.css?v=ae0ceb40">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- BEGIN:SITE-HEADER -->
   <!-- Top Institutional Bar -->
   <header class="topbar">
     <div class="container">
       <div class="topbar-info">
-        <span> Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
-        <span> <a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
-        <span> <a href="tel:+639989847781" style="color:inherit">(+63) 998 984 7781</a></span>
+        <span>Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
+        <span><a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
+        <span><a href="tel:+639989847781" style="color:inherit">(+63) 998 984 7781</a></span>
       </div>
       <div class="topbar-right">
-        <a href="call-for-proposals.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 700; font-size: 0.78rem;"> Calls for Proposals (Open)</a>
-        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;"> FAQs</a>
-        <a href="calendar.html" style="color: #ffffff; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;"> Schedule Calendar</a>
+        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;">FAQs</a>
+        <a href="calendar.html" style="color: #ffffff; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">Schedule Calendar</a>
         <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
       </div>
     </div>
@@ -650,7 +69,7 @@
       <div class="header-inner">
         <a href="index.html" class="brand-wrapper">
           <div class="brand-logos">
-            <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.png" alt="MCNP and ISAP" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific" loading="lazy" decoding="async">
+            <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.webp" alt="MCNP and ISAP Official Seals" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific" width="44" height="44" loading="lazy" decoding="async">
           </div>
           <div class="brand-text">
             <span class="brand-title">MCNP <span>&amp; ISAP</span> RDC</span>
@@ -666,20 +85,20 @@
 
             <!-- Dropdown: ABOUT INSTITUTION -->
             <li class="nav-item dropdown">
-              <a href="about-mcnp.html" class="nav-link">
+              <a href="about-mcnp.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 ABOUT INSTITUTION
               </a>
               <div class="dropdown-menu">
                 <a href="about-mcnp.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>Medical Colleges of Northern Philippines</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
                 <a href="about-isap.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>International School of Asia and the Pacific</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -689,11 +108,11 @@
 
             <!-- Dropdown: ABOUT RDC -->
             <li class="nav-item dropdown">
-              <a href="about-rdc.html" class="nav-link active">
+              <a href="about-rdc.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 ABOUT RDC
               </a>
               <div class="dropdown-menu">
-                <a href="about-rdc.html" class="dropdown-link active">
+                <a href="about-rdc.html" class="dropdown-link">
                   <span>About RDC (Unified Overview)</span>
                   <span class="dropdown-badge badge-admin">ALL</span>
                 </a>
@@ -714,7 +133,7 @@
 
             <!-- Dropdown: JOURNAL -->
             <li class="nav-item dropdown">
-              <a href="journal.html" class="nav-link">
+              <a href="journal.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 JOURNALS
               </a>
               <div class="dropdown-menu">
@@ -734,8 +153,8 @@
                   <span>Journal of Admin (Faculty Research)</span>
                   <span class="dropdown-badge badge-admin">ADMIN</span>
                 </a>
-                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link" style="border-top: 1px dashed var(--border-color); color: #b89726; font-size: 0.82rem;">
-                  <span>Direct Online FlipBook </span>
+                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link dropdown-link-flip">
+                  <span>Direct Online FlipBook</span>
                   <span class="dropdown-badge badge-admin">FlipHTML5</span>
                 </a>
               </div>
@@ -743,20 +162,20 @@
 
             <!-- Dropdown: UTILIZATION -->
             <li class="nav-item dropdown">
-              <a href="utilization.html" class="nav-link">
+              <a href="utilization.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 UTILIZATION
               </a>
               <div class="dropdown-menu">
-                <a href="utilization.html#mcnp" class="dropdown-link">
+                <a href="utilization.html#mcnp" id="nav-util-mcnp" class="dropdown-link" onclick="if(window.filterUtilizationWing){filterUtilizationWing('mcnp');}">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>MCNP Health Sciences Wing</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
-                <a href="utilization.html#isap" class="dropdown-link">
+                <a href="utilization.html#isap" id="nav-util-isap" class="dropdown-link" onclick="if(window.filterUtilizationWing){filterUtilizationWing('isap');}">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>ISAP Multidisciplinary Wing</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -768,22 +187,22 @@
               <a href="experience.html" class="nav-link">EXPERIENCE</a>
             </li>
 
-                                                <!-- Dropdown: RESOURCES -->
+            <!-- Dropdown: RESOURCES -->
             <li class="nav-item dropdown">
-              <a href="resources-mcnp.html" class="nav-link">
+              <a href="resources-mcnp.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 RESOURCES
               </a>
               <div class="dropdown-menu">
                 <a href="resources-mcnp.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>Medical Colleges of Northern Philippines</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
                 <a href="resources-isap.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>International School of Asia and the Pacific</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -791,17 +210,18 @@
               </div>
             </li>
 
+            <!-- Dropdown: NEWS & EVENTS -->
             <li class="nav-item dropdown">
-              <a href="news-events.html" class="nav-link">
+              <a href="news-events.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 NEWS &amp; EVENTS
               </a>
               <div class="dropdown-menu">
                 <a href="news-events.html#articles" class="dropdown-link">
-                  <span> Research Articles &amp; Stories</span>
+                  <span>Research Articles &amp; Stories</span>
                   <span class="dropdown-badge badge-mcnp">ARTICLES</span>
                 </a>
                 <a href="news-events.html#events" class="dropdown-link">
-                  <span> Events &amp; Colloquiums</span>
+                  <span>Events &amp; Colloquiums</span>
                   <span class="dropdown-badge badge-isap">EVENTS</span>
                 </a>
                 <a href="calendar.html" class="dropdown-link">
@@ -821,10 +241,11 @@
           </ul>
         </nav>
 
-        <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span class="mobile-toggle-icon" aria-hidden="true">&#9776;</span></button>
+        <button class="mobile-toggle" aria-label="Open navigation">Menu</button>
       </div>
     </div>
   </header>
+  <!-- END:SITE-HEADER -->
 
   <!-- Page Hero -->
   <section class="page-hero">
@@ -971,23 +392,23 @@
               </h3>
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; text-align: center;">
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
-                  <img src="assets/dept-logos/mcnp-nursing.png" alt="College of Nursing Logo" style="width: 56px; height: 56px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/mcnp-nursing.webp" alt="College of Nursing Logo" style="width: 56px; height: 56px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="56" height="56">
                   <span style="font-size: 0.8rem; font-weight: 700; color: #0f172a;">Nursing</span>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
-                  <img src="assets/dept-logos/mcnp-radtech.png" alt="Radiologic Technology Logo" style="width: 56px; height: 56px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/mcnp-radtech.webp" alt="Radiologic Technology Logo" style="width: 56px; height: 56px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="56" height="56">
                   <span style="font-size: 0.8rem; font-weight: 700; color: #0f172a;">Radiologic Tech</span>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
-                  <img src="assets/dept-logos/mcnp-mls.png" alt="Medical Laboratory Science Logo" style="width: 56px; height: 56px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/mcnp-mls.webp" alt="Medical Laboratory Science Logo" style="width: 56px; height: 56px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="56" height="56">
                   <span style="font-size: 0.8rem; font-weight: 700; color: #0f172a;">Medical Lab Sci</span>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
-                  <img src="assets/dept-logos/mcnp-pt.png" alt="Physical Therapy Logo" style="width: 56px; height: 56px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/mcnp-pt.webp" alt="Physical Therapy Logo" style="width: 56px; height: 56px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="56" height="56">
                   <span style="font-size: 0.8rem; font-weight: 700; color: #0f172a;">Physical Therapy</span>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
-                  <img src="assets/dept-logos/mcnp-pharmacy.png" alt="Pharmacy Logo" style="width: 56px; height: 56px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/mcnp-pharmacy.webp" alt="Pharmacy Logo" style="width: 56px; height: 56px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="56" height="56">
                   <span style="font-size: 0.8rem; font-weight: 700; color: #0f172a;">Pharmacy</span>
                 </div>
               </div>
@@ -1072,51 +493,51 @@
               </h3>
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(115px, 1fr)); gap: 0.85rem; text-align: center;">
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
-                  <img src="assets/dept-logos/isap-cocje.png" alt="Criminology Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/isap-cocje.webp" alt="Criminology Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="52" height="52">
                   <span style="font-size: 0.76rem; font-weight: 700; color: #0f172a;">Criminology</span>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
-                  <img src="assets/dept-logos/isap-it.png" alt="Information Technology Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/isap-it.webp" alt="Information Technology Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="52" height="52">
                   <span style="font-size: 0.76rem; font-weight: 700; color: #0f172a;">Info Tech</span>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
-                  <img src="assets/dept-logos/isap-computer-engineering.png" alt="Computer Engineering Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/isap-computer-engineering.webp" alt="Computer Engineering Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="52" height="52">
                   <span style="font-size: 0.76rem; font-weight: 700; color: #0f172a;">Computer Eng</span>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
-                  <img src="assets/dept-logos/isap-customs.png" alt="Customs Administration Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/isap-customs.webp" alt="Customs Administration Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="52" height="52">
                   <span style="font-size: 0.76rem; font-weight: 700; color: #0f172a;">Customs Admin</span>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
-                  <img src="assets/dept-logos/isap-accountancy.png" alt="Accountancy Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/isap-accountancy.webp" alt="Accountancy Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="52" height="52">
                   <span style="font-size: 0.76rem; font-weight: 700; color: #0f172a;">Accountancy</span>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
-                  <img src="assets/dept-logos/isap-business.png" alt="Business Administration Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/isap-business.webp" alt="Business Administration Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="52" height="52">
                   <span style="font-size: 0.76rem; font-weight: 700; color: #0f172a;">Business Admin</span>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
-                  <img src="assets/dept-logos/isap-bsed.png" alt="Secondary Education Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/isap-bsed.webp" alt="Secondary Education Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="52" height="52">
                   <span style="font-size: 0.76rem; font-weight: 700; color: #0f172a;">Secondary Educ</span>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
-                  <img src="assets/dept-logos/isap-bped.png" alt="Physical Education Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/isap-bped.webp" alt="Physical Education Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="52" height="52">
                   <span style="font-size: 0.76rem; font-weight: 700; color: #0f172a;">Physical Educ</span>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
-                  <img src="assets/dept-logos/isap-social-work.png" alt="Social Work Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/isap-social-work.webp" alt="Social Work Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="52" height="52">
                   <span style="font-size: 0.76rem; font-weight: 700; color: #0f172a;">Social Work</span>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
-                  <img src="assets/dept-logos/isap-psychology.png" alt="Psychology Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/isap-psychology.webp" alt="Psychology Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="52" height="52">
                   <span style="font-size: 0.76rem; font-weight: 700; color: #0f172a;">Psychology</span>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
-                  <img src="assets/dept-logos/isap-hospitality.png" alt="Hospitality Management Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/isap-hospitality.webp" alt="Hospitality Management Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="52" height="52">
                   <span style="font-size: 0.76rem; font-weight: 700; color: #0f172a;">Hospitality</span>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem;">
-                  <img src="assets/dept-logos/isap-tourism.png" alt="Tourism Management Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/isap-tourism.webp" alt="Tourism Management Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="52" height="52">
                   <span style="font-size: 0.76rem; font-weight: 700; color: #0f172a;">Tourism</span>
                 </div>
               </div>
@@ -1194,11 +615,11 @@
                 <div class="node-role">MCNP Research Coordinator</div>
                 <p class="node-scope">Nursing &bull; Medical Technology &bull; Radiologic Technology &bull; Pharmacy &bull; Physical Therapy</p>
                 <div style="display: flex; justify-content: center; gap: 0.45rem; margin: 0.5rem 0 0.75rem; flex-wrap: wrap;">
-                  <img src="assets/dept-logos/mcnp-nursing.png" alt="Nursing" title="College of Nursing" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
-                  <img src="assets/dept-logos/mcnp-radtech.png" alt="Radiologic Technology" title="College of Radiologic Technology" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
-                  <img src="assets/dept-logos/mcnp-mls.png" alt="Medical Laboratory Science" title="Medical Laboratory Science" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
-                  <img src="assets/dept-logos/mcnp-pt.png" alt="Physical Therapy" title="College of Physical Therapy" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
-                  <img src="assets/dept-logos/mcnp-pharmacy.png" alt="Pharmacy" title="College of Pharmacy" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/mcnp-nursing.webp" alt="Nursing" title="College of Nursing" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="32" height="32">
+                  <img src="assets/dept-logos/mcnp-radtech.webp" alt="Radiologic Technology" title="College of Radiologic Technology" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="32" height="32">
+                  <img src="assets/dept-logos/mcnp-mls.webp" alt="Medical Laboratory Science" title="Medical Laboratory Science" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="32" height="32">
+                  <img src="assets/dept-logos/mcnp-pt.webp" alt="Physical Therapy" title="College of Physical Therapy" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="32" height="32">
+                  <img src="assets/dept-logos/mcnp-pharmacy.webp" alt="Pharmacy" title="College of Pharmacy" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="32" height="32">
                 </div>
                 <div class="node-contact-pill">
                   <a href="tel:+639167511596"> +63 916 751 1596</a>
@@ -1214,14 +635,14 @@
                 <div class="node-role">ISAP Research Coordinator</div>
                 <p class="node-scope">Criminology (COCJE) &bull; Customs Administration &bull; Information Technology &bull; Education &bull; Business &bull; Arts</p>
                 <div style="display: flex; justify-content: center; gap: 0.45rem; margin: 0.5rem 0 0.75rem; flex-wrap: wrap;">
-                  <img src="assets/dept-logos/isap-cocje.png" alt="COCJE" title="College of Criminal Justice Education" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
-                  <img src="assets/dept-logos/isap-it.png" alt="IT" title="Information Technology" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
-                  <img src="assets/dept-logos/isap-computer-engineering.png" alt="CpE" title="Computer Engineering" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
-                  <img src="assets/dept-logos/isap-customs.png" alt="Customs" title="Customs Administration" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
-                  <img src="assets/dept-logos/isap-bsed.png" alt="Education" title="Teacher Education" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
-                  <img src="assets/dept-logos/isap-business.png" alt="Business" title="Business Administration" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
-                  <img src="assets/dept-logos/isap-social-work.png" alt="Social Work" title="Social Work" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
-                  <img src="assets/dept-logos/isap-hospitality.png" alt="Hospitality" title="Hospitality Management" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/isap-cocje.webp" alt="COCJE" title="College of Criminal Justice Education" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="32" height="32">
+                  <img src="assets/dept-logos/isap-it.webp" alt="IT" title="Information Technology" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="32" height="32">
+                  <img src="assets/dept-logos/isap-computer-engineering.webp" alt="CpE" title="Computer Engineering" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="32" height="32">
+                  <img src="assets/dept-logos/isap-customs.webp" alt="Customs" title="Customs Administration" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="32" height="32">
+                  <img src="assets/dept-logos/isap-bsed.webp" alt="Education" title="Teacher Education" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="32" height="32">
+                  <img src="assets/dept-logos/isap-business.webp" alt="Business" title="Business Administration" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="32" height="32">
+                  <img src="assets/dept-logos/isap-social-work.webp" alt="Social Work" title="Social Work" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="32" height="32">
+                  <img src="assets/dept-logos/isap-hospitality.webp" alt="Hospitality" title="Hospitality Management" style="width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));" loading="lazy" decoding="async" width="32" height="32">
                 </div>
                 <div class="node-contact-pill">
                   <a href="tel:+639654972865"> +63 965 497 2865</a>
@@ -1319,7 +740,7 @@
           <!-- Personnel 1: Dr. Ryan C. Fontanilla -->
           <div class="personnel-card" data-category="leadership">
             <div class="card-image-wrap" onclick="openAboutCardModal('assets/RDC%20Personal/1.png', 'Dr. Ryan C. Fontanilla, Ph.D.-EM')">
-              <img src="assets/RDC%20Personal/1.png" alt="Dr. Ryan C. Fontanilla, Ph.D.-EM - Research Director" loading="lazy" class="personnel-calling-card-img" decoding="async">
+              <img src="assets/RDC%20Personal/1.webp" alt="Dr. Ryan C. Fontanilla, Ph.D.-EM - Research Director" loading="lazy" class="personnel-calling-card-img" decoding="async" width="1050" height="600">
               <span class="card-zoom-hint"> View Card</span>
             </div>
             <div class="personnel-card-body">
@@ -1345,7 +766,7 @@
           <!-- Personnel 2: Ms. Rio Frances G. Callores -->
           <div class="personnel-card" data-category="leadership">
             <div class="card-image-wrap" onclick="openAboutCardModal('assets/RDC%20Personal/2.png', 'Ms. Rio Frances G. Callores, MSc')">
-              <img src="assets/RDC%20Personal/2.png" alt="Ms. Rio Frances G. Callores, MSc - MCNP Research Coordinator" loading="lazy" class="personnel-calling-card-img" decoding="async">
+              <img src="assets/RDC%20Personal/2.webp" alt="Ms. Rio Frances G. Callores, MSc - MCNP Research Coordinator" loading="lazy" class="personnel-calling-card-img" decoding="async" width="1050" height="600">
               <span class="card-zoom-hint"> View Card</span>
             </div>
             <div class="personnel-card-body">
@@ -1371,7 +792,7 @@
           <!-- Personnel 3: Engr. KC R. Placido -->
           <div class="personnel-card" data-category="leadership">
             <div class="card-image-wrap" onclick="openAboutCardModal('assets/RDC%20Personal/3.png', 'Engr. KC R. Placido')">
-              <img src="assets/RDC%20Personal/3.png" alt="Engr. KC R. Placido - ISAP Research Coordinator" loading="lazy" class="personnel-calling-card-img" decoding="async">
+              <img src="assets/RDC%20Personal/3.webp" alt="Engr. KC R. Placido - ISAP Research Coordinator" loading="lazy" class="personnel-calling-card-img" decoding="async" width="1050" height="600">
               <span class="card-zoom-hint"> View Card</span>
             </div>
             <div class="personnel-card-body">
@@ -1397,7 +818,7 @@
           <!-- Personnel 4: Ms. Tshaine Anne T. Labang -->
           <div class="personnel-card" data-category="statistics">
             <div class="card-image-wrap" onclick="openAboutCardModal('assets/RDC%20Personal/4.png', 'Ms. Tshaine Anne T. Labang, LPT')">
-              <img src="assets/RDC%20Personal/4.png" alt="Ms. Tshaine Anne T. Labang, LPT - Statistician for Faculty and Administration" loading="lazy" class="personnel-calling-card-img" decoding="async">
+              <img src="assets/RDC%20Personal/4.webp" alt="Ms. Tshaine Anne T. Labang, LPT - Statistician for Faculty and Administration" loading="lazy" class="personnel-calling-card-img" decoding="async" width="1050" height="600">
               <span class="card-zoom-hint"> View Card</span>
             </div>
             <div class="personnel-card-body">
@@ -1423,7 +844,7 @@
           <!-- Personnel 5: Ms. Ruchelle B. Langcay -->
           <div class="personnel-card" data-category="statistics">
             <div class="card-image-wrap" onclick="openAboutCardModal('assets/RDC%20Personal/5.png', 'Ms. Ruchelle B. Langcay')">
-              <img src="assets/RDC%20Personal/5.png" alt="Ms. Ruchelle B. Langcay - MCNP Statistician" loading="lazy" class="personnel-calling-card-img" decoding="async">
+              <img src="assets/RDC%20Personal/5.webp" alt="Ms. Ruchelle B. Langcay - MCNP Statistician" loading="lazy" class="personnel-calling-card-img" decoding="async" width="1050" height="600">
               <span class="card-zoom-hint"> View Card</span>
             </div>
             <div class="personnel-card-body">
@@ -1449,7 +870,7 @@
           <!-- Personnel 6: Ms. Maryjane B. Agabin -->
           <div class="personnel-card" data-category="statistics">
             <div class="card-image-wrap" onclick="openAboutCardModal('assets/RDC%20Personal/6.png', 'Ms. Maryjane B. Agabin')">
-              <img src="assets/RDC%20Personal/6.png" alt="Ms. Maryjane B. Agabin - ISAP Statistician" loading="lazy" class="personnel-calling-card-img" decoding="async">
+              <img src="assets/RDC%20Personal/6.webp" alt="Ms. Maryjane B. Agabin - ISAP Statistician" loading="lazy" class="personnel-calling-card-img" decoding="async" width="1050" height="600">
               <span class="card-zoom-hint"> View Card</span>
             </div>
             <div class="personnel-card-body">
@@ -1475,7 +896,7 @@
           <!-- Personnel 7: Mr. Jerald J. Guiquing -->
           <div class="personnel-card" data-category="support">
             <div class="card-image-wrap" onclick="openAboutCardModal('assets/RDC%20Personal/7.png', 'Mr. Jerald J. Guiquing')">
-              <img src="assets/RDC%20Personal/7.png" alt="Mr. Jerald J. Guiquing - IT Specialist" loading="lazy" class="personnel-calling-card-img" decoding="async">
+              <img src="assets/RDC%20Personal/7.webp" alt="Mr. Jerald J. Guiquing - IT Specialist" loading="lazy" class="personnel-calling-card-img" decoding="async" width="1050" height="600">
               <span class="card-zoom-hint"> View Card</span>
             </div>
             <div class="personnel-card-body">
@@ -1501,7 +922,7 @@
           <!-- Personnel 8: Ms. Lea M. Paddayuman -->
           <div class="personnel-card" data-category="support">
             <div class="card-image-wrap" onclick="openAboutCardModal('assets/RDC%20Personal/8.png', 'Ms. Lea M. Paddayuman')">
-              <img src="assets/RDC%20Personal/8.png" alt="Ms. Lea M. Paddayuman - Secretary" loading="lazy" class="personnel-calling-card-img" decoding="async">
+              <img src="assets/RDC%20Personal/8.webp" alt="Ms. Lea M. Paddayuman - Secretary" loading="lazy" class="personnel-calling-card-img" decoding="async" width="1050" height="600">
               <span class="card-zoom-hint"> View Card</span>
             </div>
             <div class="personnel-card-body">
@@ -3118,7 +2539,7 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js" defer></script>
+  <script src="js/main.min.js?v=862da0bf" defer></script>
 
   <!-- Lightbox Modal for Personnel Calling Card -->
   <div id="aboutCardLightboxModal" class="sr-modal-overlay" onclick="closeAboutCardModal(event)">
@@ -3132,67 +2553,6 @@
     </div>
   </div>
 
-  <script>
-    function openAboutCardModal(imgSrc, name) {
-      document.getElementById('aboutLightboxImg').src = imgSrc;
-      document.getElementById('aboutLightboxName').textContent = name + ' - Official Calling Card';
-      document.getElementById('aboutCardLightboxModal').classList.add('open');
-    }
-
-    function closeAboutCardModal(e) {
-      if (e.target.id === 'aboutCardLightboxModal') {
-        document.getElementById('aboutCardLightboxModal').classList.remove('open');
-      }
-    }
-
-    function closeAboutCardModalDirect() {
-      document.getElementById('aboutCardLightboxModal').classList.remove('open');
-    }
-
-    function filterAboutPersonnel(category, btn) {
-      var btns = document.querySelectorAll('.p-tab-btn');
-      btns.forEach(function(b) { b.classList.remove('active'); });
-      if (btn) btn.classList.add('active');
-      var cards = document.querySelectorAll('#rdc-personnel .personnel-card');
-      cards.forEach(function(card) {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-  
-    function filterQmsForms(phase, btn) {
-      var btns = document.querySelectorAll('.qms-tab-btn');
-      btns.forEach(function(b) {
-        b.classList.remove('active');
-      });
-      if (btn) {
-        btn.classList.add('active');
-      }
-      var rows = document.querySelectorAll('.qms-row');
-      rows.forEach(function(r) {
-        if (phase === 'all' || r.getAttribute('data-phase') === phase) {
-          r.style.display = '';
-        } else {
-          r.style.display = 'none';
-        }
-      });
-    }
-
-    function searchQmsForms() {
-      var query = document.getElementById('qmsSearchInput').value.toLowerCase();
-      var rows = document.querySelectorAll('.qms-row');
-      rows.forEach(function(r) {
-        var text = r.textContent.toLowerCase();
-        if (text.indexOf(query) !== -1) {
-          r.style.display = '';
-        } else {
-          r.style.display = 'none';
-        }
-      });
-    }
-</script>
+  <script src="js/pages/about-rdc.min.js?v=ac144658"></script>
 </body>
 </html>

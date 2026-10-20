@@ -179,8 +179,13 @@ img {
 
 .dropdown-link-flip {
   border-top: 1px dashed var(--border-color);
-  color: #b89726;
+  color: #785c07;
   font-size: 0.82rem;
+}
+
+.dropdown-link-flip:hover,
+.dropdown-link-flip:focus-visible {
+  color: #ffdf70;
 }
 
 .news-section {
@@ -502,7 +507,8 @@ img {
 }
 
 .nav-item:hover .dropdown-menu,
-.nav-item:focus-within .dropdown-menu {
+.nav-item:focus-within .dropdown-menu,
+.nav-item.open .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -521,7 +527,9 @@ img {
   transition: var(--transition);
 }
 
-.dropdown-link:hover {
+.dropdown-link:hover,
+.dropdown-link:focus-visible,
+.dropdown-link.active {
   background: #111;
   color: #fff;
   padding-left: 1.4rem;
@@ -533,22 +541,43 @@ img {
   border-radius: 4px;
   font-weight: 700;
   background: #e2e8f0;
-  color: #475569;
+  color: #334155;
 }
 
 .badge-mcnp {
-  background: rgba(30, 94, 168, 0.12);
-  color: #1e5ea8;
+  background: rgba(30, 94, 168, 0.14);
+  color: #154682;
 }
 
 .badge-isap {
-  background: rgba(122, 31, 45, 0.12);
-  color: #7a1f2d;
+  background: rgba(122, 31, 45, 0.14);
+  color: #6e1926;
 }
 
 .badge-admin {
-  background: rgba(212, 175, 55, 0.2);
-  color: #926f0d;
+  background: rgba(212, 175, 55, 0.24);
+  color: #6b4e00;
+}
+
+.dropdown-link:hover .badge-mcnp,
+.dropdown-link:focus-visible .badge-mcnp,
+.dropdown-link.active .badge-mcnp {
+  background: #dbeafe;
+  color: #0d3b73;
+}
+
+.dropdown-link:hover .badge-isap,
+.dropdown-link:focus-visible .badge-isap,
+.dropdown-link.active .badge-isap {
+  background: #ffe4e6;
+  color: #6e1926;
+}
+
+.dropdown-link:hover .badge-admin,
+.dropdown-link:focus-visible .badge-admin,
+.dropdown-link.active .badge-admin {
+  background: #ffdf70;
+  color: #1a202c;
 }
 
 .quick-access-section {
@@ -744,18 +773,22 @@ img {
 /* Mobile Toggle */
 .mobile-toggle {
   display: none;
-  width: 42px;
-  height: 42px;
+  width: auto;
+  min-width: 44px;
+  height: 40px;
   align-items: center;
   justify-content: center;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: 6px;
-  font-size: 1.4rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   line-height: 1;
   color: #fff;
   cursor: pointer;
-  padding: 0;
+  padding: 0 0.75rem;
   transition: var(--transition);
   user-select: none;
   -webkit-tap-highlight-color: transparent;

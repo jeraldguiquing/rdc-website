@@ -35,436 +35,29 @@
   <meta name="twitter:title" content="Research Resources &amp; Documentation Archive | MCNP &amp; ISAP RDC">
   <meta name="twitter:description" content="Filter research documentation per course, download institutional ethics clearances, research manuals, and QMS forms for MCNP and ISAP.">
   <meta name="twitter:image" content="https://jeraldguiquing.github.io/rdc-website/assets/rdc-logo.png">
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/style.min.css?v=0b2db07b">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap">
 
 
-  <style>
-    :root { --accent-theme: #0f172a; }
-    
-    /* Filter Per Course Container */
-    .course-filter-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 1.5rem 1.75rem;
-      margin: 0 auto 2.25rem;
-      max-width: 1040px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
-    }
-    .course-filter-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 1.15rem;
-      padding-bottom: 0.85rem;
-      border-bottom: 1px solid #f1f5f9;
-    }
-    .course-filter-label {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #1e293b;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .course-filter-label i {
-      color: var(--accent-theme, #1e5ea8);
-      font-size: 1.1rem;
-    }
-    .course-filter-count {
-      font-size: 0.82rem;
-      color: #475569;
-      font-weight: 600;
-      background: #f1f5f9;
-      padding: 0.3rem 0.85rem;
-      border-radius: 20px;
-    }
-
-    .course-pills-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-    }
-    .course-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.5rem 1rem;
-      border-radius: 24px;
-      border: 1px solid #cbd5e1;
-      background: #ffffff;
-      color: #334155;
-      font-size: 0.84rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      user-select: none;
-      font-family: inherit;
-    }
-    .course-pill:hover {
-      border-color: var(--accent-theme, #1e5ea8);
-      color: var(--accent-theme, #1e5ea8);
-      background: #f8fafc;
-      transform: translateY(-1px);
-    }
-    .course-pill.active {
-      background: var(--accent-theme, #1e5ea8);
-      color: #ffffff;
-      border-color: var(--accent-theme, #1e5ea8);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.14);
-    }
-
-    /* Documentation Title Accordion Styles */
-    .doc-filter-bar {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-      justify-content: center;
-    }
-    .doc-filter-btn {
-      padding: 0.55rem 1.25rem;
-      border-radius: 25px;
-      border: 1px solid #cbd5e1;
-      background: #ffffff;
-      color: #334155;
-      font-size: 0.88rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      font-family: inherit;
-    }
-    .doc-filter-btn:hover, .doc-filter-btn.active {
-      background: #0f172a;
-      color: #ffffff;
-      border-color: #0f172a;
-    }
-
-    .doc-accordion-container {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 1040px;
-      margin: 0 auto 3.5rem;
-    }
-
-    .doc-item {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      overflow: hidden;
-      transition: all 0.25s ease;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-    }
-    .doc-item:hover {
-      border-color: #cbd5e1;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-    }
-    .doc-item.open {
-      border-color: var(--accent-theme, #1e5ea8);
-      box-shadow: 0 8px 24px rgba(30,94,168,0.12);
-    }
-
-    /* ONLY TITLE IS VISIBLE INITIALLY */
-    .doc-title-trigger {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.25rem 1.5rem;
-      background: #ffffff;
-      border: none;
-      text-align: left;
-      cursor: pointer;
-      font-family: inherit;
-      transition: background 0.2s ease;
-      gap: 1rem;
-    }
-    .doc-title-trigger:hover {
-      background: #f8fafc;
-    }
-    .doc-item.open .doc-title-trigger {
-      background: #f1f5f9;
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    .doc-title-left {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.85rem;
-      flex-grow: 1;
-      min-width: 0;
-    }
-    .doc-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 9px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.15rem;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .icon-mcnp { background: rgba(30, 94, 168, 0.12); color: #1e5ea8; }
-    .icon-isap { background: rgba(122, 31, 45, 0.12); color: #7a1f2d; }
-    .icon-video { background: rgba(225, 29, 72, 0.12); color: #e11d48; }
-    .icon-form { background: rgba(13, 92, 58, 0.12); color: #0d5c3a; }
-
-    .doc-title-heading {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #0f172a;
-      letter-spacing: 0.01em;
-      margin: 0;
-      line-height: 1.3;
-    }
-    .doc-title-meta {
-      font-size: 0.8rem;
-      color: #64748b;
-      margin-top: 0.15rem;
-      font-weight: 500;
-    }
-
-    /* Course Badges inside Title Trigger */
-    .doc-course-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.45rem;
-    }
-    .doc-course-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      font-size: 0.72rem;
-      font-weight: 600;
-      padding: 0.16rem 0.5rem;
-      border-radius: 6px;
-      background: #f1f5f9;
-      color: #475569;
-      border: 1px solid #e2e8f0;
-      transition: all 0.2s ease;
-    }
-    .doc-item.open .doc-course-badge {
-      background: #ffffff;
-      border-color: #cbd5e1;
-    }
-
-    .doc-title-right {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      flex-shrink: 0;
-    }
-    .doc-count-pill {
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 0.25rem 0.65rem;
-      border-radius: 20px;
-      background: #e2e8f0;
-      color: #334155;
-    }
-    .doc-toggle-arrow {
-      font-size: 1rem;
-      color: #64748b;
-      transition: transform 0.3s ease;
-      display: inline-block;
-    }
-    .doc-item.open .doc-toggle-arrow {
-      transform: rotate(180deg);
-      color: var(--accent-theme, #1e5ea8);
-    }
-
-    /* COLLAPSIBLE MEDIA BODY */
-    .doc-media-body {
-      display: none;
-      padding: 1.75rem;
-      background: #fafcff;
-      animation: fadeInDoc 0.25s ease-in;
-    }
-    .doc-item.open .doc-media-body {
-      display: block;
-    }
-
-    @keyframes fadeInDoc {
-      from { opacity: 0; transform: translateY(-6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .doc-desc {
-      font-size: 0.95rem;
-      color: #475569;
-      line-height: 1.65;
-      margin-bottom: 1.5rem;
-      max-width: 820px;
-    }
-
-    .doc-gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 1rem;
-    }
-    .doc-gallery-thumb {
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid #e2e8f0;
-      background: #ffffff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .doc-gallery-thumb:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-    }
-    .doc-gallery-thumb img {
-      width: 100%;
-      height: 165px;
-      object-fit: cover;
-      display: block;
-    }
-    .doc-gallery-thumb .thumb-zoom-icon {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 1.5rem;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-    }
-    .doc-gallery-thumb:hover .thumb-zoom-icon {
-      opacity: 1;
-    }
-
-    .doc-video-card {
-      border-radius: 12px;
-      overflow: hidden;
-      background: #000;
-      max-width: 820px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-      margin-top: 1rem;
-    }
-    .doc-video-card video {
-      width: 100%;
-      max-height: 460px;
-      display: block;
-    }
-
-    .doc-forms-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 0.85rem;
-      margin-top: 1rem;
-    }
-    .doc-form-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-      transition: all 0.2s ease;
-      text-decoration: none;
-      color: inherit;
-    }
-    .doc-form-item:hover {
-      border-color: #0f172a;
-      background: #f8fafc;
-      transform: translateY(-2px);
-    }
-    .doc-form-left {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: #1e293b;
-    }
-
-    /* Lightbox Modal */
-    .doc-lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 99999;
-      background: rgba(15, 23, 42, 0.94);
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-    }
-    .doc-lightbox.active {
-      display: flex;
-    }
-    .doc-lightbox-img {
-      max-width: 90vw;
-      max-height: 85vh;
-      border-radius: 8px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-      object-fit: contain;
-    }
-    .doc-lightbox-close {
-      position: absolute;
-      top: 1.5rem;
-      right: 2rem;
-      background: rgba(255,255,255,0.15);
-      color: #ffffff;
-      border: none;
-      font-size: 1.75rem;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s ease;
-    }
-    .doc-lightbox-close:hover {
-      background: rgba(255,255,255,0.3);
-    }
-    .doc-lightbox-caption {
-      position: absolute;
-      bottom: 1.5rem;
-      color: #e2e8f0;
-      font-size: 0.95rem;
-      text-align: center;
-      max-width: 80%;
-      background: rgba(0,0,0,0.6);
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-    }
-
-  </style>
+  <link rel="stylesheet" href="css/pages/resources.min.css?v=9868822b">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- BEGIN:SITE-HEADER -->
   <!-- Top Institutional Bar -->
   <header class="topbar">
     <div class="container">
       <div class="topbar-info">
-        <span> Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
-        <span> <a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
-        <span> (+63) 998 9847 781</span>
+        <span>Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
+        <span><a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
+        <span><a href="tel:+639989847781" style="color:inherit">(+63) 998 984 7781</a></span>
       </div>
       <div class="topbar-right">
-        <a href="call-for-proposals.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 700; font-size: 0.78rem;"> Calls for Proposals (Open)</a>
-        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;"> FAQs</a>
-        <a href="calendar.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;"> Schedule Calendar</a>
+        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;">FAQs</a>
+        <a href="calendar.html" style="color: #ffffff; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">Schedule Calendar</a>
         <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
       </div>
     </div>
@@ -476,7 +69,7 @@
       <div class="header-inner">
         <a href="index.html" class="brand-wrapper">
           <div class="brand-logos">
-            <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.png" alt="MCNP and ISAP" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific" loading="lazy" decoding="async">
+            <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.webp" alt="MCNP and ISAP Official Seals" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific" width="44" height="44" loading="lazy" decoding="async">
           </div>
           <div class="brand-text">
             <span class="brand-title">MCNP <span>&amp; ISAP</span> RDC</span>
@@ -492,20 +85,20 @@
 
             <!-- Dropdown: ABOUT INSTITUTION -->
             <li class="nav-item dropdown">
-              <a href="about-mcnp.html" class="nav-link">
+              <a href="about-mcnp.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 ABOUT INSTITUTION
               </a>
               <div class="dropdown-menu">
                 <a href="about-mcnp.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>Medical Colleges of Northern Philippines</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
                 <a href="about-isap.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>International School of Asia and the Pacific</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -515,7 +108,7 @@
 
             <!-- Dropdown: ABOUT RDC -->
             <li class="nav-item dropdown">
-              <a href="about-rdc.html" class="nav-link">
+              <a href="about-rdc.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 ABOUT RDC
               </a>
               <div class="dropdown-menu">
@@ -540,7 +133,7 @@
 
             <!-- Dropdown: JOURNAL -->
             <li class="nav-item dropdown">
-              <a href="journal.html" class="nav-link">
+              <a href="journal.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 JOURNALS
               </a>
               <div class="dropdown-menu">
@@ -560,8 +153,8 @@
                   <span>Journal of Admin (Faculty Research)</span>
                   <span class="dropdown-badge badge-admin">ADMIN</span>
                 </a>
-                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link" style="border-top: 1px dashed var(--border-color); color: #b89726; font-size: 0.82rem;">
-                  <span>Direct Online FlipBook </span>
+                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link dropdown-link-flip">
+                  <span>Direct Online FlipBook</span>
                   <span class="dropdown-badge badge-admin">FlipHTML5</span>
                 </a>
               </div>
@@ -569,20 +162,20 @@
 
             <!-- Dropdown: UTILIZATION -->
             <li class="nav-item dropdown">
-              <a href="utilization.html" class="nav-link">
+              <a href="utilization.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 UTILIZATION
               </a>
               <div class="dropdown-menu">
-                <a href="utilization.html#mcnp" class="dropdown-link">
+                <a href="utilization.html#mcnp" id="nav-util-mcnp" class="dropdown-link" onclick="if(window.filterUtilizationWing){filterUtilizationWing('mcnp');}">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>MCNP Health Sciences Wing</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
-                <a href="utilization.html#isap" class="dropdown-link">
+                <a href="utilization.html#isap" id="nav-util-isap" class="dropdown-link" onclick="if(window.filterUtilizationWing){filterUtilizationWing('isap');}">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>ISAP Multidisciplinary Wing</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -594,22 +187,22 @@
               <a href="experience.html" class="nav-link">EXPERIENCE</a>
             </li>
 
-                                                <!-- Dropdown: RESOURCES -->
+            <!-- Dropdown: RESOURCES -->
             <li class="nav-item dropdown">
-              <a href="resources-mcnp.html" class="nav-link">
+              <a href="resources-mcnp.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 RESOURCES
               </a>
               <div class="dropdown-menu">
                 <a href="resources-mcnp.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>Medical Colleges of Northern Philippines</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
                 <a href="resources-isap.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>International School of Asia and the Pacific</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -617,17 +210,18 @@
               </div>
             </li>
 
+            <!-- Dropdown: NEWS & EVENTS -->
             <li class="nav-item dropdown">
-              <a href="news-events.html" class="nav-link">
+              <a href="news-events.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 NEWS &amp; EVENTS
               </a>
               <div class="dropdown-menu">
                 <a href="news-events.html#articles" class="dropdown-link">
-                  <span> Research Articles &amp; Stories</span>
+                  <span>Research Articles &amp; Stories</span>
                   <span class="dropdown-badge badge-mcnp">ARTICLES</span>
                 </a>
                 <a href="news-events.html#events" class="dropdown-link">
-                  <span> Events &amp; Colloquiums</span>
+                  <span>Events &amp; Colloquiums</span>
                   <span class="dropdown-badge badge-isap">EVENTS</span>
                 </a>
                 <a href="calendar.html" class="dropdown-link">
@@ -647,10 +241,11 @@
           </ul>
         </nav>
 
-        <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span class="mobile-toggle-icon" aria-hidden="true">&#9776;</span></button>
+        <button class="mobile-toggle" aria-label="Open navigation">Menu</button>
       </div>
     </div>
   </header>
+  <!-- END:SITE-HEADER -->
 
   <!-- Page Hero -->
   <section class="page-hero">
@@ -932,159 +527,9 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js" defer></script>
+  <script src="js/main.min.js?v=862da0bf" defer></script>
   
-  <script>
-    // Title Click Accordion Logic
-    document.querySelectorAll('.doc-title-trigger').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.doc-item');
-        const isOpen = item.classList.contains('open');
-        
-        if (isOpen) {
-          item.classList.remove('open');
-          btn.setAttribute('aria-expanded', 'false');
-        } else {
-          item.classList.add('open');
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-
-    // Course & Category Filtering Logic
-    let currentCourseFilter = 'all';
-    let currentCategoryFilter = 'all';
-
-    function applyResourceFilters() {
-      const items = document.querySelectorAll('.doc-item');
-      let visibleCount = 0;
-      const mcnpCourses = ['pharmacy', 'nursing', 'mls', 'radtech', 'pt'];
-      const isapCourses = ['criminology', 'it', 'computer-eng', 'tourism', 'hospitality', 'social-work', 'psychology', 'bsed', 'bped', 'accountancy', 'customs', 'business'];
-
-      const isMcnpCourse = mcnpCourses.includes(currentCourseFilter);
-      const isIsapCourse = isapCourses.includes(currentCourseFilter);
-
-      const isAll = (currentCategoryFilter === 'all' && currentCourseFilter === 'all');
-      const showMcnp = (currentCategoryFilter === 'mcnp') || isMcnpCourse || isAll;
-      const showIsap = (currentCategoryFilter === 'isap') || isIsapCourse || isAll;
-
-      const mcnpNotice = document.getElementById('mcnpNoticeBanner');
-      const isapNotice = document.getElementById('isapNoticeBanner');
-
-      if (mcnpNotice) {
-        mcnpNotice.style.display = showMcnp ? 'block' : 'none';
-      }
-      if (isapNotice) {
-        isapNotice.style.display = showIsap ? 'block' : 'none';
-      }
-
-      items.forEach(item => {
-        const rawCourses = item.getAttribute('data-courses') || '';
-        const courseList = rawCourses.trim().split(/\s+/);
-        const itemCat = item.getAttribute('data-category') || 'all';
-
-        const matchesCourse = (currentCourseFilter === 'all') || 
-                              courseList.includes(currentCourseFilter) || 
-                              courseList.includes('all');
-        const matchesCat = (currentCategoryFilter === 'all') || 
-                            (itemCat === currentCategoryFilter);
-
-        if (matchesCourse && matchesCat && !isMcnpCourse && !isIsapCourse && currentCategoryFilter !== 'mcnp' && currentCategoryFilter !== 'isap') {
-          item.style.display = 'block';
-          visibleCount++;
-        } else {
-          item.style.display = 'none';
-          item.classList.remove('open');
-          const trigger = item.querySelector('.doc-title-trigger');
-          if (trigger) trigger.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      const countEl = document.getElementById('visibleDocCount');
-      if (countEl) {
-        if (currentCategoryFilter === 'mcnp' || isMcnpCourse) {
-          countEl.textContent = 'MCNP Documentation in curation (Coming Soon)';
-        } else if (currentCategoryFilter === 'isap' || isIsapCourse) {
-          countEl.textContent = 'ISAP Documentation in curation (Coming Soon)';
-        } else if (isAll) {
-          countEl.textContent = 'Institutional archives in curation • 2 featured resources available';
-        } else {
-          countEl.textContent = visibleCount + ' resource' + (visibleCount === 1 ? '' : 's') + ' available';
-        }
-      }
-
-      const emptyMsg = document.getElementById('docEmptyState');
-      if (emptyMsg) {
-        emptyMsg.style.display = (visibleCount === 0 && !showMcnp && !showIsap) ? 'block' : 'none';
-      }
-    }
-
-    // Course Filter Pills
-    document.querySelectorAll('.course-pill').forEach(pill => {
-      pill.addEventListener('click', () => {
-        document.querySelectorAll('.course-pill').forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
-        currentCourseFilter = pill.getAttribute('data-course');
-        applyResourceFilters();
-      });
-    });
-
-    // Institutional / Category Filter Buttons (Unified Portal)
-    document.querySelectorAll('.doc-filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.doc-filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentCategoryFilter = btn.getAttribute('data-filter');
-        applyResourceFilters();
-      });
-    });
-
-    // Global Reset Filter function
-    window.resetDocFilters = function() {
-      currentCourseFilter = 'all';
-      currentCategoryFilter = 'all';
-      document.querySelectorAll('.course-pill').forEach(p => {
-        if (p.getAttribute('data-course') === 'all') p.classList.add('active');
-        else p.classList.remove('active');
-      });
-      document.querySelectorAll('.doc-filter-btn').forEach(b => {
-        if (b.getAttribute('data-filter') === 'all') b.classList.add('active');
-        else b.classList.remove('active');
-      });
-      applyResourceFilters();
-    };
-
-    // Lightbox Logic
-    const lightbox = document.getElementById('docLightbox');
-    const lightboxImg = document.getElementById('docLightboxImg');
-    const lightboxCaption = document.getElementById('docLightboxCaption');
-    const lightboxClose = document.getElementById('docLightboxClose');
-
-    if (lightbox) {
-      document.querySelectorAll('.doc-gallery-thumb').forEach(thumb => {
-        thumb.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const img = thumb.querySelector('img');
-          if (img) {
-            lightboxImg.src = img.src;
-            lightboxCaption.textContent = img.alt || 'Institutional Research Documentation';
-            lightbox.classList.add('active');
-          }
-        });
-      });
-
-      lightboxClose?.addEventListener('click', () => lightbox.classList.remove('active'));
-      lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) lightbox.classList.remove('active');
-      });
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') lightbox.classList.remove('active');
-      });
-    }
-
-    // Run initial filter count
-    applyResourceFilters();
-  </script>
+  <script src="js/pages/resources.min.js?v=6ee66ddb"></script>
 
 </body>
 </html>

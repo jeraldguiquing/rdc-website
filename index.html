@@ -38,7 +38,7 @@
   <meta name="twitter:description" content="Official Research &amp; Development Center of MCNP and ISAP. Fostering research innovation, ethics, and community leadership.">
   <meta name="twitter:image" content="assets/rdc-logo.png">
 
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/style.min.css?v=0b2db07b">
   <!-- Structured Data: EducationalOrganization & WebSite -->
   <script type="application/ld+json">
   {
@@ -93,6 +93,7 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- BEGIN:SITE-HEADER -->
   <!-- Top Institutional Bar -->
   <header class="topbar">
     <div class="container">
@@ -104,7 +105,7 @@
       <div class="topbar-right">
         <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;">FAQs</a>
         <a href="calendar.html" style="color: #ffffff; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">Schedule Calendar</a>
-        <a href="journal-admin.html"  style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
+        <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
       </div>
     </div>
   </header>
@@ -115,10 +116,10 @@
       <div class="header-inner">
         <a href="index.html" class="brand-wrapper">
           <div class="brand-logos">
-            <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.png" alt="MCNP and ISAP" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific" loading="lazy" decoding="async">
+            <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.webp" alt="MCNP and ISAP Official Seals" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific" width="44" height="44" loading="lazy" decoding="async">
           </div>
           <div class="brand-text">
-            <h1>MCNP <span>&amp; ISAP</span> RDC</h1>
+            <span class="brand-title">MCNP <span>&amp; ISAP</span> RDC</span>
             <p>Research &amp; Development Center</p>
           </div>
         </a>
@@ -129,21 +130,22 @@
               <a href="index.html" class="nav-link active">HOME</a>
             </li>
 
+            <!-- Dropdown: ABOUT INSTITUTION -->
             <li class="nav-item dropdown">
-              <a href="about-mcnp.html" class="nav-link">
+              <a href="about-mcnp.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 ABOUT INSTITUTION
               </a>
               <div class="dropdown-menu">
                 <a href="about-mcnp.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>Medical Colleges of Northern Philippines</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
                 <a href="about-isap.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>International School of Asia and the Pacific</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -153,7 +155,7 @@
 
             <!-- Dropdown: ABOUT RDC -->
             <li class="nav-item dropdown">
-              <a href="about-rdc.html" class="nav-link">
+              <a href="about-rdc.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 ABOUT RDC
               </a>
               <div class="dropdown-menu">
@@ -176,8 +178,9 @@
               <a href="rdc-agenda.html" class="nav-link">RDC AGENDA</a>
             </li>
 
+            <!-- Dropdown: JOURNAL -->
             <li class="nav-item dropdown">
-              <a href="journal.html" class="nav-link">
+              <a href="journal.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 JOURNALS
               </a>
               <div class="dropdown-menu">
@@ -197,7 +200,7 @@
                   <span>Journal of Admin (Faculty Research)</span>
                   <span class="dropdown-badge badge-admin">ADMIN</span>
                 </a>
-                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link" style="border-top: 1px dashed var(--border-color); color: #b89726; font-size: 0.82rem;">
+                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link dropdown-link-flip">
                   <span>Direct Online FlipBook</span>
                   <span class="dropdown-badge badge-admin">FlipHTML5</span>
                 </a>
@@ -206,20 +209,20 @@
 
             <!-- Dropdown: UTILIZATION -->
             <li class="nav-item dropdown">
-              <a href="utilization.html" class="nav-link">
+              <a href="utilization.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 UTILIZATION
               </a>
               <div class="dropdown-menu">
-                <a href="utilization.html#mcnp" class="dropdown-link">
+                <a href="utilization.html#mcnp" id="nav-util-mcnp" class="dropdown-link" onclick="if(window.filterUtilizationWing){filterUtilizationWing('mcnp');}">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>MCNP Health Sciences Wing</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
-                <a href="utilization.html#isap" class="dropdown-link">
+                <a href="utilization.html#isap" id="nav-util-isap" class="dropdown-link" onclick="if(window.filterUtilizationWing){filterUtilizationWing('isap');}">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>ISAP Multidisciplinary Wing</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -231,22 +234,22 @@
               <a href="experience.html" class="nav-link">EXPERIENCE</a>
             </li>
 
-                                                <!-- Dropdown: RESOURCES -->
+            <!-- Dropdown: RESOURCES -->
             <li class="nav-item dropdown">
-              <a href="resources-mcnp.html" class="nav-link">
+              <a href="resources-mcnp.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 RESOURCES
               </a>
               <div class="dropdown-menu">
                 <a href="resources-mcnp.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>Medical Colleges of Northern Philippines</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
                 <a href="resources-isap.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>International School of Asia and the Pacific</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -254,8 +257,9 @@
               </div>
             </li>
 
+            <!-- Dropdown: NEWS & EVENTS -->
             <li class="nav-item dropdown">
-              <a href="news-events.html" class="nav-link">
+              <a href="news-events.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 NEWS &amp; EVENTS
               </a>
               <div class="dropdown-menu">
@@ -284,10 +288,11 @@
           </ul>
         </nav>
 
-        <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span class="mobile-toggle-icon" aria-hidden="true">&#9776;</span></button>
+        <button class="mobile-toggle" aria-label="Open navigation">Menu</button>
       </div>
     </div>
   </header>
+  <!-- END:SITE-HEADER -->
 
   <!-- Hero Section -->
   <section class="hero-section" id="main-content">
@@ -310,7 +315,7 @@
         <div class="hero-visual">
           <div class="hero-logo-wrapper">
             <div class="hero-logo-glow"></div>
-            <img src="assets/rdc-logo.png" alt="MCNP &amp; ISAP Research &amp; Development Center Official Emblem" class="hero-rdc-logo" loading="lazy" decoding="async">
+            <img src="assets/rdc-logo.webp" alt="MCNP &amp; ISAP Research &amp; Development Center Official Emblem" class="hero-rdc-logo" loading="lazy" decoding="async" width="838" height="1024">
           </div>
         </div>
       </div>
@@ -333,7 +338,7 @@
             <!-- Left Side Thumbnail -->
             <div class="featured-article-thumb-wrap">
               <a href="news-events.html?article=article-rdc-digital-platform" class="featured-article-thumb-link" aria-label="Read full article on RDC Digital Platform">
-                <img src="upload/rdc-website-platform.png" alt="MCNP–ISAP RDC Digital Platform Website" class="featured-article-thumb-img" style="object-position: top center;" loading="lazy" decoding="async">
+                <img src="upload/rdc-website-platform.webp" alt="MCNP–ISAP RDC Digital Platform Website" class="featured-article-thumb-img" style="object-position: top center;" loading="lazy" decoding="async" width="1024" height="517">
               </a>
             </div>
 
@@ -360,13 +365,13 @@
                   <span class="featured-align-label">Aligned SDGs:</span>
                   <div class="featured-align-icons">
                     <a href="adg-advocacy.html" title="SDG 9: Industry, Innovation and Infrastructure">
-                      <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9: Industry, Innovation and Infrastructure" loading="lazy" decoding="async">
+                      <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.webp" alt="SDG 9: Industry, Innovation and Infrastructure" loading="lazy" decoding="async" width="1500" height="1500">
                     </a>
                     <a href="adg-advocacy.html" title="SDG 16: Peace, Justice and Strong Institutions">
-                      <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-16.png" alt="SDG 16: Peace, Justice and Strong Institutions" loading="lazy" decoding="async">
+                      <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-16.webp" alt="SDG 16: Peace, Justice and Strong Institutions" loading="lazy" decoding="async" width="1500" height="1500">
                     </a>
                     <a href="adg-advocacy.html" title="SDG 4: Quality Education">
-                      <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png" alt="SDG 4: Quality Education" loading="lazy" decoding="async">
+                      <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.webp" alt="SDG 4: Quality Education" loading="lazy" decoding="async" width="1500" height="1500">
                     </a>
                   </div>
                 </div>
@@ -376,16 +381,16 @@
                   <span class="featured-align-label">RDC Agenda:</span>
                   <div class="featured-align-icons">
                     <a href="rdc-agenda.html#pillar-navigate" title="NAVIGATE: Digital Innovation &amp; Infrastructure">
-                      <img src="assets/agenda/agenda-3-navigate.png" alt="NAVIGATE" loading="lazy" decoding="async">
+                      <img src="assets/agenda/agenda-3-navigate.webp" alt="NAVIGATE" loading="lazy" decoding="async" width="278" height="217">
                     </a>
                     <a href="rdc-agenda.html#pillar-inspire" title="INSPIRE: Research Culture &amp; Capability">
-                      <img src="assets/agenda/agenda-1-inspire.png" alt="INSPIRE" loading="lazy" decoding="async">
+                      <img src="assets/agenda/agenda-1-inspire.webp" alt="INSPIRE" loading="lazy" decoding="async" width="278" height="222">
                     </a>
                     <a href="rdc-agenda.html#pillar-operationalize" title="OPERATIONALIZE: Research Utilization &amp; Innovation">
-                      <img src="assets/agenda/agenda-4-operationalize.png" alt="OPERATIONALIZE" loading="lazy" decoding="async">
+                      <img src="assets/agenda/agenda-4-operationalize.webp" alt="OPERATIONALIZE" loading="lazy" decoding="async" width="316" height="205">
                     </a>
                     <a href="rdc-agenda.html#pillar-strengthen" title="STRENGTHEN: Education &amp; Institutional Performance">
-                      <img src="assets/agenda/agenda-9-strengthen.png" alt="STRENGTHEN" loading="lazy" decoding="async">
+                      <img src="assets/agenda/agenda-9-strengthen.webp" alt="STRENGTHEN" loading="lazy" decoding="async" width="292" height="208">
                     </a>
                   </div>
                 </div>
@@ -405,7 +410,7 @@
             <!-- Left Side Thumbnail -->
             <div class="featured-article-thumb-wrap">
               <a href="news-events.html?article=article-37th-statistics-month-celebration" class="featured-article-thumb-link" aria-label="Read full article on 37th Statistics Month Celebration">
-                <img src="upload/stats-month-provincial-winners.jpg" alt="MCNP–ISAP 37th Statistics Month Provincial Delegation" class="featured-article-thumb-img" loading="lazy" decoding="async">
+                <img src="upload/stats-month-provincial-winners.webp" alt="MCNP–ISAP 37th Statistics Month Provincial Delegation" class="featured-article-thumb-img" loading="lazy" decoding="async" width="1024" height="576">
               </a>
             </div>
 
@@ -432,13 +437,13 @@
                   <span class="featured-align-label">Aligned SDGs:</span>
                   <div class="featured-align-icons">
                     <a href="adg-advocacy.html" title="SDG 4: Quality Education">
-                      <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png" alt="SDG 4: Quality Education" loading="lazy" decoding="async">
+                      <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.webp" alt="SDG 4: Quality Education" loading="lazy" decoding="async" width="1500" height="1500">
                     </a>
                     <a href="adg-advocacy.html" title="SDG 9: Industry, Innovation and Infrastructure">
-                      <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9: Industry, Innovation &amp; Infrastructure" loading="lazy" decoding="async">
+                      <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.webp" alt="SDG 9: Industry, Innovation &amp; Infrastructure" loading="lazy" decoding="async" width="1500" height="1500">
                     </a>
                     <a href="adg-advocacy.html" title="SDG 17: Partnerships for the Goals">
-                      <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.png" alt="SDG 17: Partnerships for the Goals" loading="lazy" decoding="async">
+                      <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.webp" alt="SDG 17: Partnerships for the Goals" loading="lazy" decoding="async" width="1500" height="1500">
                     </a>
                   </div>
                 </div>
@@ -448,19 +453,19 @@
                   <span class="featured-align-label">RDC Agenda:</span>
                   <div class="featured-align-icons">
                     <a href="rdc-agenda.html#pillar-inspire" title="INSPIRE: Research Culture &amp; Capability">
-                      <img src="assets/agenda/agenda-1-inspire.png" alt="INSPIRE" loading="lazy" decoding="async">
+                      <img src="assets/agenda/agenda-1-inspire.webp" alt="INSPIRE" loading="lazy" decoding="async" width="278" height="222">
                     </a>
                     <a href="rdc-agenda.html#pillar-navigate" title="NAVIGATE: Digital Innovation &amp; Infrastructure">
-                      <img src="assets/agenda/agenda-3-navigate.png" alt="NAVIGATE" loading="lazy" decoding="async">
+                      <img src="assets/agenda/agenda-3-navigate.webp" alt="NAVIGATE" loading="lazy" decoding="async" width="278" height="217">
                     </a>
                     <a href="rdc-agenda.html#pillar-operationalize" title="OPERATIONALIZE: Research Utilization &amp; Innovation">
-                      <img src="assets/agenda/agenda-4-operationalize.png" alt="OPERATIONALIZE" loading="lazy" decoding="async">
+                      <img src="assets/agenda/agenda-4-operationalize.webp" alt="OPERATIONALIZE" loading="lazy" decoding="async" width="316" height="205">
                     </a>
                     <a href="rdc-agenda.html#pillar-expand" title="EXPAND: Partnerships &amp; Global Research">
-                      <img src="assets/agenda/agenda-8-expand.png" alt="EXPAND" loading="lazy" decoding="async">
+                      <img src="assets/agenda/agenda-8-expand.webp" alt="EXPAND" loading="lazy" decoding="async" width="242" height="217">
                     </a>
                     <a href="rdc-agenda.html#pillar-strengthen" title="STRENGTHEN: Education &amp; Institutional Performance">
-                      <img src="assets/agenda/agenda-9-strengthen.png" alt="STRENGTHEN" loading="lazy" decoding="async">
+                      <img src="assets/agenda/agenda-9-strengthen.webp" alt="STRENGTHEN" loading="lazy" decoding="async" width="292" height="208">
                     </a>
                   </div>
                 </div>
@@ -490,7 +495,7 @@
         <!-- Card 1: Statistical Month 2026 Data Infographics (Sep 25, 2026) -->
         <article class="news-card">
           <div class="news-thumbnail news-thumb-photo">
-            <img src="upload/data-interpretation-5.jpg" alt="Data Interpretation and Infographics Activity" class="news-thumb-bg" loading="lazy" decoding="async">
+            <img src="upload/data-interpretation-5.webp" alt="Data Interpretation and Infographics Activity" class="news-thumb-bg" loading="lazy" decoding="async" width="2048" height="1152">
             <div class="news-thumb-overlay"></div>
             <span class="news-date-badge">Sep 25, 2026</span>
             <div class="news-thumb-text">
@@ -510,8 +515,8 @@
               </p>
               <div style="display: flex; align-items: center; gap: 0.35rem; margin-top: 0.65rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
                 <span style="font-size: 0.7rem; font-weight: 700; color: #64748b; text-transform: uppercase;">SDGs:</span>
-                <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png" alt="SDG 4" style="width: 18px; height: 18px; border-radius: 2px; vertical-align: middle;" title="SDG 4: Quality Education" loading="lazy" decoding="async">
-                <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9" style="width: 18px; height: 18px; border-radius: 2px; vertical-align: middle;" title="SDG 9: Industry, Innovation &amp; Infrastructure" loading="lazy" decoding="async">
+                <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.webp" alt="SDG 4" style="width: 18px; height: 18px; border-radius: 2px; vertical-align: middle;" title="SDG 4: Quality Education" loading="lazy" decoding="async" width="18" height="18">
+                <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.webp" alt="SDG 9" style="width: 18px; height: 18px; border-radius: 2px; vertical-align: middle;" title="SDG 9: Industry, Innovation &amp; Infrastructure" loading="lazy" decoding="async" width="18" height="18">
               </div>
             </div>
             <div class="news-footer-action">
@@ -524,7 +529,7 @@
         <!-- Card 2: Poster-Making Contest Showcase (Sep 24, 2026) -->
         <article class="news-card">
           <div class="news-thumbnail news-thumb-photo">
-            <img src="upload/poster-activity-1.jpg" alt="Winning Entries Showcase: MCNP-ISAP Statistical Month Poster-Making Contest" class="news-thumb-bg" loading="lazy" decoding="async">
+            <img src="upload/poster-activity-1.webp" alt="Winning Entries Showcase: MCNP-ISAP Statistical Month Poster-Making Contest" class="news-thumb-bg" loading="lazy" decoding="async" width="2048" height="1536">
             <div class="news-thumb-overlay"></div>
             <span class="news-date-badge">Sep 24, 2026</span>
             <div class="news-thumb-text">
@@ -544,8 +549,8 @@
               </p>
               <div style="display: flex; align-items: center; gap: 0.35rem; margin-top: 0.65rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
                 <span style="font-size: 0.7rem; font-weight: 700; color: #64748b; text-transform: uppercase;">SDGs:</span>
-                <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png" alt="SDG 4" style="width: 18px; height: 18px; border-radius: 2px; vertical-align: middle;" title="SDG 4: Quality Education" loading="lazy" decoding="async">
-                <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9" style="width: 18px; height: 18px; border-radius: 2px; vertical-align: middle;" title="SDG 9: Industry, Innovation &amp; Infrastructure" loading="lazy" decoding="async">
+                <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.webp" alt="SDG 4" style="width: 18px; height: 18px; border-radius: 2px; vertical-align: middle;" title="SDG 4: Quality Education" loading="lazy" decoding="async" width="18" height="18">
+                <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.webp" alt="SDG 9" style="width: 18px; height: 18px; border-radius: 2px; vertical-align: middle;" title="SDG 9: Industry, Innovation &amp; Infrastructure" loading="lazy" decoding="async" width="18" height="18">
               </div>
             </div>
             <div class="news-footer-action">
@@ -558,7 +563,7 @@
         <!-- Card 3: Statistical Month Institutional Quiz Bee (Sep 21, 2026) -->
         <article class="news-card">
           <div class="news-thumbnail news-thumb-photo">
-            <img src="upload/quiz-bee-13.jpg" alt="MCNP-ISAP Statistical Month Institutional Quiz Bee" class="news-thumb-bg" loading="lazy" decoding="async">
+            <img src="upload/quiz-bee-13.webp" alt="MCNP-ISAP Statistical Month Institutional Quiz Bee" class="news-thumb-bg" loading="lazy" decoding="async" width="2048" height="1152">
             <div class="news-thumb-overlay"></div>
             <span class="news-date-badge">Sep 21, 2026</span>
             <div class="news-thumb-text">
@@ -578,9 +583,9 @@
               </p>
               <div style="display: flex; align-items: center; gap: 0.35rem; margin-top: 0.65rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
                 <span style="font-size: 0.7rem; font-weight: 700; color: #64748b; text-transform: uppercase;">SDGs:</span>
-                <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png" alt="SDG 4" style="width: 18px; height: 18px; border-radius: 2px; vertical-align: middle;" title="SDG 4: Quality Education" loading="lazy" decoding="async">
-                <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png" alt="SDG 9" style="width: 18px; height: 18px; border-radius: 2px; vertical-align: middle;" title="SDG 9: Industry, Innovation &amp; Infrastructure" loading="lazy" decoding="async">
-                <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.png" alt="SDG 17" style="width: 18px; height: 18px; border-radius: 2px; vertical-align: middle;" title="SDG 17: Partnerships for the Goals" loading="lazy" decoding="async">
+                <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.webp" alt="SDG 4" style="width: 18px; height: 18px; border-radius: 2px; vertical-align: middle;" title="SDG 4: Quality Education" loading="lazy" decoding="async" width="18" height="18">
+                <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.webp" alt="SDG 9" style="width: 18px; height: 18px; border-radius: 2px; vertical-align: middle;" title="SDG 9: Industry, Innovation &amp; Infrastructure" loading="lazy" decoding="async" width="18" height="18">
+                <img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.webp" alt="SDG 17" style="width: 18px; height: 18px; border-radius: 2px; vertical-align: middle;" title="SDG 17: Partnerships for the Goals" loading="lazy" decoding="async" width="18" height="18">
               </div>
             </div>
             <div class="news-footer-action">
@@ -721,7 +726,7 @@
         <article class="inst-card">
           <div class="inst-banner inst-banner-mcnp">
             <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 0.85rem;">
-              <img src="assets/Mcnp_Logo.png" alt="MCNP Official Seal" style="width: 78px; height: 78px; object-fit: contain; filter: drop-shadow(0 6px 16px rgba(0,0,0,0.4)); flex-shrink: 0;" loading="lazy" decoding="async">
+              <img src="assets/Mcnp_Logo.webp" alt="MCNP Official Seal" style="width: 78px; height: 78px; object-fit: contain; filter: drop-shadow(0 6px 16px rgba(0,0,0,0.4)); flex-shrink: 0;" loading="lazy" decoding="async" width="78" height="78">
             </div>
             <h3 style="text-align: center;">Medical Colleges of Northern Philippines</h3>
           </div>
@@ -736,7 +741,7 @@
         <article class="inst-card">
           <div class="inst-banner inst-banner-isap">
             <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 0.85rem;">
-              <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Official Seal" style="width: 78px; height: 78px; object-fit: contain; filter: drop-shadow(0 6px 16px rgba(0,0,0,0.4)); flex-shrink: 0;" loading="lazy" decoding="async">
+              <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Official Seal" style="width: 78px; height: 78px; object-fit: contain; filter: drop-shadow(0 6px 16px rgba(0,0,0,0.4)); flex-shrink: 0;" loading="lazy" decoding="async" width="78" height="78">
             </div>
             <h3 style="text-align: center;">International School of Asia and the Pacific</h3>
           </div>
@@ -880,7 +885,7 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js" defer></script>
+  <script src="js/main.min.js?v=862da0bf" defer></script>
   <script src="js/calendar-counts.js" defer></script>
 </body>
 </html>

@@ -31,386 +31,26 @@
   <meta property="og:description" content="Connect with the RDC Secretariat, submit online inquiries for statistical consultations, ethics clearance (IERC), Turnitin checks, and research partnerships.">
   <meta property="og:image" content="assets/rdc-logo.png">
 
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/style.min.css?v=0b2db07b">
 
 
-  <style>
-    /* Online Inquiry Portal Tabs & Cards */
-    .portal-nav-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-bottom: 2rem;
-      background: #f1f5f9;
-      padding: 0.4rem;
-      border-radius: 12px;
-      border: 1px solid var(--border-color, #e2e8f0);
-    }
-    .portal-pill-btn {
-      flex: 1 1 180px;
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
-      border: none;
-      background: transparent;
-      color: var(--muted-text, #596780);
-      font-weight: 700;
-      font-size: 0.86rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      transition: all 0.2s ease;
-    }
-    .portal-pill-btn:hover {
-      background: rgba(255,255,255,0.7);
-      color: var(--dark-text, #1a202c);
-    }
-    .portal-pill-btn.active {
-      background: #ffffff;
-      color: var(--mcnp-green, #1e5ea8);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    }
-
-    /* Desk Cards Grid */
-    .desk-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 3.5rem;
-    }
-    .desk-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color, #e2e8f0);
-      border-radius: 12px;
-      padding: 1.75rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-      transition: all 0.25s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .desk-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.07);
-      border-color: var(--gold, #d4af37);
-    }
-    .desk-icon-wrap {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
-      background: rgba(30, 94, 168, 0.08);
-      color: var(--mcnp-green, #1e5ea8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.35rem;
-      margin-bottom: 1rem;
-    }
-    .desk-card.isap-theme .desk-icon-wrap {
-      background: rgba(122, 31, 45, 0.08);
-      color: var(--isap-blue, #7a1f2d);
-    }
-    .desk-card.gold-theme .desk-icon-wrap {
-      background: rgba(212, 175, 55, 0.12);
-      color: #996515;
-    }
-    .desk-title {
-      font-size: 1.12rem;
-      font-weight: 700;
-      color: var(--dark-text, #1a202c);
-      margin-bottom: 0.35rem;
-    }
-    .desk-focal {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--gold-hover, #b89726);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-bottom: 0.75rem;
-    }
-    .desk-desc {
-      font-size: 0.88rem;
-      color: #64748b;
-      line-height: 1.55;
-      margin-bottom: 1.25rem;
-      flex-grow: 1;
-    }
-    .desk-contact-row {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.84rem;
-      color: #334155;
-      margin-top: 0.4rem;
-    }
-    .desk-contact-row i {
-      color: var(--muted-text, #596780);
-      width: 16px;
-    }
-
-    /* Personnel Directory Cards Grid */
-    .personnel-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.75rem;
-      margin-bottom: 3.5rem;
-    }
-    .personnel-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color, #e2e8f0);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
-      transition: all 0.28s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .personnel-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.09);
-      border-color: var(--gold, #d4af37);
-    }
-    .card-image-wrap {
-      position: relative;
-      background: #0f172a;
-      overflow: hidden;
-      cursor: pointer;
-      aspect-ratio: 1050 / 600;
-    }
-    .personnel-calling-card-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.35s ease;
-    }
-    .card-image-wrap:hover .personnel-calling-card-img {
-      transform: scale(1.03);
-    }
-    .card-zoom-hint {
-      position: absolute;
-      bottom: 8px;
-      right: 8px;
-      background: rgba(15, 23, 42, 0.82);
-      color: #ffffff;
-      font-size: 0.72rem;
-      font-weight: 600;
-      padding: 0.25rem 0.65rem;
-      border-radius: 20px;
-      backdrop-filter: blur(4px);
-      opacity: 0;
-      transition: opacity 0.2s ease;
-      pointer-events: none;
-    }
-    .card-image-wrap:hover .card-zoom-hint {
-      opacity: 1;
-    }
-    .personnel-card-body {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    .personnel-badge {
-      display: inline-block;
-      align-self: flex-start;
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 0.25rem 0.65rem;
-      border-radius: 6px;
-      margin-bottom: 0.6rem;
-    }
-    .badge-exec { background: rgba(212, 175, 55, 0.15); color: #92400e; border: 1px solid rgba(212, 175, 55, 0.4); }
-    .badge-mcnp-unit { background: rgba(30, 94, 168, 0.1); color: #1e5ea8; border: 1px solid rgba(30, 94, 168, 0.25); }
-    .badge-isap-unit { background: rgba(122, 31, 45, 0.1); color: #7a1f2d; border: 1px solid rgba(122, 31, 45, 0.25); }
-    .badge-tech-unit { background: rgba(16, 185, 129, 0.1); color: #047857; border: 1px solid rgba(16, 185, 129, 0.25); }
-    
-    .personnel-name {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: #0f172a;
-      margin: 0 0 0.25rem;
-      line-height: 1.35;
-    }
-    .personnel-role {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--mcnp-green, #1e5ea8);
-      margin-bottom: 0.75rem;
-    }
-    .personnel-desc {
-      font-size: 0.85rem;
-      color: #64748b;
-      line-height: 1.55;
-      margin-bottom: 1.1rem;
-      flex-grow: 1;
-    }
-    .personnel-meta {
-      background: #f8fafc;
-      border-radius: 8px;
-      padding: 0.75rem 0.9rem;
-      margin-bottom: 1.15rem;
-      font-size: 0.82rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-    .personnel-meta-item {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      color: #334155;
-      word-break: break-all;
-    }
-    .personnel-meta-item i {
-      color: var(--muted-text, #64748b);
-      width: 15px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-    .personnel-meta-item a {
-      color: inherit;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .personnel-meta-item a:hover {
-      color: var(--mcnp-green, #1e5ea8);
-      text-decoration: underline;
-    }
-    .personnel-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1.2fr;
-      gap: 0.5rem;
-    }
-    .p-act-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 0.5rem 0.6rem;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-    .p-act-btn.call-btn {
-      background: #f1f5f9;
-      color: #0f172a;
-      border: 1px solid #cbd5e1;
-    }
-    .p-act-btn.call-btn:hover {
-      background: #e2e8f0;
-      color: #0f172a;
-    }
-    .p-act-btn.mail-btn {
-      background: #f1f5f9;
-      color: #0f172a;
-      border: 1px solid #cbd5e1;
-    }
-    .p-act-btn.mail-btn:hover {
-      background: #e2e8f0;
-      color: #0f172a;
-    }
-    .p-act-btn.req-btn {
-      background: linear-gradient(135deg, #1e5ea8 0%, #16467d 100%);
-      color: #ffffff;
-      border: 1px solid #1e5ea8;
-    }
-    .p-act-btn.req-btn:hover {
-      background: #16467d;
-      color: #ffffff;
-    }
-
-    /* Personnel Filter Tabs */
-    .personnel-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-    }
-    .p-tab-btn {
-      padding: 0.5rem 1.1rem;
-      border-radius: 20px;
-      font-size: 0.84rem;
-      font-weight: 600;
-      border: 1px solid #cbd5e1;
-      background: #ffffff;
-      color: #475569;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .p-tab-btn.active, .p-tab-btn:hover {
-      background: #1e5ea8;
-      color: #ffffff;
-      border-color: #1e5ea8;
-    }
-
-    
-
-    /* Modals */
-    .sr-modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(4px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 3000;
-      padding: 1.5rem;
-    }
-    .sr-modal-overlay.open { display: flex; }
-    .sr-modal {
-      background: #ffffff;
-      max-width: 580px;
-      width: 100%;
-      border-radius: 14px;
-      padding: 2.5rem;
-      text-align: center;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
-      animation: modalSlideUp 0.22s ease-out;
-    }
-    @keyframes modalSlideUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    .sr-modal-icon {
-      width: 72px;
-      height: 72px;
-      background: #dcfce7;
-      color: #16a34a;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      margin: 0 auto 1.5rem;
-    }
-  
-    
-
-  </style>
+  <link rel="stylesheet" href="css/pages/contact.min.css?v=0dfa23fa">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- BEGIN:SITE-HEADER -->
   <!-- Top Institutional Bar -->
   <header class="topbar">
     <div class="container">
       <div class="topbar-info">
-        <span> Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
-        <span> <a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
-        <span> <a href="tel:+639989847781" style="color:inherit">(+63) 998 984 7781</a></span>
+        <span>Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
+        <span><a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
+        <span><a href="tel:+639989847781" style="color:inherit">(+63) 998 984 7781</a></span>
       </div>
       <div class="topbar-right">
-        <a href="call-for-proposals.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 700; font-size: 0.78rem;"> Calls for Proposals (Open)</a>
-        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;"> FAQs</a>
-        <a href="calendar.html" style="color: #ffffff; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;"> Schedule Calendar</a>
+        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;">FAQs</a>
+        <a href="calendar.html" style="color: #ffffff; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">Schedule Calendar</a>
         <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
       </div>
     </div>
@@ -422,7 +62,7 @@
       <div class="header-inner">
         <a href="index.html" class="brand-wrapper">
           <div class="brand-logos">
-            <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.png" alt="MCNP and ISAP" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific" loading="lazy" decoding="async">
+            <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.webp" alt="MCNP and ISAP Official Seals" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific" width="44" height="44" loading="lazy" decoding="async">
           </div>
           <div class="brand-text">
             <span class="brand-title">MCNP <span>&amp; ISAP</span> RDC</span>
@@ -438,20 +78,20 @@
 
             <!-- Dropdown: ABOUT INSTITUTION -->
             <li class="nav-item dropdown">
-              <a href="about-mcnp.html" class="nav-link">
+              <a href="about-mcnp.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 ABOUT INSTITUTION
               </a>
               <div class="dropdown-menu">
                 <a href="about-mcnp.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>Medical Colleges of Northern Philippines</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
                 <a href="about-isap.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>International School of Asia and the Pacific</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -461,7 +101,7 @@
 
             <!-- Dropdown: ABOUT RDC -->
             <li class="nav-item dropdown">
-              <a href="about-rdc.html" class="nav-link">
+              <a href="about-rdc.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 ABOUT RDC
               </a>
               <div class="dropdown-menu">
@@ -486,7 +126,7 @@
 
             <!-- Dropdown: JOURNAL -->
             <li class="nav-item dropdown">
-              <a href="journal.html" class="nav-link">
+              <a href="journal.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 JOURNALS
               </a>
               <div class="dropdown-menu">
@@ -506,8 +146,8 @@
                   <span>Journal of Admin (Faculty Research)</span>
                   <span class="dropdown-badge badge-admin">ADMIN</span>
                 </a>
-                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link" style="border-top: 1px dashed var(--border-color); color: #b89726; font-size: 0.82rem;">
-                  <span>Direct Online FlipBook </span>
+                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link dropdown-link-flip">
+                  <span>Direct Online FlipBook</span>
                   <span class="dropdown-badge badge-admin">FlipHTML5</span>
                 </a>
               </div>
@@ -515,20 +155,20 @@
 
             <!-- Dropdown: UTILIZATION -->
             <li class="nav-item dropdown">
-              <a href="utilization.html" class="nav-link">
+              <a href="utilization.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 UTILIZATION
               </a>
               <div class="dropdown-menu">
-                <a href="utilization.html#mcnp" class="dropdown-link">
+                <a href="utilization.html#mcnp" id="nav-util-mcnp" class="dropdown-link" onclick="if(window.filterUtilizationWing){filterUtilizationWing('mcnp');}">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>MCNP Health Sciences Wing</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
-                <a href="utilization.html#isap" class="dropdown-link">
+                <a href="utilization.html#isap" id="nav-util-isap" class="dropdown-link" onclick="if(window.filterUtilizationWing){filterUtilizationWing('isap');}">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>ISAP Multidisciplinary Wing</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -540,22 +180,22 @@
               <a href="experience.html" class="nav-link">EXPERIENCE</a>
             </li>
 
-                                                <!-- Dropdown: RESOURCES -->
+            <!-- Dropdown: RESOURCES -->
             <li class="nav-item dropdown">
-              <a href="resources-mcnp.html" class="nav-link">
+              <a href="resources-mcnp.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 RESOURCES
               </a>
               <div class="dropdown-menu">
                 <a href="resources-mcnp.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>Medical Colleges of Northern Philippines</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
                 <a href="resources-isap.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>International School of Asia and the Pacific</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -563,17 +203,18 @@
               </div>
             </li>
 
+            <!-- Dropdown: NEWS & EVENTS -->
             <li class="nav-item dropdown">
-              <a href="news-events.html" class="nav-link">
+              <a href="news-events.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 NEWS &amp; EVENTS
               </a>
               <div class="dropdown-menu">
                 <a href="news-events.html#articles" class="dropdown-link">
-                  <span> Research Articles &amp; Stories</span>
+                  <span>Research Articles &amp; Stories</span>
                   <span class="dropdown-badge badge-mcnp">ARTICLES</span>
                 </a>
                 <a href="news-events.html#events" class="dropdown-link">
-                  <span> Events &amp; Colloquiums</span>
+                  <span>Events &amp; Colloquiums</span>
                   <span class="dropdown-badge badge-isap">EVENTS</span>
                 </a>
                 <a href="calendar.html" class="dropdown-link">
@@ -587,17 +228,17 @@
               <a href="adg-advocacy.html" class="nav-link">SDG ADVOCACIES</a>
             </li>
 
-            <!-- 8. CONTACT -->
             <li class="nav-item">
               <a href="contact.html" class="nav-link active">CONTACT</a>
             </li>
           </ul>
         </nav>
 
-        <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span class="mobile-toggle-icon" aria-hidden="true">&#9776;</span></button>
+        <button class="mobile-toggle" aria-label="Open navigation">Menu</button>
       </div>
     </div>
   </header>
+  <!-- END:SITE-HEADER -->
 
   <!-- Page Hero -->
   <section class="page-hero">
@@ -654,7 +295,7 @@
           <!-- Personnel 1: Dr. Ryan C. Fontanilla -->
           <div class="personnel-card" data-category="leadership">
             <div class="card-image-wrap" onclick="openCardModal('assets/RDC%20Personal/1.png', 'Dr. Ryan C. Fontanilla, Ph.D.-EM')">
-              <img src="assets/RDC%20Personal/1.png" alt="Dr. Ryan C. Fontanilla, Ph.D.-EM - Research Director" loading="lazy" class="personnel-calling-card-img" decoding="async">
+              <img src="assets/RDC%20Personal/1.webp" alt="Dr. Ryan C. Fontanilla, Ph.D.-EM - Research Director" loading="lazy" class="personnel-calling-card-img" decoding="async" width="1050" height="600">
               <span class="card-zoom-hint"> View Card</span>
             </div>
             <div class="personnel-card-body">
@@ -680,7 +321,7 @@
           <!-- Personnel 2: Ms. Rio Frances G. Callores -->
           <div class="personnel-card" data-category="leadership">
             <div class="card-image-wrap" onclick="openCardModal('assets/RDC%20Personal/2.png', 'Ms. Rio Frances G. Callores, MSc')">
-              <img src="assets/RDC%20Personal/2.png" alt="Ms. Rio Frances G. Callores, MSc - MCNP Research Coordinator" loading="lazy" class="personnel-calling-card-img" decoding="async">
+              <img src="assets/RDC%20Personal/2.webp" alt="Ms. Rio Frances G. Callores, MSc - MCNP Research Coordinator" loading="lazy" class="personnel-calling-card-img" decoding="async" width="1050" height="600">
               <span class="card-zoom-hint"> View Card</span>
             </div>
             <div class="personnel-card-body">
@@ -706,7 +347,7 @@
           <!-- Personnel 3: Engr. KC R. Placido -->
           <div class="personnel-card" data-category="leadership">
             <div class="card-image-wrap" onclick="openCardModal('assets/RDC%20Personal/3.png', 'Engr. KC R. Placido')">
-              <img src="assets/RDC%20Personal/3.png" alt="Engr. KC R. Placido - ISAP Research Coordinator" loading="lazy" class="personnel-calling-card-img" decoding="async">
+              <img src="assets/RDC%20Personal/3.webp" alt="Engr. KC R. Placido - ISAP Research Coordinator" loading="lazy" class="personnel-calling-card-img" decoding="async" width="1050" height="600">
               <span class="card-zoom-hint"> View Card</span>
             </div>
             <div class="personnel-card-body">
@@ -732,7 +373,7 @@
           <!-- Personnel 4: Ms. Tshaine Anne T. Labang -->
           <div class="personnel-card" data-category="statistics">
             <div class="card-image-wrap" onclick="openCardModal('assets/RDC%20Personal/4.png', 'Ms. Tshaine Anne T. Labang, LPT')">
-              <img src="assets/RDC%20Personal/4.png" alt="Ms. Tshaine Anne T. Labang, LPT - Statistician for Faculty and Administration" loading="lazy" class="personnel-calling-card-img" decoding="async">
+              <img src="assets/RDC%20Personal/4.webp" alt="Ms. Tshaine Anne T. Labang, LPT - Statistician for Faculty and Administration" loading="lazy" class="personnel-calling-card-img" decoding="async" width="1050" height="600">
               <span class="card-zoom-hint"> View Card</span>
             </div>
             <div class="personnel-card-body">
@@ -758,7 +399,7 @@
           <!-- Personnel 5: Ms. Ruchelle B. Langcay -->
           <div class="personnel-card" data-category="statistics">
             <div class="card-image-wrap" onclick="openCardModal('assets/RDC%20Personal/5.png', 'Ms. Ruchelle B. Langcay')">
-              <img src="assets/RDC%20Personal/5.png" alt="Ms. Ruchelle B. Langcay - MCNP Statistician" loading="lazy" class="personnel-calling-card-img" decoding="async">
+              <img src="assets/RDC%20Personal/5.webp" alt="Ms. Ruchelle B. Langcay - MCNP Statistician" loading="lazy" class="personnel-calling-card-img" decoding="async" width="1050" height="600">
               <span class="card-zoom-hint"> View Card</span>
             </div>
             <div class="personnel-card-body">
@@ -784,7 +425,7 @@
           <!-- Personnel 6: Ms. Maryjane B. Agabin -->
           <div class="personnel-card" data-category="statistics">
             <div class="card-image-wrap" onclick="openCardModal('assets/RDC%20Personal/6.png', 'Ms. Maryjane B. Agabin')">
-              <img src="assets/RDC%20Personal/6.png" alt="Ms. Maryjane B. Agabin - ISAP Statistician" loading="lazy" class="personnel-calling-card-img" decoding="async">
+              <img src="assets/RDC%20Personal/6.webp" alt="Ms. Maryjane B. Agabin - ISAP Statistician" loading="lazy" class="personnel-calling-card-img" decoding="async" width="1050" height="600">
               <span class="card-zoom-hint"> View Card</span>
             </div>
             <div class="personnel-card-body">
@@ -810,7 +451,7 @@
           <!-- Personnel 7: Mr. Jerald J. Guiquing -->
           <div class="personnel-card" data-category="support">
             <div class="card-image-wrap" onclick="openCardModal('assets/RDC%20Personal/7.png', 'Mr. Jerald J. Guiquing')">
-              <img src="assets/RDC%20Personal/7.png" alt="Mr. Jerald J. Guiquing - IT Specialist" loading="lazy" class="personnel-calling-card-img" decoding="async">
+              <img src="assets/RDC%20Personal/7.webp" alt="Mr. Jerald J. Guiquing - IT Specialist" loading="lazy" class="personnel-calling-card-img" decoding="async" width="1050" height="600">
               <span class="card-zoom-hint"> View Card</span>
             </div>
             <div class="personnel-card-body">
@@ -836,7 +477,7 @@
           <!-- Personnel 8: Ms. Lea M. Paddayuman -->
           <div class="personnel-card" data-category="support">
             <div class="card-image-wrap" onclick="openCardModal('assets/RDC%20Personal/8.png', 'Ms. Lea M. Paddayuman')">
-              <img src="assets/RDC%20Personal/8.png" alt="Ms. Lea M. Paddayuman - Secretary" loading="lazy" class="personnel-calling-card-img" decoding="async">
+              <img src="assets/RDC%20Personal/8.webp" alt="Ms. Lea M. Paddayuman - Secretary" loading="lazy" class="personnel-calling-card-img" decoding="async" width="1050" height="600">
               <span class="card-zoom-hint"> View Card</span>
             </div>
             <div class="personnel-card-body">
@@ -1167,93 +808,8 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js" defer></script>
-  <script>
-    function handleInquirySubmit(e) {
-      e.preventDefault();
-      var name = document.getElementById('inqName').value.trim();
-      var email = document.getElementById('inqEmail').value.trim();
-      var phone = document.getElementById('inqPhone').value.trim();
-      var topic = document.getElementById('inqTopic').value;
-      var subject = document.getElementById('inqSubject').value.trim();
-      var message = document.getElementById('inqMessage').value.trim();
-      var emailSubject = '[RDC Inquiry] ' + subject;
-      var emailBody = [
-        'Name: ' + name,
-        'Email: ' + email,
-        'Contact number: ' + (phone || 'Not provided'),
-        'Inquiry topic: ' + topic,
-        '',
-        'Message:',
-        message
-      ].join('\n');
-      var mailtoUrl = 'mailto:researchoffice@mcnp.edu.ph?subject=' +
-        encodeURIComponent(emailSubject) + '&body=' + encodeURIComponent(emailBody);
-
-      window.location.href = mailtoUrl;
-    }
-
-    function openCardModal(imgSrc, name) {
-      document.getElementById('lightboxImg').src = imgSrc;
-      document.getElementById('lightboxName').textContent = name + ' - Official Calling Card';
-      document.getElementById('cardLightboxModal').classList.add('open');
-    }
-
-    function closeCardModal(e) {
-      if (e.target.id === 'cardLightboxModal') {
-        document.getElementById('cardLightboxModal').classList.remove('open');
-      }
-    }
-
-    function closeCardModalDirect() {
-      document.getElementById('cardLightboxModal').classList.remove('open');
-    }
-
-    function filterPersonnel(category, btn) {
-      var btns = document.querySelectorAll('.p-tab-btn');
-      btns.forEach(function(b) { b.classList.remove('active'); });
-      if (btn) btn.classList.add('active');
-      var cards = document.querySelectorAll('.personnel-card');
-      cards.forEach(function(card) {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    function selectServiceForPerson(topicKey) {
-      var selectElem = document.getElementById('inqTopic');
-      if (selectElem && topicKey) {
-        var map = {
-          'general': 'General Inquiry',
-          'training': 'General Inquiry',
-          'stats': 'Statistical Consultation',
-          'statistics': 'Statistical Consultation',
-          'ethics': 'Ethics Clearance (IERC)',
-          'turnitin': 'Turnitin & Journal Publishing',
-          'defense': 'Defense & SOP Scheduling'
-        };
-        if (map[topicKey.toLowerCase()]) {
-          selectElem.value = map[topicKey.toLowerCase()];
-        }
-      }
-      var formElem = document.getElementById('online-request');
-      if (formElem) {
-        formElem.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-
-    // Auto-select topic if URL param present
-    document.addEventListener('DOMContentLoaded', function() {
-      var params = new URLSearchParams(window.location.search);
-      var inq = params.get('inquiry') || params.get('service');
-      if (inq) {
-        selectServiceForPerson(inq.toLowerCase());
-      }
-    });
-  </script>
+  <script src="js/main.min.js?v=862da0bf" defer></script>
+  <script src="js/pages/contact.min.js?v=56841f7a"></script>
   <!-- Lightbox Modal for Personnel Calling Card -->
   <div id="cardLightboxModal" class="sr-modal-overlay" onclick="closeCardModal(event)">
     <div class="sr-modal" style="max-width: 720px; padding: 1.5rem; background: #0f172a; color: #fff; text-align: center; border: 1px solid rgba(255,255,255,0.15);" onclick="event.stopPropagation()">

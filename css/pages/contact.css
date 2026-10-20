@@ -1,0 +1,356 @@
+    /* Online Inquiry Portal Tabs & Cards */
+    .portal-nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+      background: #f1f5f9;
+      padding: 0.4rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color, #e2e8f0);
+    }
+    .portal-pill-btn {
+      flex: 1 1 180px;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      color: var(--muted-text, #596780);
+      font-weight: 700;
+      font-size: 0.86rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+    .portal-pill-btn:hover {
+      background: rgba(255,255,255,0.7);
+      color: var(--dark-text, #1a202c);
+    }
+    .portal-pill-btn.active {
+      background: #ffffff;
+      color: var(--mcnp-green, #1e5ea8);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    /* Desk Cards Grid */
+    .desk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .desk-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color, #e2e8f0);
+      border-radius: 12px;
+      padding: 1.75rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .desk-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.07);
+      border-color: var(--gold, #d4af37);
+    }
+    .desk-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: rgba(30, 94, 168, 0.08);
+      color: var(--mcnp-green, #1e5ea8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+    }
+    .desk-card.isap-theme .desk-icon-wrap {
+      background: rgba(122, 31, 45, 0.08);
+      color: var(--isap-blue, #7a1f2d);
+    }
+    .desk-card.gold-theme .desk-icon-wrap {
+      background: rgba(212, 175, 55, 0.12);
+      color: #996515;
+    }
+    .desk-title {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--dark-text, #1a202c);
+      margin-bottom: 0.35rem;
+    }
+    .desk-focal {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gold-hover, #b89726);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+    }
+    .desk-desc {
+      font-size: 0.88rem;
+      color: #64748b;
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+    .desk-contact-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.84rem;
+      color: #334155;
+      margin-top: 0.4rem;
+    }
+    .desk-contact-row i {
+      color: var(--muted-text, #596780);
+      width: 16px;
+    }
+
+    /* Personnel Directory Cards Grid */
+    .personnel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 3.5rem;
+    }
+    .personnel-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color, #e2e8f0);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+      transition: all 0.28s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .personnel-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.09);
+      border-color: var(--gold, #d4af37);
+    }
+    .card-image-wrap {
+      position: relative;
+      background: #0f172a;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 1050 / 600;
+    }
+    .personnel-calling-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+    .card-image-wrap:hover .personnel-calling-card-img {
+      transform: scale(1.03);
+    }
+    .card-zoom-hint {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(15, 23, 42, 0.82);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+    .card-image-wrap:hover .card-zoom-hint {
+      opacity: 1;
+    }
+    .personnel-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .personnel-badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      margin-bottom: 0.6rem;
+    }
+    .badge-exec { background: rgba(212, 175, 55, 0.15); color: #92400e; border: 1px solid rgba(212, 175, 55, 0.4); }
+    .badge-mcnp-unit { background: rgba(30, 94, 168, 0.1); color: #1e5ea8; border: 1px solid rgba(30, 94, 168, 0.25); }
+    .badge-isap-unit { background: rgba(122, 31, 45, 0.1); color: #7a1f2d; border: 1px solid rgba(122, 31, 45, 0.25); }
+    .badge-tech-unit { background: rgba(16, 185, 129, 0.1); color: #047857; border: 1px solid rgba(16, 185, 129, 0.25); }
+    
+    .personnel-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 0.25rem;
+      line-height: 1.35;
+    }
+    .personnel-role {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--mcnp-green, #1e5ea8);
+      margin-bottom: 0.75rem;
+    }
+    .personnel-desc {
+      font-size: 0.85rem;
+      color: #64748b;
+      line-height: 1.55;
+      margin-bottom: 1.1rem;
+      flex-grow: 1;
+    }
+    .personnel-meta {
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 0.75rem 0.9rem;
+      margin-bottom: 1.15rem;
+      font-size: 0.82rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .personnel-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: #334155;
+      word-break: break-all;
+    }
+    .personnel-meta-item i {
+      color: var(--muted-text, #64748b);
+      width: 15px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .personnel-meta-item a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .personnel-meta-item a:hover {
+      color: var(--mcnp-green, #1e5ea8);
+      text-decoration: underline;
+    }
+    .personnel-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.2fr;
+      gap: 0.5rem;
+    }
+    .p-act-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.5rem 0.6rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .p-act-btn.call-btn {
+      background: #f1f5f9;
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+    }
+    .p-act-btn.call-btn:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .p-act-btn.mail-btn {
+      background: #f1f5f9;
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+    }
+    .p-act-btn.mail-btn:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .p-act-btn.req-btn {
+      background: linear-gradient(135deg, #1e5ea8 0%, #16467d 100%);
+      color: #ffffff;
+      border: 1px solid #1e5ea8;
+    }
+    .p-act-btn.req-btn:hover {
+      background: #16467d;
+      color: #ffffff;
+    }
+
+    /* Personnel Filter Tabs */
+    .personnel-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .p-tab-btn {
+      padding: 0.5rem 1.1rem;
+      border-radius: 20px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .p-tab-btn.active, .p-tab-btn:hover {
+      background: #1e5ea8;
+      color: #ffffff;
+      border-color: #1e5ea8;
+    }
+
+    
+
+    /* Modals */
+    .sr-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 3000;
+      padding: 1.5rem;
+    }
+    .sr-modal-overlay.open { display: flex; }
+    .sr-modal {
+      background: #ffffff;
+      max-width: 580px;
+      width: 100%;
+      border-radius: 14px;
+      padding: 2.5rem;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+      animation: modalSlideUp 0.22s ease-out;
+    }
+    @keyframes modalSlideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .sr-modal-icon {
+      width: 72px;
+      height: 72px;
+      background: #dcfce7;
+      color: #16a34a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin: 0 auto 1.5rem;
+    }

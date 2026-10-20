@@ -5,8 +5,10 @@
 
 User-agent: *
 Allow: /
+Disallow: /partials/
+Disallow: /tools/
+Disallow: /scratch/
 
 # Host & Primary Sitemap
 Host: https://jeraldguiquing.github.io
 Sitemap: https://jeraldguiquing.github.io/rdc-website/sitemap.xml
-

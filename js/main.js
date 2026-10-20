@@ -66,18 +66,18 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileToggle.setAttribute('aria-expanded', 'false');
     mobileToggle.setAttribute('aria-label', 'Open navigation');
 
-    const HAMBURGER_ICON = '<span class="mobile-toggle-icon" aria-hidden="true">&#9776;</span>';
-    const CLOSE_ICON = '<span class="mobile-toggle-icon" aria-hidden="true">&times;</span>';
+    const HAMBURGER_ICON = 'Menu';
+    const CLOSE_ICON = 'Close';
 
-    // Ensure initial button content is set to hamburger
-    mobileToggle.innerHTML = HAMBURGER_ICON;
+    // Ensure initial button content is set to Menu
+    mobileToggle.textContent = HAMBURGER_ICON;
 
     const closeMobileNav = () => {
       navMenu.classList.remove('active');
       document.body.classList.remove('nav-open');
       mobileToggle.setAttribute('aria-expanded', 'false');
       mobileToggle.setAttribute('aria-label', 'Open navigation');
-      mobileToggle.innerHTML = HAMBURGER_ICON;
+      mobileToggle.textContent = HAMBURGER_ICON;
       navMenu.querySelectorAll('.nav-item.dropdown.open').forEach((item) => {
         item.classList.remove('open');
         item.querySelector('.nav-link')?.setAttribute('aria-expanded', 'false');
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.toggle('nav-open', isExpanded);
       mobileToggle.setAttribute('aria-expanded', isExpanded);
       mobileToggle.setAttribute('aria-label', isExpanded ? 'Close navigation' : 'Open navigation');
-      mobileToggle.innerHTML = isExpanded ? CLOSE_ICON : HAMBURGER_ICON;
+      mobileToggle.textContent = isExpanded ? CLOSE_ICON : HAMBURGER_ICON;
     });
 
     navMenu.querySelectorAll('a').forEach((link) => {
@@ -130,27 +130,57 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', updateMobileNavPosition);
   }
 
-  // 2. Mobile Dropdown Toggle (Accordeon on small screens)
+  // 2. Mobile & Touch Dropdown Toggle (Accordion on small screens + tap-to-open on touch devices)
   const dropdownItems = document.querySelectorAll('.nav-item.dropdown');
+  const isTouchInput = () =>
+    window.innerWidth <= MOBILE_NAV_BREAKPOINT ||
+    (window.matchMedia && window.matchMedia('(hover: none), (pointer: coarse)').matches);
 
   dropdownItems.forEach((item) => {
     const link = item.querySelector('.nav-link');
     if (link) {
+      link.setAttribute('aria-haspopup', 'true');
       link.setAttribute('aria-expanded', 'false');
       link.addEventListener('click', (e) => {
-        // If on small screens, toggle dropdown open/close
-        if (window.innerWidth <= MOBILE_NAV_BREAKPOINT) {
-          e.preventDefault();
-          item.classList.toggle('open');
-          link.setAttribute('aria-expanded', item.classList.contains('open'));
-          
-          // Close other open dropdowns
-          dropdownItems.forEach((other) => {
-            if (other !== item) {
-              other.classList.remove('open');
-              other.querySelector('.nav-link')?.setAttribute('aria-expanded', 'false');
-            }
-          });
+        if (isTouchInput()) {
+          // On touch/mobile: first tap opens dropdown; second tap on an already-open desktop touch item navigates
+          const isAlreadyOpen = item.classList.contains('open');
+          if (window.innerWidth <= MOBILE_NAV_BREAKPOINT || !isAlreadyOpen) {
+            e.preventDefault();
+            item.classList.toggle('open');
+            link.setAttribute('aria-expanded', String(item.classList.contains('open')));
+
+            // Close other open dropdowns
+            dropdownItems.forEach((other) => {
+              if (other !== item) {
+                other.classList.remove('open');
+                other.querySelector('.nav-link')?.setAttribute('aria-expanded', 'false');
+              }
+            });
+          }
+        }
+      });
+    }
+  });
+
+  // Close open touch dropdowns when tapping outside or pressing Escape
+  document.addEventListener('click', (event) => {
+    dropdownItems.forEach((item) => {
+      if (item.classList.contains('open') && !item.contains(event.target)) {
+        item.classList.remove('open');
+        item.querySelector('.nav-link')?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      dropdownItems.forEach((item) => {
+        if (item.classList.contains('open')) {
+          item.classList.remove('open');
+          const link = item.querySelector('.nav-link');
+          link?.setAttribute('aria-expanded', 'false');
+          link?.focus();
         }
       });
     }

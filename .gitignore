@@ -1,3 +1,5 @@
 scratch/
 *.mp4
 *.pptx
+
+node_modules/

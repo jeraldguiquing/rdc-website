@@ -1,0 +1,28 @@
+{
+  "name": "rdc-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node tools/build.js",
+    "layout": "node tools/build-layout.js",
+    "images": "node tools/optimize-images.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeraldguiquing/rdc-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jeraldguiquing/rdc-website/issues"
+  },
+  "homepage": "https://github.com/jeraldguiquing/rdc-website#readme",
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "puppeteer-core": "^25.14.0",
+    "sharp": "^0.35.5"
+  }
+}

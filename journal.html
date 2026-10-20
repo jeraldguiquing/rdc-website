@@ -35,7 +35,7 @@
   <meta name="twitter:description" content="Explore official peer-reviewed scholarly journals of MCNP and ISAP across health, multidisciplinary sciences, and administration.">
   <meta name="twitter:image" content="assets/rdc-logo.png">
   
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/style.min.css?v=0b2db07b">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,20 +44,19 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- BEGIN:SITE-HEADER -->
   <!-- Top Institutional Bar -->
   <header class="topbar">
     <div class="container">
       <div class="topbar-info">
-        <span> Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
-        <span> <a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
-        <span> <a href="tel:+639989847781" style="color:inherit">(+63) 998 984 7781</a></span>
+        <span>Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
+        <span><a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
+        <span><a href="tel:+639989847781" style="color:inherit">(+63) 998 984 7781</a></span>
       </div>
       <div class="topbar-right">
-        <a href="call-for-proposals.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 700; font-size: 0.78rem;"> Calls for Proposals (Open)</a>
-        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;"> FAQs</a>
-        <a href="calendar.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;"> Schedule Calendar</a>
-        
-        <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal in Admin (FlipBook)</a>
+        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;">FAQs</a>
+        <a href="calendar.html" style="color: #ffffff; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">Schedule Calendar</a>
+        <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
       </div>
     </div>
   </header>
@@ -68,7 +67,7 @@
       <div class="header-inner">
         <a href="index.html" class="brand-wrapper">
           <div class="brand-logos">
-            <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.png" alt="MCNP and ISAP" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific" loading="lazy" decoding="async">
+            <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.webp" alt="MCNP and ISAP Official Seals" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific" width="44" height="44" loading="lazy" decoding="async">
           </div>
           <div class="brand-text">
             <span class="brand-title">MCNP <span>&amp; ISAP</span> RDC</span>
@@ -82,21 +81,22 @@
               <a href="index.html" class="nav-link">HOME</a>
             </li>
 
+            <!-- Dropdown: ABOUT INSTITUTION -->
             <li class="nav-item dropdown">
-              <a href="about-mcnp.html" class="nav-link">
+              <a href="about-mcnp.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 ABOUT INSTITUTION
               </a>
               <div class="dropdown-menu">
                 <a href="about-mcnp.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>Medical Colleges of Northern Philippines</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
                 <a href="about-isap.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>International School of Asia and the Pacific</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -106,7 +106,7 @@
 
             <!-- Dropdown: ABOUT RDC -->
             <li class="nav-item dropdown">
-              <a href="about-rdc.html" class="nav-link">
+              <a href="about-rdc.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 ABOUT RDC
               </a>
               <div class="dropdown-menu">
@@ -129,12 +129,13 @@
               <a href="rdc-agenda.html" class="nav-link">RDC AGENDA</a>
             </li>
 
+            <!-- Dropdown: JOURNAL -->
             <li class="nav-item dropdown">
-              <a href="journal.html" class="nav-link active">
+              <a href="journal.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 JOURNALS
               </a>
               <div class="dropdown-menu">
-                <a href="journal.html" class="dropdown-link active">
+                <a href="journal.html" class="dropdown-link">
                   <span>All Journals Portal (Overview)</span>
                   <span class="dropdown-badge badge-admin">ALL</span>
                 </a>
@@ -150,8 +151,8 @@
                   <span>Journal of Admin (Faculty Research)</span>
                   <span class="dropdown-badge badge-admin">ADMIN</span>
                 </a>
-                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link" style="border-top: 1px dashed var(--border-color); color: #b89726; font-size: 0.82rem;">
-                  <span>Direct Online FlipBook </span>
+                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link dropdown-link-flip">
+                  <span>Direct Online FlipBook</span>
                   <span class="dropdown-badge badge-admin">FlipHTML5</span>
                 </a>
               </div>
@@ -159,20 +160,20 @@
 
             <!-- Dropdown: UTILIZATION -->
             <li class="nav-item dropdown">
-              <a href="utilization.html" class="nav-link">
+              <a href="utilization.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 UTILIZATION
               </a>
               <div class="dropdown-menu">
-                <a href="utilization.html#mcnp" class="dropdown-link">
+                <a href="utilization.html#mcnp" id="nav-util-mcnp" class="dropdown-link" onclick="if(window.filterUtilizationWing){filterUtilizationWing('mcnp');}">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>MCNP Health Sciences Wing</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
-                <a href="utilization.html#isap" class="dropdown-link">
+                <a href="utilization.html#isap" id="nav-util-isap" class="dropdown-link" onclick="if(window.filterUtilizationWing){filterUtilizationWing('isap');}">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>ISAP Multidisciplinary Wing</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -184,22 +185,22 @@
               <a href="experience.html" class="nav-link">EXPERIENCE</a>
             </li>
 
-                                                <!-- Dropdown: RESOURCES -->
+            <!-- Dropdown: RESOURCES -->
             <li class="nav-item dropdown">
-              <a href="resources-mcnp.html" class="nav-link">
+              <a href="resources-mcnp.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 RESOURCES
               </a>
               <div class="dropdown-menu">
                 <a href="resources-mcnp.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>Medical Colleges of Northern Philippines</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
                 <a href="resources-isap.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>International School of Asia and the Pacific</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -207,17 +208,18 @@
               </div>
             </li>
 
-                        <li class="nav-item dropdown">
-              <a href="news-events.html" class="nav-link">
+            <!-- Dropdown: NEWS & EVENTS -->
+            <li class="nav-item dropdown">
+              <a href="news-events.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 NEWS &amp; EVENTS
               </a>
               <div class="dropdown-menu">
                 <a href="news-events.html#articles" class="dropdown-link">
-                  <span> Research Articles &amp; Stories</span>
+                  <span>Research Articles &amp; Stories</span>
                   <span class="dropdown-badge badge-mcnp">ARTICLES</span>
                 </a>
                 <a href="news-events.html#events" class="dropdown-link">
-                  <span> Events &amp; Colloquiums</span>
+                  <span>Events &amp; Colloquiums</span>
                   <span class="dropdown-badge badge-isap">EVENTS</span>
                 </a>
                 <a href="calendar.html" class="dropdown-link">
@@ -237,10 +239,11 @@
           </ul>
         </nav>
 
-        <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span class="mobile-toggle-icon" aria-hidden="true">&#9776;</span></button>
+        <button class="mobile-toggle" aria-label="Open navigation">Menu</button>
       </div>
     </div>
   </header>
+  <!-- END:SITE-HEADER -->
 
   <!-- Page Hero -->
   <section class="page-hero">
@@ -334,19 +337,19 @@
               <span style="font-size: 0.74rem; font-weight: 700; color: var(--mcnp-green); display: block; margin-bottom: 0.45rem; text-transform: uppercase; letter-spacing: 0.03em;">Maiden Departmental Journals:</span>
               <div class="journal-maiden-scroll">
                 <a href="https://journal.mcnp.edu.ph/index.php/bsnm" target="_blank" rel="noopener noreferrer" title="TIGNAY — Nursing &amp; Midwifery" class="journal-maiden-thumb">
-                  <img src="assets/journals/journal-mcnp-tignay-nursing.jpg" alt="TIGNAY (Nursing)" loading="lazy" decoding="async">
+                  <img src="assets/journals/journal-mcnp-tignay-nursing.webp" alt="TIGNAY (Nursing)" loading="lazy" decoding="async" width="791" height="1024">
                 </a>
                 <a href="https://journal.mcnp.edu.ph/index.php/pharma" target="_blank" rel="noopener noreferrer" title="CHARTULAE — Pharmacy" class="journal-maiden-thumb">
-                  <img src="assets/journals/journal-mcnp-chartulae-pharmacy.jpg" alt="CHARTULAE (Pharmacy)" loading="lazy" decoding="async">
+                  <img src="assets/journals/journal-mcnp-chartulae-pharmacy.webp" alt="CHARTULAE (Pharmacy)" loading="lazy" decoding="async" width="791" height="1024">
                 </a>
                 <a href="https://journal.mcnp.edu.ph/index.php/radtech" target="_blank" rel="noopener noreferrer" title="DAGILAP — Radiologic Technology" class="journal-maiden-thumb">
-                  <img src="assets/journals/journal-mcnp-dagilap-radtech.jpg" alt="DAGILAP (Radiologic Technology)" loading="lazy" decoding="async">
+                  <img src="assets/journals/journal-mcnp-dagilap-radtech.webp" alt="DAGILAP (Radiologic Technology)" loading="lazy" decoding="async" width="724" height="1024">
                 </a>
                 <a href="https://journal.mcnp.edu.ph/index.php/medtech" target="_blank" rel="noopener noreferrer" title="BORN RMT — Medical Laboratory Science" class="journal-maiden-thumb">
-                  <img src="assets/journals/journal-mcnp-born-rmt-medtech.jpg" alt="BORN RMT (Medical Laboratory Science)" loading="lazy" decoding="async">
+                  <img src="assets/journals/journal-mcnp-born-rmt-medtech.webp" alt="BORN RMT (Medical Laboratory Science)" loading="lazy" decoding="async" width="662" height="1024">
                 </a>
                 <a href="https://journal.mcnp.edu.ph/index.php/pt" target="_blank" rel="noopener noreferrer" title="PRIMUM MOVENS — Physical Therapy" class="journal-maiden-thumb">
-                  <img src="assets/journals/journal-mcnp-primum-movens-pt.jpg" alt="PRIMUM MOVENS (Physical Therapy)" loading="lazy" decoding="async">
+                  <img src="assets/journals/journal-mcnp-primum-movens-pt.webp" alt="PRIMUM MOVENS (Physical Therapy)" loading="lazy" decoding="async" width="791" height="1024">
                 </a>
               </div>
             </div>
@@ -380,37 +383,37 @@
               <span style="font-size: 0.74rem; font-weight: 700; color: var(--isap-blue); display: block; margin-bottom: 0.45rem; text-transform: uppercase; letter-spacing: 0.03em;">Maiden Departmental Journals:</span>
               <div class="journal-maiden-scroll">
                 <a href="https://dawa.isap.edu.ph/index.php/coe" target="_blank" rel="noopener noreferrer" title="DAMILI — Computer Engineering" class="journal-maiden-thumb">
-                  <img src="assets/journals/journal-isap-damili-coe.jpg" alt="DAMILI (Computer Engineering)" loading="lazy" decoding="async">
+                  <img src="assets/journals/journal-isap-damili-coe.webp" alt="DAMILI (Computer Engineering)" loading="lazy" decoding="async" width="641" height="1024">
                 </a>
                 <a href="https://dawa.isap.edu.ph/index.php/bsit" target="_blank" rel="noopener noreferrer" title="TECHNOLOGIA INFORMATICA — Information Technology" class="journal-maiden-thumb">
-                  <img src="assets/journals/journal-isap-technologia-informatica-bsit.jpg" alt="TECHNOLOGIA INFORMATICA (IT)" loading="lazy" decoding="async">
+                  <img src="assets/journals/journal-isap-technologia-informatica-bsit.webp" alt="TECHNOLOGIA INFORMATICA (IT)" loading="lazy" decoding="async" width="645" height="1024">
                 </a>
                 <a href="https://dawa.isap.edu.ph/index.php/ca" target="_blank" rel="noopener noreferrer" title="THE BORDERLESS — Customs Administration" class="journal-maiden-thumb">
-                  <img src="assets/journals/journal-isap-the-borderless-ca.jpg" alt="THE BORDERLESS (Customs Administration)" loading="lazy" decoding="async">
+                  <img src="assets/journals/journal-isap-the-borderless-ca.webp" alt="THE BORDERLESS (Customs Administration)" loading="lazy" decoding="async" width="791" height="1024">
                 </a>
                 <a href="https://dawa.isap.edu.ph/index.php/bsac" target="_blank" rel="noopener noreferrer" title="TAGATUOS — Accountancy" class="journal-maiden-thumb">
-                  <img src="assets/journals/journal-isap-tagatuos-bsac.jpg" alt="TAGATUOS (Accountancy)" loading="lazy" decoding="async">
+                  <img src="assets/journals/journal-isap-tagatuos-bsac.webp" alt="TAGATUOS (Accountancy)" loading="lazy" decoding="async" width="1024" height="1024">
                 </a>
                 <a href="https://dawa.isap.edu.ph/index.php/pscyh" target="_blank" rel="noopener noreferrer" title="SIBOL — Psychology" class="journal-maiden-thumb">
-                  <img src="assets/journals/journal-isap-sibol-psych.jpg" alt="SIBOL (Psychology)" loading="lazy" decoding="async">
+                  <img src="assets/journals/journal-isap-sibol-psych.webp" alt="SIBOL (Psychology)" loading="lazy" decoding="async" width="791" height="1024">
                 </a>
                 <a href="https://dawa.isap.edu.ph/index.php/crim" target="_blank" rel="noopener noreferrer" title="POLICE — Criminology" class="journal-maiden-thumb">
-                  <img src="assets/journals/journal-isap-police-crim.jpg" alt="POLICE (Criminology)" loading="lazy" decoding="async">
+                  <img src="assets/journals/journal-isap-police-crim.webp" alt="POLICE (Criminology)" loading="lazy" decoding="async" width="380" height="538">
                 </a>
                 <a href="https://dawa.isap.edu.ph/index.php/ba" target="_blank" rel="noopener noreferrer" title="Raniag — Business Administration" class="journal-maiden-thumb">
-                  <img src="assets/journals/journal-isap-raniag-ba.jpg" alt="Raniag (Business Administration)" loading="lazy" decoding="async">
+                  <img src="assets/journals/journal-isap-raniag-ba.webp" alt="Raniag (Business Administration)" loading="lazy" decoding="async" width="410" height="531">
                 </a>
                 <a href="https://dawa.isap.edu.ph/index.php/socialwork" target="_blank" rel="noopener noreferrer" title="SERVICIO — Social Work" class="journal-maiden-thumb">
-                  <img src="assets/journals/journal-isap-servicio-socialwork.webp" alt="SERVICIO (Social Work)" loading="lazy" decoding="async">
+                  <img src="assets/journals/journal-isap-servicio-socialwork.webp" alt="SERVICIO (Social Work)" loading="lazy" decoding="async" width="723" height="1024">
                 </a>
                 <a href="https://dawa.isap.edu.ph/index.php/tm" target="_blank" rel="noopener noreferrer" title="AMPAYAG — Tourism Management" class="journal-maiden-thumb">
-                  <img src="assets/journals/journal-isap-ampayag-tm.jpg" alt="AMPAYAG (Tourism Management)" loading="lazy" decoding="async">
+                  <img src="assets/journals/journal-isap-ampayag-tm.webp" alt="AMPAYAG (Tourism Management)" loading="lazy" decoding="async" width="300" height="459">
                 </a>
                 <a href="https://dawa.isap.edu.ph/index.php/hospitalitymanagement" target="_blank" rel="noopener noreferrer" title="HOSPITALITY UNCORKED — Hospitality Management" class="journal-maiden-thumb">
-                  <img src="assets/journals/journal-isap-hospitality-uncorked-hm.jpg" alt="HOSPITALITY UNCORKED (HM)" loading="lazy" decoding="async">
+                  <img src="assets/journals/journal-isap-hospitality-uncorked-hm.webp" alt="HOSPITALITY UNCORKED (HM)" loading="lazy" decoding="async" width="723" height="1024">
                 </a>
                 <a href="https://dawa.isap.edu.ph/index.php/bsed" target="_blank" rel="noopener noreferrer" title="PLUMA — Secondary Education" class="journal-maiden-thumb">
-                  <img src="assets/journals/journal-isap-pluma-bsed.jpg" alt="PLUMA (Secondary Education)" loading="lazy" decoding="async">
+                  <img src="assets/journals/journal-isap-pluma-bsed.webp" alt="PLUMA (Secondary Education)" loading="lazy" decoding="async" width="420" height="670">
                 </a>
               </div>
             </div>
@@ -830,346 +833,10 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js" defer></script>
+  <script src="js/main.min.js?v=862da0bf" defer></script>
 
   <!-- Inline Script for Journal Search, Filtering & Citation Generator -->
-  <script>
-  (function () {
-    // Article Citation Database
-    var CITATIONS = {
-      'pascual-2026': {
-        title: 'Assessment of Antimicrobial Activity of Selected Indigenous Flora in Peñablanca, Cagayan Against Clinically Isolated Pathogens',
-        apa: 'Pascual, A. R., Agbisit, D. C., & Guzman, E. K. (2026). Assessment of Antimicrobial Activity of Selected Indigenous Flora in Peñablanca, Cagayan Against Clinically Isolated Pathogens. MCNP Journal of Medical & Allied Health Sciences, 8(2), 1-14. https://doi.org/10.5281/mcnp.2026.0821',
-        mla: 'Pascual, A. R., et al. "Assessment of Antimicrobial Activity of Selected Indigenous Flora in Peñablanca, Cagayan Against Clinically Isolated Pathogens." MCNP Journal of Medical & Allied Health Sciences, vol. 8, no. 2, 2026, pp. 1-14. DOI: 10.5281/mcnp.2026.0821.',
-        chicago: 'Pascual, A. R., D. C. Agbisit, and E. K. Guzman. "Assessment of Antimicrobial Activity of Selected Indigenous Flora in Peñablanca, Cagayan Against Clinically Isolated Pathogens." MCNP Journal of Medical & Allied Health Sciences 8, no. 2 (2026): 1-14.',
-        bibtex: '@article{pascual2026antimicrobial,\n  author = {Pascual, A. R. and Agbisit, D. C. and Guzman, E. K.},\n  title = {Assessment of Antimicrobial Activity of Selected Indigenous Flora in Peñablanca, Cagayan Against Clinically Isolated Pathogens},\n  journal = {MCNP Journal of Medical & Allied Health Sciences},\n  volume = {8},\n  number = {2},\n  pages = {1--14},\n  year = {2026},\n  doi = {10.5281/mcnp.2026.0821}\n}'
-      },
-      'duldulao-2026': {
-        title: 'Predictive Profiling and Community Policing Frameworks in Cagayan Valley Rural Municipalities',
-        apa: 'Duldulao, R. S., Soriano, M. L., & Mallillin, J. V. (2026). Predictive Profiling and Community Policing Frameworks in Cagayan Valley Rural Municipalities. ISAP DAWA Multidisciplinary Research Journal, 11(1), 1-16. https://doi.org/10.5281/isap.2026.1104',
-        mla: 'Duldulao, R. S., M. L. Soriano, and J. V. Mallillin. "Predictive Profiling and Community Policing Frameworks in Cagayan Valley Rural Municipalities." ISAP DAWA Multidisciplinary Research Journal, vol. 11, no. 1, 2026, pp. 1-16. DOI: 10.5281/isap.2026.1104.',
-        chicago: 'Duldulao, R. S., M. L. Soriano, and J. V. Mallillin. "Predictive Profiling and Community Policing Frameworks in Cagayan Valley Rural Municipalities." ISAP DAWA Multidisciplinary Research Journal 11, no. 1 (2026): 1-16.',
-        bibtex: '@article{duldulao2026policing,\n  author = {Duldulao, R. S. and Soriano, M. L. and Mallillin, J. V.},\n  title = {Predictive Profiling and Community Policing Frameworks in Cagayan Valley Rural Municipalities},\n  journal = {ISAP DAWA Multidisciplinary Research Journal},\n  volume = {11},\n  number = {1},\n  pages = {1--16},\n  year = {2026},\n  doi = {10.5281/isap.2026.1104}\n}'
-      },
-      'baloran-2026': {
-        title: 'Diagnostic Accuracy and Radiation Dose Reduction in Pediatric Chest Digital Radiography Protocols',
-        apa: 'Baloran, C. M., & Macarubbo, F. T. (2026). Diagnostic Accuracy and Radiation Dose Reduction in Pediatric Chest Digital Radiography Protocols. MCNP Journal of Medical & Allied Health Sciences, 8(2), 15-28. https://doi.org/10.5281/mcnp.2026.0822',
-        mla: 'Baloran, C. M., and F. T. Macarubbo. "Diagnostic Accuracy and Radiation Dose Reduction in Pediatric Chest Digital Radiography Protocols." MCNP Journal of Medical & Allied Health Sciences, vol. 8, no. 2, 2026, pp. 15-28. DOI: 10.5281/mcnp.2026.0822.',
-        chicago: 'Baloran, C. M., and F. T. Macarubbo. "Diagnostic Accuracy and Radiation Dose Reduction in Pediatric Chest Digital Radiography Protocols." MCNP Journal of Medical & Allied Health Sciences 8, no. 2 (2026): 15-28.',
-        bibtex: '@article{baloran2026radiography,\n  author = {Baloran, C. M. and Macarubbo, F. T.},\n  title = {Diagnostic Accuracy and Radiation Dose Reduction in Pediatric Chest Digital Radiography Protocols},\n  journal = {MCNP Journal of Medical & Allied Health Sciences},\n  volume = {8},\n  number = {2},\n  pages = {15--28},\n  year = {2026},\n  doi = {10.5281/mcnp.2026.0822}\n}'
-      },
-      'pasion-2026': {
-        title: 'Cryptographic Hash Validation and Chain-of-Custody Integrity in Mobile Forensics Investigations',
-        apa: 'Pasion, E. V., & Tolentino, B. K. (2026). Cryptographic Hash Validation and Chain-of-Custody Integrity in Mobile Forensics Investigations. ISAP DAWA Multidisciplinary Research Journal, 11(1), 17-31. https://doi.org/10.5281/isap.2026.1105',
-        mla: 'Pasion, E. V., and B. K. Tolentino. "Cryptographic Hash Validation and Chain-of-Custody Integrity in Mobile Forensics Investigations." ISAP DAWA Multidisciplinary Research Journal, vol. 11, no. 1, 2026, pp. 17-31. DOI: 10.5281/isap.2026.1105.',
-        chicago: 'Pasion, E. V., and B. K. Tolentino. "Cryptographic Hash Validation and Chain-of-Custody Integrity in Mobile Forensics Investigations." ISAP DAWA Multidisciplinary Research Journal 11, no. 1 (2026): 17-31.',
-        bibtex: '@article{pasion2026forensics,\n  author = {Pasion, E. V. and Tolentino, B. K.},\n  title = {Cryptographic Hash Validation and Chain-of-Custody Integrity in Mobile Forensics Investigations},\n  journal = {ISAP DAWA Multidisciplinary Research Journal},\n  volume = {11},\n  number = {1},\n  pages = {17--31},\n  year = {2026},\n  doi = {10.5281/isap.2026.1105}\n}'
-      },
-      'fernandez-2026': {
-        title: 'Nurse Resilience, Compassion Fatigue, and Patient Care Outcomes in Critical Care Units in Northern Luzon',
-        apa: 'Fernandez, L. G., & Pimentel, R. T. (2026). Nurse Resilience, Compassion Fatigue, and Patient Care Outcomes in Critical Care Units in Northern Luzon. MCNP Journal of Medical & Allied Health Sciences, 8(2), 29-42. https://doi.org/10.5281/mcnp.2026.0823',
-        mla: 'Fernandez, L. G., and R. T. Pimentel. "Nurse Resilience, Compassion Fatigue, and Patient Care Outcomes in Critical Care Units in Northern Luzon." MCNP Journal of Medical & Allied Health Sciences, vol. 8, no. 2, 2026, pp. 29-42. DOI: 10.5281/mcnp.2026.0823.',
-        chicago: 'Fernandez, L. G., and R. T. Pimentel. "Nurse Resilience, Compassion Fatigue, and Patient Care Outcomes in Critical Care Units in Northern Luzon." MCNP Journal of Medical & Allied Health Sciences 8, no. 2 (2026): 29-42.',
-        bibtex: '@article{fernandez2026resilience,\n  author = {Fernandez, L. G. and Pimentel, R. T.},\n  title = {Nurse Resilience, Compassion Fatigue, and Patient Care Outcomes in Critical Care Units in Northern Luzon},\n  journal = {MCNP Journal of Medical & Allied Health Sciences},\n  volume = {8},\n  number = {2},\n  pages = {29--42},\n  year = {2026},\n  doi = {10.5281/mcnp.2026.0823}\n}'
-      },
-      'bautista-2026': {
-        title: 'Post-Clearance Audit Compliance and Revenue Leakage Prevention at Northern Luzon Maritime Ports',
-        apa: 'Bautista, K. M., & Ramirez, G. N. (2026). Post-Clearance Audit Compliance and Revenue Leakage Prevention at Northern Luzon Maritime Ports. ISAP DAWA Multidisciplinary Research Journal, 11(1), 32-48. https://doi.org/10.5281/isap.2026.1106',
-        mla: 'Bautista, K. M., and G. N. Ramirez. "Post-Clearance Audit Compliance and Revenue Leakage Prevention at Northern Luzon Maritime Ports." ISAP DAWA Multidisciplinary Research Journal, vol. 11, no. 1, 2026, pp. 32-48. DOI: 10.5281/isap.2026.1106.',
-        chicago: 'Bautista, K. M., and G. N. Ramirez. "Post-Clearance Audit Compliance and Revenue Leakage Prevention at Northern Luzon Maritime Ports." ISAP DAWA Multidisciplinary Research Journal 11, no. 1 (2026): 32-48.',
-        bibtex: '@article{bautista2026customs,\n  author = {Bautista, K. M. and Ramirez, G. N.},\n  title = {Post-Clearance Audit Compliance and Revenue Leakage Prevention at Northern Luzon Maritime Ports},\n  journal = {ISAP DAWA Multidisciplinary Research Journal},\n  volume = {11},\n  number = {1},\n  pages = {32--48},\n  year = {2026},\n  doi = {10.5281/isap.2026.1106}\n}'
-      },
-      'guzman-admin-2026': {
-        title: 'Higher Education Governance and Institutional Research Productivity in Region II Private Higher Education',
-        apa: 'Guzman, C. R., Soriano, M. L., & Mallillin, R. V. (2026). Higher Education Governance and Institutional Research Productivity in Region II Private Higher Education. Journal in Admin: Faculty & Administrative Research, 1(1), 1-22. https://doi.org/10.5281/admin.2026.0101',
-        mla: 'Guzman, C. R., M. L. Soriano, and R. V. Mallillin. "Higher Education Governance and Institutional Research Productivity in Region II Private Higher Education." Journal in Admin: Faculty & Administrative Research, vol. 1, no. 1, 2026, pp. 1-22.',
-        chicago: 'Guzman, C. R., M. L. Soriano, and R. V. Mallillin. "Higher Education Governance and Institutional Research Productivity in Region II Private Higher Education." Journal in Admin: Faculty & Administrative Research 1, no. 1 (2026): 1-22.',
-        bibtex: '@article{guzman2026governance,\n  author = {Guzman, C. R. and Soriano, M. L. and Mallillin, R. V.},\n  title = {Higher Education Governance and Institutional Research Productivity in Region II Private Higher Education},\n  journal = {Journal in Admin: Faculty & Administrative Research},\n  volume = {1},\n  number = {1},\n  pages = {1--22},\n  year = {2026},\n  doi = {10.5281/admin.2026.0101}\n}'
-      },
-      'aquino-2026': {
-        title: 'Knowledge, Attitudes, and Self-Medication Practices with Antibiotics Among Rural Households in Peñablanca',
-        apa: 'Aquino, G. B., & Taguinod, K. D. (2026). Knowledge, Attitudes, and Self-Medication Practices with Antibiotics Among Rural Households in Peñablanca. MCNP Journal of Medical & Allied Health Sciences, 8(2), 43-56. https://doi.org/10.5281/mcnp.2026.0824',
-        mla: 'Aquino, G. B., and K. D. Taguinod. "Knowledge, Attitudes, and Self-Medication Practices with Antibiotics Among Rural Households in Peñablanca." MCNP Journal of Medical & Allied Health Sciences, vol. 8, no. 2, 2026, pp. 43-56.',
-        chicago: 'Aquino, G. B., and K. D. Taguinod. "Knowledge, Attitudes, and Self-Medication Practices with Antibiotics Among Rural Households in Peñablanca." MCNP Journal of Medical & Allied Health Sciences 8, no. 2 (2026): 43-56.',
-        bibtex: '@article{aquino2026antibiotics,\n  author = {Aquino, G. B. and Taguinod, K. D.},\n  title = {Knowledge, Attitudes, and Self-Medication Practices with Antibiotics Among Rural Households in Peñablanca},\n  journal = {MCNP Journal of Medical & Allied Health Sciences},\n  volume = {8},\n  number = {2},\n  pages = {43--56},\n  year = {2026},\n  doi = {10.5281/mcnp.2026.0824}\n}'
-      },
-      'almazan-2026': {
-        title: 'Cognitive Engagement and Critical Thinking in Simulation-Based Law Enforcement Training',
-        apa: 'Almazan, H. J., & Guzman, C. R. (2026). Cognitive Engagement and Critical Thinking in Simulation-Based Law Enforcement Training. ISAP DAWA Multidisciplinary Research Journal, 11(1), 49-64. https://doi.org/10.5281/isap.2026.1107',
-        mla: 'Almazan, H. J., and C. R. Guzman. "Cognitive Engagement and Critical Thinking in Simulation-Based Law Enforcement Training." ISAP DAWA Multidisciplinary Research Journal, vol. 11, no. 1, 2026, pp. 49-64.',
-        chicago: 'Almazan, H. J., and C. R. Guzman. "Cognitive Engagement and Critical Thinking in Simulation-Based Law Enforcement Training." ISAP DAWA Multidisciplinary Research Journal 11, no. 1 (2026): 49-64.',
-        bibtex: '@article{almazan2026simulation,\n  author = {Almazan, H. J. and Guzman, C. R.},\n  title = {Cognitive Engagement and Critical Thinking in Simulation-Based Law Enforcement Training},\n  journal = {ISAP DAWA Multidisciplinary Research Journal},\n  volume = {11},\n  number = {1},\n  pages = {49--64},\n  year = {2026},\n  doi = {10.5281/isap.2026.1107}\n}'
-      }
-    };
-
-    // Abstract Accordion Toggle
-    window.toggleAbstract = function (id, btn) {
-      var el = document.getElementById('abstract-' + id);
-      if (!el) return;
-      var isExpanded = el.classList.contains('expanded');
-      el.classList.toggle('expanded', !isExpanded);
-      btn.innerHTML = isExpanded ? '<span>Read Full Abstract</span> ' : '<span>Collapse Abstract</span> ';
-    };
-
-    // Citation Modal Functionality
-    var modalOverlay = document.getElementById('citationModalOverlay');
-    var modalClose = document.getElementById('citationModalClose');
-    var modalTitle = document.getElementById('citationArticleTitle');
-    var modalPreview = document.getElementById('citationPreviewText');
-    var copyBtn = document.getElementById('copyCitationBtn');
-    var formatBtns = document.querySelectorAll('.citation-format-btn');
-    var currentArticleId = '';
-    var currentFormat = 'apa';
-
-    window.openCitationModal = function (articleId) {
-      currentArticleId = articleId;
-      var data = CITATIONS[articleId];
-      if (!data) return;
-      modalTitle.textContent = data.title;
-      currentFormat = 'apa';
-      formatBtns.forEach(function (btn) {
-        btn.classList.toggle('active', btn.dataset.format === 'apa');
-      });
-      renderCitation();
-      modalOverlay.classList.add('active');
-    };
-
-    window.closeCitationModal = function () {
-      if (modalOverlay) modalOverlay.classList.remove('active');
-    };
-
-    if (modalClose) modalClose.addEventListener('click', window.closeCitationModal);
-    if (modalOverlay) {
-      modalOverlay.addEventListener('click', function (e) {
-        if (e.target === modalOverlay) window.closeCitationModal();
-      });
-    }
-
-    // FlipBook Modal Functionality
-    var flipbookOverlay = document.getElementById('flipbookModalOverlay');
-    var flipbookIframe = document.getElementById('flipbookIframe');
-
-    window.openFlipbookModal = function () {
-      if (flipbookOverlay && flipbookIframe) {
-        if (!flipbookIframe.getAttribute('src')) {
-          flipbookIframe.setAttribute('src', 'https://online.fliphtml5.com/ffqhu/swzy/#p=1');
-        }
-        flipbookOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    };
-
-    window.closeFlipbookModal = function () {
-      if (flipbookOverlay) {
-        flipbookOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    };
-
-    if (flipbookOverlay) {
-      flipbookOverlay.addEventListener('click', function (e) {
-        if (e.target === flipbookOverlay) window.closeFlipbookModal();
-      });
-    }
-
-    // Escape Key Handler for all Modals
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        if (modalOverlay && modalOverlay.classList.contains('active')) window.closeCitationModal();
-        if (flipbookOverlay && flipbookOverlay.classList.contains('active')) window.closeFlipbookModal();
-      }
-    });
-
-    formatBtns.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        formatBtns.forEach(function (b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-        currentFormat = btn.dataset.format;
-        renderCitation();
-      });
-    });
-
-    function renderCitation() {
-      var data = CITATIONS[currentArticleId];
-      if (!data) return;
-      var text = data[currentFormat] || data.apa;
-      modalPreview.textContent = text;
-    }
-
-    if (copyBtn) {
-      copyBtn.addEventListener('click', function () {
-        var text = modalPreview.textContent;
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(function () {
-            if (window.showToast) window.showToast('Citation copied in ' + currentFormat.toUpperCase() + ' format!', 'success');
-          });
-        } else {
-          if (window.showToast) window.showToast('Citation copied to clipboard!', 'info');
-        }
-      });
-    }
-
-    // Dual Filter, Sort & Search Functionality
-    var gridEl = document.getElementById('articlesGrid');
-    var cards = Array.prototype.slice.call(document.querySelectorAll('#articlesGrid .article-card'));
-    var searchInput = document.getElementById('articleSearchInput');
-    var searchClear = document.getElementById('articleSearchClear');
-    var sortSelect = document.getElementById('articleSortSelect');
-
-    var journalPills = Array.prototype.slice.call(document.querySelectorAll('#journalFilterPills .event-pill-btn'));
-    var disciplinePills = Array.prototype.slice.call(document.querySelectorAll('#disciplineFilterPills .event-pill-btn'));
-
-    var totalCountEl = document.getElementById('articleTotalCount');
-    var mcnpCountEl = document.getElementById('mcnpFilterCount');
-    var isapCountEl = document.getElementById('isapFilterCount');
-    var adminCountEl = document.getElementById('adminFilterCount');
-    var quickCountEl = document.getElementById('quickArticleCount');
-
-    var activeJournal = 'all';
-    var activeDiscipline = 'all';
-    var searchQuery = '';
-    var activeSort = 'latest';
-
-    // Store original index for "latest" sorting
-    cards.forEach(function (card, idx) {
-      card.dataset.originalIndex = idx;
-    });
-
-    function updateFilterCounts() {
-      var counts = { all: 0, mcnp: 0, isap: 0, admin: 0 };
-      cards.forEach(function (card) {
-        var jnl = card.dataset.journal || '';
-        var disc = card.dataset.discipline || '';
-        var text = (card.textContent || '').toLowerCase();
-        var matchesDisc = (activeDiscipline === 'all') || (disc === activeDiscipline);
-        var matchesSearch = !searchQuery || (text.indexOf(searchQuery) !== -1);
-
-        if (matchesDisc && matchesSearch) {
-          counts.all++;
-          if (jnl && counts[jnl] !== undefined) counts[jnl]++;
-        }
-      });
-
-      if (totalCountEl) totalCountEl.textContent = counts.all;
-      if (mcnpCountEl) mcnpCountEl.textContent = counts.mcnp;
-      if (isapCountEl) isapCountEl.textContent = counts.isap;
-      if (adminCountEl) adminCountEl.textContent = counts.admin;
-      if (quickCountEl) quickCountEl.textContent = counts.all;
-    }
-
-    function sortCards(list) {
-      if (activeSort === 'downloads') {
-        return list.slice().sort(function (a, b) {
-          var da = parseInt(a.dataset.downloads || '0', 10);
-          var db = parseInt(b.dataset.downloads || '0', 10);
-          return db - da;
-        });
-      } else if (activeSort === 'title') {
-        return list.slice().sort(function (a, b) {
-          var ta = (a.dataset.title || '').toLowerCase();
-          var tb = (b.dataset.title || '').toLowerCase();
-          return ta.localeCompare(tb);
-        });
-      } else {
-        return list.slice().sort(function (a, b) {
-          return parseInt(a.dataset.originalIndex, 10) - parseInt(b.dataset.originalIndex, 10);
-        });
-      }
-    }
-
-    function filterArticles() {
-      var sorted = sortCards(cards);
-      var visible = 0;
-
-      sorted.forEach(function (card) {
-        if (gridEl) gridEl.appendChild(card);
-
-        var jnl = card.dataset.journal || '';
-        var disc = card.dataset.discipline || '';
-        var text = (card.textContent || '').toLowerCase();
-
-        var matchesJournal = (activeJournal === 'all') || (jnl === activeJournal);
-        var matchesDisc = (activeDiscipline === 'all') || (disc === activeDiscipline);
-        var matchesSearch = !searchQuery || (text.indexOf(searchQuery) !== -1);
-
-        if (matchesJournal && matchesDisc && matchesSearch) {
-          card.style.display = 'flex';
-          visible++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-
-      updateFilterCounts();
-    }
-
-    journalPills.forEach(function (pill) {
-      pill.addEventListener('click', function () {
-        journalPills.forEach(function (p) { p.classList.remove('active'); });
-        pill.classList.add('active');
-        activeJournal = pill.dataset.journalFilter || 'all';
-        filterArticles();
-      });
-    });
-
-    disciplinePills.forEach(function (pill) {
-      pill.addEventListener('click', function () {
-        disciplinePills.forEach(function (p) { p.classList.remove('active'); });
-        pill.classList.add('active');
-        activeDiscipline = pill.dataset.discipline || 'all';
-        filterArticles();
-      });
-    });
-
-    if (sortSelect) {
-      sortSelect.addEventListener('change', function () {
-        activeSort = sortSelect.value;
-        filterArticles();
-      });
-    }
-
-    if (searchInput) {
-      searchInput.addEventListener('input', function () {
-        searchQuery = (searchInput.value || '').trim().toLowerCase();
-        if (searchClear) searchClear.classList.toggle('visible', !!searchQuery);
-        filterArticles();
-      });
-    }
-
-    if (searchClear && searchInput) {
-      searchClear.addEventListener('click', function () {
-        searchInput.value = '';
-        searchQuery = '';
-        searchClear.classList.remove('visible');
-        filterArticles();
-        searchInput.focus();
-      });
-    }
-
-    // Initial count calculation
-    updateFilterCounts();
-  })();
-  
-    function filterTheses(type, btn) {
-      var btns = btn.parentNode.querySelectorAll('button');
-      btns.forEach(function(b) {
-        b.className = 'btn btn-sm btn-outline-white';
-        b.style.color = '#475569';
-        b.style.borderColor = '#cbd5e1';
-      });
-      btn.className = 'btn btn-sm btn-mcnp';
-      btn.style.color = '#ffffff';
-
-      var cards = document.querySelectorAll('.thesis-card');
-      cards.forEach(function(c) {
-        if (type === 'all' || c.getAttribute('data-inst') === type) {
-          c.style.display = 'flex';
-        } else {
-          c.style.display = 'none';
-        }
-      });
-    }
-</script>
+  <script src="js/pages/journal.min.js?v=e09d80a6"></script>
 
 </body>
 </html>

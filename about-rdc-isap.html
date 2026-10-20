@@ -38,277 +38,25 @@
   <meta name="twitter:description" content="ISAP RDC promotes research across criminological sciences, social work, business, and community extension.">
   <meta name="twitter:image" content="assets/rdc-logo.png">
 
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/style.min.css?v=0b2db07b">
 
-  <style>
-    /* ISAP Organizational Structure Styles */
-    .isap-org-chart-wrapper {
-      background: #f8fafc;
-      border: 1px solid var(--border-color, #e2e8f0);
-      border-radius: 16px;
-      padding: clamp(1.5rem, 3vw, 2.5rem);
-      margin-bottom: 2rem;
-      position: relative;
-    }
-    .isap-org-level {
-      display: flex;
-      justify-content: center;
-      align-items: stretch;
-      width: 100%;
-    }
-    .isap-org-connector {
-      width: 2px;
-      height: 26px;
-      background: #cbd5e1;
-      margin: 0 auto;
-    }
-    .isap-org-node {
-      background: #ffffff;
-      border: 1px solid var(--border-color, #e2e8f0);
-      border-radius: 12px;
-      padding: 1.15rem 1.4rem;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
-      text-align: center;
-      transition: all 0.25s ease;
-      position: relative;
-    }
-    .isap-org-node:hover {
-      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-      border-color: #94a3b8;
-      transform: translateY(-2px);
-    }
-    .node-title-main {
-      font-size: 1.08rem;
-      font-weight: 800;
-      color: #0f172a;
-      margin: 0.4rem 0 0.2rem;
-      line-height: 1.3;
-    }
-    .node-role-main {
-      font-size: 0.86rem;
-      font-weight: 700;
-      color: var(--isap-blue, #7a1f2d);
-      margin-bottom: 0.35rem;
-    }
-    .node-sub-text {
-      font-size: 0.78rem;
-      color: #64748b;
-      line-height: 1.4;
-    }
-    .node-tag-badge {
-      font-size: 0.68rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      padding: 0.22rem 0.6rem;
-      border-radius: 20px;
-      display: inline-block;
-      margin-bottom: 0.35rem;
-    }
-    .badge-pres { background: #0f172a; color: #ffffff; }
-    .badge-vp { background: #fdf2f8; color: #be185d; }
-    .badge-rdc-exec { background: #fef3c7; color: #b45309; }
-    .badge-support { background: #f1f5f9; color: #475569; }
-    .badge-college { background: #fee2e2; color: #991b1b; }
-    .badge-focal { background: #ede9fe; color: #6d28d9; }
-    
-    /* Exec Grid */
-    .exec-grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.15rem;
-      width: 100%;
-      max-width: 1100px;
-    }
-    .exec-card-president {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: #ffffff;
-      border: none;
-    }
-    .exec-card-president .node-title-main { color: #ffffff; font-size: 1.2rem; }
-    .exec-card-president .node-role-main { color: #ffdf70; }
-    .exec-card-president .node-sub-text { color: #cbd5e1; }
-
-    /* Directorate Grid */
-    .directorate-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-      width: 100%;
-      max-width: 860px;
-    }
-    @media (max-width: 720px) {
-      .directorate-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Support Units Grid */
-    .support-units-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1rem;
-      width: 100%;
-      max-width: 1100px;
-    }
-
-    /* College Academic Cards Grid */
-    .colleges-network-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-      gap: 1.25rem;
-      width: 100%;
-    }
-    .college-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color, #e2e8f0);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-      transition: all 0.25s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .college-card:hover {
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      border-color: var(--isap-blue, #7a1f2d);
-      transform: translateY(-2px);
-    }
-    .college-card-header {
-      background: linear-gradient(135deg, #7a1f2d 0%, #4b0d1b 100%);
-      color: #ffffff;
-      padding: 1rem 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-    }
-    .college-dept-logo-img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-      background: transparent;
-      padding: 0;
-      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.25));
-      flex-shrink: 0;
-    }
-    .college-dept-logo-cluster {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      flex-shrink: 0;
-    }
-    .college-dept-header-text {
-      flex: 1;
-      min-width: 0;
-    }
-    .college-dept-icon {
-      font-size: 1.25rem;
-      margin-bottom: 0.35rem;
-      color: #ffdf70;
-    }
-    .college-dept-title {
-      font-size: 1.05rem;
-      font-weight: 800;
-      margin: 0;
-      color: #ffffff;
-      line-height: 1.3;
-    }
-    .college-card-body {
-      padding: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      flex-grow: 1;
-    }
-    .college-person-box {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 0.8rem 1rem;
-      position: relative;
-    }
-    .college-person-box.focal-box {
-      background: #faf5ff;
-    }
-    .college-person-box.coord-box {
-      background: #fff5f5;
-    }
-    .college-person-box.dean-box {
-      background: #f0f9ff;
-    }
-    .cp-role-label {
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-      margin-bottom: 0.2rem;
-      display: block;
-    }
-    .cp-role-dean { color: #0284c7; }
-    .cp-role-coord { color: var(--isap-blue, #7a1f2d); }
-    .cp-role-focal { color: #6d28d9; }
-    .cp-name {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #0f172a;
-      line-height: 1.3;
-    }
-    .cp-sub {
-      font-size: 0.76rem;
-      color: #64748b;
-      margin-top: 0.15rem;
-    }
-
-    /* Filter Tabs */
-    .org-filter-bar {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-    .org-filter-btn {
-      background: #ffffff;
-      border: 1px solid var(--border-color, #e2e8f0);
-      color: #475569;
-      padding: 0.45rem 1rem;
-      border-radius: 30px;
-      font-size: 0.84rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .org-filter-btn:hover {
-      background: #f1f5f9;
-      color: #0f172a;
-    }
-    .org-filter-btn.active {
-      background: var(--isap-blue, #7a1f2d);
-      color: #ffffff;
-      border-color: var(--isap-blue, #7a1f2d);
-      box-shadow: 0 4px 10px rgba(122, 31, 45, 0.25);
-    }
-  </style>
+  <link rel="stylesheet" href="css/pages/about-rdc-isap.min.css?v=608f424a">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- BEGIN:SITE-HEADER -->
   <!-- Top Institutional Bar -->
   <header class="topbar">
     <div class="container">
       <div class="topbar-info">
-        <span> Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
-        <span> <a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
-        <span> <a href="tel:+639989847781" style="color:inherit">(+63) 998 984 7781</a></span>
+        <span>Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
+        <span><a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
+        <span><a href="tel:+639989847781" style="color:inherit">(+63) 998 984 7781</a></span>
       </div>
       <div class="topbar-right">
-        <a href="call-for-proposals.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 700; font-size: 0.78rem;"> Calls for Proposals (Open)</a>
-        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;"> FAQs</a>
-        <a href="calendar.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;"> Schedule Calendar</a>
-        
+        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;">FAQs</a>
+        <a href="calendar.html" style="color: #ffffff; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">Schedule Calendar</a>
         <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
       </div>
     </div>
@@ -320,7 +68,7 @@
       <div class="header-inner">
         <a href="index.html" class="brand-wrapper">
           <div class="brand-logos">
-            <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.png" alt="MCNP and ISAP" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific" loading="lazy" decoding="async">
+            <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.webp" alt="MCNP and ISAP Official Seals" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific" width="44" height="44" loading="lazy" decoding="async">
           </div>
           <div class="brand-text">
             <span class="brand-title">MCNP <span>&amp; ISAP</span> RDC</span>
@@ -336,20 +84,20 @@
 
             <!-- Dropdown: ABOUT INSTITUTION -->
             <li class="nav-item dropdown">
-              <a href="about-mcnp.html" class="nav-link">
+              <a href="about-mcnp.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 ABOUT INSTITUTION
               </a>
               <div class="dropdown-menu">
                 <a href="about-mcnp.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>Medical Colleges of Northern Philippines</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
                 <a href="about-isap.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>International School of Asia and the Pacific</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -359,7 +107,7 @@
 
             <!-- Dropdown: ABOUT RDC -->
             <li class="nav-item dropdown">
-              <a href="about-rdc.html" class="nav-link active">
+              <a href="about-rdc.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 ABOUT RDC
               </a>
               <div class="dropdown-menu">
@@ -371,7 +119,7 @@
                   <span>MCNP Health Research Wing</span>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
-                <a href="about-rdc-isap.html" class="dropdown-link active">
+                <a href="about-rdc-isap.html" class="dropdown-link">
                   <span>ISAP Multidisciplinary Wing</span>
                   <span class="dropdown-badge badge-isap">ISAP</span>
                 </a>
@@ -384,7 +132,7 @@
 
             <!-- Dropdown: JOURNAL -->
             <li class="nav-item dropdown">
-              <a href="journal.html" class="nav-link">
+              <a href="journal.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 JOURNALS
               </a>
               <div class="dropdown-menu">
@@ -404,8 +152,8 @@
                   <span>Journal of Admin (Faculty Research)</span>
                   <span class="dropdown-badge badge-admin">ADMIN</span>
                 </a>
-                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link" style="border-top: 1px dashed var(--border-color); color: #b89726; font-size: 0.82rem;">
-                  <span>Direct Online FlipBook </span>
+                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link dropdown-link-flip">
+                  <span>Direct Online FlipBook</span>
                   <span class="dropdown-badge badge-admin">FlipHTML5</span>
                 </a>
               </div>
@@ -413,20 +161,20 @@
 
             <!-- Dropdown: UTILIZATION -->
             <li class="nav-item dropdown">
-              <a href="utilization.html" class="nav-link">
+              <a href="utilization.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 UTILIZATION
               </a>
               <div class="dropdown-menu">
-                <a href="utilization.html#mcnp" class="dropdown-link">
+                <a href="utilization.html#mcnp" id="nav-util-mcnp" class="dropdown-link" onclick="if(window.filterUtilizationWing){filterUtilizationWing('mcnp');}">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>MCNP Health Sciences Wing</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
-                <a href="utilization.html#isap" class="dropdown-link">
+                <a href="utilization.html#isap" id="nav-util-isap" class="dropdown-link" onclick="if(window.filterUtilizationWing){filterUtilizationWing('isap');}">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>ISAP Multidisciplinary Wing</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -438,22 +186,22 @@
               <a href="experience.html" class="nav-link">EXPERIENCE</a>
             </li>
 
-                                                <!-- Dropdown: RESOURCES -->
+            <!-- Dropdown: RESOURCES -->
             <li class="nav-item dropdown">
-              <a href="resources-mcnp.html" class="nav-link">
+              <a href="resources-mcnp.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 RESOURCES
               </a>
               <div class="dropdown-menu">
                 <a href="resources-mcnp.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>Medical Colleges of Northern Philippines</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
                 <a href="resources-isap.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>International School of Asia and the Pacific</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -461,17 +209,18 @@
               </div>
             </li>
 
-                        <li class="nav-item dropdown">
-              <a href="news-events.html" class="nav-link">
+            <!-- Dropdown: NEWS & EVENTS -->
+            <li class="nav-item dropdown">
+              <a href="news-events.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 NEWS &amp; EVENTS
               </a>
               <div class="dropdown-menu">
                 <a href="news-events.html#articles" class="dropdown-link">
-                  <span> Research Articles &amp; Stories</span>
+                  <span>Research Articles &amp; Stories</span>
                   <span class="dropdown-badge badge-mcnp">ARTICLES</span>
                 </a>
                 <a href="news-events.html#events" class="dropdown-link">
-                  <span> Events &amp; Colloquiums</span>
+                  <span>Events &amp; Colloquiums</span>
                   <span class="dropdown-badge badge-isap">EVENTS</span>
                 </a>
                 <a href="calendar.html" class="dropdown-link">
@@ -491,10 +240,11 @@
           </ul>
         </nav>
 
-        <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span class="mobile-toggle-icon" aria-hidden="true">&#9776;</span></button>
+        <button class="mobile-toggle" aria-label="Open navigation">Menu</button>
       </div>
     </div>
   </header>
+  <!-- END:SITE-HEADER -->
 
   <!-- Page Hero -->
   <section class="page-hero">
@@ -706,7 +456,7 @@
               <!-- COLLEGE 1: CRIMINAL JUSTICE EDUCATION (COCJE) -->
               <div class="college-card" data-org-cat="all cocje">
                 <div class="college-card-header" style="background: linear-gradient(135deg, #7a1f2d 0%, #4b0d1b 100%);">
-                  <img src="assets/dept-logos/isap-cocje.png" alt="College of Criminal Justice Education Logo" class="college-dept-logo-img" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/isap-cocje.webp" alt="College of Criminal Justice Education Logo" class="college-dept-logo-img" loading="lazy" decoding="async" width="225" height="225">
                   <div class="college-dept-header-text">
                     <h3 class="college-dept-title" style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);">College of Criminal Justice Education (COCJE)</h3>
                   </div>
@@ -730,8 +480,8 @@
               <div class="college-card" data-org-cat="all ite">
                 <div class="college-card-header" style="background: linear-gradient(135deg, #7a1f2d 0%, #4b0d1b 100%);">
                   <div class="college-dept-logo-cluster">
-                    <img src="assets/dept-logos/isap-it.png" alt="Information Technology Logo" class="college-dept-logo-img" title="Information Technology (BSIT)" loading="lazy" decoding="async">
-                    <img src="assets/dept-logos/isap-computer-engineering.png" alt="Computer Engineering Logo" class="college-dept-logo-img" title="Computer Engineering (BSCoE)" loading="lazy" decoding="async">
+                    <img src="assets/dept-logos/isap-it.webp" alt="Information Technology Logo" class="college-dept-logo-img" title="Information Technology (BSIT)" loading="lazy" decoding="async" width="250" height="250">
+                    <img src="assets/dept-logos/isap-computer-engineering.webp" alt="Computer Engineering Logo" class="college-dept-logo-img" title="Computer Engineering (BSCoE)" loading="lazy" decoding="async" width="250" height="250">
                   </div>
                   <div class="college-dept-header-text">
                     <h3 class="college-dept-title" style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);">College of Information Technology &amp; Engineering</h3>
@@ -762,8 +512,8 @@
               <div class="college-card" data-org-cat="all caste">
                 <div class="college-card-header" style="background: linear-gradient(135deg, #7a1f2d 0%, #4b0d1b 100%);">
                   <div class="college-dept-logo-cluster">
-                    <img src="assets/dept-logos/isap-bsed.png" alt="Secondary Education Logo" class="college-dept-logo-img" title="Secondary Education (BSED)" loading="lazy" decoding="async">
-                    <img src="assets/dept-logos/isap-bped.png" alt="Physical Education Logo" class="college-dept-logo-img" title="Physical Education (BPED)" loading="lazy" decoding="async">
+                    <img src="assets/dept-logos/isap-bsed.webp" alt="Secondary Education Logo" class="college-dept-logo-img" title="Secondary Education (BSED)" loading="lazy" decoding="async" width="495" height="495">
+                    <img src="assets/dept-logos/isap-bped.webp" alt="Physical Education Logo" class="college-dept-logo-img" title="Physical Education (BPED)" loading="lazy" decoding="async" width="453" height="491">
                   </div>
                   <div class="college-dept-header-text">
                     <h3 class="college-dept-title" style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);">CASTE &bull; Teacher Education (BSED / BPED)</h3>
@@ -794,8 +544,8 @@
               <div class="college-card" data-org-cat="all caste">
                 <div class="college-card-header" style="background: linear-gradient(135deg, #7a1f2d 0%, #4b0d1b 100%);">
                   <div class="college-dept-logo-cluster">
-                    <img src="assets/dept-logos/isap-social-work.png" alt="Social Work Logo" class="college-dept-logo-img" title="Social Work (BSSW)" loading="lazy" decoding="async">
-                    <img src="assets/dept-logos/isap-psychology.png" alt="Psychology Logo" class="college-dept-logo-img" title="Psychology (BSPsych)" loading="lazy" decoding="async">
+                    <img src="assets/dept-logos/isap-social-work.webp" alt="Social Work Logo" class="college-dept-logo-img" title="Social Work (BSSW)" loading="lazy" decoding="async" width="225" height="225">
+                    <img src="assets/dept-logos/isap-psychology.webp" alt="Psychology Logo" class="college-dept-logo-img" title="Psychology (BSPsych)" loading="lazy" decoding="async" width="250" height="250">
                   </div>
                   <div class="college-dept-header-text">
                     <h3 class="college-dept-title" style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);">CASTE &bull; Social Work &amp; Psychology</h3>
@@ -834,8 +584,8 @@
               <div class="college-card" data-org-cat="all thm">
                 <div class="college-card-header" style="background: linear-gradient(135deg, #7a1f2d 0%, #4b0d1b 100%);">
                   <div class="college-dept-logo-cluster">
-                    <img src="assets/dept-logos/isap-tourism.png" alt="Tourism Management Logo" class="college-dept-logo-img" title="Tourism Management (BSTM)" loading="lazy" decoding="async">
-                    <img src="assets/dept-logos/isap-hospitality.png" alt="Hospitality Management Logo" class="college-dept-logo-img" title="Hospitality Management (BSHM)" loading="lazy" decoding="async">
+                    <img src="assets/dept-logos/isap-tourism.webp" alt="Tourism Management Logo" class="college-dept-logo-img" title="Tourism Management (BSTM)" loading="lazy" decoding="async" width="250" height="250">
+                    <img src="assets/dept-logos/isap-hospitality.webp" alt="Hospitality Management Logo" class="college-dept-logo-img" title="Hospitality Management (BSHM)" loading="lazy" decoding="async" width="250" height="250">
                   </div>
                   <div class="college-dept-header-text">
                     <h3 class="college-dept-title" style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);">Hospitality &amp; Tourism (BSTM &amp; BSHM)</h3>
@@ -866,8 +616,8 @@
               <div class="college-card" data-org-cat="all acc-customs">
                 <div class="college-card-header" style="background: linear-gradient(135deg, #7a1f2d 0%, #4b0d1b 100%);">
                   <div class="college-dept-logo-cluster">
-                    <img src="assets/dept-logos/isap-accountancy.png" alt="Accountancy Logo" class="college-dept-logo-img" title="Accountancy (BSAC)" loading="lazy" decoding="async">
-                    <img src="assets/dept-logos/isap-customs.png" alt="Customs Administration Logo" class="college-dept-logo-img" title="Customs Administration (BSCA)" loading="lazy" decoding="async">
+                    <img src="assets/dept-logos/isap-accountancy.webp" alt="Accountancy Logo" class="college-dept-logo-img" title="Accountancy (BSAC)" loading="lazy" decoding="async" width="250" height="250">
+                    <img src="assets/dept-logos/isap-customs.webp" alt="Customs Administration Logo" class="college-dept-logo-img" title="Customs Administration (BSCA)" loading="lazy" decoding="async" width="250" height="250">
                   </div>
                   <div class="college-dept-header-text">
                     <h3 class="college-dept-title" style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);">Accountancy (BSAC) &amp; Customs (BSCA)</h3>
@@ -899,7 +649,7 @@
               <!-- COLLEGE 7: BUSINESS ADMINISTRATION -->
               <div class="college-card" data-org-cat="all bsba">
                 <div class="college-card-header" style="background: linear-gradient(135deg, #7a1f2d 0%, #4b0d1b 100%);">
-                  <img src="assets/dept-logos/isap-business.png" alt="Business Administration Logo" class="college-dept-logo-img" loading="lazy" decoding="async">
+                  <img src="assets/dept-logos/isap-business.webp" alt="Business Administration Logo" class="college-dept-logo-img" loading="lazy" decoding="async" width="250" height="255">
                   <div class="college-dept-header-text">
                     <h3 class="college-dept-title" style="text-shadow: 0 1px 2px rgba(0,0,0,0.3);">Business Administration (BSBA)</h3>
                   </div>
@@ -1805,6 +1555,6 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js" defer></script>
+  <script src="js/main.min.js?v=862da0bf" defer></script>
 </body>
 </html>

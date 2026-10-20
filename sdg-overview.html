@@ -29,377 +29,27 @@
   <meta property="og:image" content="assets/rdc-logo.png">
   <meta property="og:site_name" content="MCNP &amp; ISAP RDC">
 
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="css/style.min.css?v=0b2db07b">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap">
-  <style>
-    /* SDG Goal Page Styling */
-    .un-page {
-      --oswald: 'Oswald', 'Arial Narrow', sans-serif;
-      font-family: 'Roboto', Arial, sans-serif;
-      color: #333;
-    }
-    .un-hero {
-      background: var(--goal, #E5243B);
-      color: #fff;
-      padding: 2.75rem 0 3.25rem;
-      min-height: 320px;
-      transition: background 0.3s ease;
-      position: relative;
-    }
-    .un-hero .breadcrumbs, .un-hero .breadcrumbs a {
-      color: #fff;
-      font-size: 0.85rem;
-      opacity: 0.95;
-    }
-    .un-hero .breadcrumbs {
-      margin-bottom: 1.5rem;
-    }
-    .un-num {
-      font: 700 4.5rem/1 var(--oswald);
-      color: rgba(255, 255, 255, 0.4);
-      margin: 0.75rem 0 0.35rem;
-    }
-    .un-hero h1 {
-      font: 600 clamp(1.9rem, 4.5vw, 2.85rem)/1.2 var(--oswald);
-      margin: 0;
-      color: #fff;
-      max-width: 900px;
-    }
-    .un-rule {
-      display: block;
-      width: 56px;
-      height: 2px;
-      background: rgba(255, 255, 255, 0.8);
-      margin: 1.25rem 0 2rem;
-    }
-    .un-pager {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-    .un-next, .un-prev {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.4rem 1.15rem;
-      border: 1.5px solid rgba(255, 255, 255, 0.85);
-      border-radius: 999px;
-      color: #fff;
-      font: 600 0.85rem var(--oswald);
-      text-decoration: none;
-      transition: all 0.2s ease;
-      background: rgba(0, 0, 0, 0.15);
-    }
-    .un-next:hover, .un-next:focus-visible,
-    .un-prev:hover, .un-prev:focus-visible {
-      background: #fff;
-      color: var(--goal, #0f172a);
-      border-color: #fff;
-    }
-    .un-goalbar {
-      background: #0f172a;
-      border-bottom: 1px solid #1e293b;
-      position: sticky;
-      top: 72px;
-      z-index: 99;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
-    }
-    .un-goalbar .container {
-      display: flex;
-      gap: 6px;
-      overflow-x: auto;
-      padding: 0.75rem 4px;
-      align-items: center;
-    }
-    .un-goalbar a {
-      flex: 0 0 auto;
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      background: var(--c);
-      color: #fff;
-      font: 700 0.9rem var(--oswald);
-      text-decoration: none;
-      border-radius: 8px;
-      opacity: 0.65;
-      transition: all 0.2s ease;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-    .un-goalbar a:hover, .un-goalbar a:focus-visible, .un-goalbar a[aria-current] {
-      opacity: 1;
-      transform: translateY(-2px) scale(1.08);
-    }
-    .un-goalbar a[aria-current] {
-      outline: 3px solid #ffffff;
-      outline-offset: 2px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    }
-    .un-tabs {
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
-      position: sticky;
-      top: 130px;
-      z-index: 98;
-    }
-    .un-tabs .container {
-      display: flex;
-      gap: 2rem;
-      overflow-x: auto;
-    }
-    .un-tabs a {
-      padding: 1rem 0;
-      font: 600 0.95rem var(--oswald);
-      letter-spacing: 0.03em;
-      color: #64748b;
-      text-decoration: none;
-      border-bottom: 3px solid transparent;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-    }
-    .un-tabs a:hover, .un-tabs a:focus-visible {
-      border-color: var(--goal, #0f172a);
-      color: var(--goal, #0f172a);
-    }
-    .un-section {
-      padding: 3rem 0 2rem;
-    }
-    .un-h {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font: 600 1.9rem var(--oswald);
-      margin: 0 0 1.5rem;
-      color: #0f172a;
-    }
-    .un-h::before {
-      content: "";
-      width: 42px;
-      height: 3px;
-      background: var(--goal, #0f172a);
-      border-radius: 2px;
-    }
-    .un-overview {
-      max-width: 860px;
-      background: #ffffff;
-      padding: 2.25rem;
-      border-radius: 14px;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
-    }
-    .un-overview p {
-      line-height: 1.8;
-      margin: 0 0 1.25rem;
-      font-size: 1.05rem;
-      color: #334155;
-    }
-    .un-overview p:last-child {
-      margin-bottom: 0;
-    }
-    .un-related {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 0.85rem;
-      width: min(100%, 540px);
-    }
-    .un-related li {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .un-related li:hover {
-      border-color: var(--goal, #0f172a);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-    }
-    .un-related a {
-      display: block;
-      padding: 1rem 1.25rem;
-      text-decoration: none;
-      color: #222;
-    }
-    .un-related-date {
-      display: block;
-      font-size: 0.72rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--goal, #0f172a);
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-    }
-    .un-related-title {
-      display: block;
-      font: 600 1.02rem/1.4 var(--oswald);
-      color: #0f172a;
-    }
-    .un-related-empty {
-      color: #64748b;
-      margin: 0;
-      padding: 1.25rem;
-      border: 1px dashed #cbd5e1;
-      border-radius: 10px;
-      background: #f8fafc;
-    }
-    .un-ev-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-    }
-    .un-ev-head .un-h {
-      margin: 0;
-    }
-    .un-see {
-      border: 1.5px solid #0284c7;
-      color: #0284c7;
-      padding: 0.55rem 1.75rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-decoration: none;
-      background: #fff;
-      border-radius: 8px;
-      transition: all 0.2s ease;
-    }
-    .un-see:hover {
-      background: #0284c7;
-      color: #fff;
-    }
-    .un-events {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.4rem;
-      margin: 1.5rem 0 3rem;
-    }
-    .un-ev {
-      display: flex;
-      flex-direction: column;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 1.6rem;
-      background: #fff;
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-    }
-    .un-ev:hover {
-      border-color: var(--goal, #0f172a);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.1);
-      transform: translateY(-3px);
-    }
-    .un-day {
-      font: 700 2.2rem/1 var(--oswald);
-      color: #0f172a;
-    }
-    .un-mon {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: #64748b;
-      margin-top: 0.4rem;
-    }
-    .un-mon::after {
-      content: "";
-      display: block;
-      width: 32px;
-      height: 2px;
-      background: var(--goal, #cbd5e1);
-      margin-top: 0.75rem;
-    }
-    .un-ev-topic {
-      display: inline-block;
-      align-self: flex-start;
-      font: 700 0.72rem var(--oswald);
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      color: var(--goal, #0f172a);
-      background: rgba(0, 0, 0, 0.05);
-      border-radius: 4px;
-      padding: 0.22rem 0.6rem;
-      margin-top: 0.9rem;
-    }
-    .un-ev h3 {
-      font: 600 1.1rem/1.35 var(--oswald);
-      margin: 0.85rem 0 0.5rem;
-      color: #0f172a;
-    }
-    .un-range {
-      font-size: 0.85rem;
-      color: #64748b;
-    }
-    .un-ev-goals {
-      margin-top: auto;
-      padding-top: 1.25rem;
-      border-top: 1px dashed #e2e8f0;
-    }
-    .un-ev-goals small {
-      display: block;
-      font-size: 0.72rem;
-      color: #94a3b8;
-      margin-bottom: 0.4rem;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-    .un-ev-goals-strip {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-    }
-    .un-badge-icon {
-      display: inline-flex;
-      width: 28px;
-      height: 28px;
-      border-radius: 6px;
-      overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.18);
-      flex-shrink: 0;
-    }
-    .un-badge-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .un-ev-link {
-      margin-top: 0.85rem;
-      font: 700 0.75rem var(--oswald);
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      color: var(--goal, #0f172a);
-    }
-    .un-empty {
-      grid-column: 1 / -1;
-      color: #64748b;
-      margin: 0;
-      padding: 1.5rem;
-      background: #f8fafc;
-      border: 1px dashed #cbd5e1;
-      border-radius: 12px;
-      text-align: center;
-    }
-  </style>
+  <link rel="stylesheet" href="css/pages/sdg-overview.min.css?v=a34e8554">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- BEGIN:SITE-HEADER -->
   <!-- Top Institutional Bar -->
   <header class="topbar">
     <div class="container">
       <div class="topbar-info">
-        <span> Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
-        <span> <a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
-        <span> +639989847781</span>
+        <span>Alimannao Hills, Peñablanca, Cagayan, Philippines</span>
+        <span><a href="mailto:researchoffice@mcnp.edu.ph" style="color:inherit">researchoffice@mcnp.edu.ph</a></span>
+        <span><a href="tel:+639989847781" style="color:inherit">(+63) 998 984 7781</a></span>
       </div>
       <div class="topbar-right">
-        <a href="call-for-proposals.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 700; font-size: 0.78rem;"> Calls for Proposals (Open)</a>
-        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;"> FAQs</a>
-        <a href="calendar.html" style="color: #ffdf70; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;"> Schedule Calendar</a>
+        <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;">FAQs</a>
+        <a href="calendar.html" style="color: #ffffff; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">Schedule Calendar</a>
         <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
       </div>
     </div>
@@ -411,7 +61,7 @@
       <div class="header-inner">
         <a href="index.html" class="brand-wrapper">
           <div class="brand-logos">
-            <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.png" alt="MCNP and ISAP" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific" loading="lazy" decoding="async">
+            <img class="brand-header-image" src="assets/MCNP%20.%20ISAP%20FB%20PROFILE%20copy.webp" alt="MCNP and ISAP Official Seals" title="Medical Colleges of Northern Philippines and International School of Asia and the Pacific" width="44" height="44" loading="lazy" decoding="async">
           </div>
           <div class="brand-text">
             <span class="brand-title">MCNP <span>&amp; ISAP</span> RDC</span>
@@ -425,21 +75,22 @@
               <a href="index.html" class="nav-link">HOME</a>
             </li>
 
+            <!-- Dropdown: ABOUT INSTITUTION -->
             <li class="nav-item dropdown">
-              <a href="about-mcnp.html" class="nav-link">
+              <a href="about-mcnp.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 ABOUT INSTITUTION
               </a>
               <div class="dropdown-menu">
                 <a href="about-mcnp.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>Medical Colleges of Northern Philippines</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
                 <a href="about-isap.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>International School of Asia and the Pacific</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -449,7 +100,7 @@
 
             <!-- Dropdown: ABOUT RDC -->
             <li class="nav-item dropdown">
-              <a href="about-rdc.html" class="nav-link">
+              <a href="about-rdc.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 ABOUT RDC
               </a>
               <div class="dropdown-menu">
@@ -472,8 +123,9 @@
               <a href="rdc-agenda.html" class="nav-link">RDC AGENDA</a>
             </li>
 
+            <!-- Dropdown: JOURNAL -->
             <li class="nav-item dropdown">
-              <a href="journal.html" class="nav-link">
+              <a href="journal.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 JOURNALS
               </a>
               <div class="dropdown-menu">
@@ -493,8 +145,8 @@
                   <span>Journal of Admin (Faculty Research)</span>
                   <span class="dropdown-badge badge-admin">ADMIN</span>
                 </a>
-                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link" style="border-top: 1px dashed var(--border-color); color: #b89726; font-size: 0.82rem;">
-                  <span>Direct Online FlipBook </span>
+                <a href="https://online.fliphtml5.com/ffqhu/swzy/#p=1" target="_blank" rel="noopener noreferrer" class="dropdown-link dropdown-link-flip">
+                  <span>Direct Online FlipBook</span>
                   <span class="dropdown-badge badge-admin">FlipHTML5</span>
                 </a>
               </div>
@@ -502,20 +154,20 @@
 
             <!-- Dropdown: UTILIZATION -->
             <li class="nav-item dropdown">
-              <a href="utilization.html" class="nav-link">
+              <a href="utilization.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 UTILIZATION
               </a>
               <div class="dropdown-menu">
-                <a href="utilization.html#mcnp" class="dropdown-link">
+                <a href="utilization.html#mcnp" id="nav-util-mcnp" class="dropdown-link" onclick="if(window.filterUtilizationWing){filterUtilizationWing('mcnp');}">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>MCNP Health Sciences Wing</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
-                <a href="utilization.html#isap" class="dropdown-link">
+                <a href="utilization.html#isap" id="nav-util-isap" class="dropdown-link" onclick="if(window.filterUtilizationWing){filterUtilizationWing('isap');}">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>ISAP Multidisciplinary Wing</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -527,22 +179,22 @@
               <a href="experience.html" class="nav-link">EXPERIENCE</a>
             </li>
 
-                                                <!-- Dropdown: RESOURCES -->
+            <!-- Dropdown: RESOURCES -->
             <li class="nav-item dropdown">
-              <a href="resources-mcnp.html" class="nav-link">
+              <a href="resources-mcnp.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 RESOURCES
               </a>
               <div class="dropdown-menu">
                 <a href="resources-mcnp.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/Mcnp_Logo.webp" alt="MCNP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>Medical Colleges of Northern Philippines</span>
                   </div>
                   <span class="dropdown-badge badge-mcnp">MCNP</span>
                 </a>
                 <a href="resources-isap.html" class="dropdown-link">
                   <div style="display: flex; align-items: center; gap: 0.6rem;">
-                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).webp" alt="ISAP Seal" width="22" height="22" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
                     <span>International School of Asia and the Pacific</span>
                   </div>
                   <span class="dropdown-badge badge-isap">ISAP</span>
@@ -550,17 +202,18 @@
               </div>
             </li>
 
-                        <li class="nav-item dropdown">
-              <a href="news-events.html" class="nav-link">
+            <!-- Dropdown: NEWS & EVENTS -->
+            <li class="nav-item dropdown">
+              <a href="news-events.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
                 NEWS &amp; EVENTS
               </a>
               <div class="dropdown-menu">
                 <a href="news-events.html#articles" class="dropdown-link">
-                  <span> Research Articles &amp; Stories</span>
+                  <span>Research Articles &amp; Stories</span>
                   <span class="dropdown-badge badge-mcnp">ARTICLES</span>
                 </a>
                 <a href="news-events.html#events" class="dropdown-link">
-                  <span> Events &amp; Colloquiums</span>
+                  <span>Events &amp; Colloquiums</span>
                   <span class="dropdown-badge badge-isap">EVENTS</span>
                 </a>
                 <a href="calendar.html" class="dropdown-link">
@@ -580,10 +233,11 @@
           </ul>
         </nav>
 
-        <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation"><span class="mobile-toggle-icon" aria-hidden="true">&#9776;</span></button>
+        <button class="mobile-toggle" aria-label="Open navigation">Menu</button>
       </div>
     </div>
   </header>
+  <!-- END:SITE-HEADER -->
 
   <main class="un-page" id="un-page" style="--goal:#E5243B">
     <!-- Top Return / Navigation Action Bar -->
@@ -607,7 +261,7 @@
         </div>
         
         <div style="display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; margin-bottom: 1rem;">
-          <img id="un-hero-icon" src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-01.png" alt="SDG Icon" style="width: 110px; height: 110px; object-fit: contain; border-radius: 16px; box-shadow: 0 10px 24px rgba(0,0,0,0.3); background: #fff; padding: 4px; flex-shrink: 0;" loading="lazy" decoding="async">
+          <img id="un-hero-icon" src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-01.webp" alt="SDG Icon" style="width: 110px; height: 110px; object-fit: contain; border-radius: 16px; box-shadow: 0 10px 24px rgba(0,0,0,0.3); background: #fff; padding: 4px; flex-shrink: 0;" loading="lazy" decoding="async" width="110" height="110">
           <div style="flex: 1; min-width: 260px;">
             <div class="un-num" id="un-num" aria-hidden="true">1</div>
             <h1 id="un-title">End poverty in all its forms everywhere</h1>
@@ -715,161 +369,9 @@
     </div>
   </footer>
 
-  <script>
-  (function(){
-    var G=[
-      ["No Poverty","End poverty in all its forms everywhere","#E5243B","Goal 1 aims to end poverty everywhere, looking beyond income to access to health care, food, education and decent work.","Poverty eradication"],
-      ["Zero Hunger","End hunger, achieve food security and improved nutrition and promote sustainable agriculture","#DDA63A","Goal 2 seeks to end hunger, secure good nutrition for everyone and support farming that sustains both people and land.","Food security and nutrition"],
-      ["Good Health and Well-being","Ensure healthy lives and promote well-being for all at all ages","#4C9F38","Goal 3 works toward healthy lives and well-being for people of all ages, from primary care to protection against disease.","Health and well-being"],
-      ["Quality Education","Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all","#C5192D","Goal 4 promotes inclusive, quality education and learning opportunities that last a lifetime.","Lifelong learning"],
-      ["Gender Equality","Achieve gender equality and empower all women and girls","#FF3A21","Goal 5 pushes for equal rights and opportunities for women and girls at home, at work and in public life.","Women’s empowerment"],
-      ["Clean Water and Sanitation","Ensure availability and sustainable management of water and sanitation for all","#26BDE2","Goal 6 aims for safe drinking water, sanitation and well-managed water resources for everyone.","Safe water and sanitation"],
-      ["Affordable and Clean Energy","Ensure access to affordable, reliable, sustainable and modern energy for all","#FCC30B","Goal 7 calls for reliable, affordable and clean energy that reaches every household and business.","Clean and modern energy"],
-      ["Decent Work and Economic Growth","Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all","#A21942","Goal 8 supports steady, inclusive economic growth and productive, decent jobs for all.","Decent work and growth"],
-      ["Industry, Innovation and Infrastructure","Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation","#FD6925","Goal 9 focuses on resilient infrastructure and inclusive industry and innovation that widen opportunity.","Innovation and infrastructure"],
-      ["Reduced Inequalities","Reduce inequality within and among countries","#DD1367","Goal 10 works to narrow gaps in income, opportunity and treatment within and between countries.","Inclusion and equity"],
-      ["Sustainable Cities and Communities","Make cities and human settlements inclusive, safe, resilient and sustainable","#FD9D24","Goal 11 aims to make cities and communities safe, inclusive, resilient and sustainable.","Resilient communities"],
-      ["Responsible Consumption and Production","Ensure sustainable consumption and production patterns","#BF8B2E","Goal 12 encourages wiser use of resources and less waste in how we produce and consume.","Sustainable consumption"],
-      ["Climate Action","Take urgent action to combat climate change and its impacts","#3F7E44","Goal 13 calls for urgent action on climate change and for helping communities cope with its effects.","Climate adaptation"],
-      ["Life Below Water","Conserve and sustainably use the oceans, seas and marine resources for sustainable development","#0A97D9","Goal 14 seeks to protect oceans, seas and marine life and to use their resources sustainably.","Marine conservation"],
-      ["Life on Land","Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss","#56C02B","Goal 15 aims to protect forests and land ecosystems, restore degraded land and halt biodiversity loss.","Forests and biodiversity"],
-      ["Peace, Justice and Strong Institutions","Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels","#00689D","Goal 16 promotes peaceful, inclusive societies, access to justice and accountable institutions.","Justice and strong institutions"],
-      ["Partnerships for the Goals","Strengthen the means of implementation and revitalize the Global Partnership for Sustainable Development","#19486A","Goal 17 builds the partnerships and resources needed to deliver every other goal.","Global partnerships"]
-    ];
+  <script src="js/pages/sdg-overview.min.js?v=47951135"></script>
 
-    var E=[
-      {d:"17",m:"SEP 2026",t:"Strengthening Data Skills for Better Health Research",r:"Thu 17 - Fri 18 Sep 2026",topic:"Professional Development",g:[3,4,9,17],id:"event-data-skills"},
-      {d:"17",m:"SEP 2026",t:"Pharmacy Research with Purpose: Every Study, a Goal and an Impact",r:"Thu 17 - Fri 18 Sep 2026",topic:"BS Pharmacy",g:[4,9,16,17],id:"event-pharmacy-research"},
-      {d:"16",m:"SEP 2026",t:"From Problems to Purpose: Strengthening Research Capacity",r:"Wed 16 Sep 2026",topic:"General Education Department",g:[4,9,16,17],id:"event-problems-to-purpose"},
-      {d:"16",m:"SEP 2026",t:"Leading Through Inquiry, Improving Through Evidence",r:"Wed 16 Sep 2026",topic:"Academic Heads",g:[4,9,17],id:"event-leading-through-inquiry"},
-      {d:"15",m:"SEP 2026",t:"From Numbers to Narratives: Making Data Meaningful",r:"Tue 15 Sep 2026",topic:"Data Appreciation",g:[4,9,16,17],id:"event-numbers-to-narratives"},
-      {d:"09",m:"SEP 2026",t:"Research Leadership in Action",r:"Wed 09 Sep 2026",topic:"Academic Heads",g:[4,9,17],id:"event-research-leadership"},
-      {d:"09",m:"SEP 2026",t:"From Innovation to Opportunity: Advancing Ideas for Possible Funding",r:"Wed 09 - Fri 11 Sep 2026",topic:"Cagayan Valley STI Week",g:[2,3,4,9,17],id:"event-innovation-to-opportunity"},
-      {d:"09",m:"SEP 2026",t:"Research That Sees Everyone: Advancing Knowledge through a Gender-Responsive Lens",r:"Wed 09 - Thu 10 Sep 2026",topic:"Regional Seminar-Training",g:[4,5,9,17],id:"event-research-sees-everyone"},
-      {d:"28",m:"AUG 2026",t:"From Samples to Statistics: Turning Data into Meaningful Discoveries",r:"Fri 28 Aug 2026",topic:"High School Research Summit — Episode 2",g:[4,9,17],id:"event-samples-to-statistics"},
-      {d:"28",m:"AUG 2026",t:"Pick a Goal. Raise Your Flag. Make Your Impact.",r:"Fri 28 Aug 2026",topic:"Research for the Goals",g:[4,9,16,17],id:"event-sdg-spot-launch"},
-      {d:"—",m:"SDG SPOT @ RDC",t:"Every Study. A Goal. An Impact. (BS Tourism Management)",r:"SDG Research Snap, one of the activities under SDG SPOT @ RDC",topic:"BS Tourism Management",g:[4,9,16,17],id:"event-sdg-research-snap-tourism"},
-      {d:"24",m:"AUG 2026",t:"Equipping Students for Meaningful Community Engagement",r:"Mon 24 Aug 2026",topic:"Community Extension Services",g:[4,16,17],id:"event-equipping-students"},
-      {d:"24",m:"AUG 2026",t:"Strengthening Research Through Shared Direction",r:"Mon 24 Aug 2026",topic:"MCNP–ISAP RDC",g:[4,9,16,17],id:"event-general-assembly"},
-      {d:"19",m:"AUG 2026",t:"Advancing Health Research Through Collaboration",r:"Wed 19 - Thu 20 Aug 2026",topic:"RRF Technical Review",g:[4,17],id:"event-health-research-collaboration"},
-      {d:"07",m:"AUG 2026",t:"Research for Sustainable Impact",r:"Fri 07 Aug 2026",topic:"ISAP-K Conference",g:[4,9,11,17],id:"event-icir-2026"},
-      {d:"17",m:"NOV 2024",t:"RDC Joins CBCP-UST Collaborative Project on Catholic Christianity",r:"Sun 17 Nov 2024",topic:"Catholic Christianity Study",g:[4,16,17],id:"event-cbcp-ust-collab"},
-      {d:"—",m:"2024",t:"MCNP and ISAP Students Excel in the 28th Philippine Statistics Quiz Bee",r:"28th Philippine Statistics Quiz Bee",topic:"Statistics Quiz Bee",g:[4,9,17],id:"event-student-stats-28th"},
-      {d:"—",m:"35th NSM",t:"Congratulations to the Winners of the Institutional Statistics Quiz Bee",r:"35th National Statistics Month",topic:"Quiz Bee Winners",g:[4,9,17],id:"event-inst-quiz-bee"},
-      {d:"08",m:"OCT 2024",t:"Research Director Ryan C. Fontanilla and IT Dean Engr. Myke Albert Tejada Participate in Collaborative Study",r:"Tue 08 Oct 2024",topic:"Research Collaboration",g:[4,16,17],id:"event-fontanilla-tejada-collab"},
-      {d:"03",m:"OCT 2024",t:"Region 2 Emerges as Overall Champion",r:"Thu 03 - Fri 04 Oct 2024",topic:"RDaFest 2024",g:[4,9,17],id:"event-rdafest-champion-2024"},
-      {d:"04",m:"OCT 2024",t:"School Statisticians Join the 35th National Statistics Month Color Fun Run",r:"Fri 04 Oct 2024",topic:"Color Fun Run",g:[3,4,17],id:"event-stats-color-fun-run"},
-      {d:"—",m:"OCT 2024",t:"MCNP and ISAP Students Receive Statistics Month Awards",r:"October 2024",topic:"Student Awards",g:[4,9,17],id:"event-student-stats-awards"},
-      {d:"03",m:"OCT 2024",t:"Wendy Mae G. Lapus Represents ISAP at Regional Data Festival",r:"Thu 03 - Fri 04 Oct 2024",topic:"Research Presentation",g:[4,8,9,17],id:"event-lapus-rdafest-2024"},
-      {d:"—",m:"SEP 2024",t:"MCNP and ISAP Conduct Digital Infographics Making Contest",r:"September 2024",topic:"Digital Infographics",g:[4,9,17],id:"event-infographics-contest"}
-    ];
-
-    var common="The MCNP &amp; ISAP Research &amp; Development Center brings this goal into its research and community extension work in Cagayan Valley, turning academic, clinical and legal expertise into support for the communities that need it most.";
-
-    function $(id){ return document.getElementById(id); }
-    function pad(n){ return (n < 10 ? '0' : '') + n; }
-    function badge(n){
-      var num = pad(n);
-      var title = (G[n - 1] && G[n - 1][0]) ? ('SDG ' + n + ': ' + G[n - 1][0]) : ('SDG ' + n);
-      return '<span class="un-badge-icon" title="' + title + '">' +
-        '<img src="assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-' + num + '.png" alt="' + title + '" loading="lazy" decoding="async">' +
-      '</span>';
-    }
-    function eventUrl(item){ return "news-events.html#" + item.id; }
-
-    // Render Goal Selector Bar
-    $("un-goalbar").firstElementChild.innerHTML = G.map(function(goal, i){
-      var gNum = i + 1;
-      return '<a href="?goal=' + gNum + '" data-goal="' + gNum + '" style="--c:' + goal[2] + '" aria-label="Goal ' + gNum + ': ' + goal[0] + '">' + gNum + '</a>';
-    }).join("");
-
-    function show(n, smoothScroll){
-      var goal = G[n - 1];
-      if (!goal) return;
-      var nextGoal = n === 17 ? 1 : n + 1;
-      var prevGoal = n === 1 ? 17 : n - 1;
-
-      // Update Theme CSS Variable & Badges
-      $("un-page").style.setProperty("--goal", goal[2]);
-      $("sdg-top-badge").style.background = goal[2];
-      $("sdg-top-badge").textContent = "SDG " + n + " Active";
-      $("sdg-top-name").textContent = goal[0];
-      $("un-breadcrumb-curr").textContent = "Goal " + n + ": " + goal[0];
-
-      // Update Hero Icon
-      $("un-hero-icon").src = "assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-" + pad(n) + ".png";
-      $("un-hero-icon").alt = "SDG " + n + ": " + goal[0];
-
-      $("un-num").textContent = n;
-      $("un-title").textContent = goal[1];
-
-      // Pagers
-      var nextLink = $("un-next");
-      nextLink.dataset.goal = String(nextGoal);
-      nextLink.href = "?goal=" + nextGoal;
-      nextLink.innerHTML = "Goal " + nextGoal + " ";
-
-      var prevLink = $("un-prev");
-      prevLink.dataset.goal = String(prevGoal);
-      prevLink.href = "?goal=" + prevGoal;
-      prevLink.innerHTML = " Goal " + prevGoal;
-
-      // Overview
-      $("un-ov").innerHTML = '<p style="font-weight: 500; font-size: 1.15rem; color: #0f172a; margin-bottom: 1.25rem;">' + goal[3] + '</p><p>' + common + '</p>';
-
-      // Filter events & topics
-      var list = E.filter(function(item){ return item.g.indexOf(n) > -1; });
-      if ($("un-ev-count-badge")) {
-        $("un-ev-count-badge").textContent = list.length + (list.length === 1 ? " Event" : " Events");
-      }
-
-      $("un-topic").innerHTML = list.length ? list.map(function(item){
-        return '<li><a href="' + eventUrl(item) + '"><span class="un-related-date">' + item.topic + '</span><span class="un-related-title">' + item.t + '</span></a></li>';
-      }).join("") : '<li><p class="un-related-empty">No related stories are tagged with this goal yet. <a href="news-events.html">Browse all news &amp; events </a></p></li>';
-
-      $("un-events").innerHTML = list.length ? list.map(function(item){
-        return '<a class="un-ev" href="' + eventUrl(item) + '"><div class="un-day">' + item.d + '</div><div class="un-mon">' + item.m + '</div>' + (item.topic ? '<div class="un-ev-topic">' + item.topic + '</div>' : '') + '<h3>' + item.t + '</h3><div class="un-range">' + item.r + '</div><div class="un-ev-link">Read full story </div><div class="un-ev-goals"><small>Related Goals</small><div class="un-ev-goals-strip">' + item.g.map(badge).join("") + '</div></div></a>';
-      }).join("") : '<p class="un-empty">No events are listed for this goal yet. <a href="news-events.html">Browse all events </a></p>';
-
-      // Update Active state in goalbar
-      Array.prototype.forEach.call($("un-goalbar").querySelectorAll("a"), function(link){
-        if (Number(link.dataset.goal) === n) {
-          link.setAttribute("aria-current", "true");
-        } else {
-          link.removeAttribute("aria-current");
-        }
-      });
-
-      document.title = "SDG " + n + ": " + goal[0] + " | SDG Overview | MCNP & ISAP RDC";
-
-      if (smoothScroll) {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    }
-
-    function fromUrl(){
-      var q = parseInt(new URLSearchParams(location.search).get("goal"), 10);
-      return q >= 1 && q <= 17 ? q : 1;
-    }
-
-    document.addEventListener("click", function(e){
-      var link = e.target.closest("[data-goal]");
-      if (!link) return;
-      e.preventDefault();
-      var n = Number(link.dataset.goal);
-      history.pushState(null, "", "?goal=" + n);
-      show(n, true);
-    });
-
-    window.addEventListener("popstate", function(){
-      show(fromUrl(), false);
-    });
-
-    show(fromUrl(), false);
-  })();
-  </script>
-
-  <script src="js/main.min.js" defer></script>
+  <script src="js/main.min.js?v=862da0bf" defer></script>
 </body>
 </html>
 
