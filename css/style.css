@@ -512,6 +512,8 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.85rem;
+  white-space: nowrap;
   padding: 0.65rem 1.15rem;
   font-size: 0.86rem;
   font-weight: 600;
