@@ -875,69 +875,8 @@ window.agendaData = {
         "color": "#fff"
       }
     ],
-    "studies": [
-      {
-        "title": "Comparative Efficacy of Virtual OSCE vs. Traditional Bedside Evaluations in Nursing and Radiologic Technology Clinical Rotations",
-        "dept": "College of Nursing & RadTech",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "Empirical trial measuring diagnostic precision, procedural error margins, and student clinical confidence when evaluated through virtual simulations vs. bedside hospital rounds."
-      },
-      {
-        "title": "Impact of High-Fidelity Simulation on Clinical Decision-Making Under Acute Stress in Emergency Scenarios",
-        "dept": "MCNP Allied Health Sciences",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "Investigating physiological stress response markers (heart-rate variability, decision latency) during emergency resuscitation simulations in MCNP simulation laboratories."
-      },
-      {
-        "title": "Gamified Micro-Credential Learning Modules for Human Anatomy & Physiology: A Multi-Cohort Trial",
-        "dept": "Department of General Education",
-        "status": "Approved Proposal",
-        "statusClass": "status-proposal",
-        "desc": "Assessing conceptual retention, quiz performance, and academic persistence among first-year health science students utilizing mobile bite-sized gamified micro-modules."
-      },
-      {
-        "title": "Pedagogical Resilience and Digital Fluency Among Higher Education Faculty in Cagayan Valley",
-        "dept": "ISAP College of Teacher Education",
-        "status": "Recommended",
-        "statusClass": "status-recommended",
-        "desc": "Cross-sectional survey evaluating instructional adaptability, generative AI tool integration, and authentic assessment competencies across tertiary educators."
-      },
-      {
-        "title": "Culturally Responsive Teaching Models in Multi-Ethnolinguistic Classrooms Across Northern Luzon",
-        "dept": "ISAP Graduate School of Education",
-        "status": "Recommended",
-        "statusClass": "status-recommended",
-        "desc": "Designing inclusive instructional frameworks that respect indigenous languages and cultural traditions in regional basic and secondary school districts."
-      }
-    ],
-    "activities": [
-      {
-        "title": "Annual Faculty Pedagogical Development & Syllabus OBE Alignment Workshop",
-        "cadence": "Semestral Cycle",
-
-        "desc": "Intensive capacity-building for MCNP and ISAP educators on authentic assessment rubrics, outcome-based syllabus design, and hybrid simulation integration."
-      },
-      {
-        "title": "Medical & Criminology Simulation Lab Stress-Testing & Calibration Sessions",
-        "cadence": "Bi-Monthly",
-
-        "desc": "Calibration of high-fidelity clinical manikins, simulated forensic crime scene drills, and OSCE standard rubric benchmarking."
-      },
-      {
-        "title": "Cagayan Valley Teacher Education Colloquium & Paper Presentation",
-        "cadence": "Annual Assembly",
-
-        "desc": "Regional academic forum convening pre-service and in-service educators to present empirical research on classroom technology, literacy, and equity."
-      },
-      {
-        "title": "Student Education Innovators Showcase & Instructional Exhibit",
-        "cadence": "Annual Festival",
-
-        "desc": "Public exhibition of student-created gamified learning aids, flash modules, and educational technologies evaluated by faculty panels."
-      }
-    ]
+    "studies": [],
+    "activities": []
   },
   "nurture": {
     "key": "nurture",
@@ -1052,69 +991,8 @@ window.agendaData = {
         "color": "#fff"
       }
     ],
-    "studies": [
-      {
-        "title": "GIS-Enabled Spatial Crime Mapping and Predictive Neighborhood Policing in Peñablanca Rural Barangays",
-        "dept": "ISAP College of Criminology",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "Mapping temporal and geographic hotspots of theft, domestic disturbances, and rural incidents to optimize PNP motorized patrol deployments."
-      },
-      {
-        "title": "Automated Ballistic Striation Comparison Using High-Resolution Digital Micro-Imaging",
-        "dept": "Forensic Ballistics Laboratory",
-        "status": "Approved Proposal",
-        "statusClass": "status-proposal",
-        "desc": "Developing a computer-aided optical correlation algorithm to index firing pin impressions and rifling marks from test-fired firearms."
-      },
-      {
-        "title": "Reintegration Trajectories and Psychological Recidivism Risks Among Former BJMP Inmates in Region II",
-        "dept": "Criminology & Social Sciences",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "Longitudinal assessment of vocational skills training, community acceptance, and parole monitoring in reducing repeat criminal offenses."
-      },
-      {
-        "title": "Compliance with Ethical Standards in Research Involving Incarcerated Individuals and Vulnerable Persons",
-        "dept": "Institutional Ethics Review Board (IERB)",
-        "status": "Approved Proposal",
-        "statusClass": "status-proposal",
-        "desc": "Auditing informed consent comprehension, voluntariness, and ethical safeguards across criminal justice student thesis projects."
-      },
-      {
-        "title": "Restorative Justice Efficacy in Barangay Lupong Tagapamayapa Mediation of Interpersonal Disputes",
-        "dept": "Criminology & Community Extension",
-        "status": "Recommended",
-        "statusClass": "status-recommended",
-        "desc": "Quantitative and qualitative evaluation of case resolution rates and victim satisfaction under the Katarungang Pambarangay law."
-      }
-    ],
-    "activities": [
-      {
-        "title": "Criminology Thesis & Capstone Proposal Defense Colloquium",
-        "cadence": "Quarterly Cycle",
-
-        "desc": "Formal peer and panel defense of graduate and undergraduate research proposals on crime detection, police tactics, and criminalistics."
-      },
-      {
-        "title": "Forensic Ballistics & Questioned Document Technical Workshop",
-        "cadence": "Bi-Annual Bootcamp",
-
-        "desc": "Hands-on laboratory training using the comparison microscope, optical luminescence, and digital photographic forensics."
-      },
-      {
-        "title": "IERB Research Ethics Vetting & Good Clinical Practice (GCP) Sessions",
-        "cadence": "Monthly Sessions",
-
-        "desc": "Rigorous ethical evaluation of submitted investigative protocols involving human participants, patient records, or detainees."
-      },
-      {
-        "title": "Barangay Peace and Order Council (BPOC) Legal Aid & Crime Caravan",
-        "cadence": "Quarterly Outreach",
-
-        "desc": "Community outreach providing crime prevention seminars, anti-drug awareness, and paralegal counseling in partner barangays."
-      }
-    ]
+    "studies": [],
+    "activities": []
   },
   "navigate": {
     "key": "navigate",
@@ -1245,69 +1123,8 @@ window.agendaData = {
         "color": "#fff"
       }
     ],
-    "studies": [
-      {
-        "title": "Blockchain-Secured Chain of Custody System for Digital Evidence in Mobile Forensics Investigations",
-        "dept": "College of Information Technology",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "Architecting a tamper-evident decentralized ledger to timestamp and verify cryptographic hashes of seized digital forensic media."
-      },
-      {
-        "title": "Deep Learning Convolutional Neural Networks for Automated Screening of Pulmonary Lesions on Digital Chest Radiographs",
-        "dept": "Joint IT & Radiologic Tech",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "Training AI classification models on regional hospital anonymized X-rays to expedite pneumonia and tuberculosis preliminary screening."
-      },
-      {
-        "title": "Development and Psychometric Validation of a Cloud-Based Automated Research Proposal Evaluation Tool",
-        "dept": "RDC Informatics Unit",
-        "status": "Approved Proposal",
-        "statusClass": "status-proposal",
-        "desc": "Constructing an automated scoring instrument that checks rubric completeness, methodology alignment, and institutional ethics markers."
-      },
-      {
-        "title": "Store-and-Forward Tele-Radiology Architecture for Remote Island Municipalities in Northern Cagayan",
-        "dept": "Health Informatics Desk",
-        "status": "Approved Proposal",
-        "statusClass": "status-proposal",
-        "desc": "Deploying bandwidth-optimized compressed DICOM transmission protocols linking Calayan Island clinics to Cagayan Valley medical centers."
-      },
-      {
-        "title": "Vulnerability Profiling and Zero-Trust Network Architecture for Multi-Campus Academic Platforms",
-        "dept": "Computer Studies & Systems",
-        "status": "Recommended",
-        "statusClass": "status-recommended",
-        "desc": "Empirical vulnerability scanning and least-privilege role-based access control designs across MCNP and ISAP digital assets."
-      }
-    ],
-    "activities": [
-      {
-        "title": "RDC Data Science & Research Analytics Masterclass (Python, Jamovi, SPSS)",
-        "cadence": "Quarterly Sessions",
-
-        "desc": "Hands-on statistical computing workshops for faculty researchers and graduate students covering inferential statistics and ML."
-      },
-      {
-        "title": "MCNP-ISAP Smart Campus Hackathon & Codefest",
-        "cadence": "Annual Sprint",
-
-        "desc": "Competitive 48-hour software sprint challenging student developers to build solutions for campus workflows, health, and disaster resilience."
-      },
-      {
-        "title": "Cybersecurity Threat Defense & Digital Evidence Forensics Clinic",
-        "cadence": "Bi-Annual Workshop",
-
-        "desc": "Technical workshop with DICT specialists covering cyber incident response, malware containment, and chain-of-custody verification."
-      },
-      {
-        "title": "Automated Evaluation Instrument Standardization & Pilot Testing",
-        "cadence": "Semestral Calibration",
-
-        "desc": "Collaborative testing sessions calibrating digital rubrics and institutional assessment metrics for academic and research departments."
-      }
-    ]
+    "studies": [],
+    "activities": []
   },
   "operationalize": {
     "key": "operationalize",
@@ -1429,69 +1246,8 @@ window.agendaData = {
         "color": "#fff"
       }
     ],
-    "studies": [
-      {
-        "title": "Formulation, Stability Testing, and Antimicrobial Evaluation of a Topical Gel from Cagayan Native Flora",
-        "dept": "College of Pharmacy",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "Developing a stable semi-solid topical antibacterial preparation utilizing ethanolic extracts of bioactive Peñablanca botanical specimens."
-      },
-      {
-        "title": "Design, Fabrication, and Biomechanical Evaluation of an Ergonomic Patient Transfer Assist Device for Rural Clinics",
-        "dept": "Physical Therapy & Ergonomics",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "Engineering an affordable mechanical transfer harness to reduce caregiver lumbar strain and patient falls during bedside transfers."
-      },
-      {
-        "title": "Queueing Theory and Lean Workflow Optimization in High-Volume Clinical Diagnostic Laboratories",
-        "dept": "Medical Technology Department",
-        "status": "Approved Proposal",
-        "statusClass": "status-proposal",
-        "desc": "Mathematical modeling of specimen triage, automated centrifuge routing, and turnaround time minimization during morning peak hours."
-      },
-      {
-        "title": "Automated Customs Brokerage Tariff Calculator and Discrepancy Flagging Tool for Cagayan Economic Zone",
-        "dept": "Customs Administration",
-        "status": "Approved Proposal",
-        "statusClass": "status-proposal",
-        "desc": "Developing software logic to auto-reconcile ASEAN Harmonized Tariff Nomenclature codes and compute duties with minimal clerical error."
-      },
-      {
-        "title": "Micro-Encapsulation of Bioactive Polyphenols from Indigenous Crops for Nutraceutical Shelf-Life Extension",
-        "dept": "Pharmacy & Chemistry Labs",
-        "status": "Recommended",
-        "statusClass": "status-recommended",
-        "desc": "Evaluating spray-drying encapsulation using food-grade biopolymers to preserve antioxidant potency under tropical ambient conditions."
-      }
-    ],
-    "activities": [
-      {
-        "title": "IPOPHL Patent & Utility Model Drafting Workshop",
-        "cadence": "Annual Workshop",
-
-        "desc": "Intensive mentoring by intellectual property attorneys guiding faculty and students through claims drafting and formal patent submissions."
-      },
-      {
-        "title": "RDC Pitching Summit: From Research Capsule to Commercial Prototype",
-        "cadence": "Annual Summit",
-
-        "desc": "Venture pitch competition where student-faculty research teams showcase prototypes before DOST evaluators and industry investors."
-      },
-      {
-        "title": "DOST Regional Science, Technology, and Innovation Week (RSTW) Technology Demo",
-        "cadence": "Annual Demo",
-
-        "desc": "Public exhibition presenting fabricated ergonomic devices, formulated pharmaceutical products, and software tools to the public."
-      },
-      {
-        "title": "Clinical Laboratory Biosafety & Ergonomic Safety Facility Audits",
-        "cadence": "Semestral Audits",
-
-        "desc": "Walkthrough inspections evaluating technician workstation postures, chemical fume hood efficiency, and waste stream controls."
-      }
-    ]
+    "studies": [],
+    "activities": []
   },
   "value": {
     "key": "value",
@@ -1624,69 +1380,8 @@ window.agendaData = {
         "color": "#fff"
       }
     ],
-    "studies": [
-      {
-        "title": "Phytochemical Screening, Acute Oral Toxicity, and Hypoglycemic Potential of Peñablanca Indigenous Flora Extracts",
-        "dept": "College of Pharmacy",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "Bioassay-guided fractionation to validate traditional folkloric claims of glucose-lowering properties in local botanical decoctions."
-      },
-      {
-        "title": "Spatial-Temporal Clustering of Dengue and Leptospirosis Infections Following Monsoon Inundations in Cagayan Basin",
-        "dept": "Medical Technology Wing",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "Combining municipal health office data with rainfall indices to map spatial transmission corridors and predict seasonal outbreaks."
-      },
-      {
-        "title": "Radiation Dose Optimization and Image Quality in Pediatric Digital Radiography Across Cagayan Hospitals",
-        "dept": "College of Radiologic Technology",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "Determining diagnostic reference levels (DRLs) to minimize cumulative radiation dose for pediatric chest examinations without loss of clarity."
-      },
-      {
-        "title": "Adverse Drug Reaction (ADR) Self-Reporting Behaviors and Knowledge Among Community Pharmacists in Region II",
-        "dept": "College of Pharmacy",
-        "status": "Approved Proposal",
-        "statusClass": "status-proposal",
-        "desc": "Surveying community drugstore practitioners to evaluate under-reporting barriers and develop mobile ADR reporting mechanisms."
-      },
-      {
-        "title": "Early Task-Specific Physical Therapy Intervention in Post-Stroke Functional Mobility Recovery in Rural Settings",
-        "dept": "College of Physical Therapy",
-        "status": "Approved Proposal",
-        "statusClass": "status-proposal",
-        "desc": "Evaluating home-based task-oriented motor retraining protocols for stroke survivors with limited access to tertiary physical rehab."
-      }
-    ],
-    "activities": [
-      {
-        "title": "Pharmacy & Health Sciences Research Proposal Defenses (September & February Cycles)",
-        "cadence": "Semestral Sessions",
-
-        "desc": "Rigorous defense panels evaluating clinical methodologies, ethical approvals, sample sizes, and pharmacologic assays."
-      },
-      {
-        "title": "Health Research Data Analysis & Biostatistics Masterclass",
-        "cadence": "Quarterly Workshop",
-
-        "desc": "Specialized training on survival analysis, logistic regression, Jamovi/SPSS statistical tests, and epidemiological data visualization."
-      },
-      {
-        "title": "CVHRDC Regional Health Research Conference (RHRDC) Scientific Sessions",
-        "cadence": "Annual Congress",
-
-        "desc": "Regional congress where MCNP faculty and students compete in oral paper and poster presentations across health research categories."
-      },
-      {
-        "title": "Community Diagnostic Health & Vital Signs Surveillance Missions",
-        "cadence": "Quarterly Outreach",
-
-        "desc": "Mobile diagnostic outreach conducting free capillary blood glucose testing, urinalysis, blood pressure screening, and health education."
-      }
-    ]
+    "studies": [],
+    "activities": []
   },
   "advance": {
     "key": "advance",
@@ -1809,69 +1504,8 @@ window.agendaData = {
         "color": "#fff"
       }
     ],
-    "studies": [
-      {
-        "title": "Hydrological Inundation Modeling and Flood Vulnerability Mapping of Riverine Barangays Along the Lower Cagayan River",
-        "dept": "Environmental Research Unit",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "Utilizing elevation models and historical rainfall data to generate high-resolution flood hazard zones for Peñablanca and Tuguegarao."
-      },
-      {
-        "title": "Microbiological and Heavy Metal Assessment of Post-Flooding Shallow Tube Wells in Peñablanca Agricultural Villages",
-        "dept": "Medical Technology & Public Health",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "Screening well water supplies for coliform pathogens, arsenic, and nitrates following monsoon overflow to guide water purification outreach."
-      },
-      {
-        "title": "Household Food Security and Dietary Coping Mechanisms During Prolonged Typhoon Disruptions in Rural Cagayan",
-        "dept": "Community Nutrition & Social Work",
-        "status": "Approved Proposal",
-        "statusClass": "status-proposal",
-        "desc": "Evaluating staple food stockpiling, indigenous food preservation, and calorie adequacy during road network inundations."
-      },
-      {
-        "title": "Enforcement Efficacy of Forest Protection Ordinances in Peñablanca Protected Landscape and Seascape",
-        "dept": "ISAP College of Criminology",
-        "status": "Approved Proposal",
-        "statusClass": "status-proposal",
-        "desc": "Assessing inter-agency enforcement protocols between DENR, PNP, and community bantay-gubat rangers against illegal logging."
-      },
-      {
-        "title": "Campus Carbon Footprint Baseline Assessment and Green Building Energy Conservation Roadmap for MCNP-ISAP",
-        "dept": "SDG Center & Admin Wing",
-        "status": "Recommended",
-        "statusClass": "status-recommended",
-        "desc": "Calculating greenhouse gas emissions from electricity, fuel, and municipal solid waste to design campus net-zero target milestones."
-      }
-    ],
-    "activities": [
-      {
-        "title": "Cagayan River Basin Water Quality & Coliform Testing Field Campaign",
-        "cadence": "Quarterly Expedition",
-
-        "desc": "Faculty-student field testing expeditions collecting water samples along critical river junctions to monitor dissolved oxygen and bacterial load."
-      },
-      {
-        "title": "Disaster First Responders Triage Simulation & Boat Rescue Exercise",
-        "cadence": "Annual Drill",
-
-        "desc": "Joint realistic emergency drill with MDRRMO Peñablanca and PCG testing mass casualty triage protocols in simulated flood conditions."
-      },
-      {
-        "title": "SDG SPOT Tree Planting & Sierra Madre Reforestation Missions",
-        "cadence": "Bi-Annual Missions",
-
-        "desc": "Active institutional tree-growing caravans planting thousands of native species in designated watershed restoration zones."
-      },
-      {
-        "title": "Climate Resilience & Community Disaster Preparedness Barangay Clinics",
-        "cadence": "Quarterly Clinics",
-
-        "desc": "Interactive public education workshops on water disinfection, family disaster kits, and typhoon shelter hygiene."
-      }
-    ]
+    "studies": [],
+    "activities": []
   },
   "transform": {
     "key": "transform",
@@ -1990,69 +1624,8 @@ window.agendaData = {
         "color": "#fff"
       }
     ],
-    "studies": [
-      {
-        "title": "Socio-Demographic and Nutritional Profiling of Agta Indigenous Communities in Peñablanca Foothills",
-        "dept": "Social Work & Public Health",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "A participatory field assessment documenting dietary patterns, micronutrient deficiencies, maternal health practices, and cultural health perceptions."
-      },
-      {
-        "title": "Impact Assessment of Barangay-Level Micro-Credit and Skills Training for Agrarian Women in Cagayan",
-        "dept": "College of Business Administration",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "Evaluating household income gains, business survival rates, and economic decision-making autonomy among women beneficiaries."
-      },
-      {
-        "title": "Mental Health Stigma and Psychological Help-Seeking Behaviors Among Rural Adolescents in Northern Luzon",
-        "dept": "Department of Psychology",
-        "status": "Approved Proposal",
-        "statusClass": "status-proposal",
-        "desc": "Investigating cultural barriers, family perceptions, and telemedicine acceptability in addressing depression and anxiety among high school youth."
-      },
-      {
-        "title": "Evaluation of Municipal Social Pension Distribution Schemes for Indigent Senior Citizens in Remote Barangays",
-        "dept": "Social Work Department",
-        "status": "Approved Proposal",
-        "statusClass": "status-proposal",
-        "desc": "Assessing payout timeliness, purchasing power adequacy, and logistics hurdles in delivering government pensions to isolated elderly citizens."
-      },
-      {
-        "title": "Gender-Disaggregated Analysis of Academic and Clinical Duty Burden Among Healthcare Interns in Regional Hospitals",
-        "dept": "Institutional GAD Desk",
-        "status": "Recommended",
-        "statusClass": "status-recommended",
-        "desc": "Investigating gendered disparities in shift assignments, mental fatigue, caregiving obligations outside duty, and career advancement."
-      }
-    ],
-    "activities": [
-      {
-        "title": "Annual Gender and Development (GAD) Research Integration Workshop",
-        "cadence": "Annual Workshop",
-
-        "desc": "Institutional capacity-building for faculty on embedding sex-disaggregated data and gender analysis tools into academic research."
-      },
-      {
-        "title": "Agta Indigenous Community Cultural Dialogue & Health Extension Outreach",
-        "cadence": "Bi-Annual Missions",
-
-        "desc": "Community-immersion missions providing free pediatric wellness checks, hygiene kits, and culturally consultative discussions."
-      },
-      {
-        "title": "Participatory Rural Appraisal (PRA) & Community Needs Assessment Clinics",
-        "cadence": "Semestral Clinics",
-
-        "desc": "Field exercises training researchers in community participatory mapping, seasonal calendars, and grassroots focus group facilitation."
-      },
-      {
-        "title": "Youth Mental Health Campus Caravan & Peer-Counseling Bootcamps",
-        "cadence": "Bi-Annual Caravan",
-
-        "desc": "Campus-wide awareness campaign offering psychological first aid workshops, stress management clinics, and anti-stigma dialogues."
-      }
-    ]
+    "studies": [],
+    "activities": []
   },
   "expand": {
     "key": "expand",
@@ -2169,69 +1742,8 @@ window.agendaData = {
         "color": "#fff"
       }
     ],
-    "studies": [
-      {
-        "title": "Longitudinal Tracer Study of Allied Health and Criminology Graduates (2018–2024): Licensure, Mobility & Employer Satisfaction",
-        "dept": "Alumni Affairs & Quality Assurance",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "Comprehensive regional survey tracking 3,500+ MCNP and ISAP alumni regarding employment timelines, job alignment, and licensure factors."
-      },
-      {
-        "title": "Regional Research Productivity and Co-Authorship Density Among CVHRDC Member Institutions",
-        "dept": "RDC Directorate",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "Bibliometric analysis of health science publication outputs, cross-institutional collaborations, and citation impact in Cagayan Valley."
-      },
-      {
-        "title": "Internationalization Readiness and Cross-Border Curriculum Equivalency in Allied Health Professions in Northern Philippines",
-        "dept": "External Affairs Office",
-        "status": "Approved Proposal",
-        "statusClass": "status-proposal",
-        "desc": "Benchmarking MCNP nursing and radiologic technology syllabi against ASEAN University Network (AUN) quality assurance metrics."
-      },
-      {
-        "title": "Assessment of Academic-Industry Partnership Synergies in Customs Brokerage Internships in Northern Luzon",
-        "dept": "College of Customs Administration",
-        "status": "Approved Proposal",
-        "statusClass": "status-proposal",
-        "desc": "Measuring student competency acquisition and job absorption rates through formal MOA linkages with freight forwarders and port operators."
-      },
-      {
-        "title": "Impact of Institutional Research Incentive Grants on Faculty Citation Metrics and Scopus/WoS Publications",
-        "dept": "RDC Directorate",
-        "status": "Recommended",
-        "statusClass": "status-recommended",
-        "desc": "Evaluating institutional return-on-investment from seed research grants, publication cash incentives, and deloading policies."
-      }
-    ],
-    "activities": [
-      {
-        "title": "Annual Institutional Research General Assembly & Research Incentive Awards",
-        "cadence": "Annual Assembly",
-
-        "desc": "Grand institutional gathering recognizing outstanding faculty and student researchers, publication authors, and patent awardees."
-      },
-      {
-        "title": "Regional & International Academic Memorandum of Agreement (MOA) Signing Ceremonies",
-        "cadence": "Quarterly Signing",
-
-        "desc": "Formal bilateral partnership ceremonies formalizing faculty exchange, shared laboratory access, and joint research projects."
-      },
-      {
-        "title": "Grand Alumni Research Tracer Survey & Homecoming Summit",
-        "cadence": "Annual Summit",
-
-        "desc": "Systematic multi-channel survey campaign gathering employment feedback, graduate competencies, and alumni mentor nominations."
-      },
-      {
-        "title": "CVHRDC & DOST Consortium Technical Review and Priority Setting Sessions",
-        "cadence": "Bi-Annual Sessions",
-
-        "desc": "Strategic inter-agency meetings aligning institutional research proposals with regional and national grant funding calls."
-      }
-    ]
+    "studies": [],
+    "activities": []
   },
   "strengthen": {
     "key": "strengthen",
@@ -2389,69 +1901,8 @@ window.agendaData = {
         "color": "#fff"
       }
     ],
-    "studies": [
-      {
-        "title": "Port Clearance Efficiency and Tariff Classification Dispute Analysis at Port of Irene and Port of Aparri",
-        "dept": "College of Customs Administration",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "Evaluating processing times, automated customs declaration bottlenecks, and valuation disputes across Northern Luzon maritime entry ports."
-      },
-      {
-        "title": "Cold Chain Logistics Gaps and Post-Harvest Spoilage for High-Value Vegetable Producers in Northern Cagayan",
-        "dept": "College of Business Administration",
-        "status": "Ongoing",
-        "statusClass": "status-ongoing",
-        "desc": "Quantifying farm-to-market temperature control deficiencies, transit spoilage rates, and refrigerated storage investment feasibility."
-      },
-      {
-        "title": "Digital Financial Inclusion and FinTech Adoption Among Micro and Small Enterprises in Peñablanca Rural Markets",
-        "dept": "Business & Accountancy",
-        "status": "Approved Proposal",
-        "statusClass": "status-proposal",
-        "desc": "Analyzing QR-code payment usage, digital transaction security perceptions, and micro-loan access among public market vendors."
-      },
-      {
-        "title": "Internal Quality Audit (IQA) Maturity and Continuous Quality Improvement in CHED-Accredited Higher Education Programs",
-        "dept": "Quality Management Office",
-        "status": "Approved Proposal",
-        "statusClass": "status-proposal",
-        "desc": "Assessing audit finding close-out rates, corrective action effectiveness, and faculty quality culture under ISO 9001:2015 standards."
-      },
-      {
-        "title": "Ethical Leadership Frameworks and Faculty Retention Metrics in Private Higher Education Institutions in Region II",
-        "dept": "ISAP Graduate School of Business",
-        "status": "Recommended",
-        "statusClass": "status-recommended",
-        "desc": "Examining administrative transparent decision-making, organizational trust, burnout indices, and long-term academic staff loyalty."
-      }
-    ],
-    "activities": [
-      {
-        "title": "Annual Customs and Logistics Student Research Summit & Paper Competition",
-        "cadence": "Annual Summit",
-
-        "desc": "Flagship symposium where customs administration scholars present empirical studies to Bureau of Customs officials and licensed brokers."
-      },
-      {
-        "title": "Strategic Institutional Planning & QMS Quality Policy Review (2026–2030)",
-        "cadence": "Annual Retreat",
-
-        "desc": "Senior administration retreat reviewing operational KPIs, academic quality metrics, and alignment with CHED center of development standards."
-      },
-      {
-        "title": "Research & Development Academic Festival (RDaFest) Oral & Poster Sessions",
-        "cadence": "Annual Festival",
-
-        "desc": "Campus-wide multi-day research celebration featuring oral presentations, panel defenses, exhibits, and institutional awards."
-      },
-      {
-        "title": "MSME Financial Literacy & Supply Chain Mentoring Clinic in Partnership with DTI",
-        "cadence": "Quarterly Clinic",
-
-        "desc": "Business faculty and student extension teams providing bookkeeping, cost accounting, and digital marketing clinics to local micro-entrepreneurs."
-      }
-    ]
+    "studies": [],
+    "activities": []
   }
 };
 
@@ -2493,8 +1944,12 @@ function ensureAgendaModalExists() {
           <span class="agenda-tab-badge" id="agendaBadgeSubtopicsCount">0</span>
         </button>
         <button type="button" class="agenda-tab-btn" id="agendaTabBtnStudies" onclick="switchAgendaTab('studies')" role="tab" aria-selected="false">
-          <span> Studies &amp; Activities</span>
+          <span> Studies</span>
           <span class="agenda-tab-badge" id="agendaBadgeStudiesCount">0</span>
+        </button>
+        <button type="button" class="agenda-tab-btn" id="agendaTabBtnActivities" onclick="switchAgendaTab('activities')" role="tab" aria-selected="false">
+          <span> Activities</span>
+          <span class="agenda-tab-badge" id="agendaBadgeActivitiesCount">0</span>
         </button>
       </div>
 
@@ -2502,6 +1957,7 @@ function ensureAgendaModalExists() {
         <div class="agenda-tab-pane active" id="agendaPaneFocus" role="tabpanel"></div>
         <div class="agenda-tab-pane" id="agendaPaneSubtopics" role="tabpanel"></div>
         <div class="agenda-tab-pane" id="agendaPaneStudies" role="tabpanel"></div>
+        <div class="agenda-tab-pane" id="agendaPaneActivities" role="tabpanel"></div>
       </div>
 
       <div class="agenda-modal-footer">
@@ -2550,7 +2006,9 @@ window.openAgendaModal = function (pillarKey, tabName = 'focus') {
   const totalSubtopics = data.subtopicCategories.reduce((acc, c) => acc + c.items.length, 0);
   document.getElementById('agendaBadgeOutcomesCount').textContent = data.expectedOutcomes.length;
   document.getElementById('agendaBadgeSubtopicsCount').textContent = totalSubtopics;
-  document.getElementById('agendaBadgeStudiesCount').textContent = data.studies.length + data.activities.length;
+  document.getElementById('agendaBadgeStudiesCount').textContent = data.studies.length;
+  const badgeActivities = document.getElementById('agendaBadgeActivitiesCount');
+  if (badgeActivities) badgeActivities.textContent = data.activities.length;
 
   // Render Pane 1: Focus & Expected Outcomes
   const paneFocus = document.getElementById('agendaPaneFocus');
@@ -2616,46 +2074,15 @@ window.openAgendaModal = function (pillarKey, tabName = 'focus') {
     </div>
   `;
 
-  // Render Pane 3: Studies & Activities
+  // Render Pane 3: Studies
   const paneStudies = document.getElementById('agendaPaneStudies');
-  paneStudies.innerHTML = `
-    <div class="agenda-studies-subpane">
-      <div style="background:#f0fdf4; border-left:4px solid #16a34a; padding:0.9rem 1.15rem; border-radius:0 8px 8px 0; margin-bottom:1.25rem; font-size:0.9rem; color:#14532d;">
-        <strong> Recommended &amp; Ongoing Studies:</strong> Formal research proposals, active investigations, and thesis capstone tracks aligned with ${data.name}.
-      </div>
-      <div class="agenda-study-list">
-        ${data.studies.map(study => `
-          <div class="agenda-study-card">
-            <div class="agenda-study-header">
-              <span class="agenda-study-dept">${study.dept}</span>
-              <span class="agenda-study-status ${study.statusClass || 'status-ongoing'}">${study.status}</span>
-            </div>
-            <h4 class="agenda-study-title">${study.title}</h4>
-            <p class="agenda-study-desc">${study.desc}</p>
-          </div>
-        `).join('')}
-      </div>
-    </div>
+  paneStudies.innerHTML = '';
 
-    <div class="agenda-activities-subpane" style="margin-top: 2rem;">
-      <div style="background:#fffbeb; border-left:4px solid #d97706; padding:0.9rem 1.15rem; border-radius:0 8px 8px 0; margin-bottom:1.25rem; font-size:0.9rem; color:#78350f;">
-        <strong> R&amp;D Programs, Workshops &amp; Colloquiums:</strong> Regular institutional activities, proposal defense cycles, technical clinics, and symposiums driving this agenda.
-      </div>
-      <div class="agenda-activity-list">
-        ${data.activities.map(act => `
-          <div class="agenda-activity-item">
-            <div class="agenda-activity-info">
-              <div class="agenda-activity-header">
-                <h4 class="agenda-activity-title">${act.title}</h4>
-                <span class="agenda-activity-cadence">${act.cadence}</span>
-              </div>
-              <p class="agenda-activity-desc">${act.desc}</p>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `;
+  // Render Pane 4: Activities
+  const paneActivities = document.getElementById('agendaPaneActivities');
+  if (paneActivities) {
+    paneActivities.innerHTML = '';
+  }
 
   // Switcher in footer
   const switcherWrap = document.getElementById('agendaPillarSwitcher');
@@ -2679,7 +2106,6 @@ window.openAgendaModal = function (pillarKey, tabName = 'focus') {
 
   // Normalize tabName
   if (tabName === 'priority') tabName = 'focus';
-  if (tabName === 'activities') tabName = 'studies';
   switchAgendaTab(tabName);
 
   modal.classList.add('active');
@@ -2688,19 +2114,20 @@ window.openAgendaModal = function (pillarKey, tabName = 'focus') {
 
 window.switchAgendaTab = function (tabName) {
   if (tabName === 'priority') tabName = 'focus';
-  if (tabName === 'activities') tabName = 'studies';
   currentAgendaTab = tabName;
 
   const tabBtns = {
     focus: document.getElementById('agendaTabBtnFocus'),
     subtopics: document.getElementById('agendaTabBtnSubtopics'),
-    studies: document.getElementById('agendaTabBtnStudies')
+    studies: document.getElementById('agendaTabBtnStudies'),
+    activities: document.getElementById('agendaTabBtnActivities')
   };
 
   const panes = {
     focus: document.getElementById('agendaPaneFocus'),
     subtopics: document.getElementById('agendaPaneSubtopics'),
-    studies: document.getElementById('agendaPaneStudies')
+    studies: document.getElementById('agendaPaneStudies'),
+    activities: document.getElementById('agendaPaneActivities')
   };
 
   for (const [key, btn] of Object.entries(tabBtns)) {

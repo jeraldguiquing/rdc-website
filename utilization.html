@@ -808,8 +808,27 @@
               </div>
             </li>
 
-            <li class="nav-item">
-              <a href="utilization.html" class="nav-link active">UTILIZATION</a>
+            <!-- Dropdown: UTILIZATION -->
+            <li class="nav-item dropdown">
+              <a href="utilization.html" class="nav-link active">
+                UTILIZATION <span class="arrow">&#9662;</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="utilization.html#mcnp" class="dropdown-link" onclick="filterUtilizationWing('mcnp')">
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <span>MCNP Health Sciences Wing</span>
+                  </div>
+                  <span class="dropdown-badge badge-mcnp">MCNP</span>
+                </a>
+                <a href="utilization.html#isap" class="dropdown-link" onclick="filterUtilizationWing('isap')">
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <span>ISAP Multidisciplinary Wing</span>
+                  </div>
+                  <span class="dropdown-badge badge-isap">ISAP</span>
+                </a>
+              </div>
             </li>
 
             <li class="nav-item">
@@ -893,28 +912,20 @@
   <main id="main-content" class="section">
     <div class="container">
 
-      <!-- Interactive Institution Selector Tabs -->
-      <div style="display: flex; justify-content: center; gap: 0.85rem; margin-bottom: 2.25rem; flex-wrap: wrap;">
-        <button type="button" class="util-tab-btn active-mcnp" id="btn-tab-mcnp" onclick="filterUtilizationWing('mcnp', this)">
-          <img src="assets/Mcnp_Logo.png" alt="MCNP" style="width: 20px; height: 20px; object-fit: contain;" loading="lazy" decoding="async"> MCNP Health Sciences Wing
-        </button>
-        <button type="button" class="util-tab-btn" id="btn-tab-isap" onclick="filterUtilizationWing('isap', this)">
-          <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP" style="width: 20px; height: 20px; object-fit: contain;" loading="lazy" decoding="async"> ISAP Multidisciplinary Wing
-        </button>
-      </div>
-
       <!-- Interactive Course Filter Strip -->
-      <div id="courseFilterStrip" style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 1.15rem 1.35rem; margin-bottom: 2.25rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03); max-width: 980px; margin-left: auto; margin-right: auto; text-align: center;">
-        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.85rem;">
-          <div style="display: flex; align-items: center; gap: 0.45rem; font-size: 0.85rem; font-weight: 800; color: #1e293b; text-transform: uppercase; letter-spacing: 0.04em;">
-            <span style="font-size: 1.15rem;">🎓</span> Filter Research by Course:
+      <div id="courseFilterStrip" style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 1.15rem 1.35rem; margin-bottom: 2.25rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03); max-width: 980px; margin-left: auto; margin-right: auto;">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.85rem;">
+          <label for="utilCourseFilterSelect" style="display: flex; align-items: center; gap: 0.45rem; font-size: 0.85rem; font-weight: 800; color: #1e293b; text-transform: uppercase; letter-spacing: 0.04em; cursor: pointer;">
+            Filter Research by Course:
+          </label>
+          <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+            <select id="utilCourseFilterSelect" aria-label="Filter Research by Course" onchange="setMainCourseFilter(this.value)" style="padding: 0.55rem 1rem; border-radius: 8px; border: 1.5px solid #cbd5e1; font-size: 0.86rem; font-weight: 700; color: #1e293b; background: #fff; cursor: pointer; min-width: 260px;">
+              <!-- Course options rendered dynamically -->
+            </select>
+            <div id="courseFilterActiveLabel" style="font-size: 0.82rem; font-weight: 700; color: #64748b;">
+              Showing: <span style="color: var(--mcnp-green);" id="currentCourseNameText">All MCNP Courses</span>
+            </div>
           </div>
-          <div id="courseFilterActiveLabel" style="font-size: 0.82rem; font-weight: 700; color: #64748b;">
-            Showing: <span style="color: var(--mcnp-green);" id="currentCourseNameText">All MCNP Courses</span>
-          </div>
-        </div>
-        <div id="mainCoursePills" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.45rem;">
-          <!-- Course pills rendered dynamically -->
         </div>
       </div>
 
@@ -2945,30 +2956,23 @@
     }
 
     function renderMainCoursePills() {
-      var wrap = document.getElementById('mainCoursePills');
+      var selectEl = document.getElementById('utilCourseFilterSelect');
       var label = document.getElementById('courseFilterActiveLabel');
-      if (!wrap) return;
-
       var courses = (currentSelectedWing === 'isap') ? isapCourses : mcnpCourses;
       var themeColor = (currentSelectedWing === 'isap') ? 'var(--isap-blue)' : 'var(--mcnp-green)';
 
-      wrap.innerHTML = courses.map(function(c) {
-        var isActive = (currentSelectedCourse === c.id);
-        var count = countStudiesForCourse(c.id, currentSelectedWing);
-        var countBadge = ' <span style="font-size:0.75rem; opacity:0.85;">(' + count + ')</span>';
-        var activeBg = (currentSelectedWing === 'isap') ? 'var(--isap-blue)' : 'var(--mcnp-green)';
-        var activeBorder = (currentSelectedWing === 'isap') ? 'var(--isap-blue)' : 'var(--mcnp-green)';
-
-        return '<button type="button" class="main-course-pill ' + (isActive ? 'active' : '') + '" aria-pressed="' + (isActive ? 'true' : 'false') + '" onclick="setMainCourseFilter(\'' + c.id + '\')" ' +
-          'style="padding:0.42rem 0.95rem; border-radius:24px; font-size:0.82rem; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:0.4rem; transition:all 0.2s ease; ' +
-          (isActive ? 'background:' + activeBg + '; color:#ffffff; border:1.5px solid ' + activeBorder + '; box-shadow:0 3px 10px rgba(0,0,0,0.15);' : 'background:#ffffff; color:#475569; border:1.5px solid #cbd5e1;') + '">' +
-          '<span>' + c.icon + '</span> <span>' + c.label + countBadge + '</span>' +
-          '</button>';
-      }).join('');
+      if (selectEl) {
+        selectEl.innerHTML = courses.map(function(c) {
+          var isSelected = (currentSelectedCourse === c.id) ? ' selected' : '';
+          var count = countStudiesForCourse(c.id, currentSelectedWing);
+          return '<option value="' + c.id + '"' + isSelected + '>' + c.label + ' (' + count + ')</option>';
+        }).join('');
+        selectEl.value = currentSelectedCourse;
+      }
 
       if (label) {
         var cur = courses.find(function(c) { return c.id === currentSelectedCourse; }) || courses[0];
-        label.innerHTML = 'Showing: <strong style="color:' + themeColor + ';">' + cur.icon + ' ' + cur.label + '</strong>';
+        label.innerHTML = 'Showing: <strong style="color:' + themeColor + ';">' + cur.label + '</strong>';
       }
     }
 

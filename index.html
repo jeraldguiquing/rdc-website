@@ -204,8 +204,27 @@
               </div>
             </li>
 
-            <li class="nav-item">
-              <a href="utilization.html" class="nav-link">UTILIZATION</a>
+            <!-- Dropdown: UTILIZATION -->
+            <li class="nav-item dropdown">
+              <a href="utilization.html" class="nav-link">
+                UTILIZATION
+              </a>
+              <div class="dropdown-menu">
+                <a href="utilization.html#mcnp" class="dropdown-link">
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <span>MCNP Health Sciences Wing</span>
+                  </div>
+                  <span class="dropdown-badge badge-mcnp">MCNP</span>
+                </a>
+                <a href="utilization.html#isap" class="dropdown-link">
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <span>ISAP Multidisciplinary Wing</span>
+                  </div>
+                  <span class="dropdown-badge badge-isap">ISAP</span>
+                </a>
+              </div>
             </li>
 
             <li class="nav-item">
@@ -603,6 +622,93 @@
       </div>
     </div>
   </section>
+
+  <!-- ==========================================================================
+       ITEM 24: RESEARCH SCHEDULE CALENDAR & WORKSHOPS SCHEDULE
+       ========================================================================== -->
+  <section class="calendar-section" id="schedule-calendar">
+    <div id="training-calendar" style="position: absolute; margin-top: -80px;"></div>
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">Capability-Building Roadmap</span>
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
+          <h2 class="section-title" style="margin: 0;">Research Schedule Calendar (2026–2027)</h2>
+          <a href="calendar.html" class="btn btn-sm btn-gold" style="font-weight: 700; display: inline-flex; align-items: center; gap: 0.4rem;"><span>Open Dedicated Calendar Page</span></a>
+        </div>
+        <p class="section-desc">
+          Official institutional schedule of research capability-building seminars, statistical clinics, ethics review workshops, and manuscript packaging colloquiums for faculty, researchers, and students across MCNP and ISAP.
+        </p>
+      </div>
+
+      <!-- Interactive Monthly Date Calendar & Event Inspector -->
+      <div class="interactive-cal-container" id="interactiveCalendarSection">
+        <!-- Calendar Grid Card -->
+        <div class="interactive-cal-card">
+          <div class="cal-nav-header">
+            <div class="cal-nav-controls">
+              <button type="button" class="cal-nav-btn" id="calPrevMonthBtn" aria-label="Previous Month">Prev</button>
+              <h3 class="cal-current-month-label" id="calCurrentMonthLabel">October 2026</h3>
+              <button type="button" class="cal-nav-btn" id="calNextMonthBtn" aria-label="Next Month">Next</button>
+            </div>
+            <div>
+              <select class="cal-month-select" id="calMonthJumpSelect" aria-label="Jump to Scheduled Month">
+                <option value="2026-08">August 2026</option>
+                <option value="2026-09">September 2026</option>
+                <option value="2026-10" selected>October 2026</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="cal-weekdays-row">
+            <span>Sun</span>
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+          </div>
+
+          <div class="cal-days-grid" id="calDaysGrid">
+            <!-- Dynamically populated day cells -->
+          </div>
+
+          <div class="cal-legend">
+            <div class="cal-legend-item">
+              <span class="cal-legend-dot has-event-dot"></span>
+              <span>Upcoming Schedule Roadmap</span>
+            </div>
+            <div class="cal-legend-item">
+              <span class="cal-legend-dot past-event-dot"></span>
+              <span>Completed Institutional Event</span>
+            </div>
+            <div class="cal-legend-item">
+              <span class="cal-legend-dot selected-dot"></span>
+              <span>Selected Date</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Selected Date Event Inspector Card -->
+        <div class="interactive-cal-inspector" id="calInspectorCard">
+          <div class="inspector-header">
+            <div>
+              <div class="inspector-date-label">Selected Date Details</div>
+              <h3 class="inspector-date-title" id="inspectorSelectedDateLabel">October 23, 2026</h3>
+            </div>
+            <div id="inspectorBadgeWrap">
+              <span class="cal-pill cal-pill-mcnp">MCNP Health Sciences</span>
+            </div>
+          </div>
+
+          <div id="inspectorContent" class="inspector-event-body">
+            <!-- Event details or empty state rendered dynamically -->
+          </div>
+        </div>
+      </div>
+
+  </div>
+</section>
 
   <!-- Twin Institutions Overview Section -->
   <section class="section">

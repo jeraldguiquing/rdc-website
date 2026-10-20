@@ -159,8 +159,27 @@
               </div>
             </li>
 
-            <li class="nav-item">
-              <a href="utilization.html" class="nav-link">UTILIZATION</a>
+            <!-- Dropdown: UTILIZATION -->
+            <li class="nav-item dropdown">
+              <a href="utilization.html" class="nav-link">
+                UTILIZATION
+              </a>
+              <div class="dropdown-menu">
+                <a href="utilization.html#mcnp" class="dropdown-link">
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <img src="assets/Mcnp_Logo.png" alt="MCNP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <span>MCNP Health Sciences Wing</span>
+                  </div>
+                  <span class="dropdown-badge badge-mcnp">MCNP</span>
+                </a>
+                <a href="utilization.html#isap" class="dropdown-link">
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <img src="assets/ISAP_LOGO_NO_BG (1).png" alt="ISAP Logo" style="width: 22px; height: 22px; object-fit: contain; flex-shrink: 0;" loading="lazy" decoding="async">
+                    <span>ISAP Multidisciplinary Wing</span>
+                  </div>
+                  <span class="dropdown-badge badge-isap">ISAP</span>
+                </a>
+              </div>
             </li>
 
             <li class="nav-item">
@@ -254,18 +273,6 @@
 
       <div class="journal-layout-grid">
         <div>
-          <!-- Official ISAP DAWA Journal Portal Link Banner -->
-          <div class="journal-banner-card" style="background: linear-gradient(135deg, var(--isap-blue-dark), #1e40af); color: #fff; border-radius: 12px; padding: 1.75rem 2rem; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-            <div>
-              <span class="badge-pill" style="background: rgba(255,255,255,0.15); color: #ffdf70;">OFFICIAL OJS PORTAL</span>
-              <h3 style="font-size: 1.3rem; margin: 0.35rem 0 0.2rem; color: #fff;">ISAP DAWA Research Journal</h3>
-              <p style="font-size: 0.86rem; color: #cbd5e1; text-align: justify; text-justify: inter-word; text-align-last: left;">Access archives, peer-reviewed articles, and research metrics at <strong>dawa.isap.edu.ph</strong></p>
-            </div>
-            <a href="https://dawa.isap.edu.ph/" target="_blank" rel="noopener noreferrer" class="btn btn-gold">
-              Visit dawa.isap.edu.ph
-            </a>
-          </div>
-
           <!-- Official Departmental Journals Showcase -->
           <div class="journal-showcase-box" style="background: var(--white); border-radius: 14px; padding: 2rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); margin-bottom: 2.5rem;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
@@ -479,151 +486,10 @@
             </div>
           </div>
 
-          <!-- Current Issue Banner -->
-          <div class="journal-issue-card" style="background: var(--white); border-radius: 12px; padding: 2rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); margin-bottom: 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-            <div>
-              <span class="dropdown-badge badge-isap" style="font-size: 0.8rem; padding: 0.3rem 0.75rem;">CURRENT ISSUE • VOLUME 11, ISSUE 1 (2026)</span>
-              <h2 style="font-size: 1.45rem; color: #1e293b; margin-top: 0.5rem;">Criminological Advancements, Public Safety &amp; Tech Systems</h2>
-              <p style="font-size: 0.88rem; color: var(--muted-text); text-align: justify; text-justify: inter-word; text-align-last: left;">Published by ISAP Research &amp; Development Center • Open Access</p>
-            </div>
-            <a class="btn btn-isap" href="https://dawa.isap.edu.ph/" target="_blank" rel="noopener noreferrer">
-              Access Issue in Journal System
-            </a>
-          </div>
-
-          <!-- Published Papers in this Issue -->
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
-            <h3 style="font-size: 1.35rem; color: #1e293b; margin: 0;">Articles in this Issue</h3>
-            <span style="font-size: 0.82rem; color: #64748b; font-weight: 600;">4 Peer-Reviewed Papers</span>
-          </div>
-
-          <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 3rem;">
-
-            <!-- Paper 1 -->
-            <div class="article-card" style="margin: 0;">
-              <div>
-                <span class="article-journal-badge badge-isap">Research Article • Criminal Justice</span>
-                <h4 class="article-title">Predictive Profiling and Community Policing Frameworks in Cagayan Valley Rural Municipalities</h4>
-                <p class="article-authors">R. S. Duldulao, Ph.D. Crim; M. L. Soriano, CSP; J. V. Mallillin, MSIT</p>
-                <div class="article-abstract-content" id="abstract-duldulao-2026">
-                  <p class="article-abstract" style="text-align: justify; text-justify: inter-word; text-align-last: left;">
-                    Evaluated predictive analytical models applied to five years of barangay blotter datasets in Cagayan Valley. Findings demonstrate that proactive neighborhood watch training combined with GIS hot-spot reporting reduced property crimes by 34% over a 24-month monitoring window.
-                  </p>
-                </div>
-              </div>
-              <div class="article-meta" style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid #f1f5f9;">
-                <span>DOI: 10.5281/isap.2026.1104 • Pages 1–16</span>
-                <div style="display: flex; gap: 0.4rem;">
-                  <button class="btn btn-sm btn-outline-white" style="color: #475569; border-color: #cbd5e1;" onclick="openCitationModal('duldulao-2026')">Cite</button>
-                  <a class="btn btn-sm btn-outline-white" style="color: var(--isap-blue); border-color: var(--isap-blue);" href="https://dawa.isap.edu.ph/" target="_blank" rel="noopener noreferrer">View in OJS </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Paper 2 -->
-            <div class="article-card" style="margin: 0;">
-              <div>
-                <span class="article-journal-badge badge-isap">Research Article • Information Technology &amp; Forensics</span>
-                <h4 class="article-title">Cryptographic Hash Validation and Chain-of-Custody Integrity in Mobile Forensics Investigations</h4>
-                <p class="article-authors">E. V. Pasion, DIT; B. K. Tolentino, MSCS</p>
-                <div class="article-abstract-content" id="abstract-pasion-2026">
-                  <p class="article-abstract" style="text-align: justify; text-justify: inter-word; text-align-last: left;">
-                    Proposes an automated blockchain-anchored ledger protocol for preserving digital forensic evidence acquired from suspect cellular devices during Philippine National Police cyber-crime raids, guaranteeing tamper-proof verification in judicial trials.
-                  </p>
-                </div>
-              </div>
-              <div class="article-meta" style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid #f1f5f9;">
-                <span>DOI: 10.5281/isap.2026.1105 • Pages 17–31</span>
-                <div style="display: flex; gap: 0.4rem;">
-                  <button class="btn btn-sm btn-outline-white" style="color: #475569; border-color: #cbd5e1;" onclick="openCitationModal('pasion-2026')">Cite</button>
-                  <a class="btn btn-sm btn-outline-white" style="color: var(--isap-blue); border-color: var(--isap-blue);" href="https://dawa.isap.edu.ph/" target="_blank" rel="noopener noreferrer">View in OJS </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Paper 3 -->
-            <div class="article-card" style="margin: 0;">
-              <div>
-                <span class="article-journal-badge badge-isap">Research Article • Customs Administration</span>
-                <h4 class="article-title">Post-Clearance Audit Compliance and Revenue Leakage Prevention at Northern Luzon Maritime Ports</h4>
-                <p class="article-authors">Atty. K. M. Bautista, LCB, MBA; G. N. Ramirez, PhD</p>
-                <div class="article-abstract-content" id="abstract-bautista-2026">
-                  <p class="article-abstract" style="text-align: justify; text-justify: inter-word; text-align-last: left;">
-                    Investigated post-clearance audit mechanisms at Port of Irene and Port of Aparri, measuring the deterrence effect of real-time electronic declaration audits on tariff misclassification among regional industrial importers.
-                  </p>
-                </div>
-              </div>
-              <div class="article-meta" style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid #f1f5f9;">
-                <span>DOI: 10.5281/isap.2026.1106 • Pages 32–48</span>
-                <div style="display: flex; gap: 0.4rem;">
-                  <button class="btn btn-sm btn-outline-white" style="color: #475569; border-color: #cbd5e1;" onclick="openCitationModal('bautista-2026')">Cite</button>
-                  <a class="btn btn-sm btn-outline-white" style="color: var(--isap-blue); border-color: var(--isap-blue);" href="https://dawa.isap.edu.ph/" target="_blank" rel="noopener noreferrer">View in OJS </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Paper 4 -->
-            <div class="article-card" style="margin: 0;">
-              <div>
-                <span class="article-journal-badge badge-isap">Research Article • Teacher Education &amp; Pedagogy</span>
-                <h4 class="article-title">Cognitive Engagement and Critical Thinking in Simulation-Based Law Enforcement Training</h4>
-                <p class="article-authors">Prof. H. J. Almazan, EdD; C. R. Guzman, PhD</p>
-                <div class="article-abstract-content" id="abstract-almazan-2026">
-                  <p class="article-abstract" style="text-align: justify; text-justify: inter-word; text-align-last: left;">
-                    Assessed the tactical decision-making accuracy of 180 criminology interns subjected to high-stress shoot/don't-shoot simulated virtual environments compared to traditional lecture-based firearm instruction protocols.
-                  </p>
-                </div>
-              </div>
-              <div class="article-meta" style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid #f1f5f9;">
-                <span>DOI: 10.5281/isap.2026.1107 • Pages 49–64</span>
-                <div style="display: flex; gap: 0.4rem;">
-                  <button class="btn btn-sm btn-outline-white" style="color: #475569; border-color: #cbd5e1;" onclick="openCitationModal('almazan-2026')">Cite</button>
-                  <a class="btn btn-sm btn-outline-white" style="color: var(--isap-blue); border-color: var(--isap-blue);" href="https://dawa.isap.edu.ph/" target="_blank" rel="noopener noreferrer">View in OJS </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
 
         <!-- Sidebar Information -->
         <div>
-          <!-- Journal Details Card -->
-          <div style="background: var(--white); border-radius: 12px; padding: 1.75rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); margin-bottom: 2rem;">
-            <h4 style="font-size: 1.1rem; color: var(--isap-blue); margin-bottom: 1rem;">Journal Information</h4>
-            <ul style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.86rem; color: #475569;">
-              <li><strong>Frequency:</strong> Bi-annual (May &amp; November)</li>
-              <li><strong>Peer Review:</strong> Double-blind evaluation</li>
-              <li><strong>Publication Model:</strong> Diamond Open Access (No APC)</li>
-              <li><strong>Scope:</strong> Public Safety, Forensics, IT, Customs, Education, Business</li>
-              <li><strong>Citation Standard:</strong> APA 7th Edition</li>
-              <li><strong>Indexing:</strong> CrossRef, Google Scholar, National Library of the Philippines</li>
-            </ul>
-          </div>
-
-          <!-- Editorial Board Card -->
-          <div style="background: var(--white); border-radius: 12px; padding: 1.75rem; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); margin-bottom: 2rem;">
-            <h4 style="font-size: 1.1rem; color: var(--isap-blue); margin-bottom: 1rem;">Editorial Board</h4>
-            <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.86rem; color: #334155;">
-              <div>
-                <strong>Editor-in-Chief:</strong>
-                <p style="color: #64748b;">Dr. Christian R. Guzman, PhD, EdD</p>
-              </div>
-              <div>
-                <strong>Senior Editor (Criminal Justice):</strong>
-                <p style="color: #64748b;">Dr. Ramil S. Duldulao, Ph.D. Crim</p>
-              </div>
-              <div>
-                <strong>Associate Editor (Informatics &amp; Trade):</strong>
-                <p style="color: #64748b;">Prof. Jennifer V. Mallillin, MSIT</p>
-              </div>
-              <div>
-                <strong>Managing Editor:</strong>
-                <p style="color: #64748b;">Prof. Marilou Soriano, CSP</p>
-              </div>
-            </div>
-          </div>
-
           <!-- Author Guidelines Box -->
           <div style="background: #f8fafc; border-radius: 12px; padding: 1.5rem; border: 1px solid #000000;">
             <h5 style="color: #0f172a; font-size: 0.95rem; margin-bottom: 0.5rem;">ISAP Formatting Guidelines</h5>
