@@ -2453,7 +2453,20 @@ window.trainingCalendarEvents = [
     venue: ' MCNP Nursing Amphitheater / AVR 1',
     lead: 'College of Nursing & RDC Defense Committee',
     category: 'mcnp ethics'
-
+  },
+  {
+    id: 114,
+    dates: ['2026-10-23'],
+    displayDate: 'October 23, 2026',
+    pillText: 'ISAP Multidisciplinary',
+    pillClass: 'cal-pill-isap',
+    shortTag: 'BSIT 4 Final Defense',
+    title: 'Bachelor of Science in Information Technology (BSIT Level 4) Final Thesis Defense',
+    desc: 'Comprehensive final capstone project and thesis defense examinations, software demonstration, systems architecture vetting, and technical evaluation for graduating BSIT 4th-Year research groups.',
+    participants: 'BSIT 4th-Year Graduating Proponents, Capstone Advisers & IT Defense Panel',
+    venue: ' ISAP College of Information Technology (CICT) Computer Laboratory / AVR',
+    lead: 'College of Information Technology & Engineering & RDC Defense Committee',
+    category: 'isap'
   },
   {
     id: 112,

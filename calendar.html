@@ -54,7 +54,7 @@
       <div class="topbar-right">
         <a href="contact.html#faq" style="color: #ffffff; margin-right: 1.25rem; font-weight: 500; font-size: 0.78rem;">FAQs</a>
         <a href="calendar.html" style="color: #ffffff; margin-right: 1.25rem; font-weight: 600; font-size: 0.78rem;">Schedule Calendar</a>
-        <a href="journal-admin.html" style="color: #ffdf70; font-weight: 600; text-decoration: underline; font-size: 0.78rem;">Journal of Admin</a>
+
       </div>
     </div>
   </header>
@@ -400,7 +400,7 @@
         <!-- Filter Bar & Real-Time Search directly atop the Table -->
         <div class="calendar-topbar" style="margin-bottom: 1.5rem;">
           <div class="calendar-filters">
-            <button type="button" class="cal-filter-btn active" data-filter="all" onclick="filterCalendar('all', this)">All Events &amp; Defenses (19)</button>
+            <button type="button" class="cal-filter-btn active" data-filter="all" onclick="filterCalendar('all', this)">All Events &amp; Defenses</button>
             <button type="button" class="cal-filter-btn" data-filter="mcnp" onclick="filterCalendar('mcnp', this)">Health Sciences (MCNP)</button>
             <button type="button" class="cal-filter-btn" data-filter="isap" onclick="filterCalendar('isap', this)">Multidisciplinary (ISAP)</button>
             <button type="button" class="cal-filter-btn" data-filter="ethics" onclick="filterCalendar('ethics', this)">Ethics &amp; Integrity</button>
@@ -689,6 +689,29 @@
                 </td>
               </tr>
 
+              <!-- Row: BSIT 4 Final Defense -->
+              <tr class="calendar-row" data-category="isap" data-event-id="114">
+                <td class="cal-date-cell">
+                  <div class="cal-date-badge">
+                    <span class="cal-date-month">OCT</span>
+                    <span class="cal-date-day">23</span>
+                    <span class="cal-date-year">2026</span>
+                  </div>
+                </td>
+                <td class="cal-title-cell">
+                  <span class="cal-pill cal-pill-isap">ISAP Multidisciplinary</span>
+                  <h4>Bachelor of Science in Information Technology (BSIT Level 4) Final Thesis Defense</h4>
+                  <div class="cal-title-desc">Comprehensive final capstone project and thesis defense examinations, software demonstration, systems architecture vetting, and technical evaluation for graduating BSIT 4th-Year research groups.</div>
+                </td>
+                <td class="cal-participants-cell">
+                  <div style="font-size: 0.85rem; font-weight: 600; color: #1e293b;">BSIT 4th-Year Graduating Proponents</div>
+                  <div style="font-size: 0.78rem; color: #64748b;">Capstone Advisers &amp; IT Defense Panel</div>
+                </td>
+                <td class="cal-venue-cell">
+                  <div style="font-size: 0.85rem; color: #1e293b;"> ISAP College of Information Technology (CICT) Computer Laboratory / AVR</div>
+                  <div style="font-size: 0.78rem; color: #64748b; margin-top: 0.2rem;">Lead: College of Information Technology &amp; Engineering &amp; RDC Defense Committee</div>
+                </td>
+              </tr>
 
               <!-- Row: BSN 3N Proposal Defense -->
               <tr class="calendar-row" data-category="mcnp ethics" data-event-id="112">
@@ -806,7 +829,7 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/main.min.js?v=b10a842a" defer></script>
+  <script src="js/main.min.js?v=0c40ff31" defer></script>
   <script src="js/calendar-counts.js" defer></script>
   <script>
     // Link handler for clicking articles/news from inspector on this standalone landing page

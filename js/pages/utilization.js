@@ -4399,19 +4399,19 @@
         }
         renderUtilizationArticlesGrid(false);
 
-        // User preference: go directly to article card on page!
-        if (params.get('modal') === 'true' || params.get('modal') === '1') {
-          setTimeout(function() {
-            if (typeof window.openUtilArticleModal === 'function') {
-              window.openUtilArticleModal(found.id);
-            }
-          }, 300);
-        } else {
+        // Open full article reader modal when linking directly to an article (via hash or ?article=)
+        if (params.get('expand') === 'true' || params.get('inline') === 'true') {
           setTimeout(function() {
             if (typeof window.scrollToArticleCard === 'function') {
               window.scrollToArticleCard(found.id, true);
             }
           }, 120);
+        } else {
+          setTimeout(function() {
+            if (typeof window.openUtilArticleModal === 'function') {
+              window.openUtilArticleModal(found.id);
+            }
+          }, 150);
         }
       }
     }
