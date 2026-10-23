@@ -426,6 +426,64 @@
           { pillar: 'strengthen', title: 'STRENGTHEN: Education and Institutional Performance', icon: 'assets/agenda/agenda-9-strengthen.png' }
         ]
       }
+   ,
+      'article-isap-high-school-research-defense': {
+        breadcrumb: 'News &amp; Events &gt; Articles &amp; Editorials &gt; High School Research Defense',
+        badge: ' OFFICIAL ARTICLE',
+        topic: 'High School Department &bull; Academic Development',
+        date: ' October 16, 2026',
+        readTime: '4 min read',
+        title: 'ISAP High School Students Strengthen Research Skills Through Research Defense',
+        bodyId: 'body-article-isap-high-school-research-defense',
+        sdgs: [
+          { goal: '4', title: 'SDG 4: Quality Education', icon: 'assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png' }
+        ],
+        agendas: [
+          { pillar: 'inspire', title: 'INSPIRE: Culture, Capability, and Engagement', icon: 'assets/agenda/agenda-1-inspire.png' },
+          { pillar: 'nurture', title: 'NURTURE: Ethics, Quality, and Accountability', icon: 'assets/agenda/agenda-2-nurture.png' },
+          { pillar: 'operationalize', title: 'OPERATIONALIZE: Knowledge Utilization, Innovation, & Improvement', icon: 'assets/agenda/agenda-4-operationalize.png' },
+          { pillar: 'strengthen', title: 'STRENGTHEN: Education and Institutional Performance', icon: 'assets/agenda/agenda-9-strengthen.png' }
+        ]
+      }
+   ,
+            'article-bsed-bped-proposal-defense': {
+        breadcrumb: 'News &amp; Events &gt; Articles &amp; Editorials &gt; BSEd &amp; BPEd Proposal Defense',
+        badge: ' OFFICIAL ARTICLE',
+        topic: 'School of Education &bull; Proposal Defense',
+        date: ' October 14, 2026',
+        readTime: '4 min read',
+        title: 'BSEd and BPEd Students Strengthen Research Skills Through Proposal Defense',
+        bodyId: 'body-article-bsed-bped-proposal-defense',
+        sdgs: [
+          { goal: '4', title: 'SDG 4: Quality Education', icon: 'assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png' }
+        ],
+        agendas: [
+          { pillar: 'inspire', title: 'INSPIRE: Culture, Capability, and Engagement', icon: 'assets/agenda/agenda-1-inspire.png' },
+          { pillar: 'nurture', title: 'NURTURE: Ethics, Quality, and Accountability', icon: 'assets/agenda/agenda-2-nurture.png' },
+          { pillar: 'operationalize', title: 'OPERATIONALIZE: Knowledge Utilization, Innovation, and Improvement', icon: 'assets/agenda/agenda-4-operationalize.png' },
+          { pillar: 'strengthen', title: 'STRENGTHEN: Education and Institutional Performance', icon: 'assets/agenda/agenda-9-strengthen.png' }
+        ]
+      },
+      'article-bs-tourism-proposal-defense': {
+        breadcrumb: 'News &amp; Events &gt; Articles &amp; Editorials &gt; BS Tourism Proposal Defense',
+        badge: ' OFFICIAL ARTICLE',
+        topic: 'BS Tourism Management &bull; Proposal Defense',
+        date: ' October 13, 2026',
+        readTime: '4 min read',
+        title: 'BS Tourism Management Students Strengthen Research Skills Through Proposal Defense',
+        bodyId: 'body-article-bs-tourism-proposal-defense',
+        sdgs: [
+          { goal: '4', title: 'SDG 4: Quality Education', icon: 'assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-04.png' },
+          { goal: '9', title: 'SDG 9: Industry, Innovation and Infrastructure', icon: 'assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-09.png' },
+          { goal: '17', title: 'SDG 17: Partnerships for the Goals', icon: 'assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.png' }
+        ],
+        agendas: [
+          { pillar: 'inspire', title: 'INSPIRE: Culture, Capability, and Engagement', icon: 'assets/agenda/agenda-1-inspire.png' },
+          { pillar: 'nurture', title: 'NURTURE: Ethics, Quality, and Accountability', icon: 'assets/agenda/agenda-2-nurture.png' },
+          { pillar: 'operationalize', title: 'OPERATIONALIZE: Knowledge Utilization, Innovation, and Improvement', icon: 'assets/agenda/agenda-4-operationalize.png' },
+          { pillar: 'strengthen', title: 'STRENGTHEN: Education and Institutional Performance', icon: 'assets/agenda/agenda-9-strengthen.png' }
+        ]
+      }
     };
 
     function openArticleModal(articleId) {
@@ -629,6 +687,11 @@
     window.openEventModal = openModal;
     window.newsEventsList = events;
     window.openEventModalById = function (cardId) {
+      var card = document.getElementById(cardId);
+      if (card && card.dataset.articleTarget && typeof openArticleModal === 'function') {
+        openArticleModal(card.dataset.articleTarget);
+        return true;
+      }
       var idx = events.findIndex(function (e) { return e.id === cardId; });
       if (idx !== -1) {
         openModal(idx);
@@ -885,6 +948,10 @@
         if (e.target.closest('.event-gallery-slider')) return;
         if (e.target.closest('.event-gallery-thumbstrip')) return;
         if (e.target.tagName === 'A' || e.target.closest('a')) return;
+        if (card.dataset.articleTarget && typeof openArticleModal === 'function') {
+          openArticleModal(card.dataset.articleTarget);
+          return;
+        }
         openModal(index);
       });
     });
@@ -895,15 +962,13 @@
       var eventParam = urlParams.get('event');
       var articleParam = urlParams.get('article');
       var hashVal = window.location.hash ? window.location.hash.substring(1) : '';
-      var isArticleTarget = (articleParam === 'article-rdc-digital-platform' || hashVal === 'article-rdc-digital-platform' ||
-                             articleParam === 'article-37th-statistics-month-celebration' || hashVal === 'article-37th-statistics-month-celebration');
-      var targetArticleId = (articleParam === 'article-rdc-digital-platform' || hashVal === 'article-rdc-digital-platform') ?
-                            'article-rdc-digital-platform' : 'article-37th-statistics-month-celebration';
+      var candidateArticleId = articleParam || hashVal;
+      var isArticleTarget = !!(candidateArticleId && ARTICLES_METADATA[candidateArticleId]);
 
       if (isArticleTarget) {
         if (window.switchContentView) window.switchContentView('articles', false);
         if (typeof window.openArticleModal === 'function') {
-          window.openArticleModal(targetArticleId);
+          window.openArticleModal(candidateArticleId);
         }
         return;
       }

@@ -20,6 +20,7 @@
     ];
 
     var E=[
+      {d:"03",m:"OCT 2026",t:"Project RELIEF: Let It Out, Lift It Up! — Student Resilience & Mental Wellness Program",r:"Sat 12 Sep - Sat 03 Oct 2026",topic:"Research Utilization (CoCJE)",g:[3,4,16],id:"event-project-relief-wellness"},
       {d:"17",m:"SEP 2026",t:"Strengthening Data Skills for Better Health Research",r:"Thu 17 - Fri 18 Sep 2026",topic:"Professional Development",g:[3,4,9,17],id:"event-data-skills"},
       {d:"17",m:"SEP 2026",t:"Pharmacy Research with Purpose: Every Study, a Goal and an Impact",r:"Thu 17 - Fri 18 Sep 2026",topic:"BS Pharmacy",g:[4,9,16,17],id:"event-pharmacy-research"},
       {d:"16",m:"SEP 2026",t:"From Problems to Purpose: Strengthening Research Capacity",r:"Wed 16 Sep 2026",topic:"General Education Department",g:[4,9,16,17],id:"event-problems-to-purpose"},
