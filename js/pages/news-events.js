@@ -80,7 +80,7 @@
       };
     }
 
-    var cards = Array.prototype.slice.call(document.querySelectorAll('#articlesGrid .news-card, #eventsGrid .news-card, .news-grid .news-card'));
+    var cards = Array.prototype.slice.call(document.querySelectorAll('#eventsGrid .news-card'));
     var events = cards.map(parseEvent);
 
     var catCounts = { all: cards.length, research: 0, sdg: 0, training: 0, student: 0 };
@@ -507,6 +507,9 @@
 
     function openArticleModal(articleId) {
       if (!articleOverlay) articleOverlay = document.getElementById('articleModalOverlay');
+      if (overlay && overlay.classList.contains('open')) {
+        overlay.classList.remove('open');
+      }
       var id = articleId || 'article-rdc-digital-platform';
       currentActiveArticleId = id;
       var data = ARTICLES_METADATA[id] || ARTICLES_METADATA['article-rdc-digital-platform'];
@@ -529,7 +532,7 @@
 
       var topicEl = document.getElementById('articleModalTopic');
       if (topicEl && data.topic) {
-        topicEl.textContent = data.topic;
+        topicEl.innerHTML = data.topic;
         topicEl.style.display = 'inline-block';
       } else if (topicEl) {
         topicEl.style.display = 'none';
@@ -554,6 +557,11 @@
       var copyBtn = document.getElementById('articleModalCopyBtn');
       if (copyBtn) {
         copyBtn.setAttribute('onclick', "if(window.copyArticleLink){window.copyArticleLink('" + id + "', this);}");
+      }
+
+      var fbBtn = document.getElementById('articleModalFbBtn');
+      if (fbBtn) {
+        fbBtn.setAttribute('onclick', "if(window.shareOnFacebook){window.shareOnFacebook('" + id + "');}");
       }
 
       var src = document.getElementById(data.bodyId);
@@ -759,6 +767,12 @@
         if (txt) txt.textContent = isOpen ? 'Collapse Article' : 'Read Full Article';
       }
 
+      var expandBtn = card.querySelector('.btn-outline-white[onclick*="toggleArticleAccordion"]');
+      if (expandBtn) {
+        var span = expandBtn.querySelector('span');
+        if (span) span.textContent = isOpen ? '▲ Collapse on Page' : 'Expand on Page';
+      }
+
       if (isOpen) {
         requestAnimationFrame(function () {
           var navOffset = 85;
@@ -771,6 +785,50 @@
       }
     };
     window.toggleArticleAccordion = window.toggleArticleAccordion;
+
+    window.switchFbPost = function (btn, fbid, shareId, iframeId, openBtnId) {
+      if (!btn) return;
+      var card = btn.closest('.article-facebook-embed-card');
+      if (card) {
+        var allBtns = card.querySelectorAll('.article-fb-tab-btn');
+        for (var i = 0; i < allBtns.length; i++) {
+          allBtns[i].classList.remove('active');
+        }
+      }
+      btn.classList.add('active');
+
+      var iframe = iframeId ? document.getElementById(iframeId) : null;
+      if (!iframe && card) {
+        iframe = card.querySelector('iframe');
+      }
+      if (iframe) {
+        var canonical = 'https://www.facebook.com/permalink.php?story_fbid=' + fbid + '&id=61593412015654';
+        iframe.src = 'https://www.facebook.com/plugins/post.php?href=' + encodeURIComponent(canonical) + '&width=500&show_text=true';
+      }
+
+      var openBtn = openBtnId ? document.getElementById(openBtnId) : null;
+      if (!openBtn && card) {
+        openBtn = card.querySelector('.btn-outline-fb');
+      }
+      if (openBtn) {
+        openBtn.href = 'https://www.facebook.com/share/p/' + shareId + '/';
+      }
+    };
+
+    window.shareOnFacebook = function (articleId) {
+      var id = articleId || currentActiveArticleId || 'article-rdc-digital-platform';
+      var shareId = ARTICLES_METADATA[id] ? id : 'article-rdc-digital-platform';
+      var shareUrl = new URL('share/' + encodeURIComponent(shareId) + '.html', 'https://jeraldguiquing.github.io/rdc-website/').href;
+      var fbSharerUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl);
+      var width = 640;
+      var height = 560;
+      var left = Math.max(0, Math.round((window.screen.width - width) / 2));
+      var top = Math.max(0, Math.round((window.screen.height - height) / 2));
+      var win = window.open(fbSharerUrl, 'facebook-share-dialog', 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left + ',toolbar=0,status=0,location=0,menubar=0,scrollbars=yes,resizable=yes');
+      if (!win || win.closed || typeof win.closed === 'undefined') {
+        window.open(fbSharerUrl, '_blank', 'noopener,noreferrer');
+      }
+    };
 
     window.copyArticleLink = function (articleId, btn) {
       var url = window.location.origin + window.location.pathname + '#' + articleId;
@@ -891,7 +949,7 @@
 
     function applyFilterAndSearch() {
       var matchingEvents = [];
-      var currentView = window.currentContentView || 'articles';
+      var currentView = window.currentContentView || 'all';
 
       cards.forEach(function (card) {
         var isArt = card.closest('#articlesGrid') || card.dataset.contentType === 'article';
@@ -963,6 +1021,7 @@
 
     cards.forEach(function (card, index) {
       card.addEventListener('click', function (e) {
+        if (card.classList.contains('article-accordion-card') || card.closest('#articlesGrid')) return;
         if (e.target.closest('summary')) return;
         if (e.target.closest('.event-gallery-slider')) return;
         if (e.target.closest('.event-gallery-thumbstrip')) return;
@@ -985,7 +1044,7 @@
       var isArticleTarget = !!(candidateArticleId && ARTICLES_METADATA[candidateArticleId]);
 
       if (isArticleTarget) {
-        if (window.switchContentView) window.switchContentView('articles', false);
+        if (window.switchContentView) window.switchContentView('all', false);
         if (typeof window.openArticleModal === 'function') {
           window.openArticleModal(candidateArticleId);
         }
@@ -1035,8 +1094,8 @@
           }
         }
       } else {
-        // Default to articles view
-        if (window.switchContentView) window.switchContentView('articles', false);
+        // Default to all content view
+        if (window.switchContentView) window.switchContentView('all', false);
       }
     }
 

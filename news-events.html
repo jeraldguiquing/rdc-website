@@ -42,7 +42,7 @@
   <meta name="twitter:image" content="https://jeraldguiquing.github.io/rdc-website/upload/rdc-website-platform.png">
 
   <link rel="stylesheet" href="css/style.min.css?v=804c28a8">
-  <link rel="stylesheet" href="css/news-events.min.css?v=50947f0b">
+  <link rel="stylesheet" href="css/news-events.min.css?v=53089228">
   <!-- Structured Data: NewsArticles -->
   <script type="application/ld+json">
   {
@@ -131,12 +131,56 @@
         },
         "description": "MCNP and ISAP supported the Research Proposal Defense of Bachelor of Science in Tourism Management students on October 12–13, 2026.",
         "mainEntityOfPage": "https://jeraldguiquing.github.io/rdc-website/news-events.html?article=article-bs-tourism-proposal-defense"
+      },
+      {
+        "@type": "NewsArticle",
+        "headline": "BSEd and BPEd Students Strengthen Research Skills Through Proposal Defense",
+        "image": ["https://jeraldguiquing.github.io/rdc-website/upload/bsed-bped-defense-1.webp"],
+        "datePublished": "2026-10-14T08:00:00+08:00",
+        "dateModified": "2026-10-14T08:00:00+08:00",
+        "author": {
+          "@type": "Organization",
+          "name": "Research and Development Center (RDC)"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "MCNP–ISAP Research and Development Center",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://jeraldguiquing.github.io/rdc-website/assets/rdc-logo.png"
+          }
+        },
+        "description": "The Medical Colleges of Northern Philippines (MCNP) and the International School of Asia and the Pacific (ISAP), through the Research and Development Center (RDC), supported the Research Proposal Defense of Bachelor of Secondary Education (BSEd) and Bachelor of Physical Education (BPEd) students, providing an academic platform for students to present their proposed studies and strengthen their research capabilities.",
+        "mainEntityOfPage": "https://jeraldguiquing.github.io/rdc-website/news-events.html?article=article-bsed-bped-proposal-defense"
+      },
+      {
+        "@type": "NewsArticle",
+        "headline": "MCNP–ISAP Joins Research Institutions’ Meeting on 2027 Cohabitation Research Proposal for Cagayan Valley",
+        "image": ["https://jeraldguiquing.github.io/rdc-website/upload/cpd-cohabitation-meeting-1.webp"],
+        "datePublished": "2026-10-20T08:00:00+08:00",
+        "dateModified": "2026-10-20T08:00:00+08:00",
+        "author": {
+          "@type": "Organization",
+          "name": "Research and Development Center (RDC)"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "MCNP–ISAP Research and Development Center",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://jeraldguiquing.github.io/rdc-website/assets/rdc-logo.png"
+          }
+        },
+        "description": "The Commission on Population and Development (CPD) Region II convened a meeting with research institutions on October 20, 2026, in connection with the proposed 2027 research on cohabitation among the youth in Cagayan Valley, highlighting the importance of research collaboration in examining social and population-related concerns affecting young people in the region.",
+        "mainEntityOfPage": "https://jeraldguiquing.github.io/rdc-website/news-events.html?article=article-cpd-cohabitation-research-meeting"
       }
     ]
   }
   </script>
 </head>
 <body>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v21.0"></script>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- BEGIN:SITE-HEADER -->
@@ -384,17 +428,17 @@
         <!-- Master View Switcher: Articles vs All vs Events -->
         <div class="news-view-tabs-wrap">
           <div class="news-view-tabs" role="tablist" aria-label="News and Events Content Switcher">
-            <button type="button" class="news-view-tab-btn active" data-view="articles" id="viewTabArticles" role="tab" aria-selected="true" onclick="switchContentView('articles');">
+            <button type="button" class="news-view-tab-btn" data-view="articles" id="viewTabArticles" role="tab" aria-selected="false" onclick="switchContentView('articles');">
               <span>Articles</span>
-              <span class="tab-count" id="countArticlesTab">5</span>
+              <span class="tab-count" id="countArticlesTab">6</span>
             </button>
-            <button type="button" class="news-view-tab-btn" data-view="all" id="viewTabAll" role="tab" aria-selected="false" onclick="switchContentView('all');">
+            <button type="button" class="news-view-tab-btn active" data-view="all" id="viewTabAll" role="tab" aria-selected="true" onclick="switchContentView('all');">
               <span>View All Content</span>
               <span class="tab-count" id="countAllTab">35</span>
             </button>
             <button type="button" class="news-view-tab-btn" data-view="events" id="viewTabEvents" role="tab" aria-selected="false" onclick="switchContentView('events');">
               <span>Events &amp; Highlights</span>
-              <span class="tab-count" id="countEventsTab">30</span>
+              <span class="tab-count" id="countEventsTab">29</span>
             </button>
           </div>
         </div>
@@ -409,11 +453,11 @@
               <h3 style="font-size: 1.55rem; font-weight: 800; color: #0f172a; margin: 0.35rem 0 0.25rem;">Research Articles &amp; Feature Stories</h3>
               <p style="color: #64748b; font-size: 0.9rem; margin: 0;">In-depth journalistic narratives, research milestone stories, and institutional coverage across MCNP &amp; ISAP.</p>
             </div>
-            <span style="font-size: 0.8rem; font-weight: 700; color: var(--mcnp-green); background: rgba(13, 92, 58, 0.08); padding: 0.25rem 0.8rem; border-radius: 999px;">5 Published Articles</span>
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--mcnp-green); background: rgba(13, 92, 58, 0.08); padding: 0.25rem 0.8rem; border-radius: 999px;">6 Published Articles</span>
           </div>
 
-          <div id="articlesGrid" style="margin-bottom: 2.5rem;" aria-label="Published research articles">
-          <article class="article-accordion-card" id="article-rdc-digital-platform">
+          <div class="news-grid articles-portrait-grid" id="articlesGrid" style="margin-bottom: 2.5rem;" aria-label="Published research articles">
+          <article class="news-card article-accordion-card" data-content-type="article" data-categories="all research sdg" id="article-rdc-digital-platform">
             <!-- Clickable Header: CARD PREVIEW (Click to open full article modal or expand inline) -->
             <div class="article-accordion-header" onclick="openArticleModal('article-rdc-digital-platform');" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openArticleModal('article-rdc-digital-platform');}" aria-expanded="false" id="header-article-rdc-digital-platform">
               <!-- Side Thumbnail (Before the title) -->
@@ -476,6 +520,10 @@
                 <button type="button" class="article-expand-toggle" onclick="event.stopPropagation(); openArticleModal('article-rdc-digital-platform');" style="cursor: pointer; border: none;" title="Open article card modal">
                   <span class="toggle-text">Read Full Article Card</span>
                 </button>
+                <button type="button" class="btn-share-facebook" onclick="event.stopPropagation(); shareOnFacebook('article-rdc-digital-platform');" title="Share this article on Facebook" aria-label="Share this article on Facebook">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  <span>Share on Facebook</span>
+</button>
                 <button type="button" class="btn btn-sm btn-outline-white" onclick="event.stopPropagation(); toggleArticleAccordion('article-rdc-digital-platform');" style="font-size: 0.74rem; padding: 0.25rem 0.65rem; color: #475569; border-color: #cbd5e1;" title="Expand article inline on page">
                   <span>Expand on Page</span>
                 </button>
@@ -620,7 +668,7 @@
                     The website's development and public availability are identifiable project outputs. Quantitative impact, user adoption, and long-term outcomes remain to be documented.
                   </div>
                 </section>
-              </div>
+</div>
 
               <!-- Article Footer with Collapse Button -->
               <footer class="article-editorial-footer">
@@ -631,6 +679,10 @@
                   <button type="button" onclick="window.printArticle ? window.printArticle('article-rdc-digital-platform') : window.print()" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; color: #334155; border-color: #cbd5e1;">
                      Print Article
                   </button>
+        <button type="button" onclick="shareOnFacebook('article-rdc-digital-platform')" class="btn btn-sm btn-facebook-footer" title="Share this post on Facebook">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span>Share on Facebook</span>
+        </button>
                   <button type="button" onclick="toggleArticleAccordion('article-rdc-digital-platform', false)" class="btn btn-sm btn-gold" style="font-size: 0.78rem; font-weight: 700;">
                      Collapse Article
                   </button>
@@ -639,7 +691,7 @@
             </div>
           </article>
 
-<article class="article-accordion-card" id="article-37th-statistics-month-celebration">
+<article class="news-card article-accordion-card" data-content-type="article" data-categories="all research sdg" id="article-37th-statistics-month-celebration">
           <!-- Clickable Header: CARD PREVIEW (Click to open full article modal or expand inline) -->
           <div class="article-accordion-header" onclick="openArticleModal('article-37th-statistics-month-celebration');" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openArticleModal('article-37th-statistics-month-celebration');}" aria-expanded="false" id="header-article-37th-statistics-month-celebration">
             <!-- Side Thumbnail (Before the title) -->
@@ -703,6 +755,10 @@
               <button type="button" class="article-expand-toggle" onclick="event.stopPropagation(); openArticleModal('article-37th-statistics-month-celebration');" style="cursor: pointer; border: none;" title="Open article card modal">
                 <span class="toggle-text">Read Full Article Card</span>
               </button>
+              <button type="button" class="btn-share-facebook" onclick="event.stopPropagation(); shareOnFacebook('article-37th-statistics-month-celebration');" title="Share this article on Facebook" aria-label="Share this article on Facebook">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  <span>Share on Facebook</span>
+</button>
               <button type="button" class="btn btn-sm btn-outline-white" onclick="event.stopPropagation(); toggleArticleAccordion('article-37th-statistics-month-celebration');" style="font-size: 0.74rem; padding: 0.25rem 0.65rem; color: #475569; border-color: #cbd5e1;" title="Expand article inline on page">
                 <span>Expand on Page</span>
               </button>
@@ -925,6 +981,7 @@
               </section>
 
               <!-- Official Coverage Links -->
+              <!-- Official Coverage Links & Embedded Facebook Posts -->
               <section class="article-narrative-section" style="border-top: 1px solid #e2e8f0; margin-top: 1.75rem; padding-top: 1.25rem; border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
                 <h4 class="article-section-heading">
                   <span>Official Coverage &amp; Documentation Links</span>
@@ -961,6 +1018,10 @@
                 <button type="button" onclick="window.printArticle ? window.printArticle('article-37th-statistics-month-celebration') : window.print()" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; color: #334155; border-color: #cbd5e1;">
                    Print Article
                 </button>
+        <button type="button" onclick="shareOnFacebook('article-37th-statistics-month-celebration')" class="btn btn-sm btn-facebook-footer" title="Share this post on Facebook">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span>Share on Facebook</span>
+        </button>
                 <button type="button" onclick="toggleArticleAccordion('article-37th-statistics-month-celebration', false)" class="btn btn-sm btn-gold" style="font-size: 0.78rem; font-weight: 700;">
                    Collapse Article
                 </button>
@@ -970,7 +1031,7 @@
         </article>
 
 <!-- Article 3: ISAP High School Research Defense -->
-<article class="article-accordion-card" id="article-isap-high-school-research-defense">
+<article class="news-card article-accordion-card" data-content-type="article" data-categories="all research sdg" id="article-isap-high-school-research-defense">
   <!-- Clickable Header: CARD PREVIEW (Click to open full article modal or expand inline) -->
   <div class="article-accordion-header" onclick="openArticleModal('article-isap-high-school-research-defense');" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openArticleModal('article-isap-high-school-research-defense');}" aria-expanded="false" id="header-article-isap-high-school-research-defense">
     <!-- Side Thumbnail (Before the title) -->
@@ -1025,6 +1086,10 @@
       <button type="button" class="article-expand-toggle" onclick="event.stopPropagation(); openArticleModal('article-isap-high-school-research-defense');" style="cursor: pointer; border: none;" title="Open article card modal">
         <span class="toggle-text">Read Full Article Card</span>
       </button>
+      <button type="button" class="btn-share-facebook" onclick="event.stopPropagation(); shareOnFacebook('article-isap-high-school-research-defense');" title="Share this article on Facebook" aria-label="Share this article on Facebook">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  <span>Share on Facebook</span>
+</button>
       <button type="button" class="btn btn-sm btn-outline-white" onclick="event.stopPropagation(); toggleArticleAccordion('article-isap-high-school-research-defense');" style="font-size: 0.74rem; padding: 0.25rem 0.65rem; color: #475569; border-color: #cbd5e1;" title="Expand article inline on page">
         <span>Expand on Page</span>
       </button>
@@ -1197,7 +1262,7 @@
           </figure>
         </div>
       </section>
-    </div>
+</div>
 
     <!-- Editorial Article Footer & Actions -->
     <footer class="article-editorial-footer">
@@ -1211,6 +1276,10 @@
         <button type="button" onclick="copyArticleLink('article-isap-high-school-research-defense', this)" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; color: #1e5ea8; border-color: #1e5ea8; font-weight: 700;">
           🔗 Share Article
         </button>
+        <button type="button" onclick="shareOnFacebook('article-isap-high-school-research-defense')" class="btn btn-sm btn-facebook-footer" title="Share this post on Facebook">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span>Share on Facebook</span>
+        </button>
         <button type="button" onclick="toggleArticleAccordion('article-isap-high-school-research-defense', false)" class="btn btn-sm btn-gold" style="font-size: 0.78rem; font-weight: 700;">
           ▲ Collapse Article
         </button>
@@ -1220,7 +1289,7 @@
 </article>
 
 <!-- Article 4: BS Tourism Management Proposal Defense -->
-<article class="article-accordion-card" id="article-bs-tourism-proposal-defense">
+<article class="news-card article-accordion-card" data-content-type="article" data-categories="all research sdg" id="article-bs-tourism-proposal-defense">
   <!-- Clickable Header: CARD PREVIEW (Click to open full article modal or expand inline) -->
   <div class="article-accordion-header" onclick="openArticleModal('article-bs-tourism-proposal-defense');" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openArticleModal('article-bs-tourism-proposal-defense');}" aria-expanded="false" id="header-article-bs-tourism-proposal-defense">
     <!-- Side Thumbnail (Before the title) -->
@@ -1281,6 +1350,10 @@
       <button type="button" class="article-expand-toggle" onclick="event.stopPropagation(); openArticleModal('article-bs-tourism-proposal-defense');" style="cursor: pointer; border: none;" title="Open article card modal">
         <span class="toggle-text">Read Full Article Card</span>
       </button>
+      <button type="button" class="btn-share-facebook" onclick="event.stopPropagation(); shareOnFacebook('article-bs-tourism-proposal-defense');" title="Share this article on Facebook" aria-label="Share this article on Facebook">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  <span>Share on Facebook</span>
+</button>
       <button type="button" class="btn btn-sm btn-outline-white" onclick="event.stopPropagation(); toggleArticleAccordion('article-bs-tourism-proposal-defense');" style="font-size: 0.74rem; padding: 0.25rem 0.65rem; color: #475569; border-color: #cbd5e1;" title="Expand article inline on page">
         <span>Expand on Page</span>
       </button>
@@ -1480,7 +1553,7 @@
           </figure>
         </div>
       </section>
-    </div>
+</div>
 
     <!-- Editorial Article Footer & Actions -->
     <footer class="article-editorial-footer">
@@ -1494,6 +1567,10 @@
         <button type="button" onclick="copyArticleLink('article-bs-tourism-proposal-defense', this)" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; color: #1e5ea8; border-color: #1e5ea8; font-weight: 700;">
           🔗 Share Article
         </button>
+        <button type="button" onclick="shareOnFacebook('article-bs-tourism-proposal-defense')" class="btn btn-sm btn-facebook-footer" title="Share this post on Facebook">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span>Share on Facebook</span>
+        </button>
         <button type="button" onclick="toggleArticleAccordion('article-bs-tourism-proposal-defense', false)" class="btn btn-sm btn-gold" style="font-size: 0.78rem; font-weight: 700;">
           ▲ Collapse Article
         </button>
@@ -1503,7 +1580,7 @@
 </article>
 
 <!-- Article 5: BSEd and BPEd Proposal Defense -->
-<article class="article-accordion-card" id="article-bsed-bped-proposal-defense">
+<article class="news-card article-accordion-card" data-content-type="article" data-categories="all research sdg" id="article-bsed-bped-proposal-defense">
   <!-- Clickable Header: CARD PREVIEW (Click to open full article modal or expand inline) -->
   <div class="article-accordion-header" onclick="openArticleModal('article-bsed-bped-proposal-defense');" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openArticleModal('article-bsed-bped-proposal-defense');}" aria-expanded="false" id="header-article-bsed-bped-proposal-defense">
     <!-- Side Thumbnail (Before the title) -->
@@ -1558,6 +1635,10 @@
       <button type="button" class="article-expand-toggle" onclick="event.stopPropagation(); openArticleModal('article-bsed-bped-proposal-defense');" style="cursor: pointer; border: none;" title="Open article card modal">
         <span class="toggle-text">Read Full Article Card</span>
       </button>
+      <button type="button" class="btn-share-facebook" onclick="event.stopPropagation(); shareOnFacebook('article-bsed-bped-proposal-defense');" title="Share this article on Facebook" aria-label="Share this article on Facebook">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  <span>Share on Facebook</span>
+</button>
       <button type="button" class="btn btn-sm btn-outline-white" onclick="event.stopPropagation(); toggleArticleAccordion('article-bsed-bped-proposal-defense');" style="font-size: 0.74rem; padding: 0.25rem 0.65rem; color: #475569; border-color: #cbd5e1;" title="Expand article inline on page">
         <span>Expand on Page</span>
       </button>
@@ -1739,7 +1820,7 @@
           </figure>
         </div>
       </section>
-    </div>
+</div>
 
     <!-- Editorial Article Footer & Actions -->
     <footer class="article-editorial-footer">
@@ -1753,6 +1834,10 @@
         <button type="button" onclick="copyArticleLink('article-bsed-bped-proposal-defense', this)" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; color: #1e5ea8; border-color: #1e5ea8; font-weight: 700;">
           🔗 Share Article
         </button>
+        <button type="button" onclick="shareOnFacebook('article-bsed-bped-proposal-defense')" class="btn btn-sm btn-facebook-footer" title="Share this post on Facebook">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span>Share on Facebook</span>
+        </button>
         <button type="button" onclick="toggleArticleAccordion('article-bsed-bped-proposal-defense', false)" class="btn btn-sm btn-gold" style="font-size: 0.78rem; font-weight: 700;">
           ▲ Collapse Article
         </button>
@@ -1762,7 +1847,7 @@
 </article>
 
 <!-- Article 6: CPD Research Institutions Meeting on 2027 Youth Cohabitation Proposal -->
-<article class="article-accordion-card" id="article-cpd-cohabitation-research-meeting">
+<article class="news-card article-accordion-card" data-content-type="article" data-categories="all research sdg" id="article-cpd-cohabitation-research-meeting">
   <!-- Clickable Header: CARD PREVIEW (Click to open full article modal or expand inline) -->
   <div class="article-accordion-header" onclick="openArticleModal('article-cpd-cohabitation-research-meeting');" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openArticleModal('article-cpd-cohabitation-research-meeting');}" aria-expanded="false" id="header-article-cpd-cohabitation-research-meeting">
     <!-- Side Thumbnail (Before the title) -->
@@ -1820,6 +1905,10 @@
       <button type="button" class="article-expand-toggle" onclick="event.stopPropagation(); openArticleModal('article-cpd-cohabitation-research-meeting');" style="cursor: pointer; border: none;" title="Open article card modal">
         <span class="toggle-text">Read Full Article Card</span>
       </button>
+      <button type="button" class="btn-share-facebook" onclick="event.stopPropagation(); shareOnFacebook('article-cpd-cohabitation-research-meeting');" title="Share this article on Facebook" aria-label="Share this article on Facebook">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  <span>Share on Facebook</span>
+</button>
       <button type="button" class="btn btn-sm btn-outline-white" onclick="event.stopPropagation(); toggleArticleAccordion('article-cpd-cohabitation-research-meeting');" style="font-size: 0.74rem; padding: 0.25rem 0.65rem; color: #475569; border-color: #cbd5e1;" title="Expand article inline on page">
         <span>Expand on Page</span>
       </button>
@@ -2000,7 +2089,7 @@
           </figure>
         </div>
       </section>
-    </div>
+</div>
 
     <!-- Editorial Article Footer & Actions -->
     <footer class="article-editorial-footer">
@@ -2013,6 +2102,10 @@
         </button>
         <button type="button" onclick="copyArticleLink('article-cpd-cohabitation-research-meeting', this)" class="btn btn-sm btn-outline-white" style="font-size: 0.78rem; color: #1e5ea8; border-color: #1e5ea8; font-weight: 700;">
           🔗 Share Article
+        </button>
+        <button type="button" onclick="shareOnFacebook('article-cpd-cohabitation-research-meeting')" class="btn btn-sm btn-facebook-footer" title="Share this post on Facebook">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span>Share on Facebook</span>
         </button>
         <button type="button" onclick="toggleArticleAccordion('article-cpd-cohabitation-research-meeting', false)" class="btn btn-sm btn-gold" style="font-size: 0.78rem; font-weight: 700;">
           ▲ Collapse Article
@@ -2029,14 +2122,14 @@
         <!-- ========================================================
              SECTION 2: EVENTS & COLLOQUIUMS
              ======================================================== -->
-        <section id="eventsSection" class="content-sub-section" style="display: none; margin-bottom: 3.5rem;" aria-label="Events and Workshops">
+        <section id="eventsSection" class="content-sub-section" style="margin-bottom: 3.5rem;" aria-label="Events and Workshops">
           <div id="eventsHeaderBanner" class="news-sub-header event-header">
             <div>
               <span class="section-tag" style="background: rgba(30, 94, 168, 0.1); color: var(--isap-blue); border-color: rgba(30, 94, 168, 0.25);">Campus Calendar &amp; Activities</span>
               <h3 style="font-size: 1.55rem; font-weight: 800; color: #0f172a; margin: 0.35rem 0 0.25rem;">News &amp; Event Highlights</h3>
               <p style="color: #64748b; font-size: 0.9rem; margin: 0;">Scheduled research conferences, capability-building seminars, faculty workshops, and institutional assemblies.</p>
             </div>
-            <span style="font-size: 0.8rem; font-weight: 700; color: var(--isap-blue); background: rgba(30, 94, 168, 0.08); padding: 0.25rem 0.8rem; border-radius: 999px;">30 Events Documented</span>
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--isap-blue); background: rgba(30, 94, 168, 0.08); padding: 0.25rem 0.8rem; border-radius: 999px;">29 Events Documented</span>
           </div>
 
           <!-- Interactive Event Filter & Search Bar -->
@@ -2089,7 +2182,7 @@
         <img src="upload/project-relief-session2-group-photo.webp" alt="Project RELIEF Session 2: Plenary participants and faculty facilitators at ISAP AVR 1" loading="lazy" decoding="async" width="1607" height="1071">
         <img src="upload/project-relief-session1-awarding.webp" alt="Awarding of Certificate of Appreciation to Guidance Services facilitators" loading="lazy" decoding="async" width="1956" height="1304">
         <img src="upload/project-relief-session3-group-photo.webp" alt="Project RELIEF Session 3: Graduating student cohorts with Self-Care Action Plans" loading="lazy" decoding="async" width="1933" height="1288">
-        <img src="upload/project-relief-session1-circle.webp" alt="Session 1: Small-group circle discussion and empathy mapping activity" loading="lazy" decoding="async" width="1540" height="1027">
+        <img src="upload/project-relief-session1-student-discussion.webp" alt="Session 1: Small-group circle discussion and empathy mapping activity" loading="lazy" decoding="async" width="1540" height="1027">
         <img src="upload/project-relief-session2-reframe-challenge.webp" alt="Session 2: Cognitive reframing challenge and stress management exercises" loading="lazy" decoding="async" width="1519" height="1013">
       </div>
     </div>
@@ -3267,6 +3360,10 @@
           </div>
         </div>
         <div class="article-modal-actions-btns">
+          <button type="button" id="articleModalFbBtn" class="btn btn-sm btn-facebook-footer" onclick="if(window.shareOnFacebook){window.shareOnFacebook();}" title="Share this post on Facebook">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <span>Share on Facebook</span>
+          </button>
           <button type="button" id="articleModalCopyBtn" class="btn btn-sm btn-outline-white" onclick="if(window.copyArticleLink){window.copyArticleLink('article-rdc-digital-platform', this);}" title="Copy shareable link">
              Copy Link
           </button>
@@ -3295,7 +3392,7 @@
     </div>
   </div>
 
-  <script src="js/pages/news-events.min.js?v=8cb2db6f"></script>
+  <script src="js/pages/news-events.min.js?v=c78cc53a"></script>
 
   <script src="js/news-events-fixes.js" defer></script>
   <script src="js/main.min.js?v=0c40ff31" defer></script>
