@@ -446,7 +446,26 @@
         ]
       }
    ,
-            'article-bsed-bped-proposal-defense': {
+                  'article-cpd-cohabitation-research-meeting': {
+        breadcrumb: 'News &amp; Events &gt; Articles &amp; Editorials &gt; CPD Research Institutions Meeting',
+        badge: ' OFFICIAL ARTICLE',
+        topic: 'Regional Research Collaboration &bull; Population Studies',
+        date: ' October 20, 2026',
+        readTime: '4 min read',
+        title: 'MCNP–ISAP Joins Research Institutions’ Meeting on 2027 Cohabitation Research Proposal for Cagayan Valley',
+        bodyId: 'body-article-cpd-cohabitation-research-meeting',
+        sdgs: [
+          { goal: '17', title: 'SDG 17: Partnerships for the Goals', icon: 'assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-17.png' },
+          { goal: '3', title: 'SDG 3: Good Health and Well-Being', icon: 'assets/E%20SDG%20Icons%20WEB/E-WEB-Goal-03.png' }
+        ],
+        agendas: [
+          { pillar: 'expand', title: 'EXPAND: Partnerships, Networks, and Global Engagement', icon: 'assets/agenda/agenda-8-expand.png' },
+          { pillar: 'inspire', title: 'INSPIRE: Culture, Capability, and Engagement', icon: 'assets/agenda/agenda-1-inspire.png' },
+          { pillar: 'operationalize', title: 'OPERATIONALIZE: Knowledge Utilization, Innovation, and Improvement', icon: 'assets/agenda/agenda-4-operationalize.png' },
+          { pillar: 'transform', title: 'TRANSFORM: Community Engagement and Social Impact', icon: 'assets/agenda/agenda-7-transform.png' }
+        ]
+      },
+      'article-bsed-bped-proposal-defense': {
         breadcrumb: 'News &amp; Events &gt; Articles &amp; Editorials &gt; BSEd &amp; BPEd Proposal Defense',
         badge: ' OFFICIAL ARTICLE',
         topic: 'School of Education &bull; Proposal Defense',
