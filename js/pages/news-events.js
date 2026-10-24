@@ -559,11 +559,6 @@
         copyBtn.setAttribute('onclick', "if(window.copyArticleLink){window.copyArticleLink('" + id + "', this);}");
       }
 
-      var fbBtn = document.getElementById('articleModalFbBtn');
-      if (fbBtn) {
-        fbBtn.setAttribute('onclick', "if(window.shareOnFacebook){window.shareOnFacebook('" + id + "');}");
-      }
-
       var src = document.getElementById(data.bodyId);
       var dest = document.getElementById('articleModalContent');
       if (src && dest) {
@@ -785,50 +780,6 @@
       }
     };
     window.toggleArticleAccordion = window.toggleArticleAccordion;
-
-    window.switchFbPost = function (btn, fbid, shareId, iframeId, openBtnId) {
-      if (!btn) return;
-      var card = btn.closest('.article-facebook-embed-card');
-      if (card) {
-        var allBtns = card.querySelectorAll('.article-fb-tab-btn');
-        for (var i = 0; i < allBtns.length; i++) {
-          allBtns[i].classList.remove('active');
-        }
-      }
-      btn.classList.add('active');
-
-      var iframe = iframeId ? document.getElementById(iframeId) : null;
-      if (!iframe && card) {
-        iframe = card.querySelector('iframe');
-      }
-      if (iframe) {
-        var canonical = 'https://www.facebook.com/permalink.php?story_fbid=' + fbid + '&id=61593412015654';
-        iframe.src = 'https://www.facebook.com/plugins/post.php?href=' + encodeURIComponent(canonical) + '&width=500&show_text=true';
-      }
-
-      var openBtn = openBtnId ? document.getElementById(openBtnId) : null;
-      if (!openBtn && card) {
-        openBtn = card.querySelector('.btn-outline-fb');
-      }
-      if (openBtn) {
-        openBtn.href = 'https://www.facebook.com/share/p/' + shareId + '/';
-      }
-    };
-
-    window.shareOnFacebook = function (articleId) {
-      var id = articleId || currentActiveArticleId || 'article-rdc-digital-platform';
-      var shareId = ARTICLES_METADATA[id] ? id : 'article-rdc-digital-platform';
-      var shareUrl = new URL('share/' + encodeURIComponent(shareId) + '.html', 'https://jeraldguiquing.github.io/rdc-website/').href;
-      var fbSharerUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl);
-      var width = 640;
-      var height = 560;
-      var left = Math.max(0, Math.round((window.screen.width - width) / 2));
-      var top = Math.max(0, Math.round((window.screen.height - height) / 2));
-      var win = window.open(fbSharerUrl, 'facebook-share-dialog', 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left + ',toolbar=0,status=0,location=0,menubar=0,scrollbars=yes,resizable=yes');
-      if (!win || win.closed || typeof win.closed === 'undefined') {
-        window.open(fbSharerUrl, '_blank', 'noopener,noreferrer');
-      }
-    };
 
     window.copyArticleLink = function (articleId, btn) {
       var url = window.location.origin + window.location.pathname + '#' + articleId;
