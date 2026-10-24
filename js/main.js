@@ -4,6 +4,9 @@
  */
 
 const MOBILE_NAV_BREAKPOINT = 1150;
+const DOWNLOADABLE_EXTENSIONS = new Set([
+  'pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'zip', 'csv'
+]);
 
 // Keep inline toast actions available on pages that use onclick handlers.
 window.showToast = function (message, type = 'success') {
@@ -44,6 +47,25 @@ window.showToast = function (message, type = 'success') {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('click', (event) => {
+    const link = event.target instanceof Element ? event.target.closest('a') : null;
+    if (!link) return;
+
+    const url = new URL(link.href, window.location.href);
+    const filename = url.pathname.split('/').pop() || '';
+    const extension = filename.match(/\.([a-z0-9]+)$/i)?.[1]?.toLowerCase() || '';
+
+    if (!link.hasAttribute('download') && !DOWNLOADABLE_EXTENSIONS.has(extension)) return;
+    if (typeof window.gtag !== 'function') return;
+
+    window.gtag('event', 'file_download', {
+      file_name: link.getAttribute('download') || filename,
+      file_extension: extension,
+      link_text: link.textContent.trim().replace(/\s+/g, ' '),
+      link_url: `${url.origin}${url.pathname}`
+    });
+  });
+
   // 1. Mobile Menu Navigation Toggle
   const mobileToggle = document.querySelector('.mobile-toggle');
   const navMenu = document.querySelector('.nav-menu');

@@ -610,6 +610,9 @@
         var scrollBody = document.getElementById('articleModalScrollBody');
         if (scrollBody) scrollBody.scrollTop = 0;
       }
+      if (overlay) {
+        overlay.classList.remove('open');
+      }
       unlockBodyScroll();
     }
 
@@ -992,6 +995,10 @@
       var articleParam = urlParams.get('article');
       var hashVal = window.location.hash ? window.location.hash.substring(1) : '';
       var candidateArticleId = articleParam || hashVal;
+      if (candidateArticleId === 'article-project-relief-flagship-2026') {
+        eventParam = 'event-project-relief-wellness';
+        candidateArticleId = null;
+      }
       var isArticleTarget = !!(candidateArticleId && ARTICLES_METADATA[candidateArticleId]);
 
       if (isArticleTarget) {
