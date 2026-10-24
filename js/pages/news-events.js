@@ -683,20 +683,48 @@
       });
     }
 
+    function copyEventUrl(btn) {
+      var curr = parseInt(overlay.dataset.currentIndex || '0', 10);
+      var ev = events[curr];
+      if (ev) {
+        var url = window.location.origin + window.location.pathname + '?event=' + encodeURIComponent(ev.id) + '#' + encodeURIComponent(ev.id);
+        var doFeedback = function () {
+          if (btn) {
+            var origHtml = btn.innerHTML;
+            btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!';
+            btn.classList.add('btn-copied');
+            setTimeout(function () {
+              btn.innerHTML = origHtml;
+              btn.classList.remove('btn-copied');
+            }, 2200);
+          }
+          if (window.showToast) {
+            window.showToast('Event link copied to clipboard!');
+          }
+        };
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(doFeedback).catch(function () {
+            prompt('Copy event link:', url);
+          });
+        } else {
+          prompt('Copy event link:', url);
+        }
+      }
+    }
+
+    window.copyCurrentEventLink = copyEventUrl;
+
     if (modalCopyBtn) {
       modalCopyBtn.addEventListener('click', function () {
-        var curr = parseInt(overlay.dataset.currentIndex || '0', 10);
-        var ev = events[curr];
-        if (ev) {
-          var url = window.location.origin + window.location.pathname + '#' + ev.id;
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(url).then(function () {
-              if (window.showToast) window.showToast('Event link copied to clipboard!');
-            });
-          } else {
-            if (window.showToast) window.showToast('Link: ' + url, 'info');
-          }
-        }
+        copyEventUrl(modalCopyBtn);
+      });
+    }
+
+    var modalTopCopyBtn = document.getElementById('modalTopCopyBtn');
+    if (modalTopCopyBtn) {
+      modalTopCopyBtn.addEventListener('click', function () {
+        copyEventUrl(modalTopCopyBtn);
       });
     }
 
@@ -785,14 +813,28 @@
     window.toggleArticleAccordion = window.toggleArticleAccordion;
 
     window.copyArticleLink = function (articleId, btn) {
-      var url = window.location.origin + window.location.pathname + '#' + articleId;
+      var id = articleId || currentActiveArticleId || 'article-rdc-digital-platform';
+      var url = window.location.origin + window.location.pathname + '?article=' + encodeURIComponent(id) + '#' + encodeURIComponent(id);
+      var doFeedback = function () {
+        if (btn) {
+          var origHtml = btn.innerHTML;
+          btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!';
+          btn.classList.add('btn-copied');
+          setTimeout(function () {
+            btn.innerHTML = origHtml;
+            btn.classList.remove('btn-copied');
+          }, 2200);
+        }
+        if (window.showToast) {
+          window.showToast('Article link copied to clipboard!');
+        } else {
+          alert('Article link copied to clipboard!');
+        }
+      };
+
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(function () {
-          if (window.showToast) {
-            window.showToast('Article link copied to clipboard!');
-          } else {
-            alert('Article link copied to clipboard!');
-          }
+        navigator.clipboard.writeText(url).then(doFeedback).catch(function () {
+          prompt('Copy article link:', url);
         });
       } else {
         prompt('Copy article link:', url);
