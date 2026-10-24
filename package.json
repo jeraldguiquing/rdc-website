@@ -10,16 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jeraldguiquing/rdc-website.git"
+    "url": "git+https://github.com/mcnpisaprdc/rdc-website.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/jeraldguiquing/rdc-website/issues"
+    "url": "https://github.com/mcnpisaprdc/rdc-website/issues"
   },
-  "homepage": "https://github.com/jeraldguiquing/rdc-website#readme",
+  "homepage": "https://github.com/mcnpisaprdc/rdc-website#readme",
   "devDependencies": {
     "esbuild": "^0.28.2",
     "heic-convert": "^2.1.0",
