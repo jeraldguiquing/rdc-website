@@ -5,8 +5,21 @@
 
 const MOBILE_NAV_BREAKPOINT = 1150;
 const DOWNLOADABLE_EXTENSIONS = new Set([
-  'pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'zip', 'csv'
+  'pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'zip', 'rar', 'csv', 'txt', 'rtf', '7z'
 ]);
+
+// Global helper for GA4 custom event tracking
+window.trackEvent = function (eventName, eventParams = {}) {
+  try {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, eventParams);
+    } else if (window.dataLayer && Array.isArray(window.dataLayer)) {
+      window.dataLayer.push({ event: eventName, ...eventParams });
+    }
+  } catch (err) {
+    // Fail silently if analytics is blocked
+  }
+};
 
 // Keep inline toast actions available on pages that use onclick handlers.
 window.showToast = function (message, type = 'success') {
@@ -47,24 +60,144 @@ window.showToast = function (message, type = 'success') {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.addEventListener('click', (event) => {
-    const link = event.target instanceof Element ? event.target.closest('a') : null;
-    if (!link) return;
+  // =========================================================================
+  // Enhanced Google Analytics (GA4) Tracking Suite
+  // - File Downloads (PDFs, DOCX, XLSX, etc.)
+  // - Outbound Link Clicks (Facebook, external sites)
+  // - Mailto & Tel Contact Clicks
+  // - Key Action & UI Element Clicks
+  // - Form Submissions
+  // =========================================================================
+  const initGlobalAnalytics = () => {
+    // 1. Unified Click Tracker: Downloads, Outbound Links, Mailto/Tel, & UI Buttons
+    document.addEventListener('click', (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      if (!target) return;
 
-    const url = new URL(link.href, window.location.href);
-    const filename = url.pathname.split('/').pop() || '';
-    const extension = filename.match(/\.([a-z0-9]+)$/i)?.[1]?.toLowerCase() || '';
+      // --- A. Link Clicks (Downloads, Outbound, Contact) ---
+      const link = target.closest('a');
+      if (link && link.href) {
+        const rawHref = link.getAttribute('href') || '';
 
-    if (!link.hasAttribute('download') && !DOWNLOADABLE_EXTENSIONS.has(extension)) return;
-    if (typeof window.gtag !== 'function') return;
+        // Contact link: mailto:
+        if (rawHref.startsWith('mailto:')) {
+          window.trackEvent('contact_click', {
+            contact_type: 'email',
+            email_address: rawHref.replace(/^mailto:/i, '').split('?')[0],
+            link_text: link.textContent.trim().replace(/\s+/g, ' '),
+            page_location: window.location.href
+          });
+          return;
+        }
 
-    window.gtag('event', 'file_download', {
-      file_name: link.getAttribute('download') || filename,
-      file_extension: extension,
-      link_text: link.textContent.trim().replace(/\s+/g, ' '),
-      link_url: `${url.origin}${url.pathname}`
+        // Contact link: tel:
+        if (rawHref.startsWith('tel:')) {
+          window.trackEvent('contact_click', {
+            contact_type: 'phone',
+            phone_number: rawHref.replace(/^tel:/i, '').split('?')[0],
+            link_text: link.textContent.trim().replace(/\s+/g, ' '),
+            page_location: window.location.href
+          });
+          return;
+        }
+
+        // Standard Web URLs
+        if (!rawHref.startsWith('javascript:') && rawHref !== '#') {
+          try {
+            const url = new URL(link.href, window.location.href);
+            const isExternal = url.origin && url.origin !== window.location.origin;
+            const filename = url.pathname.split('/').pop() || '';
+            const extension = filename.match(/\.([a-z0-9]+)$/i)?.[1]?.toLowerCase() || '';
+            const isDownload = link.hasAttribute('download') || DOWNLOADABLE_EXTENSIONS.has(extension);
+
+            // PDF & Resource Downloads
+            if (isDownload) {
+              window.trackEvent('file_download', {
+                file_name: link.getAttribute('download') || filename,
+                file_extension: extension || 'file',
+                link_text: link.textContent.trim().replace(/\s+/g, ' ') || filename,
+                link_url: url.href,
+                page_location: window.location.href
+              });
+              return;
+            }
+
+            // Outbound External Links (e.g. Facebook, CHED, DOST, etc.)
+            if (isExternal) {
+              window.trackEvent('click', {
+                link_url: url.href,
+                link_domain: url.hostname,
+                link_text: link.textContent.trim().replace(/\s+/g, ' '),
+                outbound: true
+              });
+              window.trackEvent('outbound_click', {
+                link_url: url.href,
+                link_domain: url.hostname,
+                link_text: link.textContent.trim().replace(/\s+/g, ' '),
+                page_location: window.location.href
+              });
+              return;
+            }
+          } catch (e) {
+            // ignore malformed URLs
+          }
+        }
+      }
+
+      // --- B. Click Tracking for Buttons, Modals, Tabs, Filters, & Copy Links ---
+      const clickable = target.closest('button, [role="button"], .btn, .nav-link, .dropdown-link, .news-link, .tab-btn, .pill-btn, .event-pill-btn, .cal-filter-btn, .sdg-filter-btn');
+      if (clickable) {
+        const btnText = (clickable.getAttribute('aria-label') || clickable.getAttribute('title') || clickable.textContent || '').trim().replace(/\s+/g, ' ');
+        const btnId = clickable.id || '';
+        const btnClass = clickable.className || '';
+
+        let category = 'ui_button';
+        if (btnId.includes('Copy') || btnClass.includes('copy')) {
+          category = 'share_copy_link';
+        } else if (btnClass.includes('nav-link') || btnClass.includes('dropdown-link')) {
+          category = 'navigation';
+        } else if (btnClass.includes('tab-btn') || btnClass.includes('filter') || btnClass.includes('pill')) {
+          category = 'tab_filter';
+        } else if (btnClass.includes('print')) {
+          category = 'print_action';
+        } else if (btnClass.includes('modal') || clickable.getAttribute('onclick')?.includes('Modal')) {
+          category = 'modal_open';
+        } else if (btnClass.includes('btn') || btnClass.includes('news-link')) {
+          category = 'cta_button';
+        }
+
+        if (btnText && btnText.length <= 100) {
+          window.trackEvent('click', {
+            click_category: category,
+            click_text: btnText,
+            element_id: btnId || undefined,
+            element_type: clickable.tagName.toLowerCase(),
+            page_location: window.location.href
+          });
+        }
+      }
     });
-  });
+
+    // 2. Global Form Submission Tracker
+    document.addEventListener('submit', (event) => {
+      const form = event.target;
+      if (!(form instanceof HTMLFormElement)) return;
+
+      const formId = form.id || form.getAttribute('name') || 'standard_form';
+      const formName = form.getAttribute('aria-label') || form.getAttribute('name') || formId;
+      const formDestination = form.getAttribute('action') || window.location.pathname;
+
+      window.trackEvent('form_submit', {
+        form_id: formId,
+        form_name: formName,
+        form_destination: formDestination,
+        page_location: window.location.href,
+        page_title: document.title
+      });
+    }, true);
+  };
+
+  initGlobalAnalytics();
 
   // 1. Mobile Menu Navigation Toggle
   const mobileToggle = document.querySelector('.mobile-toggle');

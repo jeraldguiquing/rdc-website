@@ -250,6 +250,14 @@
       var ev = events[index];
       if (!ev) return;
 
+      if (window.trackEvent) {
+        window.trackEvent('select_content', {
+          content_type: 'event',
+          item_id: ev.id,
+          content_title: ev.title
+        });
+      }
+
       titleEl.textContent = ev.title;
       crumbEl.textContent = ev.title;
       categoryEl.textContent = ev.category || 'Institutional Event';
@@ -515,6 +523,14 @@
       var data = ARTICLES_METADATA[id] || ARTICLES_METADATA['article-rdc-digital-platform'];
       if (!data) return;
 
+      if (window.trackEvent) {
+        window.trackEvent('select_content', {
+          content_type: 'article',
+          item_id: id,
+          content_title: data.title
+        });
+      }
+
       var breadcrumbEl = document.getElementById('articleModalBreadcrumb');
       if (breadcrumbEl && data.breadcrumb) breadcrumbEl.innerHTML = data.breadcrumb;
 
@@ -688,6 +704,13 @@
       var ev = events[curr];
       if (ev) {
         var url = window.location.origin + window.location.pathname + '?event=' + encodeURIComponent(ev.id) + '#' + encodeURIComponent(ev.id);
+        if (window.trackEvent) {
+          window.trackEvent('share', {
+            method: 'copy_link',
+            content_type: 'event',
+            item_id: ev.id
+          });
+        }
         var doFeedback = function () {
           if (btn) {
             var origHtml = btn.innerHTML;
@@ -815,6 +838,13 @@
     window.copyArticleLink = function (articleId, btn) {
       var id = articleId || currentActiveArticleId || 'article-rdc-digital-platform';
       var url = window.location.origin + window.location.pathname + '?article=' + encodeURIComponent(id) + '#' + encodeURIComponent(id);
+      if (window.trackEvent) {
+        window.trackEvent('share', {
+          method: 'copy_link',
+          content_type: 'article',
+          item_id: id
+        });
+      }
       var doFeedback = function () {
         if (btn) {
           var origHtml = btn.innerHTML;

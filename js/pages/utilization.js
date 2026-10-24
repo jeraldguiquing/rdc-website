@@ -3348,6 +3348,14 @@
       var a = findUtilizationArticle(statusOrId);
       if (!a) return;
 
+      if (window.trackEvent) {
+        window.trackEvent('select_content', {
+          content_type: 'utilization_article',
+          item_id: a.id,
+          content_title: a.title
+        });
+      }
+
       currentActiveUtilArticle = a;
       var overlay = document.getElementById('utilArticleModalOverlay');
       if (!overlay) return;
