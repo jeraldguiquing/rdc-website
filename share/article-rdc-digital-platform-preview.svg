@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#073b2a"/>
+      <stop offset="1" stop-color="#0d5c3a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e8b949"/>
+      <stop offset="1" stop-color="#f7d982"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#f4f7f5"/>
+  <rect x="0" y="0" width="1200" height="18" fill="url(#accent)"/>
+  <circle cx="1085" cy="108" r="180" fill="#0d5c3a" opacity=".06"/>
+  <circle cx="1085" cy="108" r="125" fill="#0d5c3a" opacity=".05"/>
+  <rect x="72" y="72" width="1056" height="486" rx="22" fill="url(#background)"/>
+  <rect x="112" y="116" width="10" height="68" rx="5" fill="url(#accent)"/>
+  <text x="148" y="142" fill="#f7d982" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" letter-spacing="3">MCNP · ISAP RESEARCH &amp; DEVELOPMENT CENTER</text>
+  <text x="148" y="180" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="400" letter-spacing="2">DIGITAL INNOVATION &amp; RESEARCH ACCESS</text>
+  <line x1="112" y1="218" x2="1088" y2="218" stroke="#ffffff" stroke-opacity=".22"/>
+  <text x="112" y="294" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="700">A new digital platform</text>
+  <text x="112" y="350" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="700">for research information</text>
+  <text x="112" y="406" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="700">and resources</text>
+  <text x="112" y="464" fill="#d7e8df" font-family="Arial, Helvetica, sans-serif" font-size="22">Publications, announcements, and institutional activities—</text>
+  <text x="112" y="496" fill="#d7e8df" font-family="Arial, Helvetica, sans-serif" font-size="22">centralized in one accessible online platform.</text>
+  <rect x="112" y="524" width="142" height="5" rx="2.5" fill="url(#accent)"/>
+  <text x="1088" y="594" text-anchor="end" fill="#64748b" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="1">MCNP &amp; ISAP RDC</text>
+</svg>
